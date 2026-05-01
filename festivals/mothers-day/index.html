@@ -29,7 +29,12 @@
     font-family:'Quicksand','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .app{height:100vh;width:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  body{display:flex;align-items:center;justify-content:center;}
+  .app{
+    width:100%;max-width:520px;
+    height:100vh;max-height:720px;
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+  }
 
   .scene{
     position:absolute;inset:0;display:flex;flex-direction:column;
@@ -61,6 +66,18 @@
     transition:border-color .2s, box-shadow .2s;
   }
   .field input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(236,91,134,.12);}
+  .form__error{
+    background:#ffebee;color:#c62828;border:1.5px solid #ffcdd2;
+    padding:8px 12px;border-radius:10px;font-size:12px;
+    text-align:center;font-weight:600;margin-top:8px;
+    animation:shake .35s ease;
+  }
+  .form__error[hidden]{display:none;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-4px);}
+    75%{transform:translateX(4px);}
+  }
 
   /* ===== Buttons ===== */
   .btn{
@@ -237,6 +254,7 @@
         <input id="f-name" type="text" required autocomplete="name" placeholder="你的名字">
       </div>
     </form>
+    <div class="form__error" id="form-error" hidden></div>
     <div class="btn-row">
       <button class="btn btn--primary" id="btn-start" style="width:100%">Let's start! 開始 →</button>
     </div>
@@ -412,14 +430,26 @@ function speak(text, btn){
 }
 
 /* ---- Welcome ---- */
+function showFormError(msg){
+  const el = $('#form-error');
+  el.textContent = msg;
+  el.hidden = false;
+  el.style.animation = 'none';
+  void el.offsetWidth; // restart animation
+  el.style.animation = '';
+  clearTimeout(showFormError._t);
+  showFormError._t = setTimeout(() => { el.hidden = true; }, 4000);
+}
+
 $('#btn-start').addEventListener('click', () => {
   const school = $('#f-school').value.trim();
   const klass  = $('#f-class').value.trim();
   const name   = $('#f-name').value.trim();
   if(!school || !klass || !name){
-    alert('請完整填寫學校、班級、姓名 / Please fill in all fields.');
+    showFormError('請完整填寫學校、班級、姓名 / Please fill in all fields.');
     return;
   }
+  $('#form-error').hidden = true;
   state.student = { school, class: klass, name };
   showScene('intro');
 });
