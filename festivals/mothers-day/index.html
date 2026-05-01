@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Mother's Day! 母親節英文教學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ec5b86;
+    --pink-soft:#fce4ec;
+    --pink-deep:#c2185b;
+    --cream:#fff5f5;
+    --yellow:#ffd966;
+    --green:#7bbf7b;
+    --red:#e57373;
+    --ink:#3a2a2f;
+    --ink-soft:#7a6a6f;
+    --shadow:0 8px 24px rgba(236,91,134,.18);
+    --shadow-sm:0 4px 10px rgba(236,91,134,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{
+    height:100%;width:100%;overflow:hidden;
+    background:linear-gradient(160deg,#ffe3ec 0%,#fff5f5 50%,#fff8e1 100%);
+    color:var(--ink);
+    font-family:'Quicksand','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .app{height:100vh;width:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+
+  .scene{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    padding:16px 20px 18px;
+    opacity:0;transform:translateX(40px);pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .scene.is-active{opacity:1;transform:translateX(0);pointer-events:auto;}
+
+  .scene__title{
+    font-size:20px;font-weight:700;color:var(--pink-deep);letter-spacing:.5px;
+  }
+  .scene__title small{
+    display:block;font-size:12px;color:var(--ink-soft);font-weight:500;margin-top:2px;
+  }
+
+  /* ===== Welcome ===== */
+  .welcome{justify-content:space-between;}
+  .welcome__hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:6px;}
+  .welcome__emoji{font-size:48px;line-height:1;}
+  .welcome__hello{font-size:28px;font-weight:700;color:var(--pink-deep);line-height:1.15;margin-top:4px;}
+  .welcome__sub{font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
+  .form{display:flex;flex-direction:column;gap:9px;margin-top:10px;}
+  .field{display:flex;flex-direction:column;gap:3px;}
+  .field label{font-size:11px;color:var(--ink-soft);padding-left:4px;font-weight:600;}
+  .field input{
+    padding:11px 14px;border:2px solid #f8c8d4;border-radius:14px;
+    background:#fff;font-size:14px;font-family:inherit;color:var(--ink);
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(236,91,134,.12);}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    padding:13px 20px;font-size:15px;font-weight:700;font-family:inherit;
+    border:none;border-radius:18px;cursor:pointer;
+    transition:transform .15s, box-shadow .15s, background .15s;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn--primary{background:var(--pink);color:#fff;box-shadow:var(--shadow);}
+  .btn--primary:hover{background:var(--pink-deep);}
+  .btn--ghost{background:#fff;color:var(--pink-deep);border:2px solid var(--pink-soft);}
+  .btn--ghost:hover{background:var(--pink-soft);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+  .btn-row{display:flex;gap:8px;margin-top:auto;}
+
+  /* ===== Intro ===== */
+  .intro__body{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:6px 0;}
+  .intro__lead{font-size:42px;line-height:1;margin-bottom:12px;}
+  .intro__en{font-size:17px;font-weight:600;color:var(--pink-deep);line-height:1.45;margin-bottom:8px;}
+  .intro__zh{font-size:13px;color:var(--ink-soft);line-height:1.7;}
+
+  /* ===== Vocab ===== */
+  .vocab{justify-content:flex-start;}
+  .vocab__header{display:flex;justify-content:space-between;align-items:center;}
+  .vocab__count{font-size:12px;color:var(--ink-soft);font-weight:600;}
+  .vocab__stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;margin:6px 0 10px;overflow:hidden;}
+  .card{
+    position:absolute;inset:4px 0;background:#fff;border-radius:22px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:14px 18px;gap:6px;
+    transition:transform .35s ease, opacity .35s ease;
+    opacity:0;transform:translateX(60px);pointer-events:none;
+  }
+  .card.is-active{opacity:1;transform:translateX(0);pointer-events:auto;}
+  .card.is-prev{opacity:0;transform:translateX(-60px);}
+  .card__emoji{font-size:50px;line-height:1;}
+  .card__word{display:flex;align-items:center;gap:8px;}
+  .card__en{font-size:30px;font-weight:700;color:var(--pink-deep);letter-spacing:.5px;}
+  .card__pos{font-size:12px;color:var(--ink-soft);font-style:italic;}
+  .card__ipa{font-size:13px;color:var(--ink-soft);font-family:'Quicksand',serif;letter-spacing:.5px;}
+  .card__zh{font-size:16px;color:var(--ink);font-weight:600;}
+  .card__divider{width:50%;height:1px;background:var(--pink-soft);margin:2px 0;}
+  .card__sentence{font-size:13px;color:var(--ink);text-align:center;line-height:1.5;font-weight:500;}
+  .card__sentence-zh{font-size:11px;color:var(--ink-soft);text-align:center;line-height:1.5;}
+  .speak-btn{
+    width:36px;height:36px;border-radius:50%;border:none;
+    background:var(--pink-soft);color:var(--pink-deep);
+    font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+    transition:transform .15s, background .15s;
+  }
+  .speak-btn:hover{background:var(--pink);color:#fff;}
+  .speak-btn:active{transform:scale(.92);}
+  .speak-btn.is-speaking{background:var(--pink);color:#fff;animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+  .vocab__nav{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .nav-btn{
+    width:42px;height:42px;border-radius:50%;border:none;background:#fff;color:var(--pink);
+    font-size:20px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nav-btn:disabled{opacity:.4;cursor:not-allowed;}
+  .dots{display:flex;gap:5px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:#f8c8d4;transition:background .2s, transform .2s;}
+  .dot.is-active{background:var(--pink);transform:scale(1.4);}
+
+  /* ===== Match Practice ===== */
+  .match{justify-content:flex-start;}
+  .match__header{display:flex;justify-content:space-between;align-items:center;}
+  .match__progress{height:5px;background:var(--pink-soft);border-radius:99px;overflow:hidden;margin-top:10px;}
+  .match__bar{height:100%;background:var(--pink);border-radius:99px;transition:width .3s ease;width:0%;}
+  .match__count{font-size:12px;color:var(--ink-soft);font-weight:600;}
+  .match__stage{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:#fff;border-radius:22px;box-shadow:var(--shadow);margin:10px 0;padding:16px;
+    gap:6px;
+  }
+  .match__emoji{font-size:64px;line-height:1;}
+  .match__prompt{font-size:14px;color:var(--ink-soft);font-weight:600;text-align:center;}
+  .match__zh{font-size:11px;color:var(--ink-soft);}
+  .match__options{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:6px;}
+  .match__final{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:10px;
+  }
+  .match__final-emoji{font-size:60px;}
+  .match__final-text{font-size:18px;font-weight:700;color:var(--pink-deep);}
+  .match__final-zh{font-size:13px;color:var(--ink-soft);}
+  .match__final-score{font-size:36px;font-weight:700;color:var(--pink);}
+
+  /* ===== Quiz ===== */
+  .quiz__progress{height:5px;background:var(--pink-soft);border-radius:99px;overflow:hidden;margin-top:10px;}
+  .quiz__bar{height:100%;background:var(--pink);border-radius:99px;transition:width .3s ease;width:0%;}
+  .quiz__qno{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:12px;}
+  .quiz__question{font-size:18px;font-weight:700;color:var(--pink-deep);line-height:1.4;margin-top:4px;}
+  .quiz__zh{font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.5;}
+  .quiz__options{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+
+  .opt{
+    background:#fff;border:2px solid var(--pink-soft);border-radius:16px;
+    padding:13px 14px;font-size:15px;font-family:inherit;font-weight:600;color:var(--ink);
+    text-align:left;cursor:pointer;transition:all .15s;
+    display:flex;align-items:center;gap:10px;
+  }
+  .opt:hover:not(:disabled){border-color:var(--pink);}
+  .opt__mark{
+    width:26px;height:26px;border-radius:50%;background:var(--pink-soft);color:var(--pink-deep);
+    display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:13px;
+  }
+  .opt.is-correct{background:#e8f5e9;border-color:var(--green);color:#2e7d32;}
+  .opt.is-correct .opt__mark{background:var(--green);color:#fff;}
+  .opt.is-wrong{background:#ffebee;border-color:var(--red);color:#c62828;}
+  .opt.is-wrong .opt__mark{background:var(--red);color:#fff;}
+  .opt:disabled{cursor:default;}
+
+  .quiz__feedback{
+    margin-top:auto;padding:8px;text-align:center;font-size:13px;font-weight:600;min-height:36px;
+  }
+  .feedback--ok{color:var(--green);}
+  .feedback--ng{color:var(--red);}
+
+  /* ===== Result ===== */
+  .result{justify-content:center;text-align:center;align-items:center;}
+  .result__emoji{font-size:64px;line-height:1;}
+  .result__title{font-size:24px;font-weight:700;color:var(--pink-deep);margin-top:6px;}
+  .result__score{font-size:48px;font-weight:700;color:var(--pink);margin:10px 0 4px;line-height:1;}
+  .result__score small{font-size:22px;color:var(--ink-soft);font-weight:600;}
+  .result__msg{font-size:14px;color:var(--ink);line-height:1.6;margin-top:8px;max-width:300px;}
+  .result__zh{font-size:12px;color:var(--ink-soft);margin-top:4px;}
+  .result__status{
+    font-size:11px;color:var(--ink-soft);margin-top:12px;
+    padding:5px 12px;background:rgba(255,255,255,.6);border-radius:99px;
+  }
+  .result__status.is-ok{color:var(--green);}
+  .result__status.is-err{color:var(--red);}
+
+  /* ===== Decorative ===== */
+  .deco-hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+  .deco-hearts span{position:absolute;font-size:18px;opacity:.18;animation:float 6s ease-in-out infinite;}
+  .deco-hearts span:nth-child(1){top:8%;left:10%;animation-delay:0s;}
+  .deco-hearts span:nth-child(2){top:15%;right:12%;animation-delay:1.5s;font-size:14px;}
+  .deco-hearts span:nth-child(3){bottom:18%;left:8%;animation-delay:3s;font-size:22px;}
+  .deco-hearts span:nth-child(4){bottom:10%;right:15%;animation-delay:2s;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-12px) rotate(5deg);}}
+  .scene > *{position:relative;z-index:1;}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <div class="deco-hearts" aria-hidden="true">
+    <span>💕</span><span>🌷</span><span>💝</span><span>💗</span>
+  </div>
+
+  <!-- ======= 1. WELCOME ======= -->
+  <section class="scene welcome is-active" data-scene="welcome">
+    <div class="welcome__hero">
+      <div class="welcome__emoji">💐</div>
+      <div class="welcome__hello">Happy Mother's Day!</div>
+      <div class="welcome__sub">母親節英文小教室<br>請填寫基本資料開始 / Fill in to start</div>
+    </div>
+    <form class="form" id="welcome-form" onsubmit="return false;">
+      <div class="field">
+        <label for="f-school">學校 / School</label>
+        <input id="f-school" type="text" required autocomplete="organization" placeholder="例如：彰化國小">
+      </div>
+      <div class="field">
+        <label for="f-class">班級 / Class</label>
+        <input id="f-class" type="text" required placeholder="例如：六年三班">
+      </div>
+      <div class="field">
+        <label for="f-name">姓名 / Name</label>
+        <input id="f-name" type="text" required autocomplete="name" placeholder="你的名字">
+      </div>
+    </form>
+    <div class="btn-row">
+      <button class="btn btn--primary" id="btn-start" style="width:100%">Let's start! 開始 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 2. INTRO ======= -->
+  <section class="scene" data-scene="intro">
+    <div class="scene__title">About Mother's Day<small>關於母親節</small></div>
+    <div class="intro__body">
+      <div class="intro__lead">🌷👩‍👧💝</div>
+      <p class="intro__en">Mother's Day is a special day. We say "Thank you" and "I love you" to our moms. We give them flowers, cards, and big hugs!</p>
+      <p class="intro__zh">母親節是一個特別的日子。我們對媽媽說「謝謝」與「我愛你」，並送上花朵、卡片和大大的擁抱。</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn--ghost" data-back="welcome">← Back</button>
+      <button class="btn btn--primary" data-next="vocab" style="flex:1">Learn words 學單字 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 3. VOCAB ======= -->
+  <section class="scene vocab" data-scene="vocab">
+    <div class="vocab__header">
+      <div class="scene__title">Key Words<small>重要單字（可點 🔊 聽發音）</small></div>
+      <div class="vocab__count" id="vocab-count">1 / 8</div>
+    </div>
+    <div class="vocab__stage" id="vocab-stage"></div>
+    <div class="vocab__nav">
+      <button class="nav-btn" id="vocab-prev" aria-label="Previous">‹</button>
+      <div class="dots" id="vocab-dots"></div>
+      <button class="nav-btn" id="vocab-next" aria-label="Next">›</button>
+    </div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn--ghost" data-back="intro">← Back</button>
+      <button class="btn btn--primary" id="btn-to-match" style="flex:1">Practice 配對練習 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 4. MATCH PRACTICE ======= -->
+  <section class="scene match" data-scene="match">
+    <div class="match__header">
+      <div class="scene__title">Match Practice<small>看圖選單字（不計分，只是練習）</small></div>
+      <div class="match__count" id="match-count">1 / 8</div>
+    </div>
+    <div class="match__progress"><div class="match__bar" id="match-bar"></div></div>
+
+    <div class="match__stage" id="match-stage">
+      <div class="match__emoji" id="match-emoji">👩</div>
+      <div class="match__prompt">What's this in English?</div>
+      <div class="match__zh">這個英文怎麼說？</div>
+      <div class="match__options" id="match-options"></div>
+    </div>
+
+    <div class="match__stage match__final" id="match-final" style="display:none;">
+      <div class="match__final-emoji">🌟</div>
+      <div class="match__final-text">Practice complete!</div>
+      <div class="match__final-zh">練習完成，準備好考考自己了嗎？</div>
+      <div class="match__final-score"><span id="match-score">0</span> / 8</div>
+    </div>
+
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn--ghost" data-back="vocab">← Back</button>
+      <button class="btn btn--primary" id="btn-to-quiz" style="flex:1" disabled>Take the quiz 開始小考 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 5. QUIZ ======= -->
+  <section class="scene" data-scene="quiz">
+    <div class="scene__title">Quiz Time!<small>小考時間（5 題）</small></div>
+    <div class="quiz__progress"><div class="quiz__bar" id="quiz-bar"></div></div>
+    <div class="quiz__qno" id="quiz-qno">Question 1 / 5</div>
+    <div class="quiz__question" id="quiz-q"></div>
+    <div class="quiz__zh" id="quiz-zh"></div>
+    <div class="quiz__options" id="quiz-options"></div>
+    <div class="quiz__feedback" id="quiz-feedback"></div>
+  </section>
+
+  <!-- ======= 6. RESULT ======= -->
+  <section class="scene result" data-scene="result">
+    <div class="result__emoji" id="result-emoji">🎉</div>
+    <div class="result__title" id="result-title">Great job!</div>
+    <div class="result__score">
+      <span id="result-score">0</span> / <span id="result-total">5</span>
+      <small id="result-pct">(0%)</small>
+    </div>
+    <p class="result__msg" id="result-msg-en">You did it! Now go give your mom a big hug! 🤗</p>
+    <p class="result__zh" id="result-msg-zh">完成了！去給媽媽一個大大的擁抱吧！</p>
+    <div class="result__status" id="result-status">Submitting your score… 上傳分數中…</div>
+    <div class="btn-row" style="margin-top:14px;">
+      <button class="btn btn--ghost" id="btn-restart" style="width:100%">Try again 再玩一次</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   彰化雙語網站 — 母親節單元 v2（含發音、例句、配對練習）
+   ========================================================= */
+
+/* ---- 設定（部署時修改）---- */
+const CONFIG = {
+  WEBHOOK_URL: 'PASTE_YOUR_APPS_SCRIPT_WEBAPP_URL_HERE',
+  SCHOOL_ID:   'demo-school',
+  FESTIVAL_ID: 'mothers-day-2026',
+};
+
+/* ---- 教材內容 ---- */
+const VOCAB = [
+  {emoji:'👩',     en:'mother',  pos:'(n.)',    ipa:'/ˈmʌð.ɚ/',    zh:'媽媽',
+   sen_en:'My mother is the best!',          sen_zh:'我的媽媽是最棒的！'},
+  {emoji:'💕',     en:'love',    pos:'(v./n.)', ipa:'/lʌv/',        zh:'愛',
+   sen_en:'I love my mom!',                  sen_zh:'我愛媽媽！'},
+  {emoji:'🤗',     en:'hug',     pos:'(v./n.)', ipa:'/hʌɡ/',        zh:'擁抱',
+   sen_en:'Give mom a big hug!',             sen_zh:'給媽媽一個大大的擁抱！'},
+  {emoji:'🌷',     en:'flower',  pos:'(n.)',    ipa:'/ˈflaʊ.ɚ/',    zh:'花',
+   sen_en:'These flowers are for you, Mom.', sen_zh:'這些花是送給你的，媽媽。'},
+  {emoji:'💌',     en:'card',    pos:'(n.)',    ipa:'/kɑːrd/',      zh:'卡片',
+   sen_en:'I made a card for my mom.',       sen_zh:'我做了一張卡片給媽媽。'},
+  {emoji:'😘',     en:'kiss',    pos:'(v./n.)', ipa:'/kɪs/',        zh:'親吻',
+   sen_en:'A kiss for the best mom!',        sen_zh:'親一下最棒的媽媽！'},
+  {emoji:'❤️',     en:'heart',   pos:'(n.)',    ipa:'/hɑːrt/',      zh:'心',
+   sen_en:'Mom is in my heart.',             sen_zh:'媽媽在我心中。'},
+  {emoji:'👨‍👩‍👧', en:'family',  pos:'(n.)',    ipa:'/ˈfæm.əl.i/',  zh:'家人',
+   sen_en:'I love my family!',               sen_zh:'我愛我的家人！'},
+];
+
+const QUIZ = [
+  { q:'What does "mother" mean?',                           zh:'"mother" 是什麼意思？',
+    options:['媽媽','爸爸','妹妹'],                            answer:0 },
+  { q:'Pick the right word: I ____ my mom!',                zh:'選對的字：I ____ my mom!（我__媽媽）',
+    options:['eat','love','run'],                             answer:1 },
+  { q:'On Mother\'s Day, we often give mom ____.',          zh:'在母親節，我們常送媽媽____。',
+    options:['shoes','flowers','pencils'],                    answer:1 },
+  { q:'A big ____ shows we love mom.',                      zh:'一個大大的____代表我們愛媽媽。',
+    options:['hug','hat','hop'],                              answer:0 },
+  { q:'A Mother\'s Day ____ has nice words for mom.',       zh:'母親節____上面寫著對媽媽說的話。',
+    options:['cat','car','card'],                             answer:2 },
+];
+
+/* ---- 狀態 ---- */
+const state = {
+  student: { school:'', class:'', name:'' },
+  vocabIdx: 0,
+  match: { idx:0, correct:0, queue:[] },
+  quizIdx: 0,
+  answers: [],
+  score: 0,
+};
+
+/* ---- 工具 ---- */
+const $  = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+const shuffle = (arr) => arr.slice().sort(() => Math.random() - 0.5);
+
+function showScene(name){
+  $$('.scene').forEach(s => s.classList.toggle('is-active', s.dataset.scene === name));
+}
+
+/* ---- 文字朗讀（瀏覽器內建 SpeechSynthesis）---- */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.85;
+  u.pitch = 1;
+  if(btn){
+    btn.classList.add('is-speaking');
+    u.onend = () => btn.classList.remove('is-speaking');
+    u.onerror = () => btn.classList.remove('is-speaking');
+  }
+  speechSynthesis.speak(u);
+}
+
+/* ---- Welcome ---- */
+$('#btn-start').addEventListener('click', () => {
+  const school = $('#f-school').value.trim();
+  const klass  = $('#f-class').value.trim();
+  const name   = $('#f-name').value.trim();
+  if(!school || !klass || !name){
+    alert('請完整填寫學校、班級、姓名 / Please fill in all fields.');
+    return;
+  }
+  state.student = { school, class: klass, name };
+  showScene('intro');
+});
+
+$$('[data-back]').forEach(b => b.addEventListener('click', () => showScene(b.dataset.back)));
+$$('[data-next]').forEach(b => b.addEventListener('click', () => {
+  const next = b.dataset.next;
+  if(next === 'vocab') renderVocab();
+  showScene(next);
+}));
+
+/* ---- Vocab Cards ---- */
+function renderVocab(){
+  const stage = $('#vocab-stage');
+  const dots  = $('#vocab-dots');
+  if(stage.children.length) return;
+
+  VOCAB.forEach((v, i) => {
+    const card = document.createElement('div');
+    card.className = 'card' + (i === 0 ? ' is-active' : '');
+    card.innerHTML = `
+      <div class="card__emoji">${v.emoji}</div>
+      <div class="card__word">
+        <span class="card__en">${v.en}</span>
+        <button class="speak-btn" data-speak="${v.en}" aria-label="Hear pronunciation">🔊</button>
+      </div>
+      <div class="card__ipa">${v.ipa} <span class="card__pos">${v.pos}</span></div>
+      <div class="card__zh">${v.zh}</div>
+      <div class="card__divider"></div>
+      <div class="card__sentence">${v.sen_en}</div>
+      <div class="card__sentence-zh">${v.sen_zh}</div>
+    `;
+    stage.appendChild(card);
+
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+    dots.appendChild(dot);
+  });
+
+  // 發音按鈕
+  stage.addEventListener('click', (e) => {
+    const btn = e.target.closest('.speak-btn');
+    if(btn) speak(btn.dataset.speak, btn);
+  });
+
+  updateVocabUI();
+}
+
+function gotoVocab(i){
+  i = Math.max(0, Math.min(VOCAB.length - 1, i));
+  state.vocabIdx = i;
+  $$('#vocab-stage .card').forEach((c, idx) => {
+    c.classList.toggle('is-active', idx === i);
+    c.classList.toggle('is-prev', idx < i);
+  });
+  $$('#vocab-dots .dot').forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+  updateVocabUI();
+}
+
+function updateVocabUI(){
+  $('#vocab-count').textContent = `${state.vocabIdx + 1} / ${VOCAB.length}`;
+  $('#vocab-prev').disabled = state.vocabIdx === 0;
+  $('#vocab-next').disabled = state.vocabIdx === VOCAB.length - 1;
+}
+
+$('#vocab-prev').addEventListener('click', () => gotoVocab(state.vocabIdx - 1));
+$('#vocab-next').addEventListener('click', () => gotoVocab(state.vocabIdx + 1));
+
+/* swipe（觸控）*/
+(function(){
+  let startX = 0, dx = 0;
+  const stage = $('#vocab-stage');
+  stage.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; dx = 0; }, {passive:true});
+  stage.addEventListener('touchmove',  (e)=>{ dx = e.touches[0].clientX - startX; }, {passive:true});
+  stage.addEventListener('touchend',   ()=>{ if(Math.abs(dx) > 40) gotoVocab(state.vocabIdx + (dx < 0 ? 1 : -1)); });
+})();
+
+/* ---- Match Practice ---- */
+$('#btn-to-match').addEventListener('click', () => {
+  startMatch();
+  showScene('match');
+});
+
+function startMatch(){
+  state.match.idx = 0;
+  state.match.correct = 0;
+  state.match.queue = shuffle(VOCAB.map((_, i) => i));
+  $('#match-stage').style.display = 'flex';
+  $('#match-final').style.display = 'none';
+  $('#btn-to-quiz').disabled = true;
+  renderMatchQuestion();
+}
+
+function renderMatchQuestion(){
+  const correctIdx = state.match.queue[state.match.idx];
+  const correct = VOCAB[correctIdx];
+  const wrongPool = VOCAB.map((_, i) => i).filter(i => i !== correctIdx);
+  const wrongs = shuffle(wrongPool).slice(0, 2);
+  const opts = shuffle([correctIdx, ...wrongs]);
+
+  $('#match-emoji').textContent = correct.emoji;
+  $('#match-count').textContent = `${state.match.idx + 1} / ${VOCAB.length}`;
+  $('#match-bar').style.width = (state.match.idx / VOCAB.length * 100) + '%';
+
+  const box = $('#match-options');
+  box.innerHTML = '';
+  opts.forEach(i => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt__mark">${VOCAB[i].emoji}</span><span>${VOCAB[i].en}</span>`;
+    btn.addEventListener('click', () => handleMatch(i, correctIdx, btn));
+    box.appendChild(btn);
+  });
+}
+
+function handleMatch(picked, correctIdx, btn){
+  const isOk = picked === correctIdx;
+  if(isOk) state.match.correct++;
+  // 標示
+  $$('#match-options .opt').forEach((b, i) => {
+    b.disabled = true;
+    const optWord = b.querySelector('span:last-child').textContent;
+    if(optWord === VOCAB[correctIdx].en) b.classList.add('is-correct');
+  });
+  if(!isOk) btn.classList.add('is-wrong');
+
+  $('#match-bar').style.width = ((state.match.idx + 1) / VOCAB.length * 100) + '%';
+
+  // 答對自動發音複習
+  if(isOk) speak(VOCAB[correctIdx].en, null);
+
+  setTimeout(() => {
+    state.match.idx++;
+    if(state.match.idx >= VOCAB.length) finishMatch();
+    else renderMatchQuestion();
+  }, isOk ? 800 : 1400);
+}
+
+function finishMatch(){
+  $('#match-stage').style.display = 'none';
+  $('#match-final').style.display = 'flex';
+  $('#match-score').textContent = state.match.correct;
+  $('#match-bar').style.width = '100%';
+  $('#btn-to-quiz').disabled = false;
+}
+
+/* ---- Quiz ---- */
+$('#btn-to-quiz').addEventListener('click', () => {
+  state.quizIdx = 0;
+  state.answers = [];
+  state.score = 0;
+  renderQuestion();
+  showScene('quiz');
+});
+
+function renderQuestion(){
+  const q = QUIZ[state.quizIdx];
+  $('#quiz-bar').style.width = (state.quizIdx / QUIZ.length * 100) + '%';
+  $('#quiz-qno').textContent = `Question ${state.quizIdx + 1} / ${QUIZ.length}`;
+  $('#quiz-q').textContent = q.q;
+  $('#quiz-zh').textContent = q.zh;
+  $('#quiz-feedback').textContent = '';
+  $('#quiz-feedback').className = 'quiz__feedback';
+
+  const box = $('#quiz-options');
+  box.innerHTML = '';
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt__mark">${'ABC'[idx]}</span><span>${opt}</span>`;
+    btn.addEventListener('click', () => handleAnswer(idx, btn));
+    box.appendChild(btn);
+  });
+}
+
+function handleAnswer(picked, btn){
+  const q = QUIZ[state.quizIdx];
+  const correct = picked === q.answer;
+  state.answers.push({ q: state.quizIdx, picked, correct });
+  if(correct) state.score++;
+
+  $$('#quiz-options .opt').forEach((b, idx) => {
+    b.disabled = true;
+    if(idx === q.answer) b.classList.add('is-correct');
+    if(idx === picked && !correct) b.classList.add('is-wrong');
+  });
+  $('#quiz-feedback').textContent = correct ? '✓ Correct! 答對了！' : `✗ The answer is: ${q.options[q.answer]}`;
+  $('#quiz-feedback').className = 'quiz__feedback ' + (correct ? 'feedback--ok' : 'feedback--ng');
+  $('#quiz-bar').style.width = ((state.quizIdx + 1) / QUIZ.length * 100) + '%';
+
+  setTimeout(() => {
+    state.quizIdx++;
+    if(state.quizIdx >= QUIZ.length) finishQuiz();
+    else renderQuestion();
+  }, 1200);
+}
+
+/* ---- Result + Submit ---- */
+function finishQuiz(){
+  const total = QUIZ.length;
+  const score = state.score;
+  const pct   = Math.round(score / total * 100);
+
+  $('#result-score').textContent = score;
+  $('#result-total').textContent = total;
+  $('#result-pct').textContent = `(${pct}%)`;
+
+  let emoji, title, msgEn, msgZh;
+  if(pct === 100)    { emoji='🏆'; title='Perfect! 滿分！';     msgEn='Wow, you got every word right!';            msgZh='哇～全部都答對了！'; }
+  else if(pct >= 80) { emoji='🌟'; title='Excellent! 太棒了！'; msgEn='Great job! Now hug your mom!';                msgZh='做得好！去抱抱媽媽吧！'; }
+  else if(pct >= 60) { emoji='💝'; title='Good work! 不錯！';   msgEn='Nice try! Read the words again to remember.'; msgZh='繼續加油！再多看幾次單字喔。'; }
+  else               { emoji='🌷'; title='Keep going! 加油！';  msgEn='Don\'t give up! Try again 一起再來一次!';     msgZh='不要放棄，再試一次！'; }
+
+  $('#result-emoji').textContent = emoji;
+  $('#result-title').textContent = title;
+  $('#result-msg-en').textContent = msgEn;
+  $('#result-msg-zh').textContent = msgZh;
+
+  showScene('result');
+  submitToSheet({ score, total });
+}
+
+async function submitToSheet({score, total}){
+  const status = $('#result-status');
+  status.classList.remove('is-ok','is-err');
+  status.textContent = 'Submitting your score… 上傳分數中…';
+
+  if(!CONFIG.WEBHOOK_URL || CONFIG.WEBHOOK_URL.startsWith('PASTE_')){
+    status.textContent = '⚠ Webhook 尚未設定（開發模式）';
+    return;
+  }
+
+  const payload = {
+    school_id:    CONFIG.SCHOOL_ID,
+    festival_id:  CONFIG.FESTIVAL_ID,
+    school:       state.student.school,
+    class:        state.student.class,
+    student_name: state.student.name,
+    score, total,
+    match_score:  state.match.correct,
+    match_total:  VOCAB.length,
+    answers:      state.answers,
+    user_agent:   navigator.userAgent,
+  };
+
+  try {
+    const res = await fetch(CONFIG.WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if(data.ok){
+      status.textContent = '✓ Score submitted! 已上傳';
+      status.classList.add('is-ok');
+    } else {
+      throw new Error(data.error || 'unknown');
+    }
+  } catch(err){
+    status.textContent = '✗ 上傳失敗：' + err.message;
+    status.classList.add('is-err');
+  }
+}
+
+/* ---- Restart ---- */
+$('#btn-restart').addEventListener('click', () => {
+  state.vocabIdx = 0;
+  state.quizIdx = 0;
+  state.answers = [];
+  state.score = 0;
+  state.match = { idx:0, correct:0, queue:[] };
+  $('#vocab-stage').innerHTML = '';
+  $('#vocab-dots').innerHTML  = '';
+  showScene('welcome');
+});
+</script>
+</body>
+</html>
