@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edward Huang 黃雋翔 — UN Youth Climate Ambassador · 為台灣大學生開啟國際舞台</title>
+<meta name="description" content="Edward Huang（黃雋翔）— LCOY Taiwan 國際大使、UNFCCC YOUNGO 成員、UCLA 碩士。透過人師教育協會 My Culture Connect 為台灣大學生開啟聯合國氣候峰會、SDGs 教學、PBL 國際舞台。">
+<meta property="og:title" content="Edward Huang 黃雋翔 — UN Youth Climate Ambassador">
+<meta property="og:description" content="LCOY Taiwan 國際大使 · UNFCCC YOUNGO 成員 · 為台灣大學生開啟國際氣候舞台">
+<meta property="og:image" content="photos/edward-portrait.jpg">
+<meta property="og:type" content="profile">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0a3d62;
+    --navy-deep:#062940;
+    --navy-soft:#e8eef4;
+    --green:#1e8449;
+    --green-soft:#e7f4ec;
+    --gold:#d4a017;
+    --gold-soft:#fbf3dc;
+    --ink:#1a2530;
+    --ink-soft:#5a6b7a;
+    --bg:#fafbfc;
+    --line:#e5ebf0;
+    --shadow:0 10px 40px -10px rgba(10,61,98,.18);
+    --shadow-sm:0 4px 14px -4px rgba(10,61,98,.12);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--navy);text-decoration:none;}
+  a:hover{color:var(--green);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#0e5c8a 100%);
+    color:#fff;
+    padding:60px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-100px;right:-100px;
+    width:400px;height:400px;
+    background:radial-gradient(circle,rgba(212,160,23,.18) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hero__top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:50px;
+    font-size:13px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.78;
+  }
+  .hero__top .brand{font-weight:700;color:#ffd966;}
+  .hero__grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:50px;
+    align-items:center;
+    padding-bottom:60px;
+  }
+  .hero__intro .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,217,102,.15);
+    color:#ffd966;
+    padding:6px 14px;
+    border-radius:99px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  .hero__intro h1{
+    font-family:'Playfair Display','PingFang TC',serif;
+    font-size:54px;
+    line-height:1.05;
+    font-weight:800;
+    margin-bottom:6px;
+  }
+  .hero__intro h1 small{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-size:22px;
+    font-weight:500;
+    margin-top:8px;
+    opacity:.85;
+    letter-spacing:.02em;
+  }
+  .hero__intro .titleline{
+    font-size:18px;
+    line-height:1.55;
+    margin-top:24px;
+    margin-bottom:32px;
+    color:#dceaf2;
+    max-width:520px;
+  }
+  .hero__intro .titleline strong{color:#ffd966;font-weight:600;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    padding:6px 12px;
+    border-radius:99px;
+    font-size:12.5px;
+    font-weight:500;
+    color:#fff;
+    backdrop-filter:blur(6px);
+  }
+  .chip strong{color:#ffd966;}
+
+  .hero__photo{
+    position:relative;
+  }
+  .hero__photo img{
+    width:100%;
+    border-radius:16px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.5);
+    aspect-ratio:5/6;
+    object-fit:cover;
+    object-position:center 30%;
+  }
+  .hero__photo .caption{
+    position:absolute;
+    bottom:14px;left:14px;right:14px;
+    background:rgba(6,41,64,.85);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:12px;
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.1);
+  }
+
+  /* "Looking For" banner */
+  .banner{
+    background:linear-gradient(90deg,var(--gold) 0%,#e6b531 100%);
+    color:var(--navy-deep);
+    padding:18px 0;
+    font-weight:600;
+    font-size:14.5px;
+    text-align:center;
+  }
+  .banner span{margin:0 8px;}
+  .banner strong{font-size:16px;}
+
+  /* ============ Section ============ */
+  section{padding:80px 0;}
+  section.tight{padding:60px 0;}
+  .section-head{
+    text-align:center;
+    margin-bottom:50px;
+  }
+  .section-head .eyebrow{
+    color:var(--green);
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-family:'Playfair Display','PingFang TC',serif;
+    font-size:36px;
+    font-weight:700;
+    color:var(--navy-deep);
+    line-height:1.2;
+    margin-bottom:10px;
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    font-size:16px;
+    max-width:680px;
+    margin:0 auto;
+  }
+
+  /* ============ Bio ============ */
+  .bio{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    max-width:980px;
+    margin:0 auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:40px;
+    box-shadow:var(--shadow-sm);
+  }
+  .bio h3{
+    font-size:14px;
+    color:var(--green);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .bio p{
+    color:#33424f;
+    font-size:15.5px;
+    line-height:1.75;
+  }
+  .bio .zh p{font-family:'PingFang TC',sans-serif;}
+
+  /* ============ Why University ============ */
+  .why{
+    background:linear-gradient(180deg,#fff 0%,var(--navy-soft) 100%);
+  }
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-top:10px;
+  }
+  .why-card{
+    background:#fff;
+    border-radius:16px;
+    padding:28px 26px;
+    border:1px solid var(--line);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .why-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--green);
+  }
+  .why-card .num{
+    position:absolute;
+    top:18px;right:22px;
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    font-weight:800;
+    color:var(--navy-soft);
+    line-height:1;
+  }
+  .why-card .icon{
+    font-size:28px;
+    margin-bottom:14px;
+  }
+  .why-card h3{
+    font-size:18px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:6px;
+    line-height:1.3;
+  }
+  .why-card .en{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+    font-style:italic;
+  }
+  .why-card p{
+    font-size:14.5px;
+    color:#445663;
+    line-height:1.65;
+  }
+
+  /* ============ COP30 banner ============ */
+  .cop-banner{
+    position:relative;
+    overflow:hidden;
+    margin:40px 0;
+    border-radius:0;
+  }
+  .cop-banner img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    object-position:center 60%;
+  }
+  .cop-banner .overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(6,41,64,.85) 0%,rgba(6,41,64,.4) 60%,transparent 100%);
+    display:flex;
+    align-items:center;
+  }
+  .cop-banner .overlay .content{
+    max-width:var(--max);
+    width:100%;
+    margin:0 auto;
+    padding:0 24px;
+    color:#fff;
+  }
+  .cop-banner .overlay h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:10px;
+    line-height:1.15;
+    max-width:620px;
+  }
+  .cop-banner .overlay p{
+    font-size:17px;
+    max-width:520px;
+    color:#dce8f0;
+    line-height:1.6;
+  }
+  .cop-banner .overlay .badge{
+    display:inline-block;
+    background:rgba(212,160,23,.95);
+    color:var(--navy-deep);
+    padding:6px 12px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+
+  /* ============ In Action gallery ============ */
+  .gallery{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:18px;
+    margin-top:20px;
+  }
+  .gal{
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    background:#000;
+    aspect-ratio:4/3;
+    box-shadow:var(--shadow-sm);
+  }
+  .gal img{
+    width:100%;height:100%;
+    object-fit:cover;
+    transition:transform .5s;
+  }
+  .gal:hover img{transform:scale(1.04);}
+  .gal .gal-caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px 16px;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+    color:#fff;
+  }
+  .gal .gal-caption h4{
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:2px;
+  }
+  .gal .gal-caption p{
+    font-size:12.5px;
+    opacity:.85;
+  }
+  .gal--big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;}
+  .gal--medium{}
+
+  /* ============ Press ============ */
+  .press{background:#fff;}
+  .press-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .press-card{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:18px 20px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    transition:all .2s;
+  }
+  .press-card:hover{
+    border-color:var(--gold);
+    background:var(--gold-soft);
+    transform:translateX(2px);
+  }
+  .press-card .year{
+    background:var(--navy);
+    color:#fff;
+    width:48px;height:48px;
+    flex-shrink:0;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:14px;
+  }
+  .press-card .body{flex:1;}
+  .press-card h4{
+    font-size:15px;
+    line-height:1.45;
+    margin-bottom:6px;
+    color:var(--ink);
+    font-weight:600;
+  }
+  .press-card .source{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .press-card .source a{
+    color:var(--green);
+    font-weight:600;
+    margin-right:8px;
+  }
+
+  /* ============ Who to contact ============ */
+  .audience{
+    background:var(--navy-deep);
+    color:#fff;
+  }
+  .audience .section-head h2{color:#fff;}
+  .audience .section-head .eyebrow{color:#ffd966;}
+  .audience .section-head p{color:#bdd0db;}
+  .audience-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:30px;
+  }
+  .aud-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;
+    padding:24px;
+    backdrop-filter:blur(6px);
+  }
+  .aud-card h3{
+    font-size:16px;
+    font-weight:700;
+    color:#ffd966;
+    margin-bottom:6px;
+  }
+  .aud-card p{font-size:14px;color:#cfdde6;line-height:1.6;}
+
+  /* ============ CTA ============ */
+  .cta{
+    background:linear-gradient(135deg,var(--green) 0%,#2c9a5d 100%);
+    color:#fff;
+    text-align:center;
+  }
+  .cta h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    margin-bottom:16px;
+  }
+  .cta p{
+    font-size:17px;
+    margin-bottom:30px;
+    color:#e0f0e8;
+    max-width:600px;
+    margin-left:auto;margin-right:auto;
+  }
+  .cta-info{
+    background:rgba(0,0,0,.18);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    padding:28px 32px;
+    max-width:560px;
+    margin:0 auto;
+    backdrop-filter:blur(8px);
+    text-align:left;
+  }
+  .cta-info dl{display:grid;grid-template-columns:auto 1fr;gap:14px 20px;}
+  .cta-info dt{
+    font-weight:700;
+    color:#ffd966;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .cta-info dd{font-size:15px;}
+  .cta-info dd a{color:#fff;text-decoration:underline;}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#062032;
+    color:#88a4b8;
+    padding:36px 0;
+    text-align:center;
+    font-size:13px;
+  }
+  footer .brand{
+    color:#ffd966;
+    font-weight:700;
+    letter-spacing:.05em;
+  }
+  footer a{color:#bdd0db;}
+
+  /* ============ Responsive ============ */
+  @media (max-width:880px){
+    .hero{padding:36px 0 0;}
+    .hero__top{margin-bottom:30px;flex-wrap:wrap;gap:10px;}
+    .hero__grid{grid-template-columns:1fr;gap:30px;padding-bottom:40px;}
+    .hero__intro h1{font-size:38px;}
+    .hero__intro h1 small{font-size:17px;}
+    section{padding:60px 0;}
+    .section-head h2{font-size:28px;}
+    .bio{grid-template-columns:1fr;gap:24px;padding:28px;}
+    .why-grid,.audience-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:1fr;}
+    .gal--big{grid-column:auto;grid-row:auto;aspect-ratio:4/3;}
+    .press-grid{grid-template-columns:1fr;}
+    .cop-banner img{height:280px;}
+    .cop-banner .overlay h2{font-size:28px;}
+    .cta h2{font-size:28px;}
+    .cta-info dl{grid-template-columns:1fr;gap:6px;}
+    .cta-info dt{margin-top:8px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="hero__top">
+      <div class="brand">My Culture Connect 人師教育協會</div>
+      <div>International Partner Profile</div>
+    </div>
+
+    <div class="hero__grid">
+      <div class="hero__intro">
+        <span class="badge">🌏 UN Youth Climate Ambassador</span>
+        <h1>
+          Edward Huang
+          <small>黃雋翔</small>
+        </h1>
+        <p class="titleline">
+          <strong>UNFCCC YOUNGO</strong> 成員、<strong>LCOY Taiwan</strong> 國際大使、UCLA 碩士。<br>
+          透過人師教育協會 <strong>My Culture Connect</strong>，為台灣大學生開啟<strong>聯合國氣候峰會、SDGs 教學、跨國 PBL</strong>的真實國際舞台。
+        </p>
+        <div class="chips">
+          <span class="chip">🇺🇳 <strong>UNFCCC YOUNGO</strong></span>
+          <span class="chip">🌐 <strong>LCOY Taiwan</strong> Ambassador</span>
+          <span class="chip">🎓 UCLA Master's</span>
+          <span class="chip">📍 Irvine, CA</span>
+          <span class="chip">🤝 EECI · UNESCO Greening Education Partner</span>
+        </div>
+      </div>
+
+      <div class="hero__photo">
+        <img src="photos/edward-portrait.jpg" alt="Edward Huang at COY19 Baku, Azerbaijan">
+        <div class="caption">📍 COY19 · Baku, Azerbaijan 2024 — Conference of Youth, the official UNFCCC pre-COP youth summit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- "Looking for" banner -->
+<div class="banner">
+  <span>📅</span>
+  <strong>2026 年 5 月中–6 月底</strong> 返台尋求合作
+  <span>·</span>
+  共同籌辦 <strong>LCOY Taiwan</strong> 大學生氣候論壇
+  <span>·</span>
+  歡迎大學國際處 / 永續中心 / USR 計畫聯絡
+</div>
+
+<!-- ============ Bio ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Edward · 個人簡介</div>
+      <h2>從加州到聯合國，從台灣到全球青年舞台</h2>
+      <p>長期投入青年氣候行動、SDGs 教育與跨國項目制學習，將個人興趣連結到聯合國永續發展目標，提升台灣在全球氣候行動中的能見度與影響力。</p>
+    </div>
+
+    <div class="bio">
+      <div class="en">
+        <h3>Biography</h3>
+        <p>Edward Huang is based in Irvine, CA, holding a Master's degree from <strong>UCLA</strong>. He is a member of <strong>YOUNGO</strong>, the official Children and Youth Constituency of the <strong>UNFCCC</strong>, and has been actively engaged in youth climate action and advocacy since 2023, participating in the Global Conference of Youth (GCOY) and related initiatives.</p>
+        <p style="margin-top:14px;">As an <strong>International Ambassador for LCOY Taiwan</strong>, and as a youth coach, he guides students in connecting their personal interests with the UN Sustainable Development Goals (SDGs), amplifying the voices of youth and children to raise Taiwan's visibility and impact in global climate action.</p>
+      </div>
+      <div class="zh">
+        <h3>個人簡介</h3>
+        <p>Edward Huang（黃雋翔），現居美國加州爾灣，<strong>UCLA 碩士</strong>畢業。現為聯合國氣候變化綱要公約（<strong>UNFCCC</strong>）旗下青年組織 <strong>YOUNGO</strong> 成員，長期投入青年氣候行動與倡議工作。</p>
+        <p style="margin-top:14px;">作為 <strong>LCOY Taiwan 國際大使</strong>與青年教練，引導學生將個人興趣與聯合國<strong>永續發展目標 SDGs</strong> 結合，透過青年與兒童的聲音，提升台灣在全球氣候行動中的能見度與影響力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COP30 banner ============ -->
+<div class="cop-banner">
+  <img src="photos/edward-cop30.jpg" alt="COP30 UN Climate Change Conference, Brazil, November 10-21, 2025">
+  <div class="overlay">
+    <div class="content">
+      <span class="badge">UN Climate Stage</span>
+      <h2>COP · COY · GCOY · LCOY<br>真實的聯合國青年氣候舞台</h2>
+      <p>透過 Edward 與 LCOY Taiwan 的串連，台灣大學生可從在地論壇出發，逐步走向 COY、GCOY 乃至 COP 的全球舞台——這是普通管道難以取得的國際參與機會。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Why University ============ -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">For Taiwan University Students · 對台灣大學生的價值</div>
+      <h2>Edward 能為大學生帶來什麼？</h2>
+      <p>不是一場演講就結束。這是一個讓學生從在地實作走向國際舞台、把履歷與全球公民素養同時打開的合作機會。</p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="num">01</div>
+        <div class="icon">🌐</div>
+        <h3>聯合國青年舞台直通車</h3>
+        <p class="en">Direct path to UN climate summits</p>
+        <p>透過 LCOY Taiwan、COY、GCOY、COP 的階梯式參與，讓學生帶著自己的氣候/永續行動，**從校園走到聯合國**。Edward 是 LCOY Taiwan 唯一主辦團隊的核心成員。</p>
+      </div>
+
+      <div class="why-card">
+        <div class="num">02</div>
+        <div class="icon">🎯</div>
+        <h3>PBL × SDGs 跨領域訓練</h3>
+        <p class="en">Project-Based Learning with UN SDGs</p>
+        <p>不是聽課，是動手做。Edward 引導學生把個人興趣（環境、社會、文化、設計）與聯合國 17 項永續目標連結，產出**可上國際舞台的專案成果**。</p>
+      </div>
+
+      <div class="why-card">
+        <div class="num">03</div>
+        <div class="icon">🌏</div>
+        <h3>跨國華裔青年連結</h3>
+        <p class="en">Cross-cultural youth networks</p>
+        <p>透過 EECI 帶來的美國 ABC 青年志工，台灣大學生有同代、同語言、跨文化的真實交流——比一般國際生社團更深入，**直接打通台美教育人脈**。</p>
+      </div>
+
+      <div class="why-card">
+        <div class="num">04</div>
+        <div class="icon">📰</div>
+        <h3>媒體曝光與履歷加分</h3>
+        <p class="en">Press coverage & CV boost</p>
+        <p>Edward 累積 **7+ 篇主流媒體報導**（大紀元、僑務電子報、ESG 永續台灣等）。學生與 Edward 合作的成果，自然有機會出現在新聞稿——對升學、求職、申請獎學金加分極大。</p>
+      </div>
+
+      <div class="why-card">
+        <div class="num">05</div>
+        <div class="icon">🎤</div>
+        <h3>論文發表與發明展實戰</h3>
+        <p class="en">Academic publication & invention exhibits</p>
+        <p>Edward 帶過青年參加學術論文發表與發明展。對工管、社科、教育、設計領域的學生，是難得的**跨領域成果產出訓練**。</p>
+      </div>
+
+      <div class="why-card">
+        <div class="num">06</div>
+        <div class="icon">🇹🇼</div>
+        <h3>「台裔為台發聲」的雙重身份</h3>
+        <p class="en">Taiwanese-American advocacy bridge</p>
+        <p>Edward 不是「外國人來台灣」，是**台裔美國人為台灣發聲**。對大學生而言，這個身份讓國際化更有共鳴，也提供將來赴美升學的人脈接點。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ In Action ============ -->
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">In Action · 教學與國際參與</div>
+      <h2>從台灣偏鄉到聯合國論壇</h2>
+    </div>
+
+    <div class="gallery">
+      <div class="gal gal--big">
+        <img src="photos/edward-with-youth.jpg" alt="Edward with global youth at GCOY">
+        <div class="gal-caption">
+          <h4>Global Conference of Youth · 全球青年氣候論壇</h4>
+          <p>與來自世界各國的青年代表齊聚，共同產出 NYS（國家青年宣言）提交聯合國</p>
+        </div>
+      </div>
+      <div class="gal">
+        <img src="photos/edward-presenting.jpg" alt="Edward presenting on Rural Education and SDGs">
+        <div class="gal-caption">
+          <h4>SDGs · 主題演講</h4>
+          <p>Rural Area Education @ Sundoor Academy</p>
+        </div>
+      </div>
+      <div class="gal">
+        <img src="photos/edward-dacheng-students.jpg" alt="Edward teaching students at Dacheng Elementary">
+        <div class="gal-caption">
+          <h4>大城國小 · 遠距志工</h4>
+          <p>每週一中午 SDGs 主題英語課</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Press ============ -->
+<section class="press">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Press Coverage · 媒體報導</div>
+      <h2>累積 7+ 篇主流媒體報導</h2>
+      <p>聯合國青年氣候峰會、台美青年文化交流、彰化雙語教育——Edward 的工作受到國內外媒體持續關注。</p>
+    </div>
+
+    <div class="press-grid">
+
+      <div class="press-card">
+        <div class="year">2025</div>
+        <div class="body">
+          <h4>2 位華裔青年攜手槺榔國小 展開兩週英語志工服務</h4>
+          <div class="source"><a href="https://news.st-media.com.tw/news/50306" target="_blank" rel="noopener">臺灣生活新聞 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2025</div>
+        <div class="body">
+          <h4>臺美青年聯手分享聯合國氣候峰會經驗</h4>
+          <div class="source"><a href="https://ocacnews.net/article/399081" target="_blank" rel="noopener">僑務電子報 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2025</div>
+        <div class="body">
+          <h4>榮幸前來臺灣海外青年文化大使（FASCA-OC）演講</h4>
+          <div class="source">
+            <a href="https://www.epochtimes.com/b5/25/7/15/n14551610.htm" target="_blank" rel="noopener">大紀元 ↗</a>
+            <a href="https://ocacnews.net/article/403274" target="_blank" rel="noopener">僑務電子報 ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2024</div>
+        <div class="body">
+          <h4>LCOY Taiwan 中臺灣區域青年氣候峰會 培養綠色職業思維</h4>
+          <div class="source"><a href="https://news.st-media.com.tw/news/42909" target="_blank" rel="noopener">臺灣生活新聞 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2024</div>
+        <div class="body">
+          <h4>臺灣青年 永續行動 齊心同行（LCOY Taiwan 相關）</h4>
+          <div class="source"><a href="https://www.nutc.edu.tw/p/404-1000-119274.php" target="_blank" rel="noopener">國立臺中科技大學 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2024</div>
+        <div class="body">
+          <h4>台灣首度獲邀聯合國青年氣候峰會！UCLA 台裔生將青年氣候宣言帶向國際</h4>
+          <div class="source"><a href="https://esg.businesstoday.com.tw/article/category/190807/post/202411080021/" target="_blank" rel="noopener">ESG 永續台灣 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2023</div>
+        <div class="body">
+          <h4>聯合國美西青年地方氣候論壇 2023 LCOY West USA</h4>
+          <div class="source"><a href="https://ocacnews.net/article/355447?cid=2" target="_blank" rel="noopener">僑務電子報 ↗</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Audience: Who Should Reach Out ============ -->
+<section class="audience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who Should Reach Out · 誰最適合聯絡</div>
+      <h2>哪些大學單位最能受惠？</h2>
+      <p>以下單位最能將 Edward 的國際資源轉化為實際的學生培育成果。</p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="aud-card">
+        <h3>🏛️ 國際處 / 國際事務處</h3>
+        <p>建立海外姊妹會、台美青年交流、學生赴美實習與升學的人脈起點。</p>
+      </div>
+      <div class="aud-card">
+        <h3>🌱 永續發展中心 / SDGs 推動</h3>
+        <p>結合 UN SDGs 框架推動學生專案，產出可上 UN 平台的成果。</p>
+      </div>
+      <div class="aud-card">
+        <h3>🎯 USR 大學社會責任計畫</h3>
+        <p>將學生 USR 專案延伸至聯合國 LCOY、COY、GCOY 國際舞台。</p>
+      </div>
+      <div class="aud-card">
+        <h3>👥 學生事務處 / 學生會</h3>
+        <p>為學生領袖開啟跨國青年領導力訓練、媒體曝光、履歷加值。</p>
+      </div>
+      <div class="aud-card">
+        <h3>📚 環工系 · 外語系 · 教育系 · 公衛系</h3>
+        <p>跨領域 PBL 機會，特別適合畢業專題、論文發表、發明展指導。</p>
+      </div>
+      <div class="aud-card">
+        <h3>🎓 校長室 / 副校長室</h3>
+        <p>對外國際合作、媒體曝光、補助申請的策略性對話。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>歡迎大學端聯絡安排會面</h2>
+    <p>若貴校有意洽談學生國際氣候參與、SDGs 主題課程、跨國 PBL 合作，請透過人師教育協會 林吉祥理事長安排線下會議。</p>
+
+    <div class="cta-info">
+      <dl>
+        <dt>返台時間</dt>
+        <dd>2026 年 5 月中 – 6 月底</dd>
+
+        <dt>洽談主題</dt>
+        <dd>LCOY Taiwan 大學生氣候論壇、PBL × SDGs 課程合作、ABC 青年沉浸式英語、跨國學術交流</dd>
+
+        <dt>聯絡窗口</dt>
+        <dd>林吉祥 Luke Lin（理事長）<br><a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a></dd>
+
+        <dt>UNFCCC 認可</dt>
+        <dd><a href="https://www.instagram.com/p/DXi7OODGz46/" target="_blank" rel="noopener">LCOY Taiwan Instagram 公開認可信 ↗</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="wrap">
+    <p><span class="brand">My Culture Connect · 人師教育協會</span> · 24 年彰化偏鄉英語教育 · 4,000+ 外師媒合</p>
+    <p style="margin-top:8px;font-size:12px;opacity:.7;">
+      <a href="https://changhua.mycultureconnect.org">彰化雙語資源網</a>
+      &nbsp;·&nbsp;
+      Edward Huang 國際合作頁面 · 2026 年 5 月版
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
