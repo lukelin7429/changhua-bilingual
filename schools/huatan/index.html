@@ -141,12 +141,17 @@
   /* ============ About ============ */
   .about{background:var(--cream);}
   .about-grid{
-    display:grid;grid-template-columns:1.05fr 1fr;
-    gap:60px;align-items:center;
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .about-photos{
+    display:grid;
+    grid-template-rows:auto auto;
+    gap:14px;
   }
   .about-photo{
     position:relative;
-    border-radius:18px;overflow:hidden;
+    border-radius:16px;overflow:hidden;
     box-shadow:var(--shadow);
     aspect-ratio:4/3;
   }
@@ -155,14 +160,24 @@
   }
   .about-photo .badge{
     position:absolute;
-    top:16px;left:16px;
+    top:14px;left:14px;
     background:var(--gold);
     color:var(--ink);
-    padding:6px 14px;border-radius:99px;
-    font-size:12px;font-weight:700;
+    padding:5px 12px;border-radius:99px;
+    font-size:11px;font-weight:700;
     letter-spacing:.08em;
     text-transform:uppercase;
   }
+  .about-photo .caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(31,26,22,.8) 0%,transparent 100%);
+    color:#fff;
+    padding:18px 16px 12px;
+    font-size:12.5px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:14px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
   .about-text h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
     font-size:30px;color:var(--brick-deep);
@@ -490,9 +505,22 @@
     </div>
 
     <div class="about-grid">
-      <div class="about-photo">
-        <img src="photos/auditorium.jpg" alt="Huatan Elementary School auditorium" loading="lazy">
-        <div class="badge">Since 1913</div>
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/school-front.jpg" alt="Huatan Elementary School front gate" loading="lazy">
+          <div class="badge">Since 1913</div>
+          <div class="caption">
+            <span class="en">A century of glory · Soaring beyond 100 years</span>
+            榮耀世紀 · 飛躍百年
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/students-banner.jpg" alt="Huatan students carrying school banner" loading="lazy">
+          <div class="caption">
+            <span class="en">Our students carrying the school's banner on the field</span>
+            學生持校旗於運動場上
+          </div>
+        </div>
       </div>
 
       <div class="about-text">
