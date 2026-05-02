@@ -277,54 +277,63 @@
   /* ============ Principal ============ */
   .principal{background:var(--cream);}
   .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
     background:#fff;border-radius:22px;
-    padding:50px 56px;border:1px solid var(--line);
+    padding:50px;border:1px solid var(--line);
     box-shadow:var(--shadow);
-    max-width:820px;margin:0 auto;
-    text-align:center;
+    max-width:1000px;margin:0 auto;
   }
-  .principal-card .role{
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:1/1;
+    box-shadow:var(--shadow-sm);
+    background:var(--sea-soft);
+  }
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 30%;
+  }
+  .principal-text .role{
     color:var(--leaf-deep);font-size:11.5px;font-weight:700;
     letter-spacing:.2em;text-transform:uppercase;
     margin-bottom:10px;
   }
-  .principal-card h3{
+  .principal-text h3{
     font-family:'Cormorant Garamond',serif;
     font-size:32px;font-weight:600;color:var(--sea-deep);
     line-height:1.15;margin-bottom:6px;
   }
-  .principal-card h3 small{
+  .principal-text h3 small{
     display:block;
     font-family:'PingFang TC',sans-serif;
     font-size:18px;color:var(--ink-soft);
     font-weight:500;margin-top:6px;
   }
-  .principal-card blockquote{
+  .principal-text blockquote{
     font-family:'Cormorant Garamond',serif;
     font-style:italic;
-    font-size:19px;color:var(--ink);
-    line-height:1.65;margin:28px auto 14px;
-    padding:0 24px;
-    max-width:620px;
+    font-size:18px;color:var(--ink);
+    line-height:1.65;margin:24px 0 14px;
+    padding-left:22px;
     border-left:3px solid var(--sand);
-    border-right:3px solid var(--sand);
   }
-  .principal-card .zh-quote{
+  .principal-text .zh-quote{
     font-family:'PingFang TC',sans-serif;
     font-style:normal;
     font-size:15.5px;color:var(--ink);
     line-height:1.85;
-    margin-top:18px;
-    max-width:620px;
-    margin-left:auto;margin-right:auto;
-    padding:0 24px;
+    padding-left:22px;
     border-left:3px solid var(--leaf);
-    border-right:3px solid var(--leaf);
+    margin-top:18px;
   }
-  .principal-card .note{
+  .principal-text .note{
     margin-top:22px;
     font-size:12px;color:var(--ink-soft);
     letter-spacing:.04em;
+    font-style:italic;
   }
 
   /* ============ Student Life ============ */
@@ -440,8 +449,8 @@
     section{padding:64px 0;}
     .about-grid{grid-template-columns:1fr;gap:36px;}
     .pillars{grid-template-columns:1fr;}
-    .principal-card{padding:36px 26px;}
-    .principal-card blockquote, .principal-card .zh-quote{padding:0 16px;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;}
     .life-grid{grid-template-columns:1fr;}
     .visit-grid{grid-template-columns:1fr;gap:30px;}
     footer .wrap{flex-direction:column;text-align:center;}
@@ -583,20 +592,26 @@
     </div>
 
     <div class="principal-card">
-      <div class="role">Principal · 校長</div>
-      <h3>Chen Chih-ming
-        <small>陳志明 校長</small>
-      </h3>
-
-      <blockquote>
-        "A small school doesn't mean a small life. It means every child is seen, every day &mdash; and that is the foundation of everything we do here."
-      </blockquote>
-
-      <div class="zh-quote">
-        「小校，不代表小格局。它代表的是——在這裡，每一個孩子，每一天，都被看見。這也是育華一切教學的基礎。」
+      <div class="principal-photo">
+        <img src="photos/principal-portrait.jpg" alt="Principal Chen Chih-ming at his desk, with calligraphy reading 桃李勝春華 and 緣慶 hanging behind him" loading="lazy">
       </div>
 
-      <p class="note">— Welcome message · 校長致詞 (2026)</p>
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Chen Chih-ming
+          <small>陳志明 校長</small>
+        </h3>
+
+        <blockquote>
+          "A small school doesn't mean a small life. It means every child is seen, every day &mdash; and that is the foundation of everything we do here."
+        </blockquote>
+
+        <div class="zh-quote">
+          「小校，不代表小格局。它代表的是——在這裡，每一個孩子，每一天，都被看見。這也是育華一切教學的基礎。」
+        </div>
+
+        <p class="note">— Welcome message · 校長致詞 (2026)</p>
+      </div>
     </div>
   </div>
 </section>
