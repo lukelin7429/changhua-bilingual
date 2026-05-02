@@ -749,5 +749,36 @@
   </div>
 </footer>
 
+<script>
+/* iframe height auto-report — eliminates double-scroll when embedded.
+   Parent container listens for {type:'huatan-iframe-height', height} and
+   resizes the iframe accordingly. */
+(function(){
+  if (window.parent === window) return;  /* not embedded; do nothing */
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'huatan-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  /* re-report after fonts/images settle */
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+  /* re-report when images load (FB CDN can be slow) */
+  Array.from(document.images).forEach(function(img){
+    if (!img.complete) img.addEventListener('load', report);
+  });
+})();
+</script>
+
 </body>
 </html>
