@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Siangtian Elementary School · 彰化縣二林鎮香田國民小學</title>
-<meta name="description" content="Siangtian Elementary School — A six-class country school in the heart of Erlin, Taiwan's home of Koshihikari rice. Founded 1953. 彰化縣二林鎮香田國民小學 — 創校 1953 年，6 班 65 名學生，越光米故鄉裡的小校。">
+<meta name="description" content="Siangtian Elementary School — A country school in the heart of Erlin, Taiwan's home of Koshihikari rice. Founded 1953. 彰化縣二林鎮香田國民小學 — 創校 1953 年，越光米故鄉裡的小校。">
 <meta property="og:title" content="Siangtian Elementary School · 彰化縣二林鎮香田國民小學">
 <meta property="og:description" content="Rice paddies as our second classroom · 農田，是我們的第二個教室">
+<meta property="og:image" content="photos/rice-harvest-banner.jpg">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,27 +93,6 @@
     letter-spacing:.05em;
   }
 
-  /* Stats strip (cream version) */
-  .stats{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    gap:0;
-    max-width:780px;margin:34px auto 0;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .stat{
-    padding:18px 12px;text-align:center;
-    border-right:1px solid var(--line);
-  }
-  .stat:last-child{border-right:none;}
-  .stat__num{
-    font-family:'Cormorant Garamond',serif;
-    font-size:30px;font-weight:600;line-height:1;
-    color:var(--paddy-deep);
-  }
-  .stat__label-en{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;color:var(--rice-deep);font-weight:700;}
-  .stat__label-zh{font-size:12px;margin-top:2px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;}
-
   /* ============ Section base ============ */
   section{padding:90px 0;}
   .section-head{text-align:center;margin-bottom:60px;}
@@ -154,34 +134,10 @@
     border-radius:16px;overflow:hidden;
     box-shadow:var(--shadow);
     aspect-ratio:4/3;
-    display:flex;align-items:center;justify-content:center;
+    background:var(--paddy-soft);
   }
-  .about-photo--rice{
-    background:linear-gradient(135deg,#f0d97a 0%,#c8a13a 60%,#8a6a1c 100%);
-    color:#fff;
-  }
-  .about-photo--paddy{
-    background:linear-gradient(160deg,#a4c290 0%,#527a3e 60%,#2f4d24 100%);
-    color:#fff;
-  }
-  .about-photo .placeholder-art{
-    text-align:center;padding:0 20px;
-  }
-  .about-photo .placeholder-art .glyph{
-    font-family:'Cormorant Garamond',serif;
-    font-size:64px;line-height:1;
-    margin-bottom:12px;
-    letter-spacing:.04em;
-  }
-  .about-photo .placeholder-art .label-en{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-size:18px;
-    line-height:1.4;
-  }
-  .about-photo .placeholder-art .label-zh{
-    font-family:'PingFang TC',sans-serif;
-    font-size:13px;letter-spacing:.1em;
-    margin-top:6px;opacity:.92;
+  .about-photo img{
+    width:100%;height:100%;object-fit:cover;
   }
   .about-photo .badge{
     position:absolute;
@@ -192,6 +148,21 @@
     font-size:11px;font-weight:700;
     letter-spacing:.08em;
     text-transform:uppercase;
+    z-index:2;
+  }
+  .about-photo .caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(15,26,12,.82) 0%,transparent 100%);
+    color:#fff;
+    padding:18px 16px 12px;
+    font-size:12.5px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{
+    font-style:italic;font-family:'Cormorant Garamond',serif;
+    font-size:14px;display:block;margin-bottom:2px;
+    color:rgba(255,255,255,.95);
   }
   .about-text h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
@@ -493,9 +464,6 @@
   /* ============ Mobile ============ */
   @media (max-width: 880px) {
     .title{padding:42px 0 28px;}
-    .stats{grid-template-columns:repeat(2,1fr);}
-    .stats .stat:nth-child(2){border-right:none;}
-    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid var(--line);}
     section{padding:64px 0;}
     .about-grid{grid-template-columns:1fr;gap:36px;}
     .pillars{grid-template-columns:1fr;}
@@ -525,29 +493,6 @@
       Rice paddies as our second classroom
       <span class="tagline-zh">農田，是我們的第二個教室</span>
     </p>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat__num">73</div>
-        <div class="stat__label-en">Years</div>
-        <div class="stat__label-zh">創校年數</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">6</div>
-        <div class="stat__label-en">Classes</div>
-        <div class="stat__label-zh">班級</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">65</div>
-        <div class="stat__label-en">Students</div>
-        <div class="stat__label-zh">學生</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">13</div>
-        <div class="stat__label-en">Teachers</div>
-        <div class="stat__label-zh">教師</div>
-      </div>
-    </div>
   </div>
 </header>
 
@@ -563,19 +508,19 @@
 
     <div class="about-grid">
       <div class="about-photos">
-        <div class="about-photo about-photo--rice">
+        <div class="about-photo">
+          <img src="photos/rice-harvest-banner.jpg" alt="Siangtian students harvesting rice with a Kubota harvester behind them, banner reads 香田好米生態田" loading="lazy">
           <div class="badge">Since 1953</div>
-          <div class="placeholder-art">
-            <div class="glyph">越光米</div>
-            <div class="label-en">Koshihikari · two seasons a year</div>
-            <div class="label-zh">一年兩期，校內水稻生態田</div>
+          <div class="caption">
+            <span class="en">Harvest day at our own paddy &mdash; 香田好米生態田</span>
+            校內水稻生態田・收割日
           </div>
         </div>
-        <div class="about-photo about-photo--paddy">
-          <div class="placeholder-art">
-            <div class="glyph">香田里</div>
-            <div class="label-en">Where the village name became the school's name</div>
-            <div class="label-zh">校名取自學區所在的香田里</div>
+        <div class="about-photo">
+          <img src="photos/seedlings-ducks.jpg" alt="Siangtian students watching ducks in a flooded paddy with newly planted rice seedlings" loading="lazy">
+          <div class="caption">
+            <span class="en">Ducklings keep watch as the seedlings take root</span>
+            春耕時節，秧苗與小鴨一起入田
           </div>
         </div>
       </div>
@@ -715,11 +660,8 @@
     <div class="life-grid">
 
       <article class="life-card">
-        <div class="life-card__img" style="background:linear-gradient(135deg,#f0d97a 0%,#c8a13a 60%,#8a6a1c 100%);">
-          <div class="life-card__art" style="color:#fff;">
-            <div class="glyph">春耕 · 秋收</div>
-            <div class="label" style="color:rgba(255,255,255,.92);">Two seasons · One rice</div>
-          </div>
+        <div class="life-card__img">
+          <img src="photos/rice-harvest-kids.jpg" alt="Four Siangtian students gathering rice stalks during harvest, banner 香田好米生態田 in the background">
         </div>
         <div class="life-card__body">
           <span class="tag">Food &amp; Farm · 食農教育</span>
@@ -766,19 +708,16 @@
       </article>
 
       <article class="life-card">
-        <div class="life-card__img" style="background:linear-gradient(135deg,#dde9d3 0%,#b9d3a4 60%,#527a3e 100%);">
-          <div class="life-card__art" style="color:#fff;">
-            <div class="glyph">小校 · 大家庭</div>
-            <div class="label" style="color:rgba(255,255,255,.92);">Small school · Big family</div>
-          </div>
+        <div class="life-card__img">
+          <img src="photos/whole-school-paddy.jpg" alt="Whole-school class portrait taken in the Siangtian rice paddy, banner reads 香田好米生態田 二林鎮香田國民小學">
         </div>
         <div class="life-card__body">
           <span class="tag">Community · 校園社群</span>
           <h3>Small School, Big Family
             <small>小校大家庭</small>
           </h3>
-          <p class="en-text">With 13 teachers and 65 children, no one in the building is a stranger. Older grades read with younger ones, the principal knows every parent's name, and the village's elders watch the rice paddy from across the road. A school the size of a household, raising children the size of a town.</p>
-          <p class="zh-text">13 名老師、65 名學生，校園裡沒有陌生人。高年級陪低年級閱讀，校長叫得出每一位家長的名字，村裡長輩會在馬路另一頭看著校內的水稻田。一所家庭規模的學校，培養出整個村莊的孩子。</p>
+          <p class="en-text">No one in our building is a stranger. Older grades read with younger ones, the principal knows every parent's name, and the village's elders watch the rice paddy from across the road. A school the size of a household, raising children the size of a town.</p>
+          <p class="zh-text">校園裡沒有陌生人。高年級陪低年級閱讀，校長叫得出每一位家長的名字，村裡長輩會在馬路另一頭看著校內的水稻田。一所家庭規模的學校，培養出整個村莊的孩子。</p>
         </div>
       </article>
 
