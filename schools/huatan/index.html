@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Huatan Elementary School · 彰化縣花壇國民小學</title>
+<meta name="description" content="Huatan Elementary School — A century-old public school in Huatan Township, Changhua County, Taiwan. Founded in 1913, home to 1,200 students across 47 classes. 彰化縣花壇鄉花壇國民小學 — 創校 1913 年，47 班 1200 名學生，茉莉花壇上的百年小學。">
+<meta property="og:title" content="Huatan Elementary School · 彰化縣花壇國民小學">
+<meta property="og:description" content="A century-old public school in jasmine country · 茉莉花壇上的百年小學">
+<meta property="og:image" content="photos/principal-event.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --brick:#B5462E;
+    --brick-deep:#7d2e1a;
+    --brick-soft:#f5e6df;
+    --jade:#2d6a4f;
+    --jade-deep:#1b4332;
+    --jade-soft:#dbeadd;
+    --gold:#caa056;
+    --gold-soft:#f7eed9;
+    --cream:#faf6ee;
+    --ink:#1f1a16;
+    --ink-soft:#5e5750;
+    --line:#e7dfd2;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(125,46,26,.28);
+    --shadow-sm:0 4px 14px -4px rgba(125,46,26,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--brick);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--jade);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg,var(--brick-deep) 0%,var(--brick) 55%,#c4582d 100%);
+    color:#fff;
+    padding:80px 0 100px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(202,160,86,.18) 0%, transparent 35%),
+      radial-gradient(circle at 90% 80%, rgba(45,106,79,.22) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  /* Subtle brick-pattern texture overlay */
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(0deg, transparent 49%, rgba(0,0,0,.04) 49%, rgba(0,0,0,.04) 51%, transparent 51%),
+      linear-gradient(90deg, transparent 24%, rgba(0,0,0,.04) 24%, rgba(0,0,0,.04) 26%, transparent 26%, transparent 74%, rgba(0,0,0,.04) 74%, rgba(0,0,0,.04) 76%, transparent 76%);
+    background-size:80px 30px;
+    opacity:.35;
+    pointer-events:none;
+  }
+  .hero__inner{position:relative;z-index:1;}
+  .hero__top{
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    opacity:.85;margin-bottom:60px;
+  }
+  .hero__top .brand{font-weight:700;color:var(--gold-soft);}
+  .hero__top .est{color:rgba(255,255,255,.7);}
+
+  .hero__title{
+    text-align:center;
+    margin-bottom:34px;
+  }
+  .hero__eyebrow{
+    display:inline-block;
+    font-size:13px;letter-spacing:.22em;
+    color:var(--gold-soft);font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:16px;
+    padding:6px 18px;
+    border:1px solid rgba(247,238,217,.4);
+    border-radius:99px;
+  }
+  .hero__title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(48px,8vw,86px);
+    line-height:1.05;font-weight:600;letter-spacing:.01em;
+    margin-bottom:6px;
+  }
+  .hero__title .h1-zh{
+    font-size:clamp(20px,3vw,28px);
+    font-weight:400;letter-spacing:.06em;
+    color:rgba(255,255,255,.9);
+    margin-top:14px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+  }
+  .hero__tagline{
+    text-align:center;
+    max-width:640px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(18px,2.4vw,22px);
+    color:#fff;
+    opacity:.92;
+    line-height:1.55;
+  }
+  .hero__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;
+    margin-top:10px;
+    color:rgba(255,255,255,.8);
+    letter-spacing:.05em;
+  }
+
+  /* Hero stats strip */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    margin-top:60px;
+    background:rgba(255,255,255,.15);
+    border-radius:14px;
+    overflow:hidden;
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .stat{
+    background:rgba(125,46,26,.55);
+    padding:22px 14px;text-align:center;
+    color:#fff;
+  }
+  .stat__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;font-weight:600;line-height:1;
+    color:var(--gold-soft);
+  }
+  .stat__label-en{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;margin-top:8px;opacity:.85;}
+  .stat__label-zh{font-size:13px;margin-top:2px;opacity:.75;font-family:'PingFang TC',sans-serif;}
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--jade);font-size:12px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(34px,5vw,48px);
+    font-weight:600;color:var(--brick-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:18px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:15.5px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1.05fr 1fr;
+    gap:60px;align-items:center;
+  }
+  .about-photo{
+    position:relative;
+    border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow);
+    aspect-ratio:4/3;
+  }
+  .about-photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .about-photo .badge{
+    position:absolute;
+    top:16px;left:16px;
+    background:var(--gold);
+    color:var(--ink);
+    padding:6px 14px;border-radius:99px;
+    font-size:12px;font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:30px;color:var(--brick-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:16px;color:var(--ink);margin-bottom:18px;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--cream);
+    padding:0 14px;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:15.5px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .quick{
+    background:#fff;border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;margin-top:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .about-text .quick dt{
+    font-size:11px;font-weight:700;color:var(--jade);
+    letter-spacing:.14em;text-transform:uppercase;
+    margin-top:6px;
+  }
+  .about-text .quick dd{
+    font-size:14.5px;color:var(--ink);
+    margin:2px 0 12px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ============ Identity (3 pillars) ============ */
+  .identity{background:linear-gradient(180deg,var(--cream) 0%,var(--jade-soft) 100%);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 30px 32px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .pillar:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--jade);
+  }
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    background:var(--brick-soft);color:var(--brick-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:700;
+    font-family:'Cormorant Garamond',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(2) .icon{background:var(--jade-soft);color:var(--jade-deep);}
+  .pillar:nth-child(3) .icon{background:var(--gold-soft);color:#8b6a17;}
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:24px;color:var(--brick-deep);
+    line-height:1.25;font-weight:600;margin-bottom:6px;
+  }
+  .pillar h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .pillar .en-body{
+    font-size:14.5px;color:var(--ink);
+    margin:18px 0;line-height:1.7;
+  }
+  .pillar .divider-tiny{
+    height:1px;background:var(--line);
+    margin:14px 0;
+  }
+  .pillar .zh-body{
+    font-family:'PingFang TC',sans-serif;
+    font-size:14.5px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Principal ============ */
+  .principal{background:var(--cream);}
+  .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:1/1;
+    box-shadow:var(--shadow-sm);
+    background:var(--brick-soft);
+  }
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 30%;
+  }
+  .principal-text .role{
+    color:var(--jade);font-size:11.5px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;font-weight:600;color:var(--brick-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:18px;color:var(--ink);
+    line-height:1.65;margin:24px 0 14px;
+    padding-left:22px;
+    border-left:3px solid var(--gold);
+  }
+  .principal-text .zh-quote{
+    font-family:'PingFang TC',sans-serif;
+    font-style:normal;
+    font-size:15.5px;color:var(--ink);
+    line-height:1.85;
+    padding-left:22px;
+    border-left:3px solid var(--jade);
+    margin-top:18px;
+  }
+
+  /* ============ Student Life ============ */
+  .life{background:linear-gradient(180deg,var(--jade-soft) 0%,var(--cream) 100%);}
+  .life-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .life-card{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .life-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+  }
+  .life-card__img{
+    aspect-ratio:16/10;background:var(--brick-soft);
+    overflow:hidden;
+  }
+  .life-card__img img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .life-card__body{padding:26px 28px 30px;}
+  .life-card .tag{
+    display:inline-block;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--jade);font-weight:700;
+    margin-bottom:8px;
+  }
+  .life-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:23px;color:var(--brick-deep);
+    line-height:1.25;font-weight:600;margin-bottom:4px;
+  }
+  .life-card h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .life-card .en-text{
+    font-size:14.5px;color:var(--ink);margin:14px 0 8px;
+    line-height:1.7;
+  }
+  .life-card .zh-text{
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);line-height:1.8;
+    padding-top:10px;border-top:1px dashed var(--line);
+    margin-top:12px;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--brick-deep);color:#fff;padding:80px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:15px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:14.5px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:15.5px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#1a0f08;color:rgba(255,255,255,.65);
+    padding:36px 0;font-size:13px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+
+  /* ============ Mobile ============ */
+  @media (max-width: 880px) {
+    .hero{padding:60px 0 80px;}
+    .hero__top{flex-direction:column;gap:8px;align-items:flex-start;margin-bottom:40px;}
+    section{padding:64px 0;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__top">
+      <div class="brand">My Culture Connect · 人師教育協會</div>
+      <div class="est">Est. 1913 · 創校於民國二年</div>
+    </div>
+
+    <div class="hero__title">
+      <span class="hero__eyebrow">Changhua County · Taiwan</span>
+      <h1>Huatan Elementary School
+        <div class="h1-zh">彰化縣花壇鄉花壇國民小學</div>
+      </h1>
+    </div>
+
+    <p class="hero__tagline">
+      A century of learning on the jasmine fields of Huatan
+      <span class="tagline-zh">百年扎根，茉莉花壇上的學習殿堂</span>
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">113</div>
+        <div class="stat__label-en">Years</div>
+        <div class="stat__label-zh">創校年數</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">47</div>
+        <div class="stat__label-en">Classes</div>
+        <div class="stat__label-zh">班級</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">1,200</div>
+        <div class="stat__label-en">Students</div>
+        <div class="stat__label-zh">學生</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">89</div>
+        <div class="stat__label-en">Teachers</div>
+        <div class="stat__label-zh">教師</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>A School That Grew With Its Town</h2>
+      <div class="h2-zh">與花壇鄉一同成長的百年小學</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="photos/auditorium.jpg" alt="Huatan Elementary School auditorium" loading="lazy">
+        <div class="badge">Since 1913</div>
+      </div>
+
+      <div class="about-text">
+        <h3>From a country schoolhouse to one of Changhua's largest elementary schools</h3>
+        <p class="en">Founded in 1913 (Year 2 of the Republic of China), Huatan Elementary School has educated generations of children in Huatan Township, the heart of Changhua's jasmine-growing country. Today, more than 1,200 students from Huatan, Changsha, and Qiaotou villages walk through our gates, learning in classrooms designed in the spirit of Huatan's red-brick kiln heritage.</p>
+        <p class="en">In 2024, the school completed a NT$150 million renovation that gave us a new student activity center, athletic track, and basketball courts &mdash; all designed with natural ventilation to honor the green-building tradition.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>花壇國民小學創立於民國 2 年（西元 1913 年），是花壇鄉百年公立小學，學區涵蓋花壇村、長沙村與橋頭村。目前在學學生逾 1,200 人、教職員 89 位，是彰化縣中型偏大的代表性學校。</p>
+          <p style="margin-top:14px;">2024 年，新建學生活動中心、跑道與籃球場全面落成，總投入 1.5 億元。新校舍以「磚窯」為設計意象，向花壇早期紅磚產業致敬，並融合自然通風的綠建築理念，榮獲國家建設卓越獎金質獎、彰化縣公共工程優質獎。</p>
+        </div>
+
+        <dl class="quick">
+          <dt>Location · 校址</dt>
+          <dd>503 彰化縣花壇鄉長沙村學前路 108 號</dd>
+          <dt>School District · 學區</dt>
+          <dd>花壇村・長沙村・橋頭村 (Huatan / Changsha / Qiaotou Villages)</dd>
+          <dt>Age Range · 招收</dt>
+          <dd>K (附設幼兒園) – Grade 6 (六年級)</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ IDENTITY (3 pillars) ============ -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What Makes Us Huatan</div>
+      <h2>Three Things That Shape Our School</h2>
+      <div class="h2-zh">三個塑造花壇國小的故事</div>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">茉</div>
+        <h3>Jasmine Heritage
+          <small>茉莉花鄉的孩子</small>
+        </h3>
+        <p class="en-body">Huatan Township is Taiwan's jasmine capital. Walking the lanes around our school, the sweet scent of blooming jasmine drifts in from the fields each summer. Our second-graders explore this heritage every spring at the Jasmine Dream Museum, learning where their town's name comes from and how a small white flower became a story of place.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">花壇鄉是台灣茉莉花的故鄉。每到夏天，校園周邊田間飄散著茉莉花香。我們的二年級學生會走進「茉莉花壇夢想館」進行社區踏查，認識家鄉地名的由來，了解一朵小白花如何成為一個地方的記憶與驕傲。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">磚</div>
+        <h3>Brick Kiln Architecture
+          <small>磚窯傳承的新校舍</small>
+        </h3>
+        <p class="en-body">Long before Huatan grew jasmine, it was famous for red-brick kilns. Our 2024 student activity center honors that history: its facade evokes the rhythm of stacked bricks, while inside, natural ventilation and convection meet today's green-building standards. Heritage and modern learning, side by side.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">花壇早年以紅磚窯聞名。2024 年落成的學生活動中心以磚窯堆疊的意象為設計主軸，向地方產業歷史致敬；建築內部採自然通風與對流，達到當代綠建築標準。傳統與現代學習，在同一座校園裡並肩存在。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">護</div>
+        <h3>Living With the Earth
+          <small>與大地共處的孩子</small>
+        </h3>
+        <p class="en-body">We sit close to the Changhua Fault. Most kids hear about the Chelungpu Fault first, but for us, geology lessons are local. Working with the National Museum of Natural Science, our students learn what to put in an emergency kit, how plate tectonics shape Taiwan, and how preparation makes communities resilient.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">花壇緊鄰彰化斷層。多數學生先聽說的是車籠埔斷層，但對我們而言，地質課就是在地的故事。我們與國立自然科學博物館合作，引導學生認識防災包該裝什麼、板塊運動如何形塑台灣、以及為何「準備」是社區韌性的開始。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRINCIPAL ============ -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A Word from Our Principal</div>
+      <h2>Education With Heart</h2>
+      <div class="h2-zh">用心辦學，以情陪伴</div>
+    </div>
+
+    <div class="principal-card">
+      <div class="principal-photo">
+        <img src="photos/principal-portrait.jpg" alt="Principal Hsueh-mei Chan" loading="lazy">
+      </div>
+
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Chan Hsueh-mei
+          <small>詹雪梅 校長</small>
+        </h3>
+
+        <blockquote>
+          "Real education is the principal carrying chairs at seven in the morning &mdash; quiet, hands-on, alongside the children."
+        </blockquote>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:6px;font-style:italic;">— Reporter Chou Hou-hsien, after observing Principal Chan on the school's first registration day, 2026.</p>
+
+        <div class="zh-quote">
+          「那天七點到校，看到詹雪梅校長親自搬東搬西⋯我想這就是最真的教育。」<br>
+          <span style="font-size:13px;color:var(--ink-soft);">——周厚賢記者，2026 年 4 月新生報到日採訪後感言（PeoPo 公民新聞）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STUDENT LIFE ============ -->
+<section class="life" id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Student Life</div>
+      <h2>Where Children Learn by Doing</h2>
+      <div class="h2-zh">從做中學的孩子</div>
+    </div>
+
+    <div class="life-grid">
+
+      <article class="life-card">
+        <div class="life-card__img">
+          <img src="photos/cake-class-poster.jpg" alt="Mother's Day handcraft class poster" loading="lazy">
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Cultural Class · 文化課程</span>
+          <h3>Mother's Day Phoenix-Eye Cake
+            <small>母親節鳳眼糕手作體驗</small>
+          </h3>
+          <p class="en-text">Twelve classes spent three weeks at the historic Cheng Hsing-chen bakery, shaping rice-flour cakes shaped like phoenix eyes &mdash; gifts for moms, made by their own children's hands. Tradition, language, and tenderness, all in one lesson.</p>
+          <p class="zh-text">連續三週、12 個班級走進百年老店「鄭興珍餅舖」，由孩子親手製作鳳眼糕送給媽咪。傳統、語文、與孩子的心意——一堂課中全都有。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img">
+          <img src="photos/principal-event.jpg" alt="Energy conservation event with principal" loading="lazy">
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Community · 社區共學</span>
+          <h3>Welcoming Mazu in the Rain
+            <small>風雨無阻迎媽祖</small>
+          </h3>
+          <p class="en-text">When the great Mazu pilgrimage passes through Huatan, our entire school turns out &mdash; rain or shine. Students, teachers, and the principal greet the goddess together, joining a centuries-old tradition that ties our township to the rest of Taiwan.</p>
+          <p class="zh-text">每年大甲媽祖遶境經過花壇，全體師生風雨無阻地迎接媽祖。從聖惠宮到白沙坑文德宮，校園與社區百年的信仰連結，由孩子親身參與。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img" style="background:linear-gradient(135deg,var(--jade-soft) 0%,var(--gold-soft) 100%);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--brick-deep);text-align:center;">
+            🥁 🎵<br>
+            <span style="font-size:15px;font-family:'PingFang TC',sans-serif;color:var(--ink);font-style:normal;">Music · Sport · Art</span>
+          </div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Achievement · 學生榮譽</span>
+          <h3>Twenty Clubs, Endless Stages
+            <small>20 個社團・舞台從不缺席</small>
+          </h3>
+          <p class="en-text">From taiko drumming and diabolo to inline skating, karate, basketball, and our championship orchestra, our students compete and perform across the county. The school's annual Star Cup gives every child a stage of their own.</p>
+          <p class="zh-text">從太鼓、扯鈴、直排輪、空手道、籃球，到屢獲音樂比賽優等的管弦樂團——花壇國小有 20 多個社團。每年校內的「星光盃」更為每位孩子保留一個發光發熱的舞台。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img" style="background:linear-gradient(135deg,var(--brick-soft) 0%,#fceee2 100%);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--brick-deep);text-align:center;line-height:1.1;">
+            ✋ 📚<br>
+            <span style="font-size:15px;font-family:'PingFang TC',sans-serif;color:var(--ink);font-style:normal;">Older students · helping younger</span>
+          </div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Service Learning · 服務學習</span>
+          <h3>Big Kids Teach Little Kids
+            <small>大手牽小手・注音符號補救教學</small>
+          </h3>
+          <p class="en-text">Each year, our 4th-, 5th-, and 6th-graders volunteer to tutor first-graders in zhuyin (Mandarin phonetics). It's a quiet tradition that builds both literacy and a sense of belonging &mdash; the school as one extended family.</p>
+          <p class="zh-text">每學年，由四、五、六年級學生擔任注音符號補救教學志工，陪伴一年級弟弟妹妹。在這個延續多年的傳統裡，孩子既學會幫助他人，也讓校園成為一個更大的家。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞臨指導</small>
+        </h2>
+        <p>We welcome educators, parents, and friends from around the world to visit our school and exchange ideas about elementary education in rural Taiwan.</p>
+        <p class="zh">歡迎國內外教育工作者、家長與友人蒞校交流，一起為台灣偏鄉與城鄉間的小學教育，激盪更多火花。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>503 彰化縣花壇鄉長沙村學前路 108 號<br>
+            No. 108, Xueqian Rd., Changsha Vil., Huatan Twp., Changhua County 503, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886478620 29">04-7862029</a> &nbsp;·&nbsp; Fax 04-7860370</dd>
+          </div>
+          <div>
+            <dt>Website · 學校官網</dt>
+            <dd><a href="https://htes.chc.edu.tw/" target="_blank" rel="noopener">htes.chc.edu.tw</a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣花壇國民小學 · Huatan Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> · 人師教育協會製作</div>
+  </div>
+</footer>
+
+</body>
+</html>
