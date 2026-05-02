@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Houliao Elementary School · 彰化縣後寮國民小學</title>
+<meta name="description" content="Houliao Elementary School — A small village school in Fangyuan Township, Changhua County, Taiwan. Founded in 1950, 86 students across 6 grades. 彰化縣芳苑鄉後寮國民小學 — 創校 1950 年，6 班 86 名學生，稻浪間的偏鄉小學。">
+<meta property="og:title" content="Houliao Elementary School · 彰化縣後寮國民小學">
+<meta property="og:description" content="A small village school by the rice fields · 稻浪邊上的偏鄉小校">
+<meta property="og:image" content="photos/croquet-team-fields.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Houliao palette: rice paddy green + ocean teal + peanut gold + cream */
+    --teal:#1f5e6e;
+    --teal-deep:#0e3a45;
+    --teal-soft:#dceaee;
+    --paddy:#4a6e3a;
+    --paddy-deep:#2f4823;
+    --paddy-soft:#e2eadb;
+    --gold:#c08a3e;
+    --gold-soft:#f4ead4;
+    --cream:#fbf7ee;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#e2dfd3;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(14,58,69,.28);
+    --shadow-sm:0 4px 14px -4px rgba(14,58,69,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--teal);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ TITLE (clean, no banner) ============ */
+  .title{
+    background:var(--cream);
+    padding:56px 0 36px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .title__eyebrow{
+    display:inline-block;
+    font-size:11.5px;letter-spacing:.22em;
+    color:var(--paddy);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(36px,6vw,58px);
+    line-height:1.1;font-weight:600;letter-spacing:.01em;
+    color:var(--teal-deep);
+    margin-bottom:10px;
+  }
+  .title .h1-zh{
+    font-size:clamp(17px,2.2vw,22px);
+    font-weight:500;letter-spacing:.06em;
+    color:var(--ink-soft);
+    margin-top:6px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+  }
+  .title__tagline{
+    max-width:600px;margin:18px auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:17px;
+    color:var(--ink);
+    line-height:1.55;
+  }
+  .title__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;
+    margin-top:6px;
+    color:var(--ink-soft);
+    letter-spacing:.05em;
+  }
+
+  /* Stats strip (cream version) */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;
+    max-width:780px;margin:34px auto 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat{
+    padding:18px 12px;text-align:center;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;font-weight:600;line-height:1;
+    color:var(--teal-deep);
+  }
+  .stat__label-en{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;color:var(--paddy);font-weight:700;}
+  .stat__label-zh{font-size:12px;margin-top:2px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;}
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--paddy);font-size:12px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(34px,5vw,48px);
+    font-weight:600;color:var(--teal-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:18px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:15.5px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .about-photos{
+    display:grid;
+    grid-template-rows:auto auto;
+    gap:14px;
+  }
+  .about-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow);
+    aspect-ratio:4/3;
+  }
+  .about-photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .about-photo .badge{
+    position:absolute;
+    top:14px;left:14px;
+    background:var(--gold);
+    color:#fff;
+    padding:5px 12px;border-radius:99px;
+    font-size:11px;font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .about-photo .caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(14,58,69,.85) 0%,transparent 100%);
+    color:#fff;
+    padding:18px 16px 12px;
+    font-size:12.5px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:14px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:30px;color:var(--teal-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:16px;color:var(--ink);margin-bottom:18px;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--cream);
+    padding:0 14px;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:15.5px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .quick{
+    background:#fff;border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;margin-top:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .about-text .quick dt{
+    font-size:11px;font-weight:700;color:var(--paddy);
+    letter-spacing:.14em;text-transform:uppercase;
+    margin-top:6px;
+  }
+  .about-text .quick dd{
+    font-size:14.5px;color:var(--ink);
+    margin:2px 0 12px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ============ Identity (3 pillars) ============ */
+  .identity{background:linear-gradient(180deg,var(--cream) 0%,var(--paddy-soft) 100%);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 30px 32px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .pillar:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--paddy);
+  }
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    background:var(--teal-soft);color:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:700;
+    font-family:'Cormorant Garamond',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(2) .icon{background:var(--paddy-soft);color:var(--paddy-deep);}
+  .pillar:nth-child(3) .icon{background:var(--gold-soft);color:#7a5a17;}
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:24px;color:var(--teal-deep);
+    line-height:1.25;font-weight:600;margin-bottom:6px;
+  }
+  .pillar h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .pillar .en-body{
+    font-size:14.5px;color:var(--ink);
+    margin:18px 0;line-height:1.7;
+  }
+  .pillar .divider-tiny{
+    height:1px;background:var(--line);
+    margin:14px 0;
+  }
+  .pillar .zh-body{
+    font-family:'PingFang TC',sans-serif;
+    font-size:14.5px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Principal ============ */
+  .principal{background:var(--cream);}
+  .principal-card{
+    display:grid;
+    grid-template-columns:.95fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:1/1;
+    box-shadow:var(--shadow-sm);
+    background:var(--paddy-soft);
+  }
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:50% 32%;
+  }
+  .principal-text .role{
+    color:var(--paddy);font-size:11.5px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;font-weight:600;color:var(--teal-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text .values{
+    margin:24px 0 4px;
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:14px 22px;
+  }
+  .value-item{
+    padding-left:14px;border-left:3px solid var(--gold);
+  }
+  .value-item .v-en{
+    font-family:'Cormorant Garamond',serif;
+    font-size:17px;font-style:italic;color:var(--teal-deep);
+    line-height:1.3;
+  }
+  .value-item .v-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:13.5px;color:var(--ink-soft);
+    margin-top:3px;letter-spacing:.04em;
+  }
+  .principal-text .footnote{
+    font-size:13px;color:var(--ink-soft);
+    margin-top:22px;font-style:italic;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.7;
+  }
+
+  /* ============ Student Life ============ */
+  .life{background:linear-gradient(180deg,var(--paddy-soft) 0%,var(--cream) 100%);}
+  .life-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .life-card{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .life-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+  }
+  .life-card__img{
+    aspect-ratio:16/10;background:var(--teal-soft);
+    overflow:hidden;
+  }
+  .life-card__img img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .life-card__body{padding:26px 28px 30px;}
+  .life-card .tag{
+    display:inline-block;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--paddy);font-weight:700;
+    margin-bottom:8px;
+  }
+  .life-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:23px;color:var(--teal-deep);
+    line-height:1.25;font-weight:600;margin-bottom:4px;
+  }
+  .life-card h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .life-card .en-text{
+    font-size:14.5px;color:var(--ink);margin:14px 0 8px;
+    line-height:1.7;
+  }
+  .life-card .zh-text{
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;color:var(--ink-soft);line-height:1.8;
+    padding-top:10px;border-top:1px dashed var(--line);
+    margin-top:12px;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--teal-deep);color:#fff;padding:80px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:15px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:14.5px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:15.5px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#0a2229;color:rgba(255,255,255,.65);
+    padding:36px 0;font-size:13px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+
+  /* ============ Mobile ============ */
+  @media (max-width: 880px) {
+    .title{padding:42px 0 28px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .stat:nth-child(2){border-right:none;}
+    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid var(--line);}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;}
+    .principal-text .values{grid-template-columns:1fr;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TITLE ============ -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Changhua County · Taiwan · Est. 1950</span>
+    <h1>Houliao Elementary School
+      <div class="h1-zh">彰化縣芳苑鄉後寮國民小學</div>
+    </h1>
+
+    <p class="title__tagline">
+      A small school by the rice fields, raising big-hearted children
+      <span class="tagline-zh">稻浪邊的小校，培育大格局的孩子</span>
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">76</div>
+        <div class="stat__label-en">Years</div>
+        <div class="stat__label-zh">創校年數</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">6</div>
+        <div class="stat__label-en">Classes</div>
+        <div class="stat__label-zh">班級</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">86</div>
+        <div class="stat__label-en">Students</div>
+        <div class="stat__label-zh">學生</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">13</div>
+        <div class="stat__label-en">Teachers</div>
+        <div class="stat__label-zh">教師</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>A Village School That Grew From the Fields</h2>
+      <div class="h2-zh">從田野間長出的村落小學</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/croquet-team-fields.jpg" alt="Houliao students with croquet team in front of rice paddies" loading="lazy">
+          <div class="badge">Since 1950</div>
+          <div class="caption">
+            <span class="en">Our croquet team, in front of the rice paddies that surround our school</span>
+            校隊孩子，與環繞校園的稻田一同入鏡
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/campus-assembly.jpg" alt="Houliao Elementary School morning assembly" loading="lazy">
+          <div class="caption">
+            <span class="en">Morning assembly at the heart of our small campus</span>
+            晨間集會 · 校園的中庭就是孩子的舞台
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>From a one-room classroom in 1950 to a tightly knit school of 86</h3>
+        <p class="en">Houliao Elementary School began in 1950 as a single first-grade class meeting in the village assembly hall. After the typhoon of 1956 collapsed that hall, lessons moved into local family homes &mdash; a memory long held by the elders of Houliao village. The school became independent in 1961 and has since served the children of this small farming community in Fangyuan Township, on the southwestern coast of Changhua County.</p>
+        <p class="en">Today, our 6 classes and 86 students learn in a campus surrounded by rice, peanut, and asparagus fields. We are small enough that every teacher knows every child &mdash; and every child has a chance to lead, perform, and compete.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>後寮國民小學創立於民國 39 年（1950 年），最初為「芳苑國校後寮分班」一年級一班，於村內集會所上課。民國 45 年九三颱風造成集會所倒塌，學生改在民宅中上課，是後寮老人家共同的記憶。民國 50 年正式獨立建校，自此守護著芳苑鄉後寮村的孩子們。</p>
+          <p style="margin-top:14px;">今日的後寮，是稻田、花生田與蘆筍田之間的偏鄉小校。全校 6 班、86 位學生，每位老師都認得每一個孩子，每位孩子也都有屬於自己的舞台。</p>
+        </div>
+
+        <dl class="quick">
+          <dt>Location · 校址</dt>
+          <dd>528011 彰化縣芳苑鄉後寮村芳寮路 30 號</dd>
+          <dt>Township · 鄉鎮</dt>
+          <dd>芳苑鄉 (Fangyuan Township) · 彰化縣西南沿海</dd>
+          <dt>Age Range · 招收</dt>
+          <dd>Grade 1 – Grade 6 (一至六年級)</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ IDENTITY (3 pillars) ============ -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What Makes Us Houliao</div>
+      <h2>Three Things That Shape Our School</h2>
+      <div class="h2-zh">三個塑造後寮國小的故事</div>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">禾</div>
+        <h3>Rooted in the Fields
+          <small>稻浪與花生田間的孩子</small>
+        </h3>
+        <p class="en-body">Houliao village sits between Fangyuan Township and Erlin, surrounded by rice, peanut, and asparagus fields, with an egg-laying hen cooperative just down the road. Our students grow up understanding what real work looks like &mdash; the rhythm of planting and harvest, and how a family's livelihood comes from the land.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">後寮村座落於芳苑鄉與二林鎮交界，校園周邊是花生、蘆筍、稻米與冬瓜的田野，社區內還有蛋雞產銷班。我們的孩子從小看著大人耕種、收成，懂得一個家的生活如何從土地長出來——這是課本之外，最真實的學習。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">範</div>
+        <h3>A "Model Village" Heritage
+          <small>模範部落的小校</small>
+        </h3>
+        <p class="en-body">In the Japanese era, Houliao was designated a "model village" &mdash; planned streets, careful drainage, an unusual concentration of literary scholars. The poet Hung Su-lun was born here. Walk through the village today and the old courtyard houses (sanheyuan) and Longfeng Temple still stand, woven into our students' daily route to school.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">日治時期，後寮被指定為「模範部落」——街道規劃井然、排水完善、文人輩出，詩社創辦人洪似倫即是後寮人。今日漫步村中，傳統三合院與龍鳳宮依舊守護著這片土地，也是孩子每天上下學行經的風景。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">舞</div>
+        <h3>Where Every Child Has a Stage
+          <small>每個孩子都有舞台</small>
+        </h3>
+        <p class="en-body">When the whole school is 86 children, no one sits on the bench. Our students compete countywide in croquet, in five-a-side soccer, in inline-skate speed racing &mdash; and we still send them out to storytelling contests, lantern-painting competitions, and the township carnival. Being small means being seen.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">當全校只有 86 個孩子時，沒有人會被冷落。我們的學生參加全縣的槌球錦標賽、五人制足球賽、競速直排輪錦標賽——也走進小小說書人選拔、創意花燈彩繪比賽、芳苑鄉運動嘉年華。小校的意義，是每個孩子都被看見。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRINCIPAL ============ -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A Word from Our Principal</div>
+      <h2>Four Values, One Small School</h2>
+      <div class="h2-zh">四項核心價值，一所偏鄉小校</div>
+    </div>
+
+    <div class="principal-card">
+      <div class="principal-photo">
+        <img src="photos/principal-with-students.jpg" alt="Principal Yan-zhi with student award winners on the school sports field" loading="lazy">
+      </div>
+
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Principal Yan-zhi
+          <small>彥志 校長</small>
+        </h3>
+
+        <div class="values">
+          <div class="value-item">
+            <div class="v-en">Gratitude &amp; Contentment</div>
+            <div class="v-zh">感恩惜福</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Vitality &amp; Innovation</div>
+            <div class="v-zh">活力創新</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Optimism &amp; Drive</div>
+            <div class="v-zh">樂觀進取</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Many Paths Forward</div>
+            <div class="v-zh">多元發展</div>
+          </div>
+        </div>
+
+        <p class="footnote">這四項價值是後寮國小公開揭示的學校願景，也是彥志校長在每一次升旗、頒獎、運動會上不斷向孩子重複的話。<br>
+        <span style="color:var(--ink);">"To know how blessed we are; to keep learning with energy; to face life with optimism; and to grow in our own way."</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STUDENT LIFE ============ -->
+<section class="life" id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Student Life</div>
+      <h2>Where Children Learn by Doing</h2>
+      <div class="h2-zh">從做中學的孩子</div>
+    </div>
+
+    <div class="life-grid">
+
+      <article class="life-card">
+        <div class="life-card__img">
+          <img src="photos/croquet-trophy.jpg" alt="Houliao croquet team with the championship trophy" loading="lazy">
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Sport · 校隊運動</span>
+          <h3>Croquet on the Coast
+            <small>沿海小校的槌球冠軍隊</small>
+          </h3>
+          <p class="en-text">In the 2025 Changhua County Education Cup, our croquet team took silver in the three-player division. For a school of 86, it's not just a medal &mdash; it's almost everyone we've got, lined up behind one red banner.</p>
+          <p class="zh-text">114 學年度教育盃槌球錦標賽，後寮國小三人制組榮獲第二名。對一所 86 人的學校來說，這不是一面獎牌而已——是全校絕大多數的孩子，一起站在那條紅布條後面的成果。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img">
+          <img src="photos/carnival-podium.jpg" alt="Students with award certificates outside the school's main building" loading="lazy">
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Community · 社區共學</span>
+          <h3>The Township Carnival
+            <small>芳苑鄉運動嘉年華</small>
+          </h3>
+          <p class="en-text">Every spring the whole township &mdash; ten plus schools strong &mdash; meets for the Fangyuan Sports Carnival. Our kids come home with certificates, ribbons, and the quiet pride of having represented Houliao on a bigger stage.</p>
+          <p class="zh-text">每年春天，芳苑鄉十多所學校一同參與「運動嘉年華」。後寮的孩子帶著獎狀與勳章回來，靜靜地站在校門口拍照——他們知道自己代表的是後寮這個小村莊。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img">
+          <img src="photos/track-awards.jpg" alt="Students receiving inline-skate speed-racing awards on the school track" loading="lazy">
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Sport · 校隊運動</span>
+          <h3>Speed Racing on Eight Wheels
+            <small>競速直排輪錦標賽</small>
+          </h3>
+          <p class="en-text">Our students train on the school's own running track, then race countywide on inline skates. Soccer, croquet, skating &mdash; three sports that ask the same thing of every child: show up, train hard, push for the next step.</p>
+          <p class="zh-text">孩子們在校內的跑道練習，再代表後寮參加彰化縣教育盃競速直排輪錦標賽。足球、槌球、直排輪——這三項運動對每個孩子的要求都一樣：到場、認真練、再往前一步。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img" style="background:linear-gradient(135deg,var(--paddy-soft) 0%,var(--gold-soft) 100%);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--teal-deep);text-align:center;line-height:1.1;">
+            🎤 ✨<br>
+            <span style="font-size:15px;font-family:'PingFang TC',sans-serif;color:var(--ink);font-style:normal;">Storytelling · Lanterns · Reading</span>
+          </div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Arts &amp; Letters · 語文藝術</span>
+          <h3>Voices, Lanterns, and 75-Book Readers
+            <small>說書人、花燈、閱讀護照達人</small>
+          </h3>
+          <p class="en-text">Beyond the field, our students compete in the Changhua County Junior Storyteller contest, the Erlin Township creative-lantern painting competition, and chase the school's "Reading Passport" milestones &mdash; 25, 50, 75 books and beyond.</p>
+          <p class="zh-text">運動之外，後寮的孩子也走上「彰化縣小小說書人選拔」、「二林鎮創意花燈彩繪」的舞台，並在校內挑戰「閱讀護照」25 本、50 本、75 本的里程碑。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞臨指導</small>
+        </h2>
+        <p>We welcome educators, parents, and friends from around the world to visit our small village school in Fangyuan and exchange ideas about elementary education in coastal Taiwan.</p>
+        <p class="zh">歡迎國內外教育工作者、家長與友人蒞臨芳苑鄉後寮國小，一起為台灣沿海偏鄉小校的教育，激盪更多火花。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>528011 彰化縣芳苑鄉後寮村芳寮路 30 號<br>
+            No. 30, Fangliao Rd., Houliao Vil., Fangyuan Twp., Changhua County 528, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886489831 84">04-8983184</a> &nbsp;·&nbsp; Fax 04-8952499</dd>
+          </div>
+          <div>
+            <dt>Website · 學校官網</dt>
+            <dd><a href="https://hles.chc.edu.tw/" target="_blank" rel="noopener">hles.chc.edu.tw</a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣後寮國民小學 · Houliao Elementary School</div>
+    <div class="partner">528011 彰化縣芳苑鄉後寮村芳寮路 30 號 · TEL 04-8983184</div>
+  </div>
+</footer>
+
+<script>
+/* iframe height auto-report — eliminates double-scroll when embedded.
+   Parent container listens for {type:'houliao-iframe-height', height} and
+   resizes the iframe accordingly. */
+(function(){
+  if (window.parent === window) return;  /* not embedded; do nothing */
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'houliao-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+  Array.from(document.images).forEach(function(img){
+    if (!img.complete) img.addEventListener('load', report);
+  });
+})();
+</script>
+
+</body>
+</html>
