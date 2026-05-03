@@ -239,46 +239,141 @@
   .why-card{
     background:#fff;
     border-radius:16px;
-    padding:28px 26px;
+    overflow:hidden;
     border:1px solid var(--line);
     transition:transform .25s,box-shadow .25s,border-color .25s;
     position:relative;
+    display:flex;
+    flex-direction:column;
   }
   .why-card:hover{
     transform:translateY(-4px);
     box-shadow:var(--shadow);
     border-color:var(--green);
   }
+  .why-card .photo{
+    aspect-ratio:16/10;
+    background:linear-gradient(135deg,var(--navy-soft) 0%,#d8e3ed 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--navy);
+    font-size:13px;
+    font-weight:600;
+    text-align:center;
+    padding:12px;
+    position:relative;
+    overflow:hidden;
+  }
+  .why-card .photo img{
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .why-card .photo .ph-text{
+    opacity:.7;
+    line-height:1.5;
+  }
+  .why-card .photo .caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:8px 12px;
+    background:linear-gradient(transparent,rgba(0,0,0,.8));
+    color:#fff;
+    font-size:11.5px;
+    font-weight:600;
+    text-align:left;
+    letter-spacing:.02em;
+  }
+  .why-card .body{
+    padding:22px 24px 26px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
   .why-card .num{
     position:absolute;
-    top:18px;right:22px;
+    top:14px;right:18px;
     font-family:'Playfair Display',serif;
-    font-size:42px;
+    font-size:36px;
     font-weight:800;
-    color:var(--navy-soft);
+    color:#fff;
     line-height:1;
+    text-shadow:0 2px 8px rgba(0,0,0,.4);
+    z-index:2;
   }
   .why-card .icon{
-    font-size:28px;
-    margin-bottom:14px;
+    font-size:24px;
+    margin-bottom:8px;
   }
   .why-card h3{
-    font-size:18px;
+    font-size:17px;
     font-weight:700;
     color:var(--navy-deep);
-    margin-bottom:6px;
+    margin-bottom:4px;
     line-height:1.3;
   }
   .why-card .en{
-    font-size:13px;
+    font-size:12.5px;
     color:var(--ink-soft);
-    margin-bottom:14px;
+    margin-bottom:12px;
     font-style:italic;
   }
   .why-card p{
-    font-size:14.5px;
+    font-size:14px;
     color:#445663;
     line-height:1.65;
+  }
+
+  /* ============ Glossary ============ */
+  .glossary{
+    background:#fff;
+    padding:60px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .glossary-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    max-width:980px;
+    margin:0 auto;
+  }
+  .gloss-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    padding:16px 18px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--navy-soft);
+    transition:all .2s;
+  }
+  .gloss-item:hover{
+    border-color:var(--navy);
+    background:#fff;
+  }
+  .gloss-item .abbr{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    font-weight:800;
+    color:var(--navy-deep);
+    line-height:1.1;
+    align-self:center;
+  }
+  .gloss-item .def .full{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+    line-height:1.4;
+    margin-bottom:2px;
+  }
+  .gloss-item .def .zh{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  @media (max-width:880px){
+    .glossary-grid{grid-template-columns:1fr;}
   }
 
   /* ============ COP30 banner ============ */
@@ -335,46 +430,153 @@
     margin-bottom:16px;
   }
 
-  /* ============ In Action gallery ============ */
-  .gallery{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    grid-template-rows:auto auto;
-    gap:18px;
-    margin-top:20px;
+  /* ============ LCOY value section ============ */
+  .lcoy{
+    background:linear-gradient(180deg,#fff 0%,#f6f9fc 100%);
   }
-  .gal{
-    position:relative;
-    overflow:hidden;
-    border-radius:14px;
-    background:#000;
-    aspect-ratio:4/3;
+  .lcoy-panel{
+    border-radius:18px;
+    padding:34px 36px;
+    margin-bottom:24px;
+    border:1px solid var(--line);
     box-shadow:var(--shadow-sm);
   }
-  .gal img{
-    width:100%;height:100%;
-    object-fit:cover;
-    transition:transform .5s;
+  .lcoy-panel.pink{
+    background:linear-gradient(135deg,#fdecec 0%,#fff5f5 100%);
+    border-color:#f5cccc;
   }
-  .gal:hover img{transform:scale(1.04);}
-  .gal .gal-caption{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px 16px;
-    background:linear-gradient(transparent,rgba(0,0,0,.85));
+  .lcoy-panel.green{
+    background:linear-gradient(135deg,#e8f4ec 0%,#f4faf6 100%);
+    border-color:#bcd9c6;
+  }
+  .lcoy-panel.blue{
+    background:linear-gradient(135deg,#dde7f5 0%,#eef3fb 100%);
+    border-color:#b8c8e0;
+  }
+  .lcoy-panel h3{
+    font-family:'Playfair Display','PingFang TC',serif;
+    font-size:24px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:14px;
+    line-height:1.25;
+  }
+  .lcoy-panel h4{
+    font-size:17px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin:20px 0 8px;
+  }
+  .lcoy-panel p{
+    font-size:15px;
+    line-height:1.75;
+    color:#33424f;
+  }
+  .lcoy-panel p + p{margin-top:10px;}
+  .lcoy-panel .en{
+    color:var(--ink-soft);
+    font-size:14px;
+    font-style:italic;
+    margin-top:6px;
+  }
+  .lcoy-topic{
+    background:rgba(255,255,255,.65);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-top:14px;
+    border-left:4px solid var(--green);
+  }
+  .lcoy-topic.sub{border-left-color:var(--gold);}
+  .lcoy-topic .topic-title{
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+    font-size:15.5px;
+  }
+  .lcoy-stat{
+    display:inline-block;
+    background:var(--navy-deep);
+    color:#ffd966;
+    padding:4px 12px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.04em;
+    margin-bottom:8px;
+  }
+
+  /* ============ Better Place collage ============ */
+  .collage{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#0e5c8a 100%);
+    aspect-ratio:16/12;
+    margin-bottom:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     color:#fff;
   }
-  .gal .gal-caption h4{
-    font-size:15px;
+  .collage img{
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .collage .ph-overlay{
+    text-align:center;
+    padding:30px;
+  }
+  .collage .ph-overlay .badge{
+    display:inline-block;
+    background:rgba(255,217,102,.95);
+    color:var(--navy-deep);
+    padding:6px 14px;
+    border-radius:6px;
+    font-size:12px;
     font-weight:700;
-    margin-bottom:2px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin-bottom:18px;
   }
-  .gal .gal-caption p{
-    font-size:12.5px;
-    opacity:.85;
+  .collage .ph-overlay h3{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:8px;
   }
-  .gal--big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;}
-  .gal--medium{}
+  .collage .ph-overlay p{
+    color:#bdd0db;
+    font-size:14px;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .events-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:10px;
+  }
+  .event-chip{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px 14px;
+    font-size:13px;
+    line-height:1.4;
+    color:var(--ink);
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .event-chip .yr{
+    background:var(--navy);
+    color:#fff;
+    padding:2px 8px;
+    border-radius:4px;
+    font-weight:700;
+    font-size:11.5px;
+    flex-shrink:0;
+  }
 
   /* ============ Press ============ */
   .press{background:#fff;}
@@ -552,14 +754,17 @@
         </h1>
         <p class="titleline">
           <strong>UNFCCC YOUNGO</strong> 成員、<strong>LCOY Taiwan</strong> 國際大使、UCLA 碩士。<br>
-          透過人師教育協會 <strong>My Culture Connect</strong>，為台灣大學生開啟<strong>聯合國氣候峰會、SDGs 教學、跨國 PBL</strong>的真實國際舞台。
+          透過人師教育協會 <strong>My Culture Connect</strong>，為台灣大學生開啟<strong>聯合國氣候峰會、SDGs 教學、跨國 PBL</strong> 的真實國際舞台。
+        </p>
+        <p class="titleline" style="margin-top:-12px;">
+          作為 <strong>Youth Network（青年網）</strong>的創辦人，Edward 成功取得 <strong>2026 年聯合國 LCOY Taiwan 的主辦權</strong>。該計畫預計於暑假期間，在台灣各地大學、永續中心、USR 計畫聯絡展等舉辦。
         </p>
         <div class="chips">
           <span class="chip">🇺🇳 <strong>UNFCCC YOUNGO</strong></span>
-          <span class="chip">🌐 <strong>LCOY Taiwan</strong> Ambassador</span>
-          <span class="chip">🎓 UCLA Master's</span>
+          <span class="chip">🌐 <strong>LCOY Taiwan</strong> Int. Ambassador</span>
+          <span class="chip">🎓 UCLA Master</span>
           <span class="chip">📍 Irvine, CA</span>
-          <span class="chip">🤝 EECI · UNESCO Greening Education Partner</span>
+          <span class="chip">🤝 UNESCO Greening Education Partnership</span>
         </div>
       </div>
 
@@ -605,111 +810,260 @@
   </div>
 </section>
 
+<!-- ============ Glossary ============ -->
+<section class="glossary">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:30px;">
+      <div class="eyebrow">Glossary · 聯合國氣候名詞對照</div>
+      <h2>讀懂縮寫，看懂這個國際舞台</h2>
+      <p>Edward 工作中常出現的聯合國體系縮寫——一次看懂英文全名與中文意思。</p>
+    </div>
+
+    <div class="glossary-grid">
+      <div class="gloss-item">
+        <div class="abbr">UNESCO</div>
+        <div class="def">
+          <div class="full">United Nations Educational, Scientific and Cultural Organization</div>
+          <div class="zh">聯合國教科文組織</div>
+        </div>
+      </div>
+      <div class="gloss-item">
+        <div class="abbr">UNFCCC</div>
+        <div class="def">
+          <div class="full">United Nations Framework Convention on Climate Change</div>
+          <div class="zh">聯合國氣候變化綱要公約</div>
+        </div>
+      </div>
+      <div class="gloss-item">
+        <div class="abbr">YOUNGO</div>
+        <div class="def">
+          <div class="full">Official Youth Constituency of the UNFCCC</div>
+          <div class="zh">聯合國氣候公約官方青年代表團</div>
+        </div>
+      </div>
+      <div class="gloss-item">
+        <div class="abbr">COP</div>
+        <div class="def">
+          <div class="full">Conference of Parties</div>
+          <div class="zh">聯合國氣候公約締約方大會</div>
+        </div>
+      </div>
+      <div class="gloss-item">
+        <div class="abbr">LCOY</div>
+        <div class="def">
+          <div class="full">Local Conference of Youth</div>
+          <div class="zh">聯合國在地青年氣候論壇</div>
+        </div>
+      </div>
+      <div class="gloss-item">
+        <div class="abbr">GCOY</div>
+        <div class="def">
+          <div class="full">Global Conference of Youth and Children</div>
+          <div class="zh">聯合國青年兒童氣候論壇</div>
+        </div>
+      </div>
+      <div class="gloss-item" style="grid-column:1 / -1;background:var(--gold-soft);border-color:var(--gold);">
+        <div class="abbr" style="color:#a07a0d;">LCOY<br>Taiwan</div>
+        <div class="def">
+          <div class="full">Local Conference of Youth — Taiwan Chapter</div>
+          <div class="zh">聯合國臺灣青年氣候論壇 — Edward 為 2026 年國際大使、唯一主辦團隊核心成員</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ COP30 banner ============ -->
 <div class="cop-banner">
   <img src="photos/edward-cop30.jpg" alt="COP30 UN Climate Change Conference, Brazil, November 10-21, 2025">
   <div class="overlay">
     <div class="content">
       <span class="badge">UN Climate Stage</span>
-      <h2>COP · COY · GCOY · LCOY<br>真實的聯合國青年氣候舞台</h2>
-      <p>透過 Edward 與 LCOY Taiwan 的串連，台灣大學生可從在地論壇出發，逐步走向 COY、GCOY 乃至 COP 的全球舞台——這是普通管道難以取得的國際參與機會。</p>
+      <h2>Become a Global Citizen<br><span style="font-size:.7em;font-weight:600;font-family:'Inter','PingFang TC',sans-serif;">一步一腳印 LCOY → COY → COP</span></h2>
+      <p>透過 LCOY Taiwan 的平台，台灣青年、大學生，乃至所有 K–12 學生，都將有機會走向全球舞台。</p>
     </div>
   </div>
 </div>
+
+<!-- ============ LCOY Taiwan Core Value ============ -->
+<section class="lcoy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">LCOY Taiwan · 為什麼重要</div>
+      <h2>LCOY Taiwan 是什麼？為什麼台灣青年該參與？</h2>
+      <p>不是一場單向的演講活動——這是 2026 年台灣首度以聯合國認可主辦方身份，匯聚跨世代、多元族群聲音的青年氣候平台。</p>
+    </div>
+
+    <div class="lcoy-panel pink">
+      <h3>🌸 LCOY Taiwan 的核心價值</h3>
+      <p>LCOY Taiwan 並非一場單向的演講活動，而是一個以青年為核心的論壇。在這個平台上，青年被賦予行動力與影響力。在深入理解聯合國體系後，將自身的聲音傳遞至國際舞台。這不僅是一份榮耀，更是一個培養全球公民素養、開啟跨國合作機會的重要起點。</p>
+    </div>
+
+    <div class="lcoy-panel green">
+      <h3>🌍 主要主題 Core Topic</h3>
+      <div class="lcoy-topic">
+        <div class="topic-title">台灣青年接軌全球氣候：了解 NDC（國家自定貢獻 Nationally Determined Contributions）</div>
+        <p>政府的氣候承諾應該要公開、清楚呈現，不能只是停留在文件或口號。減碳目標、政策進度等，都要讓全民看得到，也要讓大家可以一起監督、檢視，確保政策是真的有在落實。</p>
+        <p class="en">Government climate promises should be made public and clearly presented, not just staying on paper or as slogans. Carbon reduction targets and policy progress should be visible to the public, and everyone can jointly monitor and review whether these policies are truly being implemented.</p>
+      </div>
+
+      <h4>⭐ 子主題 Sub Topics</h4>
+
+      <div class="lcoy-topic sub">
+        <div class="topic-title">💼 青年綠色職業職缺（Green Jobs）</div>
+        <p>台灣企業在永續相關領域需更多重視。在擴大相關工作機會的同時，也要釐清目前的狀況到底是「人才不足」還是「職缺不足」。在訓練未來人才的同時，讓培育方向能更貼近實際市場需求。</p>
+        <p class="en">Taiwan youth green job opportunities that focus on sustainability and ESG-related fields should gain more attention. Identify whether the current demand in the market is "lack of talent" or a "lack of job openings." Academia and industry should ensure talent development aligns with real market needs.</p>
+      </div>
+
+      <div class="lcoy-topic sub">
+        <div class="topic-title">🌐 ESG 與國際氣候行動認識（COY / COP）</div>
+        <p>讓 ESG 企業開始擁有對國際氣候會議（如 COY、COP）的基本理解。LCOY Taiwan 讓台灣青年能夠接軌全球氣候，一起共同探討台灣在國際和聯合國如何發聲。</p>
+        <p class="en">Helping corporate sustainability (ESG) stakeholders establish a foundational understanding of international climate conferences such as COY and COP. LCOY Taiwan enables Taiwanese young people to connect with the international scope and helps Taiwan engage in global climate governance negotiations and action frameworks.</p>
+      </div>
+
+      <p style="margin-top:18px;font-weight:600;color:var(--green);">🌠 也歡迎各校提出各項方案</p>
+    </div>
+
+    <div class="lcoy-panel blue">
+      <h3>🇹🇼 LCOY Taiwan 對於臺灣以及世界的重要性</h3>
+      <span class="lcoy-stat">2026 · 全球僅 113 國</span>
+      <p><strong>2026 年，全球僅有 113 個國家獲得聯合國氣候變化綱要公約（UNFCCC）認可，成為 LCOY 的主辦單位之一。</strong></p>
+      <p>作為 LCOY Taiwan 的唯一主辦方，我們將代表台灣，匯聚不同世代與多元族群的聲音，包含兒童、青年、長者、在地行動團體、原住民族及其他關鍵群體等。讓世界看到臺灣對於氣候變遷以及其他全球議題的表現。</p>
+      <p>LCOY Taiwan 並非一場單向的演講活動，而是一個以青年為核心的論壇。在這個平台上，青年被賦予行動力與影響力（<strong>Empowerment</strong>）。在深入理解聯合國體系後，將自身的聲音傳遞至國際舞台。</p>
+      <p>這不僅是一份榮耀，更是一個培養全球公民素養、開啟跨國合作機會的重要起點。</p>
+    </div>
+  </div>
+</section>
 
 <!-- ============ Why University ============ -->
 <section class="why">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">For Taiwan University Students · 對台灣大學生的價值</div>
-      <h2>Edward 能為大學生帶來什麼？</h2>
-      <p>不是一場演講就結束。這是一個讓學生從在地實作走向國際舞台、把履歷與全球公民素養同時打開的合作機會。</p>
+      <div class="eyebrow">To the Children and Youth in Taiwan · 對於新一代的價值培養</div>
+      <h2>Edward 能為台灣青年和兒童帶來什麼？</h2>
+      <p>現年 24 歲，擁有 6 年青年教育與教練經驗的 Edward，已累積帶領 K–12 學生與大學生進行專題式學習（Project-Based Learning）的實務經歷。在引導學生探索世界的過程中，找到屬於自己獨一無二的成長歷程。</p>
     </div>
 
     <div class="why-grid">
 
       <div class="why-card">
-        <div class="num">01</div>
-        <div class="icon">🌐</div>
-        <h3>聯合國青年舞台直通車</h3>
-        <p class="en">Direct path to UN climate summits</p>
-        <p>透過 LCOY Taiwan、COY、GCOY、COP 的階梯式參與，讓學生帶著自己的氣候/永續行動，**從校園走到聯合國**。Edward 是 LCOY Taiwan 唯一主辦團隊的核心成員。</p>
+        <div class="photo">
+          <span class="num">01</span>
+          <div class="ph-text">📸 待補圖<br>LCOY WEST USA (2023)</div>
+          <div class="caption">LCOY WEST USA (2023)</div>
+        </div>
+        <div class="body">
+          <div class="icon">🌱</div>
+          <h3>青年為氣候發聲</h3>
+          <p class="en">Amplify Young Voices</p>
+          <p>除了打造如聯合國 LCOY Taiwan 的氣候論壇外，Edward 早於 2023 年前已經開始行動。每年都會在加州爾灣帶領 UC 系統大學生和高中生共同為氣候發聲。</p>
+        </div>
       </div>
 
       <div class="why-card">
-        <div class="num">02</div>
-        <div class="icon">🎯</div>
-        <h3>PBL × SDGs 跨領域訓練</h3>
-        <p class="en">Project-Based Learning with UN SDGs</p>
-        <p>不是聽課，是動手做。Edward 引導學生把個人興趣（環境、社會、文化、設計）與聯合國 17 項永續目標連結，產出**可上國際舞台的專案成果**。</p>
+        <div class="photo">
+          <span class="num">02</span>
+          <img src="photos/edward-presenting.jpg" alt="Edward COY20 Keynote Speaker">
+          <div class="caption">COY20 Keynote Speaker, Shaping Green Job Traits for Youth (2024)</div>
+        </div>
+        <div class="body">
+          <div class="icon">🌐</div>
+          <h3>聯合國青年舞台直通車</h3>
+          <p class="en">Direct path to UN climate summits</p>
+          <p>從 2023 年杜拜、2024 年亞塞拜然，到 2025 年巴西，我們持續拓展國際參與的足跡，並期望在 2026 年前往土耳其，為台灣發聲。</p>
+        </div>
       </div>
 
       <div class="why-card">
-        <div class="num">03</div>
-        <div class="icon">🌏</div>
-        <h3>跨國華裔青年連結</h3>
-        <p class="en">Cross-cultural youth networks</p>
-        <p>透過 EECI 帶來的美國 ABC 青年志工，台灣大學生有同代、同語言、跨文化的真實交流——比一般國際生社團更深入，**直接打通台美教育人脈**。</p>
+        <div class="photo">
+          <span class="num">03</span>
+          <div class="ph-text">📸 待補圖<br>Seoul International Invention Fair (2024)</div>
+          <div class="caption">Seoul International Invention Fair (2024)</div>
+        </div>
+        <div class="body">
+          <div class="icon">💡</div>
+          <h3>國際發明展實戰</h3>
+          <p class="en">International Invention Fair</p>
+          <p>Edward 曾帶領青年參與發明展，促進跨領域學習與實作能力的整合，同時引導學生認識專利申請流程與智慧財產權保護的基本概念。</p>
+        </div>
       </div>
 
       <div class="why-card">
-        <div class="num">04</div>
-        <div class="icon">📰</div>
-        <h3>媒體曝光與履歷加分</h3>
-        <p class="en">Press coverage & CV boost</p>
-        <p>Edward 累積<strong>主流媒體報導</strong>（大紀元、僑務電子報、ESG 永續台灣等）。學生與 Edward 合作的成果，自然有機會出現在新聞稿——對升學、求職、申請獎學金加分極大。</p>
+        <div class="photo">
+          <span class="num">04</span>
+          <div class="ph-text">📸 待補圖<br>Hawaii International Conference of Education (2025)</div>
+          <div class="caption">Hawaii International Conference of Education (2025)</div>
+        </div>
+        <div class="body">
+          <div class="icon">📚</div>
+          <h3>國際學術論文</h3>
+          <p class="en">Academic Paper Conference</p>
+          <p>Edward 帶領青年參與論文發表。不僅協助學生在研究與表達能力上持續成長，同時培養學術思辨與批判性思維。</p>
+        </div>
       </div>
 
       <div class="why-card">
-        <div class="num">05</div>
-        <div class="icon">🎤</div>
-        <h3>論文發表與發明展實戰</h3>
-        <p class="en">Academic publication & invention exhibits</p>
-        <p>Edward 帶過青年參加學術論文發表與發明展。對工管、社科、教育、設計領域的學生，是難得的**跨領域成果產出訓練**。</p>
+        <div class="photo">
+          <span class="num">05</span>
+          <img src="photos/edward-dacheng-students.jpg" alt="Online English Tutoring for Taiwan Students">
+          <div class="caption">Remote Online Tutoring for Taiwan Students (2026)</div>
+        </div>
+        <div class="body">
+          <div class="icon">💻</div>
+          <h3>偏鄉教學</h3>
+          <p class="en">Online English Tutoring</p>
+          <p>在倡導新一代競爭力的同時，Edward 也關注到全球教育資源的不均。世界並非每個地區都具備基本的學習資源與基礎建設。偏鄉線上英語教學協助資源較不足的地區學習基礎美式英語，縮小教育落差。</p>
+        </div>
       </div>
 
       <div class="why-card">
-        <div class="num">06</div>
-        <div class="icon">🇹🇼</div>
-        <h3>「台裔為台發聲」的雙重身份</h3>
-        <p class="en">Taiwanese-American advocacy bridge</p>
-        <p>Edward 不是「外國人來台灣」，是**台裔美國人為台灣發聲**。對大學生而言，這個身份讓國際化更有共鳴，也提供將來赴美升學的人脈接點。</p>
+        <div class="photo">
+          <span class="num">06</span>
+          <div class="ph-text">📸 待補圖<br>ESG News (2024)</div>
+          <div class="caption">ESG News (2024) — 媒體報導</div>
+        </div>
+        <div class="body">
+          <div class="icon">📰</div>
+          <h3>媒體曝光與履歷加分</h3>
+          <p class="en">Press coverage & CV boost</p>
+          <p>Edward 累積<strong>主流媒體報導</strong>（大紀元、僑務電子報、ESG 永續台灣等）。學生與 Edward 合作的成果，自然有機會出現在新聞稿——對升學、求職、申請獎學金加分極大。</p>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ============ In Action ============ -->
+<!-- ============ Better Place collage ============ -->
 <section class="tight">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">In Action · 教學與國際參與</div>
-      <h2>從台灣偏鄉到聯合國論壇</h2>
+      <div class="eyebrow">Let's Make The World A Better Place</div>
+      <h2>讓世界變得更美好</h2>
+      <p>從爾灣到杜拜、從巴庫到貝倫、從台灣偏鄉到聯合國論壇——Edward 帶領青年走過的真實國際舞台。</p>
     </div>
 
-    <div class="gallery">
-      <div class="gal gal--big">
-        <img src="photos/edward-with-youth.jpg" alt="Edward with global youth at GCOY">
-        <div class="gal-caption">
-          <h4>Global Conference of Youth · 全球青年氣候論壇</h4>
-          <p>與來自世界各國的青年代表齊聚，共同產出 NYS（國家青年宣言）提交聯合國</p>
-        </div>
+    <div class="collage">
+      <img src="photos/edward-better-place-collage.jpg" alt="Edward's global youth climate work collage" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="ph-overlay" style="display:none;">
+        <span class="badge">Photo Collage · 待上傳</span>
+        <h3>Let's Make The World A Better Place</h3>
+        <p>16 場跨國青年論壇與在地教學現場的拼貼合輯（待 Luke 從 Drive 下載 <code>edward-better-place-collage.jpg</code> 後置入 photos 資料夾）。</p>
       </div>
-      <div class="gal">
-        <img src="photos/edward-presenting.jpg" alt="Edward presenting on Rural Education and SDGs">
-        <div class="gal-caption">
-          <h4>SDGs · 主題演講</h4>
-          <p>Rural Area Education @ Sundoor Academy</p>
-        </div>
-      </div>
-      <div class="gal">
-        <img src="photos/edward-dacheng-students.jpg" alt="Edward teaching students at Dacheng Elementary">
-        <div class="gal-caption">
-          <h4>大城國小 · 遠距志工</h4>
-          <p>每週一中午 SDGs 主題英語課</p>
-        </div>
-      </div>
+    </div>
+
+    <div class="events-list">
+      <div class="event-chip"><span class="yr">2023</span> Local Conference of Youth, West USA</div>
+      <div class="event-chip"><span class="yr">2023</span> Global Conference of Youth, Dubai, UAE</div>
+      <div class="event-chip"><span class="yr">2023</span> Local Conference of Youth, Taiwan</div>
+      <div class="event-chip"><span class="yr">2024</span> LCOY Taiwan, International Ceremony, Japan</div>
+      <div class="event-chip"><span class="yr">2024</span> 韓國世界發明賽 (SIIF), Korea</div>
+      <div class="event-chip"><span class="yr">2024</span> Global Conference of Youth, Baku, Azerbaijan</div>
+      <div class="event-chip"><span class="yr">2025</span> Hawaii International Conference on Education</div>
+      <div class="event-chip"><span class="yr">2025</span> 4th Annual Cool Irvine Eco Fair</div>
+      <div class="event-chip"><span class="yr">2025</span> Rural English Volunteer Onsite Education, Taiwan</div>
+      <div class="event-chip"><span class="yr">2025</span> Irvine Conference of International &amp; Transnational Youth (CITY)</div>
+      <div class="event-chip"><span class="yr">2025</span> Global Conference of Youth and Children, Belém, Brazil</div>
     </div>
   </div>
 </section>
@@ -781,6 +1135,30 @@
         <div class="body">
           <h4>聯合國美西青年地方氣候論壇 2023 LCOY West USA</h4>
           <div class="source"><a href="https://ocacnews.net/article/355447?cid=2" target="_blank" rel="noopener">僑務電子報 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2024</div>
+        <div class="body">
+          <h4>青年引領氣候行動 爾灣論壇為 COY 20 發聲</h4>
+          <div class="source"><a href="https://www.ocac.gov.tw/OCAC/Pages/Detail.aspx?nodeid=345&pid=80772112" target="_blank" rel="noopener">僑務委員會 ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2025</div>
+        <div class="body">
+          <h4>TECO-LA 參加爾灣跨國國際青年研討會 Irvine Conference of International and Transnational Youth</h4>
+          <div class="source"><a href="https://m.facebook.com/story.php?story_fbid=pfbid033zkHUKUDKbxvA6Pn86B8iQe3yLXm58eGwbvaP8dAeyQdE8NHssMrGu2YPuPGgt9al&id=100064916581114&mibextid=wwXIfr" target="_blank" rel="noopener">TECO-LA Facebook ↗</a></div>
+        </div>
+      </div>
+
+      <div class="press-card">
+        <div class="year">2025</div>
+        <div class="body">
+          <h4>Youth Network 前往拜訪 TECO-LA 辦公處</h4>
+          <div class="source"><a href="https://m.facebook.com/story.php?story_fbid=pfbid0zrNFf5xkNi6qSevMyQrb2mSM6hoLVcMWmkFNE6PZdWhHQfbNPeXc89fq1vr5TvHel&id=100064916581114&mibextid=wwXIfr" target="_blank" rel="noopener">TECO-LA Facebook ↗</a></div>
         </div>
       </div>
 
