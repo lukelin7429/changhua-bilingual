@@ -49,56 +49,6 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   .serif{font-family:'Playfair Display','PingFang TC',serif;}
 
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;background:var(--green-deep);color:#fff;
-    padding:56px 24px 64px;text-align:center;overflow:hidden;
-    border-bottom:8px solid var(--yellow);
-  }
-  .hero::before{
-    content:'';position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse 800px 400px at 20% 10%, rgba(244,213,33,.12), transparent),
-      radial-gradient(ellipse 600px 300px at 80% 90%, rgba(58,141,181,.18), transparent);
-    pointer-events:none;
-  }
-  .hero__inner{position:relative;z-index:1;max-width:920px;margin:0 auto;}
-  .hero__brand{
-    font-size:14px;letter-spacing:4px;color:var(--yellow);
-    text-transform:uppercase;font-weight:700;margin-bottom:16px;
-  }
-  @media (min-width:720px){ .hero__brand{ font-size:17px; } }
-  .hero__lighthouse{font-size:60px;line-height:1;margin-bottom:14px;}
-  @media (min-width:720px){ .hero__lighthouse{ font-size:80px; } }
-  .hero__title{
-    font-family:'Playfair Display',serif;
-    font-size:52px;font-weight:800;letter-spacing:2px;line-height:1.05;
-  }
-  @media (min-width:720px){ .hero__title{ font-size:84px; } }
-  .hero__title-zh{
-    font-size:30px;font-weight:700;margin-top:12px;letter-spacing:4px;
-    color:#fff;
-  }
-  @media (min-width:720px){ .hero__title-zh{ font-size:40px; } }
-  .hero__motto{
-    font-style:italic;color:#cfe7d3;
-    font-size:21px;margin-top:22px;letter-spacing:.5px;line-height:1.5;
-  }
-  @media (min-width:720px){ .hero__motto{ font-size:26px; } }
-  .hero__motto-zh{
-    color:#9bc6a4;font-size:17px;margin-top:8px;letter-spacing:1px;
-  }
-  @media (min-width:720px){ .hero__motto-zh{ font-size:20px; } }
-  .hero__pills{
-    display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;
-  }
-  .hero__pill{
-    background:rgba(255,255,255,.12);border:1.5px solid rgba(244,213,33,.5);
-    color:#fff;padding:8px 16px;border-radius:99px;font-size:15px;font-weight:600;
-    letter-spacing:.5px;backdrop-filter:blur(2px);
-  }
-  @media (min-width:720px){ .hero__pill{ font-size:17px;padding:10px 20px; } }
-
   /* ===== Section ===== */
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
@@ -127,10 +77,6 @@
   }
 
   /* ===== About ===== */
-  .about{
-    display:grid;grid-template-columns:1fr;gap:30px;
-  }
-  @media (min-width:920px){ .about{ grid-template-columns:1.2fr 1fr;gap:50px;align-items:center; } }
   .about__lead{
     font-family:'Playfair Display',serif;
     font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.35;
@@ -148,26 +94,6 @@
   .about__body .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
   @media (min-width:720px){ .about__body .zh{ font-size:20px; } }
   .about__body strong{color:var(--green-deep);font-weight:700;}
-
-  .about__stats{
-    background:#fff;border-radius:18px;border:1px solid var(--line);
-    padding:30px 28px;box-shadow:var(--shadow);
-  }
-  @media (min-width:720px){ .about__stats{ padding:38px 36px; } }
-  .stat{
-    display:flex;align-items:baseline;gap:14px;
-    padding:18px 0;border-bottom:1.5px dashed var(--line);
-  }
-  .stat:last-child{border-bottom:none;}
-  .stat__no{
-    font-family:'Playfair Display',serif;
-    color:var(--red);font-weight:800;font-size:44px;line-height:1;flex-shrink:0;min-width:80px;
-  }
-  @media (min-width:720px){ .stat__no{ font-size:54px;min-width:96px; } }
-  .stat__label{font-size:18px;color:var(--ink);font-weight:600;line-height:1.4;}
-  @media (min-width:720px){ .stat__label{ font-size:21px; } }
-  .stat__zh{font-size:14px;color:var(--ink-soft);font-weight:500;margin-top:2px;}
-  @media (min-width:720px){ .stat__zh{ font-size:16px; } }
 
   .quote{
     margin-top:36px;background:var(--yellow-soft);border-left:6px solid var(--yellow);
@@ -345,22 +271,11 @@
 </head>
 <body>
 
-<!-- ===== Hero ===== -->
-<header class="hero">
-  <div class="hero__inner">
-    <div class="hero__brand">Established 1930 · 創校九十六年 · Changhua, Taiwan</div>
-    <div class="hero__lighthouse">🪔</div>
-    <h1 class="hero__title">Sigang Elementary</h1>
-    <div class="hero__title-zh">彰化縣大城鄉西港國民小學</div>
-    <div class="hero__motto">"Where the water ends and the wind begins."</div>
-    <div class="hero__motto-zh">風頭水尾的燈塔小校</div>
-    <div class="hero__pills">
-      <span class="hero__pill">🌾 Food &amp; Agriculture · 食農教育</span>
-      <span class="hero__pill">🌊 Marine Environment · 海洋環保</span>
-      <span class="hero__pill">🎨 Resident Artist · 駐校藝術家</span>
-    </div>
-  </div>
-</header>
+<!--
+  本頁設計為「嵌入 sigang.twrses.org/home」使用——
+  原本的網站 banner 留給該站既有設計師作品，這份內容只放在 banner 下方。
+  獨立 GitHub Pages 連結直接從 Section I. About 開始，無 hero。
+-->
 
 <!-- ===== I. About ===== -->
 <section>
@@ -370,35 +285,23 @@
     <div class="sec__title-zh">關於西港 · 一所沿海的小校</div>
     <div class="sec__rule"></div>
 
-    <div class="about">
-      <div>
-        <div class="about__lead">A small school at the very edge of the Changhua Plain, where the Zhuoshui River meets the Taiwan Strait.</div>
-        <div class="about__lead-zh">一所位於彰化平原最西南端、濁水溪入海口的小學。我們離海很近，離風更近。</div>
+    <div class="about__lead">A small school at the very edge of the Changhua Plain, where the Zhuoshui River meets the Taiwan Strait.</div>
+    <div class="about__lead-zh">一所位於彰化平原最西南端、濁水溪入海口的小學。我們離海很近，離風更近。</div>
 
-        <div class="about__body">
-          <p>
-            <strong>Founded in 1930</strong>, Sigang Elementary serves five villages of Dacheng Township — Sigang, Donggang, Gongguan, Taixi, and Dingzhuang. With <strong>75 students, 13 teachers, and just six classes</strong>, we are a school small enough that every child is known by name, and big enough to dream of the world.
-          </p>
-          <p class="zh">
-            西港創校於 1930 年，服務大城鄉的五個村——西港、東港、公館、台西、頂莊。全校約 75 位學生、13 位教師、6 個班，是一所小到每個孩子都被叫得出名字，又大到敢做世界級夢想的學校。
-          </p>
+    <div class="about__body">
+      <p>
+        <strong>Founded in 1930</strong>, Sigang Elementary serves <strong>five villages of Dacheng Township</strong> — Sigang, Donggang, Gongguan, Taixi, and Dingzhuang. We are a school small enough that every child is known by name, and big enough to dream of the world.
+      </p>
+      <p class="zh">
+        西港創校於 1930 年，服務大城鄉的五個村——西港、東港、公館、台西、頂莊。是一所小到每個孩子都被叫得出名字，又大到敢做世界級夢想的學校。
+      </p>
 
-          <p>
-            The land here is shaped by salt wind, low fields, and the long horizon of the Taiwan Strait. The pace of life is slow, the agriculture is tied to the seasons, and the sea is never out of sight.
-          </p>
-          <p class="zh">
-            這裡的土地由鹹風、低田與綿延的海岸線塑造。生活步調緩慢，農作依四季而行，海，從來不離視線。
-          </p>
-        </div>
-      </div>
-
-      <div class="about__stats">
-        <div class="stat"><div class="stat__no">1930</div><div><div class="stat__label">Founded</div><div class="stat__zh">創校至今 96 年</div></div></div>
-        <div class="stat"><div class="stat__no">75</div><div><div class="stat__label">Students</div><div class="stat__zh">全校學生</div></div></div>
-        <div class="stat"><div class="stat__no">13</div><div><div class="stat__label">Teachers</div><div class="stat__zh">教師團隊</div></div></div>
-        <div class="stat"><div class="stat__no">6</div><div><div class="stat__label">Classes</div><div class="stat__zh">班級數（一至六年級）</div></div></div>
-        <div class="stat"><div class="stat__no">5</div><div><div class="stat__label">Villages served</div><div class="stat__zh">學區涵蓋村落</div></div></div>
-      </div>
+      <p>
+        The land here is shaped by salt wind, low fields, and the long horizon of the Taiwan Strait. The pace of life is slow, the agriculture is tied to the seasons, and the sea is never out of sight.
+      </p>
+      <p class="zh">
+        這裡的土地由鹹風、低田與綿延的海岸線塑造。生活步調緩慢，農作依四季而行，海，從來不離視線。
+      </p>
     </div>
 
     <div class="quote">
@@ -548,7 +451,7 @@
       <div class="tl-item">
         <div class="tl-year">2021</div>
         <div class="tl-event">Welcomed students from Dingzhuang Elementary after its closure</div>
-        <div class="tl-detail">大城鄉頂莊國民小學廢校，20 餘名學生轉入本校。</div>
+        <div class="tl-detail">大城鄉頂莊國民小學廢校，學生轉入本校。</div>
       </div>
       <div class="tl-item">
         <div class="tl-year">2024</div>
