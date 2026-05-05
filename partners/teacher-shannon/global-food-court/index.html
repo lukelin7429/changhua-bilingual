@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Global Food Court · Teacher Shannon's Global Kitchen</title>
+<meta name="description" content="The Global Food Court — an interactive English mini-class with Teacher Shannon. 全球美食廣場互動英文教材（萬興國小教師研習）.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2238;
+    --navy-deep:#0f1626;
+    --navy-soft:#dde2ee;
+    --orange:#e87f23;
+    --orange-deep:#b85f0c;
+    --orange-soft:#fde7cf;
+    --yellow:#f4d35e;
+    --yellow-soft:#fbf2cf;
+    --cream:#fbf6e9;
+    --cream-warm:#fff8e8;
+    --green:#5b9d5b;
+    --red:#c54b3a;
+    --ink:#1f1d1a;
+    --ink-soft:#6b6660;
+    --line:#e8dfca;
+    --shadow:0 10px 30px -10px rgba(26,34,56,.30);
+    --shadow-sm:0 4px 12px -4px rgba(26,34,56,.20);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{
+    height:100%;width:100%;overflow:hidden;
+    background:linear-gradient(160deg,#fff8e8 0%,#fbf6e9 60%,#f5e9c8 100%);
+    color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body{display:flex;align-items:center;justify-content:center;}
+  .app{
+    width:100%;max-width:540px;
+    height:100vh;max-height:720px;
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+  }
+
+  .scene{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    padding:18px 22px 20px;
+    opacity:0;transform:translateX(40px);pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .scene.is-active{opacity:1;transform:translateX(0);pointer-events:auto;}
+
+  .scene__title{
+    font-family:'Playfair Display','Inter',serif;
+    font-size:22px;font-weight:700;color:var(--navy);letter-spacing:.3px;
+  }
+  .scene__title small{
+    display:block;font-size:11px;color:var(--ink-soft);font-weight:500;margin-top:3px;letter-spacing:0;font-family:'Inter',sans-serif;
+  }
+  .scene__title .accent{
+    display:block;width:48px;height:3px;background:var(--yellow);border-radius:2px;margin-top:6px;
+  }
+
+  /* ===== Welcome ===== */
+  .welcome{justify-content:space-between;}
+  .brand{
+    background:var(--navy);color:#fff;border-radius:18px;padding:14px 18px;
+    text-align:center;box-shadow:var(--shadow);
+  }
+  .brand__title{
+    font-family:'Playfair Display',serif;font-size:24px;font-weight:700;letter-spacing:1.5px;line-height:1.1;
+  }
+  .brand__sub{
+    font-size:11px;font-style:italic;color:#cbd2e0;margin-top:4px;letter-spacing:.4px;
+  }
+  .welcome__hero{text-align:center;margin:6px 0 0;}
+  .welcome__lead{font-size:30px;line-height:1;margin:8px 0 4px;letter-spacing:1px;}
+  .welcome__pitch{
+    font-size:13px;color:var(--ink-soft);line-height:1.55;margin-top:4px;
+    padding:0 8px;
+  }
+  .welcome__pitch b{color:var(--navy);}
+
+  .form{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+  .field{display:flex;flex-direction:column;gap:3px;}
+  .field label{font-size:11px;color:var(--ink-soft);padding-left:4px;font-weight:600;letter-spacing:.3px;}
+  .field input, .field select{
+    padding:10px 13px;border:1.5px solid var(--line);border-radius:10px;
+    background:#fff;font-size:13px;font-family:inherit;color:var(--ink);
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,127,35,.15);}
+  .form__error{
+    background:#fdecea;color:#a83226;border:1.5px solid #f5c6c0;
+    padding:7px 11px;border-radius:8px;font-size:11px;
+    text-align:center;font-weight:600;margin-top:6px;
+    animation:shake .35s ease;
+  }
+  .form__error[hidden]{display:none;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-4px);}
+    75%{transform:translateX(4px);}
+  }
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    padding:12px 18px;font-size:14px;font-weight:600;font-family:inherit;letter-spacing:.3px;
+    border:none;border-radius:10px;cursor:pointer;
+    transition:transform .15s, box-shadow .15s, background .15s;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn--primary{background:var(--orange);color:#fff;box-shadow:var(--shadow-sm);}
+  .btn--primary:hover{background:var(--orange-deep);}
+  .btn--ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line);}
+  .btn--ghost:hover{background:var(--cream-warm);border-color:var(--orange);}
+  .btn--dark{background:var(--navy);color:#fff;}
+  .btn--dark:hover{background:var(--navy-deep);}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+  .btn-row{display:flex;gap:8px;margin-top:auto;}
+
+  /* ===== Tabs ===== */
+  .tabs{
+    display:flex;background:var(--cream-warm);border-radius:10px;padding:4px;margin-top:10px;
+    border:1px solid var(--line);
+  }
+  .tab{
+    flex:1;border:none;background:transparent;font-family:inherit;font-size:12px;font-weight:600;
+    color:var(--ink-soft);padding:7px 8px;border-radius:7px;cursor:pointer;
+    transition:background .15s, color .15s;letter-spacing:.3px;
+  }
+  .tab.is-active{background:var(--navy);color:#fff;}
+
+  /* ===== Vocab ===== */
+  .vocab{justify-content:flex-start;}
+  .vocab__header{display:flex;justify-content:space-between;align-items:flex-end;}
+  .vocab__count{font-size:11px;color:var(--ink-soft);font-weight:600;}
+  .vocab__stage{
+    flex:1;position:relative;display:flex;align-items:center;justify-content:center;
+    margin:8px 0 8px;overflow:hidden;
+  }
+  .card{
+    position:absolute;inset:4px 0;background:#fff;border-radius:18px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:16px 18px;gap:5px;
+    transition:transform .35s ease, opacity .35s ease;
+    opacity:0;transform:translateX(60px);pointer-events:none;
+    border:1px solid var(--line);
+  }
+  .card.is-active{opacity:1;transform:translateX(0);pointer-events:auto;}
+  .card.is-prev{opacity:0;transform:translateX(-60px);}
+  .card__cat{
+    font-size:10px;color:var(--orange-deep);font-weight:700;
+    letter-spacing:1.2px;text-transform:uppercase;
+  }
+  .card__emoji{font-size:42px;line-height:1;margin:2px 0;}
+  .card__word{display:flex;align-items:center;gap:8px;}
+  .card__en{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:700;color:var(--navy);letter-spacing:.5px;
+    border-bottom:3px solid var(--yellow);padding-bottom:1px;
+  }
+  .card__ipa{font-size:12px;color:var(--ink-soft);font-family:'Inter',serif;letter-spacing:.5px;}
+  .card__zh{font-size:14px;color:var(--ink);font-weight:600;margin-top:2px;}
+  .card__divider{width:36px;height:1px;background:var(--line);margin:4px 0 2px;}
+  .card__meaning{
+    font-size:13px;color:var(--ink);text-align:center;line-height:1.5;font-weight:500;
+    padding:0 6px;
+  }
+  .card__sentence{
+    font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.5;
+    font-style:italic;margin-top:4px;padding:0 6px;
+  }
+  .speak-btn{
+    width:34px;height:34px;border-radius:50%;border:none;
+    background:var(--orange-soft);color:var(--orange-deep);
+    font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+    transition:transform .15s, background .15s;
+  }
+  .speak-btn:hover{background:var(--orange);color:#fff;}
+  .speak-btn:active{transform:scale(.92);}
+  .speak-btn.is-speaking{background:var(--orange);color:#fff;animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+  .vocab__nav{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .nav-btn{
+    width:38px;height:38px;border-radius:50%;border:none;background:#fff;color:var(--navy);
+    font-size:18px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);
+    display:flex;align-items:center;justify-content:center;border:1px solid var(--line);
+  }
+  .nav-btn:disabled{opacity:.35;cursor:not-allowed;}
+  .dots{display:flex;gap:4px;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s, transform .2s;}
+  .dot.is-active{background:var(--orange);transform:scale(1.4);}
+
+  /* ===== Restaurant Tour ===== */
+  .tour{justify-content:flex-start;}
+  .tour__stage{
+    flex:1;position:relative;margin:8px 0 8px;overflow:hidden;
+  }
+  .menu-card{
+    position:absolute;inset:0;background:#fff;border-radius:18px;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+    padding:14px 16px;display:flex;flex-direction:column;
+    opacity:0;transform:translateX(60px);pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;overflow:hidden;
+  }
+  .menu-card.is-active{opacity:1;transform:translateX(0);pointer-events:auto;}
+  .menu-card.is-prev{opacity:0;transform:translateX(-60px);}
+  .menu-card__head{
+    display:flex;align-items:center;gap:8px;
+    border-bottom:2px solid var(--yellow);padding-bottom:8px;margin-bottom:8px;
+  }
+  .menu-card__flag{font-size:24px;line-height:1;}
+  .menu-card__name{
+    font-family:'Playfair Display',serif;
+    font-size:19px;font-weight:700;color:var(--orange-deep);letter-spacing:.3px;flex:1;line-height:1.1;
+  }
+  .menu-card__country{
+    font-size:10px;color:var(--ink-soft);font-style:italic;text-align:right;
+  }
+  .menu-list{flex:1;display:flex;flex-direction:column;gap:6px;overflow-y:auto;padding-right:2px;}
+  .menu-list::-webkit-scrollbar{width:4px;}
+  .menu-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px;}
+  .menu-row{
+    padding:6px 0;border-bottom:1px dashed var(--line);
+  }
+  .menu-row:last-child{border-bottom:none;}
+  .menu-row__type{
+    font-size:9px;color:var(--ink-soft);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  }
+  .menu-row__dish{font-size:13px;font-weight:700;color:var(--navy);margin-top:1px;}
+  .menu-row__desc{font-size:11px;color:var(--ink-soft);font-style:italic;margin-top:2px;line-height:1.4;}
+  .menu-row__desc .tag{
+    background:var(--yellow-soft);color:var(--orange-deep);
+    padding:1px 6px;border-radius:4px;font-style:normal;font-weight:600;font-size:10px;
+    letter-spacing:.2px;
+  }
+
+  /* ===== Roleplay ===== */
+  .roleplay{justify-content:flex-start;}
+  .scenario-pill-row{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+  .scenario-pill{
+    flex:1;min-width:0;border:none;background:#fff;border:1.5px solid var(--line);
+    border-radius:10px;padding:8px 6px;cursor:pointer;font-family:inherit;
+    text-align:center;transition:all .15s;
+  }
+  .scenario-pill__no{font-size:9px;color:var(--ink-soft);font-weight:700;letter-spacing:1px;}
+  .scenario-pill__title{font-size:11px;color:var(--navy);font-weight:600;margin-top:1px;line-height:1.2;}
+  .scenario-pill.is-active{background:var(--navy);border-color:var(--navy);}
+  .scenario-pill.is-active .scenario-pill__no{color:var(--yellow);}
+  .scenario-pill.is-active .scenario-pill__title{color:#fff;}
+
+  .scenario{
+    flex:1;background:#fff;border-radius:14px;border:1px solid var(--line);
+    padding:12px 14px;margin-top:10px;display:flex;flex-direction:column;overflow:hidden;
+  }
+  .scenario__goal{
+    font-size:11px;color:var(--orange-deep);font-weight:600;
+    background:var(--yellow-soft);padding:5px 9px;border-radius:6px;line-height:1.4;
+  }
+  .scenario__lines{flex:1;overflow-y:auto;margin-top:8px;padding-right:2px;}
+  .scenario__lines::-webkit-scrollbar{width:4px;}
+  .scenario__lines::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px;}
+  .line{
+    display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);align-items:flex-start;
+  }
+  .line:last-child{border-bottom:none;}
+  .line__role{
+    flex-shrink:0;font-size:10px;font-weight:700;color:#fff;
+    padding:3px 7px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;
+    margin-top:1px;min-width:50px;text-align:center;
+  }
+  .line__role--w{background:var(--navy);}
+  .line__role--d{background:var(--orange);}
+  .line__text{flex:1;font-size:12px;color:var(--ink);line-height:1.55;}
+  .line__text b{background:var(--yellow-soft);color:var(--orange-deep);padding:0 3px;border-radius:3px;}
+  .line__speak{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;border:none;
+    background:var(--cream-warm);color:var(--navy);font-size:12px;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;
+    transition:background .15s, color .15s;
+  }
+  .line__speak:hover{background:var(--orange);color:#fff;}
+  .line__speak.is-speaking{background:var(--orange);color:#fff;animation:pulse 1s infinite;}
+
+  /* ===== Quiz ===== */
+  .quiz__progress{height:4px;background:var(--cream-warm);border-radius:99px;overflow:hidden;margin-top:10px;border:1px solid var(--line);}
+  .quiz__bar{height:100%;background:var(--orange);border-radius:99px;transition:width .3s ease;width:0%;}
+  .quiz__qno{font-size:11px;color:var(--ink-soft);font-weight:600;margin-top:12px;letter-spacing:.5px;}
+  .quiz__question{
+    font-family:'Playfair Display',serif;
+    font-size:18px;font-weight:700;color:var(--navy);line-height:1.4;margin-top:4px;
+  }
+  .quiz__zh{font-size:11px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+  .quiz__options{display:flex;flex-direction:column;gap:7px;margin-top:12px;}
+
+  .opt{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:11px 12px;font-size:13px;font-family:inherit;font-weight:500;color:var(--ink);
+    text-align:left;cursor:pointer;transition:all .15s;
+    display:flex;align-items:center;gap:9px;
+  }
+  .opt:hover:not(:disabled){border-color:var(--orange);background:var(--cream-warm);}
+  .opt__mark{
+    width:24px;height:24px;border-radius:50%;background:var(--cream-warm);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:11px;
+    border:1px solid var(--line);
+  }
+  .opt.is-correct{background:#e9f5e9;border-color:var(--green);color:#2c6b2c;}
+  .opt.is-correct .opt__mark{background:var(--green);color:#fff;border-color:var(--green);}
+  .opt.is-wrong{background:#fdecea;border-color:var(--red);color:#8b2e22;}
+  .opt.is-wrong .opt__mark{background:var(--red);color:#fff;border-color:var(--red);}
+  .opt:disabled{cursor:default;}
+
+  .quiz__feedback{
+    margin-top:auto;padding:6px;text-align:center;font-size:12px;font-weight:600;min-height:28px;
+  }
+  .feedback--ok{color:var(--green);}
+  .feedback--ng{color:var(--red);}
+
+  /* ===== Result ===== */
+  .result{justify-content:center;text-align:center;align-items:center;}
+  .result__emoji{font-size:56px;line-height:1;}
+  .result__title{
+    font-family:'Playfair Display',serif;
+    font-size:24px;font-weight:700;color:var(--navy);margin-top:8px;
+  }
+  .result__score{
+    font-family:'Playfair Display',serif;
+    font-size:46px;font-weight:700;color:var(--orange);margin:8px 0 4px;line-height:1;
+  }
+  .result__score small{font-size:20px;color:var(--ink-soft);font-weight:600;font-family:inherit;}
+  .result__msg{font-size:13px;color:var(--ink);line-height:1.6;margin-top:8px;max-width:340px;padding:0 8px;}
+  .result__zh{font-size:11px;color:var(--ink-soft);margin-top:4px;}
+  .result__status{
+    font-size:10px;color:var(--ink-soft);margin-top:14px;
+    padding:5px 12px;background:rgba(255,255,255,.7);border-radius:99px;border:1px solid var(--line);
+  }
+  .result__status.is-ok{color:var(--green);}
+  .result__status.is-err{color:var(--red);}
+
+  /* ===== Footer brand ===== */
+  .scene__foot{
+    text-align:center;font-size:9px;color:var(--ink-soft);font-style:italic;
+    letter-spacing:.5px;margin-top:6px;
+  }
+
+  /* ===== Decorative bg ===== */
+  .deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+  .deco span{position:absolute;font-size:18px;opacity:.10;animation:float 7s ease-in-out infinite;}
+  .deco span:nth-child(1){top:6%;left:8%;animation-delay:0s;}
+  .deco span:nth-child(2){top:12%;right:10%;animation-delay:1.5s;font-size:14px;}
+  .deco span:nth-child(3){bottom:14%;left:6%;animation-delay:3s;font-size:20px;}
+  .deco span:nth-child(4){bottom:8%;right:12%;animation-delay:2s;}
+  .deco span:nth-child(5){top:48%;left:3%;animation-delay:4s;font-size:13px;}
+  .deco span:nth-child(6){top:55%;right:4%;animation-delay:5s;font-size:16px;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-10px) rotate(5deg);}}
+  .scene > *{position:relative;z-index:1;}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <div class="deco" aria-hidden="true">
+    <span>🍕</span><span>🍣</span><span>🍔</span><span>🥘</span><span>🍜</span><span>🥟</span>
+  </div>
+
+  <!-- ======= 1. WELCOME ======= -->
+  <section class="scene welcome is-active" data-scene="welcome">
+    <div class="brand">
+      <div class="brand__title">GLOBAL FOOD COURT</div>
+      <div class="brand__sub">Lesson 1 · Eating Out · Teacher Shannon's Global Kitchen</div>
+    </div>
+    <div class="welcome__hero">
+      <div class="welcome__lead">🍕 🍣 🍔 🥘 🍜 🥟</div>
+      <p class="welcome__pitch">
+        Take a flight through <b>six restaurants</b> in one classroom — Italy, Japan, USA, Thailand, India &amp; Taiwan.
+        Learn taste adjectives, restaurant terms, and roleplay ordering like a pro.
+        <br><span style="color:var(--ink-soft);font-size:12px;">六國料理一節課，邊吃邊學形容詞與點餐英文。</span>
+      </p>
+    </div>
+    <form class="form" id="welcome-form" onsubmit="return false;">
+      <div class="field">
+        <label for="f-name">Your name 姓名</label>
+        <input id="f-name" type="text" required autocomplete="name" placeholder="e.g. Ms. Lin">
+      </div>
+      <div class="field">
+        <label for="f-role">Role 身份</label>
+        <select id="f-role" required>
+          <option value="">— Choose / 請選擇 —</option>
+          <option value="teacher">Teacher 教師</option>
+          <option value="student">Student 學生</option>
+          <option value="other">Other 其他</option>
+        </select>
+      </div>
+    </form>
+    <div class="form__error" id="form-error" hidden></div>
+    <div class="btn-row">
+      <button class="btn btn--primary" id="btn-start" style="width:100%">Let's eat! 開始旅程 →</button>
+    </div>
+    <div class="scene__foot">Wansing Elementary · 萬興國小教師研習 · 2026</div>
+  </section>
+
+  <!-- ======= 2. VOCABULARY ======= -->
+  <section class="scene vocab" data-scene="vocab">
+    <div class="vocab__header">
+      <div class="scene__title">Essential Vocabulary<small>必備單字 · 點 🔊 聽發音</small><div class="accent"></div></div>
+      <div class="vocab__count" id="vocab-count">1 / 6</div>
+    </div>
+    <div class="tabs" id="vocab-tabs">
+      <button class="tab is-active" data-cat="taste">Taste &amp; Texture · 味覺質地</button>
+      <button class="tab" data-cat="terms">Restaurant Terms · 餐廳用語</button>
+    </div>
+    <div class="vocab__stage" id="vocab-stage"></div>
+    <div class="vocab__nav">
+      <button class="nav-btn" id="vocab-prev" aria-label="Previous">‹</button>
+      <div class="dots" id="vocab-dots"></div>
+      <button class="nav-btn" id="vocab-next" aria-label="Next">›</button>
+    </div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn--ghost" data-back="welcome">← Back</button>
+      <button class="btn btn--primary" data-next="tour" style="flex:1">Tour the food court 逛美食街 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 3. RESTAURANT TOUR ======= -->
+  <section class="scene tour" data-scene="tour">
+    <div class="vocab__header">
+      <div class="scene__title">The Global Flight<small>六國料理 · 注意橘色形容詞</small><div class="accent"></div></div>
+      <div class="vocab__count" id="tour-count">1 / 6</div>
+    </div>
+    <div class="tour__stage" id="tour-stage"></div>
+    <div class="vocab__nav">
+      <button class="nav-btn" id="tour-prev" aria-label="Previous">‹</button>
+      <div class="dots" id="tour-dots"></div>
+      <button class="nav-btn" id="tour-next" aria-label="Next">›</button>
+    </div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn--ghost" data-back="vocab">← Back</button>
+      <button class="btn btn--primary" data-next="roleplay" style="flex:1">Practice ordering 點餐演練 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 4. ROLEPLAY ======= -->
+  <section class="scene roleplay" data-scene="roleplay">
+    <div class="scene__title">Restaurant Roleplay<small>角色扮演 · 點 🔊 聽範讀</small><div class="accent"></div></div>
+    <div class="scenario-pill-row" id="scenario-pills"></div>
+    <div class="scenario" id="scenario">
+      <div class="scenario__goal" id="scenario-goal"></div>
+      <div class="scenario__lines" id="scenario-lines"></div>
+    </div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn--ghost" data-back="tour">← Back</button>
+      <button class="btn btn--primary" id="btn-to-quiz" style="flex:1">Take the quiz 開始測驗 →</button>
+    </div>
+  </section>
+
+  <!-- ======= 5. QUIZ ======= -->
+  <section class="scene" data-scene="quiz">
+    <div class="scene__title">Quiz Time!<small>小測驗 · 共 8 題</small><div class="accent"></div></div>
+    <div class="quiz__progress"><div class="quiz__bar" id="quiz-bar"></div></div>
+    <div class="quiz__qno" id="quiz-qno">Question 1 / 8</div>
+    <div class="quiz__question" id="quiz-q"></div>
+    <div class="quiz__zh" id="quiz-zh"></div>
+    <div class="quiz__options" id="quiz-options"></div>
+    <div class="quiz__feedback" id="quiz-feedback"></div>
+  </section>
+
+  <!-- ======= 6. RESULT ======= -->
+  <section class="scene result" data-scene="result">
+    <div class="result__emoji" id="result-emoji">🎉</div>
+    <div class="result__title" id="result-title">Bon appétit!</div>
+    <div class="result__score">
+      <span id="result-score">0</span> / <span id="result-total">8</span>
+      <small id="result-pct">(0%)</small>
+    </div>
+    <p class="result__msg" id="result-msg-en">You did great! Now go order something delicious.</p>
+    <p class="result__zh" id="result-msg-zh">完成了！下次出國點餐就用今天學的英文！</p>
+    <div class="result__status" id="result-status">Submitting your score… 上傳分數中…</div>
+    <div class="btn-row" style="margin-top:14px;">
+      <button class="btn btn--ghost" id="btn-restart" style="width:100%">Try again 再玩一次</button>
+    </div>
+    <div class="scene__foot">Teacher Shannon's Global Kitchen · 2026 Curriculum</div>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   The Global Food Court — Lesson 1: Eating Out
+   Teacher Shannon's Global Kitchen · 2026 Curriculum
+   萬興國小教師研習 · co-taught with Luke Lin (人師教育協會)
+   ========================================================= */
+
+/* ---- 設定（部署時修改）---- */
+const CONFIG = {
+  WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbxKBECQSps6Sv1Id-yko_XBtNMUBgVhbpFGb8lZby4y6n0V-rY_03pNiboz7OYL8HLYMA/exec',
+  SCHOOL_ID:   'wansing',
+  FESTIVAL_ID: 'global-food-court-2026',
+};
+
+/* ---- 教材內容 · Vocabulary（兩類）---- */
+const VOCAB = {
+  taste: [
+    {emoji:'🍖', en:'Savory',   ipa:'/ˈseɪ.vɚ.i/',    zh:'鹹香的、有肉味的',
+     meaning:'Salty, meaty, or full of flavor.',
+     example:'The miso soup is very savory.'},
+    {emoji:'🍋', en:'Tangy',    ipa:'/ˈtæŋ.i/',       zh:'酸爽、清新的',
+     meaning:'Sharp, fresh, or citrus flavor.',
+     example:'The cucumber salad is crunchy and tangy.'},
+    {emoji:'🌿', en:'Fragrant', ipa:'/ˈfreɪ.ɡrənt/',  zh:'香氣四溢的',
+     meaning:'Having a pleasant, sweet, or herbal smell.',
+     example:'Alishan oolong tea is fragrant and light.'},
+    {emoji:'🥩', en:'Tender',   ipa:'/ˈtɛn.dɚ/',      zh:'柔嫩、好咬的（多形容肉）',
+     meaning:'Soft and easy to chew (usually for meat).',
+     example:'The beef in the noodle soup is very tender.'},
+    {emoji:'🍲', en:'Hearty',   ipa:'/ˈhɑːr.ti/',     zh:'豐盛飽足的',
+     meaning:'Large, warm, and very filling.',
+     example:'I am looking for something hearty tonight.'},
+    {emoji:'🥨', en:'Crunchy',  ipa:'/ˈkrʌn.tʃi/',    zh:'酥脆、嚼起來有聲',
+     meaning:'Firm and makes a sound when eaten.',
+     example:'The garlic knots are buttery and crunchy.'},
+  ],
+  terms: [
+    {emoji:'🧑', en:'Diner',         ipa:'/ˈdaɪ.nɚ/',                 zh:'用餐的客人',
+     meaning:'The customer.',
+     example:'The diner ordered the daily special.'},
+    {emoji:'🧑‍🍳', en:'Waiter / Server', ipa:'/ˈweɪ.tɚ/',                 zh:'服務生（接受點餐的人）',
+     meaning:'The person taking the orders.',
+     example:'The waiter brought us complimentary water.'},
+    {emoji:'🍽️', en:'Main Course',   ipa:'/meɪn kɔːrs/',              zh:'主菜',
+     meaning:'The primary dish of the meal.',
+     example:"I'll have the Beef Noodle Soup as my main course."},
+    {emoji:'🥗', en:'Side Dish',     ipa:'/saɪd dɪʃ/',                zh:'配菜（小份）',
+     meaning:'A smaller portion of food served with the main course.',
+     example:"Would you like a side dish with that?"},
+    {emoji:'📋', en:'Daily Special', ipa:'/ˈdeɪ.li ˈspɛʃ.əl/',        zh:'今日特餐',
+     meaning:'A dish that is only available today.',
+     example:"Our daily special is the Premium Sushi Set."},
+    {emoji:'🎁', en:'Complimentary', ipa:'/ˌkɒm.plɪˈmen.tər.i/',      zh:'免費招待的',
+     meaning:'Something provided for free (like bread or water).',
+     example:"Is the water complimentary? — Yes, it is!"},
+  ],
+};
+
+/* ---- 教材內容 · Restaurant menus ---- */
+const RESTAURANTS = [
+  {flag:'🇮🇹', name:'The Roman Pizzeria', country:'Italy · 義大利',
+    items:[
+      {type:'Main Course', dish:'Margherita Pizza', desc:'With <span class="tag">savory</span> tomato sauce and fresh cheese.'},
+      {type:'Side Dish',   dish:'Garlic Knots',     desc:'Buttery and <span class="tag">crunchy</span> bread.'},
+      {type:'Beverage',    dish:'Italian Soda',     desc:'Cold and <span class="tag">refreshing</span>.'},
+      {type:'Dessert',     dish:'Tiramisu',         desc:'Soft and <span class="tag">creamy</span>.'},
+    ]},
+  {flag:'🇯🇵', name:'Zen Sushi Bar', country:'Japan · 日本',
+    items:[
+      {type:'Main Course', dish:'Premium Sushi Set', desc:'Elegant and <span class="tag">fresh</span> raw fish.'},
+      {type:'Side Dish',   dish:'Miso Soup',         desc:'Warm and <span class="tag">savory</span> broth.'},
+      {type:'Beverage',    dish:'Iced Green Tea',    desc:'Pure and <span class="tag">fragrant</span>.'},
+      {type:'Dessert',     dish:'Matcha Ice Cream',  desc:'Cold and <span class="tag">creamy</span>.'},
+    ]},
+  {flag:'🇺🇸', name:'Broadway Diner', country:'USA · 美國',
+    items:[
+      {type:'Main Course', dish:'Double Cheeseburger', desc:'<span class="tag">Juicy</span> beef and melted cheese.'},
+      {type:'Side Dish',   dish:'Truffle Fries',       desc:'Salty and <span class="tag">crispy</span>.'},
+      {type:'Beverage',    dish:'Classic Cola',        desc:'Cold and bubbly.'},
+      {type:'Dessert',     dish:'NY Cheesecake',       desc:'<span class="tag">Rich</span> and smooth.'},
+    ]},
+  {flag:'🇹🇭', name:'Orchid Bistro', country:'Thailand · 泰國',
+    items:[
+      {type:'Main Course', dish:'Shrimp Pad Thai',   desc:'<span class="tag">Tangy</span> noodles with peanuts.'},
+      {type:'Side Dish',   dish:'Spring Rolls',      desc:'<span class="tag">Fragrant</span> and crispy.'},
+      {type:'Beverage',    dish:'Thai Milk Tea',     desc:'Sweet and <span class="tag">creamy</span>.'},
+      {type:'Dessert',     dish:'Mango Sticky Rice', desc:'Sweet and <span class="tag">tender</span>.'},
+    ]},
+  {flag:'🇮🇳', name:'Saffron House', country:'India · 印度',
+    items:[
+      {type:'Main Course', dish:'Chicken Tikka Masala', desc:'<span class="tag">Aromatic</span> and savory curry.'},
+      {type:'Side Dish',   dish:'Garlic Naan',          desc:'<span class="tag">Tender</span> and buttery bread.'},
+      {type:'Beverage',    dish:'Mango Lassi',          desc:'Chilled and <span class="tag">creamy</span>.'},
+      {type:'Dessert',     dish:'Gulab Jamun',          desc:'Deep fried and <span class="tag">sweet</span>.'},
+    ]},
+  {flag:'🇹🇼', name:'Soul of Taiwan', country:'Taiwan · 台灣',
+    items:[
+      {type:'Main Course', dish:'Beef Noodle Soup',   desc:'<span class="tag">Hearty</span> broth and tender beef.'},
+      {type:'Side Dish',   dish:'Cucumber Salad',     desc:'<span class="tag">Crunchy</span> and tangy.'},
+      {type:'Beverage',    dish:'Alishan Oolong Tea', desc:'<span class="tag">Fragrant</span> and light.'},
+      {type:'Dessert',     dish:'Mango Shaved Ice',   desc:'Cold and <span class="tag">refreshing</span>.'},
+    ]},
+];
+
+/* ---- 教材內容 · Roleplay scripts（粗體=目標形容詞/用語）---- */
+const SCENARIOS = [
+  {
+    no:'01', title:'Standard Order',
+    goal:'Goal: Use a descriptive adjective to order a specific dish. 用形容詞點主菜。',
+    lines:[
+      {role:'W', text:'Welcome to our global food court! Are you ready to order?'},
+      {role:'D', text:'Yes! I’m looking for something <b>hearty</b>. I’ll have the <b>Main Course</b> Beef Noodles.'},
+      {role:'W', text:'Excellent. It is very <b>savory</b> today. Would you like a <b>Side Dish</b> with that?'},
+      {role:'D', text:'Yes, please. I’ll take the Spring Rolls.'},
+      {role:'W', text:'Great. Coming right up!'},
+    ],
+  },
+  {
+    no:'02', title:'Sold-Out Dish',
+    goal:'Goal: Use adjectives to describe an alternative dish. 用形容詞推薦替代菜色。',
+    lines:[
+      {role:'W', text:'I’m very sorry, but we are actually out of the Pad Thai. It was very popular today.'},
+      {role:'D', text:'Oh, that’s too bad! What else would you recommend?'},
+      {role:'W', text:'Our Chicken Tikka Masala is a wonderful <b>Main Course</b>. It’s very <b>fragrant</b> and <b>creamy</b>.'},
+      {role:'D', text:'That sounds perfect. I’ll try that instead. Is the water <b>complimentary</b>?'},
+      {role:'W', text:'Yes, it is! I’ll bring some over immediately.'},
+    ],
+  },
+  {
+    no:'03', title:'Honest Complaint',
+    goal:'Goal: Identify a specific problem using texture/taste adjectives. 用質地形容詞客訴。',
+    lines:[
+      {role:'D', text:'Excuse me! I have a small problem with my Pizza.'},
+      {role:'W', text:'I am so sorry. What seems to be the matter?'},
+      {role:'D', text:'It isn’t very <b>tender</b>—it’s actually quite tough to eat. Also, the crust isn’t <b>crunchy</b> at all.'},
+      {role:'W', text:'I apologize for that. It should be perfectly <b>crispy</b>. Let me take this back to the kitchen.'},
+      {role:'D', text:'Thank you. I appreciate the help.'},
+      {role:'W', text:'Of course. I will also bring a <b>complimentary</b> dessert for the wait.'},
+    ],
+  },
+];
+
+/* ---- 教材內容 · Quiz（8 題，混合單字 + 餐廳 + roleplay）---- */
+const QUIZ = [
+  { q:'Which adjective means "salty, meaty, or full of flavor"?',
+    zh:'哪個形容詞代表「鹹香、有肉味、味道濃」？',
+    options:['Tender','Tangy','Savory','Crunchy'], answer:2 },
+  { q:'Which adjective means "soft and easy to chew" (often for meat)?',
+    zh:'「柔嫩、好咬的」（常形容肉）是哪個？',
+    options:['Crunchy','Tender','Hearty','Fragrant'], answer:1 },
+  { q:'At a restaurant, what do we call the customer?',
+    zh:'在餐廳裡，「用餐的客人」叫什麼？',
+    options:['Server','Waiter','Diner','Chef'], answer:2 },
+  { q:'Free water or bread is described as ____.',
+    zh:'免費招待的水或麵包，可以說是 ____。',
+    options:['Daily special','Complimentary','Side dish','Main course'], answer:1 },
+  { q:'Chicken Tikka Masala is the main course at which restaurant?',
+    zh:'Chicken Tikka Masala 是哪一家的主菜？',
+    options:['Orchid Bistro','Saffron House','Zen Sushi Bar','Soul of Taiwan'], answer:1 },
+  { q:'Mango Sticky Rice is the dessert at ____.',
+    zh:'Mango Sticky Rice（芒果糯米）是哪一家的甜點？',
+    options:['The Roman Pizzeria','Broadway Diner','Orchid Bistro','Saffron House'], answer:2 },
+  { q:'Waiter: "It is very ____ today. Would you like a side dish?"',
+    zh:'Roleplay 1：服務生說「今天很 ____ 喔，要不要加配菜？」',
+    options:['tender','savory','sour','hearty'], answer:1 },
+  { q:'Diner: "The crust isn’t ____ at all—it’s very tough."',
+    zh:'Roleplay 3：客人抱怨「餅皮一點都不 ____，咬不動。」',
+    options:['crunchy','tangy','fragrant','complimentary'], answer:0 },
+];
+
+/* ---- 狀態 ---- */
+const state = {
+  student: { name:'', role:'' },
+  vocabCat: 'taste',
+  vocabIdx: 0,
+  tourIdx: 0,
+  scenarioIdx: 0,
+  quizIdx: 0,
+  answers: [],
+  score: 0,
+};
+
+/* ---- 工具 ---- */
+const $  = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+function showScene(name){
+  $$('.scene').forEach(s => s.classList.toggle('is-active', s.dataset.scene === name));
+}
+
+/* ---- 文字朗讀 ---- */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  // 去除 HTML 標籤
+  const plain = text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  const u = new SpeechSynthesisUtterance(plain);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  u.pitch = 1;
+  if(btn){
+    btn.classList.add('is-speaking');
+    u.onend = () => btn.classList.remove('is-speaking');
+    u.onerror = () => btn.classList.remove('is-speaking');
+  }
+  speechSynthesis.speak(u);
+}
+
+/* ---- Welcome ---- */
+function showFormError(msg){
+  const el = $('#form-error');
+  el.textContent = msg;
+  el.hidden = false;
+  el.style.animation = 'none';
+  void el.offsetWidth;
+  el.style.animation = '';
+  clearTimeout(showFormError._t);
+  showFormError._t = setTimeout(() => { el.hidden = true; }, 4000);
+}
+
+$('#btn-start').addEventListener('click', () => {
+  const name = $('#f-name').value.trim();
+  const role = $('#f-role').value;
+  if(!name || !role){
+    showFormError('請填寫姓名並選擇身份 / Please fill in name and role.');
+    return;
+  }
+  $('#form-error').hidden = true;
+  state.student = { name, role };
+  renderVocab();
+  showScene('vocab');
+});
+
+$$('[data-back]').forEach(b => b.addEventListener('click', () => showScene(b.dataset.back)));
+$$('[data-next]').forEach(b => b.addEventListener('click', () => {
+  const next = b.dataset.next;
+  if(next === 'tour') renderTour();
+  if(next === 'roleplay') renderRoleplay();
+  showScene(next);
+}));
+
+/* ---- Vocab ---- */
+function renderVocab(){
+  const stage = $('#vocab-stage');
+  const dots  = $('#vocab-dots');
+  stage.innerHTML = '';
+  dots.innerHTML = '';
+  state.vocabIdx = 0;
+
+  const list = VOCAB[state.vocabCat];
+  const catLabel = state.vocabCat === 'taste' ? 'Taste & Texture' : 'Restaurant Term';
+
+  list.forEach((v, i) => {
+    const card = document.createElement('div');
+    card.className = 'card' + (i === 0 ? ' is-active' : '');
+    card.innerHTML = `
+      <div class="card__cat">${catLabel}</div>
+      <div class="card__emoji">${v.emoji}</div>
+      <div class="card__word">
+        <span class="card__en">${v.en}</span>
+        <button class="speak-btn" data-speak="${v.en.replace(/\s*\/\s*Server/, '')}" aria-label="Hear pronunciation">🔊</button>
+      </div>
+      <div class="card__ipa">${v.ipa}</div>
+      <div class="card__zh">${v.zh}</div>
+      <div class="card__divider"></div>
+      <div class="card__meaning">${v.meaning}</div>
+      <div class="card__sentence">"${v.example}"</div>
+    `;
+    stage.appendChild(card);
+
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+    dots.appendChild(dot);
+  });
+
+  updateVocabUI();
+}
+
+function gotoVocab(i){
+  const list = VOCAB[state.vocabCat];
+  i = Math.max(0, Math.min(list.length - 1, i));
+  state.vocabIdx = i;
+  $$('#vocab-stage .card').forEach((c, idx) => {
+    c.classList.toggle('is-active', idx === i);
+    c.classList.toggle('is-prev', idx < i);
+  });
+  $$('#vocab-dots .dot').forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+  updateVocabUI();
+}
+
+function updateVocabUI(){
+  const list = VOCAB[state.vocabCat];
+  $('#vocab-count').textContent = `${state.vocabIdx + 1} / ${list.length}`;
+  $('#vocab-prev').disabled = state.vocabIdx === 0;
+  $('#vocab-next').disabled = state.vocabIdx === list.length - 1;
+}
+
+$('#vocab-stage').addEventListener('click', (e) => {
+  const btn = e.target.closest('.speak-btn');
+  if(btn) speak(btn.dataset.speak, btn);
+});
+
+$('#vocab-prev').addEventListener('click', () => gotoVocab(state.vocabIdx - 1));
+$('#vocab-next').addEventListener('click', () => gotoVocab(state.vocabIdx + 1));
+
+$$('#vocab-tabs .tab').forEach(t => {
+  t.addEventListener('click', () => {
+    if(t.dataset.cat === state.vocabCat) return;
+    $$('#vocab-tabs .tab').forEach(x => x.classList.toggle('is-active', x === t));
+    state.vocabCat = t.dataset.cat;
+    renderVocab();
+  });
+});
+
+/* swipe（vocab + tour 通用）*/
+function attachSwipe(stageEl, getIdx, setIdx, getMax){
+  let startX = 0, dx = 0;
+  stageEl.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; dx = 0; }, {passive:true});
+  stageEl.addEventListener('touchmove',  (e)=>{ dx = e.touches[0].clientX - startX; }, {passive:true});
+  stageEl.addEventListener('touchend',   ()=>{
+    if(Math.abs(dx) > 40){
+      const next = getIdx() + (dx < 0 ? 1 : -1);
+      setIdx(Math.max(0, Math.min(getMax() - 1, next)));
+    }
+  });
+}
+attachSwipe($('#vocab-stage'), () => state.vocabIdx, gotoVocab, () => VOCAB[state.vocabCat].length);
+
+/* ---- Restaurant Tour ---- */
+function renderTour(){
+  const stage = $('#tour-stage');
+  const dots  = $('#tour-dots');
+  if(stage.children.length){ gotoTour(state.tourIdx); return; }
+
+  RESTAURANTS.forEach((r, i) => {
+    const card = document.createElement('div');
+    card.className = 'menu-card' + (i === 0 ? ' is-active' : '');
+    card.innerHTML = `
+      <div class="menu-card__head">
+        <span class="menu-card__flag">${r.flag}</span>
+        <div class="menu-card__name">${r.name}</div>
+        <div class="menu-card__country">${r.country}</div>
+      </div>
+      <div class="menu-list">
+        ${r.items.map(it => `
+          <div class="menu-row">
+            <div class="menu-row__type">${it.type}</div>
+            <div class="menu-row__dish">${it.dish}</div>
+            <div class="menu-row__desc">${it.desc}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    stage.appendChild(card);
+
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+    dots.appendChild(dot);
+  });
+
+  updateTourUI();
+}
+
+function gotoTour(i){
+  i = Math.max(0, Math.min(RESTAURANTS.length - 1, i));
+  state.tourIdx = i;
+  $$('#tour-stage .menu-card').forEach((c, idx) => {
+    c.classList.toggle('is-active', idx === i);
+    c.classList.toggle('is-prev', idx < i);
+  });
+  $$('#tour-dots .dot').forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+  updateTourUI();
+}
+
+function updateTourUI(){
+  $('#tour-count').textContent = `${state.tourIdx + 1} / ${RESTAURANTS.length}`;
+  $('#tour-prev').disabled = state.tourIdx === 0;
+  $('#tour-next').disabled = state.tourIdx === RESTAURANTS.length - 1;
+}
+
+$('#tour-prev').addEventListener('click', () => gotoTour(state.tourIdx - 1));
+$('#tour-next').addEventListener('click', () => gotoTour(state.tourIdx + 1));
+attachSwipe($('#tour-stage'), () => state.tourIdx, gotoTour, () => RESTAURANTS.length);
+
+/* ---- Roleplay ---- */
+function renderRoleplay(){
+  const pillRow = $('#scenario-pills');
+  if(!pillRow.children.length){
+    SCENARIOS.forEach((s, i) => {
+      const b = document.createElement('button');
+      b.className = 'scenario-pill' + (i === 0 ? ' is-active' : '');
+      b.innerHTML = `<div class="scenario-pill__no">SCENARIO ${s.no}</div><div class="scenario-pill__title">${s.title}</div>`;
+      b.addEventListener('click', () => {
+        state.scenarioIdx = i;
+        $$('#scenario-pills .scenario-pill').forEach((p, j) => p.classList.toggle('is-active', i === j));
+        showScenario(i);
+      });
+      pillRow.appendChild(b);
+    });
+  }
+  showScenario(state.scenarioIdx);
+}
+
+function showScenario(i){
+  const s = SCENARIOS[i];
+  $('#scenario-goal').textContent = s.goal;
+  const lines = $('#scenario-lines');
+  lines.innerHTML = '';
+  s.lines.forEach(l => {
+    const row = document.createElement('div');
+    row.className = 'line';
+    const roleLabel = l.role === 'W' ? 'Waiter' : 'Diner';
+    const roleClass = l.role === 'W' ? 'line__role--w' : 'line__role--d';
+    row.innerHTML = `
+      <span class="line__role ${roleClass}">${roleLabel}</span>
+      <div class="line__text">${l.text}</div>
+      <button class="line__speak" aria-label="Read aloud">🔊</button>
+    `;
+    row.querySelector('.line__speak').addEventListener('click', (e) => {
+      speak(l.text, e.currentTarget);
+    });
+    lines.appendChild(row);
+  });
+}
+
+$('#btn-to-quiz').addEventListener('click', () => {
+  state.quizIdx = 0;
+  state.answers = [];
+  state.score = 0;
+  renderQuestion();
+  showScene('quiz');
+});
+
+/* ---- Quiz ---- */
+function renderQuestion(){
+  const q = QUIZ[state.quizIdx];
+  $('#quiz-bar').style.width = (state.quizIdx / QUIZ.length * 100) + '%';
+  $('#quiz-qno').textContent = `Question ${state.quizIdx + 1} / ${QUIZ.length}`;
+  $('#quiz-q').textContent = q.q;
+  $('#quiz-zh').textContent = q.zh;
+  $('#quiz-feedback').textContent = '';
+  $('#quiz-feedback').className = 'quiz__feedback';
+
+  const box = $('#quiz-options');
+  box.innerHTML = '';
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt__mark">${'ABCD'[idx]}</span><span>${opt}</span>`;
+    btn.addEventListener('click', () => handleAnswer(idx, btn));
+    box.appendChild(btn);
+  });
+}
+
+function handleAnswer(picked, btn){
+  const q = QUIZ[state.quizIdx];
+  const correct = picked === q.answer;
+  state.answers.push({ q: state.quizIdx, picked, correct });
+  if(correct) state.score++;
+
+  $$('#quiz-options .opt').forEach((b, idx) => {
+    b.disabled = true;
+    if(idx === q.answer) b.classList.add('is-correct');
+    if(idx === picked && !correct) b.classList.add('is-wrong');
+  });
+  $('#quiz-feedback').textContent = correct
+    ? '✓ Correct! 答對了！'
+    : `✗ The answer is: ${q.options[q.answer]}`;
+  $('#quiz-feedback').className = 'quiz__feedback ' + (correct ? 'feedback--ok' : 'feedback--ng');
+  $('#quiz-bar').style.width = ((state.quizIdx + 1) / QUIZ.length * 100) + '%';
+
+  setTimeout(() => {
+    state.quizIdx++;
+    if(state.quizIdx >= QUIZ.length) finishQuiz();
+    else renderQuestion();
+  }, 1300);
+}
+
+/* ---- Result + Submit ---- */
+function finishQuiz(){
+  const total = QUIZ.length;
+  const score = state.score;
+  const pct   = Math.round(score / total * 100);
+
+  $('#result-score').textContent = score;
+  $('#result-total').textContent = total;
+  $('#result-pct').textContent = `(${pct}%)`;
+
+  let emoji, title, msgEn, msgZh;
+  if(pct === 100)    { emoji='🏆'; title='Perfect! 滿分！';     msgEn='You’re ready to run the food court!';      msgZh='你已經可以開店了！'; }
+  else if(pct >= 80) { emoji='🌟'; title='Excellent! 太棒了！'; msgEn='Great job! Take this lesson back to your students.'; msgZh='做得很好！可以把這節課帶回課堂上了。'; }
+  else if(pct >= 60) { emoji='🍽️'; title='Good work! 不錯！';   msgEn='Nice try — review the menus once more before service.'; msgZh='繼續加油！再回去逛一下菜單。'; }
+  else               { emoji='🍳'; title='Keep cooking! 加油！'; msgEn='Don’t give up! Try the lesson again.';     msgZh='不要放棄，再試一次！'; }
+
+  $('#result-emoji').textContent = emoji;
+  $('#result-title').textContent = title;
+  $('#result-msg-en').textContent = msgEn;
+  $('#result-msg-zh').textContent = msgZh;
+
+  showScene('result');
+  submitToSheet({ score, total });
+}
+
+async function submitToSheet({score, total}){
+  const status = $('#result-status');
+  status.classList.remove('is-ok','is-err');
+  status.textContent = 'Submitting your score… 上傳分數中…';
+
+  if(!CONFIG.WEBHOOK_URL || CONFIG.WEBHOOK_URL.startsWith('PASTE_')){
+    status.textContent = '⚠ Webhook 尚未設定（開發模式）';
+    return;
+  }
+
+  const payload = {
+    school_id:    CONFIG.SCHOOL_ID,
+    festival_id:  CONFIG.FESTIVAL_ID,
+    school:       'Wansing Elementary 萬興國小',
+    class:        state.student.role,
+    student_name: state.student.name,
+    score, total,
+    answers:      state.answers,
+    user_agent:   navigator.userAgent,
+  };
+
+  try {
+    const res = await fetch(CONFIG.WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if(data.ok){
+      status.textContent = '✓ Score submitted! 已上傳';
+      status.classList.add('is-ok');
+    } else {
+      throw new Error(data.error || 'unknown');
+    }
+  } catch(err){
+    status.textContent = '✗ 上傳失敗：' + err.message;
+    status.classList.add('is-err');
+  }
+}
+
+/* ---- Restart ---- */
+$('#btn-restart').addEventListener('click', () => {
+  state.vocabCat = 'taste';
+  state.vocabIdx = 0;
+  state.tourIdx = 0;
+  state.scenarioIdx = 0;
+  state.quizIdx = 0;
+  state.answers = [];
+  state.score = 0;
+  $$('#vocab-tabs .tab').forEach(t => t.classList.toggle('is-active', t.dataset.cat === 'taste'));
+  $('#vocab-stage').innerHTML = '';
+  $('#vocab-dots').innerHTML = '';
+  $('#tour-stage').innerHTML = '';
+  $('#tour-dots').innerHTML = '';
+  $('#scenario-pills').innerHTML = '';
+  showScene('welcome');
+});
+</script>
+</body>
+</html>
