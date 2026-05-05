@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sigang Elementary School · 彰化縣大城鄉西港國民小學</title>
+<meta name="description" content="Sigang Elementary School — A small coastal school at the very edge of the Changhua Plain, where the Zhuoshui River meets the Taiwan Strait. The Lighthouse School at the Windy Head & Water End. 彰化縣大城鄉西港國民小學 — 風頭水尾的燈塔小校，從 1930 年至今。">
+<meta property="og:title" content="Sigang Elementary School · 彰化縣大城鄉西港國民小學">
+<meta property="og:description" content="The Lighthouse School at the Windy Head & Water End · 風頭水尾的燈塔小校">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green-deep:#155028;
+    --green:#1d6f3a;
+    --green-light:#6abf7f;
+    --green-soft:#dcefe1;
+    --yellow:#f4d521;
+    --yellow-soft:#fff5b8;
+    --yellow-deep:#c79b00;
+    --red:#e63b2c;
+    --red-soft:#fde2dd;
+    --ocean:#3a8db5;
+    --ocean-soft:#dcebf3;
+    --sand:#f0c570;
+    --cream:#fbf7e8;
+    --cream-warm:#fffcef;
+    --ink:#1f2a25;
+    --ink-soft:#5a6963;
+    --line:#e3dcc4;
+    --shadow:0 14px 38px -16px rgba(21,80,40,.32);
+    --shadow-sm:0 6px 16px -6px rgba(21,80,40,.20);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%);
+    color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:20px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:23px; } }
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:'Playfair Display','PingFang TC',serif;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;background:var(--green-deep);color:#fff;
+    padding:56px 24px 64px;text-align:center;overflow:hidden;
+    border-bottom:8px solid var(--yellow);
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 800px 400px at 20% 10%, rgba(244,213,33,.12), transparent),
+      radial-gradient(ellipse 600px 300px at 80% 90%, rgba(58,141,181,.18), transparent);
+    pointer-events:none;
+  }
+  .hero__inner{position:relative;z-index:1;max-width:920px;margin:0 auto;}
+  .hero__brand{
+    font-size:14px;letter-spacing:4px;color:var(--yellow);
+    text-transform:uppercase;font-weight:700;margin-bottom:16px;
+  }
+  @media (min-width:720px){ .hero__brand{ font-size:17px; } }
+  .hero__lighthouse{font-size:60px;line-height:1;margin-bottom:14px;}
+  @media (min-width:720px){ .hero__lighthouse{ font-size:80px; } }
+  .hero__title{
+    font-family:'Playfair Display',serif;
+    font-size:52px;font-weight:800;letter-spacing:2px;line-height:1.05;
+  }
+  @media (min-width:720px){ .hero__title{ font-size:84px; } }
+  .hero__title-zh{
+    font-size:30px;font-weight:700;margin-top:12px;letter-spacing:4px;
+    color:#fff;
+  }
+  @media (min-width:720px){ .hero__title-zh{ font-size:40px; } }
+  .hero__motto{
+    font-style:italic;color:#cfe7d3;
+    font-size:21px;margin-top:22px;letter-spacing:.5px;line-height:1.5;
+  }
+  @media (min-width:720px){ .hero__motto{ font-size:26px; } }
+  .hero__motto-zh{
+    color:#9bc6a4;font-size:17px;margin-top:8px;letter-spacing:1px;
+  }
+  @media (min-width:720px){ .hero__motto-zh{ font-size:20px; } }
+  .hero__pills{
+    display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;
+  }
+  .hero__pill{
+    background:rgba(255,255,255,.12);border:1.5px solid rgba(244,213,33,.5);
+    color:#fff;padding:8px 16px;border-radius:99px;font-size:15px;font-weight:600;
+    letter-spacing:.5px;backdrop-filter:blur(2px);
+  }
+  @media (min-width:720px){ .hero__pill{ font-size:17px;padding:10px 20px; } }
+
+  /* ===== Section ===== */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{
+    font-family:'Playfair Display',serif;
+    color:var(--red);font-size:22px;font-weight:700;
+    letter-spacing:5px;
+  }
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{
+    font-family:'Playfair Display',serif;
+    font-size:42px;font-weight:700;color:var(--green-deep);
+    line-height:1.15;margin-top:6px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{
+    font-size:20px;color:var(--ink-soft);font-weight:500;
+    margin-top:10px;letter-spacing:1px;
+  }
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{
+    width:96px;height:6px;background:var(--yellow);
+    border-radius:3px;margin:22px 0 36px;
+  }
+
+  /* ===== About ===== */
+  .about{
+    display:grid;grid-template-columns:1fr;gap:30px;
+  }
+  @media (min-width:920px){ .about{ grid-template-columns:1.2fr 1fr;gap:50px;align-items:center; } }
+  .about__lead{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.35;
+    letter-spacing:.3px;
+  }
+  @media (min-width:720px){ .about__lead{ font-size:38px; } }
+  .about__lead-zh{
+    font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;
+  }
+  @media (min-width:720px){ .about__lead-zh{ font-size:25px; } }
+  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
+  @media (min-width:720px){ .about__body{ font-size:22px; } }
+  .about__body p{margin-top:16px;}
+  .about__body p:first-child{margin-top:0;}
+  .about__body .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .about__body .zh{ font-size:20px; } }
+  .about__body strong{color:var(--green-deep);font-weight:700;}
+
+  .about__stats{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:30px 28px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .about__stats{ padding:38px 36px; } }
+  .stat{
+    display:flex;align-items:baseline;gap:14px;
+    padding:18px 0;border-bottom:1.5px dashed var(--line);
+  }
+  .stat:last-child{border-bottom:none;}
+  .stat__no{
+    font-family:'Playfair Display',serif;
+    color:var(--red);font-weight:800;font-size:44px;line-height:1;flex-shrink:0;min-width:80px;
+  }
+  @media (min-width:720px){ .stat__no{ font-size:54px;min-width:96px; } }
+  .stat__label{font-size:18px;color:var(--ink);font-weight:600;line-height:1.4;}
+  @media (min-width:720px){ .stat__label{ font-size:21px; } }
+  .stat__zh{font-size:14px;color:var(--ink-soft);font-weight:500;margin-top:2px;}
+  @media (min-width:720px){ .stat__zh{ font-size:16px; } }
+
+  .quote{
+    margin-top:36px;background:var(--yellow-soft);border-left:6px solid var(--yellow);
+    padding:24px 28px;border-radius:0 12px 12px 0;
+  }
+  .quote__text{
+    font-family:'Playfair Display',serif;
+    font-size:26px;font-weight:700;color:var(--green-deep);
+    line-height:1.4;font-style:italic;
+  }
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;}
+  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+
+  /* ===== Four Beams ===== */
+  .beams{
+    display:grid;grid-template-columns:1fr;gap:22px;
+  }
+  @media (min-width:720px){ .beams{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .beam{
+    background:#fff;border-radius:20px;border:1px solid var(--line);
+    padding:32px 28px;box-shadow:var(--shadow-sm);
+    border-top:8px solid var(--yellow);
+    transition:transform .2s, box-shadow .2s;
+  }
+  @media (min-width:720px){ .beam{ padding:40px 36px; } }
+  .beam:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .beam:nth-child(2){border-top-color:var(--green-light);}
+  .beam:nth-child(3){border-top-color:var(--ocean);}
+  .beam:nth-child(4){border-top-color:var(--sand);}
+  .beam__icon{font-size:54px;line-height:1;margin-bottom:14px;}
+  @media (min-width:720px){ .beam__icon{ font-size:64px; } }
+  .beam__title{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.2;
+    border-bottom:3px solid var(--yellow);padding-bottom:6px;display:inline-block;
+  }
+  @media (min-width:720px){ .beam__title{ font-size:36px; } }
+  .beam__title-zh{
+    font-size:20px;color:var(--ink);font-weight:600;margin-top:10px;letter-spacing:1px;
+  }
+  @media (min-width:720px){ .beam__title-zh{ font-size:24px; } }
+  .beam__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .beam__body{ font-size:22px; } }
+  .beam__zh{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.6;}
+  @media (min-width:720px){ .beam__zh{ font-size:20px; } }
+
+  /* ===== Programs ===== */
+  .programs{display:flex;flex-direction:column;gap:24px;}
+  .program{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:30px 28px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;
+  }
+  @media (min-width:720px){
+    .program{grid-template-columns:120px 1fr;gap:36px;padding:38px 36px;}
+  }
+  .program__icon{
+    font-size:58px;line-height:1;text-align:center;
+    background:var(--green-soft);border-radius:14px;padding:14px 0;color:var(--green-deep);
+  }
+  @media (min-width:720px){ .program__icon{ font-size:80px;padding:20px 0; } }
+  .program__title{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:700;color:var(--green-deep);line-height:1.2;
+  }
+  @media (min-width:720px){ .program__title{ font-size:36px; } }
+  .program__title-zh{
+    font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;
+  }
+  @media (min-width:720px){ .program__title-zh{ font-size:23px; } }
+  .program__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .program__body{ font-size:22px; } }
+  .program__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .program__zh{ font-size:20px; } }
+
+  /* ===== Timeline ===== */
+  .timeline{
+    position:relative;padding-left:42px;
+  }
+  .timeline::before{
+    content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;
+    background:linear-gradient(180deg, var(--yellow) 0%, var(--green) 100%);
+    border-radius:2px;
+  }
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:8px;
+    width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--red);
+    box-shadow:0 0 0 4px var(--cream);
+  }
+  .tl-year{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:800;color:var(--red);line-height:1;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .tl-year{ font-size:38px; } }
+  .tl-event{
+    font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;
+  }
+  @media (min-width:720px){ .tl-event{ font-size:23px; } }
+  .tl-detail{font-size:17px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .tl-detail{ font-size:19px; } }
+
+  /* ===== Contact ===== */
+  .contact{
+    background:linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%);
+    color:#fff;border-radius:24px;padding:48px 36px;
+    box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .contact{ padding:64px 56px; } }
+  .contact__title{
+    font-family:'Playfair Display',serif;
+    font-size:36px;font-weight:700;line-height:1.15;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .contact__title{ font-size:50px; } }
+  .contact__zh{font-size:19px;color:#cfe7d3;margin-top:8px;}
+  @media (min-width:720px){ .contact__zh{ font-size:23px; } }
+  .contact__rule{width:80px;height:5px;background:var(--yellow);border-radius:3px;margin:20px 0 28px;}
+  .contact__grid{
+    display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;
+  }
+  @media (min-width:720px){ .contact__grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .contact__row{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);
+  }
+  .contact__icon{
+    font-size:24px;flex-shrink:0;margin-top:2px;color:var(--yellow);
+  }
+  @media (min-width:720px){ .contact__icon{ font-size:28px; } }
+  .contact__label{
+    font-size:13px;color:#cfe7d3;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  }
+  @media (min-width:720px){ .contact__label{ font-size:15px; } }
+  .contact__value{
+    font-size:18px;color:#fff;font-weight:600;margin-top:2px;line-height:1.45;
+  }
+  @media (min-width:720px){ .contact__value{ font-size:22px; } }
+  .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--yellow);}
+  .contact__value a:hover{color:var(--yellow);}
+
+  .official-cta{
+    margin-top:32px;background:var(--yellow);color:var(--green-deep);
+    border-radius:14px;padding:22px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    text-decoration:none;
+    transition:transform .15s, box-shadow .15s, background .15s;
+    box-shadow:0 8px 22px -8px rgba(244,213,33,.4);
+  }
+  @media (min-width:720px){ .official-cta{ padding:26px 36px; } }
+  .official-cta:hover{background:#fff;transform:translateY(-3px);}
+  .official-cta__main{flex:1;}
+  .official-cta__title{
+    font-family:'Playfair Display',serif;
+    font-size:22px;font-weight:700;line-height:1.25;
+  }
+  @media (min-width:720px){ .official-cta__title{ font-size:28px; } }
+  .official-cta__zh{font-size:16px;color:#5a4a08;margin-top:4px;font-weight:600;}
+  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
+  .official-cta__arrow{
+    font-size:32px;font-weight:700;color:var(--green-deep);flex-shrink:0;
+  }
+  @media (min-width:720px){ .official-cta__arrow{ font-size:42px; } }
+
+  /* ===== Footer ===== */
+  footer{
+    text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);
+    line-height:1.65;
+  }
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--green-deep);}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero__inner">
+    <div class="hero__brand">Established 1930 · 創校九十六年 · Changhua, Taiwan</div>
+    <div class="hero__lighthouse">🪔</div>
+    <h1 class="hero__title">Sigang Elementary</h1>
+    <div class="hero__title-zh">彰化縣大城鄉西港國民小學</div>
+    <div class="hero__motto">"Where the water ends and the wind begins."</div>
+    <div class="hero__motto-zh">風頭水尾的燈塔小校</div>
+    <div class="hero__pills">
+      <span class="hero__pill">🌾 Food &amp; Agriculture · 食農教育</span>
+      <span class="hero__pill">🌊 Marine Environment · 海洋環保</span>
+      <span class="hero__pill">🎨 Resident Artist · 駐校藝術家</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== I. About ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">About Sigang</h2>
+    <div class="sec__title-zh">關於西港 · 一所沿海的小校</div>
+    <div class="sec__rule"></div>
+
+    <div class="about">
+      <div>
+        <div class="about__lead">A small school at the very edge of the Changhua Plain, where the Zhuoshui River meets the Taiwan Strait.</div>
+        <div class="about__lead-zh">一所位於彰化平原最西南端、濁水溪入海口的小學。我們離海很近，離風更近。</div>
+
+        <div class="about__body">
+          <p>
+            <strong>Founded in 1930</strong>, Sigang Elementary serves five villages of Dacheng Township — Sigang, Donggang, Gongguan, Taixi, and Dingzhuang. With <strong>75 students, 13 teachers, and just six classes</strong>, we are a school small enough that every child is known by name, and big enough to dream of the world.
+          </p>
+          <p class="zh">
+            西港創校於 1930 年，服務大城鄉的五個村——西港、東港、公館、台西、頂莊。全校約 75 位學生、13 位教師、6 個班，是一所小到每個孩子都被叫得出名字，又大到敢做世界級夢想的學校。
+          </p>
+
+          <p>
+            The land here is shaped by salt wind, low fields, and the long horizon of the Taiwan Strait. The pace of life is slow, the agriculture is tied to the seasons, and the sea is never out of sight.
+          </p>
+          <p class="zh">
+            這裡的土地由鹹風、低田與綿延的海岸線塑造。生活步調緩慢，農作依四季而行，海，從來不離視線。
+          </p>
+        </div>
+      </div>
+
+      <div class="about__stats">
+        <div class="stat"><div class="stat__no">1930</div><div><div class="stat__label">Founded</div><div class="stat__zh">創校至今 96 年</div></div></div>
+        <div class="stat"><div class="stat__no">75</div><div><div class="stat__label">Students</div><div class="stat__zh">全校學生</div></div></div>
+        <div class="stat"><div class="stat__no">13</div><div><div class="stat__label">Teachers</div><div class="stat__zh">教師團隊</div></div></div>
+        <div class="stat"><div class="stat__no">6</div><div><div class="stat__label">Classes</div><div class="stat__zh">班級數（一至六年級）</div></div></div>
+        <div class="stat"><div class="stat__no">5</div><div><div class="stat__label">Villages served</div><div class="stat__zh">學區涵蓋村落</div></div></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"Life is Good!"</div>
+      <div class="quote__zh">校訓——希望孩子們學會的，不是分數，而是熱愛生活的方式。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Four Beams ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Guided by Four Beams of Light</h2>
+    <div class="sec__title-zh">四道光 · 學校核心願景</div>
+    <div class="sec__rule"></div>
+
+    <div class="beams">
+      <article class="beam">
+        <div class="beam__icon">📚</div>
+        <div class="beam__title">Loving Humanities</div>
+        <div class="beam__title-zh">人文 · 友愛社區</div>
+        <div class="beam__body">Students explore local culture and learn to innovate within their community.</div>
+        <div class="beam__zh">孩子從在地文化出發，學會用創意回應社區的需要。</div>
+      </article>
+
+      <article class="beam">
+        <div class="beam__icon">🌱</div>
+        <div class="beam__title">Cherishing the Environment</div>
+        <div class="beam__title-zh">環境 · 守護土地與海洋</div>
+        <div class="beam__body">The curriculum fosters a deep commitment to ecological sustainability and conservation.</div>
+        <div class="beam__zh">課程讓孩子對土地與海洋懷有真實的責任感。</div>
+      </article>
+
+      <article class="beam">
+        <div class="beam__icon">💛</div>
+        <div class="beam__title">Nurturing Character</div>
+        <div class="beam__title-zh">品格 · 自律與真誠</div>
+        <div class="beam__body">A strong focus is placed on self-management, moral values, and harmonious communication.</div>
+        <div class="beam__zh">著重自律、品格與彼此溝通的能力。</div>
+      </article>
+
+      <article class="beam">
+        <div class="beam__icon">✨</div>
+        <div class="beam__title">Inspiring Learning</div>
+        <div class="beam__title-zh">學習 · 樂於探索</div>
+        <div class="beam__body">The school works to ignite curiosity and cultivate skills for a joyful journey of discovery.</div>
+        <div class="beam__zh">點燃好奇心，讓學習成為一段快樂的旅程。</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Featured Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Featured Programs</h2>
+    <div class="sec__title-zh">特色課程 · 把在地生活變成學習</div>
+    <div class="sec__rule"></div>
+
+    <div class="programs">
+
+      <article class="program">
+        <div class="program__icon">🌾</div>
+        <div>
+          <div class="program__title">Food &amp; Agriculture Education</div>
+          <div class="program__title-zh">食農教育</div>
+          <div class="program__body">From local crops to the family table — students learn how food, land, and community are woven together.</div>
+          <div class="program__zh">從在地農作出發，連結食物、土地與社區，讓孩子認識自己餐桌上的故事。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🌊</div>
+        <div>
+          <div class="program__title">Marine Environmental Education</div>
+          <div class="program__title-zh">海洋環保課程</div>
+          <div class="program__body">With the Taiwan Strait at our doorstep, our students learn what it means to "live facing the sea" — coastal ecology, conservation, and beach stewardship.</div>
+          <div class="program__zh">大城鄉沿海地理優勢——孩子在西海岸學「面海的生活」，了解海洋生態、保育與淨灘行動。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🎨</div>
+        <div>
+          <div class="program__title">Resident Artist Program</div>
+          <div class="program__title-zh">駐校藝術家 · 王莉老師</div>
+          <div class="program__body">Artist <strong>Wang Li</strong> serves as our resident artist, bringing creative practice into everyday classroom life.</div>
+          <div class="program__zh">王莉老師為西港駐校藝術家，把藝術創作帶入日常的課堂與校園。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🤝</div>
+        <div>
+          <div class="program__title">Erhlin Community College Partnership</div>
+          <div class="program__title-zh">與二林社區大學合作</div>
+          <div class="program__body">A long-running partnership with Erhlin Community College brings ecology educators and community resources into the classroom.</div>
+          <div class="program__zh">與二林社區大學長期合作，將生態認識教學與在地社群資源帶進校園。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🧸</div>
+        <div>
+          <div class="program__title">Affiliated Preschool · Since 1987</div>
+          <div class="program__title-zh">附設幼兒園 · 39 年歷史</div>
+          <div class="program__body">Established in 1987 (formally re-designated in 2012), our affiliated preschool has nurtured generations of Sigang children before they enter elementary school.</div>
+          <div class="program__zh">自 1987 年設立、2012 年改制為附設幼兒園，39 年來陪伴一代又一代西港孩子踏上學習旅程。</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. History ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Our Story</h2>
+    <div class="sec__title-zh">校史時間軸 · 風雨九十六年</div>
+    <div class="sec__rule"></div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1930</div>
+        <div class="tl-event">Founded as <em>Dacheng Public School Sigang Branch</em></div>
+        <div class="tl-detail">創校之初為「大城公學校西港分教場」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1941</div>
+        <div class="tl-event">Became an independent school: <em>Sigang National School</em></div>
+        <div class="tl-detail">脫離大城公學校，獨立為「西港國民學校」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1968</div>
+        <div class="tl-event">Renamed Sigang Elementary School with the launch of nine-year compulsory education</div>
+        <div class="tl-detail">配合九年國民義務教育，更名為「西港國民小學」，沿用至今。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1987</div>
+        <div class="tl-event">Affiliated kindergarten established</div>
+        <div class="tl-detail">設立附設幼稚園，後於 2012 年依法改制為附設幼兒園。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-event">Welcomed students from Dingzhuang Elementary after its closure</div>
+        <div class="tl-detail">大城鄉頂莊國民小學廢校，20 餘名學生轉入本校。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Principal Chuang Wen-kuei (莊文魁) takes office</div>
+        <div class="tl-detail">莊文魁校長於 2024 年 8 月接任，承接前任洪信德校長 2016–2024 年的耕耘。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Contact ===== -->
+<section>
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__title">Visit Us · 聯絡西港</div>
+      <div class="contact__zh">A school by the sea, always glad to hear from you.</div>
+      <div class="contact__rule"></div>
+
+      <div class="contact__grid">
+        <div class="contact__row">
+          <div class="contact__icon">📍</div>
+          <div>
+            <div class="contact__label">Address · 地址</div>
+            <div class="contact__value">527 彰化縣大城鄉東港村中央路 2 號<br><span style="font-size:.85em;color:#cfe7d3;font-weight:500;">No. 2, Zhongyang Rd., Donggang Vil., Dacheng Township, Changhua County 527</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📞</div>
+          <div>
+            <div class="contact__label">Phone · 電話</div>
+            <div class="contact__value"><a href="tel:+88648941029">04-8941029</a></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📠</div>
+          <div>
+            <div class="contact__label">Fax · 傳真</div>
+            <div class="contact__value">04-8942582</div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📘</div>
+          <div>
+            <div class="contact__label">Facebook</div>
+            <div class="contact__value"><a href="https://www.facebook.com/siganges" target="_blank" rel="noopener">facebook.com/siganges</a></div>
+          </div>
+        </div>
+      </div>
+
+      <a class="official-cta" href="https://sges.chc.edu.tw/" target="_blank" rel="noopener">
+        <div class="official-cta__main">
+          <div class="official-cta__title">Visit Our Official School Website</div>
+          <div class="official-cta__zh">前往西港國小官方網站 · sges.chc.edu.tw</div>
+        </div>
+        <div class="official-cta__arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 西港國小 Sigang Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--green-deep);">Changhua Bilingual Network</a>
+</footer>
+
+</body>
+</html>
