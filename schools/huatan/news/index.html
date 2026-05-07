@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stories from Huatan · 花壇國小的故事</title>
+<meta name="description" content="Recent stories from Huatan Elementary School — cultural classes, traditions, community moments, and news coverage. 花壇國小最近的故事。">
+<meta property="og:title" content="Stories from Huatan · 花壇國小的故事">
+<meta property="og:description" content="Recent stories from Huatan Elementary, in Changhua, Taiwan.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--brick:#B5462E;--brick-deep:#7d2e1a;--brick-soft:#f5e6df;--jade:#2d6a4f;--jade-deep:#1b4332;--jade-soft:#dbeadd;--gold:#caa056;--gold-deep:#8b6a17;--gold-soft:#f7eed9;--cream:#faf6ee;--cream-warm:#fffcef;--ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;--max:1080px;--max-narrow:780px;--shadow:0 14px 40px -16px rgba(125,46,26,.28);--shadow-sm:0 4px 14px -4px rgba(125,46,26,.18);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:var(--brick);text-decoration:none;transition:color .2s;}
+a:hover{color:var(--jade);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.wrap-narrow{max-width:var(--max-narrow);margin:0 auto;padding:0 24px;}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);font-size:14.5px;}
+.topbar__inner{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.topbar a{color:var(--ink-soft);font-weight:500;letter-spacing:.04em;border-bottom:1px solid transparent;padding-bottom:1px;}
+.topbar a:hover{color:var(--brick-deep);border-bottom-color:var(--brick-deep);}
+.topbar__crumb{display:flex;align-items:center;gap:10px;}
+.topbar__crumb .sep{color:var(--line);}
+.topbar__home{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--brick-deep);font-weight:600;}
+
+.portal-hero{background:linear-gradient(180deg,var(--cream) 0%,var(--cream) 100%);padding:72px 0 50px;text-align:center;border-bottom:1px solid var(--line);}
+.portal-hero__eyebrow{display:inline-block;font-size:14.5px;letter-spacing:.22em;color:var(--jade);font-weight:700;text-transform:uppercase;margin-bottom:16px;}
+.portal-hero h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(46px,7vw,72px);font-weight:600;line-height:1.1;letter-spacing:.005em;color:var(--brick-deep);margin-bottom:10px;}
+.portal-hero h1 .h1-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(20px,2.4vw,25px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
+.portal-hero p{max-width:640px;margin:24px auto 0;font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--ink);line-height:1.55;}
+.portal-hero p .zh{display:block;margin-top:8px;font-family:'PingFang TC',sans-serif;font-style:normal;font-size:17px;color:var(--ink-soft);}
+
+.portal-grid{padding:50px 0 80px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+
+.story-card-link{display:contents;color:inherit;}
+.story-card-link .story-card{cursor:pointer;}
+
+.story-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s,border-color .25s;border-top:8px solid var(--gold);display:flex;flex-direction:column;}
+.story-card.theme-brick{border-top-color:var(--brick);}
+.story-card.theme-jade{border-top-color:var(--jade);}
+.story-card.theme-jade-deep{border-top-color:var(--jade-deep);}
+.story-card.theme-gold-deep{border-top-color:var(--gold-deep);}
+.story-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--brick);}
+.story-card.is-stub{opacity:.7;cursor:default;}
+.story-card.is-stub:hover{transform:none;box-shadow:var(--shadow-sm);border-color:var(--line);}
+
+.story-card.is-featured{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:0;}
+
+.story-card__img{aspect-ratio:16/10;background:var(--brick-soft);overflow:hidden;}
+.story-card.is-featured .story-card__img{aspect-ratio:auto;height:100%;min-height:360px;}
+.story-card__img img{width:100%;height:100%;object-fit:cover;}
+.story-card__body{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1;}
+.story-card .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);margin-bottom:10px;}
+.story-card.theme-brick .eyebrow{color:var(--brick);}
+.story-card.theme-jade-deep .eyebrow{color:var(--jade-deep);}
+.story-card.theme-gold-deep .eyebrow{color:var(--gold-deep);}
+.story-card h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:30px;line-height:1.2;color:var(--brick-deep);font-weight:600;margin-bottom:6px;}
+.story-card.is-featured h3{font-size:38px;}
+.story-card h3 .h3-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:6px;letter-spacing:.04em;}
+.story-card .date{font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:14px;}
+.story-card .hook{font-size:17px;color:var(--ink);line-height:1.65;margin-bottom:6px;}
+.story-card .hook-zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line);}
+.story-card .read-more{margin-top:auto;padding-top:18px;font-size:14.5px;font-weight:600;color:var(--brick);letter-spacing:.04em;}
+.story-card .read-more::after{content:" →";transition:margin-left .2s;}
+.story-card:hover .read-more::after{margin-left:4px;}
+.story-card .stub-badge{margin-top:auto;display:inline-block;align-self:flex-start;background:var(--gold-soft);color:var(--gold-deep);padding:6px 12px;border-radius:99px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
+
+.return-row{text-align:center;padding:40px 24px 60px;background:var(--cream);}
+.return-row a{display:inline-block;padding:14px 28px;border:1.5px solid var(--brick);border-radius:99px;color:var(--brick);font-weight:600;font-size:15.5px;letter-spacing:.04em;margin:0 6px 8px;transition:background .2s,color .2s;}
+.return-row a:hover{background:var(--brick);color:#fff;}
+.return-row a.primary{background:var(--brick);color:#fff;}
+.return-row a.primary:hover{background:var(--brick-deep);border-color:var(--brick-deep);}
+
+.site-footer{background:#1a0f08;color:rgba(255,255,255,.6);padding:32px 0;font-size:14.5px;border-top:1px solid rgba(255,255,255,.08);text-align:center;}
+.site-footer .partner{color:var(--gold-soft);font-weight:600;}
+.site-footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+.site-footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+
+@media (max-width:880px){
+  .portal-grid{grid-template-columns:1fr;}
+  .story-card.is-featured{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .portal-hero{padding:52px 0 36px;}
+  .portal-grid{padding:36px 0 60px;}
+  .story-card__body{padding:22px 24px 24px;}
+  .story-card.is-featured h3{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Top breadcrumb -->
+<nav class="topbar">
+  <div class="topbar__inner">
+    <span class="topbar__home">Huatan Elementary · 花壇國小</span>
+    <div class="topbar__crumb">
+      <a href="../">← School Home · 學校首頁</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Portal hero -->
+<header class="portal-hero">
+  <div class="wrap">
+    <span class="portal-hero__eyebrow">Recent Stories · 最新故事</span>
+    <h1>Stories from Huatan
+      <span class="h1-zh">花壇國小的故事</span>
+    </h1>
+    <p>
+      A century-old school still tells new stories every month.
+      Here are five from this spring &mdash; the way our students learn, celebrate, and grow up among the jasmine fields of Changhua.
+      <span class="zh">百年老校，每個月都還在寫新的故事。
+      這個春天，我們從花壇國小的茉莉田間，挑選五則最值得分享的時刻。</span>
+    </p>
+  </div>
+</header>
+
+<!-- Stories grid -->
+<main class="wrap">
+  <div class="portal-grid">
+
+    <!-- Featured: Mother's Day cake (gold theme) -->
+    <a href="mothers-day-cake/" class="story-card-link">
+      <article class="story-card is-featured theme-gold">
+        <div class="story-card__img">
+          <img src="../photos/cake-class-poster.jpg" alt="Mother's Day Phoenix-Eye Cake handcraft class poster" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Cultural Class · 文化課程</span>
+          <h3>A Sweet Gift for Mother's Day
+            <span class="h3-zh">親手做鳳眼糕，送給媽媽</span>
+          </h3>
+          <div class="date">April 29, 2026 · 2026 年 4 月 29 日</div>
+          <p class="hook">For three weeks, twelve classes walked into a 100-year-old bakery to shape rice cakes for their moms &mdash; where culture, language, and tenderness all met in one classroom.</p>
+          <p class="hook-zh">連續三週、12 個班級走進百年老店，由孩子親手把米粉糕做成鳳眼形狀，送給辛苦的媽媽。文化、語文、與孩子的心意，在同一堂課裡相遇。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Welcoming Mazu (brick theme) -->
+    <a href="welcoming-mazu/" class="story-card-link">
+      <article class="story-card theme-brick">
+        <div class="story-card__img">
+          <img src="../photos/news/mazu-01.jpg" alt="Students welcoming Mazu pilgrimage in the rain" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Tradition · 在地民俗</span>
+          <h3>Welcoming Mazu in the Rain
+            <span class="h3-zh">風雨無阻迎媽祖</span>
+          </h3>
+          <div class="date">April 24, 2026 · 2026 年 4 月 24 日</div>
+          <p class="hook">When the great Dajia Mazu pilgrimage came through Huatan in pouring rain, our entire school stayed and welcomed her &mdash; teachers, students, and the principal alike.</p>
+          <p class="hook-zh">大甲媽祖遶境路經花壇那天下著大雨，但全校師生沒有一個人離開。從校長到一年級的孩子，全都在雨中迎接媽祖。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Jasmine community trail (jade theme) — STUB -->
+    <article class="story-card is-stub theme-jade">
+      <div class="story-card__img">
+        <img src="../photos/news/jasmine-01.jpg" alt="Second graders visiting the Jasmine Dream Museum" loading="lazy">
+      </div>
+      <div class="story-card__body">
+        <span class="eyebrow">Community Trail · 社區踏查</span>
+        <h3>Walking Through Jasmine Country
+          <span class="h3-zh">二年級走讀茉莉花壇夢想館</span>
+        </h3>
+        <div class="date">March 25, 2026 · 2026 年 3 月 25 日</div>
+        <p class="hook">Our second-graders unlocked the Jasmine Dream Museum, learning where their town's name &mdash; and identity &mdash; comes from.</p>
+        <p class="hook-zh">二年級的孩子們解鎖了茉莉花壇夢想館，認識家鄉地名背後一朵小白花的故事。</p>
+        <span class="stub-badge">Story coming soon · 即將上線</span>
+      </div>
+    </article>
+
+    <!-- Disaster prep (jade-deep theme) — STUB -->
+    <article class="story-card is-stub theme-jade-deep">
+      <div class="story-card__img">
+        <img src="../photos/news/disaster-01.jpg" alt="Disaster preparedness class with the National Museum of Natural Science" loading="lazy">
+      </div>
+      <div class="story-card__body">
+        <span class="eyebrow">Safety · 防災教育</span>
+        <h3>Are We Ready When the Earth Shakes?
+          <span class="h3-zh">我們做好防災準備了嗎？</span>
+        </h3>
+        <div class="date">April 24, 2026 · 2026 年 4 月 24 日</div>
+        <p class="hook">Most kids hear about the Chelungpu Fault first. But Huatan sits beside the Changhua Fault &mdash; so for our students, geology is local.</p>
+        <p class="hook-zh">大多數孩子先聽說的是車籠埔斷層。但花壇國小緊鄰彰化斷層——對我們的孩子來說，地質課就是在地的故事。</p>
+        <span class="stub-badge">Story coming soon · 即將上線</span>
+      </div>
+    </article>
+
+    <!-- PeoPo coverage (gold-deep theme) — STUB -->
+    <article class="story-card is-stub theme-gold-deep">
+      <div class="story-card__img">
+        <img src="../photos/news/peopo-thumb.jpg" alt="Principal Chan Hsueh-mei interviewed by PeoPo Citizen News" loading="lazy">
+      </div>
+      <div class="story-card__body">
+        <span class="eyebrow">In the News · 媒體報導</span>
+        <h3>PeoPo Visits Our First-Graders
+          <span class="h3-zh">公視 PeoPo 採訪新生報到日</span>
+        </h3>
+        <div class="date">April 14, 2026 · 2026 年 4 月 14 日</div>
+        <p class="hook">A PeoPo citizen reporter arrived at 7 a.m. to find the principal carrying chairs herself. "That," he later wrote, "is real education."</p>
+        <p class="hook-zh">PeoPo 公民記者七點到校，看見的是校長自己在搬椅子。他在報導裡寫：「我想，這就是最真的教育。」</p>
+        <span class="stub-badge">Story coming soon · 即將上線</span>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- Return row -->
+<div class="return-row">
+  <a class="primary" href="../">← Back to School Home · 回花壇國小首頁</a>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 彰化縣花壇國民小學 · Huatan Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
