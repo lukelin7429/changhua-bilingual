@@ -25,10 +25,13 @@ a:hover{color:var(--jade);}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 .wrap-narrow{max-width:var(--max-narrow);margin:0 auto;padding:0 24px;}
 
-.topbar{background:rgba(250,246,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);font-size:14.5px;}
-.topbar__inner{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
-.topbar__home{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--brick-deep);font-weight:600;}
-.topbar__role{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;}
+/* ===== Unified site banner (same on all pages) ===== */
+.site-banner{background:var(--cream);padding:48px 0 36px;text-align:center;border-bottom:1px solid var(--line);}
+.site-banner__eyebrow{display:inline-block;font-size:13.5px;letter-spacing:.22em;color:var(--jade);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+.site-banner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(40px,6.5vw,64px);line-height:1.1;font-weight:600;letter-spacing:.005em;color:var(--brick-deep);margin-bottom:6px;}
+.site-banner h1 .h1-zh{display:block;font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:clamp(19px,2.5vw,25px);font-weight:500;letter-spacing:.06em;color:var(--ink-soft);margin-top:8px;}
+.site-banner__tagline{max-width:580px;margin:16px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--ink);line-height:1.55;}
+.site-banner__tagline .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;margin-top:6px;color:var(--ink-soft);letter-spacing:.05em;}
 
 /* ===== HERO ===== */
 .po-hero{
@@ -424,13 +427,19 @@ section.po-body + section.po-body{padding-top:0;}
 </head>
 <body>
 
-<!-- Brand band -->
-<nav class="topbar">
-  <div class="topbar__inner">
-    <span class="topbar__home">Huatan Elementary · 花壇國小</span>
-    <span class="topbar__role">Principal's Office · 校長室</span>
+<!-- Unified site banner (same on home / news / staff) -->
+<header class="site-banner">
+  <div class="wrap">
+    <span class="site-banner__eyebrow">Bilingual Web Resource · 雙語資源網</span>
+    <h1>Huatan Elementary School
+      <span class="h1-zh">彰化縣花壇鄉花壇國民小學</span>
+    </h1>
+    <p class="site-banner__tagline">
+      A century of learning on the jasmine fields of Huatan
+      <span class="zh">百年扎根，茉莉花壇上的學習殿堂</span>
+    </p>
   </div>
-</nav>
+</header>
 
 <!-- HERO -->
 <header class="po-hero">
