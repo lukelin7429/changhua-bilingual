@@ -285,6 +285,78 @@
   }
   .closing__value a:hover{color:var(--olive);}
 
+  /* ===== Video embed (16:9) ===== */
+  .video-frame{
+    margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:14px;box-shadow:var(--shadow);max-width:860px;
+  }
+  @media (min-width:720px){ .video-frame{ padding:18px; } }
+  .video-frame__ratio{
+    position:relative;width:100%;padding-top:56.25%;
+    border-radius:10px;overflow:hidden;background:#000;
+  }
+  .video-frame__ratio iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+  }
+  .video-frame__caption{
+    margin-top:14px;font-style:italic;font-size:16px;color:var(--ink-soft);
+    line-height:1.55;text-align:center;padding:0 8px;
+  }
+  @media (min-width:720px){ .video-frame__caption{ font-size:18px; } }
+  .video-frame__caption b{color:var(--blue-deep);font-style:normal;}
+
+  .video-lead{font-size:20px;color:var(--ink);line-height:1.7;max-width:780px;margin-bottom:30px;}
+  @media (min-width:720px){ .video-lead{ font-size:22px; } }
+  .video-lead-zh{font-size:18px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+  @media (min-width:720px){ .video-lead-zh{ font-size:20px; } }
+
+  /* ===== Books for Taiwan ===== */
+  .btf-lead{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.35;
+    max-width:820px;
+  }
+  @media (min-width:720px){ .btf-lead{ font-size:36px; } }
+  .btf-lead-zh{
+    font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:12px;line-height:1.6;
+  }
+  @media (min-width:720px){ .btf-lead-zh{ font-size:21px; } }
+  .btf-grid{
+    margin-top:36px;display:grid;grid-template-columns:1fr;gap:22px;
+  }
+  @media (min-width:880px){ .btf-grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .btf-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:28px 28px 30px;box-shadow:var(--shadow-sm);
+    border-left:6px solid var(--olive);
+  }
+  @media (min-width:720px){ .btf-card{ padding:34px 32px 36px; } }
+  .btf-card.is-yangming{border-left-color:var(--red);}
+  .btf-card__eyebrow{
+    font-size:13px;font-weight:700;letter-spacing:3px;
+    text-transform:uppercase;color:var(--olive-deep);
+  }
+  @media (min-width:720px){ .btf-card__eyebrow{ font-size:15px; } }
+  .btf-card.is-yangming .btf-card__eyebrow{color:var(--red);}
+  .btf-card__title{
+    font-family:'Playfair Display',serif;
+    font-size:24px;font-weight:700;color:var(--blue-deep);
+    line-height:1.25;margin-top:8px;
+  }
+  @media (min-width:720px){ .btf-card__title{ font-size:30px; } }
+  .btf-card__title-zh{
+    font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.4px;
+  }
+  @media (min-width:720px){ .btf-card__title-zh{ font-size:20px; } }
+  .btf-card__body{
+    margin-top:18px;font-size:17px;color:var(--ink);line-height:1.7;
+  }
+  @media (min-width:720px){ .btf-card__body{ font-size:19px; } }
+  .btf-card__body-zh{
+    margin-top:10px;font-size:15px;color:var(--ink-soft);line-height:1.65;
+  }
+  @media (min-width:720px){ .btf-card__body-zh{ font-size:17px; } }
+
   /* Footer */
   footer{
     text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);
@@ -522,9 +594,115 @@
   </div>
 </section>
 
-<!-- ===== V. Closing & Visit ===== -->
+<!-- ===== V. Hear from Principal Chang (video) ===== -->
 <section>
   <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Hear from the Principal</h2>
+    <div class="sec__title-zh">校長親聲 · 一段一分鐘的問候</div>
+    <div class="sec__rule"></div>
+
+    <div class="video-lead">
+      If the words above were Principal Chang's voice on paper, this is his voice in person — a short greeting to anyone visiting Yangming for the first time.
+      <div class="video-lead-zh">前面的文字是張校長的紙上之聲，這裡是他親自的聲音——獻給每一位第一次認識陽明的人。</div>
+    </div>
+
+    <div class="video-frame">
+      <div class="video-frame__ratio">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/3XlQ3h2d-s0?rel=0"
+          title="Principal Chang Yao-Chung — Greetings from Yangming"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-frame__caption">
+        <b>Principal Chang Yao-Chung &middot; 張耀忠 校長</b><br>
+        Greetings from Yangming · 陽明國中校長的問候
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Books for Taiwan ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
+    <h2 class="sec__title">Books for Taiwan</h2>
+    <div class="sec__title-zh">送書到臺灣 · 校長長期支持的英文書計畫</div>
+    <div class="sec__rule"></div>
+
+    <div class="btf-lead">A bridge of English books — built by American volunteers, walked across by Taiwanese students.</div>
+    <div class="btf-lead-zh">一座由美國志工搭起、由臺灣學生走過的英文書之橋。</div>
+
+    <div class="btf-grid">
+
+      <div class="btf-card">
+        <div class="btf-card__eyebrow">The Project &middot; 緣起</div>
+        <div class="btf-card__title">From American Libraries to Taiwanese Hands</div>
+        <div class="btf-card__title-zh">從美國家庭與圖書館，送到臺灣學生手中</div>
+        <div class="btf-card__body">
+          Founded in <strong>April 2012</strong> by Amy Lin in the United States, Books for Taiwan mobilises young professionals and student volunteers to collect English-language materials — children's titles, young-adult fiction, hardcover works, cookbooks, and audio-visual media — and ship them to schools, libraries, and even correctional institutions across Taiwan.
+        </div>
+        <div class="btf-card__body-zh">
+          Books for Taiwan 由林秀子（Amy Lin）女士於 2012 年 4 月在美國發起，動員當地年輕志工與學生，從美國家庭與圖書館蒐集英文童書、青少年小說、精裝書、食譜與影音教材，捐贈到臺灣的學校、圖書館，以及部分矯正機構。
+        </div>
+      </div>
+
+      <div class="btf-card is-yangming">
+        <div class="btf-card__eyebrow">At Yangming &middot; 在陽明</div>
+        <div class="btf-card__title">Why Principal Chang has championed it</div>
+        <div class="btf-card__title-zh">為什麼張校長一直在推動這個計畫</div>
+        <div class="btf-card__body">
+          Imported English books are expensive, and that price tag is often the reason a Taiwanese student never opens one. Principal Chang has been a long-time supporter of Books for Taiwan precisely because it removes that price tag — letting Yangming students practise reading on the same kinds of books American children grow up with. It is one of the threads that turns "bilingual" from a policy into a daily fact.
+        </div>
+        <div class="btf-card__body-zh">
+          進口英文書昂貴，價格往往就是孩子翻不開第一本英文書的原因。張校長長期支持 Books for Taiwan，正是看中它把價格門檻拿掉——讓陽明學生能讀到美國同齡孩子讀的書，把「雙語」從政策變成日常。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== VII. Voice from the PTA (video) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VII.</div>
+    <h2 class="sec__title">Voice from the PTA</h2>
+    <div class="sec__title-zh">家長會長的話 · 家校攜手的聲音</div>
+    <div class="sec__rule"></div>
+
+    <div class="video-lead">
+      Education is never one-sided. At Yangming, the Parent-Teacher Association is part of the daily picture — supporting school events, funding programs, and lending the kind of community trust that turns a school into a neighbourhood. Here is a word from the PTA Chair.
+      <div class="video-lead-zh">教育從來不是單向的事。在陽明，家長會是日常風景的一部分——協辦活動、贊助計畫，也是把一所學校變成一個社區的那份信任。以下是家長會長的問候。</div>
+    </div>
+
+    <div class="video-frame">
+      <div class="video-frame__ratio">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Of0vgeNoiy4?rel=0"
+          title="Yangming PTA Chair — A Word from the Parent-Teacher Association"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-frame__caption">
+        <b>PTA Chair &middot; 陽明國中家長會長</b><br>
+        A greeting from the Yangming parent community · 來自陽明家長社群的問候
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIII. Closing & Visit ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VIII.</div>
+    <h2 class="sec__title">Visit Us</h2>
+    <div class="sec__title-zh">校長的話與聯絡方式</div>
+    <div class="sec__rule"></div>
+
     <div class="closing">
       <div class="closing__eyebrow">A Word from Principal Chang &middot; 校長的話</div>
       <h3 class="closing__title">"To be at home in both letters and arms; equally at ease in stillness and motion."
