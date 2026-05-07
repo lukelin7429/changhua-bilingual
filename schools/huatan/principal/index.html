@@ -329,12 +329,90 @@ section.po-body + section.po-body{padding-top:0;}
 .site-footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
 .site-footer .partner a:hover{border-bottom-color:var(--gold-soft);}
 
+/* CV: Education + Career */
+.po-cv{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:30px;margin:30px 0 0;
+}
+.po-cv__col{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:30px 30px 26px;
+  box-shadow:var(--shadow-sm);
+}
+.po-cv__col.is-edu{border-top:6px solid var(--jade);}
+.po-cv__col.is-career{border-top:6px solid var(--brick);}
+.po-cv__col h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:600;
+  color:var(--brick-deep);
+  letter-spacing:.01em;
+  margin-bottom:4px;
+}
+.po-cv__col h3 .zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  font-size:15.5px;color:var(--ink-soft);
+  font-weight:500;letter-spacing:.04em;
+  margin-top:4px;
+}
+.po-cv__list{
+  list-style:none;padding:0;margin:18px 0 0;
+}
+.po-cv__list li{
+  padding:14px 0;
+  border-bottom:1px dashed var(--line);
+}
+.po-cv__list li:last-child{border-bottom:none;}
+.po-cv__list .meta{
+  display:block;
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--jade);
+  margin-bottom:4px;
+}
+.po-cv__col.is-career .po-cv__list .meta{color:var(--brick);}
+.po-cv__list .title-en{
+  font-size:16.5px;color:var(--ink);font-weight:600;
+  line-height:1.45;
+}
+.po-cv__list .title-zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  font-size:15px;color:var(--ink-soft);
+  margin-top:3px;line-height:1.6;
+}
+.po-cv__certs{
+  margin-top:30px;
+  background:var(--cream-warm);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px 24px;
+}
+.po-cv__certs .label{
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--jade);
+  margin-bottom:8px;
+}
+.po-cv__certs .items{
+  font-size:15.5px;color:var(--ink);line-height:1.85;
+}
+.po-cv__certs .items .zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  font-size:14.5px;color:var(--ink-soft);
+  margin-top:4px;
+}
+
 /* Mobile */
 @media (max-width:880px){
   .po-hero__grid{grid-template-columns:1fr;gap:36px;}
   .po-hero__photo{max-width:340px;margin:0 auto;}
   .po-pillars{grid-template-columns:1fr;}
   .po-visit__grid{grid-template-columns:1fr;gap:30px;}
+  .po-cv{grid-template-columns:1fr;}
 }
 @media (max-width:640px){
   .po-hero{padding:48px 0 36px;}
@@ -391,17 +469,129 @@ section.po-body + section.po-body{padding-top:0;}
 <!-- ABOUT -->
 <section class="po-body">
   <div class="wrap-narrow">
-    <h2>An Outsider Who Came Home
-      <span class="zh">外來的校長，回到自己的小鎮</span>
+    <h2>A Veteran Principal Walks Into a Centennial School
+      <span class="zh">一位資深校長，走進百年小學</span>
     </h2>
     <div class="en-block">
-      <p>Principal Chan Hsueh-mei was appointed to Huatan Elementary in August 2024, transferring from Wenkai Elementary &mdash; another well-respected school in Changhua County, where she had served as principal for several years. She arrived at a meaningful moment: just months before the school completed its NT$150 million renovation, marking 111 years of continuous education in Huatan Township.</p>
-      <p>She is, in a sense, "an outsider who came home" &mdash; new to this particular school, but deeply familiar with Changhua's elementary-school landscape, its rural-and-suburban rhythms, and its quiet expectation that a principal is also a daily presence among the children.</p>
+      <p>By the time Principal Chan Hsueh-mei walked through Huatan Elementary's gates in August 2024, she had already spent more than three decades in Changhua County's schools &mdash; ten years as a homeroom teacher, nearly a decade as Director of Guidance at Mingzheng Elementary, a year on secondment to the County Government as a curriculum supervisor, and twelve consecutive years as a principal: first at Jiushe Elementary (2012&ndash;2018), then at Wenkai Elementary (2018&ndash;2024).</p>
+      <p>She arrived at a meaningful moment. Huatan was just months away from completing its NT$150 million renovation, marking 111 years of continuous education in the township. A school carrying that much history needed a principal who already understood Changhua's elementary-school landscape from the inside &mdash; its rural-and-suburban rhythms, its families, and its quiet expectation that the principal is also a daily presence among the children.</p>
     </div>
     <div class="zh-block">
-      <p>詹雪梅校長於 2024 年 8 月接任花壇國小校長，自彰化縣文開國小校長一職調任而來。她接任時，正逢花壇國小邁入 111 年校慶，1.5 億元校舍翻新工程即將落成的關鍵時刻。</p>
-      <p>她可以說是「外來的、又像在地」的校長——新進這所學校，但對彰化縣城鄉小學的節奏、文化、與「校長要每天出現在孩子身邊」這件事，都已熟悉。</p>
+      <p>詹雪梅校長於 2024 年 8 月走進花壇國小校門時，已經在彰化縣的小學服務超過 30 年——10 年級任老師、近 9 年明正國小輔導主任、1 年借調彰化縣政府擔任課程督學，以及連續 12 年的校長資歷：先後擔任九社國小（2012–2018）與文開國小（2018–2024）校長。</p>
+      <p>她接任的時機相當有意義。花壇國小當時距離 1.5 億元校舍翻新落成只剩幾個月，正邁入 111 年校史的新章。一所有這樣歷史厚度的學校，需要一位早已熟悉彰化縣國小生態的校長——熟悉城鄉節奏、家長文化、以及「校長要天天在孩子身邊」這件事。</p>
     </div>
+  </div>
+</section>
+
+<!-- EDUCATION + CAREER CV -->
+<section class="po-body">
+  <div class="wrap">
+    <div class="wrap-narrow" style="padding:0;">
+      <h2>Education &amp; Career
+        <span class="zh">學歷與經歷</span>
+      </h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--ink);margin:14px 0 4px;line-height:1.55;">
+        From Tunghai's business school to a doctorate in adult education &mdash; and from a first-grade homeroom to twelve years in the principal's chair.
+      </p>
+      <p style="font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-bottom:8px;">
+        從東海大學企管系，到中正大學成人及繼續教育博士；從一年級級任老師，到 12 年校長資歷。
+      </p>
+    </div>
+
+    <div class="po-cv">
+
+      <div class="po-cv__col is-edu">
+        <h3>Education
+          <span class="zh">學歷</span>
+        </h3>
+        <ul class="po-cv__list">
+          <li>
+            <span class="meta">Ph.D.</span>
+            <span class="title-en">Adult and Continuing Education</span>
+            <span class="title-zh">國立中正大學 成人及繼續教育學系 博士</span>
+          </li>
+          <li>
+            <span class="meta">Master's</span>
+            <span class="title-en">Adult and Continuing Education</span>
+            <span class="title-zh">國立中正大學 成人及繼續教育學系 碩士</span>
+          </li>
+          <li>
+            <span class="meta">Credits</span>
+            <span class="title-en">Secondary Education Program</span>
+            <span class="title-zh">國立彰化師範大學 中等教育學分</span>
+          </li>
+          <li>
+            <span class="meta">Training</span>
+            <span class="title-en">5th Cohort Teacher Training Program</span>
+            <span class="title-zh">花蓮教育學院 第 5 期教師研習</span>
+          </li>
+          <li>
+            <span class="meta">B.B.A.</span>
+            <span class="title-en">Business Administration</span>
+            <span class="title-zh">東海大學 企業管理學系 學士</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="po-cv__col is-career">
+        <h3>Career
+          <span class="zh">經歷</span>
+        </h3>
+        <ul class="po-cv__list">
+          <li>
+            <span class="meta">2024 – present</span>
+            <span class="title-en">Principal, Huatan Elementary School</span>
+            <span class="title-zh">彰化縣花壇國民小學 校長</span>
+          </li>
+          <li>
+            <span class="meta">2018 – 2024 · 6 yrs</span>
+            <span class="title-en">Principal, Wenkai Elementary School</span>
+            <span class="title-zh">彰化縣文開國民小學 校長</span>
+          </li>
+          <li>
+            <span class="meta">2012 – 2018 · 6 yrs</span>
+            <span class="title-en">Principal, Jiushe Elementary School</span>
+            <span class="title-zh">彰化縣九社國民小學 校長</span>
+          </li>
+          <li>
+            <span class="meta">2011 – 2012</span>
+            <span class="title-en">Curriculum Supervisor</span>
+            <span class="title-zh">彰化縣政府教育處 課程督學</span>
+          </li>
+          <li>
+            <span class="meta">~7 yrs</span>
+            <span class="title-en">Director of Guidance, Mingzheng Elementary</span>
+            <span class="title-zh">彰化縣明正國民小學 輔導主任</span>
+          </li>
+          <li>
+            <span class="meta">~2 yrs</span>
+            <span class="title-en">Acting Director of Student Discipline, Mingzheng Elementary</span>
+            <span class="title-zh">彰化縣明正國民小學 代理訓導主任</span>
+          </li>
+          <li>
+            <span class="meta">~10 yrs</span>
+            <span class="title-en">Homeroom Teacher (two elementary schools)</span>
+            <span class="title-zh">兩所國小 級任教師</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="wrap-narrow" style="padding:0;">
+      <div class="po-cv__certs">
+        <div class="label">Additional Certifications &amp; Training · 其他證照與研習</div>
+        <div class="items">
+          National Academy for Educational Research &mdash; 125th Elementary School Principal Training Program &middot;
+          Hakka Language Instructor &middot;
+          Wood Badge for Guidance Personnel &middot;
+          Seed Teacher for Depression and Self-Harm Prevention &middot;
+          Procurement Professional
+          <span class="zh">國家教育研究院 第 125 期國小校長儲訓班 · 客家語教學支援人員證 · 輔導人員木棉花證書 · 憂鬱與自傷防治種子教師 · 採購專業人員基礎訓練合格</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
