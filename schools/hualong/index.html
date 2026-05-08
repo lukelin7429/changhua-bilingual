@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hualong Elementary School · 彰化縣秀水鄉華龍國民小學</title>
+<meta name="description" content="Hualong Elementary School — A small school with a big heart in Xiushui Township, Changhua County, Taiwan. Home to the Beiguan Band, a sailing-flag school for outdoor learning. 彰化縣秀水鄉華龍國民小學 — 北管樂團、戶外教育揚帆學校、閱讀的家。">
+<meta property="og:title" content="Hualong Elementary School · 彰化縣秀水鄉華龍國民小學">
+<meta property="og:description" content="Reading · Outdoor Learning · Beiguan Music · 愛閱、揚帆、北管雅樂">
+<meta property="og:image" content="photos/北管社團-1.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --crimson:#B23B2D;
+    --crimson-deep:#7a2818;
+    --crimson-soft:#fbeae6;
+    --gold:#c7a24c;
+    --gold-deep:#8b6a17;
+    --gold-soft:#f9efd6;
+    --ink-blue:#2c4359;
+    --ink-blue-soft:#dde6ef;
+    --white:#ffffff;
+    --ink:#1f1a16;
+    --ink-soft:#5e5750;
+    --line:#ece5d5;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(122,40,24,.25);
+    --shadow-sm:0 4px 14px -4px rgba(122,40,24,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--crimson);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ BANNER (crimson + gold dragon motif) ============ */
+  .banner{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 20% 30%,rgba(199,162,76,.18) 0%,transparent 55%),
+      radial-gradient(ellipse at 80% 70%,rgba(255,255,255,.08) 0%,transparent 50%),
+      linear-gradient(135deg,var(--crimson-deep) 0%,var(--crimson) 60%,#9a2f20 100%);
+    color:#fff;
+    padding:90px 0 100px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .banner::before{
+    content:"龍";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) rotate(-8deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(78vw,640px);
+    font-weight:600;
+    color:rgba(255,255,255,.045);
+    line-height:1;
+    pointer-events:none;
+    user-select:none;
+    letter-spacing:0;
+  }
+  .banner__inner{position:relative;z-index:1;}
+  .banner__crest{
+    width:90px;height:90px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--gold) 0%,#d4b465 100%);
+    color:var(--crimson-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'PingFang TC',serif;
+    font-size:34px;font-weight:700;letter-spacing:-2px;
+    box-shadow:0 8px 30px -8px rgba(0,0,0,.4),inset 0 -3px 8px rgba(0,0,0,.08);
+    border:2.5px solid rgba(255,255,255,.5);
+  }
+  .banner__eyebrow{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.32em;
+    color:var(--gold);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    padding:6px 18px;
+    background:rgba(0,0,0,.18);
+    border:1px solid rgba(199,162,76,.4);
+    border-radius:99px;
+  }
+  .banner h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(46px,7.5vw,82px);
+    line-height:1.05;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:14px;
+    text-shadow:0 2px 18px rgba(0,0,0,.18);
+  }
+  .banner .h1-zh{
+    font-size:clamp(22px,2.8vw,30px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.92);
+    margin-top:10px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+  }
+  .banner__tagline{
+    max-width:620px;margin:24px auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:22px;
+    color:#fff;
+    line-height:1.55;
+    opacity:.95;
+  }
+  .banner__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:17.5px;
+    margin-top:8px;
+    color:rgba(255,255,255,.78);
+    letter-spacing:.08em;
+  }
+  .banner__rule{
+    width:60px;height:2px;
+    background:var(--gold);
+    margin:30px auto 0;
+    border-radius:2px;
+  }
+
+  /* Stats strip on banner bottom */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;
+    max-width:820px;margin:38px auto 0;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(199,162,76,.3);
+    border-radius:14px;
+    backdrop-filter:blur(6px);
+    overflow:hidden;
+  }
+  .stat{
+    padding:20px 12px;text-align:center;
+    border-right:1px solid rgba(199,162,76,.22);
+  }
+  .stat:last-child{border-right:none;}
+  .stat__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;font-weight:600;line-height:1;
+    color:var(--gold);
+  }
+  .stat__label-en{font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;margin-top:6px;color:rgba(255,255,255,.95);font-weight:700;}
+  .stat__label-zh{font-size:14px;margin-top:2px;color:rgba(255,255,255,.7);font-family:'PingFang TC',sans-serif;}
+
+  /* ============ Section base (all white) ============ */
+  section{padding:90px 0;background:var(--white);}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--gold-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.24em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(40px,5.6vw,58px);
+    font-weight:600;color:var(--crimson-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:21px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:18.5px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about-grid{
+    display:grid;grid-template-columns:1.05fr 1fr;
+    gap:54px;align-items:center;
+  }
+  .about-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow);
+    aspect-ratio:4/3;
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo .badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--gold);color:var(--ink);
+    padding:5px 12px;border-radius:99px;
+    font-size:13px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:34px;color:var(--crimson-deep);
+    line-height:1.3;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:19px;color:var(--ink);margin-bottom:18px;line-height:1.75;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文";
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--white);padding:0 14px;
+    font-size:13px;color:var(--ink-soft);
+    letter-spacing:.18em;font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:18.5px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .quick{
+    background:#fff;border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;margin-top:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .about-text .quick dt{
+    font-size:13px;font-weight:700;color:var(--gold-deep);
+    letter-spacing:.16em;text-transform:uppercase;
+    margin-top:6px;
+  }
+  .about-text .quick dt:first-child{margin-top:0;}
+  .about-text .quick dd{
+    font-size:17.5px;color:var(--ink);
+    margin:2px 0 12px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ============ Pillars (3 identity cards) ============ */
+  .pillars-section{background:var(--white);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 30px 32px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .pillar:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--gold);
+  }
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    background:var(--crimson-soft);color:var(--crimson-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;font-weight:700;
+    font-family:'PingFang TC','Cormorant Garamond',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(2) .icon{background:var(--gold-soft);color:var(--gold-deep);}
+  .pillar:nth-child(3) .icon{background:var(--ink-blue-soft);color:var(--ink-blue);}
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:28px;color:var(--crimson-deep);
+    line-height:1.3;font-weight:600;margin-bottom:6px;
+  }
+  .pillar h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .pillar .en-body{
+    font-size:17px;color:var(--ink);
+    margin:18px 0 14px;line-height:1.7;
+  }
+  .pillar .divider-tiny{
+    height:1px;background:var(--line);
+    margin:14px 0;
+  }
+  .pillar .zh-body{
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Principal ============ */
+  .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:1/1;
+    box-shadow:var(--shadow-sm);
+    background:var(--crimson-soft);
+  }
+  .principal-photo img{width:100%;height:100%;object-fit:cover;}
+  .principal-photo .ribbon{
+    position:absolute;
+    top:18px;right:-30px;
+    background:var(--gold);
+    color:var(--ink);
+    padding:7px 36px;
+    transform:rotate(35deg);
+    font-size:13px;font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    box-shadow:0 4px 10px rgba(0,0,0,.18);
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:32px;color:var(--crimson-deep);
+    line-height:1.25;font-weight:600;margin-bottom:6px;
+  }
+  .principal-text .role{
+    font-size:14px;color:var(--gold-deep);font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;
+  }
+  .principal-text .quote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:23px;color:var(--ink);
+    line-height:1.45;
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 22px;
+    margin:18px 0;
+  }
+  .principal-text .quote-zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);
+    margin-top:8px;letter-spacing:.04em;
+  }
+  .principal-text .body-en{font-size:17.5px;color:var(--ink);line-height:1.75;margin-bottom:14px;}
+  .principal-text .body-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Stories (Featured) ============ */
+  .stories{background:var(--white);}
+  .story-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .story{
+    background:#fff;border:1px solid var(--line);
+    border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+    display:flex;flex-direction:column;
+  }
+  .story:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .story__img{
+    aspect-ratio:16/10;
+    overflow:hidden;
+    background:var(--crimson-soft);
+    position:relative;
+  }
+  .story__img img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .4s;
+  }
+  .story:hover .story__img img{transform:scale(1.04);}
+  .story__img .tag{
+    position:absolute;top:14px;left:14px;
+    background:rgba(255,255,255,.95);
+    color:var(--crimson-deep);
+    padding:5px 12px;border-radius:99px;
+    font-size:12.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;
+  }
+  .story__body{
+    padding:26px 28px 28px;
+    flex:1;display:flex;flex-direction:column;
+  }
+  .story__date{
+    font-size:13px;color:var(--gold-deep);
+    font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  .story h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:25px;color:var(--crimson-deep);
+    line-height:1.3;font-weight:600;margin-bottom:4px;
+  }
+  .story h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);
+    font-weight:500;margin-top:3px;letter-spacing:.04em;
+  }
+  .story p{
+    font-size:16px;color:var(--ink);
+    margin-top:14px;line-height:1.7;
+  }
+  .story .read-more{
+    margin-top:auto;padding-top:18px;
+    font-size:14px;font-weight:700;color:var(--crimson);
+    letter-spacing:.1em;text-transform:uppercase;
+    border-top:1px solid var(--line);margin-top:18px;
+    padding-top:14px;
+  }
+
+  /* ============ Beiguan feature (full-width band) ============ */
+  .beiguan{
+    background:linear-gradient(180deg,var(--white) 0%,var(--gold-soft) 100%);
+  }
+  .beiguan-wrap{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:center;
+  }
+  .beiguan-photos{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .beiguan-photos figure{
+    border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    aspect-ratio:3/4;
+    margin:0;
+  }
+  .beiguan-photos figure img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .beiguan-photos figure:nth-child(1){margin-top:32px;}
+  .beiguan-text .badge{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    color:var(--gold-deep);
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .beiguan-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:38px;color:var(--crimson-deep);
+    line-height:1.2;font-weight:600;margin-bottom:8px;
+  }
+  .beiguan-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:20px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .beiguan-text .narrative-en{
+    font-size:18px;color:var(--ink);
+    margin:18px 0 14px;line-height:1.75;
+  }
+  .beiguan-text .narrative-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink);line-height:1.85;
+    border-top:1px solid var(--line);padding-top:14px;
+  }
+  .beiguan-text .timeline{
+    margin-top:22px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 22px;
+    box-shadow:var(--shadow-sm);
+  }
+  .beiguan-text .timeline-item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .beiguan-text .timeline-item:last-child{border-bottom:none;}
+  .beiguan-text .timeline-date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;font-weight:700;color:var(--crimson);
+    min-width:78px;letter-spacing:.04em;
+  }
+  .beiguan-text .timeline-text{font-size:15.5px;color:var(--ink);}
+  .beiguan-text .timeline-text small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14.5px;color:var(--ink-soft);margin-top:2px;
+  }
+
+  /* ============ Footer ============ */
+  footer{
+    background:var(--crimson-deep);
+    color:rgba(255,255,255,.86);
+    padding:54px 0 32px;
+    margin-top:0;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-school h4{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:24px;color:#fff;font-weight:600;
+    margin-bottom:6px;
+  }
+  .footer-school .name-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:16px;color:rgba(255,255,255,.7);
+    margin-bottom:14px;letter-spacing:.04em;
+  }
+  .footer-school p{
+    font-size:14.5px;line-height:1.7;
+    color:rgba(255,255,255,.78);
+    font-family:'PingFang TC','Inter',sans-serif;
+  }
+  .footer-col h5{
+    font-size:13px;font-weight:700;
+    color:var(--gold);
+    letter-spacing:.18em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .footer-col ul{list-style:none;}
+  .footer-col li{margin:8px 0;font-size:15px;}
+  .footer-col a{color:rgba(255,255,255,.86);}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{
+    padding-top:22px;text-align:center;
+    font-size:13px;color:rgba(255,255,255,.55);
+  }
+  .footer-bottom a{color:var(--gold);}
+
+  /* ============ Responsive ============ */
+  @media (max-width:880px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(199,162,76,.22);}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{grid-template-columns:1fr;padding:34px;gap:28px;}
+    .story-grid{grid-template-columns:1fr;}
+    .beiguan-wrap{grid-template-columns:1fr;gap:32px;}
+    .footer-grid{grid-template-columns:1fr;gap:28px;}
+    section{padding:64px 0;}
+    .banner{padding:60px 0 70px;}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============ BANNER ============ -->
+<header class="banner">
+  <div class="wrap banner__inner">
+    <div class="banner__crest">華龍</div>
+    <span class="banner__eyebrow">Changhua · Xiushui</span>
+    <h1>Hualong Elementary School</h1>
+    <div class="h1-zh">彰化縣秀水鄉華龍國民小學</div>
+    <p class="banner__tagline">
+      Reading hearts, sailing minds, ancient strings.
+      <span class="tagline-zh">愛閱・揚帆・北管雅樂——一所小學校的三條河流</span>
+    </p>
+    <div class="banner__rule"></div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">1971</div>
+        <div class="stat__label-en">Founded</div>
+        <div class="stat__label-zh">獨立設校</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">7th</div>
+        <div class="stat__label-en">Principal</div>
+        <div class="stat__label-zh">第七任校長</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">114</div>
+        <div class="stat__label-en">Sailing Flag</div>
+        <div class="stat__label-zh">揚帆學校認證</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">5+</div>
+        <div class="stat__label-en">Beiguan Players</div>
+        <div class="stat__label-zh">五年級北管樂團</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">About Hualong</span>
+      <h2>A small school in clear-water country</h2>
+      <div class="h2-zh">秀水鄉的一所小學校</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="photos/北斗田野勤學.jpg" alt="Hualong students at the Beidou Tianye Diligent Learning farm">
+        <span class="badge">Outdoor learning</span>
+      </div>
+      <div class="about-text">
+        <h3>Where every child meets the world beyond the classroom.</h3>
+        <p class="en">
+          Founded in 1966 as a branch of Xiushui Elementary and made independent in 1971, Hualong Elementary serves the rural village of Huaxiu Road in Xiushui Township, Changhua County. The township's old name, <em>Choushuei</em> (literally "stinking water"), was renamed <em>Xiushui</em> ("clear water") during the Qing Jiaqing era — a hopeful turn we still carry.
+        </p>
+        <p class="en">
+          Today Hualong is small in size but rich in stories: a Beiguan ensemble built by fifth-graders, a principal who plays guitar at Mother's Day, and a school-wide commitment to walking out of the classroom and learning from real soil, real factories, real people.
+        </p>
+        <div class="zh-divider"></div>
+        <p class="zh">
+          華龍國小於民國 55 年（1966）成立秀水國小華龍分校，民國 60 年（1971）獨立設校，地處秀水鄉花秀路。秀水鄉古名「臭水」，清嘉慶年間改名「秀水」，意指與濁水溪交會的清水——一個帶著希望的命名。
+        </p>
+        <p class="zh" style="margin-top:10px;">
+          學校規模不大，卻有自己的厚度：五年級孩子自發組成的北管樂團、母親節彈吉他獻唱的校長、走出教室向真實土地與產業學習的戶外課程。我們是 114 學年度通過教育部認證的「永續發展與戶外教育領導學校」。
+        </p>
+
+        <dl class="quick">
+          <dt>Address · 地址</dt>
+          <dd>504-007 No. 51, Huaxiu Rd., Xiushui Township, Changhua County · 彰化縣秀水鄉花秀路 51 號</dd>
+          <dt>Phone · 電話</dt>
+          <dd>(04) 7692-713</dd>
+          <dt>Principal · 校長</dt>
+          <dd>Hong Wei-zhen 洪維振（since August 2025）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE PILLARS ============ -->
+<section class="pillars-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What We Stand For</span>
+      <h2>Three rivers, one school</h2>
+      <div class="h2-zh">三條河流，一所學校</div>
+      <p class="lede">Reading lights the inner life. Outdoor learning extends it. Beiguan music carries it home through the strings of our grandparents' songs.</p>
+    </div>
+
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="icon">愛</div>
+        <h3>A Reading Home
+          <small>愛閱點播站</small>
+        </h3>
+        <p class="en-body">
+          Our official Facebook page is named <em>Hualong's Love-Reading Broadcasting Station</em> — and that is no accident. Reading is the quiet engine of everything else here.
+        </p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">
+          學校 FB 粉專就叫「華龍愛閱點播站」——閱讀是這所學校所有事情的安靜引擎。
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="icon">帆</div>
+        <h3>Outdoor Learning
+          <small>戶外教育揚帆學校</small>
+        </h3>
+        <p class="en-body">
+          Hualong is officially certified by Taiwan's Ministry of Education as a "Sailing-Flag School" for outdoor and sustainable learning — a national badge for schools that carry students past the classroom walls.
+        </p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">
+          通過教育部「永續發展與戶外教育領導學校」（揚帆學校）認證——把孩子帶離教室的學校，才能掛這面旗。
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="icon">雅</div>
+        <h3>Beiguan Strings
+          <small>北管雅樂</small>
+        </h3>
+        <p class="en-body">
+          Beiguan is a centuries-old Taiwanese folk music tradition — and a UNESCO-recognized intangible cultural heritage. At Hualong, fifth-graders carry it forward in their own student-led ensemble.
+        </p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">
+          北管是台灣百年雅樂傳統，國家無形文化資產。在華龍，五年級孩子自發成團，把這個傳統繼續往下傳。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPAL ============ -->
+<section class="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Meet the Principal</span>
+      <h2>Principal Hong Wei-zhen</h2>
+      <div class="h2-zh">洪維振校長</div>
+    </div>
+
+    <div class="principal-card">
+      <div class="principal-photo">
+        <img src="photos/桌球錦標賽-1.jpg" alt="Principal Hong at the table tennis championship">
+        <span class="ribbon">Champion · 冠軍</span>
+      </div>
+      <div class="principal-text">
+        <h3>The principal who plays the long game.</h3>
+        <p class="role">7th Principal · since August 2025</p>
+        <blockquote class="quote">
+          "Exercise isn't a slogan. It's a way of life."
+          <span class="quote-zh">「運動不只是口號，而是生活態度。」</span>
+        </blockquote>
+        <p class="body-en">
+          On March 18, 2026, Principal Hong won first place in the Principal &amp; Administrators division at the Changhua County 114th Education Cup Table Tennis Championship — and brought the trophy home to a school that already loves a good game. He plays guitar too, sometimes serenading mothers on Mother's Day with a Hokkien song called <em>A Letter to Mother</em>.
+        </p>
+        <p class="body-zh">
+          2026 年 3 月 18 日，洪校長在「彰化縣 114 學年度教育盃桌球錦標賽」校長行政組勇奪第一名。他平日積極推動校園運動風氣，更偶爾在母親節抱起吉他，為全校媽媽獻唱一首〈寄乎阿母的批〉。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEIGUAN FEATURE ============ -->
+<section class="beiguan">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">School Signature</span>
+      <h2>The fifth-grade Beiguan band</h2>
+      <div class="h2-zh">五年級的小小絲竹團</div>
+      <p class="lede">A two-act story of how children build a music tradition with their own hands.</p>
+    </div>
+
+    <div class="beiguan-wrap">
+      <div class="beiguan-photos">
+        <figure>
+          <img src="photos/北管社團-1.jpg" alt="Beiguan club practice">
+        </figure>
+        <figure>
+          <img src="photos/兒童節演出-1.jpg" alt="Beiguan performance on Children's Day">
+        </figure>
+      </div>
+      <div class="beiguan-text">
+        <span class="badge">A two-act story</span>
+        <h3>From practice room to stage in two lessons.
+          <small>兩堂課從練習室走上舞台</small>
+        </h3>
+        <p class="narrative-en">
+          Every Tuesday lunchtime, the Beiguan club's silk-and-bamboo strings come alive in the music room. This spring, a group of fifth-graders walked in on the first week of school and told their teacher: <em>"We want to play at the Children's Day class show."</em> Two lessons later, they had assembled a small ensemble. They were quietly practicing on their own.
+        </p>
+        <p class="narrative-zh">
+          每週二中午是北管社團孩子們絲弦樂器分組課的時間。這個春天，五年級的同學在剛開學就跟老師討論演出內容、樂器分配，短短兩次上課就組成了一個小小絲竹團，能演奏出北管絃譜〈春串〉——他們私底下，肯定有自行加練。
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Mar 27</div>
+            <div class="timeline-text">
+              The practice begins.
+              <small>《華龍北管社團特輯》— 絲弦分組課開練</small>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Apr 4</div>
+            <div class="timeline-text">
+              The Children's Day debut: <em>Spring Strings</em>.
+              <small>兒童節首演，演奏〈春串〉</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section class="stories">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Recent Stories</span>
+      <h2>From the school feed</h2>
+      <div class="h2-zh">最近的校園故事</div>
+    </div>
+
+    <div class="story-grid">
+
+      <article class="story">
+        <div class="story__img">
+          <img src="photos/北斗田野勤學.jpg" alt="Field study at Beidou">
+          <span class="tag">Outdoor</span>
+        </div>
+        <div class="story__body">
+          <div class="story__date">May 8 · 2026</div>
+          <h3>Walking out of the classroom
+            <small>走出教室，看見世界</small>
+          </h3>
+          <p>
+            Fifth- and sixth-graders rode out to <em>Tianye Diligent Learning</em> in Beidou to meet the soybean farmers, then to the historic Xihu Sugar Refinery to ride the wooden five-section sugar train. A class about land, food, and Taiwan's industrial memory.
+          </p>
+          <p style="font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:8px;">
+            中高年級遠赴北斗田野勤學認識黃豆，下午到溪湖糖廠搭五分車——一場土地、文化、歷史的相遇。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__img" style="background:linear-gradient(135deg,var(--crimson-soft),var(--gold-soft));display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;padding:30px;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--crimson-deep);font-weight:600;">A Letter to Mother</div>
+            <div style="font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;">寄乎阿母的批</div>
+          </div>
+          <span class="tag">Mother's Day</span>
+        </div>
+        <div class="story__body">
+          <div class="story__date">May 6 · 2026</div>
+          <h3>Warm May, grateful school
+            <small>溫馨五月情，感恩校園</small>
+          </h3>
+          <p>
+            Ocarina opened the ceremony with the song <em>Mothers of the World Are All the Same</em>. Children handed mothers handmade cards, carnations, and "thank-you socks." The principal closed with his guitar, singing the Hokkien classic <em>A Letter to Mother</em> — and the whole hall went quiet.
+          </p>
+          <p style="font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:8px;">
+            陶笛開場、孩子親手致贈卡片康乃馨與感恩襪，校長深情吉他獻唱〈寄乎阿母的批〉，深刻觸動全場師生與家長。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__img">
+          <img src="photos/地球日-1.jpg" alt="Earth Day at Hualong">
+          <span class="tag">Earth Day</span>
+        </div>
+        <div class="story__body">
+          <div class="story__date">Apr 22 · 2026</div>
+          <h3>Cherish food, love Earth
+            <small>惜食愛地球</small>
+          </h3>
+          <p>
+            Nutritionist Liu Hsuan-hsiu from <em>Yumei Biotech</em> visited Hualong for World Earth Day, leading the school in rethinking everyday eating habits and food waste. A small classroom, a global SDG.
+          </p>
+          <p style="font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:8px;">
+            玉美生技劉宣秀營養師蒞校宣導惜食愛地球，重新思考日常飲食習慣，呼應 SDG 12 與 SDG 13。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__img">
+          <img src="photos/桌球錦標賽-2.jpg" alt="Principal Hong's table tennis championship">
+          <span class="tag">Principal</span>
+        </div>
+        <div class="story__body">
+          <div class="story__date">Mar 18 · 2026</div>
+          <h3>Principal wins the championship
+            <small>校長奪桌球冠軍</small>
+          </h3>
+          <p>
+            Principal Hong took first place in the Principal &amp; Administrators division at the Changhua County 114th Education Cup Table Tennis Championship. Leadership by example, racket in hand.
+          </p>
+          <p style="font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:8px;">
+            洪維振校長奪「彰化縣 114 學年度教育盃桌球錦標賽」校長行政組第一名——以實際行動證明：運動不只是口號。
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-school">
+        <h4>Hualong Elementary School</h4>
+        <div class="name-zh">彰化縣秀水鄉華龍國民小學</div>
+        <p>
+          504-007 No. 51, Huaxiu Rd., Xiushui Township, Changhua County, Taiwan<br>
+          彰化縣秀水鄉花秀路 51 號<br>
+          Phone · 電話：(04) 7692-713<br>
+          Fax · 傳真：(04) 7684-556
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://hlps.chc.edu.tw/" target="_blank" rel="noopener">Official site · 官網</a></li>
+          <li><a href="https://www.facebook.com/HLiread" target="_blank" rel="noopener">Facebook · 愛閱點播站</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Partner</h5>
+        <ul>
+          <li><a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a></li>
+          <li>人師教育協會</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> · 人師教育協會 ·
+      Bilingual Web Initiative · 彰化雙語網站專案
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
