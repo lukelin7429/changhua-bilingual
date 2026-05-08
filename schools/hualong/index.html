@@ -244,7 +244,12 @@
   /* ============ ABOUT ============ */
   .about-grid{
     display:grid;grid-template-columns:1fr 1fr;
-    gap:54px;align-items:center;
+    gap:54px;align-items:start;
+  }
+  .about-photos{
+    display:grid;
+    grid-template-rows:auto auto;
+    gap:14px;
   }
   .about-photo{
     position:relative;
@@ -252,6 +257,7 @@
     box-shadow:var(--shadow);
     aspect-ratio:4/3;
   }
+  .about-photo:nth-child(2){aspect-ratio:16/9;}
   .about-photo img{width:100%;height:100%;object-fit:cover;}
   .about-photo .badge{
     position:absolute;top:14px;left:14px;
@@ -259,6 +265,19 @@
     padding:5px 12px;border-radius:99px;
     font-size:13px;font-weight:700;
     letter-spacing:.1em;text-transform:uppercase;
+  }
+  .about-photo .caption{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(42,37,33,.78) 0%,transparent 100%);
+    color:#fff;
+    padding:18px 16px 12px;
+    font-size:14.5px;
+    font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{
+    font-style:italic;font-family:'Cormorant Garamond',serif;
+    font-size:16.5px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);
   }
   .about-text h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
@@ -282,23 +301,6 @@
     font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
     font-size:17.5px;color:var(--ink);line-height:1.85;
   }
-  .about-text .quick{
-    background:var(--peach-soft);
-    border-radius:14px;padding:20px 22px;margin-top:26px;
-    border-left:4px solid var(--peach-deep);
-  }
-  .about-text .quick dt{
-    font-size:12.5px;font-weight:700;color:var(--seal);
-    letter-spacing:.16em;text-transform:uppercase;
-    margin-top:8px;
-  }
-  .about-text .quick dt:first-child{margin-top:0;}
-  .about-text .quick dd{
-    font-size:16.5px;color:var(--ink);
-    margin:2px 0 10px;
-    font-family:'PingFang TC',sans-serif;
-  }
-  .about-text .quick dd:last-child{margin-bottom:0;}
 
   /* ============ THREE PILLARS ============ */
   .pillars-section{background:var(--white);}
@@ -648,7 +650,7 @@
     <nav class="topbar-nav">
       <a href="#about">About</a>
       <a href="#pillars">Identity</a>
-      <a href="#principal">Principal</a>
+      <a href="principal/">Principal</a>
       <a href="#beiguan">Beiguan</a>
       <a href="#stories">Stories</a>
     </nav>
@@ -714,9 +716,22 @@
     </div>
 
     <div class="about-grid">
-      <div class="about-photo">
-        <img src="photos/banner-3.jpg" alt="Hualong faculty celebrating school evaluation honors">
-        <span class="badge">Faculty</span>
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/banner-3.jpg" alt="Hualong faculty celebrating school evaluation honors">
+          <span class="badge">Faculty</span>
+          <div class="caption">
+            <span class="en">School-evaluation honors, 2024</span>
+            113 學年度校務評鑑優等
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/banner-1.png" alt="Hualong campus and playground">
+          <div class="caption">
+            <span class="en">Our campus on Huaxiu Road</span>
+            花秀路上的華龍校園
+          </div>
+        </div>
       </div>
       <div class="about-text">
         <h3>Where every child meets the world beyond the classroom.</h3>
@@ -733,15 +748,6 @@
         <p class="zh" style="margin-top:10px;">
           學校規模不大，卻有自己的厚度：五年級孩子自發組成的北管樂團、母親節彈吉他獻唱的校長、走出教室向真實土地與產業學習的戶外課程。我們是 114 學年度通過教育部認證的「永續發展與戶外教育領導學校」。
         </p>
-
-        <dl class="quick">
-          <dt>Address · 地址</dt>
-          <dd>504-007 No. 51, Huaxiu Rd., Xiushui Township, Changhua County · 彰化縣秀水鄉花秀路 51 號</dd>
-          <dt>Phone · 電話</dt>
-          <dd>(04) 7692-713</dd>
-          <dt>Principal · 校長</dt>
-          <dd>Hong Wei-zhen 洪維振（since August 2025）</dd>
-        </dl>
       </div>
     </div>
   </div>
