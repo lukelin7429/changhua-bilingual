@@ -117,6 +117,30 @@
     position:absolute;inset:0;width:100%;height:100%;border:0;
   }
 
+
+  /* Direct-to-YouTube link below each player */
+  .player-link{
+    margin-top:14px;display:flex;align-items:center;gap:14px;
+    padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;
+    text-decoration:none;color:var(--blue-deep);
+    transition:transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .player-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:var(--blue);}
+  .player-link__icon{
+    flex-shrink:0;width:42px;height:30px;border-radius:6px;
+    background:#FF0000;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;letter-spacing:.5px;
+  }
+  .player-link__text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .player-link__text strong{
+    font-family:'Playfair Display',serif;font-size:18px;color:var(--blue-deep);font-weight:700;line-height:1.3;
+  }
+  .player-link__text span{
+    font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;
+  }
+  .player-link__arrow{font-size:22px;color:var(--red);flex-shrink:0;}
+
   /* Topic grid (10 classroom situations) */
   .topics{
     display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px;
@@ -280,6 +304,15 @@
       </div>
     </div>
 
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text">
+        <strong>Browse the full playlist on YouTube</strong>
+        <span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支影片</span>
+      </span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
     <div class="topics">
       <div class="topic"><div class="topic__no">01</div><div class="topic__en">Greetings &amp; Roll Call</div><div class="topic__zh">問候、點名</div></div>
       <div class="topic"><div class="topic__no">02</div><div class="topic__en">Pre-Class Preparation</div><div class="topic__zh">課前準備</div></div>
@@ -336,6 +369,15 @@
           allowfullscreen></iframe>
       </div>
     </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text">
+        <strong>Browse the full playlist on YouTube</strong>
+        <span>在 YouTube 開啟完整 playlist · 13 集任你選擇</span>
+      </span>
+      <span class="player-link__arrow">↗</span>
+    </a>
 
     <div class="offices">
       <div class="office">
