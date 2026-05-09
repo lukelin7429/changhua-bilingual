@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stories from Hualong · 華龍國小的故事</title>
+<meta name="description" content="Recent stories from Hualong Elementary School in Xiushui Township — outdoor education, Mother's Day, Beiguan music, and a principal who plays table tennis. 華龍國小最近的故事。">
+<meta property="og:title" content="Stories from Hualong · 華龍國小的故事">
+<meta property="og:description" content="Recent stories from a small but rich school in Changhua, Taiwan.">
+<meta property="og:image" content="../photos/logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../photos/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --peach:#E69585;
+  --peach-deep:#C66E5C;
+  --peach-soft:#fbe9e2;
+  --seal:#4a3d6b;
+  --seal-deep:#332957;
+  --seal-soft:#e7e4ef;
+  --leaf:#5fa078;
+  --leaf-soft:#dceee2;
+  --gold:#c7a24c;
+  --white:#ffffff;
+  --ink:#2a2521;
+  --ink-soft:#6b645c;
+  --line:#ece5d5;
+  --max:1080px;
+  --max-narrow:780px;
+  --shadow:0 14px 40px -16px rgba(74,61,107,.22);
+  --shadow-sm:0 4px 14px -4px rgba(74,61,107,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--ink);background:var(--white);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:var(--peach-deep);text-decoration:none;transition:color .2s;}
+a:hover{color:var(--seal);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.wrap-narrow{max-width:var(--max-narrow);margin:0 auto;padding:0 24px;}
+
+/* TOPBAR */
+.topbar{
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--line);
+  padding:14px 0;position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(8px);
+}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.topbar-brand{display:flex;align-items:center;gap:12px;}
+.topbar-logo{width:38px;height:38px;display:block;}
+.topbar-name{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:19px;font-weight:600;color:var(--seal-deep);line-height:1.1;
+}
+.topbar-name small{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+}
+.topbar-back{font-size:13.5px;color:var(--peach-deep);font-weight:600;letter-spacing:.06em;}
+.topbar-back::before{content:"←";margin-right:6px;}
+.topbar-back:hover{color:var(--seal);}
+
+/* PORTAL HERO */
+.portal-hero{
+  background:
+    radial-gradient(circle at 88% 30%,var(--peach-soft) 0%,transparent 55%),
+    radial-gradient(circle at 8% 80%,var(--seal-soft) 0%,transparent 50%),
+    var(--white);
+  padding:64px 0 48px;text-align:center;
+  border-top:4px solid var(--peach);
+  border-bottom:1px solid var(--line);
+}
+.portal-hero__eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13.5px;letter-spacing:.22em;
+  color:var(--seal);font-weight:700;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.portal-hero__eyebrow::before,
+.portal-hero__eyebrow::after{
+  content:"";width:24px;height:1.5px;background:var(--peach-deep);
+}
+.portal-hero h1{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:clamp(40px,6vw,60px);
+  font-weight:600;line-height:1.1;letter-spacing:.005em;
+  color:var(--seal-deep);margin-bottom:10px;
+}
+.portal-hero h1 .h1-zh{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:clamp(19px,2.3vw,23px);color:var(--ink-soft);
+  font-weight:500;margin-top:8px;letter-spacing:.05em;
+}
+.portal-hero p{
+  max-width:640px;margin:22px auto 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-style:italic;
+  color:var(--ink);line-height:1.55;
+}
+.portal-hero p .zh{
+  display:block;margin-top:8px;
+  font-family:'PingFang TC',sans-serif;font-style:normal;
+  font-size:16.5px;color:var(--ink-soft);
+}
+
+/* PORTAL GRID */
+.portal-grid{
+  padding:50px 0 80px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:26px;
+}
+
+.story-card-link{display:contents;color:inherit;}
+
+.story-card{
+  background:#fff;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow-sm);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  border-top:8px solid var(--peach);
+  display:flex;flex-direction:column;cursor:pointer;
+}
+.story-card.theme-seal{border-top-color:var(--seal);}
+.story-card.theme-leaf{border-top-color:var(--leaf);}
+.story-card.theme-gold{border-top-color:var(--gold);}
+.story-card.theme-peach-deep{border-top-color:var(--peach-deep);}
+.story-card:hover{
+  transform:translateY(-4px);box-shadow:var(--shadow);
+  border-color:var(--peach);
+}
+.story-card.is-featured{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+}
+.story-card__img{
+  aspect-ratio:16/10;background:var(--peach-soft);overflow:hidden;
+  position:relative;
+}
+.story-card.is-featured .story-card__img{
+  aspect-ratio:auto;height:100%;min-height:360px;
+}
+.story-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.story-card:hover .story-card__img img{transform:scale(1.04);}
+
+.story-card__body{
+  padding:28px 30px 30px;
+  display:flex;flex-direction:column;flex:1;
+}
+.story-card .eyebrow{
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--peach-deep);margin-bottom:10px;
+}
+.story-card.theme-seal .eyebrow{color:var(--seal);}
+.story-card.theme-leaf .eyebrow{color:var(--leaf);}
+.story-card.theme-gold .eyebrow{color:var(--gold);}
+.story-card h3{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:28px;line-height:1.2;color:var(--seal-deep);
+  font-weight:600;margin-bottom:6px;
+}
+.story-card.is-featured h3{font-size:36px;}
+.story-card h3 .h3-zh{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:17px;color:var(--ink-soft);font-weight:500;
+  margin-top:6px;letter-spacing:.04em;
+}
+.story-card .date{
+  font-size:13px;color:var(--ink-soft);
+  letter-spacing:.06em;margin-bottom:14px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+.story-card .hook{
+  font-size:16.5px;color:var(--ink);
+  line-height:1.65;margin-bottom:6px;
+}
+.story-card .hook-zh{
+  font-family:'PingFang TC',sans-serif;
+  font-size:15px;color:var(--ink-soft);
+  line-height:1.85;margin-top:8px;padding-top:10px;
+  border-top:1px dashed var(--line);
+}
+.story-card .read-more{
+  margin-top:auto;padding-top:18px;
+  font-size:14px;font-weight:700;
+  color:var(--peach-deep);letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.story-card .read-more::after{content:" →";transition:margin-left .2s;}
+.story-card:hover .read-more::after{margin-left:4px;}
+
+/* Mother's Day card has no photo — uses gradient text design */
+.story-card__text-img{
+  background:linear-gradient(135deg,var(--peach-soft) 0%,var(--seal-soft) 100%);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:40px;
+  position:relative;
+}
+.story-card__text-img .title-en{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;color:var(--seal-deep);font-weight:600;
+  line-height:1.1;
+}
+.story-card.is-featured .story-card__text-img .title-en{font-size:54px;}
+.story-card__text-img .title-zh{
+  font-family:'PingFang TC',sans-serif;
+  font-size:18px;color:var(--peach-deep);
+  margin-top:12px;letter-spacing:.05em;font-weight:500;
+}
+
+/* RETURN ROW */
+.return-row{
+  text-align:center;padding:40px 24px 60px;background:var(--white);
+  border-top:1px solid var(--line);
+}
+.return-row a{
+  display:inline-block;padding:13px 28px;
+  border:1.5px solid var(--peach-deep);border-radius:99px;
+  color:var(--peach-deep);font-weight:600;font-size:15px;
+  letter-spacing:.04em;margin:0 6px 8px;
+  transition:background .2s,color .2s;
+}
+.return-row a:hover{background:var(--peach-deep);color:#fff;}
+.return-row a.primary{background:var(--peach-deep);color:#fff;}
+.return-row a.primary:hover{background:var(--seal);border-color:var(--seal);}
+
+/* FOOTER */
+.site-footer{
+  background:var(--seal-deep);color:rgba(255,255,255,.7);
+  padding:30px 0;font-size:13px;text-align:center;
+  position:relative;
+}
+.site-footer::before{
+  content:"";position:absolute;top:-1px;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--peach) 0%,var(--peach-deep) 33%,var(--seal) 66%,var(--leaf) 100%);
+}
+.site-footer .partner{margin-top:6px;color:var(--peach);font-weight:600;}
+.site-footer .partner a{color:var(--peach);border-bottom:1px solid transparent;}
+.site-footer .partner a:hover{border-bottom-color:var(--peach);}
+
+@media (max-width:880px){
+  .portal-grid{grid-template-columns:1fr;}
+  .story-card.is-featured{grid-template-columns:1fr;}
+  .story-card.is-featured .story-card__img{min-height:240px;}
+  .story-card.is-featured h3{font-size:28px;}
+  .story-card.is-featured .story-card__text-img .title-en{font-size:38px;}
+}
+@media (max-width:640px){
+  .portal-hero{padding:48px 0 32px;}
+  .portal-grid{padding:36px 0 60px;}
+  .story-card__body{padding:22px 24px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <img src="../photos/logo.png" alt="Hualong logo" class="topbar-logo">
+      <div class="topbar-name">
+        Hualong Elementary
+        <small>彰化縣秀水鄉華龍國小</small>
+      </div>
+    </div>
+    <a href="../" class="topbar-back">Home · 回首頁</a>
+  </div>
+</div>
+
+<!-- PORTAL HERO -->
+<section class="portal-hero">
+  <div class="wrap">
+    <span class="portal-hero__eyebrow">Recent Stories · 最新故事</span>
+    <h1>Stories from Hualong
+      <span class="h1-zh">華龍國小的故事</span>
+    </h1>
+    <p>
+      A small school in Xiushui Township, but never short on stories.
+      Here are five from this spring &mdash; the way our children learn, celebrate, and grow up.
+      <span class="zh">秀水鄉的小學校，故事從不嫌少。
+      這個春天，我們從華龍校園的日常裡，挑出五則最值得分享的時刻。</span>
+    </p>
+  </div>
+</section>
+
+<!-- STORIES GRID -->
+<main class="wrap">
+  <div class="portal-grid">
+
+    <!-- Featured: Mother's Day (peach-deep theme, full-width) -->
+    <a href="mothers-day/" class="story-card-link">
+      <article class="story-card is-featured theme-peach-deep">
+        <div class="story-card__img story-card__text-img">
+          <div>
+            <div class="title-en">A Letter<br>to Mother</div>
+            <div class="title-zh">寄乎阿母的批</div>
+          </div>
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Mother's Day · 母親節</span>
+          <h3>Warm May, Grateful School
+            <span class="h3-zh">溫馨五月情，感恩校園</span>
+          </h3>
+          <div class="date">May 6, 2026 · 2026 年 5 月 6 日</div>
+          <p class="hook">Ocarina opened the ceremony with <em>Mothers of the World Are All the Same</em>. Children handed mothers handmade cards, carnations, and "thank-you socks." The principal closed with his guitar — and the whole hall went quiet.</p>
+          <p class="hook-zh">陶笛奏起《天下的媽媽都是一樣的》揭開序幕，孩子親手致贈卡片、康乃馨與感恩襪。校長深情吉他獻唱〈寄乎阿母的批〉，深刻觸動全場師生與家長的心弦。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Outdoor Education (leaf theme) -->
+    <a href="outdoor-learning/" class="story-card-link">
+      <article class="story-card theme-leaf">
+        <div class="story-card__img">
+          <img src="../photos/北斗田野勤學.jpg" alt="Hualong students at Beidou Tianye Diligent Learning farm" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Outdoor Learning · 戶外教育</span>
+          <h3>Walking Out of the Classroom
+            <span class="h3-zh">走出教室，看見世界</span>
+          </h3>
+          <div class="date">May 8, 2026 · 2026 年 5 月 8 日</div>
+          <p class="hook">Fifth- and sixth-graders rode out to <em>Tianye Diligent Learning</em> in Beidou to meet the soybean farmers, then to the historic Xihu Sugar Refinery to ride the wooden five-section sugar train.</p>
+          <p class="hook-zh">中高年級遠赴北斗田野勤學認識黃豆，下午到溪湖糖廠搭五分車——一場土地、文化、歷史相遇的課程。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Beiguan Band (seal theme) -->
+    <a href="beiguan-band/" class="story-card-link">
+      <article class="story-card theme-seal">
+        <div class="story-card__img">
+          <img src="../photos/兒童節演出-1.jpg" alt="Beiguan band performance on Children's Day" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Tradition · 傳統音樂</span>
+          <h3>The Fifth-Grade Beiguan Band
+            <span class="h3-zh">五年級的小小絲竹團</span>
+          </h3>
+          <div class="date">March 27 &mdash; April 4, 2026</div>
+          <p class="hook">A two-act story: from a Tuesday-lunchtime practice room to a Children's Day stage in just two lessons. They were quietly practicing on their own.</p>
+          <p class="hook-zh">兩幕劇：從週二中午的練習教室，兩堂課就走上兒童節舞台。他們私底下，肯定有自行加練。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Earth Day (gold theme) -->
+    <a href="earth-day/" class="story-card-link">
+      <article class="story-card theme-gold">
+        <div class="story-card__img">
+          <img src="../photos/地球日-1.jpg" alt="Earth Day at Hualong with nutritionist Liu Hsuan-hsiu" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Earth Day · 世界地球日</span>
+          <h3>Cherish Food, Love Earth
+            <span class="h3-zh">惜食愛地球</span>
+          </h3>
+          <div class="date">April 22, 2026 · 2026 年 4 月 22 日</div>
+          <p class="hook">Nutritionist Liu Hsuan-hsiu visited Hualong for World Earth Day, leading the school in rethinking everyday eating habits and food waste. A small classroom, a global SDG.</p>
+          <p class="hook-zh">玉美生技劉宣秀營養師蒞校宣導惜食愛地球，重新思考日常飲食習慣與食物浪費——呼應 SDG 12 與 SDG 13。</p>
+          <span class="read-more">Read the full story</span>
+        </div>
+      </article>
+    </a>
+
+    <!-- Principal's championship (peach theme) — links to /principal/ -->
+    <a href="../principal/" class="story-card-link">
+      <article class="story-card theme-peach-deep">
+        <div class="story-card__img">
+          <img src="../photos/桌球錦標賽-1.jpg" alt="Principal Hong winning the table tennis championship" loading="lazy">
+        </div>
+        <div class="story-card__body">
+          <span class="eyebrow">Principal · 校長</span>
+          <h3>Principal Wins the Championship
+            <span class="h3-zh">校長奪桌球冠軍</span>
+          </h3>
+          <div class="date">March 18, 2026 · 2026 年 3 月 18 日</div>
+          <p class="hook">Principal Hong took first place in the Principal &amp; Administrators division at the Changhua County 114th Education Cup Table Tennis Championship. Leadership by example, racket in hand.</p>
+          <p class="hook-zh">洪維振校長奪「彰化縣 114 學年度教育盃桌球錦標賽」校長行政組第一名——以實際行動證明：運動不只是口號。</p>
+          <span class="read-more">Visit the Principal's Office</span>
+        </div>
+      </article>
+    </a>
+
+  </div>
+</main>
+
+<!-- RETURN ROW -->
+<div class="return-row">
+  <a class="primary" href="../">← Back to Home · 回首頁</a>
+  <a href="../principal/">Principal's Office · 校長室</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 彰化縣秀水鄉華龍國民小學 · Hualong Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
