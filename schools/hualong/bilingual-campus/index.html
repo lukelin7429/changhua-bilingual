@@ -77,8 +77,55 @@
   /* Section */
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
-  section:first-of-type{border-top:4px solid var(--peach);}
   section:last-of-type{border-bottom:none;}
+
+  /* First section becomes a deep-seal hero */
+  section:first-of-type{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 88% 20%,rgba(199,162,76,.18) 0%,transparent 55%),
+      radial-gradient(ellipse at 8% 80%,rgba(230,149,133,.22) 0%,transparent 55%),
+      linear-gradient(135deg,var(--seal-deep) 0%,var(--seal) 55%,#5a4a7d 100%);
+    color:#fff;
+    border-bottom:none;
+    overflow:hidden;
+  }
+  section:first-of-type::before{
+    content:"雙";
+    position:absolute;
+    top:50%;right:-3%;
+    transform:translateY(-50%) rotate(-6deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(50vw,440px);
+    font-weight:600;
+    color:rgba(255,255,255,.04);
+    line-height:1;
+    pointer-events:none;
+    user-select:none;
+  }
+  section:first-of-type::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--peach) 0%,var(--peach-deep) 33%,var(--gold) 66%,var(--leaf) 100%);
+  }
+  section:first-of-type > .wrap{position:relative;z-index:1;}
+  section:first-of-type .sec__no{color:var(--gold);}
+  section:first-of-type .sec__title{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.28);}
+  section:first-of-type .sec__title-zh{color:rgba(255,255,255,.78);}
+  section:first-of-type .sec__rule{background:var(--gold);}
+  section:first-of-type .lead{color:var(--peach);}
+  section:first-of-type .lead-zh{color:rgba(255,255,255,.7);}
+  section:first-of-type .body p{color:rgba(255,255,255,.92);}
+  section:first-of-type .body p strong{color:var(--gold);}
+  section:first-of-type .body p em{color:var(--peach);}
+  section:first-of-type .body p.zh{
+    background:rgba(0,0,0,.22);
+    border-left:3px solid var(--peach);
+    color:rgba(255,255,255,.85);
+  }
+  section:first-of-type .body p.zh strong{color:var(--gold);}
+  section:first-of-type .body p.zh em{color:var(--peach);}
   .sec__no{
     font-family:'Cormorant Garamond',serif;
     color:var(--peach-deep);font-size:24px;font-weight:700;letter-spacing:5px;
