@@ -47,11 +47,15 @@ a:hover{color:var(--seal);}
 .topbar-logo{width:36px;height:36px;}
 .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18px;font-weight:600;color:var(--seal-deep);line-height:1.1;}
 .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
-.topbar-nav{display:flex;gap:22px;}
+.topbar-nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
 .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
 .topbar-nav a:hover{color:var(--theme);}
 .topbar-nav a.is-active{color:var(--theme);font-weight:700;}
-@media (max-width:720px){.topbar-nav{display:none;}}
+@media (max-width:560px){
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+  .topbar-nav{gap:14px;justify-content:flex-start;}
+  .topbar-nav a{font-size:13.5px;}
+}
 
 .story-hero{background:linear-gradient(180deg,var(--theme-soft) 0%,var(--white) 100%);padding:60px 0 50px;border-top:4px solid var(--theme);border-bottom:1px solid var(--line);}
 .story-hero__eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--theme-deep);margin-bottom:18px;}
