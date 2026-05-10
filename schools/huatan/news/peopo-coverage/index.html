@@ -106,9 +106,68 @@ body.theme-gold-deep .story-hero__eyebrow{color:var(--gold-deep);}
   .story-hero{padding:48px 0 32px;}
   .story-body{padding:42px 0 30px;}
 }
+
+  /* ============ TOPBAR (unified network nav) ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;
+    color:var(--brick-deep);
+    line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{
+    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--brick);}
+  .topbar-nav a.is-active{color:var(--brick-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
 </style>
 </head>
 <body class="theme-gold-deep">
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Huatan Elementary
+        <small>彰化縣花壇國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../../">Home</a>
+      <a href="../../principal/">Principal</a>
+      <a href="" class="is-active">Stories</a>
+      <a href="../../bilingual-campus/">Bilingual Campus</a>
+    </nav>
+  </div>
+</div>
+
 <!-- Back to Stories breadcrumb -->
 <nav class="story-crumb">
   <div class="wrap">
