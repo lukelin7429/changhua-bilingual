@@ -47,9 +47,11 @@ a:hover{color:var(--peach-deep);}
 .topbar-logo{width:36px;height:36px;}
 .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18px;font-weight:600;color:var(--seal-deep);line-height:1.1;}
 .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
-.topbar-back{font-size:13.5px;color:var(--theme);font-weight:600;letter-spacing:.06em;}
-.topbar-back::before{content:"←";margin-right:6px;}
-.topbar-back:hover{color:var(--peach-deep);}
+.topbar-nav{display:flex;gap:22px;}
+.topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+.topbar-nav a:hover{color:var(--theme);}
+.topbar-nav a.is-active{color:var(--theme);font-weight:700;}
+@media (max-width:720px){.topbar-nav{display:none;}}
 
 .story-hero{background:linear-gradient(180deg,var(--theme-soft) 0%,var(--white) 100%);padding:60px 0 50px;border-top:4px solid var(--theme);border-bottom:1px solid var(--line);}
 .story-hero__eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--theme);margin-bottom:18px;}
@@ -181,10 +183,17 @@ a:hover{color:var(--peach-deep);}
 <div class="topbar">
   <div class="wrap topbar-inner">
     <div class="topbar-brand">
-      <img src="../../photos/logo.png" alt="Hualong logo" class="topbar-logo">
-      <div class="topbar-name">Hualong Elementary <small>彰化縣秀水鄉華龍國小</small></div>
+      <a href="../../" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="../../photos/logo.png" alt="Hualong logo" class="topbar-logo">
+        <div class="topbar-name">Hualong Elementary <small>彰化縣秀水鄉華龍國小</small></div>
+      </a>
     </div>
-    <a href="../" class="topbar-back">All Stories · 所有故事</a>
+    <nav class="topbar-nav">
+      <a href="../../">Home</a>
+      <a href="../../principal/">Principal</a>
+      <a href="../" class="is-active">Stories</a>
+      <a href="../../bilingual-campus/">Bilingual Campus</a>
+    </nav>
   </div>
 </div>
 
