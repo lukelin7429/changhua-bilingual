@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>School News · 新聞與報導 · Yangming Junior High School</title>
+<meta name="description" content="Recent news from Yangming Junior High School — international classes, guest speakers, cultural showcases, and student achievements. 陽明國中近期校園新聞、國際課程、特別講座與學生成果。">
+<meta property="og:title" content="School News · 新聞與報導 · Yangming Junior High">
+<meta property="og:description" content="Recent stories and reports from Yangming Junior High School in Changhua City.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue-deep:#0c2e6b;--blue:#1a4791;--blue-light:#4d6ba9;--blue-soft:#dbe3f0;
+    --olive:#c9c920;--olive-soft:#f0f1c3;--olive-deep:#8c8e0a;
+    --red:#e63d2e;--red-soft:#fde2dd;
+    --sun:#f0a722;--sun-soft:#feeed0;--sun-deep:#a06c10;
+    --ink:#1f2530;--ink-soft:#5a606e;--line:#e3dfca;
+    --shadow:0 14px 38px -16px rgba(12,46,107,.30);
+    --shadow-sm:0 6px 16px -6px rgba(12,46,107,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#fff;color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:23px; } }
+  img{max-width:100%;display:block;}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{color:var(--red);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--olive);border-radius:3px;margin:22px 0 36px;}
+
+  .lead{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.4;letter-spacing:.3px;}
+  @media (min-width:720px){ .lead{ font-size:34px; } }
+  .lead-zh{margin-top:14px;font-size:19px;color:var(--ink-soft);font-weight:500;line-height:1.65;}
+  @media (min-width:720px){ .lead-zh{ font-size:22px; } }
+
+  /* Story card grid */
+  .news-grid{
+    display:grid;grid-template-columns:1fr;gap:30px;
+  }
+  @media (min-width:880px){ .news-grid{ grid-template-columns:1fr 1fr;gap:32px; } }
+
+  .news-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+    border-top:8px solid var(--blue);
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  }
+  .news-card:nth-child(2){border-top-color:var(--olive);}
+  .news-card:nth-child(3){border-top-color:var(--red);}
+  .news-card:nth-child(4){border-top-color:var(--sun);}
+  .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue);color:inherit;}
+
+  .news-card__img{
+    aspect-ratio:16/10;background:var(--blue-soft);overflow:hidden;
+  }
+  .news-card__img img{width:100%;height:100%;object-fit:cover;}
+  .news-card__body{padding:28px 30px 32px;display:flex;flex-direction:column;flex:1;}
+  @media (min-width:720px){ .news-card__body{ padding:34px 36px 36px; } }
+
+  .news-card__tag{
+    font-family:'Playfair Display',serif;
+    color:var(--red);font-size:14px;font-weight:700;letter-spacing:3px;
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  @media (min-width:720px){ .news-card__tag{ font-size:16px; } }
+  .news-card:nth-child(2) .news-card__tag{color:var(--olive-deep);}
+  .news-card:nth-child(3) .news-card__tag{color:var(--blue);}
+  .news-card:nth-child(4) .news-card__tag{color:var(--sun-deep);}
+
+  .news-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;
+  }
+  @media (min-width:720px){ .news-card h3{ font-size:34px; } }
+  .news-card h3 .h3-zh{
+    display:block;font-size:19px;color:var(--ink);font-weight:600;
+    margin-top:8px;letter-spacing:.5px;line-height:1.4;
+  }
+  @media (min-width:720px){ .news-card h3 .h3-zh{ font-size:22px; } }
+
+  .news-card__date{
+    font-size:14px;color:var(--ink-soft);letter-spacing:1px;
+    margin-top:14px;font-weight:600;
+  }
+  @media (min-width:720px){ .news-card__date{ font-size:16px; } }
+
+  .news-card__hook{
+    font-size:18px;color:var(--ink);margin-top:16px;line-height:1.65;
+  }
+  @media (min-width:720px){ .news-card__hook{ font-size:20px; } }
+  .news-card__hook-zh{
+    font-size:16px;color:var(--ink-soft);margin-top:12px;
+    padding-top:12px;border-top:1px dashed var(--line);
+    line-height:1.7;
+  }
+  @media (min-width:720px){ .news-card__hook-zh{ font-size:18px; } }
+
+  .news-card__cta{
+    margin-top:auto;padding-top:20px;
+    font-family:'Playfair Display',serif;
+    color:var(--red);font-size:17px;font-weight:700;letter-spacing:1px;
+  }
+  @media (min-width:720px){ .news-card__cta{ font-size:19px; } }
+  .news-card__cta::after{content:" →";transition:margin-left .2s;display:inline-block;}
+  .news-card:hover .news-card__cta::after{margin-left:6px;}
+
+  footer{
+    text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;
+  }
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--blue-deep);}
+
+  /* ============ UNIFIED TOPBAR + HERO ============ */
+  .ymj-topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .ymj-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .ymj-topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .ymj-topbar__logo{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg, var(--sun) 0%, var(--red) 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'PingFang TC',serif;font-size:24px;font-weight:700;line-height:1;box-shadow:0 4px 10px -2px rgba(230,61,46,.30);}
+  .ymj-topbar__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:var(--blue-deep);line-height:1.1;}
+  .ymj-topbar__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
+  .ymj-topbar__nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+  .ymj-topbar__nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:color .2s;}
+  .ymj-topbar__nav a:hover{color:var(--red);}
+  .ymj-topbar__nav a.is-active{color:var(--red);font-weight:700;}
+  @media (max-width:620px){.ymj-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}.ymj-topbar__nav{gap:14px;justify-content:flex-start;}.ymj-topbar__nav a{font-size:13.5px;}}
+
+  .ymj-hero{position:relative;background:radial-gradient(ellipse at 88% 30%, rgba(240,167,34,.22) 0%, transparent 55%),radial-gradient(ellipse at 12% 70%, rgba(230,61,46,.18) 0%, transparent 55%),linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 55%, #1e54a8 100%);color:#fff;padding:48px 0 58px;overflow:hidden;}
+  .ymj-hero::before{content:"陽";position:absolute;top:50%;right:-4%;transform:translateY(-50%) rotate(-6deg);font-family:'PingFang TC','Microsoft JhengHei',serif;font-size:min(60vw,420px);font-weight:600;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;user-select:none;}
+  .ymj-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg, var(--blue-light) 0%, var(--olive) 33%, var(--red) 66%, var(--sun) 100%);pointer-events:none;}
+  .ymj-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;position:relative;z-index:1;}
+  @media (max-width:680px){.ymj-hero__inner{grid-template-columns:1fr;gap:18px;}}
+  .ymj-hero__logo{width:96px;height:96px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg, var(--sun) 0%, var(--red) 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'PingFang TC',serif;font-size:58px;font-weight:700;box-shadow:0 12px 28px rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.18);line-height:1;}
+  .ymj-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:var(--olive);font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.22);border:1px solid rgba(201,201,32,.32);border-radius:99px;}
+  .ymj-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(34px,5vw,52px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:.005em;text-shadow:0 2px 18px rgba(0,0,0,.28);}
+  .ymj-hero .h1-zh{font-size:clamp(17px,2.1vw,22px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.88);margin-top:8px;font-family:'PingFang TC',sans-serif;}
+
+  /* FOOTER */
+  .ymj-footer{background:var(--blue-deep);color:#fff;padding:48px 0 32px;}
+  .ymj-footer__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
+  @media (min-width:760px){.ymj-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;}}
+  .ymj-footer__brand{display:flex;align-items:flex-start;gap:14px;}
+  .ymj-footer__brand .ymj-topbar__logo{width:54px;height:54px;font-size:30px;flex-shrink:0;}
+  .ymj-footer__brand h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:.01em;}
+  .ymj-footer__brand .name-zh{font-size:14px;color:rgba(255,255,255,.78);font-weight:500;margin-top:3px;}
+  .ymj-footer__addr{margin-top:10px;font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;}
+  .ymj-footer__col h5{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin-bottom:14px;}
+  .ymj-footer__col ul{list-style:none;padding:0;}
+  .ymj-footer__col li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,.85);}
+  .ymj-footer__col a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(201,201,32,.5);}
+  .ymj-footer__col a:hover{color:var(--olive);}
+  .ymj-footer__bottom{max-width:1080px;margin:32px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.6);text-align:center;line-height:1.7;}
+  .ymj-footer__bottom a{color:var(--olive);text-decoration:none;}
+  .ymj-footer__bottom a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="ymj-topbar">
+  <div class="ymj-topbar__inner">
+    <a class="ymj-topbar__brand" href="/schools/yangming-jhs/">
+      <div class="ymj-topbar__logo">陽</div>
+      <div class="ymj-topbar__name">Yangming Junior High<small>彰化縣立陽明國民中學</small></div>
+    </a>
+    <nav class="ymj-topbar__nav">
+      <a href="/schools/yangming-jhs/">Home</a>
+      <a href="/schools/yangming-jhs/principal/">Principal</a>
+      <a href="/schools/yangming-jhs/news/" class="is-active">Stories</a>
+      <a href="/schools/yangming-jhs/bilingual-campus/">Bilingual Campus</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO (page) -->
+<header class="ymj-hero">
+  <div class="ymj-hero__inner">
+    <div class="ymj-hero__logo">陽</div>
+    <div>
+      <span class="ymj-hero__eyebrow">News &amp; Stories</span>
+      <h1>School News</h1>
+      <div class="h1-zh">新聞與報導 · 校園故事</div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ===== I. Intro ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">School News</h2>
+    <div class="sec__title-zh">新聞與報導 · 陽明國中近期校園紀事</div>
+    <div class="sec__rule"></div>
+
+    <p class="lead">From international video classes to guest speakers and student showcases &mdash; recent moments from Yangming's classrooms and stages.</p>
+    <p class="lead-zh">從跨國視訊課程、特別講座，到學生文化展演——這裡記錄陽明國中最近發生的事。</p>
+  </div>
+</section>
+
+<!-- ===== II. News Grid ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Recent Reports</h2>
+    <div class="sec__title-zh">近期報導</div>
+    <div class="sec__rule"></div>
+
+    <div class="news-grid">
+
+      <a href="summer-2026-enrichment/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/enrichment-program-poster.png" alt="Yangming 2026 enrichment program recruitment poster"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Programs · 多元課程</div>
+          <h3>A Summer of Possibility<span class="h3-zh">陽明多元培訓課程 · 115 學年度招生中</span></h3>
+          <div class="news-card__date">May 2026 &middot; 2026 年 5 月公告</div>
+          <p class="news-card__hook">Four enrichment tracks open this summer — 9th-grade science camp, bilingual medicine, classical Chinese literacy, and advanced English. Plus a May 28 info session with an NTU Medical alumna.</p>
+          <p class="news-card__hook-zh">這個暑假四門培訓課程：國三科學營、雙語醫學、國文素養、進階英文。5/28 說明會 + 台大醫校友古駿綺座談。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="3x3-basketball/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/basketball-3x3-02.jpg" alt="Yangming 8th grade 3x3 inter-class basketball tournament"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Community Sport · 校園體育</div>
+          <h3>Friday at the 3-Pointer<span class="h3-zh">二年級 3x3 班際籃球賽</span></h3>
+          <div class="news-card__date">April 29, 2026 &middot; 2026 年 4 月 29 日</div>
+          <p class="news-card__hook">Eight winning teams. Two divisions. One Yangming tradition that fills the courtyard every spring.</p>
+          <p class="news-card__hook-zh">八支勝出的隊伍、兩個組別、一個每年春天都讓陽明操場熱鬧起來的校園傳統。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="career-portfolio-design/" class="news-card">
+        <div class="news-card__img"><img src="../photos/gate-art-02.png" alt="Yangming career portfolio cover design contest"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Student Creative · 學生創作</div>
+          <h3>Cover Designed by a Seventh-Grader<span class="h3-zh">114 學年度生涯檔案封面設計競賽</span></h3>
+          <div class="news-card__date">April 23, 2026 &middot; 2026 年 4 月 23 日</div>
+          <p class="news-card__hook">Yangming asked every 7th-grader to design the cover of their own three-year career portfolio. 36 entries earned awards across three tiers.</p>
+          <p class="news-card__hook-zh">陽明邀請每一位七年級孩子，親手設計三年生涯檔案的封面。36 件作品分三個級別獲獎。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="science-fair-23-streak/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/science-fair-2026.png" alt="Yangming Junior High wins 5 first places at the 66th Changhua County Science Fair"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Achievement · 校園榮耀</div>
+          <h3>23 Years and Counting<span class="h3-zh">彰化縣科展 23 連霸 · 第 66 屆奪五個第一</span></h3>
+          <div class="news-card__date">April 9, 2026 &middot; 2026 年 4 月 9 日</div>
+          <p class="news-card__hook">Five first-place subjects, two team awards, and a county-championship streak that has now stretched across an entire generation of students.</p>
+          <p class="news-card__hook-zh">五個科目第一名、兩座團體獎、一條延伸跨越一整個世代學生的縣級連霸紀錄。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="wushu-world-gold/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/wushu-gold-medal.jpg" alt="Yangming wushu team student wins gold at the 2026 World Junior Wushu Championships"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Sport &middot; World Stage · 體育 · 世界舞台</div>
+          <h3>World-Class Tai Chi<span class="h3-zh">武術隊蕭彥煣同學奪世界青少年金牌</span></h3>
+          <div class="news-card__date">April 1, 2026 &middot; 2026 年 4 月 1 日</div>
+          <p class="news-card__hook">A Yangming 8th-grader represented Taiwan at the 2026 World Junior Wushu Championships in Tianjin — and brought home a gold medal in tai chi.</p>
+          <p class="news-card__hook-zh">陽明二年級學生代表台灣赴中國天津，於 2026 世界青少年武術錦標賽奪下太極拳金牌。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="taekwondo-city-cup/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/taekwondo-citycup.jpg" alt="Yangming Junior High taekwondo team at the 2026 Taichung City Cup"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Sport · 體育</div>
+          <h3>A Strong Day in Taichung<span class="h3-zh">跆拳隊台中城市盃 3 金 2 銀 8 銅</span></h3>
+          <div class="news-card__date">March 17, 2026 &middot; 2026 年 3 月 17 日</div>
+          <p class="news-card__hook">A long bus ride to Taichung. Thirteen medals back. Three of them gold.</p>
+          <p class="news-card__hook-zh">一趟到台中的長途車。十三面獎牌帶回花壇。其中三面是金。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="melanie-diplomats/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/melanie-class-02.png" alt="Thank-you screen from the final online class with Teacher Melanie"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">International Class · 國際課程</div>
+          <h3>Thank You, Teacher Melanie<span class="h3-zh">外交小尖兵視訊課程圓滿落幕</span></h3>
+          <div class="news-card__date">Spring 2026 &middot; 2026 春季</div>
+          <p class="news-card__hook">A cross-Pacific season of online classes with Teacher Melanie in New York — and the team that made every Wednesday afternoon possible.</p>
+          <p class="news-card__hook-zh">一段跨海與紐約 Melanie 老師的視訊學習旅程，以及讓每堂課都能順利進行的幕後團隊。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="personal-branding/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/personal-branding-leon-dave.jpg" alt="Guest speakers Leon (Canada) and David (USA) at the personal-branding talk, Yangming Junior High School"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Guest Speakers · 國際講座</div>
+          <h3>A Personal-Branding Morning &mdash; and a Cultural Showcase<span class="h3-zh">個人品牌講座暨文化展演</span></h3>
+          <div class="news-card__date">November 10, 2025 &middot; 2025 年 11 月 10 日</div>
+          <p class="news-card__hook">Two international guest speakers, a school-wide talk on personal branding, and a student showcase that ran from harmonica music to martial arts.</p>
+          <p class="news-card__hook-zh">兩位國際講者、一場關於「個人品牌」的講座、再加上一場從口琴到武術的學生展演——一個豐富的早晨。</p>
+          <span class="news-card__cta">Read the full story</span>
+        </div>
+      </a>
+
+      <a href="music-tradition/" class="news-card">
+        <div class="news-card__img"><img src="../photos/gate-art-01.png" alt="Yangming Junior High music traditions feature"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Feature · 校園特寫</div>
+          <h3>The Music You Hear Down the Hall<span class="h3-zh">陽明的口琴隊與國樂團</span></h3>
+          <div class="news-card__date">School Feature &middot; 校園特寫</div>
+          <p class="news-card__hook">Two ensembles, one Yangming tradition that gets passed from older students to younger ones every year.</p>
+          <p class="news-card__hook-zh">兩支聲音不同的隊伍，一個由大孩子交給小孩子的陽明傳統。</p>
+          <span class="news-card__cta">Read the feature</span>
+        </div>
+      </a>
+
+      <a href="diplomatic-ambassadors/" class="news-card">
+        <div class="news-card__img"><img src="../photos/news/melanie-class-01.png" alt="Yangming Diplomatic Little Ambassadors program feature"></div>
+        <div class="news-card__body">
+          <div class="news-card__tag">Feature · 校園特寫</div>
+          <h3>The Diplomatic Little Ambassadors<span class="h3-zh">外交小尖兵 · 國際教育旗艦</span></h3>
+          <div class="news-card__date">School Feature &middot; 校園特寫</div>
+          <p class="news-card__hook">Yangming's flagship international-education program — the one that takes 13-year-olds out of Changhua and into conversations with the rest of the world.</p>
+          <p class="news-card__hook-zh">把陽明 13 歲的孩子帶離彰化、進入跟世界對話的國際教育旗艦課程。</p>
+          <span class="news-card__cta">Read the feature</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="ymj-footer">
+  <div class="ymj-footer__inner">
+    <div class="ymj-footer__brand">
+      <div class="ymj-topbar__logo">陽</div>
+      <div>
+        <h4>Yangming Junior High School</h4>
+        <div class="name-zh">彰化縣立陽明國民中學</div>
+        <div class="ymj-footer__addr">
+          No. 76, Changshun St., Changhua City<br>
+          彰化市長順街 76 號<br>
+          Phone · 電話：(04) 7222-263
+        </div>
+      </div>
+    </div>
+    <div class="ymj-footer__col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://ymsc.chc.edu.tw/" target="_blank" rel="noopener">Official site · 官網</a></li>
+        <li><a href="https://www.facebook.com/YMJuniorHigh/" target="_blank" rel="noopener">Facebook · 粉絲頁</a></li>
+        <li><a href="https://yangming.twrses.org/" target="_blank" rel="noopener">原雙語站 · twrses.org</a></li>
+      </ul>
+    </div>
+    <div class="ymj-footer__col">
+      <h5>Partner</h5>
+      <ul>
+        <li><a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a></li>
+        <li>人師教育協會</li>
+        <li><a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Network</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ymj-footer__bottom">
+    Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> · 人師教育協會 ·
+    Bilingual Web Initiative · 彰化雙語網站專案
+  </div>
+</footer>
+
+</body>
+</html>
