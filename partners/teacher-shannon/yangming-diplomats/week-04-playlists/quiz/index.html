@@ -74,9 +74,44 @@
   .foot{text-align:center;font-size:14px;color:var(--ink-soft);font-style:italic;letter-spacing:.5px;margin-top:24px;}
   @media (min-width:720px){ .foot{ font-size:16px; } }
   .foot a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--olive);}
+
+/* ============ UNIFIED YANGMING-JHS TOPBAR (self-contained colors) ============ */
+.ymj-topbar{background:rgba(255,255,255,.94);border-bottom:1px solid #e3dfca;padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+.ymj-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.ymj-topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+img.ymj-topbar__logo{width:44px;height:44px;border-radius:50%;background:#fff;object-fit:contain;padding:3px;box-shadow:0 4px 10px -2px rgba(12,46,107,.18);border:1px solid #e3dfca;display:block;}
+.ymj-topbar__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:#0c2e6b;line-height:1.1;}
+.ymj-topbar__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:#5a606e;margin-top:3px;letter-spacing:.04em;}
+.ymj-topbar__nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+.ymj-topbar__nav a{color:#1f2530;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:color .2s;border-bottom:none;}
+.ymj-topbar__nav a:hover{color:#e63d2e;border-bottom:none;}
+.ymj-topbar__nav a.is-active{color:#e63d2e;font-weight:700;}
+@media (max-width:620px){
+  .ymj-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}
+  .ymj-topbar__nav{gap:14px;justify-content:flex-start;}
+  .ymj-topbar__nav a{font-size:13.5px;}
+}
 </style>
 </head>
 <body>
+
+<!-- TOPBAR (unified yangming-jhs nav) -->
+<div class="ymj-topbar">
+  <div class="ymj-topbar__inner">
+    <a class="ymj-topbar__brand" href="/schools/yangming-jhs/">
+      <img class="ymj-topbar__logo" src="https://changhua-bilingual.org/schools/yangming-jhs/photos/logo.png" alt="Yangming Junior High School logo">
+      <div class="ymj-topbar__name">Yangming Junior High<small>彰化縣立陽明國民中學</small></div>
+    </a>
+    <nav class="ymj-topbar__nav">
+      <a href="/schools/yangming-jhs/">Home</a>
+      <a href="/schools/yangming-jhs/principal/">Principal</a>
+      <a href="/partners/teacher-shannon/yangming-diplomats/" class="is-active">Lessons</a>
+      <a href="/schools/yangming-jhs/news/">Stories</a>
+      <a href="/schools/yangming-jhs/bilingual-campus/">Bilingual Campus</a>
+    </nav>
+  </div>
+</div>
+
 <div class="wrap">
   <header class="head">
     <div class="head__brand">Week 04 · ESL with Teacher Shannon</div>
