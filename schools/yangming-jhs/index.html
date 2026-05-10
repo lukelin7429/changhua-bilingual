@@ -510,6 +510,28 @@
   }
   .ymj-footer__bottom a{color:var(--olive);text-decoration:none;}
   .ymj-footer__bottom a:hover{text-decoration:underline;}
+
+/* ===== LOGO IMG OVERRIDES (replaces text-mark with school logo) ===== */
+img.ymj-topbar__logo{
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;object-fit:contain;padding:3px;
+  box-shadow:0 4px 10px -2px rgba(12,46,107,.18);
+  border:1px solid var(--line);
+  display:block;
+}
+img.ymj-hero__logo{
+  width:144px;height:144px;border-radius:50%;
+  background:#fff;object-fit:contain;padding:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+  border:3px solid rgba(255,255,255,.55);
+  display:block;
+}
+.ymj-hero--page img.ymj-hero__logo{width:104px;height:104px;padding:9px;}
+.ymj-footer__brand img.ymj-topbar__logo{
+  width:60px;height:60px;padding:5px;
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 6px 16px -4px rgba(0,0,0,.30);
+}
 </style>
 </head>
 <body>
@@ -523,7 +545,7 @@
 <div class="ymj-topbar">
   <div class="ymj-topbar__inner">
     <a class="ymj-topbar__brand" href="/schools/yangming-jhs/">
-      <div class="ymj-topbar__logo">陽</div>
+      <img class="ymj-topbar__logo" src="https://changhua-bilingual.org/schools/yangming-jhs/photos/logo.png" alt="Yangming Junior High School logo">
       <div class="ymj-topbar__name">
         Yangming Junior High
         <small>彰化縣立陽明國民中學</small>
@@ -532,6 +554,7 @@
     <nav class="ymj-topbar__nav">
       <a href="/schools/yangming-jhs/" class="is-active">Home</a>
       <a href="/schools/yangming-jhs/principal/">Principal</a>
+      <a href="/partners/teacher-shannon/yangming-diplomats/">Lessons</a>
       <a href="/schools/yangming-jhs/news/">Stories</a>
       <a href="/schools/yangming-jhs/bilingual-campus/">Bilingual Campus</a>
     </nav>
@@ -541,7 +564,7 @@
 <!-- ============ HERO (Home) ============ -->
 <header class="ymj-hero">
   <div class="ymj-hero__inner">
-    <div class="ymj-hero__logo">陽</div>
+    <img class="ymj-hero__logo" src="https://changhua-bilingual.org/schools/yangming-jhs/photos/logo.png" alt="Yangming Junior High School logo">
     <div>
       <span class="ymj-hero__eyebrow">Changhua City · Since 1940</span>
       <h1>Yangming Junior High School</h1>
@@ -682,10 +705,100 @@
   </div>
 </section>
 
-<!-- ===== IV. Featured Programs ===== -->
+<!-- ===== IV. Lessons (Teacher Shannon 8-Week ESL) ===== -->
+<style>
+  .lessons-spot{
+    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
+    border-radius:24px;padding:44px 30px;color:#fff;
+    box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){ .lessons-spot{ padding:60px 56px; } }
+  .lessons-spot::before{
+    content:"ESL";position:absolute;top:50%;right:-2%;
+    transform:translateY(-50%) rotate(-8deg);
+    font-family:'Playfair Display',serif;font-size:min(50vw,360px);font-weight:800;
+    color:rgba(255,255,255,.05);line-height:1;pointer-events:none;user-select:none;
+  }
+  .lessons-spot__badge{
+    position:relative;display:inline-block;background:var(--olive);color:var(--blue-deep);
+    font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .lessons-spot__badge{ font-size:14px; } }
+  .lessons-spot__title{
+    position:relative;font-family:'Playfair Display',serif;
+    font-size:34px;font-weight:700;color:#fff;line-height:1.15;margin-top:16px;
+  }
+  @media (min-width:720px){ .lessons-spot__title{ font-size:48px; } }
+  .lessons-spot__zh{
+    position:relative;font-size:19px;color:#cdd4ee;font-weight:600;margin-top:10px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .lessons-spot__zh{ font-size:23px; } }
+  .lessons-spot__body{
+    position:relative;font-size:18px;color:rgba(255,255,255,.92);line-height:1.7;margin-top:18px;max-width:760px;
+  }
+  @media (min-width:720px){ .lessons-spot__body{ font-size:21px; } }
+  .lessons-spot__body .zh{display:block;color:rgba(205,212,238,.85);font-size:16px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .lessons-spot__body .zh{ font-size:19px; } }
+  .lessons-spot__weeks{
+    position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;
+  }
+  .lessons-spot__weeks .week-pill{
+    background:rgba(255,255,255,.10);color:#fff;font-size:13.5px;font-weight:600;
+    padding:6px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);
+    backdrop-filter:blur(4px);
+  }
+  @media (min-width:720px){ .lessons-spot__weeks .week-pill{ font-size:15px;padding:7px 14px; } }
+  .lessons-spot__cta{
+    position:relative;margin-top:28px;display:inline-flex;align-items:center;gap:14px;
+    background:var(--olive);color:var(--blue-deep);
+    padding:18px 28px;border-radius:14px;
+    font-size:17px;font-weight:700;letter-spacing:.4px;
+    text-decoration:none;box-shadow:0 10px 24px -10px rgba(201,201,32,.7);
+    transition:transform .15s, background .15s;
+  }
+  @media (min-width:720px){ .lessons-spot__cta{ font-size:20px;padding:20px 32px; } }
+  .lessons-spot__cta:hover{background:#fff;transform:translateY(-3px);}
+  .lessons-spot__cta .cta-arrow{font-size:24px;font-weight:700;}
+</style>
 <section>
   <div class="wrap">
     <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Lessons</h2>
+    <div class="sec__title-zh">課程精華 · Teacher Shannon 八週 ESL 工作坊</div>
+    <div class="sec__rule"></div>
+
+    <div class="lessons-spot">
+      <div class="lessons-spot__badge">Diplomatic Ambassadors · 外交小尖兵</div>
+      <h3 class="lessons-spot__title">Eight weeks with Teacher Shannon</h3>
+      <div class="lessons-spot__zh">Shannon 老師的八週課程入口 — 講義與測驗</div>
+      <div class="lessons-spot__body">
+        Each week brings a real-world theme — introductions, daily life, night markets, music, the &quot;vibe check,&quot; dream vacations, sports, and finally, sharing opinions. Every lesson pairs a printable handout with an in-browser quiz, so students can read, listen, and check their understanding right after class.
+        <span class="zh">每週一個生活主題，從自我介紹、日常作息、夜市探險到分享意見——每堂課搭配講義與線上測驗，孩子上完課就能立刻複習、自評。這是陽明外交小尖兵跨太平洋與 Shannon 老師線上對話一整個學期累積下來的「精華成果」。</span>
+      </div>
+      <div class="lessons-spot__weeks">
+        <span class="week-pill">W1 · Introductions</span>
+        <span class="week-pill">W2 · Daily Grind</span>
+        <span class="week-pill">W3 · Night Market</span>
+        <span class="week-pill">W4 · Present Perfect Playlists</span>
+        <span class="week-pill">W5 · Vibe Check</span>
+        <span class="week-pill">W6 · Dream Vacation</span>
+        <span class="week-pill">W7 · Play Ball</span>
+        <span class="week-pill">W8 · That's My Opinion</span>
+      </div>
+      <a class="lessons-spot__cta" href="/partners/teacher-shannon/yangming-diplomats/">
+        <span>Enter the 8-Week Portal · 進入八週入口</span>
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Featured Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">V.</div>
     <h2 class="sec__title">Featured Programs</h2>
     <div class="sec__title-zh">特色課程與社團 · 四大主軸的具體實踐</div>
     <div class="sec__rule"></div>
@@ -752,10 +865,10 @@
   </div>
 </section>
 
-<!-- ===== V. History ===== -->
+<!-- ===== VI. History ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">V.</div>
+    <div class="sec__no">VI.</div>
     <h2 class="sec__title">Our Story</h2>
     <div class="sec__title-zh">校史時間軸 · 從家政女子學校到陽明國中</div>
     <div class="sec__rule"></div>
@@ -868,7 +981,7 @@
 <footer class="ymj-footer">
   <div class="ymj-footer__inner">
     <div class="ymj-footer__brand">
-      <div class="ymj-topbar__logo">陽</div>
+      <img class="ymj-topbar__logo" src="https://changhua-bilingual.org/schools/yangming-jhs/photos/logo.png" alt="Yangming Junior High School logo">
       <div>
         <h4>Yangming Junior High School</h4>
         <div class="name-zh">彰化縣立陽明國民中學</div>
