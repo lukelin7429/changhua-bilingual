@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Huatan Quiz · Do You Know Your School?</title>
+<meta name="description" content="A 10-question English mini-quiz about Huatan Elementary — location, jasmine, brick kilns, history, and traditions. Designed for teachers to try on their phones.">
+<meta property="og:title" content="Huatan Quiz · Do You Know Your School?">
+<meta property="og:description" content="10 short English questions about Huatan Elementary School.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --brick:#B5462E;--brick-deep:#7d2e1a;--brick-soft:#f5e6df;
+    --jade:#2d6a4f;--jade-deep:#1b4332;--jade-soft:#dbeadd;
+    --gold:#caa056;--gold-deep:#8b6a17;--gold-soft:#f7eed9;
+    --green:#1b8a5a;--green-soft:#dcf0e3;
+    --red:#c0392b;--red-soft:#fbe2dd;
+    --ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;
+    --shadow:0 14px 40px -16px rgba(125,46,26,.28);
+    --shadow-sm:0 4px 14px -4px rgba(125,46,26,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#fff;color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .quiz{
+    max-width:680px;margin:0 auto;
+    padding:28px 22px 60px;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+
+  /* Header */
+  .head{margin-bottom:6px;}
+  .head__brand{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-weight:700;color:var(--brick-deep);
+    line-height:1.2;
+  }
+  .head__title{
+    margin-top:4px;
+    font-size:13.5px;font-weight:700;letter-spacing:.18em;
+    color:var(--jade);text-transform:uppercase;
+  }
+  .progress{
+    margin-top:18px;
+    background:var(--brick-soft);border-radius:99px;
+    height:8px;overflow:hidden;
+  }
+  .progress__bar{
+    background:var(--brick);height:100%;width:10%;
+    transition:width .35s ease;
+  }
+  .progress__label{
+    margin-top:10px;font-size:14.5px;color:var(--ink-soft);
+    letter-spacing:.05em;font-weight:600;
+  }
+
+  /* Question card */
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:28px 24px;box-shadow:var(--shadow-sm);
+    margin-top:22px;
+  }
+  @media (min-width:520px){ .card{ padding:36px 32px; } }
+  .card.is-final{text-align:center;padding-top:46px;padding-bottom:38px;}
+
+  .question{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(24px,5.6vw,30px);
+    font-weight:700;color:var(--brick-deep);
+    line-height:1.3;
+  }
+
+  /* Options */
+  .options{margin-top:24px;display:flex;flex-direction:column;gap:12px;}
+  .opt{
+    background:#fff;border:2px solid var(--line);border-radius:14px;
+    padding:18px 20px;
+    font-family:inherit;font-size:17.5px;font-weight:600;color:var(--ink);
+    text-align:left;cursor:pointer;
+    transition:transform .12s, border-color .15s, background .15s;
+    display:flex;align-items:center;gap:14px;min-height:60px;
+    width:100%;
+  }
+  @media (min-width:520px){ .opt{ font-size:19px;padding:20px 22px; } }
+  .opt:hover:not([disabled]){border-color:var(--brick);}
+  .opt:active{transform:scale(.985);}
+  .opt[disabled]{cursor:default;}
+  .opt__letter{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;
+    background:var(--brick-soft);color:var(--brick-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;font-size:18px;
+  }
+  .opt__text{flex:1;}
+  .opt__mark{
+    flex-shrink:0;font-size:22px;line-height:1;opacity:0;
+    transition:opacity .25s;font-weight:700;
+  }
+  .opt.is-correct{border-color:var(--green);background:var(--green-soft);color:var(--jade-deep);}
+  .opt.is-correct .opt__letter{background:var(--green);color:#fff;}
+  .opt.is-correct .opt__mark{opacity:1;color:var(--green);}
+  .opt.is-wrong{border-color:var(--red);background:var(--red-soft);color:var(--brick-deep);}
+  .opt.is-wrong .opt__letter{background:var(--red);color:#fff;}
+  .opt.is-wrong .opt__mark{opacity:1;color:var(--red);}
+
+  /* Explain */
+  .explain{
+    margin-top:18px;background:var(--gold-soft);
+    border-left:4px solid var(--gold);
+    border-radius:0 12px 12px 0;
+    padding:16px 18px;
+    font-size:16px;color:var(--ink);line-height:1.65;
+    display:none;
+  }
+  @media (min-width:520px){ .explain{ font-size:17.5px; } }
+  .explain.is-show{display:block;}
+  .explain strong{color:var(--brick-deep);}
+
+  /* Buttons */
+  .next-row{margin-top:22px;display:flex;justify-content:flex-end;}
+  .btn{
+    background:var(--brick);color:#fff;
+    border:none;border-radius:99px;
+    padding:14px 32px;
+    font-family:inherit;font-size:16.5px;font-weight:600;letter-spacing:.04em;
+    cursor:pointer;
+    transition:background .2s,transform .12s;
+    min-height:50px;
+  }
+  .btn:hover:not(:disabled){background:var(--brick-deep);}
+  .btn:active{transform:scale(.97);}
+  .btn:disabled{background:var(--line);color:var(--ink-soft);cursor:not-allowed;}
+  .btn.is-ghost{background:#fff;color:var(--brick);border:1.5px solid var(--brick);}
+  .btn.is-ghost:hover{background:var(--brick-soft);color:var(--brick);}
+
+  /* Final screen */
+  .final__emoji{font-size:80px;line-height:1;margin-bottom:12px;}
+  .final__title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(34px,7vw,46px);font-weight:700;
+    color:var(--brick-deep);line-height:1.15;
+  }
+  .final__score{
+    margin-top:18px;font-family:'Cormorant Garamond',serif;
+    font-size:clamp(56px,15vw,90px);font-weight:700;
+    color:var(--brick);line-height:1;letter-spacing:-.02em;
+  }
+  .final__total{color:var(--ink-soft);font-weight:600;font-size:.55em;}
+  .final__msg{
+    margin-top:14px;font-size:17px;color:var(--ink-soft);
+    line-height:1.65;max-width:480px;margin-left:auto;margin-right:auto;
+  }
+  @media (min-width:520px){ .final__msg{ font-size:19px; } }
+  .final__cta{
+    margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;
+  }
+
+  /* Footer (compact) */
+  .foot{
+    margin-top:auto;padding-top:32px;
+    text-align:center;font-size:12.5px;color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .foot a{color:var(--brick);text-decoration:none;border-bottom:1px dashed var(--line);}
+</style>
+</head>
+<body>
+
+<main class="quiz">
+  <header class="head">
+    <div class="head__brand">Huatan Elementary School</div>
+    <div class="head__title">Quick Quiz &middot; School Basics</div>
+    <div class="progress" aria-hidden="true"><div class="progress__bar" id="bar"></div></div>
+    <div class="progress__label" id="progressLabel">Question 1 of 10</div>
+  </header>
+
+  <section class="card" id="card" aria-live="polite"></section>
+
+  <footer class="foot">
+    Huatan Elementary School &middot; A century of learning on the jasmine fields of Huatan<br>
+    Quiz by <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+  </footer>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "Where is Huatan Elementary School located?",
+    options: ["Taipei City", "Changhua County", "Kaohsiung City", "Taichung City"],
+    answer: 1,
+    explain: "Huatan Elementary is in <strong>Huatan Township, Changhua County</strong>, in central Taiwan."
+  },
+  {
+    q: "In which year was Huatan Elementary founded?",
+    options: ["1898", "1913", "1945", "1968"],
+    answer: 1,
+    explain: "The school opened in <strong>1913</strong> — that is over a century ago."
+  },
+  {
+    q: "Huatan Township is most famous for growing which flower?",
+    options: ["Roses", "Sunflowers", "Jasmine", "Cherry blossoms"],
+    answer: 2,
+    explain: "Huatan is known as <strong>Taiwan's jasmine capital</strong>. Local tea factories use Huatan jasmine to make scented tea."
+  },
+  {
+    q: "Before jasmine, what traditional industry was Huatan known for?",
+    options: ["Tea production", "Red brick kilns", "Fishing", "Salt making"],
+    answer: 1,
+    explain: "Huatan was famous for its <strong>red brick kilns</strong>. The school's 2024 activity center was designed to look like stacked bricks."
+  },
+  {
+    q: "About how many students study at Huatan Elementary today?",
+    options: ["About 200", "About 500", "About 800", "About 1,200"],
+    answer: 3,
+    explain: "Huatan has <strong>around 1,200 students</strong> across 47 classes — one of the larger elementary schools in Changhua."
+  },
+  {
+    q: "What grade levels does Huatan Elementary teach?",
+    options: ["Grades 1 to 3 only", "Kindergarten through Grade 6", "Grades 7 to 9", "Senior high school"],
+    answer: 1,
+    explain: "Huatan teaches <strong>kindergarten through Grade 6</strong>, including an attached non-profit kindergarten."
+  },
+  {
+    q: "Which famous Taiwanese pilgrimage passes through Huatan each spring?",
+    options: ["The Dajia Mazu Pilgrimage", "The Buddhist Lantern Walk", "The Hakka Tung Blossom Festival", "The Confucius Birthday Parade"],
+    answer: 0,
+    explain: "The <strong>Dajia Mazu Pilgrimage</strong> is one of the world's largest religious processions. It passes through Huatan every spring, and the whole school welcomes Mazu together — rain or shine."
+  },
+  {
+    q: "Huatan Township sits next to which geological feature?",
+    options: ["The Pacific Ocean", "Sun Moon Lake", "The Changhua Fault", "Mount Yushan"],
+    answer: 2,
+    explain: "Huatan is right next to <strong>the Changhua Fault</strong>. The school works with the National Museum of Natural Science to teach earthquake preparedness."
+  },
+  {
+    q: "What did Huatan Elementary build in 2024 with NT$150 million?",
+    options: ["A new student dormitory", "A new activity center, athletic track, and basketball courts", "A new high school campus", "A new train station"],
+    answer: 1,
+    explain: "In 2024 the school completed a <strong>NT$150 million renovation</strong> — a new activity center, athletic track, and basketball courts."
+  },
+  {
+    q: "What traditional food did students at Huatan make for Mother's Day?",
+    options: ["Pineapple cakes", "Phoenix-eye cakes (鳳眼糕)", "Mooncakes", "Mochi"],
+    answer: 1,
+    explain: "Students worked with the historic <strong>Cheng Hsing-chen Bakery</strong> to handmake <strong>phoenix-eye cakes</strong> as Mother's Day gifts. Three weeks, twelve classes."
+  }
+];
+
+const LETTERS = ['A','B','C','D','E','F'];
+const $card = document.getElementById('card');
+const $bar = document.getElementById('bar');
+const $progressLabel = document.getElementById('progressLabel');
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function buildCardShell(){
+  $card.classList.remove('is-final');
+  $card.innerHTML = `
+    <h2 class="question" id="question">Loading…</h2>
+    <div class="options" id="options"></div>
+    <div class="explain" id="explain"></div>
+    <div class="next-row">
+      <button class="btn" id="nextBtn" disabled>Next Question →</button>
+    </div>`;
+  document.getElementById('nextBtn').addEventListener('click', next);
+}
+
+function render(){
+  answered = false;
+  const item = QUESTIONS[current];
+  const qEl = document.getElementById('question');
+  const optsEl = document.getElementById('options');
+  const expEl = document.getElementById('explain');
+  const nextBtn = document.getElementById('nextBtn');
+
+  qEl.textContent = item.q;
+  optsEl.innerHTML = '';
+  expEl.classList.remove('is-show');
+  expEl.innerHTML = '';
+  nextBtn.disabled = true;
+  nextBtn.textContent = (current === QUESTIONS.length - 1) ? 'See My Score →' : 'Next Question →';
+
+  item.options.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML =
+      `<span class="opt__letter">${LETTERS[idx]}</span>` +
+      `<span class="opt__text">${opt}</span>` +
+      `<span class="opt__mark"></span>`;
+    btn.addEventListener('click', () => choose(idx));
+    optsEl.appendChild(btn);
+  });
+
+  const pct = Math.round(((current) / QUESTIONS.length) * 100);
+  $bar.style.width = Math.max(pct, 5) + '%';
+  $progressLabel.textContent = `Question ${current + 1} of ${QUESTIONS.length}`;
+}
+
+function choose(idx){
+  if(answered) return;
+  answered = true;
+  const item = QUESTIONS[current];
+  const optsEl = document.getElementById('options');
+  const expEl = document.getElementById('explain');
+  const nextBtn = document.getElementById('nextBtn');
+  const allBtns = optsEl.querySelectorAll('.opt');
+
+  allBtns.forEach((b, i) => {
+    b.setAttribute('disabled', '');
+    if(i === item.answer){
+      b.classList.add('is-correct');
+      b.querySelector('.opt__mark').textContent = '✓';
+    } else if(i === idx){
+      b.classList.add('is-wrong');
+      b.querySelector('.opt__mark').textContent = '✗';
+    }
+  });
+
+  if(idx === item.answer) score++;
+  expEl.innerHTML = item.explain;
+  expEl.classList.add('is-show');
+  nextBtn.disabled = false;
+}
+
+function next(){
+  if(current < QUESTIONS.length - 1){
+    current++;
+    render();
+    $card.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    showFinal();
+  }
+}
+
+function showFinal(){
+  const pct = score / QUESTIONS.length;
+  let emoji, title, msg;
+  if(pct === 1){
+    emoji = '🌟'; title = 'Perfect Score!';
+    msg = "You really know Huatan. Every detail — from the jasmine fields to the Changhua Fault.";
+  } else if(pct >= 0.8){
+    emoji = '🎉'; title = 'Excellent!';
+    msg = "You know your school very well. Just a few small details to brush up on.";
+  } else if(pct >= 0.6){
+    emoji = '👍'; title = 'Nice Work!';
+    msg = "A solid score. There is still more to discover about your hundred-year campus.";
+  } else if(pct >= 0.4){
+    emoji = '📚'; title = 'Good Try!';
+    msg = "Take a walk through the campus and the village — there are stories waiting in every direction.";
+  } else {
+    emoji = '🌱'; title = 'A Fresh Start!';
+    msg = "Every great teacher began as a learner. Try again — Huatan has been here for over a century.";
+  }
+
+  $bar.style.width = '100%';
+  $progressLabel.textContent = 'Finished';
+  $card.classList.add('is-final');
+  $card.innerHTML =
+    `<div class="final__emoji">${emoji}</div>` +
+    `<h2 class="final__title">${title}</h2>` +
+    `<div class="final__score">${score} <span class="final__total">/ ${QUESTIONS.length}</span></div>` +
+    `<p class="final__msg">${msg}</p>` +
+    `<div class="final__cta">` +
+      `<button class="btn is-ghost" id="restart">Try Again</button>` +
+    `</div>`;
+  document.getElementById('restart').addEventListener('click', restart);
+}
+
+function restart(){
+  current = 0;
+  score = 0;
+  buildCardShell();
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===== INIT =====
+buildCardShell();
+render();
+</script>
+
+</body>
+</html>
