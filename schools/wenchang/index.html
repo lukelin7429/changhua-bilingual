@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wenchang Elementary School · 彰化縣文昌國民小學</title>
+<meta name="description" content="Wenchang Elementary School — A small public school in Zhenping Village, Fuxing Township, Changhua County, Taiwan. Founded in 1959 on the watermelon fields of Fuxing, recognized as a 'Setting Sail' school in international education. 彰化縣福興鄉文昌國民小學 — 創校 1959 年，鎮平西瓜田裡的揚帆學校。">
+<meta property="og:title" content="Wenchang Elementary School · 彰化縣文昌國民小學">
+<meta property="og:description" content="A small village school on Fuxing's watermelon fields — and a 'Setting Sail' school for international education. 鎮平西瓜田裡的揚帆學校。">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --melon:#d44a4a;
+    --melon-deep:#8a2828;
+    --melon-soft:#fceeee;
+    --leaf:#4a7c2a;
+    --leaf-deep:#2e5219;
+    --leaf-soft:#e6efd9;
+    --sail:#c9a648;
+    --sail-deep:#8b6a17;
+    --sail-soft:#f7eed9;
+    --cream:#ffffff;
+    --ink:#1f1a16;
+    --ink-soft:#5e5750;
+    --line:#e8e2d6;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(138,40,40,.28);
+    --shadow-sm:0 4px 14px -4px rgba(138,40,40,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--melon);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--leaf);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;
+    color:var(--melon-deep);
+    line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{
+    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--melon);}
+  .topbar-nav a.is-active{color:var(--melon-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* ============ TITLE (illustrated watermelon hero) ============ */
+  .title{
+    position:relative;
+    background:
+      radial-gradient(circle at 18% 38%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at 82% 72%, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 32%),
+      linear-gradient(160deg, var(--melon-deep) 0%, var(--melon) 58%, #b73a3a 100%);
+    padding:72px 0 64px;
+    text-align:center;
+    color:#fff;
+    border-bottom:6px solid var(--leaf);
+    overflow:hidden;
+  }
+  .title::before{
+    /* subtle watermelon "seeds" pattern */
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      radial-gradient(ellipse 9px 13px at 12% 22%, rgba(31,15,8,.35) 0%, transparent 60%),
+      radial-gradient(ellipse 7px 11px at 88% 30%, rgba(31,15,8,.32) 0%, transparent 60%),
+      radial-gradient(ellipse 8px 12px at 22% 80%, rgba(31,15,8,.3) 0%, transparent 60%),
+      radial-gradient(ellipse 7px 10px at 78% 84%, rgba(31,15,8,.32) 0%, transparent 60%),
+      radial-gradient(ellipse 6px 9px at 50% 12%, rgba(31,15,8,.25) 0%, transparent 60%),
+      radial-gradient(ellipse 7px 11px at 38% 60%, rgba(31,15,8,.22) 0%, transparent 60%);
+    pointer-events:none;opacity:.55;
+  }
+  .title .wrap{position:relative;z-index:1;}
+  .title__eyebrow{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.28em;
+    color:var(--sail-soft);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,7vw,68px);
+    line-height:1.05;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:6px;
+    text-shadow:0 2px 12px rgba(0,0,0,.32);
+  }
+  .title .h1-zh{
+    display:block;
+    font-size:clamp(20px,2.6vw,27px);
+    font-weight:500;letter-spacing:.06em;
+    color:rgba(255,255,255,.92);
+    margin-top:12px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 6px rgba(0,0,0,.3);
+  }
+  .title__divider{
+    width:80px;height:3px;
+    background:var(--sail);
+    margin:26px auto 18px;
+    border:0;border-radius:2px;
+  }
+  .title__tagline{
+    max-width:580px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:rgba(255,255,255,.96);
+    line-height:1.55;
+  }
+  .title__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;
+    margin-top:8px;
+    color:rgba(255,255,255,.8);
+    letter-spacing:.06em;
+  }
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:58px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--leaf);font-size:15px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(40px,6vw,60px);
+    font-weight:600;color:var(--melon-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:19px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:#fff;}
+  .about-grid{
+    display:grid;grid-template-columns:.95fr 1.1fr;
+    gap:54px;align-items:center;
+  }
+  .about-visual{
+    position:relative;
+    border-radius:22px;
+    padding:48px 36px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(212,74,74,.08) 0%, transparent 55%),
+      linear-gradient(160deg, var(--melon-soft) 0%, var(--leaf-soft) 100%);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    text-align:center;
+    min-height:340px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .about-visual__mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:120px;font-weight:600;
+    color:var(--melon-deep);
+    line-height:1;letter-spacing:-.02em;
+    margin-bottom:6px;
+  }
+  .about-visual__mark-zh{
+    font-family:'PingFang TC',serif;
+    font-size:32px;font-weight:500;
+    color:var(--leaf-deep);
+    letter-spacing:.4em;
+    padding-left:.4em;
+    margin-bottom:18px;
+  }
+  .about-visual__since{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--leaf-deep);
+    background:rgba(255,255,255,.65);
+    padding:7px 16px;border-radius:99px;
+    border:1px solid rgba(74,124,42,.25);
+  }
+
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:35px;color:var(--melon-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:20px;color:var(--ink);margin-bottom:14px;line-height:1.7;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:26px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / Chinese";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    padding:0 14px;
+    font-size:14px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:19px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .zh p + p{margin-top:14px;}
+
+  /* ============ Timeline ============ */
+  .timeline{
+    margin-top:36px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .timeline__stop{
+    background:#fff;
+    border:1px solid var(--line);
+    border-top:4px solid var(--melon);
+    border-radius:12px;
+    padding:18px 18px 16px;
+    box-shadow:var(--shadow-sm);
+  }
+  .timeline__stop:nth-child(2){border-top-color:var(--sail);}
+  .timeline__stop:nth-child(3){border-top-color:var(--leaf);}
+  .timeline__stop:nth-child(4){border-top-color:var(--melon-deep);}
+  .timeline__year{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-weight:700;
+    color:var(--melon-deep);
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .timeline__label{
+    font-size:13px;color:var(--ink);
+    line-height:1.45;
+    font-weight:600;
+  }
+  .timeline__label .zh{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;color:var(--ink-soft);
+    margin-top:4px;font-weight:500;
+  }
+
+  /* ============ Identity (3 pillars) ============ */
+  .identity{background:linear-gradient(180deg, #fff 0%, var(--melon-soft) 100%);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 30px 32px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .pillar:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--leaf);
+  }
+  .pillar .icon{
+    width:60px;height:60px;border-radius:16px;
+    background:var(--melon-soft);color:var(--melon-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:32px;font-weight:700;
+    font-family:'Cormorant Garamond',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(2) .icon{background:var(--leaf-soft);color:var(--leaf-deep);}
+  .pillar:nth-child(3) .icon{background:var(--sail-soft);color:var(--sail-deep);}
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:28px;color:var(--melon-deep);
+    line-height:1.25;font-weight:600;margin-bottom:6px;
+  }
+  .pillar h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .pillar .en-body{
+    font-size:17.5px;color:var(--ink);
+    margin:18px 0;line-height:1.7;
+  }
+  .pillar .divider-tiny{
+    height:1px;background:var(--line);
+    margin:14px 0;
+  }
+  .pillar .zh-body{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Principal Teaser ============ */
+  .principal-teaser{background:#fff;}
+  .principal-teaser-card{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo-placeholder{
+    position:relative;
+    aspect-ratio:1/1;
+    border-radius:18px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,.4) 0%, transparent 50%),
+      linear-gradient(160deg, var(--melon-soft) 0%, var(--leaf-soft) 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-sm);
+    border:1px solid var(--line);
+  }
+  .principal-photo-placeholder__mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:96px;font-weight:600;
+    color:var(--melon-deep);
+    line-height:1;
+  }
+  .principal-photo-placeholder__zh{
+    position:absolute;
+    bottom:16px;left:0;right:0;text-align:center;
+    font-family:'PingFang TC',sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:.2em;
+  }
+  .principal-text .role{
+    color:var(--leaf);font-size:14px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;font-weight:600;color:var(--melon-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text .lede{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:21px;color:var(--ink);
+    line-height:1.6;margin:22px 0 14px;
+    padding-left:22px;
+    border-left:3px solid var(--sail);
+  }
+  .principal-text .zh-lede{
+    font-family:'PingFang TC',sans-serif;
+    font-style:normal;
+    font-size:18.5px;color:var(--ink);
+    line-height:1.85;
+    padding-left:22px;
+    border-left:3px solid var(--leaf);
+    margin-bottom:24px;
+  }
+  .principal-text .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--melon);color:#fff;
+    padding:12px 22px;border-radius:99px;
+    font-size:15px;font-weight:600;letter-spacing:.04em;
+    transition:background .2s, transform .2s;
+  }
+  .principal-text .cta:hover{
+    background:var(--melon-deep);
+    transform:translateY(-1px);
+    color:#fff;
+  }
+  .principal-text .cta::after{
+    content:"→";font-size:18px;line-height:1;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--melon-deep);color:#fff;padding:84px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:19px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:18px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--sail-soft);font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:19px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--sail-soft);border-color:var(--sail-soft);}
+
+  /* ============ Footer ============ */
+  footer.site-footer{
+    background:#1a0f0a;color:rgba(255,255,255,.65);
+    padding:36px 0;font-size:16px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer.site-footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer.site-footer .partner{color:var(--sail-soft);font-weight:600;}
+  footer.site-footer .partner a{color:var(--sail-soft);border-bottom:1px solid transparent;}
+  footer.site-footer .partner a:hover{border-bottom-color:var(--sail-soft);}
+
+  /* ============ Mobile ============ */
+  @media (max-width:880px){
+    .title{padding:48px 0 38px;}
+    section{padding:60px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .about-visual{min-height:auto;padding:38px 28px;}
+    .about-visual__mark{font-size:88px;}
+    .about-visual__mark-zh{font-size:26px;}
+    .timeline{grid-template-columns:repeat(2,1fr);}
+    .pillars{grid-template-columns:1fr;}
+    .principal-teaser-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo-placeholder{max-width:220px;margin:0 auto;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer.site-footer .wrap{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Wenchang Elementary
+        <small>彰化縣文昌國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- ============ TITLE (watermelon-rind hero) ============ -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Changhua County · Taiwan · Est. 1959</span>
+    <h1>Wenchang Elementary School
+      <span class="h1-zh">彰化縣福興鄉文昌國民小學</span>
+    </h1>
+
+    <hr class="title__divider">
+
+    <p class="title__tagline">
+      Where the watermelon fields meet the world.
+      <span class="tagline-zh">鎮平的西瓜田裡，揚帆向世界。</span>
+    </p>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>A Small School That Grew From a Village Branch</h2>
+      <div class="h2-zh">從一個鄉村分班，長成今天的文昌國小</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual__mark">文昌</div>
+        <div class="about-visual__mark-zh">WENCHANG</div>
+        <span class="about-visual__since">Founded · 1959 · 創校</span>
+      </div>
+
+      <div class="about-text">
+        <h3>One small school, two villages, sixty-plus years of quiet work</h3>
+        <p class="en">Wenchang Elementary sits in Zhenping Village, in the southern part of Fuxing Township &mdash; a corner of Changhua County better known for its watermelons than its skylines. Our school serves children from <strong>two villages, Zhenping and Sanhe</strong>, and has done so as an independent school since 1959.</p>
+        <p class="en">Today we are one of Changhua's smaller elementary schools, and that smallness is part of who we are: every teacher knows every child by name, and every child is part of every story the school tells.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>文昌國小座落於福興鄉鎮平村，是彰化縣西南角一所以西瓜田聞名的鄉村小學。學區涵蓋<strong>鎮平村與三和村</strong>兩個聚落，從 1959 年獨立設校以來，已陪伴一代又一代的鎮平孩子走過小學六年。</p>
+          <p>我們是彰化縣相對小型的學校，這份「小」也正是我們的特色——每位老師都認識每個孩子，校園裡發生的每件事，每個孩子都會在場。</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__stop">
+            <div class="timeline__year">1952</div>
+            <div class="timeline__label">Branch Class Established
+              <span class="zh">設「管嶼國小鎮平分班」</span>
+            </div>
+          </div>
+          <div class="timeline__stop">
+            <div class="timeline__year">1956</div>
+            <div class="timeline__label">Promoted to Branch School
+              <span class="zh">升格「鎮平分校」</span>
+            </div>
+          </div>
+          <div class="timeline__stop">
+            <div class="timeline__year">1959</div>
+            <div class="timeline__label">Independent &amp; Renamed Wenchang
+              <span class="zh">獨立設校為文昌國校</span>
+            </div>
+          </div>
+          <div class="timeline__stop">
+            <div class="timeline__year">1968</div>
+            <div class="timeline__label">Reorganized as Elementary School
+              <span class="zh">改制為文昌國民小學</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ IDENTITY (3 pillars) ============ -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What Makes Us Wenchang</div>
+      <h2>Three Things That Shape Our School</h2>
+      <div class="h2-zh">三個塑造文昌國小的故事</div>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">瓜</div>
+        <h3>Children of the Watermelon Fields
+          <small>西瓜田裡的孩子</small>
+        </h3>
+        <p class="en-body">Zhenping Village is the heart of Fuxing Township's watermelon country. Every summer, trucks pull up to fields right beside our campus to load melons for markets all over Taiwan. Our school has turned that geography into a curriculum: a food-and-farm education program brings the watermelon &mdash; from seed, to soil, to lunchbox &mdash; into the classroom. Even our playground says it out loud: a giant watermelon-shaped slide that has become the school's best-known landmark.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">鎮平村是福興鄉西瓜產地的核心。每到夏天，大卡車就停在校園邊的田裡，把整顆整顆的西瓜送往全台市場。文昌國小把這片地理變成了課程——「食農教育計畫」帶孩子從種子、土壤一路認識到餐桌上的西瓜。連校園裡都把這件事說得很大聲：那座大家都記得的西瓜造型溜滑梯，就是我們最廣為人知的地標。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">帆</div>
+        <h3>A Small School Setting Sail
+          <small>小校揚帆，走向國際</small>
+        </h3>
+        <p class="en-body">Wenchang has been recognized by Changhua County as a "<strong>Setting Sail School</strong>" (揚帆學校) in international education &mdash; the framework Taiwan's Ministry of Education uses for schools that move beyond classroom textbooks and into real international exchange. Our students have already taken part in online cross-cultural exchanges with peers abroad. For a village school of our size, that is not a small thing &mdash; it is the whole point.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">文昌國小通過彰化縣領航學校認證，取得「<strong>課程教學－國際教育／揚帆學校</strong>」級別——這是教育部國際教育架構中，給走出教科書、進入真實國際交流的學校的等級。我們的孩子已經參與過跨國線上文化交流活動。對一所這樣規模的鄉村小學來說，這不是小事——這正是「揚帆」這個名字最想表達的事。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">機</div>
+        <h3>Hands That Make Robots
+          <small>動手做機器人的孩子</small>
+        </h3>
+        <p class="en-body">Tradition in one hand, circuit boards in the other. Wenchang runs a robotics design course and seasonal robotics camps, giving rural-village children the same hands-on STEM experience that bigger urban schools take for granted. It is the kind of program that quietly answers a hard question: in 2026, what does "elementary education" even mean? &mdash; we think it means watermelons <em>and</em> robots, both grown in the same school.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">一手是傳統、一手是電路板。文昌國小開設了機器人設計課程與機器人營隊，讓鄉村學校的孩子也擁有都市學校熟悉的 STEM 動手經驗。這樣的課程其實悄悄地回答了一個不太好答的問題：2026 年的「小學教育」應該長什麼樣子？——我們認為，是西瓜，也是機器人，兩者一起在同一所學校長大。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRINCIPAL TEASER ============ -->
+<section class="principal-teaser" id="principal-teaser">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">From the Principal's Office</div>
+      <h2>The Principal of a Two-Village School</h2>
+      <div class="h2-zh">一所兩個村莊小學的校長</div>
+    </div>
+
+    <div class="principal-teaser-card">
+      <div class="principal-photo-placeholder">
+        <span class="principal-photo-placeholder__mark">陳</span>
+        <span class="principal-photo-placeholder__zh">Photo · 照片待補</span>
+      </div>
+
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Chen Yu-shan
+          <small>陳宇杉 校長</small>
+        </h3>
+
+        <p class="lede">
+          A small village school where the principal still knows every child's name &mdash; and where the work, quietly, is to give those children a horizon as wide as anyone else's.
+        </p>
+        <p class="zh-lede">
+          一所校長還叫得出每個孩子名字的鄉村小學——這裡的工作，就是悄悄地、給這些孩子一片不比任何人小的視野。
+        </p>
+
+        <a href="principal/" class="cta">Read the principal's page · 進入校長室</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞校交流</small>
+        </h2>
+        <p>We welcome educators, parents, and friends from Taiwan and abroad to visit our school. We are especially keen on conversations about rural bilingual education, food-and-farm curriculum, and how a small village school keeps its horizon wide.</p>
+        <p class="zh">歡迎國內外教育工作者、家長與友人蒞校交流。我們特別期待和您聊聊偏鄉雙語教育、食農課程，以及一所鄉村小學如何維持寬闊的視野。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>506 42 彰化縣福興鄉鎮平村鎮平街 1 號<br>
+            No. 1, Zhenping St., Zhenping Vil., Fuxing Twp., Changhua County 506, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886477028 12">04-7702812</a> &nbsp;·&nbsp; Fax 04-7700166</dd>
+          </div>
+          <div>
+            <dt>Official Website · 學校官網</dt>
+            <dd><a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a></dd>
+          </div>
+          <div>
+            <dt>Facebook · 臉書粉專</dt>
+            <dd><a href="https://www.facebook.com/100063792111873" target="_blank" rel="noopener">彰化縣文昌國小</a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 彰化縣文昌國民小學 · Wenchang Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+/* iframe height auto-report — eliminates double-scroll when embedded.
+   Parent container listens for {type:'wenchang-iframe-height', height} and
+   resizes the iframe accordingly. */
+(function(){
+  if (window.parent === window) return;  /* not embedded; do nothing */
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'wenchang-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+  Array.from(document.images).forEach(function(img){
+    if (!img.complete) img.addEventListener('load', report);
+  });
+})();
+</script>
+
+</body>
+</html>

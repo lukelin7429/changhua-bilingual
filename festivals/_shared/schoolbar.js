@@ -26,6 +26,13 @@
       color: '#E69585',
       colorDeep: '#C66E5C',
       url: 'https://lukelin7429.github.io/changhua-bilingual/schools/hualong/'
+    },
+    wenchang: {
+      name: 'Wenchang Elementary',
+      nameZh: '文昌國小',
+      color: '#d44a4a',
+      colorDeep: '#8a2828',
+      url: 'https://changhua-bilingual.org/schools/wenchang/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
