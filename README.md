@@ -20,7 +20,7 @@ apps-script/      共用的 Apps Script 後端，收集學生作答到 Google Sh
 ## 部署
 
 GitHub Pages 自動發佈於 `main` 分支，網址：
-`https://lukelin7429.github.io/changhua-bilingual/festivals/<festival>/`
+`https://changhua-bilingual.org/festivals/<festival>/`
 
 ## 各校客製
 
