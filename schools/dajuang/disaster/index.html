@@ -637,9 +637,37 @@
     .page-title{padding:42px 0 32px;}
     .section-head{margin-bottom:38px;}
   }
+
+  /* ==== SITE-WIDE SUB-NAV (matches the other 4 dajuang pages) ==== */
+  .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:17px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:19px; } }
+  .subnav a{color:var(--blue-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--orange-deep);}
+  .subnav a.is-active{background:var(--orange);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
 </style>
 </head>
 <body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home · 首頁</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal · 校長室</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Disaster Prevention · 防災教育</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus · 雙語校園</a>
+      <span class="subnav__sep">·</span>
+      <a href="../festivals/">Festivals · 節慶活動</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News · 校園新聞</a>
+    </div>
+  </div>
+</nav>
 
 <!-- ============ TITLE ============ -->
 <header class="page-title">
