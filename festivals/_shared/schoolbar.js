@@ -33,6 +33,13 @@
       color: '#d44a4a',
       colorDeep: '#8a2828',
       url: 'https://changhua-bilingual.org/schools/wenchang/'
+    },
+    zhongzheng: {
+      name: 'Zhongzheng Elementary',
+      nameZh: '中正國小',
+      color: '#C28A40',
+      colorDeep: '#7a5217',
+      url: 'https://changhua-bilingual.org/schools/zhongzheng/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
