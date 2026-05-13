@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News · 校園新聞 · Dajuang Elementary</title>
+<meta name="description" content="School news from Dajuang Elementary — the latest stories from a 70-student rural campus in Xizhou Township, Changhua County. 大莊國小校園新聞 · 偏鄉小學的日常與大事。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#1c4d7e;--blue:#2d6aa8;--blue-soft:#e3eef8;
+    --green:#5b9d5b;--green-deep:#3d7a3d;--green-soft:#e7f3e7;
+    --orange:#d97818;--orange-deep:#a85a0c;--orange-soft:#fce7d0;
+    --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
+    --pink:#d96b9a;--pink-soft:#fbe2ec;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(28,77,126,.30);--shadow-sm:0 6px 16px -6px rgba(28,77,126,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:72px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--orange);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--orange);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:17px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:19px; } }
+  .subnav a{color:var(--blue-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--orange-deep);}
+  .subnav a.is-active{background:var(--orange);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Source banner === */
+  .source-banner{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;display:flex;gap:14px;align-items:center;
+    font-size:15px;color:var(--ink-soft);
+  }
+  @media (min-width:720px){ .source-banner{ font-size:17px; } }
+  .source-banner b{color:var(--blue-deep);}
+  .source-banner .icon{font-size:24px;flex-shrink:0;}
+
+  /* === News grid === */
+  .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:760px){ .news-grid{ grid-template-columns:repeat(2,1fr);gap:28px; } }
+  @media (min-width:1000px){ .news-grid{ grid-template-columns:repeat(3,1fr); } }
+
+  .nc{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+    border-left:5px solid var(--blue);
+  }
+  .nc:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .nc.cat--disaster{border-left-color:var(--green);}
+  .nc.cat--bilingual{border-left-color:var(--orange);}
+  .nc.cat--festival{border-left-color:var(--pink);}
+  .nc.cat--character{border-left-color:var(--purple);}
+  .nc.cat--music{border-left-color:var(--blue);}
+  .nc.cat--field{border-left-color:var(--orange);}
+
+  .nc__hero{
+    height:100px;display:flex;align-items:center;justify-content:center;
+    font-size:56px;background:var(--blue-soft);
+  }
+  @media (min-width:720px){ .nc__hero{ height:120px;font-size:68px; } }
+  .nc.cat--disaster .nc__hero{background:var(--green-soft);}
+  .nc.cat--bilingual .nc__hero{background:var(--orange-soft);}
+  .nc.cat--festival .nc__hero{background:var(--pink-soft);}
+  .nc.cat--character .nc__hero{background:var(--purple-soft);}
+  .nc.cat--music .nc__hero{background:var(--blue-soft);}
+  .nc.cat--field .nc__hero{background:var(--orange-soft);}
+
+  .nc__body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .nc__body{ padding:26px 26px 28px; } }
+  .nc__cat{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);}
+  @media (min-width:720px){ .nc__cat{ font-size:13px; } }
+  .nc.cat--disaster .nc__cat{color:var(--green-deep);}
+  .nc.cat--bilingual .nc__cat{color:var(--orange-deep);}
+  .nc.cat--festival .nc__cat{color:var(--pink);}
+  .nc.cat--character .nc__cat{color:var(--purple-deep);}
+  .nc.cat--field .nc__cat{color:var(--orange-deep);}
+
+  .nc__date{font-size:13px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  @media (min-width:720px){ .nc__date{ font-size:14px; } }
+  .nc__title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--blue-deep);line-height:1.25;margin-top:10px;}
+  @media (min-width:720px){ .nc__title{ font-size:24px; } }
+  .nc__title-zh{font-size:15.5px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.4;}
+  @media (min-width:720px){ .nc__title-zh{ font-size:17px; } }
+  .nc__excerpt{font-size:15px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .nc__excerpt{ font-size:16.5px; } }
+  .nc__excerpt strong{color:var(--blue-deep);}
+
+  /* === Category filter (visual reference) === */
+  .cat-key{
+    display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;
+    font-family:'Cormorant Garamond','PingFang TC',serif;font-size:14px;
+  }
+  @media (min-width:720px){ .cat-key{ font-size:16px; } }
+  .cat-key span{padding:5px 12px;border-radius:6px;font-weight:700;}
+  .cat-key .k1{background:var(--green-soft);color:var(--green-deep);}
+  .cat-key .k2{background:var(--orange-soft);color:var(--orange-deep);}
+  .cat-key .k3{background:var(--pink-soft);color:var(--pink);}
+  .cat-key .k4{background:var(--purple-soft);color:var(--purple-deep);}
+  .cat-key .k5{background:var(--blue-soft);color:var(--blue);}
+
+  .back-cta{text-align:center;margin-top:32px;}
+  .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;}
+  .back-cta a:hover{background:var(--orange);}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--blue-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home · 首頁</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal · 校長室</a>
+      <span class="subnav__sep">·</span>
+      <a href="../disaster/">Disaster Prevention · 防災教育</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus · 雙語校園</a>
+      <span class="subnav__sep">·</span>
+      <a href="../festivals/">Festivals · 節慶活動</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News · 校園新聞</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== News ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">School News</div>
+    <h2 class="sec__title">Stories from Dajuang</h2>
+    <div class="sec__title-zh">校園新聞 · 一年裡的大事與日常</div>
+    <div class="sec__rule"></div>
+
+    <div class="source-banner">
+      <div class="icon">📰</div>
+      <div>
+        Stories below are summarized from <b>Dajuang Elementary's bilingual community page</b>. Read the full bilingual versions on the school's own community site: <a href="https://dajuang.mycultureconnect.org/community/school-news" target="_blank" rel="noopener" style="color:var(--blue-deep);">dajuang.mycultureconnect.org/community/school-news</a> ↗<br>
+        <span style="font-size:.92em;">以下新聞節選自大莊國小社區頁，完整英中對照原文請點上方連結。</span>
+      </div>
+    </div>
+
+    <div class="cat-key" style="margin-top:32px;">
+      <span class="k1">🛡️ Disaster · 防災</span>
+      <span class="k2">🌐 Bilingual · 雙語</span>
+      <span class="k3">🎉 Festival · 節慶</span>
+      <span class="k4">💛 Character · 品格</span>
+      <span class="k5">🥁 Music · 音樂</span>
+    </div>
+
+    <div class="news-grid">
+
+      <!-- 1 EduSports -->
+      <article class="nc cat--bilingual">
+        <div class="nc__hero">📡</div>
+        <div class="nc__body">
+          <div class="nc__cat">🌐 BILINGUAL · 國際接軌</div>
+          <div class="nc__date">March 27, 2026 · 115/3/27</div>
+          <h3 class="nc__title">Jump to the Future: Joining EduSports Smart Alliance</h3>
+          <div class="nc__title-zh">EduSports 智慧體育策略聯盟 · 與 7 所學校共組</div>
+          <p class="nc__excerpt">Dajuang joined 6 other schools in Taiwan's first AI-powered smart-skipping league, sponsored by Hojung Technology. <strong>From 2027 onwards, our students will compete online with schools in Japan, Thailand, and Malaysia.</strong></p>
+        </div>
+      </article>
+
+      <!-- 2 Disaster Camp -->
+      <article class="nc cat--disaster">
+        <div class="nc__hero">🌪️</div>
+        <div class="nc__body">
+          <div class="nc__cat">🛡️ DISASTER · 防災</div>
+          <div class="nc__date">March 16, 2026 · 115/3/16</div>
+          <h3 class="nc__title">Fun with Science: Disaster Prevention Camp</h3>
+          <div class="nc__title-zh">防災遊學團 · 與大葉大學合作</div>
+          <p class="nc__excerpt">Led by Professor Chou of Dayeh University, students built <strong>"water tornadoes" in bottles</strong> to understand whirlpools, and played a rope-escape game to learn about friction. Sponsored by the National Science Council.</p>
+        </div>
+      </article>
+
+      <!-- 3 Winter Camp -->
+      <article class="nc cat--bilingual">
+        <div class="nc__hero">🧪</div>
+        <div class="nc__body">
+          <div class="nc__cat">🌐 BILINGUAL · 雙語</div>
+          <div class="nc__date">February 2–4, 2026 · 115/2/2–4</div>
+          <h3 class="nc__title">Sparks of Science: Bilingual Winter Camp with Ching Cheng High</h3>
+          <div class="nc__title-zh">科學雙語冬令營 · 與精誠中學合作</div>
+          <p class="nc__excerpt">Three cold winter mornings filled with energy and smiles. High school mentors from Ching Cheng High came down to <strong>run experiments and games in English</strong> — singing, dancing, learning together.</p>
+        </div>
+      </article>
+
+      <!-- 4 Singing Contest -->
+      <article class="nc cat--festival">
+        <div class="nc__hero">🎤</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
+          <div class="nc__date">January 19, 2026 · 115/1/19</div>
+          <h3 class="nc__title">Sing with Courage: Our First Singing Contest</h3>
+          <div class="nc__title-zh">首屆「大莊好聲音」歌唱比賽</div>
+          <p class="nc__excerpt">Dajuang's first-ever schoolwide singing contest. <strong>Being brave is a big part of growing up</strong> — every student who stood on stage took home a piece of that bravery, no matter what the judges said.</p>
+        </div>
+      </article>
+
+      <!-- 5 Earth Oven Day -->
+      <article class="nc cat--festival">
+        <div class="nc__hero">🔥</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
+          <div class="nc__date">January 12, 2026 · 115/1/12</div>
+          <h3 class="nc__title">Fun Earth Oven Day: "Others take tests, we roast chickens!"</h3>
+          <div class="nc__title-zh">第 5 屆爌窯日 × 防災闖關</div>
+          <p class="nc__excerpt">5th annual Earth Oven &amp; Safety Day. Students built dirt ovens, cooked food, and played safety games. <strong>Vice Executive Wu of the Executive Yuan</strong> joined the tug-of-war and the disaster-prevention contest.</p>
+        </div>
+      </article>
+
+      <!-- 6 Teacher Taylor -->
+      <article class="nc cat--bilingual">
+        <div class="nc__hero">🌍</div>
+        <div class="nc__body">
+          <div class="nc__cat">🌐 BILINGUAL · 雙語</div>
+          <div class="nc__date">January 12, 2026 · 115/1/12</div>
+          <h3 class="nc__title">Teacher Taylor Visits: A "Disaster Prevention Professional" for a Day</h3>
+          <div class="nc__title-zh">外師 Teacher Taylor · 一日防災職人</div>
+          <p class="nc__excerpt">With matchmaking by <strong>My Culture Connect</strong>, foreign teacher Taylor spent a day at Dajuang — playing disaster prevention puzzles, learning about <em>permeable paving</em>, and tasting the famous "egg earth oven" snack.</p>
+        </div>
+      </article>
+
+      <!-- 7 Graduation Trip -->
+      <article class="nc cat--field">
+        <div class="nc__hero">🚄</div>
+        <div class="nc__body">
+          <div class="nc__cat">✈️ FIELD TRIP · 戶外</div>
+          <div class="nc__date">2025 · 六甲畢業旅行</div>
+          <h3 class="nc__title">Graduation Trip to Taipei</h3>
+          <div class="nc__title-zh">六甲畢業旅行 · 臺北</div>
+          <p class="nc__excerpt">Class 6A traveled to Taipei: <strong>Tamsui &amp; Fort San Domingo</strong> (ocarina performance), Children's Amusement Park, Ximending dinner, Chiang Kai-shek Memorial Hall, and the Taipei 101 observatory on the 89th floor.</p>
+        </div>
+      </article>
+
+      <!-- 8 Future Jobs -->
+      <article class="nc cat--field">
+        <div class="nc__hero">🎯</div>
+        <div class="nc__body">
+          <div class="nc__cat">✈️ FIELD TRIP · 職涯</div>
+          <div class="nc__date">April 8, 2025 · 114/4/8</div>
+          <h3 class="nc__title">Fun with Future Jobs at Datong Junior High</h3>
+          <div class="nc__title-zh">職涯探索 · 員林大同國中參訪</div>
+          <p class="nc__excerpt">High-grade students visited Datong Junior High in Yuanlin City — <strong>a treasure hunt for the future</strong>. By trying new activities, they started dreaming about what they want to achieve when they grow up.</p>
+        </div>
+      </article>
+
+      <!-- 9 3Q Superstars -->
+      <article class="nc cat--character">
+        <div class="nc__hero">⭐</div>
+        <div class="nc__body">
+          <div class="nc__cat">💛 CHARACTER · 品格</div>
+          <div class="nc__date">April 2, 2025 · 114/4/2</div>
+          <h3 class="nc__title">Celebrating Our 3Q Superstars</h3>
+          <div class="nc__title-zh">兒童節 · 3Q 小超人表揚</div>
+          <p class="nc__excerpt">Children's Day with a twist — Dajuang celebrates <strong>AQ (Adversity), EQ (Emotional), and MQ (Moral)</strong>. Recognising kids who bounce back, manage feelings, and treat others with kindness.</p>
+        </div>
+      </article>
+
+      <!-- 10 Online Safety -->
+      <article class="nc cat--disaster">
+        <div class="nc__hero">🛡️</div>
+        <div class="nc__body">
+          <div class="nc__cat">🛡️ SAFETY · 安全</div>
+          <div class="nc__date">February 19, 2025 · 114/2/19</div>
+          <h3 class="nc__title">Helping Kids Stay Safe — Online and In Life</h3>
+          <div class="nc__title-zh">兒少安全課程 · 網路與現實</div>
+          <p class="nc__excerpt">A special class taught Dajuang kids how to recognize what's safe and what to do <strong>if something ever feels wrong</strong>. The lesson framed online safety as just as important as offline safety.</p>
+        </div>
+      </article>
+
+      <!-- 11 Eco-Drumming Band -->
+      <article class="nc cat--music">
+        <div class="nc__hero">🥁</div>
+        <div class="nc__body">
+          <div class="nc__cat">🥁 MUSIC · 環保打擊樂團</div>
+          <div class="nc__date">2024 · 自 2003 至今</div>
+          <h3 class="nc__title">The Eco-Drumming Band Rocks!</h3>
+          <div class="nc__title-zh">環保打擊樂團 · 2003 成立</div>
+          <p class="nc__excerpt">Music from <strong>metal buckets, trash cans, food-waste bins, and plastic barrels</strong>. The band has performed for the Changhua County Government, the Sijhou Farmers' Association, and even a science company in Taoyuan.</p>
+        </div>
+      </article>
+
+      <!-- 12 Five-Element Tangyuan -->
+      <article class="nc cat--festival">
+        <div class="nc__hero">🍡</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
+          <div class="nc__date">December 2024 · 113/12 冬至</div>
+          <h3 class="nc__title">Five-Element Tangyuan for Safety</h3>
+          <div class="nc__title-zh">冬至五行湯圓 · 揉防災進麵團</div>
+          <p class="nc__excerpt">Volunteer moms led students to make colourful tangyuan — <strong>guava (metal), spinach (wood), black rice (water), dragon fruit (fire), white rice (earth)</strong>. Round shape = community togetherness in emergencies.</p>
+        </div>
+      </article>
+
+      <!-- 13 Kiln Baking -->
+      <article class="nc cat--festival">
+        <div class="nc__hero">🍠</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
+          <div class="nc__date">January 2024 · 113/1</div>
+          <h3 class="nc__title">A Fun Kiln Baking Day</h3>
+          <div class="nc__title-zh">傳統焢窯 · 全校共烤</div>
+          <p class="nc__excerpt">Building dirt-kilns from scratch — students preparing food, lighting fires, and playing <strong>"disaster safety challenge cards"</strong>. The smell of food carried the warm "power of home" across the schoolyard.</p>
+        </div>
+      </article>
+
+      <!-- 14 Cai-Jie Dad -->
+      <article class="nc cat--character">
+        <div class="nc__hero">🎤</div>
+        <div class="nc__body">
+          <div class="nc__cat">💛 PARENT ED · 親職教育</div>
+          <div class="nc__date">November 2023 · 112/11</div>
+          <h3 class="nc__title">"Dad Cai-Jie" Parent Talk</h3>
+          <div class="nc__title-zh">「蔡傑爸」 親職講座</div>
+          <p class="nc__excerpt">Famous speaker <strong>"Cai-Jie Dad"</strong> visited Dajuang with stories from his own life — funny, warm, deeply touching. Every parent went home rethinking their role at home.</p>
+        </div>
+      </article>
+
+      <!-- 15 Respect Elders -->
+      <article class="nc cat--character">
+        <div class="nc__hero">👵</div>
+        <div class="nc__body">
+          <div class="nc__cat">💛 LIFE ED · 生命教育</div>
+          <div class="nc__date">December 2023 · 112/12</div>
+          <h3 class="nc__title">Showing Love to Our Elders</h3>
+          <div class="nc__title-zh">敬老感恩 · 華山基金會</div>
+          <p class="nc__excerpt">Students <strong>experienced what aging feels like</strong> — heavier limbs, weaker grip, blurred vision. The empathy lesson flowed from school into homes and the wider community.</p>
+        </div>
+      </article>
+
+      <!-- 16 Teachers' Day -->
+      <article class="nc cat--festival">
+        <div class="nc__hero">💐</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
+          <div class="nc__date">September 2023 · 112/9</div>
+          <h3 class="nc__title">Happy Teachers' Day at Dajuang</h3>
+          <div class="nc__title-zh">教師節 · 手作感謝</div>
+          <p class="nc__excerpt">Students made <strong>handmade thank-you cards</strong>; the Parents' Association presented gift vouchers from all parents. A simple but heartwarming way to recognise teachers' work.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 大莊國小 Dajuang Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--blue-deep);">Changhua Bilingual Network</a>
+</footer>
+
+</body>
+</html>
