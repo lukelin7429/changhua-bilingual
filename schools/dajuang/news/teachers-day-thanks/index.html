@@ -35,49 +35,26 @@
   .crumb a{color:var(--ink-soft);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
   .crumb a:hover{color:var(--orange-deep);}
 
-  /* Story hero — per-category visual hero */
-  .story-hero{padding:64px 0 40px;text-align:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
-  @media (min-width:720px){ .story-hero{ padding:92px 0 52px; } }
-  /* Per-category gradient backgrounds */
-  .story-hero.cat--bilingual{background:linear-gradient(135deg,#fce7d0 0%,#fff4e6 50%,#ffffff 100%);}
-  .story-hero.cat--disaster{background:linear-gradient(135deg,#e7f3e7 0%,#f1f8f1 50%,#ffffff 100%);}
-  .story-hero.cat--festival{background:linear-gradient(135deg,#fbe2ec 0%,#fdeef4 50%,#ffffff 100%);}
-  .story-hero.cat--character{background:linear-gradient(135deg,#ece4f4 0%,#f4eef8 50%,#ffffff 100%);}
-  .story-hero.cat--music{background:linear-gradient(135deg,#e3eef8 0%,#eef4fa 50%,#ffffff 100%);}
-  .story-hero.cat--field{background:linear-gradient(135deg,#fce7d0 0%,#fff4e6 50%,#ffffff 100%);}
-  /* Decorative scattered emojis behind hero (no photos needed — make each story look distinct) */
-  .story-hero__pattern{
-    position:absolute;inset:0;pointer-events:none;
-    display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(4,1fr);
-    opacity:.12;font-size:54px;line-height:1;
-  }
-  @media (min-width:720px){ .story-hero__pattern{ font-size:80px; } }
-  .story-hero__pattern span{display:flex;align-items:center;justify-content:center;transform:rotate(var(--r,0deg));}
-  .story-hero__pattern span:nth-child(1){--r:-12deg;grid-column:1;grid-row:1;}
-  .story-hero__pattern span:nth-child(2){--r:8deg;grid-column:3;grid-row:1;}
-  .story-hero__pattern span:nth-child(3){--r:-4deg;grid-column:6;grid-row:1;}
-  .story-hero__pattern span:nth-child(4){--r:18deg;grid-column:2;grid-row:4;}
-  .story-hero__pattern span:nth-child(5){--r:-15deg;grid-column:5;grid-row:4;}
-  .story-hero__pattern span:nth-child(6){--r:10deg;grid-column:7;grid-row:3;}
-  .story-hero__pattern span:nth-child(7){--r:-8deg;grid-column:1;grid-row:3;}
-  .story-hero__inner{position:relative;z-index:2;}
-  .story-hero__emoji{font-size:108px;line-height:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.10));}
-  @media (min-width:720px){ .story-hero__emoji{ font-size:148px; } }
-  .story-hero__cat{display:inline-block;background:#fff;color:var(--orange-deep);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:99px;margin-top:22px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  /* Story hero — real photo */
+  .story-hero{padding:0;text-align:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+  .story-hero__photo{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;}
+  .story-hero__meta{padding:32px 16px 36px;}
+  @media (min-width:720px){ .story-hero__meta{ padding:42px 24px 48px; } }
+  .story-hero__cat{display:inline-block;background:#fff;color:var(--orange-deep);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:99px;box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid var(--line);}
   @media (min-width:720px){ .story-hero__cat{ font-size:14.5px; } }
   .story-hero.cat--disaster .story-hero__cat{color:var(--green-deep);}
   .story-hero.cat--festival .story-hero__cat{color:var(--pink-deep,#a64475);}
   .story-hero.cat--character .story-hero__cat{color:var(--purple-deep);}
   .story-hero.cat--music .story-hero__cat{color:var(--blue-deep);}
-  .story-hero h1{font-family:'Cormorant Garamond',serif;color:var(--blue-deep);font-size:38px;font-weight:700;line-height:1.15;margin-top:18px;letter-spacing:.5px;padding:0 16px;}
-  @media (min-width:720px){ .story-hero h1{ font-size:58px; } }
-  .story-hero h2{font-family:'PingFang TC',sans-serif;color:var(--ink);font-size:23px;font-weight:600;margin-top:10px;letter-spacing:1px;padding:0 16px;}
-  @media (min-width:720px){ .story-hero h2{ font-size:28px; } }
+  .story-hero h1{font-family:'Cormorant Garamond',serif;color:var(--blue-deep);font-size:34px;font-weight:700;line-height:1.18;margin-top:18px;letter-spacing:.5px;}
+  @media (min-width:720px){ .story-hero h1{ font-size:52px; } }
+  .story-hero h2{font-family:'PingFang TC',sans-serif;color:var(--ink);font-size:21px;font-weight:600;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .story-hero h2{ font-size:26px; } }
   .story-hero__date{font-family:'Cormorant Garamond',serif;color:var(--ink-soft);font-size:17px;font-weight:600;margin-top:18px;letter-spacing:1.5px;}
   @media (min-width:720px){ .story-hero__date{ font-size:19px; } }
   .story-hero__date b{color:var(--orange-deep);}
   /* Video hero (Teacher Taylor) */
-  .story-hero__video{max-width:760px;margin:0 auto 8px;padding:0 16px;}
+  .story-hero__video{max-width:760px;margin:0 auto;padding:24px 16px 0;}
   .story-hero__video-frame{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(28,77,126,.35);}
   .story-hero__video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
@@ -132,9 +109,8 @@
 </div>
 
 <header class="story-hero cat--festival">
-  <div class="story-hero__pattern" aria-hidden="true"><span>💐</span><span>🌸</span><span>📝</span><span>💌</span><span>🍎</span><span>🌷</span></div>
-  <div class="story-hero__inner">
-    <div class="story-hero__emoji">💐</div>
+  <img class="story-hero__photo" src="photo.jpg" alt="">
+  <div class="story-hero__meta">
     <div class="story-hero__cat">🎉 Festival · 節慶</div>
     <h1>Happy Teachers&#x27; Day at Dajuang Elementary!</h1>
     <h2>九月的時候，我們學校舉辦了一個溫馨的活動來慶祝教師節，向所有很棒的老師們說聲大大的感謝！</h2>
