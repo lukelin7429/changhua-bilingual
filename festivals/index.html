@@ -136,10 +136,16 @@
 </div>
 
 <script>
-/* Show a "Back to <school>" strip when arrived via ?from=<school_slug> */
+/* Show "Back to <school>" strip when arrived via ?from=<slug> OR when
+ * sessionStorage has a previously-captured slug (so the strip persists
+ * across festival subpages within the same tab). */
 (function(){
   var p = new URLSearchParams(window.location.search);
   var from = p.get('from');
+  /* If URL has ?from=, persist it for the rest of this tab session */
+  if(from){ try{ sessionStorage.setItem('cb_from_school', from); }catch(e){} }
+  /* Otherwise fall back to the persisted value */
+  if(!from){ try{ from = sessionStorage.getItem('cb_from_school'); }catch(e){} }
   if(!from) return;
   /* school slug -> display name (extend as more schools come online) */
   var schools = {
