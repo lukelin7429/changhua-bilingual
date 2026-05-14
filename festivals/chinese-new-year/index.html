@@ -281,22 +281,24 @@
 </head>
 <body>
 <style>
-.cb-back-strip{background:#fffcef;border-bottom:2px solid #c9c920;padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:12px;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;font-weight:600;position:sticky;top:0;z-index:100;}
-@media (min-width:720px){.cb-back-strip{font-size:19px;padding:18px 24px;}}
+.cb-back-strip{background:#fffcef;border-bottom:2px solid #c9c920;padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:12px;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;font-weight:600;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
+@media (min-width:720px){.cb-back-strip{font-size:19px;padding:18px 24px;gap:16px;}}
 .cb-back-strip a{color:#2a2725;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:1.5px solid #c9c920;transition:all .15s;}
 .cb-back-strip a:hover{background:#c9c920;color:#2a2725;transform:translateX(-2px);}
-.cb-back-strip[hidden]{display:none;}
 .cb-back-strip .arrow{font-size:1.2em;}
+.cb-back-strip a[hidden]{display:none;}
 </style>
-<div id="cb-back-strip" class="cb-back-strip" hidden>
-  <a id="cb-back-link" href="#">
+<div id="cb-back-strip" class="cb-back-strip">
+  <a href="/festivals/" class="cb-festivals">
+    <span class="arrow">←</span>
+    <span>All Festivals · 回節慶總頁</span>
+  </a>
+  <a id="cb-back-link" href="#" hidden>
     <span class="arrow">←</span>
     <span id="cb-back-text">Back to school</span>
   </a>
 </div>
 <script>
-/* Show "Back to <school>" strip when arrived via ?from=<slug> OR when
- * sessionStorage has a previously-captured slug. */
 (function(){
   var p = new URLSearchParams(window.location.search);
   var from = p.get('from');
@@ -309,13 +311,12 @@
     'huatan':   { en: 'Huatan Elementary',   zh: '花壇國小' }
   };
   var sch = schools[from] || { en: from, zh: '回到學校' };
-  var strip = document.getElementById('cb-back-strip');
-  var link  = document.getElementById('cb-back-link');
-  var text  = document.getElementById('cb-back-text');
-  if(!strip || !link || !text) return;
+  var link = document.getElementById('cb-back-link');
+  var text = document.getElementById('cb-back-text');
+  if(!link || !text) return;
   link.href = '/schools/' + encodeURIComponent(from) + '/';
   text.textContent = 'Back to ' + sch.en + ' · 回到' + sch.zh + '主頁';
-  strip.hidden = false;
+  link.hidden = false;
 })();
 </script>
 
