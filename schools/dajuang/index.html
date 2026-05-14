@@ -335,68 +335,118 @@
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
 
-  /* === Hero Banner === */
+  /* === Hero Banner — modern split layout === */
   .banner{
-    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 50%, var(--purple-deep) 100%);
-    color:#fff;padding:64px 24px 76px;position:relative;overflow:hidden;
+    display:grid;grid-template-columns:1fr;
+    min-height:auto;overflow:hidden;
+    border-bottom:1px solid var(--line);
   }
-  @media (min-width:720px){ .banner{ padding:104px 24px 120px; } }
-  .banner::before{
-    content:'';position:absolute;top:-50px;right:-50px;width:280px;height:280px;
-    background:radial-gradient(circle, var(--orange) 0%, transparent 70%);
-    opacity:.3;border-radius:50%;
+  @media (min-width:880px){
+    .banner{grid-template-columns:380px 1fr;min-height:320px;}
   }
-  .banner::after{
-    content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;
-    background:radial-gradient(circle, var(--green) 0%, transparent 70%);
-    opacity:.3;border-radius:50%;
+
+  /* Left zone: mesh-gradient + floating geometric shapes + logo */
+  .banner__visual{
+    background:
+      radial-gradient(circle at 18% 22%, rgba(217,120,24,.45) 0%, transparent 38%),
+      radial-gradient(circle at 82% 78%, rgba(91,157,91,.45) 0%, transparent 38%),
+      radial-gradient(circle at 50% 50%, rgba(126,95,163,.30) 0%, transparent 55%),
+      linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
+    display:flex;align-items:center;justify-content:center;
+    padding:38px 24px;position:relative;overflow:hidden;
+    min-height:240px;
   }
-  .banner__inner{max-width:960px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  /* Decorative geometric shapes */
+  .banner__visual::before{
+    content:'';position:absolute;
+    width:140px;height:140px;border:2.5px solid rgba(255,255,255,.18);
+    border-radius:50%;top:-32px;right:-40px;
+  }
+  .banner__visual::after{
+    content:'';position:absolute;
+    width:100px;height:100px;background:rgba(255,255,255,.08);
+    border-radius:22px;transform:rotate(18deg);bottom:-20px;left:-24px;
+  }
+  .banner__shape-1{
+    position:absolute;width:60px;height:60px;
+    border:2px solid rgba(255,255,255,.25);
+    border-radius:50%;top:50%;right:18px;transform:translateY(-40px);
+  }
+  .banner__shape-2{
+    position:absolute;width:32px;height:32px;
+    background:rgba(217,120,24,.7);border-radius:8px;
+    transform:rotate(35deg);top:24px;left:30px;
+    box-shadow:0 4px 12px -2px rgba(217,120,24,.5);
+  }
+  .banner__shape-3{
+    position:absolute;width:44px;height:44px;
+    background:rgba(91,157,91,.7);
+    clip-path:polygon(50% 0%, 100% 100%, 0% 100%);
+    bottom:48px;right:60px;
+    filter:drop-shadow(0 4px 8px rgba(91,157,91,.5));
+  }
   .banner__logo{
-    width:128px;height:128px;border-radius:50%;
-    background:#fff;padding:6px;margin:0 auto 26px;
-    box-shadow:0 10px 30px -8px rgba(0,0,0,.35);
+    position:relative;z-index:2;
+    width:160px;height:160px;border-radius:50%;
+    background:#fff;padding:6px;
+    box-shadow:0 18px 38px -10px rgba(0,0,0,.45);
     display:block;
   }
-  @media (min-width:720px){ .banner__logo{ width:172px;height:172px;margin-bottom:32px;padding:8px; } }
+  @media (min-width:880px){ .banner__logo{ width:200px;height:200px;padding:8px; } }
   .banner__logo img{width:100%;height:100%;border-radius:50%;display:block;}
-  .banner__eyebrow{
-    font-family:'Cormorant Garamond',serif;
-    font-size:18px;letter-spacing:6px;color:var(--orange-soft);
-    text-transform:uppercase;font-weight:600;margin-bottom:18px;
+
+  /* Right zone: clean white text */
+  .banner__text{
+    background:#fff;padding:36px 28px;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
   }
-  @media (min-width:720px){ .banner__eyebrow{ font-size:20px; } }
+  @media (min-width:880px){ .banner__text{ padding:48px 56px; } }
+  .banner__text::before{
+    content:'';position:absolute;
+    width:64px;height:6px;background:var(--orange);
+    border-radius:3px;top:36px;left:28px;
+  }
+  @media (min-width:880px){ .banner__text::before{ top:48px;left:56px; } }
+  .banner__brand{
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px;letter-spacing:4px;color:var(--orange-deep);
+    text-transform:uppercase;font-weight:700;margin-top:18px;
+  }
+  @media (min-width:880px){ .banner__brand{ font-size:15px; } }
   .banner h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:48px;font-weight:700;letter-spacing:1px;line-height:1.1;
+    font-size:38px;font-weight:700;color:var(--blue-deep);
+    line-height:1.05;letter-spacing:.5px;margin-top:8px;
   }
-  @media (min-width:720px){ .banner h1{ font-size:88px; } }
+  @media (min-width:880px){ .banner h1{ font-size:54px; } }
   .banner__zh{
-    font-size:24px;color:#dde5f0;margin-top:16px;font-weight:500;letter-spacing:2px;
+    font-size:21px;color:var(--ink);margin-top:6px;
+    font-weight:600;letter-spacing:1.5px;
   }
-  @media (min-width:720px){ .banner__zh{ font-size:34px; } }
+  @media (min-width:880px){ .banner__zh{ font-size:26px; } }
   .banner__tagline{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-size:20px;color:#ffe1c2;margin-top:24px;line-height:1.5;
-    max-width:760px;margin-left:auto;margin-right:auto;font-weight:500;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:var(--ink-soft);margin-top:18px;line-height:1.5;
+    font-weight:500;
   }
-  @media (min-width:720px){ .banner__tagline{ font-size:26px; } }
-  .banner__tagline .zh{display:block;font-style:normal;color:#cdd9e9;font-size:.82em;margin-top:6px;letter-spacing:1px;}
-  .banner__stats{
-    margin-top:42px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px;
+  @media (min-width:880px){ .banner__tagline{ font-size:22px; } }
+  .banner__tagline .zh{
+    display:block;font-style:normal;font-family:'Inter','PingFang TC',sans-serif;
+    color:var(--ink);font-size:.78em;margin-top:6px;font-weight:600;
   }
-  @media (min-width:720px){ .banner__stats{ gap:54px; } }
-  .banner__stat{text-align:center;}
-  .banner__stat b{
-    font-family:'Cormorant Garamond',serif;
-    font-size:28px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:.5px;display:block;
+  .banner__chips{
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;
   }
-  @media (min-width:720px){ .banner__stat b{ font-size:36px; } }
-  .banner__stat span{
-    font-size:15px;color:var(--orange-soft);font-weight:600;letter-spacing:2px;text-transform:uppercase;
-    margin-top:10px;display:block;
+  .banner__chips span{
+    background:var(--blue-soft);color:var(--blue-deep);
+    padding:6px 14px;border-radius:99px;font-size:13.5px;font-weight:600;
+    letter-spacing:.5px;
   }
-  @media (min-width:720px){ .banner__stat span{ font-size:18px; } }
+  @media (min-width:880px){ .banner__chips span{ font-size:15px;padding:7px 16px; } }
+  .banner__chips span.c-green{background:var(--green-soft);color:var(--green-deep);}
+  .banner__chips span.c-orange{background:var(--orange-soft);color:var(--orange-deep);}
+  .banner__chips span.c-purple{background:var(--purple-soft);color:var(--purple-deep);}
 </style>
 </head>
 <body>
@@ -427,19 +477,30 @@
   </div>
 </nav>
 
-<!-- ===== Hero Banner ===== -->
+<!-- ===== Hero Banner — modern split === -->
 <header class="banner">
-  <div class="banner__inner">
+  <div class="banner__visual">
+    <span class="banner__shape-1"></span>
+    <span class="banner__shape-2"></span>
+    <span class="banner__shape-3"></span>
     <div class="banner__logo">
       <img src="photos/logo-mascot.png" alt="Dajuang Elementary School mascot logo · 大莊國小校徽吉祥物">
     </div>
-    <div class="banner__eyebrow">A School by the Zhuoshui River · 濁水溪畔</div>
+  </div>
+  <div class="banner__text">
+    <div class="banner__brand">A School by the Zhuoshui River</div>
     <h1>Dajuang Elementary</h1>
     <div class="banner__zh">彰化縣溪州鄉大莊國民小學</div>
     <p class="banner__tagline">
       A small school. A big curriculum.
-      <span class="zh">稻果樂的學校・特色防災校園・環保打擊樂團</span>
+      <span class="zh">稻果樂的學校・濁水溪畔的特色防災校園</span>
     </p>
+    <div class="banner__chips">
+      <span class="c-orange">🌾 Rice-Fruit-Joy</span>
+      <span class="c-green">🛡️ Disaster Education</span>
+      <span class="c-purple">🥁 Eco-Drumming</span>
+      <span>🌐 Bilingual</span>
+    </div>
   </div>
 </header>
 
