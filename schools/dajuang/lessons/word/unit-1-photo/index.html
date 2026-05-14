@@ -59,13 +59,14 @@
   .scene:nth-child(5n){border-top-color:var(--pink);}
   .scene__photo{
     height:160px;display:flex;align-items:center;justify-content:center;
-    font-size:72px;background:var(--purple-soft);
+    font-size:72px;background:var(--purple-soft);overflow:hidden;
   }
   @media (min-width:720px){ .scene__photo{ height:200px;font-size:96px; } }
   .scene:nth-child(2n) .scene__photo{background:var(--blue-soft);}
   .scene:nth-child(3n) .scene__photo{background:var(--orange-soft);}
   .scene:nth-child(4n) .scene__photo{background:var(--green-soft);}
   .scene:nth-child(5n) .scene__photo{background:var(--pink-soft);}
+  .scene__photo img{width:100%;height:100%;object-fit:cover;display:block;}
   .scene__body{padding:24px 26px 28px;}
   @media (min-width:720px){ .scene__body{ padding:30px 32px 32px; } }
   .scene__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--orange-deep);text-transform:uppercase;}
