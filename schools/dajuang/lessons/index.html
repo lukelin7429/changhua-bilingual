@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/dajuang/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/dajuang/favicon-180.png">
 <link rel="shortcut icon" href="/schools/dajuang/favicon.ico">
-<meta name="description" content="Dajuang Elementary's bilingual learning hub — 22 Word-of-the-Day videos in 3 units, plus photo-story units capturing field trips, festivals, and campus life. 大莊國小雙語課程入口 · 每日一字 3 個 Unit、Photo Story 2 個 Unit。">
+<meta name="description" content="Dajuang Elementary's bilingual learning hub — Word of the Day video series and Photo Story collections. 大莊國小雙語課程入口。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,200 +18,173 @@
     --green:#5b9d5b;--green-deep:#3d7a3d;--green-soft:#e7f3e7;
     --orange:#d97818;--orange-deep:#a85a0c;--orange-soft:#fce7d0;
     --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
-    --pink:#d96b9a;--pink-soft:#fbe2ec;
+    --pink:#d96b9a;--pink-deep:#a64475;--pink-soft:#fbe2ec;
     --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
     --shadow:0 14px 38px -16px rgba(28,77,126,.30);--shadow-sm:0 6px 16px -6px rgba(28,77,126,.18);
+    --shadow-color:0 18px 44px -14px rgba(217,120,24,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media (min-width:720px){ body{ font-size:23px; } }
   .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
-  section{padding:48px 0;border-bottom:1px solid var(--line);}
-  @media (min-width:720px){ section{ padding:72px 0; } }
-  section:last-of-type{border-bottom:none;}
 
-  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--orange);font-size:22px;font-weight:700;letter-spacing:5px;}
-  @media (min-width:720px){ .sec__no{ font-size:25px; } }
-  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
-  @media (min-width:720px){ .sec__title{ font-size:60px; } }
-  .sec__title-zh{font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
-  @media (min-width:720px){ .sec__title-zh{ font-size:23px; } }
-  .sec__rule{width:96px;height:6px;background:var(--orange);border-radius:3px;margin:22px 0 36px;}
-  .sec__lead{font-size:19px;color:var(--ink);line-height:1.7;max-width:780px;}
-  @media (min-width:720px){ .sec__lead{ font-size:22px; } }
-  .sec__lead .zh{display:block;font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
-  @media (min-width:720px){ .sec__lead .zh{ font-size:19px; } }
-
-  /* === Sub-nav (site-wide) === */
+  /* === Sub-nav === */
   .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
-  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:17px;}
-  @media (min-width:720px){ .subnav__inner{ font-size:19px; } }
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
   .subnav a{color:var(--blue-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--orange-deep);}
   .subnav a.is-active{background:var(--orange);color:#fff;}
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Hero Banner === */
+  /* === Compact Banner === */
   .banner{
-    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 50%, var(--purple-deep) 100%);
-    color:#fff;padding:60px 24px 70px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 45%, var(--purple-deep) 100%);
+    color:#fff;padding:36px 24px 44px;position:relative;overflow:hidden;text-align:center;
   }
-  @media (min-width:720px){ .banner{ padding:96px 24px 110px; } }
+  @media (min-width:720px){ .banner{ padding:52px 24px 60px; } }
   .banner::before{
-    content:'';position:absolute;
-    top:-40px;right:-40px;width:240px;height:240px;
+    content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;
     background:radial-gradient(circle, var(--orange) 0%, transparent 70%);
-    opacity:.3;border-radius:50%;
+    opacity:.35;border-radius:50%;
   }
   .banner::after{
-    content:'';position:absolute;
-    bottom:-50px;left:-50px;width:200px;height:200px;
+    content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;
     background:radial-gradient(circle, var(--green) 0%, transparent 70%);
-    opacity:.3;border-radius:50%;
+    opacity:.35;border-radius:50%;
   }
-  .banner__inner{max-width:920px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  .banner__inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
   .banner__eyebrow{
-    font-family:'Cormorant Garamond',serif;
-    font-size:16px;letter-spacing:6px;color:var(--orange-soft);
-    text-transform:uppercase;font-weight:600;margin-bottom:14px;
+    font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;
+    color:var(--orange-soft);text-transform:uppercase;font-weight:600;margin-bottom:10px;
   }
-  @media (min-width:720px){ .banner__eyebrow{ font-size:19px; } }
+  @media (min-width:720px){ .banner__eyebrow{ font-size:16px; } }
   .banner h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:50px;font-weight:700;letter-spacing:1px;line-height:1.1;
+    font-size:42px;font-weight:700;letter-spacing:1px;line-height:1.1;
   }
-  @media (min-width:720px){ .banner h1{ font-size:88px; } }
-  .banner__zh{
-    font-size:24px;color:#cdd9e9;margin-top:14px;font-weight:500;letter-spacing:2px;
+  @media (min-width:720px){ .banner h1{ font-size:62px; } }
+  .banner__zh{font-size:20px;color:#dde5f0;margin-top:8px;font-weight:500;letter-spacing:1.5px;}
+  @media (min-width:720px){ .banner__zh{ font-size:24px; } }
+  .banner__tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.5;font-weight:500;
   }
-  @media (min-width:720px){ .banner__zh{ font-size:32px; } }
-  .banner__lede{
-    font-size:18px;color:#e8eef5;margin-top:24px;line-height:1.65;max-width:680px;
-    margin-left:auto;margin-right:auto;
-  }
-  @media (min-width:720px){ .banner__lede{ font-size:22px; } }
-  .banner__stats{
-    margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;
-  }
-  @media (min-width:720px){ .banner__stats{ gap:40px; } }
-  .banner__stat{text-align:center;}
-  .banner__stat b{
-    font-family:'Cormorant Garamond',serif;
-    font-size:46px;font-weight:700;color:#fff;line-height:1;letter-spacing:-1px;
-    display:block;
-  }
-  @media (min-width:720px){ .banner__stat b{ font-size:64px; } }
-  .banner__stat span{
-    font-size:13px;color:var(--orange-soft);font-weight:600;letter-spacing:2px;text-transform:uppercase;
-    margin-top:6px;display:block;
-  }
-  @media (min-width:720px){ .banner__stat span{ font-size:15px; } }
+  @media (min-width:720px){ .banner__tagline{ font-size:20px; } }
 
-  /* === Unit cards === */
-  .units{display:grid;grid-template-columns:1fr;gap:22px;}
-  @media (min-width:720px){ .units{ grid-template-columns:repeat(2,1fr);gap:28px; } }
-  @media (min-width:1000px){ .units{ grid-template-columns:repeat(3,1fr); } }
+  /* === Section base === */
+  section{padding:48px 0;}
+  @media (min-width:720px){ section{ padding:72px 0; } }
+  .sec__title{
+    font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;
+    color:var(--blue-deep);line-height:1.15;text-align:center;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .sec__title{ font-size:48px; } }
+  .sec__title-zh{
+    font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:8px;
+    letter-spacing:1px;text-align:center;
+  }
+  @media (min-width:720px){ .sec__title-zh{ font-size:21px; } }
+  .sec__rule{width:80px;height:5px;background:var(--orange);border-radius:3px;margin:18px auto 32px;}
+  .sec__lede{
+    font-size:18px;color:var(--ink);line-height:1.7;text-align:center;
+    max-width:720px;margin:0 auto;
+  }
+  @media (min-width:720px){ .sec__lede{ font-size:21px; } }
+  .sec__lede .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .sec__lede .zh{ font-size:18px; } }
+
+  /* === Unit cards — colorful === */
+  .units{
+    display:grid;grid-template-columns:1fr;gap:24px;margin-top:42px;
+  }
+  @media (min-width:720px){ .units{ grid-template-columns:repeat(2,1fr);gap:30px; } }
+  @media (min-width:1080px){ .units{ grid-template-columns:repeat(3,1fr); } }
+
   .unit{
-    background:#fff;border-radius:18px;border:1px solid var(--line);
+    background:#fff;border-radius:22px;border:1px solid var(--line);
     box-shadow:var(--shadow-sm);overflow:hidden;
     display:flex;flex-direction:column;
-    transition:transform .2s, box-shadow .2s;
-    border-top:8px solid var(--blue);
-    text-decoration:none;color:inherit;
+    transition:transform .25s, box-shadow .25s;
+    text-decoration:none;color:inherit;position:relative;
   }
-  .unit:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-  .unit.u-1{border-top-color:var(--blue);}
-  .unit.u-2{border-top-color:var(--green);}
-  .unit.u-3{border-top-color:var(--orange);}
-  .unit.u-1p{border-top-color:var(--purple);}
-  .unit.u-2p{border-top-color:var(--pink);}
+  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(28,77,126,.35);}
+
   .unit__hero{
-    height:140px;display:flex;align-items:center;justify-content:center;
-    background:var(--blue-soft);font-size:64px;
+    height:160px;display:flex;align-items:center;justify-content:center;
+    font-size:84px;position:relative;overflow:hidden;
   }
-  @media (min-width:720px){ .unit__hero{ height:160px;font-size:80px; } }
-  .unit.u-2 .unit__hero{background:var(--green-soft);}
-  .unit.u-3 .unit__hero{background:var(--orange-soft);}
-  .unit.u-1p .unit__hero{background:var(--purple-soft);}
-  .unit.u-2p .unit__hero{background:var(--pink-soft);}
-  .unit__body{padding:24px 24px 28px;flex:1;display:flex;flex-direction:column;}
-  @media (min-width:720px){ .unit__body{ padding:28px 28px 32px; } }
-  .unit__no{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange-deep);}
-  @media (min-width:720px){ .unit__no{ font-size:15px; } }
+  @media (min-width:720px){ .unit__hero{ height:180px;font-size:104px; } }
+  .unit__hero::before{
+    content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;
+    background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 60%);
+    border-radius:50%;
+  }
+  .unit__hero::after{
+    content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;
+    background:radial-gradient(circle, rgba(255,255,255,.25) 0%, transparent 60%);
+    border-radius:50%;
+  }
+  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+
+  /* Per-unit color theme */
+  .unit.u-1 .unit__hero{background:linear-gradient(135deg, #4a90c2 0%, #1c4d7e 100%);}
+  .unit.u-2 .unit__hero{background:linear-gradient(135deg, #7dc47d 0%, #3d7a3d 100%);}
+  .unit.u-3 .unit__hero{background:linear-gradient(135deg, #f4a04d 0%, #a85a0c 100%);}
+  .unit.u-1p .unit__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}
+  .unit.u-2p .unit__hero{background:linear-gradient(135deg, #e899ba 0%, #a64475 100%);}
+
+  .unit__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .unit__body{ padding:30px 30px 34px; } }
+  .unit__no{
+    font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;
+    letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-deep);
+  }
+  @media (min-width:720px){ .unit__no{ font-size:14px; } }
   .unit__title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:26px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:6px;
+    font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+    color:var(--blue-deep);line-height:1.2;margin-top:6px;
   }
-  @media (min-width:720px){ .unit__title{ font-size:34px; } }
+  @media (min-width:720px){ .unit__title{ font-size:32px; } }
   .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
   @media (min-width:720px){ .unit__title-zh{ font-size:20px; } }
-  .unit__desc{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
-  @media (min-width:720px){ .unit__desc{ font-size:20px; } }
-  .unit__words{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
-  .unit__words span{background:var(--bg-soft);font-size:13px;color:var(--ink);padding:4px 10px;border-radius:6px;border:1px solid var(--line);}
-  @media (min-width:720px){ .unit__words span{ font-size:14.5px; } }
-  .unit__meta{
-    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:center;
-    font-size:14px;color:var(--ink-soft);
+  .unit__desc{
+    font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.65;flex:1;
   }
-  @media (min-width:720px){ .unit__meta{ font-size:15.5px; } }
-  .unit__meta b{color:var(--blue-deep);}
+  @media (min-width:720px){ .unit__desc{ font-size:19px; } }
   .unit__cta{
-    color:var(--orange-deep);font-weight:700;font-size:15px;letter-spacing:.5px;
+    margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);
+    color:var(--orange-deep);font-family:'Cormorant Garamond',serif;
+    font-size:17px;font-weight:700;letter-spacing:.5px;
+    display:flex;justify-content:flex-end;align-items:center;gap:6px;
   }
-  @media (min-width:720px){ .unit__cta{ font-size:17px; } }
-
-  /* === Topic cards (placeholder) === */
-  .topics{display:grid;grid-template-columns:1fr;gap:18px;}
-  @media (min-width:720px){ .topics{ grid-template-columns:repeat(2,1fr);gap:22px; } }
-  @media (min-width:1000px){ .topics{ grid-template-columns:repeat(4,1fr); } }
-  .topic{
-    background:var(--bg-soft);border:1px dashed var(--line);border-radius:14px;
-    padding:24px 22px;display:flex;flex-direction:column;gap:8px;
-    transition:all .2s;
-  }
-  .topic.live{
-    background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);
-    cursor:pointer;
-  }
-  .topic.live:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-  .topic{text-decoration:none;color:inherit;}
-  .topic__icon{font-size:36px;}
-  @media (min-width:720px){ .topic__icon{ font-size:44px; } }
-  .topic__title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:21px;font-weight:700;color:var(--blue-deep);line-height:1.25;
-  }
-  @media (min-width:720px){ .topic__title{ font-size:25px; } }
-  .topic__zh{font-size:15px;color:var(--ink);font-weight:600;}
-  @media (min-width:720px){ .topic__zh{ font-size:17px; } }
-  .topic__status{font-size:13px;color:var(--ink-soft);margin-top:4px;font-style:italic;}
-  @media (min-width:720px){ .topic__status{ font-size:14.5px; } }
-  .topic.live .topic__status{color:var(--green-deep);font-style:normal;font-weight:600;}
+  @media (min-width:720px){ .unit__cta{ font-size:19px; } }
+  .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
+  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
 
   /* === Full playlist embed === */
   .playlist-block{
-    background:var(--bg-soft);border-radius:18px;padding:30px 20px;
-    border:1px solid var(--line);
+    background:linear-gradient(135deg, var(--bg-soft) 0%, var(--blue-soft) 100%);
+    border-radius:22px;padding:32px 22px;border:1px solid var(--line);
   }
-  @media (min-width:720px){ .playlist-block{ padding:42px 36px; } }
+  @media (min-width:720px){ .playlist-block{ padding:48px 40px; } }
   .playlist-block h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:26px;font-weight:700;color:var(--blue-deep);text-align:center;
+    font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+    color:var(--blue-deep);text-align:center;
   }
   @media (min-width:720px){ .playlist-block h3{ font-size:32px; } }
-  .playlist-block .zh{text-align:center;font-size:15px;color:var(--ink-soft);margin-top:6px;}
-  @media (min-width:720px){ .playlist-block .zh{ font-size:17px; } }
+  .playlist-block .zh{text-align:center;font-size:17px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .playlist-block .zh{ font-size:19px; } }
   .video-frame{
-    margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;
-    background:#000;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);
+    margin-top:24px;position:relative;width:100%;padding-bottom:56.25%;
+    background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
   }
   .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  footer{text-align:center;padding:36px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
   @media (min-width:720px){ footer{ font-size:17px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
 </style>
@@ -238,158 +211,94 @@
   </div>
 </nav>
 
-<!-- ===== Hero Banner ===== -->
+<!-- ===== Compact Banner ===== -->
 <header class="banner">
   <div class="banner__inner">
     <div class="banner__eyebrow">Dajuang Bilingual Curriculum</div>
     <h1>Lessons</h1>
     <div class="banner__zh">大莊雙語課程入口</div>
-    <p class="banner__lede">
-      Every word, every phrase, every moment of campus life — captured on video and explained in both English and Mandarin. Pick a unit to start.
-    </p>
-    <div class="banner__stats">
-      <div class="banner__stat"><b>22</b><span>Word Videos · 影片</span></div>
-      <div class="banner__stat"><b>5</b><span>Units · 單元</span></div>
-      <div class="banner__stat"><b>15</b><span>Photo Scenes · 場景</span></div>
-    </div>
+    <p class="banner__tagline">Pick a unit. Press play. Learn English with us.</p>
   </div>
 </header>
 
 <!-- ===== Word of the Day ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">Series 01</div>
     <h2 class="sec__title">Word of the Day</h2>
-    <div class="sec__title-zh">每日一字 · 22 部短影片，3 個正規 Unit + 2 個 Photo Unit</div>
+    <div class="sec__title-zh">每日一字 · 校園裡的英文小故事</div>
     <div class="sec__rule"></div>
-    <p class="sec__lead">
-      Each video is 30–60 seconds long, recorded right here on Dajuang's campus. The English term appears, two example sentences are read aloud, and the matching Chinese is shown side-by-side.
-      <span class="zh">每部影片 30–60 秒，全部拍攝於大莊校園。先念出英文單字，再用兩個生活例句示範，旁邊同步出現中文翻譯。適合課堂與家中複習。</span>
+    <p class="sec__lede">
+      Short bilingual videos and photo stories from across the Dajuang campus.
+      <span class="zh">短小的雙語影片與校園故事——每段不超過一分鐘，邊看邊學。</span>
     </p>
 
-    <div class="units" style="margin-top:36px;">
+    <div class="units">
 
       <a class="unit u-1" href="word/unit-1/">
-        <div class="unit__hero">🌾</div>
+        <div class="unit__hero"><span class="unit__emoji">🌾</span></div>
         <div class="unit__body">
-          <div class="unit__no">Unit 01</div>
+          <div class="unit__no">Unit 01 · Video</div>
           <div class="unit__title">School Life Around Campus</div>
           <div class="unit__title-zh">校園日常的英文</div>
-          <div class="unit__desc">From sweeping fallen leaves to performing the ocarina — every word in this unit comes from a daily moment on Dajuang campus.</div>
-          <div class="unit__words">
-            <span>sweep</span><span>Taiwanese</span><span>spring couplet</span><span>bubble</span><span>game</span><span>warm-up</span><span>mud oven</span><span>smoke</span><span>ocarina</span>
-          </div>
-          <div class="unit__meta"><span><b>9</b> words · 9 videos</span><span class="unit__cta">Start Unit 1 →</span></div>
+          <div class="unit__desc">From sweeping fallen leaves to performing the ocarina — every word comes from a daily moment on Dajuang campus.</div>
+          <div class="unit__cta">Start Unit 1 <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="unit u-2" href="word/unit-2/">
-        <div class="unit__hero">📚</div>
+        <div class="unit__hero"><span class="unit__emoji">📚</span></div>
         <div class="unit__body">
-          <div class="unit__no">Unit 02</div>
+          <div class="unit__no">Unit 02 · Video</div>
           <div class="unit__title">Inside the Classroom</div>
           <div class="unit__title-zh">課堂教學的英文</div>
-          <div class="unit__desc">Teachers, students, recess and tests — the vocabulary you need to describe a regular school day in English.</div>
-          <div class="unit__words">
-            <span>professional development</span><span>Chinese characters</span><span>recess</span><span>wash hands</span><span>basketball</span><span>correct</span><span>math class</span><span>check-in</span><span>test</span>
-          </div>
-          <div class="unit__meta"><span><b>9</b> words · 9 videos</span><span class="unit__cta">Start Unit 2 →</span></div>
+          <div class="unit__desc">Teachers, students, recess, tests — the vocabulary you need to describe a regular school day in English.</div>
+          <div class="unit__cta">Start Unit 2 <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="unit u-3" href="word/unit-3/">
-        <div class="unit__hero">🥎</div>
+        <div class="unit__hero"><span class="unit__emoji">🥎</span></div>
         <div class="unit__body">
-          <div class="unit__no">Unit 03</div>
+          <div class="unit__no">Unit 03 · Video</div>
           <div class="unit__title">PE &amp; Body Awareness</div>
           <div class="unit__title-zh">體育與身體</div>
-          <div class="unit__desc">Clay sculpting, side-running, basketball, and even CPR — the words for moving and making with your hands.</div>
-          <div class="unit__words">
-            <span>clay</span><span>basketball</span><span>PE class</span><span>CPR</span>
-          </div>
-          <div class="unit__meta"><span><b>4</b> words · 4 videos</span><span class="unit__cta">Start Unit 3 →</span></div>
+          <div class="unit__desc">Clay sculpting, side-running, basketball, even CPR — the words for moving and making with your hands.</div>
+          <div class="unit__cta">Start Unit 3 <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="unit u-1p" href="word/unit-1-photo/">
-        <div class="unit__hero">📸</div>
+        <div class="unit__hero"><span class="unit__emoji">📸</span></div>
         <div class="unit__body">
-          <div class="unit__no">Unit 01 · Photo</div>
-          <div class="unit__title">Photo Stories I</div>
+          <div class="unit__no">Photo Story I</div>
+          <div class="unit__title">Campus Moments I</div>
           <div class="unit__title-zh">校園活動 Photo Story 第一輯</div>
-          <div class="unit__desc">Talent shows, glove-puppet museums, mud-oven baking, Sun Moon Lake field trips — nine campus moments told in bilingual captions.</div>
-          <div class="unit__words">
-            <span>talent show</span><span>glove puppet</span><span>blocks</span><span>reading camp</span><span>field trip</span><span>Sun Moon Lake</span><span>bonsai</span><span>baker</span>
-          </div>
-          <div class="unit__meta"><span><b>9</b> scenes · 圖文</span><span class="unit__cta">Open Photo Story →</span></div>
+          <div class="unit__desc">Talent shows, glove-puppet museums, mud-oven baking, Sun Moon Lake field trips — campus moments told in bilingual captions.</div>
+          <div class="unit__cta">Open Photo Story <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="unit u-2p" href="word/unit-2-photo/">
-        <div class="unit__hero">🍡</div>
+        <div class="unit__hero"><span class="unit__emoji">🍡</span></div>
         <div class="unit__body">
-          <div class="unit__no">Unit 02 · Photo</div>
-          <div class="unit__title">Photo Stories II</div>
+          <div class="unit__no">Photo Story II</div>
+          <div class="unit__title">Campus Moments II</div>
           <div class="unit__title-zh">校園活動 Photo Story 第二輯</div>
-          <div class="unit__desc">Taiwan Rain Trees, Winter Solstice tangyuan, Christmas crafts, and a 7-Eleven math walk — six seasonal moments around Dajuang.</div>
-          <div class="unit__words">
-            <span>Rain Trees</span><span>Sun Moon Lake</span><span>Winter Solstice</span><span>Santa</span><span>7-Eleven</span><span>field trip</span>
-          </div>
-          <div class="unit__meta"><span><b>6</b> scenes · 圖文</span><span class="unit__cta">Open Photo Story →</span></div>
+          <div class="unit__desc">Taiwan Rain Trees, Winter Solstice tangyuan, Christmas crafts, a 7-Eleven math walk — seasonal moments around Dajuang.</div>
+          <div class="unit__cta">Open Photo Story <span class="arrow">→</span></div>
         </div>
       </a>
 
-    </div>
-  </div>
-</section>
-
-<!-- ===== Topics (placeholder) ===== -->
-<section>
-  <div class="wrap">
-    <div class="sec__no">Series 02</div>
-    <h2 class="sec__title">Topics</h2>
-    <div class="sec__title-zh">主題課程 · 大莊四大主題</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lead">
-      Beyond vocabulary, Dajuang offers four deeper topical lessons in English.
-      <span class="zh">除了單字課程，大莊還提供四大主題的深度英文介紹。</span>
-    </p>
-
-    <div class="topics" style="margin-top:32px;">
-      <div class="topic">
-        <div class="topic__icon">🏫</div>
-        <div class="topic__title">About Dajuang</div>
-        <div class="topic__zh">認識大莊</div>
-        <div class="topic__status">Coming soon · 籌備中</div>
-      </div>
-      <div class="topic">
-        <div class="topic__icon">🧭</div>
-        <div class="topic__title">Study Tour Center</div>
-        <div class="topic__zh">遊學中心</div>
-        <div class="topic__status">Coming soon · 籌備中</div>
-      </div>
-      <a class="topic live" href="../disaster/">
-        <div class="topic__icon">🛡️</div>
-        <div class="topic__title">Disaster Risk Reduction</div>
-        <div class="topic__zh">防災教育</div>
-        <div class="topic__status">Live · 已上線 →</div>
-      </a>
-      <div class="topic">
-        <div class="topic__icon">🏗️</div>
-        <div class="topic__title">School Upgrades</div>
-        <div class="topic__zh">學校升級</div>
-        <div class="topic__status">Coming soon · 籌備中</div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Full playlist embed ===== -->
-<section>
+<section style="padding-top:0;">
   <div class="wrap">
     <div class="playlist-block">
-      <h3>Watch the full playlist</h3>
-      <div class="zh">不想分單元的話，這裡是完整 YouTube playlist（41 部影片）</div>
+      <h3>Watch the full playlist on YouTube</h3>
+      <div class="zh">不想分單元的話，這裡是完整 YouTube playlist</div>
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8XsB5HDLR2vKXtPyX61WF-4&rel=0" title="Dajuang Word of the Day · full playlist" allowfullscreen></iframe>
       </div>
