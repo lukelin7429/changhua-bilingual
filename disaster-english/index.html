@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Disaster English Series · Changhua Bilingual Network</title>
+<meta name="description" content="Bilingual disaster-prevention lessons for elementary classrooms. Each unit has a handout and a quiz, freely usable by every partner school. 雙語防災教學系列，每單元含講義 + 測驗，跨校共用。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a2725;
+    --navy-soft:#4a4239;
+    --orange:#d97818;
+    --orange-deep:#a85a0c;
+    --orange-soft:#fce7d0;
+    --red:#e63d2e;
+    --red-soft:#fde2dd;
+    --olive:#c9c920;
+    --olive-soft:#f0f1c3;
+    --green:#5b9d5b;
+    --green-soft:#e7f3e7;
+    --blue:#2d6aa8;
+    --blue-soft:#e3eef8;
+    --cream:#fbf7e8;
+    --cream-warm:#fffcef;
+    --line:#e3dfca;
+    --ink:#1f2530;
+    --ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(42,39,37,.30);
+    --shadow-sm:0 6px 16px -6px rgba(42,39,37,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:25.5px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Header strip */
+  .head{background:var(--navy);color:#fff;padding:32px 24px;text-align:center;border-bottom:6px solid var(--orange);}
+  @media (min-width:720px){ .head{ padding:48px 24px; } }
+  .head__brand{font-family:'Playfair Display',serif;font-size:14.5px;letter-spacing:4px;color:var(--orange);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  @media (min-width:720px){ .head__brand{ font-size:17px; } }
+  .head__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;letter-spacing:.5px;line-height:1.1;}
+  @media (min-width:720px){ .head__title{ font-size:60px; } }
+  .head__zh{font-size:21px;color:#d8d2c8;font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .head__zh{ font-size:27px; } }
+  .head__sub{color:#b8b0a4;font-size:16.5px;font-style:italic;margin-top:14px;letter-spacing:.5px;}
+  @media (min-width:720px){ .head__sub{ font-size:20px; } }
+
+  /* Intro */
+  .intro{padding:40px 0 16px;text-align:center;max-width:780px;margin:0 auto;}
+  @media (min-width:720px){ .intro{ padding:56px 0 24px; } }
+  .intro__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.3;}
+  @media (min-width:720px){ .intro__title{ font-size:36px; } }
+  .intro__zh{font-size:18px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
+  @media (min-width:720px){ .intro__zh{ font-size:21px; } }
+  .intro__body{font-size:17px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .intro__body{ font-size:19px; } }
+  .intro__body strong{color:var(--orange-deep);}
+
+  /* Series at a glance — pill list (no numbers) */
+  .glance{margin:30px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:780px;}
+  .glance .pill{
+    background:var(--cream);border:1.5px solid var(--line);
+    padding:8px 16px;border-radius:99px;font-size:15px;font-weight:600;color:var(--ink-soft);
+  }
+  @media (min-width:720px){ .glance .pill{ font-size:17px;padding:10px 20px; } }
+  .glance .pill.live{background:var(--orange);color:#fff;border-color:var(--orange);}
+
+  /* Unit grid */
+  .grid{padding:24px 0 56px;display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr;gap:24px;padding:32px 0 80px; } }
+
+  .unit{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+    overflow:hidden;transition:transform .25s, box-shadow .25s;
+  }
+  .unit:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .unit__hero{
+    height:140px;display:flex;align-items:center;justify-content:center;
+    font-size:84px;position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){ .unit__hero{ height:160px;font-size:104px; } }
+  .unit__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 60%);border-radius:50%;}
+  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));}
+  .unit.u-1 .unit__hero{background:linear-gradient(135deg, #f4a04d 0%, #a85a0c 100%);}
+  .unit.u-2 .unit__hero{background:linear-gradient(135deg, #f06956 0%, #b32916 100%);}
+  .unit.u-3 .unit__hero{background:linear-gradient(135deg, #4a90c2 0%, #1c4d7e 100%);}
+  .unit.u-4 .unit__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}
+  .unit.u-5 .unit__hero{background:linear-gradient(135deg, #7dc47d 0%, #3d7a3d 100%);}
+  .unit.u-6 .unit__hero{background:linear-gradient(135deg, #e5cb5a 0%, #8c8e0a 100%);}
+
+  .unit__body{padding:24px 24px 28px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .unit__body{ padding:28px 30px 32px; } }
+  .unit__no{font-family:'Playfair Display',serif;font-size:13px;color:var(--orange-deep);font-weight:700;letter-spacing:3px;text-transform:uppercase;}
+  @media (min-width:720px){ .unit__no{ font-size:14.5px; } }
+  .unit__title{
+    font-family:'Playfair Display',serif;font-size:26px;font-weight:700;
+    color:var(--navy);line-height:1.2;margin-top:6px;
+    border-bottom:3px solid var(--orange);padding-bottom:4px;display:inline-block;
+  }
+  @media (min-width:720px){ .unit__title{ font-size:32px; } }
+  .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:8px;}
+  @media (min-width:720px){ .unit__title-zh{ font-size:20px; } }
+  .unit__brief{font-size:16.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .unit__brief{ font-size:18.5px; } }
+  .unit__buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+  .ubtn{
+    flex:1;min-width:140px;padding:14px 18px;border-radius:10px;
+    text-decoration:none;font-size:16px;font-weight:700;letter-spacing:.3px;
+    text-align:center;transition:all .15s;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  @media (min-width:720px){ .ubtn{ font-size:18px;padding:16px 22px; } }
+  .ubtn--handout{background:var(--orange);color:#fff;box-shadow:var(--shadow-sm);}
+  .ubtn--handout:hover{background:var(--navy);transform:translateY(-2px);}
+  .ubtn--quiz{background:var(--navy);color:#fff;box-shadow:var(--shadow-sm);}
+  .ubtn--quiz:hover{background:var(--red);transform:translateY(-2px);}
+  .ubtn--soon{flex:1;min-width:140px;padding:14px 18px;border-radius:10px;font-size:16px;font-weight:700;letter-spacing:.3px;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--cream);color:var(--ink-soft);font-style:italic;cursor:default;}
+  @media (min-width:720px){ .ubtn--soon{ font-size:18px;padding:16px 22px; } }
+
+  /* Credit footer */
+  footer{text-align:center;padding:30px 22px;font-size:15px;color:var(--ink-soft);line-height:1.6;font-style:italic;border-top:1px solid var(--line);}
+  @media (min-width:720px){ footer{ font-size:17.5px; } }
+  footer a{color:var(--orange-deep);text-decoration:none;border-bottom:1px solid var(--orange-soft);}
+  footer .credit{display:block;margin-top:8px;color:var(--navy);font-style:normal;font-weight:600;}
+
+  /* Back-to-school strip (same pattern as festivals) */
+  .cb-back-strip{background:var(--cream-warm);border-bottom:2px solid var(--orange);padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:12px;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;font-weight:600;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
+  @media (min-width:720px){.cb-back-strip{font-size:19px;padding:18px 24px;gap:16px;}}
+  .cb-back-strip a{color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:1.5px solid var(--orange);transition:all .15s;}
+  .cb-back-strip a:hover{background:var(--orange);color:#fff;transform:translateX(-2px);}
+  .cb-back-strip .arrow{font-size:1.2em;}
+  .cb-back-strip[hidden]{display:none;}
+</style>
+</head>
+<body>
+
+<div id="cb-back-strip" class="cb-back-strip" hidden>
+  <a id="cb-back-link" href="#">
+    <span class="arrow">←</span>
+    <span id="cb-back-text">Back to school</span>
+  </a>
+</div>
+<script>
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var from = p.get('from');
+  if(from){ try{ sessionStorage.setItem('cb_from_school', from); }catch(e){} }
+  if(!from){ try{ from = sessionStorage.getItem('cb_from_school'); }catch(e){} }
+  if(!from) return;
+  var schools = {
+    'dajuang':  { en: 'Dajuang Elementary' },
+    'yangming': { en: 'Yangming JHS' },
+    'huatan':   { en: 'Huatan Elementary' }
+  };
+  var sch = schools[from] || { en: from };
+  var strip = document.getElementById('cb-back-strip');
+  var link  = document.getElementById('cb-back-link');
+  var text  = document.getElementById('cb-back-text');
+  link.href = '/schools/' + encodeURIComponent(from) + '/';
+  text.textContent = 'Back to ' + sch.en;
+  strip.hidden = false;
+})();
+</script>
+
+<!-- ===== Header ===== -->
+<header class="head">
+  <div class="head__brand">Changhua Bilingual Network · For Every Partner School</div>
+  <h1 class="head__title">Disaster English</h1>
+  <div class="head__zh">防災英文 · 跨校通用課程入口</div>
+  <div class="head__sub">Six lessons for keeping kids safe — in two languages.</div>
+</header>
+
+<!-- ===== Intro ===== -->
+<section class="intro">
+  <div class="wrap">
+    <div class="intro__title">Safety is a language kids can learn.</div>
+    <div class="intro__zh">安全，是孩子可以學會的一種語言。</div>
+    <p class="intro__body">
+      Built with <strong>Principal Lyu Yan-yi</strong> of Dajuang Elementary — a place-based disaster education leader recognized by the Ministry of Education for <strong>four consecutive years</strong>. This series takes his proven curriculum and gives it a bilingual classroom-ready form, so any partner school can teach it.
+    </p>
+    <p class="intro__body" style="margin-top:14px;color:var(--ink-soft);font-size:16.5px;">
+      與大莊國小 呂彥億校長 共同開發——他是教育部連續四年肯定的特色防災校園推手。本系列把他的在地課程轉化為雙語教材，任何合作學校都能直接拿去教。
+    </p>
+
+    <div class="glance">
+      <span class="pill live">Unit 1 · Earthquake</span>
+      <span class="pill">Unit 2 · Fire</span>
+      <span class="pill">Unit 3 · Flood</span>
+      <span class="pill">Unit 4 · Typhoon</span>
+      <span class="pill">Unit 5 · First Aid</span>
+      <span class="pill">Unit 6 · Everyday Safety</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Unit Grid ===== -->
+<main class="wrap">
+  <div class="grid">
+
+    <article class="unit u-1">
+      <div class="unit__hero"><span class="unit__emoji">🌍</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 01</div>
+        <h2 class="unit__title">Earthquake Safety</h2>
+        <div class="unit__title-zh">地震安全</div>
+        <p class="unit__brief">When the ground shakes, what do you do? Three simple words that save lives: <strong>Drop, Cover, Hold On.</strong></p>
+        <div class="unit__buttons">
+          <a class="ubtn ubtn--handout" href="earthquake/">📖 Handout</a>
+          <a class="ubtn ubtn--quiz" href="earthquake/quiz/">🎯 Quiz</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="unit u-2">
+      <div class="unit__hero"><span class="unit__emoji">🔥</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 02</div>
+        <h2 class="unit__title">Fire Safety</h2>
+        <div class="unit__title-zh">火災安全</div>
+        <p class="unit__brief">If you smell smoke, what do you do? <strong>Stay low, find the exit, never go back.</strong></p>
+        <div class="unit__buttons">
+          <span class="ubtn--soon">Handout coming soon</span>
+          <span class="ubtn--soon">Quiz coming soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="unit u-3">
+      <div class="unit__hero"><span class="unit__emoji">🌊</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 03</div>
+        <h2 class="unit__title">Flood Safety</h2>
+        <div class="unit__title-zh">水災安全</div>
+        <p class="unit__brief">Rivers can flood. Roads can disappear. Learn how to spot danger and reach <strong>high ground.</strong></p>
+        <div class="unit__buttons">
+          <span class="ubtn--soon">Handout coming soon</span>
+          <span class="ubtn--soon">Quiz coming soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="unit u-4">
+      <div class="unit__hero"><span class="unit__emoji">🌀</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 04</div>
+        <h2 class="unit__title">Typhoon Safety</h2>
+        <div class="unit__title-zh">颱風安全</div>
+        <p class="unit__brief">A typhoon is coming. What do we need in the house? <strong>Water, food, flashlight, batteries.</strong></p>
+        <div class="unit__buttons">
+          <span class="ubtn--soon">Handout coming soon</span>
+          <span class="ubtn--soon">Quiz coming soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="unit u-5">
+      <div class="unit__hero"><span class="unit__emoji">🚑</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 05</div>
+        <h2 class="unit__title">First Aid &amp; CPR</h2>
+        <div class="unit__title-zh">急救與心肺復甦</div>
+        <p class="unit__brief">If someone is hurt, how do you help? <strong>Call 119. Stay calm. Press hard, press fast.</strong></p>
+        <div class="unit__buttons">
+          <span class="ubtn--soon">Handout coming soon</span>
+          <span class="ubtn--soon">Quiz coming soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="unit u-6">
+      <div class="unit__hero"><span class="unit__emoji">🚸</span></div>
+      <div class="unit__body">
+        <div class="unit__no">Unit 06</div>
+        <h2 class="unit__title">Everyday Safety</h2>
+        <div class="unit__title-zh">日常安全</div>
+        <p class="unit__brief">Crossing the road. Riding a bike. Talking to strangers online. The small habits that keep us safe every day.</p>
+        <div class="unit__buttons">
+          <span class="ubtn--soon">Handout coming soon</span>
+          <span class="ubtn--soon">Quiz coming soon</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  Disaster English Series · part of the <a href="/festivals/">Festival English Series</a> family<br>
+  <span class="credit">Curriculum design with Principal Lyu Yan-yi · 大莊國小 呂彥億校長</span>
+  Bilingual production: <a href="https://changhua-bilingual.org/">My Culture Connect · 人師教育協會</a>
+</footer>
+
+</body>
+</html>
