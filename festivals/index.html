@@ -107,9 +107,55 @@
   footer{text-align:center;padding:30px 22px;font-size:14px;color:var(--ink-soft);line-height:1.6;font-style:italic;letter-spacing:.3px;border-top:1px solid var(--line);}
   @media (min-width:720px){ footer{ font-size:16px; } }
   footer a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--olive);}
+
+  /* === Back-to-school strip (shown only when ?from=<school> is present) === */
+  .back-strip{
+    background:var(--cream-warm);border-bottom:2px solid var(--olive);
+    padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:12px;
+    font-family:'Playfair Display','PingFang TC',serif;font-size:17px;font-weight:600;
+  }
+  @media (min-width:720px){ .back-strip{ font-size:19px;padding:18px 24px; } }
+  .back-strip a{
+    color:var(--navy);text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 18px;border-radius:99px;background:#fff;
+    border:1.5px solid var(--olive);transition:all .15s;
+  }
+  .back-strip a:hover{background:var(--olive);color:var(--navy);transform:translateX(-2px);}
+  .back-strip .arrow{font-size:1.2em;}
+  .back-strip[hidden]{display:none;}
 </style>
 </head>
 <body>
+
+<div id="back-strip" class="back-strip" hidden>
+  <a id="back-link" href="#">
+    <span class="arrow">←</span>
+    <span id="back-text">Back to school</span>
+  </a>
+</div>
+
+<script>
+/* Show a "Back to <school>" strip when arrived via ?from=<school_slug> */
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var from = p.get('from');
+  if(!from) return;
+  /* school slug -> display name (extend as more schools come online) */
+  var schools = {
+    'dajuang':  { en: 'Dajuang Elementary',  zh: '大莊國小' },
+    'yangming': { en: 'Yangming JHS',        zh: '陽明國中' },
+    'huatan':   { en: 'Huatan Elementary',   zh: '花壇國小' }
+  };
+  var sch = schools[from] || { en: from, zh: '回到學校' };
+  var strip = document.getElementById('back-strip');
+  var link  = document.getElementById('back-link');
+  var text  = document.getElementById('back-text');
+  link.href = '/schools/' + encodeURIComponent(from) + '/';
+  text.textContent = 'Back to ' + sch.en + ' · 回到' + sch.zh + '主頁';
+  strip.hidden = false;
+})();
+</script>
 
 <header class="head">
   <div class="head__brand">Changhua Bilingual Network · For Every Partner School</div>
