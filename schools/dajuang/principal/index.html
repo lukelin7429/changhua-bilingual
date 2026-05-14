@@ -53,19 +53,18 @@
     background:linear-gradient(135deg, var(--blue-soft) 0%, var(--orange-soft) 100%);
     border-radius:24px;padding:36px 28px;border:1px solid var(--line);
   }
-  @media (min-width:720px){ .prin-hero{ grid-template-columns:280px 1fr;gap:48px;padding:56px 48px; } }
-  .prin-portrait{
-    width:220px;height:220px;border-radius:50%;
-    background:#fff;border:6px solid #fff;box-shadow:var(--shadow);
-    margin:0 auto;display:flex;align-items:center;justify-content:center;
-    font-size:88px;color:var(--blue-deep);
-    overflow:hidden;
+  @media (min-width:880px){ .prin-hero{ grid-template-columns:480px 1fr;gap:48px;padding:48px 44px; } }
+  .prin-video{
+    background:#000;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
+    position:relative;width:100%;padding-bottom:56.25%;
   }
-  @media (min-width:720px){ .prin-portrait{ width:280px;height:280px;font-size:112px; } }
-  .prin-portrait .placeholder-note{
-    position:absolute;bottom:8px;font-size:11px;color:var(--ink-soft);
-    letter-spacing:.5px;
+  .prin-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .prin-video__caption{
+    margin-top:12px;text-align:center;font-style:italic;
+    font-size:15px;color:var(--ink-soft);line-height:1.5;
   }
+  @media (min-width:720px){ .prin-video__caption{ font-size:17px; } }
+  .prin-video__caption b{color:var(--blue-deep);font-style:normal;}
   .prin-hero h1{
     font-family:'Cormorant Garamond','PingFang TC',serif;
     font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;
@@ -196,8 +195,18 @@
 <section>
   <div class="wrap">
     <div class="prin-hero">
-      <div class="prin-portrait" style="position:relative;">
-        🧑‍🏫
+      <div>
+        <div class="prin-video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/weiPhfzJ30c?rel=0"
+            title="彰化縣大莊國小校長英文自我介紹 · Principal Lyu Yan-yi self-introduction"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="prin-video__caption">
+          <b>Watch Principal Lyu's English self-introduction</b><br>
+          呂彥億校長英文自我介紹 · produced by My Culture Connect
+        </div>
       </div>
       <div>
         <div class="role">15th Principal · 第十五任校長</div>
