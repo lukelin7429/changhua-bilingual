@@ -330,14 +330,68 @@
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:17px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
+
+  /* === Hero Banner === */
+  .banner{
+    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 50%, var(--purple-deep) 100%);
+    color:#fff;padding:64px 24px 76px;position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ padding:104px 24px 120px; } }
+  .banner::before{
+    content:'';position:absolute;top:-50px;right:-50px;width:280px;height:280px;
+    background:radial-gradient(circle, var(--orange) 0%, transparent 70%);
+    opacity:.3;border-radius:50%;
+  }
+  .banner::after{
+    content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;
+    background:radial-gradient(circle, var(--green) 0%, transparent 70%);
+    opacity:.3;border-radius:50%;
+  }
+  .banner__inner{max-width:960px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  .banner__eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-size:16px;letter-spacing:6px;color:var(--orange-soft);
+    text-transform:uppercase;font-weight:600;margin-bottom:18px;
+  }
+  @media (min-width:720px){ .banner__eyebrow{ font-size:20px; } }
+  .banner h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;font-weight:700;letter-spacing:1px;line-height:1.1;
+  }
+  @media (min-width:720px){ .banner h1{ font-size:88px; } }
+  .banner__zh{
+    font-size:24px;color:#dde5f0;margin-top:16px;font-weight:500;letter-spacing:2px;
+  }
+  @media (min-width:720px){ .banner__zh{ font-size:34px; } }
+  .banner__tagline{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:20px;color:#ffe1c2;margin-top:24px;line-height:1.5;
+    max-width:760px;margin-left:auto;margin-right:auto;font-weight:500;
+  }
+  @media (min-width:720px){ .banner__tagline{ font-size:26px; } }
+  .banner__tagline .zh{display:block;font-style:normal;color:#cdd9e9;font-size:.82em;margin-top:6px;letter-spacing:1px;}
+  .banner__stats{
+    margin-top:42px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px;
+  }
+  @media (min-width:720px){ .banner__stats{ gap:54px; } }
+  .banner__stat{text-align:center;}
+  .banner__stat b{
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;font-weight:700;color:#fff;line-height:1;letter-spacing:-1px;display:block;
+  }
+  @media (min-width:720px){ .banner__stat b{ font-size:72px; } }
+  .banner__stat span{
+    font-size:13.5px;color:var(--orange-soft);font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    margin-top:8px;display:block;
+  }
+  @media (min-width:720px){ .banner__stat span{ font-size:16px; } }
 </style>
 </head>
 <body>
 
 <!--
-  本頁設計為「嵌入 dajuang.mycultureconnect.org/」使用——
-  既有 banner（藍色海浪 + 大莊吉祥物）由原設計師完成，本頁只放在 banner 下方，不重做 hero。
   配色取自校徽四色：藍（溪水）/ 綠（幼苗）/ 橙（書本）/ 紫（圓圈）。
+  Hosted on changhua-bilingual.org — self-standing page with its own banner.
 -->
 
 <!-- ===== Sub-nav ===== -->
@@ -352,7 +406,7 @@
       <span class="subnav__sep">·</span>
       <a href="bilingual-campus/">Bilingual · 雙語</a>
       <span class="subnav__sep">·</span>
-      <a href="festivals/">Festivals · 節慶</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=dajuang">Festivals · 節慶</a>
       <span class="subnav__sep">·</span>
       <a href="lessons/">Lessons · 課程</a>
       <span class="subnav__sep">·</span>
@@ -360,6 +414,25 @@
     </div>
   </div>
 </nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__eyebrow">A School by the Zhuoshui River · 濁水溪畔</div>
+    <h1>Dajuang Elementary</h1>
+    <div class="banner__zh">彰化縣溪州鄉大莊國民小學</div>
+    <p class="banner__tagline">
+      A small school. A big curriculum.
+      <span class="zh">稻果樂的學校・特色防災校園・環保打擊樂團</span>
+    </p>
+    <div class="banner__stats">
+      <div class="banner__stat"><b>70</b><span>Students · 學生</span></div>
+      <div class="banner__stat"><b>71</b><span>Years · 校齡</span></div>
+      <div class="banner__stat"><b>4</b><span>MOE Awards · 連年績優</span></div>
+      <div class="banner__stat"><b>22</b><span>Word Videos · 影片</span></div>
+    </div>
+  </div>
+</header>
 
 <!-- ===== I. About ===== -->
 <section>
