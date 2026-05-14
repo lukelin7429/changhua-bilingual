@@ -335,103 +335,68 @@
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
 
-  /* === Hero Banner — real campus photo + modern split === */
+  /* === Hero Banner — colorful multi-tone overlay on real photo === */
   .banner{
-    display:grid;grid-template-columns:1fr;
-    min-height:auto;overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  @media (min-width:880px){
-    .banner{grid-template-columns:1.2fr 1fr;min-height:380px;}
-  }
-
-  /* Left zone: real aerial photo of the school */
-  .banner__visual{
-    background:
-      linear-gradient(135deg, rgba(28,77,126,.55) 0%, rgba(91,157,91,.15) 45%, rgba(217,120,24,.20) 100%),
-      url('photos/aerial-campus.jpg') center/cover;
-    display:flex;align-items:flex-end;
-    padding:24px;position:relative;overflow:hidden;
-    min-height:260px;
-  }
-  @media (min-width:880px){
-    .banner__visual{padding:32px;min-height:380px;}
-  }
-  /* Top-corner caption pill */
-  .banner__caption{
-    position:absolute;top:20px;left:20px;
-    background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    padding:7px 14px;border-radius:99px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:13px;font-weight:700;letter-spacing:1.5px;
-    color:var(--blue-deep);text-transform:uppercase;
-    box-shadow:0 4px 12px -4px rgba(0,0,0,.2);
-  }
-  @media (min-width:880px){ .banner__caption{ font-size:14.5px;top:28px;left:28px; } }
-  .banner__caption .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:middle;}
-  /* Logo bottom-left floating on the photo */
-  .banner__logo{
-    width:88px;height:88px;border-radius:50%;
-    background:#fff;padding:5px;
-    box-shadow:0 14px 30px -8px rgba(0,0,0,.5);
-    display:block;
-  }
-  @media (min-width:880px){ .banner__logo{ width:112px;height:112px;padding:6px; } }
-  .banner__logo img{width:100%;height:100%;border-radius:50%;display:block;}
-
-  /* Right zone: clean white text */
-  .banner__text{
-    background:#fff;padding:36px 28px;
-    display:flex;flex-direction:column;justify-content:center;
     position:relative;
+    background:#000 url('photos/aerial-campus.jpg') center/cover;
+    min-height:300px;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
   }
-  @media (min-width:880px){ .banner__text{ padding:48px 56px; } }
-  .banner__text::before{
-    content:'';position:absolute;
-    width:64px;height:6px;background:var(--orange);
-    border-radius:3px;top:36px;left:28px;
+  @media (min-width:720px){ .banner{ min-height:400px; } }
+  /* Multi-color overlay — Rice-Fruit-Joy palette blended */
+  .banner::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 12% 20%, rgba(217,120,24,.55) 0%, transparent 50%),
+      radial-gradient(ellipse at 88% 30%, rgba(91,157,91,.50) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 95%, rgba(126,95,163,.65) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(28,77,126,.30) 0%, rgba(28,77,126,.70) 100%);
+    pointer-events:none;
   }
-  @media (min-width:880px){ .banner__text::before{ top:48px;left:56px; } }
+  .banner__inner{
+    position:relative;z-index:1;width:100%;
+    max-width:1100px;margin:0 auto;
+    padding:32px 24px 28px;color:#fff;
+    display:flex;align-items:flex-end;gap:18px;
+  }
+  @media (min-width:720px){ .banner__inner{ padding:48px 36px 40px;gap:24px; } }
+  .banner__text{flex:1;min-width:0;}
   .banner__brand{
     font-family:'Cormorant Garamond',serif;
-    font-size:13px;letter-spacing:4px;color:var(--orange-deep);
-    text-transform:uppercase;font-weight:700;margin-top:18px;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:#ffd9b0;font-weight:600;margin-bottom:12px;
   }
-  @media (min-width:880px){ .banner__brand{ font-size:15px; } }
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
   .banner h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:38px;font-weight:700;color:var(--blue-deep);
-    line-height:1.05;letter-spacing:.5px;margin-top:8px;
+    font-size:44px;font-weight:700;line-height:1.0;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.45);
   }
-  @media (min-width:880px){ .banner h1{ font-size:54px; } }
+  @media (min-width:720px){ .banner h1{ font-size:74px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:92px; } }
   .banner__zh{
-    font-size:21px;color:var(--ink);margin-top:6px;
-    font-weight:600;letter-spacing:1.5px;
+    font-size:20px;color:#f0f4f9;margin-top:6px;
+    font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
   }
-  @media (min-width:880px){ .banner__zh{ font-size:26px; } }
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
   .banner__tagline{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:18px;color:var(--ink-soft);margin-top:18px;line-height:1.5;
-    font-weight:500;
+    font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.45;
+    max-width:680px;font-weight:500;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);
   }
-  @media (min-width:880px){ .banner__tagline{ font-size:22px; } }
-  .banner__tagline .zh{
-    display:block;font-style:normal;font-family:'Inter','PingFang TC',sans-serif;
-    color:var(--ink);font-size:.78em;margin-top:6px;font-weight:600;
+  @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
+  /* Small mascot logo inline with title */
+  .banner__logo{
+    flex-shrink:0;align-self:flex-end;
+    width:54px;height:54px;border-radius:50%;
+    background:#fff;padding:3px;
+    box-shadow:0 8px 22px -6px rgba(0,0,0,.5);
   }
-  .banner__chips{
-    margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;
-  }
-  .banner__chips span{
-    background:var(--blue-soft);color:var(--blue-deep);
-    padding:6px 14px;border-radius:99px;font-size:13.5px;font-weight:600;
-    letter-spacing:.5px;
-  }
-  @media (min-width:880px){ .banner__chips span{ font-size:15px;padding:7px 16px; } }
-  .banner__chips span.c-green{background:var(--green-soft);color:var(--green-deep);}
-  .banner__chips span.c-orange{background:var(--orange-soft);color:var(--orange-deep);}
-  .banner__chips span.c-purple{background:var(--purple-soft);color:var(--purple-deep);}
+  @media (min-width:720px){ .banner__logo{ width:72px;height:72px;padding:4px; } }
+  .banner__logo img{width:100%;height:100%;border-radius:50%;display:block;}
 </style>
 </head>
 <body>
@@ -457,32 +422,24 @@
       <span class="subnav__sep">·</span>
       <a href="news/">News</a>
       <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/disaster-english/?from=dajuang">Disaster English</a>
+      <span class="subnav__sep">·</span>
       <a href="https://changhua-bilingual.org/festivals/?from=dajuang">Festivals</a>
     </div>
   </div>
 </nav>
 
-<!-- ===== Hero Banner — real aerial photo + modern split === -->
+<!-- ===== Hero Banner — colorful overlay on aerial photo === -->
 <header class="banner">
-  <div class="banner__visual">
-    <div class="banner__caption"><span class="dot"></span>Aerial view · 校園空拍</div>
-    <div class="banner__logo">
-      <img src="photos/logo-mascot.png" alt="Dajuang Elementary School mascot logo · 大莊國小校徽吉祥物">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <div class="banner__brand">A School by the Zhuoshui River</div>
+      <h1>Dajuang Elementary</h1>
+      <div class="banner__zh">彰化縣溪州鄉大莊國民小學</div>
+      <p class="banner__tagline">A small school. A big curriculum. 稻果樂的學校・濁水溪畔的特色防災校園</p>
     </div>
-  </div>
-  <div class="banner__text">
-    <div class="banner__brand">A School by the Zhuoshui River</div>
-    <h1>Dajuang Elementary</h1>
-    <div class="banner__zh">彰化縣溪州鄉大莊國民小學</div>
-    <p class="banner__tagline">
-      A small school. A big curriculum.
-      <span class="zh">稻果樂的學校・濁水溪畔的特色防災校園</span>
-    </p>
-    <div class="banner__chips">
-      <span class="c-orange">🌾 Rice-Fruit-Joy</span>
-      <span class="c-green">🛡️ Disaster Education</span>
-      <span class="c-purple">🥁 Eco-Drumming</span>
-      <span>🌐 Bilingual</span>
+    <div class="banner__logo">
+      <img src="photos/logo-mascot.png" alt="Dajuang Elementary mascot · 大莊國小校徽吉祥物">
     </div>
   </div>
 </header>
