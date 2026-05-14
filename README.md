@@ -25,3 +25,7 @@ GitHub Pages 自動發佈於 `main` 分支，網址：
 ## 各校客製
 
 每所合作學校的 `index.html` 只需修改 `CONFIG.SCHOOL_ID` 一處。
+
+## 協作者
+
+加入此專案的協作者請先閱讀 [CONTRIBUTING.md](./CONTRIBUTING.md)。
