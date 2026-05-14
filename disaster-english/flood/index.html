@@ -179,14 +179,24 @@
   var from = p.get('from');
   if(from){ try{ sessionStorage.setItem('cb_from_school', from); }catch(e){} }
   if(!from){ try{ from = sessionStorage.getItem('cb_from_school'); }catch(e){} }
-  if(!from) return;
-  var schools = {'dajuang':'Dajuang Elementary','yangming':'Yangming JHS','huatan':'Huatan Elementary'};
+  var dest = {
+    'dajuang':  { label:'Lessons',            url:'/schools/dajuang/lessons/' },
+    'yangming': { label:'Yangming JHS',       url:'/schools/yangming/' },
+    'huatan':   { label:'Huatan Elementary',  url:'/schools/huatan/' }
+  };
   var link = document.getElementById('cb-back-link');
   var text = document.getElementById('cb-back-text');
   if(!link || !text) return;
-  link.href = '/schools/' + encodeURIComponent(from) + '/';
-  text.textContent = 'Back to ' + (schools[from] || from);
-  link.hidden = false;
+  if(from && dest[from]){
+    link.href = dest[from].url;
+    text.textContent = 'Back to ' + dest[from].label;
+    link.hidden = false;
+  } else if(from){
+    link.href = '/schools/' + encodeURIComponent(from) + '/';
+    text.textContent = 'Back to ' + from;
+    link.hidden = false;
+  }
+  // else: no `from` context — leave link hidden (it's hidden by default)
 })();
 </script>
 
