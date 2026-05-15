@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News &amp; Stories · 新聞與校園動態 · Siangtian Elementary</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/siangtian/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/siangtian/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/siangtian/favicon-180.png">
+<link rel="shortcut icon" href="/schools/siangtian/favicon.ico">
+<meta name="description" content="Recent news and stories from Siangtian Elementary — harvest days, school events, bilingual programmes, and visits from the world beyond the rice paddy. 香田國小近期新聞與校園動態。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paddy:#527a3e;--paddy-deep:#2f4d24;--paddy-soft:#dde9d3;
+    --rice:#c8a13a;--rice-deep:#8a6a1c;--rice-soft:#f5ecd3;
+    --gold:#caa056;--gold-soft:#f7eed9;
+    --cream:#ffffff;--ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;
+    --shadow:0 14px 40px -16px rgba(47,77,36,.28);
+    --shadow-sm:0 4px 14px -4px rgba(47,77,36,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:22px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--rice-deep);font-size:20px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:23px; } }
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;font-weight:600;color:var(--paddy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:58px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--paddy-soft);padding:14px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
+  .subnav a{color:var(--paddy-deep);text-decoration:none;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--rice-deep);}
+  .subnav a.is-active{background:var(--paddy-deep);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .lede-box{
+    background:linear-gradient(135deg, var(--paddy-soft) 0%, var(--gold-soft) 100%);
+    border-radius:24px;padding:36px 28px;
+  }
+  @media (min-width:720px){ .lede-box{ padding:52px 44px; } }
+  .lede-box h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:30px;font-weight:600;color:var(--paddy-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:38px; } }
+  .lede-box .zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.6;font-family:'PingFang TC',sans-serif;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
+  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;font-size:17px;margin-top:6px;line-height:1.7;}
+
+  /* News item */
+  .news{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow-sm);margin-top:24px;overflow:hidden;
+    display:grid;grid-template-columns:1fr;
+    transition:transform .25s, box-shadow .25s;
+  }
+  @media (min-width:720px){ .news{ grid-template-columns:280px 1fr; } }
+  .news:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .news__img{background:var(--paddy-soft);aspect-ratio:4/3;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  @media (min-width:720px){ .news__img{ aspect-ratio:auto;height:100%; } }
+  .news__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .news__img--placeholder{
+    background:linear-gradient(135deg, var(--paddy-soft) 0%, var(--rice-soft) 100%);
+    color:var(--paddy-deep);font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;letter-spacing:.05em;
+  }
+  .news__body{padding:26px 28px 30px;}
+  @media (min-width:720px){ .news__body{ padding:34px 36px; } }
+  .news__meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--rice-deep);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+  .news__date{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.5px;color:var(--ink-soft);text-transform:none;font-weight:600;}
+  .news__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:28px;font-weight:600;color:var(--paddy-deep);line-height:1.25;margin-top:8px;}
+  @media (min-width:720px){ .news__title{ font-size:34px; } }
+  .news__zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
+  @media (min-width:720px){ .news__zh{ font-size:19px; } }
+  .news__body p{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  .news__body p.zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);line-height:1.85;}
+
+  /* FB callout */
+  .fbcard{
+    background:linear-gradient(135deg, #1877f2 0%, #0e5fc8 100%);color:#fff;
+    border-radius:20px;padding:32px 28px;margin-top:24px;display:grid;
+    grid-template-columns:1fr;gap:18px;align-items:center;
+  }
+  @media (min-width:720px){ .fbcard{ grid-template-columns:1fr auto;padding:40px 44px; } }
+  .fbcard h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:26px;font-weight:600;line-height:1.3;}
+  @media (min-width:720px){ .fbcard h3{ font-size:32px; } }
+  .fbcard .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:rgba(255,255,255,.85);margin-top:4px;}
+  .fbcard p{font-size:17px;color:rgba(255,255,255,.9);margin-top:10px;max-width:580px;line-height:1.7;}
+  .fbcard p.zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:rgba(255,255,255,.8);}
+  .fbcard__btn{
+    display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1877f2;
+    font-weight:700;font-size:17px;padding:14px 24px;border-radius:99px;white-space:nowrap;
+    transition:transform .15s;
+  }
+  .fbcard__btn:hover{transform:translateY(-2px);}
+
+  footer{background:#0f1a0c;color:rgba(255,255,255,.65);padding:36px 0;font-size:15px;border-top:1px solid rgba(255,255,255,.08);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer a{color:var(--gold-soft);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="../announcements/">Announcements</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=siangtian">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Lede ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">NEWS · 01</div>
+    <div class="sec__title">From the School &amp; the Paddy</div>
+    <div class="sec__title-zh">校園動態 ─ 從教室、從稻田、從村子</div>
+    <div class="sec__rule"></div>
+
+    <div class="lede-box">
+      <h2>Small school, big year.</h2>
+      <div class="zh">小校，一年裡發生的事其實不少。</div>
+      <p>A school's news is rarely sensational. It is just the year, written in small events &mdash; the spring planting, a visit from a foreign teacher, the day a child reads their poem aloud at morning assembly, the autumn harvest. We collect those moments here, in English and in Chinese, so the world beyond the rice paddy can read them too.
+        <span class="zh-inline">學校的新聞通常不轟動。那只是「一年」用小事寫成的版本——春耕、外師來訪、孩子在朝會朗讀詩、秋收。我們在這頁把這些片段集結起來，用英文、用中文，讓稻田之外的世界也能讀到。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Recent stories ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">NEWS · 02</div>
+    <div class="sec__title">Recent Stories</div>
+    <div class="sec__title-zh">近期故事</div>
+    <div class="sec__rule"></div>
+
+    <!-- Story 1: Harvest day -->
+    <article class="news">
+      <div class="news__img">
+        <img src="../photos/rice-harvest-banner.jpg" alt="Siangtian students at the school's 香田好米生態田 paddy on harvest day">
+      </div>
+      <div class="news__body">
+        <div class="news__meta">
+          <span>Food &amp; Farm · 食農教育</span>
+          <span class="news__date">Autumn 2025</span>
+        </div>
+        <h3 class="news__title">Koshihikari Harvest Day at the school paddy
+          <div class="news__zh">校內水稻生態田 ─ 秋收</div>
+        </h3>
+        <p>Our autumn season of <em>Koshihikari</em> rice came home. With the local rice mill on hand, our children walked into the paddy with banners, sickles, and the kind of focused quiet only a real task brings. By afternoon, the harvest was loaded into the Kubota and on its way to the mill.</p>
+        <p class="zh">秋季的越光米回家了。在地碾米廠的師傅在現場，孩子帶著手作橫幅與鐮刀走進稻田——那種專注的安靜，只有真正在做一件事的時候才會出現。下午，稻穀已經上了 Kubota，送往碾米廠。</p>
+      </div>
+    </article>
+
+    <!-- Story 2: Spring planting -->
+    <article class="news">
+      <div class="news__img">
+        <img src="../photos/seedlings-ducks.jpg" alt="Siangtian students planting rice seedlings while ducks paddle around the flooded paddy">
+      </div>
+      <div class="news__body">
+        <div class="news__meta">
+          <span>Food &amp; Farm · 食農教育</span>
+          <span class="news__date">Spring 2026</span>
+        </div>
+        <h3 class="news__title">Spring planting, with the ducklings
+          <div class="news__zh">春耕 ─ 秧苗與小鴨一起入田</div>
+        </h3>
+        <p>The flooded paddy in spring is its own classroom. While our students set the seedlings in rows, ducklings paddle around the rows like quiet supervisors, eating the snails that would otherwise nibble the new roots. The cycle is not just taught &mdash; it is in the water around the children's ankles.</p>
+        <p class="zh">春天的水田，本身就是教室。孩子在田裡一行一行插秧，小鴨在行列間游動，像一群安靜的小監工，把會啃秧的福壽螺吃掉。生態循環不是用講的——它就在孩子腳邊的水裡。</p>
+      </div>
+    </article>
+
+    <!-- Story 3: Whole-school photo -->
+    <article class="news">
+      <div class="news__img">
+        <img src="../photos/whole-school-paddy.jpg" alt="Whole-school class portrait taken in the Siangtian rice paddy">
+      </div>
+      <div class="news__body">
+        <div class="news__meta">
+          <span>Community · 校園社群</span>
+          <span class="news__date">Year-end</span>
+        </div>
+        <h3 class="news__title">A class portrait in the rice paddy
+          <div class="news__zh">在水田裡，拍一張全校照</div>
+        </h3>
+        <p>At year-end, the whole school stands together in the paddy &mdash; one frame, one season, every child. The frame says what no policy paper can: the field is not next to school. The field <em>is</em> the school.</p>
+        <p class="zh">年末，全校站在稻田裡拍一張合照——一個畫面、一個季節、每一個孩子。這張照片講的比任何政策文件都清楚：農田不在校園旁，農田<strong>就是</strong>校園。</p>
+      </div>
+    </article>
+
+    <!-- Placeholder slots inviting fresh material -->
+    <article class="news">
+      <div class="news__img news__img--placeholder">
+        Coming soon
+      </div>
+      <div class="news__body">
+        <div class="news__meta">
+          <span>To Be Featured · 待補</span>
+          <span class="news__date">More to come</span>
+        </div>
+        <h3 class="news__title">Your story, in English &amp; Chinese
+          <div class="news__zh">下一則故事 ─ 等你提供素材</div>
+        </h3>
+        <p>We are working with the school to gather news directly from the Facebook page &mdash; harvest days, visiting teachers, student honours, and the small assembly-day moments worth telling twice. As stories arrive, this page grows.</p>
+        <p class="zh">我們正與校方合作，從 Facebook 粉絲頁直接整理校內活動——秋收日、外師來訪、學生榮譽、值得記下的朝會時刻。素材陸續到位，這一頁就會隨之長大。</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== III. Facebook callout ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">NEWS · 03</div>
+    <div class="sec__title">Follow Day-to-Day</div>
+    <div class="sec__title-zh">日常追蹤 ─ 學校粉絲頁</div>
+    <div class="sec__rule"></div>
+
+    <div class="fbcard">
+      <div>
+        <h3>Siangtian on Facebook
+          <div class="zh">彰化縣二林鎮香田國民小學 · 官方粉絲頁</div>
+        </h3>
+        <p>For the daily rhythm of the school &mdash; harvest photos, parent reminders, assembly announcements &mdash; the most reliable channel is the school's Facebook page. The stories on this site are the slower, bilingual versions of what you see there.</p>
+        <p class="zh">學校最即時的日常更新——收割現場、家長提醒、朝會公告——都在 Facebook 粉絲頁。這一頁是「比較慢、雙語化」的版本，方便家長與校外朋友閱讀。</p>
+      </div>
+      <a class="fbcard__btn" href="https://www.facebook.com/SiangTain/" target="_blank" rel="noopener">
+        Follow on Facebook →
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣二林鎮香田國民小學 · Siangtian Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'siangtian-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+
+</body>
+</html>

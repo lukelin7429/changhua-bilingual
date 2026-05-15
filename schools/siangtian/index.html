@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Siangtian Elementary School · 彰化縣二林鎮香田國民小學</title>
 <meta name="description" content="Siangtian Elementary School — A country school in the heart of Erlin, Taiwan's home of Koshihikari rice. Founded 1953. 彰化縣二林鎮香田國民小學 — 創校 1953 年，越光米故鄉裡的小校。">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="shortcut icon" href="favicon.ico">
 <meta property="og:title" content="Siangtian Elementary School · 彰化縣二林鎮香田國民小學">
 <meta property="og:description" content="Rice paddies as our second classroom · 農田，是我們的第二個教室">
 <meta property="og:image" content="photos/rice-harvest-banner.jpg">
@@ -46,6 +50,29 @@
   a{color:var(--paddy-deep);text-decoration:none;transition:color .2s;}
   a:hover{color:var(--rice-deep);}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ SUB-NAV ============ */
+  .subnav{
+    background:var(--paddy-soft);
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    display:flex;flex-wrap:wrap;gap:6px 18px;
+    justify-content:center;align-items:center;
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:18px;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
+  .subnav a{
+    color:var(--paddy-deep);text-decoration:none;font-weight:600;
+    padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;
+  }
+  .subnav a:hover{background:#fff;color:var(--rice-deep);}
+  .subnav a.is-active{background:var(--paddy-deep);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* ============ TITLE (clean, no banner) ============ */
   .title{
@@ -478,6 +505,27 @@
 </head>
 <body>
 
+<!-- ============ SUB-NAV ============ -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="./" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="announcements/">Announcements</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=siangtian">Festivals</a>
+    </div>
+  </div>
+</nav>
+
 <!-- ============ TITLE ============ -->
 <header class="title">
   <div class="wrap">
@@ -524,12 +572,12 @@
 
       <div class="about-text">
         <h3>From a country sub-branch to the rooted small school of Erlin</h3>
-        <p class="en">Siangtian Elementary School began in 1953 as a sub-branch of Erlin Elementary, meeting in a village hall in Siangtian Village. By 1963, with seven classes and 324 children, it became a school of its own. Today, just 65 students fill its six classrooms &mdash; small enough that every child is known by name.</p>
+        <p class="en">Siangtian Elementary School began in 1953 as a sub-branch of Erlin Elementary, meeting in a village hall in Siangtian Village. In 1963 it became a school of its own. Today it remains a small rural campus &mdash; small enough that every child is known by name.</p>
         <p class="en">When a typhoon destroyed the teacher dormitory beside the school road, we did not rebuild. We turned that ground into a rice paddy. Each year, our students plant and harvest two seasons of <em>Koshihikari</em> rice with a local mill &mdash; the same rice that, in 1980, made Erlin famous as Taiwan's home of Koshihikari. The fields are not next to school. The fields <em>are</em> the school.</p>
 
         <div class="zh-divider"></div>
         <div class="zh">
-          <p>香田國小起源於民國 42 年（1953）的「二林國校香田分班」，在民眾集會所開課；民國 52 年（1963）獨立設校，首屆 7 班 324 名學生。今日全校僅 6 班 65 名學生——小，意味著每一個孩子都被認得、被看見。</p>
+          <p>香田國小起源於民國 42 年（1953）的「二林國校香田分班」，在民眾集會所開課；民國 52 年（1963）獨立設校。今日香田仍是一所迷你型偏鄉小校——小，意味著每一個孩子都被認得、被看見。</p>
           <p style="margin-top:14px;">校門口馬路旁的教師宿舍被颱風吹倒後，校方決定不重建，改闢為水稻生態田，與在地碾米廠合作，種植一年兩期的越光米。1980 年，二林鎮成為全台越光米栽培成功的起點，被譽為「越光米的故鄉」——對香田的孩子而言，農田不在校園旁，農田<strong>就是</strong>校園。</p>
         </div>
 
@@ -583,9 +631,9 @@
         <h3>Education With Heart
           <small>校園 S.H.E ─ 用心辦學</small>
         </h3>
-        <p class="en-body">With six classes and one student-to-teacher ratio of 1:5, Siangtian is small enough to be a family. Principal Cheng Pei-hua's vision &mdash; <strong>S</strong>uccess, <strong>H</strong>appiness, <strong>E</strong>xcellence &mdash; is not a slogan but a practice: every child, known by name; every teacher, given room to teach; every parent, invited in.</p>
+        <p class="en-body">Siangtian is small enough to be a family. Principal Cheng Pei-hua's vision &mdash; <strong>S</strong>uccess, <strong>H</strong>appiness, <strong>E</strong>xcellence &mdash; is not a slogan but a practice: every child, known by name; every teacher, given room to teach; every parent, invited in.</p>
         <div class="divider-tiny"></div>
-        <p class="zh-body">6 個班級、師生比 1:5，香田國小小到像一個家。鄭培華校長的「校園 S.H.E」願景不是口號，而是每天的踐行：讓每個孩子都被叫得出名字、讓每位老師有空間發揮、讓每位家長都能走進校園。</p>
+        <p class="zh-body">香田國小小到像一個家。鄭培華校長的「校園 S.H.E」願景不是口號，而是每天的踐行：讓每個孩子都被叫得出名字、讓每位老師有空間發揮、讓每位家長都能走進校園。</p>
       </article>
 
     </div>

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Announcements · 公告 · Siangtian Elementary</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/siangtian/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/siangtian/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/siangtian/favicon-180.png">
+<link rel="shortcut icon" href="/schools/siangtian/favicon.ico">
+<meta name="description" content="Public notices and announcements at Siangtian Elementary — competitions, public health reminders, county and ministry announcements, and parent notices. 香田國小公告系統雙語摘要。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paddy:#527a3e;--paddy-deep:#2f4d24;--paddy-soft:#dde9d3;
+    --rice:#c8a13a;--rice-deep:#8a6a1c;--rice-soft:#f5ecd3;
+    --gold:#caa056;--gold-soft:#f7eed9;
+    --alert:#c5523a;--alert-soft:#fbe7e1;
+    --info:#3a6fa6;--info-soft:#e1ecf7;
+    --cream:#ffffff;--ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;
+    --shadow:0 14px 40px -16px rgba(47,77,36,.28);
+    --shadow-sm:0 4px 14px -4px rgba(47,77,36,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:22px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--rice-deep);font-size:20px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:23px; } }
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;font-weight:600;color:var(--paddy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:58px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--paddy-soft);padding:14px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
+  .subnav a{color:var(--paddy-deep);text-decoration:none;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--rice-deep);}
+  .subnav a.is-active{background:var(--paddy-deep);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .lede-box{
+    background:linear-gradient(135deg, var(--paddy-soft) 0%, var(--gold-soft) 100%);
+    border-radius:24px;padding:36px 28px;
+  }
+  @media (min-width:720px){ .lede-box{ padding:52px 44px; } }
+  .lede-box h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:30px;font-weight:600;color:var(--paddy-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:38px; } }
+  .lede-box .zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.6;font-family:'PingFang TC',sans-serif;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
+  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;font-size:17px;margin-top:6px;line-height:1.7;}
+
+  /* Filter row */
+  .filters{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;margin-bottom:6px;
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+  }
+  .filter{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--line);border-radius:99px;
+    padding:8px 16px;font-size:16px;color:var(--ink-soft);font-weight:600;
+  }
+  .filter .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .filter--health .dot{background:var(--alert);}
+  .filter--competition .dot{background:var(--rice-deep);}
+  .filter--policy .dot{background:var(--info);}
+  .filter--event .dot{background:var(--paddy);}
+
+  /* Announcement row */
+  .ann{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow-sm);margin-top:16px;
+    display:grid;grid-template-columns:1fr;gap:0;
+    transition:transform .2s, box-shadow .2s, border-color .2s;
+    border-left:6px solid var(--paddy);
+  }
+  .ann:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .ann--health{border-left-color:var(--alert);}
+  .ann--competition{border-left-color:var(--rice-deep);}
+  .ann--policy{border-left-color:var(--info);}
+  .ann--event{border-left-color:var(--paddy);}
+  .ann__inner{
+    display:grid;grid-template-columns:1fr;gap:6px;
+    padding:22px 24px 24px;
+  }
+  @media (min-width:720px){ .ann__inner{ grid-template-columns:130px 1fr;gap:18px;padding:24px 30px; } }
+  .ann__date{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15px;color:var(--ink-soft);font-weight:600;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .ann__date{ font-size:17px;padding-top:4px; } }
+  .ann__date .tag{
+    display:inline-block;background:var(--paddy-soft);color:var(--paddy-deep);
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:1.5px;text-transform:uppercase;
+    padding:3px 9px;border-radius:99px;margin-top:6px;font-style:normal;
+  }
+  .ann--health .ann__date .tag{background:var(--alert-soft);color:var(--alert);}
+  .ann--competition .ann__date .tag{background:var(--rice-soft);color:var(--rice-deep);}
+  .ann--policy .ann__date .tag{background:var(--info-soft);color:var(--info);}
+  .ann__title{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:21px;font-weight:600;color:var(--paddy-deep);line-height:1.3;
+  }
+  @media (min-width:720px){ .ann__title{ font-size:24px; } }
+  .ann__zh{
+    font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:500;
+    margin-top:4px;line-height:1.7;
+  }
+  @media (min-width:720px){ .ann__zh{ font-size:19px; } }
+  .ann__detail{font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+
+  /* Note block */
+  .note{
+    background:var(--gold-soft);border:1px dashed var(--gold);border-radius:14px;
+    padding:22px 24px;margin-top:30px;
+  }
+  .note__label{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;color:var(--rice-deep);font-weight:700;}
+  .note__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:22px;font-weight:600;color:var(--paddy-deep);margin-top:6px;line-height:1.3;}
+  .note__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:4px;}
+  .note__body{font-size:17px;color:var(--ink);margin-top:12px;line-height:1.7;}
+  .note__body-zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.8;}
+  .note__btn{
+    display:inline-block;background:var(--paddy-deep);color:#fff;font-weight:700;font-size:16px;
+    padding:11px 22px;border-radius:99px;margin-top:14px;
+  }
+
+  footer{background:#0f1a0c;color:rgba(255,255,255,.65);padding:36px 0;font-size:15px;border-top:1px solid rgba(255,255,255,.08);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer a{color:var(--gold-soft);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Announcements</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=siangtian">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Lede ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">ANNOUNCEMENTS · 01</div>
+    <div class="sec__title">Public Notices</div>
+    <div class="sec__title-zh">公告系統 ─ 雙語摘要</div>
+    <div class="sec__rule"></div>
+
+    <div class="lede-box">
+      <h2>The county's notice board, in two languages.</h2>
+      <div class="zh">縣府／中央／學校的公告，用雙語整理。</div>
+      <p>Like every public elementary school in Changhua County, Siangtian forwards a steady stream of announcements from the Ministry of Education, the county government, and partner organisations &mdash; competitions, public-health reminders, family programmes. This page gives the headline of each in English and Chinese, so foreign teachers, university partners, and parents at a distance can stay in the loop.
+        <span class="zh-inline">和彰化縣每一所公立國小一樣，香田會固定轉發教育部、縣府與合作單位的公告——比賽、衛教提醒、家庭活動等。這一頁把每一則公告的標題用中英雙語整理，方便外師、大學合作單位與校外家長一起跟上。</span>
+      </p>
+    </div>
+
+    <div class="filters">
+      <span class="filter filter--competition"><span class="dot"></span>Competitions · 比賽</span>
+      <span class="filter filter--health"><span class="dot"></span>Public Health · 衛教</span>
+      <span class="filter filter--policy"><span class="dot"></span>Policy · 政策</span>
+      <span class="filter filter--event"><span class="dot"></span>Events · 活動</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Current list ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">ANNOUNCEMENTS · 02</div>
+    <div class="sec__title">Current List</div>
+    <div class="sec__title-zh">近期公告</div>
+    <div class="sec__rule"></div>
+
+    <article class="ann ann--competition">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-30<br><span class="tag">Competition</span></div>
+        <div>
+          <h3 class="ann__title">2026 National Green Architecture Drawing Competition</h3>
+          <div class="ann__zh">2026 全國綠建築繪畫徵圖比賽</div>
+          <div class="ann__detail">A national children's drawing call on sustainable architecture. Open to all elementary students; entries through the school.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--health">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-30<br><span class="tag">Public Health</span></div>
+        <div>
+          <h3 class="ann__title">Expanded COVID-19 vaccination programme</h3>
+          <div class="ann__zh">COVID-19 疫苗接種計畫擴大</div>
+          <div class="ann__detail">Forwarded from the Ministry of Health. Parents are reminded to check eligibility and timing.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--event">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-29<br><span class="tag">Event</span></div>
+        <div>
+          <h3 class="ann__title">Changhua "Love-Your-Family 515" International Family Day</h3>
+          <div class="ann__zh">彰化縣 115 年度國際家庭日「愛家 515」</div>
+          <div class="ann__detail">Changhua County's annual family-day programme. Schools forward to encourage parent participation.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--competition">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-24<br><span class="tag">Competition</span></div>
+        <div>
+          <h3 class="ann__title">Confucius Temple 300th-anniversary sketching contest</h3>
+          <div class="ann__zh">孔子廟建廟 300 周年寫生徵件比賽</div>
+          <div class="ann__detail">A nationwide sketching contest tied to the 300th anniversary of a major Confucius temple.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--competition">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-24<br><span class="tag">Competition</span></div>
+        <div>
+          <h3 class="ann__title">4th CommonWealth Parenting "Little Voice Actor" contest</h3>
+          <div class="ann__zh">第四屆親子天下小小配音員創聲大賞</div>
+          <div class="ann__detail">A nationwide children's voice-acting competition organised by CommonWealth Parenting magazine.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--event">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-24<br><span class="tag">Event</span></div>
+        <div>
+          <h3 class="ann__title">2026 K-12 student talent &amp; club showcase</h3>
+          <div class="ann__zh">115 年度中小學學生才藝社團展演活動</div>
+          <div class="ann__detail">Ministry-level showcase open to school clubs and student talent groups.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--event">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-20<br><span class="tag">Event</span></div>
+        <div>
+          <h3 class="ann__title">2026 Changhua Culture Passport programme</h3>
+          <div class="ann__zh">2026 彰化文化護照活動</div>
+          <div class="ann__detail">The county's cultural-venue passport for families and schools.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--health">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-15<br><span class="tag">Public Health</span></div>
+        <div>
+          <h3 class="ann__title">Reduce-salt, reduce-sugar habit reminder</h3>
+          <div class="ann__zh">減鹽減糖好習慣衛教宣導</div>
+          <div class="ann__detail">Ministry of Health public-education materials for school cafeterias and home meals.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--policy">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-14<br><span class="tag">Policy</span></div>
+        <div>
+          <h3 class="ann__title">Indigenous-language certification incentive</h3>
+          <div class="ann__zh">原住民族語言認證獎勵計畫</div>
+          <div class="ann__detail">Ministry-level incentive for students pursuing indigenous-language certification.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ann ann--health">
+      <div class="ann__inner">
+        <div class="ann__date">2026-04-12<br><span class="tag">Public Health</span></div>
+        <div>
+          <h3 class="ann__title">Digital &amp; online gender-violence prevention materials</h3>
+          <div class="ann__zh">數位／網路性別暴力防治遊戲教材</div>
+          <div class="ann__detail">A game-based educational resource for upper-elementary classrooms.</div>
+        </div>
+      </div>
+    </article>
+
+    <div class="note">
+      <div class="note__label">Note · 備註</div>
+      <h3 class="note__title">For the official, always-current list &middot; 完整公告請看官網</h3>
+      <div class="note__zh">這一頁是雙語摘要。學校官方公告系統永遠以下方連結為準。</div>
+      <p class="note__body">Most announcements at Siangtian are forwarded from the Ministry of Education and Changhua County Government &mdash; competitions, public-health reminders, and family programmes. The list above is a bilingual summary; the school's official announcement system is the authoritative source.</p>
+      <p class="note__body-zh">香田國小的公告以轉發縣府／中央訊息為主——比賽、衛教、家庭活動等。上方為雙語摘要；學校官網的公告系統才是正式版本。</p>
+      <a class="note__btn" href="https://sstes.chc.edu.tw/posts" target="_blank" rel="noopener">→ Open the school's announcement system &middot; 開啟官網公告</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣二林鎮香田國民小學 · Siangtian Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'siangtian-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+
+</body>
+</html>
