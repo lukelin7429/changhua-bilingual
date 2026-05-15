@@ -61,6 +61,31 @@
   @media (min-width:720px){ .lede-box p{ font-size:21px; } }
   .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.55;}
 
+  /* === Featured video story === */
+  .feature{
+    background:linear-gradient(135deg, var(--blue-soft) 0%, var(--red-soft) 100%);
+    border-radius:24px;padding:32px 28px;border:2px solid var(--red);box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .feature{ padding:48px 44px; } }
+  .feature__badge{display:inline-block;background:var(--red);color:#fff;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:99px;}
+  @media (min-width:720px){ .feature__badge{ font-size:16px; } }
+  .feature__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--blue-deep);line-height:1.2;margin-top:14px;}
+  @media (min-width:720px){ .feature__title{ font-size:42px; } }
+  .feature__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .feature__zh{ font-size:23px; } }
+  .feature__video{margin-top:22px;position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;box-shadow:var(--shadow);}
+  .feature__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .feature__caption{margin-top:14px;text-align:center;font-style:italic;font-size:16px;color:var(--ink-soft);line-height:1.5;}
+  @media (min-width:720px){ .feature__caption{ font-size:18px; } }
+  .feature__caption b{color:var(--blue-deep);font-style:normal;}
+  .feature__body{font-size:18px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .feature__body{ font-size:20px; } }
+  .feature__body strong{color:var(--blue-deep);}
+  .feature__body .zh{display:block;color:var(--ink-soft);font-size:17px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .feature__body .zh{ font-size:19px; } }
+  .feature__cta{margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:var(--blue-deep);color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;font-size:17px;}
+  .feature__cta:hover{background:var(--red);}
+
   /* === Honor roll === */
   .roll{display:flex;flex-direction:column;gap:16px;}
   .item{
@@ -147,10 +172,48 @@
   </div>
 </section>
 
-<!-- ===== II. Honor Roll ===== -->
+<!-- ===== II. Featured story — Dom Jones visit ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
+    <h2 class="sec__title">Featured Story</h2>
+    <div class="sec__title-zh">焦點故事 · Dom Jones 老師到校</div>
+    <div class="sec__rule"></div>
+
+    <div class="feature">
+      <div class="feature__badge">📅 2026-03-24 · 國際交流</div>
+      <div class="feature__title">Dom Jones Visits Dacheng</div>
+      <div class="feature__zh">Dom Jones 老師到大城國小參訪 · UN SDGs 一日課程</div>
+
+      <div class="feature__video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/19rekCsqAjk?rel=0"
+          title="Dom Jones visits Dacheng Elementary — 2026-03-24"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="feature__caption">
+        <b>Dom Jones Visits Dacheng Elementary · 2026-03-24</b><br>
+        Full visit recap — produced by My Culture Connect 人師教育協會
+      </div>
+
+      <div class="feature__body">
+        <p>
+          On <strong>March 24, 2026</strong>, <strong>Dom Jones</strong> — Chairwoman of the Advocacy Board at My Culture Connect and a UN SDGs ambassador — spent the day at Dacheng Elementary. Students welcomed her with a clay-drum performance, then ran English-language SDGs discussions with the visiting delegation. The day captured the "<em>越在地，越國際</em>" (the more local, the more international) spirit that runs through every Dacheng lesson.
+          <span class="zh">2026 年 3 月 24 日，人師教育協會倡議委員會主席、聯合國 SDGs 推廣大使 Dom Jones 老師到大城國小進行一日 SDGs 課程。學生以陶鼓表演開場，並以英文與訪賓進行 SDGs 互動討論——把「越在地，越國際」的辦學標語直接搬到現場。</span>
+        </p>
+      </div>
+
+      <a class="feature__cta" href="https://lukelin7429.github.io/dom-jones/" target="_blank" rel="noopener">Meet Dom Jones · 認識 Dom 老師 ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Honor Roll ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">Honour Roll</h2>
     <div class="sec__title-zh">學生榮譽榜 · 114 學年度</div>
     <div class="sec__rule"></div>
@@ -176,8 +239,8 @@
       <article class="item">
         <div class="item__date">2026-03-24</div>
         <div>
-          <div class="item__title">UN Association SDGs Visit · International Exchange</div>
-          <div class="item__zh">聯合國協會橙縣分會（UN Association, Orange County Chapter）代表到校進行 <strong>SDGs 教學</strong>，學生以陶鼓表演開場、用英文與訪賓進行 SDGs 互動討論。</div>
+          <div class="item__title">Dom Jones &amp; UN SDGs Visit · International Exchange</div>
+          <div class="item__zh">人師教育協會倡議委員會主席、UN SDGs 推廣大使 <strong>Dom Jones</strong> 老師與聯合國協會代表到校進行 SDGs 教學——學生以陶鼓表演開場、用英文與訪賓進行 SDGs 互動討論。完整影片紀錄請見上方 Featured Story。</div>
         </div>
       </article>
 
@@ -241,10 +304,10 @@
   </div>
 </section>
 
-<!-- ===== III. Coming Soon ===== -->
+<!-- ===== IV. Coming Soon ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Story Notebook</h2>
     <div class="sec__title-zh">校園故事筆記 · 陸續上線</div>
     <div class="sec__rule"></div>
