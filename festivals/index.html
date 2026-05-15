@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Festival English Series · Changhua Bilingual Network</title>
-<meta name="description" content="Portal to all festival lessons in the Changhua Bilingual Network's Festival English Series. Each festival has a handout and a quiz, freely usable by every partner school.">
+<meta name="description" content="Portal to all 16 festival lessons in the Changhua Bilingual Network's Festival English Series. Each festival has a handout and a quiz, freely usable by every partner school.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -58,9 +58,16 @@
   .intro__zh{font-size:18px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
   @media (min-width:720px){ .intro__zh{ font-size:21px; } }
 
+  /* Semester section */
+  .sem{padding:24px 0 40px;}
+  @media (min-width:720px){ .sem{ padding:32px 0 56px; } }
+  .sem__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);letter-spacing:.3px;padding:0 0 12px;border-bottom:2px solid var(--olive);margin-bottom:22px;}
+  @media (min-width:720px){ .sem__title{ font-size:36px; padding-bottom:14px; margin-bottom:28px; } }
+  .sem__title small{font-size:0.6em;font-weight:500;color:var(--ink-soft);letter-spacing:0;margin-left:14px;display:inline-block;font-family:'Inter','PingFang TC',sans-serif;}
+
   /* Festival grid */
-  .grid{padding:24px 0 56px;display:grid;grid-template-columns:1fr;gap:18px;}
-  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr;gap:22px;padding:32px 0 80px; } }
+  .grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr;gap:22px; } }
   @media (min-width:960px){ .grid{ grid-template-columns:1fr 1fr;gap:26px; } }
 
   .fest{
@@ -152,7 +159,8 @@
     'dajuang':  { en: 'Dajuang Elementary',  zh: '大莊國小' },
     'dacheng':  { en: 'Dacheng Elementary',  zh: '大城國小' },
     'yangming': { en: 'Yangming JHS',        zh: '陽明國中' },
-    'huatan':   { en: 'Huatan Elementary',   zh: '花壇國小' }
+    'huatan':   { en: 'Huatan Elementary',   zh: '花壇國小' },
+    'hualong':  { en: 'Hualong Elementary',  zh: '華龍國小' }
   };
   var sch = schools[from] || { en: from, zh: '回到學校' };
   var strip = document.getElementById('back-strip');
@@ -168,7 +176,7 @@
   <div class="head__brand">Changhua Bilingual Network · For Every Partner School</div>
   <h1 class="head__title">Festival English</h1>
   <div class="head__zh">節慶英文 · 跨校通用課程入口</div>
-  <div class="head__sub">A semester of festivals — vocabulary, traditions, and roleplay in one place.</div>
+  <div class="head__sub">A full year of festivals — vocabulary, traditions, and roleplay in one place.</div>
 </header>
 
 <section class="intro">
@@ -179,137 +187,215 @@
 </section>
 
 <main class="wrap">
-  <div class="grid">
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🧧</div>
-        <div class="fest__main">
+  <!-- ===== SPRING SEMESTER (上學期，Feb–Jun) ===== -->
+  <section class="sem">
+    <h2 class="sem__title">Spring Semester <small>下學期 · February – June</small></h2>
+    <div class="grid">
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🧧</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 01</span><span class="fest__date">2026-02-17</span></div>
           <div class="fest__title">Lunar New Year</div>
-          <div class="fest__zh">春節 · 一年一度的大團圓</div>
+          <div class="fest__zh">春節 · 一年一度的大團圓</div></div></div>
+        <div class="fest__brief">The story of Nian, 12 vocabulary words, six festival traditions (the big clean, reunion dinner, red envelopes…), and three roleplay scripts.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="chinese-new-year/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="chinese-new-year/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">The story of Nian, 12 vocabulary words, six festival traditions (the big clean, reunion dinner, red envelopes…), and three roleplay scripts.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="chinese-new-year/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="chinese-new-year/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🏮</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🏮</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 02</span><span class="fest__date">2026-03-03</span></div>
           <div class="fest__title">Lantern Festival</div>
-          <div class="fest__zh">元宵節 · 春節最後一夜</div>
+          <div class="fest__zh">元宵節 · 春節最後一夜</div></div></div>
+        <div class="fest__brief">The 15th day of the new year — sweet rice balls, red lanterns hanging across every street, and family riddles by candlelight.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="lantern-festival/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="lantern-festival/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">The 15th day of the new year — sweet rice balls, red lanterns hanging across every street, and family riddles by candlelight.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="lantern-festival/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="lantern-festival/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🌿</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🌿</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 03</span><span class="fest__date">2026-04-04</span></div>
           <div class="fest__title">Tomb-Sweeping Day</div>
-          <div class="fest__zh">清明節 · 祭祖與春遊</div>
+          <div class="fest__zh">清明節 · 祭祖與春遊</div></div></div>
+        <div class="fest__brief">Honoring ancestors, sweeping the graves, and the spring outing. Vocabulary and family conversation about remembrance.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="tomb-sweeping-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="tomb-sweeping-day/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">Honoring ancestors, sweeping the graves, and the spring outing. Vocabulary and family conversation about remembrance.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="tomb-sweeping-day/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="tomb-sweeping-day/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🐰</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🐰</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 04</span><span class="fest__date">2026-04-05</span></div>
           <div class="fest__title">Easter</div>
-          <div class="fest__zh">復活節 · 西方春日節慶</div>
+          <div class="fest__zh">復活節 · 西方春日節慶</div></div></div>
+        <div class="fest__brief">Why egg hunts? Why bunnies? A cultural-education look at Easter traditions in the West, with vocabulary and a craft activity.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="easter/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="easter/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">Why egg hunts? Why bunnies? A cultural-education look at Easter traditions in the West, with vocabulary and a craft activity.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="easter/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="easter/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🌍</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🌍</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 05</span><span class="fest__date">2026-04-22</span></div>
           <div class="fest__title">Earth Day</div>
-          <div class="fest__zh">地球日 · 你能做的小事</div>
+          <div class="fest__zh">地球日 · 你能做的小事</div></div></div>
+        <div class="fest__brief">3 R's, eco-vocabulary (recycle, reduce, compost…), and a "what I can do" speaking template for kids and classrooms.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="earth-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="earth-day/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">3 R's, eco-vocabulary (recycle, reduce, compost…), and a "what I can do" speaking template for kids and classrooms.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="earth-day/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="earth-day/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">📖</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">📖</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 06</span><span class="fest__date">2026-04-23</span></div>
           <div class="fest__title">World Book Day</div>
-          <div class="fest__zh">世界閱讀日 · 一本書，一個世界</div>
+          <div class="fest__zh">世界閱讀日 · 一本書，一個世界</div></div></div>
+        <div class="fest__brief">The story behind April 23, 12 reading words, six classroom activities (book swap, read-aloud, library tour, author spotlight, rose-and-book, my top 3), and three roleplay scripts.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="world-book-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="world-book-day/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">The story behind April 23, 12 reading words, six classroom activities (book swap, read-aloud, library tour, author spotlight, rose-and-book, my top 3), and three roleplay scripts.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="world-book-day/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="world-book-day/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">💐</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">💐</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 07</span><span class="fest__date">2026-05-10</span></div>
           <div class="fest__title">Mother's Day</div>
-          <div class="fest__zh">母親節 · 為媽媽說一句英文</div>
+          <div class="fest__zh">母親節 · 為媽媽說一句英文</div></div></div>
+        <div class="fest__brief">Anna Jarvis and the first Mother's Day, 12 vocabulary words (carnation, hug, brunch, bouquet, cherish, devoted, thoughtful…), six gentle traditions, and three roleplay scripts.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="mothers-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="mothers-day/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">Anna Jarvis and the first Mother's Day, 12 vocabulary words (carnation, hug, brunch, bouquet, cherish, devoted, thoughtful…), six gentle traditions, and three roleplay scripts.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="mothers-day/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="mothers-day/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-    <article class="fest">
-      <div class="fest__head">
-        <div class="fest__icon">🐉</div>
-        <div class="fest__main">
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🐉</div><div class="fest__main">
           <div><span class="fest__no">FESTIVAL 08</span><span class="fest__date">2026-06-19</span></div>
           <div class="fest__title">Dragon Boat Festival</div>
-          <div class="fest__zh">端午節 · 龍舟與粽子</div>
+          <div class="fest__zh">端午節 · 龍舟與粽子</div></div></div>
+        <div class="fest__brief">The story of Qu Yuan, the dragon boat race, sticky rice dumplings, and traditional pouches — closing the spring semester with festivity.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="dragon-boat-festival/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="dragon-boat-festival/quiz/">📝 Quiz · 測驗</a>
         </div>
-      </div>
-      <div class="fest__brief">The story of Qu Yuan, the dragon boat race, sticky rice dumplings, and traditional pouches — closing the spring semester with festivity.</div>
-      <div class="fest__buttons">
-        <a class="fbtn fbtn--handout" href="dragon-boat-festival/">📖 Handout · 講義</a>
-        <a class="fbtn fbtn--quiz" href="dragon-boat-festival/quiz/">📝 Quiz · 測驗</a>
-      </div>
-    </article>
+      </article>
 
-  </div>
+    </div>
+  </section>
+
+  <!-- ===== FALL SEMESTER (上學期，Aug–Jan) ===== -->
+  <section class="sem">
+    <h2 class="sem__title">Fall Semester <small>上學期 · August – January</small></h2>
+    <div class="grid">
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">👨</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 09</span><span class="fest__date">2026-08-08</span></div>
+          <div class="fest__title">Father's Day</div>
+          <div class="fest__zh">父親節 · 八八節</div></div></div>
+        <div class="fest__brief">The "Eight-Eight" sound match between "Dad" and "8", 12 vocab (father / dad / tie / wallet / barbecue / handshake + respect / admire / treat / strong / hardworking / proud), six gentle traditions, three roleplay scripts.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="fathers-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="fathers-day/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🌕</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 10</span><span class="fest__date">農曆 8/15</span></div>
+          <div class="fest__title">Mid-Autumn Festival</div>
+          <div class="fest__zh">中秋節 · 月圓人團圓</div></div></div>
+        <div class="fest__brief">The legend of Chang'e and Hou Yi, 12 vocab (moon / mooncake / pomelo / rabbit / legend / bow + shine / float / gaze / round / tender / magical), six traditions, three roleplays.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="mid-autumn-festival/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="mid-autumn-festival/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🎓</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 11</span><span class="fest__date">2026-09-28</span></div>
+          <div class="fest__title">Teachers' Day</div>
+          <div class="fest__zh">教師節 · 跟孔子說謝謝</div></div></div>
+        <div class="fest__brief">Confucius's life and wisdom, 12 vocab (teacher / lesson / wisdom / classroom / saying / temple + learn / teach / encourage / patient / wise / humble), six ways to honor a teacher.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="teachers-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="teachers-day/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🎃</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 12</span><span class="fest__date">2026-10-31</span></div>
+          <div class="fest__title">Halloween</div>
+          <div class="fest__zh">萬聖節 · 不給糖就搗蛋</div></div></div>
+        <div class="fest__brief">Celtic Samhain to All Hallows' Eve, 12 vocab (costume / pumpkin / ghost / witch / candy / skeleton + carve / trick / dress up / spooky / glowing / brave), six traditions, three roleplays.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="halloween/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="halloween/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🌍</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 13</span><span class="fest__date">2026-11-20</span></div>
+          <div class="fest__title">Universal Children's Day</div>
+          <div class="fest__zh">世界兒童日 · 每個孩子都重要</div></div></div>
+        <div class="fest__brief">The UN Convention on the Rights of the Child (1989), 12 vocab (child / right / promise / future / equality / world + protect / listen / speak up / safe / equal / hopeful), six classroom activities.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="childrens-day-international/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="childrens-day-international/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🦃</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 14</span><span class="fest__date">2026-11-26</span></div>
+          <div class="fest__title">Thanksgiving</div>
+          <div class="fest__zh">感恩節 · 在餐桌上說謝謝</div></div></div>
+        <div class="fest__brief">Pilgrims and Wampanoag in 1621, 12 vocab (turkey / stuffing / pie / harvest / blessing / gratitude + share / appreciate / stuff / cozy / thankful / generous), six traditions, three roleplays.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="thanksgiving/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="thanksgiving/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🎄</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 15</span><span class="fest__date">2026-12-25</span></div>
+          <div class="fest__title">Christmas</div>
+          <div class="fest__zh">聖誕節 · 平安喜樂的冬夜</div></div></div>
+        <div class="fest__brief">From Bethlehem to the modern tree, 12 vocab (Christmas tree / Santa Claus / reindeer / stocking / gift / snow + sing / give / twinkle / merry / sparkly / jolly), six traditions, three roleplays.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="christmas/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="christmas/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+      <article class="fest">
+        <div class="fest__head"><div class="fest__icon">🎆</div><div class="fest__main">
+          <div><span class="fest__no">FESTIVAL 16</span><span class="fest__date">2027-01-01</span></div>
+          <div class="fest__title">New Year's Day</div>
+          <div class="fest__zh">元旦 · 開一個全新的一年</div></div></div>
+        <div class="fest__brief">Julius Caesar to Pope Gregory's calendar, 12 vocab (calendar / midnight / resolution / countdown / fireworks / sparkler + celebrate / count / plan / excited / fresh / hopeful), six traditions, three roleplays.</div>
+        <div class="fest__buttons">
+          <a class="fbtn fbtn--handout" href="new-years-day/">📖 Handout · 講義</a>
+          <a class="fbtn fbtn--quiz" href="new-years-day/quiz/">📝 Quiz · 測驗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
 </main>
 
 <footer>
