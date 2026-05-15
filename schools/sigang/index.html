@@ -23,6 +23,7 @@
     --yellow-soft:#fff5b8;
     --yellow-deep:#c79b00;
     --red:#e63b2c;
+    --red-deep:#b32619;
     --red-soft:#fde2dd;
     --ocean:#3a8db5;
     --ocean-soft:#dcebf3;
@@ -48,6 +49,25 @@
 
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   .serif{font-family:'Playfair Display','PingFang TC',serif;}
+
+  /* === Sub-nav === */
+  .subnav{
+    background:var(--green-soft);padding:18px 0;border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;
+    font-family:'Playfair Display','PingFang TC',serif;font-size:19px;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{
+    color:var(--green-deep);text-decoration:none;font-weight:600;
+    padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;
+  }
+  .subnav a:hover{background:#fff;color:var(--red-deep);}
+  .subnav a.is-active{background:var(--red);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* ===== Section ===== */
   section{padding:56px 0;border-bottom:1px solid var(--line);}
@@ -276,6 +296,27 @@
   原本的網站 banner 留給該站既有設計師作品，這份內容只放在 banner 下方。
   獨立 GitHub Pages 連結直接從 Section I. About 開始，無 hero。
 -->
+
+<!-- ===== Sub-nav ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="./" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="gallery/">Gallery</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=sigang">Festivals</a>
+    </div>
+  </div>
+</nav>
 
 <!-- ===== I. About ===== -->
 <section>

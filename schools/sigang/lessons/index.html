@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lessons · 特色課程 · Sigang Elementary</title>
+<meta name="description" content="Sigang Elementary's signature curriculum — food &amp; agriculture education from local crops, marine environmental education facing the Taiwan Strait, a resident artist programme, and a long-running partnership with Erhlin Community College. 西港國小特色課程：食農、海洋環保、駐校藝術、二林社大合作。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#155028;--green:#1d6f3a;--green-light:#6abf7f;--green-soft:#dcefe1;
+    --yellow:#f4d521;--yellow-soft:#fff5b8;--yellow-deep:#c79b00;
+    --red:#e63b2c;--red-deep:#b32619;--red-soft:#fde2dd;
+    --ocean:#3a8db5;--ocean-soft:#dcebf3;--sand:#f0c570;
+    --ink:#1f2a25;--ink-soft:#5a6963;--line:#e3dcc4;
+    --shadow:0 14px 38px -16px rgba(21,80,40,.32);--shadow-sm:0 6px 16px -6px rgba(21,80,40,.20);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--green-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--yellow);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--green-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--green-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--red-deep);}
+  .subnav a.is-active{background:var(--red);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .lede-box{background:linear-gradient(135deg, var(--green-soft) 0%, var(--ocean-soft) 100%);border-radius:24px;padding:36px 28px;}
+  @media (min-width:720px){ .lede-box{ padding:52px 44px; } }
+  .lede-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:40px; } }
+  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.55;}
+  @media (min-width:720px){ .lede-box p .zh-inline{ font-size:20px; } }
+
+  /* Program cards */
+  .programs{display:flex;flex-direction:column;gap:24px;}
+  .program{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:30px 28px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;
+  }
+  @media (min-width:720px){ .program{grid-template-columns:140px 1fr;gap:36px;padding:42px 40px;} }
+  @media (max-width:560px){ .program{ grid-template-columns:1fr;gap:16px; } }
+  .program__icon{
+    font-size:62px;line-height:1;text-align:center;
+    background:var(--green-soft);border-radius:14px;padding:16px 0;color:var(--green-deep);
+  }
+  @media (min-width:720px){ .program__icon{ font-size:84px;padding:24px 0; } }
+  .program:nth-child(2) .program__icon{background:var(--ocean-soft);color:var(--ocean);}
+  .program:nth-child(3) .program__icon{background:var(--red-soft);color:var(--red-deep);}
+  .program:nth-child(4) .program__icon{background:var(--yellow-soft);color:var(--yellow-deep);}
+  .program:nth-child(5) .program__icon{background:#f5e8d6;color:var(--sand);}
+  .program__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--green-deep);line-height:1.2;}
+  @media (min-width:720px){ .program__title{ font-size:36px; } }
+  .program__title-zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .program__title-zh{ font-size:23px; } }
+  .program__body{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .program__body{ font-size:21px; } }
+  .program__body p{margin-top:14px;}
+  .program__body p:first-child{margin-top:0;}
+  .program__body strong{color:var(--green-deep);font-weight:700;}
+  .program__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;display:block;}
+  @media (min-width:720px){ .program__zh{ font-size:19px; } }
+
+  .program__pill{
+    display:inline-block;background:var(--green-soft);color:var(--green-deep);
+    font-size:13px;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:99px;
+    margin-top:14px;
+  }
+  .program:nth-child(2) .program__pill{background:var(--ocean-soft);color:var(--ocean);}
+  .program:nth-child(3) .program__pill{background:var(--red-soft);color:var(--red-deep);}
+  .program:nth-child(4) .program__pill{background:var(--yellow-soft);color:var(--yellow-deep);}
+
+  .quote{margin-top:36px;background:var(--yellow-soft);border-left:6px solid var(--yellow);padding:24px 28px;border-radius:0 12px 12px 0;}
+  .quote__text{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--green-deep);line-height:1.4;font-style:italic;}
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--green-deep);}
+  footer a{color:var(--green-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="../gallery/">Gallery</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=sigang">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Lede ===== -->
+<section>
+  <div class="wrap">
+    <div class="lede-box">
+      <h2>Local land. Open sea. A studio next door.</h2>
+      <p>
+        Sigang's curriculum doesn't start in a textbook — it starts at the seawall, the rice field, and the resident artist's studio. Four anchor programmes carry the weight, each pairing <strong>where we are</strong> with <strong>what we want our children to know</strong>.
+        <span class="zh-inline">西港的課程不從課本開始——而是從<strong>海堤、稻田，與駐校藝術家的工作室</strong>開始。四條主軸課程把「我們所在的地方」與「我們想讓孩子知道的事」綁在一起。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Four Anchor Programmes</h2>
+    <div class="sec__title-zh">四條主軸 · 西港的招牌課程</div>
+    <div class="sec__rule"></div>
+
+    <div class="programs">
+
+      <article class="program">
+        <div class="program__icon">🌾</div>
+        <div>
+          <div class="program__title">Food &amp; Agriculture Education</div>
+          <div class="program__title-zh">食農教育</div>
+          <div class="program__body">
+            <p>From local crops to the family table — students learn how <strong>food, land, and community</strong> are woven together. The curriculum runs across the full agricultural cycle: planting, daily care, harvest, and cooking what the school grew.</p>
+            <span class="program__zh">從在地農作出發，連結食物、土地與社區——孩子完整走過一輪農作週期：播種、田間照顧、採收、把自己種出來的東西端上餐桌。讓「吃」變回一件有來歷的事。</span>
+          </div>
+          <span class="program__pill">🌱 Whole-year Curriculum</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🌊</div>
+        <div>
+          <div class="program__title">Marine Environmental Education</div>
+          <div class="program__title-zh">海洋環保課程</div>
+          <div class="program__body">
+            <p>With the <strong>Taiwan Strait</strong> at our doorstep, our students learn what it means to "live facing the sea" — coastal ecology, conservation, and beach stewardship. The west coast of Dacheng Township is not a backdrop; it is part of the syllabus.</p>
+            <span class="program__zh">大城鄉沿海地理優勢——孩子在西海岸學<strong>「面海的生活」</strong>：海洋生態、海岸保育、淨灘行動。台灣海峽不是背景，而是課表的一部分。</span>
+          </div>
+          <span class="program__pill">🐚 Coastal Stewardship</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🎨</div>
+        <div>
+          <div class="program__title">Resident Artist Programme</div>
+          <div class="program__title-zh">駐校藝術家 · 王莉老師</div>
+          <div class="program__body">
+            <p>Artist <strong>Wang Li</strong> serves as our resident artist, bringing creative practice into everyday classroom life. Resident artist programmes are rare in small rural schools — Sigang has chosen to make this a permanent fixture of the campus.</p>
+            <span class="program__zh">王莉老師為西港駐校藝術家，把藝術創作帶入日常的課堂與校園角落。「駐校藝術家」是大型都市學校才常見的配置——西港選擇讓這件事在偏鄉小校長期存在。</span>
+          </div>
+          <span class="program__pill">🖌️ Long-term Resident</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🤝</div>
+        <div>
+          <div class="program__title">Erhlin Community College Partnership</div>
+          <div class="program__title-zh">與二林社區大學合作</div>
+          <div class="program__body">
+            <p>A long-running partnership with <strong>Erhlin Community College</strong> brings ecology educators and community resources into the classroom. Environmental education at Sigang is taught not just by teachers, but by the community itself.</p>
+            <span class="program__zh">與<strong>二林社區大學</strong>長期合作，將生態認識教學與在地社群資源帶進校園——讓「環境教育」不是一個科目，而是一段社區關係。</span>
+          </div>
+          <span class="program__pill">🌐 Community-Taught</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🧸</div>
+        <div>
+          <div class="program__title">Affiliated Preschool · Since 1987</div>
+          <div class="program__title-zh">附設幼兒園 · 39 年歷史</div>
+          <div class="program__body">
+            <p>Established in 1987 (formally re-designated in 2012), our affiliated preschool has nurtured generations of Sigang children before they enter elementary school — a continuous learning thread from age 3 to age 12, all on one campus.</p>
+            <span class="program__zh">自 1987 年設立、2012 年改制為附設幼兒園，39 年來陪伴一代又一代西港孩子踏上學習旅程。3 歲到 12 歲的學習，可以在同一個校園裡連起來。</span>
+          </div>
+          <span class="program__pill">👶 Ages 3–12 in One Campus</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"Life is Good!"</div>
+      <div class="quote__zh">校訓——我們希望孩子們學會的，不是分數，而是熱愛生活的方式。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 西港國小 Sigang Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
