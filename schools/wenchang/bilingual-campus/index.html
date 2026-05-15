@@ -7,9 +7,9 @@
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bilingual Campus · 雙語校園 · Wenchang Elementary School</title>
-<meta name="description" content="At Wenchang Elementary, bilingual is the air, not the syllabus — daily English broadcasts on the morning intercom, and a teacher's video library of classroom phrases used between the lessons. Both produced with My Culture Connect 人師教育協會 and shared across Changhua's bilingual schools. 文昌國小的雙語不是一堂課，而是一座鄉村校園——每天早上的英語廣播，與老師日常使用的課室英語。">
+<meta name="description" content="How Wenchang Elementary speaks the world's languages: a Setting Sail school in MOE international education, online cross-cultural exchanges, participation in the cross-school Festival English Series, English-language contests, and two shared MCC video libraries — classroom English and bilingual announcements. 文昌國小雙語亮點。">
 <meta property="og:title" content="Bilingual Campus · 雙語校園 · Wenchang Elementary">
-<meta property="og:description" content="The strongest English program isn't a class — it's a campus.">
+<meta property="og:description" content="A 'Setting Sail' school on Fuxing's watermelon fields — bilingual is the air, not the syllabus.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
     --leaf:#4a7c2a;--leaf-deep:#2e5219;--leaf-soft:#e6efd9;
     --sail:#c9a648;--sail-deep:#8b6a17;--sail-soft:#f7eed9;
     --cream:#ffffff;
+    --bg-soft:#fbf7f2;
     --ink:#1f1a16;--ink-soft:#5e5750;--line:#e8e2d6;
     --shadow:0 14px 40px -16px rgba(138,40,40,.28);
     --shadow-sm:0 4px 14px -4px rgba(138,40,40,.18);
@@ -34,18 +35,25 @@
     font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
   }
   @media (min-width:720px){ body{ font-size:23px; } }
-
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
-  /* Section */
+  /* === Subnav (大城國小 pattern) === */
+  .subnav{background:var(--leaf-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--leaf-deep);text-decoration:none;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--melon-deep);}
+  .subnav a.is-active{background:var(--melon);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Sections === */
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
-  section:first-of-type{border-top:4px solid var(--melon);}
+  section.alt{background:var(--bg-soft);}
   section:last-of-type{border-bottom:none;}
-  .sec__no{
-    font-family:'Cormorant Garamond',serif;
-    color:var(--melon);font-size:24px;font-weight:700;letter-spacing:5px;
-  }
+
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--melon);font-size:24px;font-weight:700;letter-spacing:5px;}
   @media (min-width:720px){ .sec__no{ font-size:27px; } }
   .sec__title{
     font-family:'Cormorant Garamond','PingFang TC',serif;
@@ -59,73 +67,131 @@
     margin-top:10px;letter-spacing:.04em;
   }
   @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
-  .sec__rule{
-    width:96px;height:6px;background:var(--sail);
-    border-radius:3px;margin:22px 0 36px;
-  }
+  .sec__rule{width:96px;height:6px;background:var(--sail);border-radius:3px;margin:22px 0 36px;}
 
-  /* Lead */
-  .lead{
+  /* === Lede box (intro hero) === */
+  .lede-box{
+    background:linear-gradient(135deg, var(--melon-soft) 0%, var(--leaf-soft) 100%);
+    border-radius:24px;padding:40px 30px;
+    border:1px solid var(--line);
+  }
+  @media (min-width:720px){ .lede-box{ padding:56px 48px; } }
+  .lede-box h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--melon-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:46px; } }
+  .lede-box .zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:21px; } }
+  .lede-box p{font-size:20px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:22px; } }
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .lede-box p .zh-inline{ font-size:20px; } }
+
+  /* === Spotlight (Setting Sail) === */
+  .spotlight{
+    background:linear-gradient(135deg, var(--sail-soft) 0%, var(--leaf-soft) 100%);
+    border-radius:24px;padding:40px 30px;border:2px solid var(--sail);
+    box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .spotlight{ padding:56px 48px; } }
+  .spotlight__badge{
+    display:inline-block;background:var(--sail);color:var(--ink);
+    font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .spotlight__badge{ font-size:15px; } }
+  .spotlight__title{
     font-family:'Cormorant Garamond',serif;
-    font-size:30px;font-weight:600;font-style:italic;color:var(--melon-deep);line-height:1.4;
-    letter-spacing:.005em;
+    font-size:34px;font-weight:700;color:var(--melon-deep);
+    line-height:1.15;margin-top:14px;letter-spacing:.005em;
   }
-  @media (min-width:720px){ .lead{ font-size:38px; } }
-  .lead-zh{
-    font-family:'PingFang TC',sans-serif;
-    font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.65;
+  @media (min-width:720px){ .spotlight__title{ font-size:50px; } }
+  .spotlight__zh{font-size:20px;color:var(--ink-soft);font-weight:600;margin-top:8px;}
+  @media (min-width:720px){ .spotlight__zh{ font-size:25px; } }
+  .spotlight__body{font-size:19px;color:var(--ink);margin-top:20px;line-height:1.7;}
+  @media (min-width:720px){ .spotlight__body{ font-size:21px; } }
+  .spotlight__body strong{color:var(--melon-deep);font-weight:700;}
+  .spotlight__body .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.7;display:block;}
+  @media (min-width:720px){ .spotlight__body .zh{ font-size:20px; } }
+  .spotlight__meta{
+    margin-top:24px;display:grid;grid-template-columns:1fr;gap:14px;
   }
-  @media (min-width:720px){ .lead-zh{ font-size:25px; } }
-  .body{margin-top:28px;font-size:20px;color:var(--ink);line-height:1.75;max-width:780px;}
-  @media (min-width:720px){ .body{ font-size:22px; } }
-  .body p{margin-top:16px;}
-  .body p:first-child{margin-top:0;}
-  .body .zh{
-    font-family:'PingFang TC',sans-serif;
-    color:var(--ink);font-size:18px;margin-top:12px;line-height:1.85;
-    background:#fff;border-left:3px solid var(--sail);
-    padding:14px 20px;border-radius:0 10px 10px 0;
+  @media (min-width:720px){ .spotlight__meta{ grid-template-columns:1fr 1fr 1fr;gap:18px; } }
+  .spot-card{background:#fff;border-radius:12px;padding:14px 18px;border:1px solid var(--line);}
+  .spot-card__label{
+    font-family:'Cormorant Garamond',serif;color:var(--leaf-deep);
+    font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   }
-  @media (min-width:720px){ .body .zh{ font-size:19px; } }
-  .body strong{color:var(--melon-deep);font-weight:700;}
+  @media (min-width:720px){ .spot-card__label{ font-size:14px; } }
+  .spot-card__value{font-size:17px;color:var(--melon-deep);font-weight:700;margin-top:4px;line-height:1.4;}
+  @media (min-width:720px){ .spot-card__value{ font-size:18px; } }
 
-  /* Credits ribbon (compact, inline) */
+  /* === Story (English in Action cards) === */
+  .story-list{display:flex;flex-direction:column;gap:24px;}
+  .story{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:30px 28px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;
+  }
+  @media (min-width:720px){ .story{ grid-template-columns:120px 1fr;gap:36px;padding:38px 36px; } }
+  .story__icon{
+    font-size:48px;line-height:1;text-align:center;
+    background:var(--melon-soft);border-radius:14px;padding:14px 0;
+    color:var(--melon-deep);
+  }
+  @media (min-width:720px){ .story__icon{ font-size:68px;padding:20px 0; } }
+  .story:nth-child(2) .story__icon{background:var(--leaf-soft);color:var(--leaf-deep);}
+  .story:nth-child(3) .story__icon{background:var(--sail-soft);color:var(--sail-deep);}
+  .story__date{
+    font-family:'Cormorant Garamond',serif;color:var(--melon);
+    font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  }
+  @media (min-width:720px){ .story__date{ font-size:16px; } }
+  .story__title{
+    font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;
+    color:var(--melon-deep);line-height:1.25;margin-top:6px;
+  }
+  @media (min-width:720px){ .story__title{ font-size:32px; } }
+  .story__title-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;
+  }
+  @media (min-width:720px){ .story__title-zh{ font-size:21px; } }
+  .story__body{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .story__body{ font-size:21px; } }
+  .story__zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.7;
+  }
+  @media (min-width:720px){ .story__zh{ font-size:19px; } }
+  .story__body strong{color:var(--melon-deep);}
+  .story__cta{
+    display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+    color:var(--melon);font-weight:600;font-size:15.5px;text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:1px;
+    transition:border-color .15s, color .15s;
+  }
+  @media (min-width:720px){ .story__cta{ font-size:17px; } }
+  .story__cta:hover{color:var(--melon-deep);border-bottom-color:var(--melon-deep);}
+
+  /* === Players (shared MCC playlists) === */
   .credits{
     margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 28px;
     padding:18px 24px;border-radius:12px;
     background:var(--leaf-soft);border-left:6px solid var(--leaf);
     max-width:820px;
   }
-  .credits.is-broadcast{
-    background:var(--sail-soft);border-left-color:var(--sail);
-  }
+  .credits.is-broadcast{background:var(--sail-soft);border-left-color:var(--sail);}
   .credits__cell{display:flex;flex-direction:column;}
-  .credits__label{
-    font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-    color:var(--leaf-deep);
-  }
+  .credits__label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--leaf-deep);}
   @media (min-width:720px){ .credits__label{ font-size:13px; } }
   .credits.is-broadcast .credits__label{color:var(--sail-deep);}
-  .credits__value{
-    font-size:17px;color:var(--ink);font-weight:600;margin-top:2px;
-  }
+  .credits__value{font-size:17px;color:var(--ink);font-weight:600;margin-top:2px;}
   @media (min-width:720px){ .credits__value{ font-size:19px; } }
 
-  /* Player */
-  .player{
-    margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:18px;
-    padding:14px;box-shadow:var(--shadow);
-  }
+  .player{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);}
   @media (min-width:720px){ .player{ padding:18px; } }
-  .player__ratio{
-    position:relative;width:100%;padding-top:56.25%;
-    border-radius:10px;overflow:hidden;background:#000;
-  }
-  .player__ratio iframe{
-    position:absolute;inset:0;width:100%;height:100%;border:0;
-  }
+  .player__ratio{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+  .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
-  /* Direct-to-YouTube link below each player */
   .player-link{
     margin-top:14px;display:flex;align-items:center;gap:14px;
     padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;
@@ -140,18 +206,12 @@
     font-size:14px;font-weight:700;letter-spacing:.5px;
   }
   .player-link__text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
-  .player-link__text strong{
-    font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--melon-deep);font-weight:600;line-height:1.3;
-  }
-  .player-link__text span{
-    font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;
-  }
+  .player-link__text strong{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--melon-deep);font-weight:600;line-height:1.3;}
+  .player-link__text span{font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;}
   .player-link__arrow{font-size:22px;color:var(--melon);flex-shrink:0;}
 
-  /* Topic grid (10 classroom situations) */
-  .topics{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px;
-  }
+  /* === Topics grid (Classroom English 10) === */
+  .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px;}
   @media (min-width:720px){ .topics{ grid-template-columns:repeat(3,1fr);gap:16px; } }
   @media (min-width:1000px){ .topics{ grid-template-columns:repeat(5,1fr); } }
   .topic{
@@ -162,24 +222,14 @@
   .topic:nth-child(2n){border-top-color:var(--leaf);}
   .topic:nth-child(3n){border-top-color:var(--sail);}
   .topic:nth-child(5n){border-top-color:var(--sail-deep);}
-  .topic__no{
-    font-family:'Cormorant Garamond',serif;
-    color:var(--melon);font-weight:700;font-size:15px;letter-spacing:2px;
-  }
-  .topic__en{
-    margin-top:4px;font-size:14px;font-weight:700;color:var(--melon-deep);line-height:1.35;
-  }
+  .topic__no{font-family:'Cormorant Garamond',serif;color:var(--melon);font-weight:700;font-size:15px;letter-spacing:2px;}
+  .topic__en{margin-top:4px;font-size:14px;font-weight:700;color:var(--melon-deep);line-height:1.35;}
   @media (min-width:720px){ .topic__en{ font-size:15px; } }
-  .topic__zh{
-    font-family:'PingFang TC',sans-serif;
-    margin-top:3px;font-size:12px;color:var(--ink-soft);line-height:1.4;
-  }
+  .topic__zh{font-family:'PingFang TC',sans-serif;margin-top:3px;font-size:12px;color:var(--ink-soft);line-height:1.4;}
   @media (min-width:720px){ .topic__zh{ font-size:13px; } }
 
-  /* Office grid (4 offices in announcements) */
-  .offices{
-    display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;
-  }
+  /* === Offices grid (Bilingual Announcements 4) === */
+  .offices{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
   @media (min-width:720px){ .offices{ grid-template-columns:1fr 1fr;gap:24px; } }
   .office{
     background:#fff;border:1px solid var(--line);border-radius:16px;
@@ -190,172 +240,187 @@
   .office:nth-child(2){border-left-color:var(--leaf);}
   .office:nth-child(3){border-left-color:var(--sail);}
   .office:nth-child(4){border-left-color:var(--melon-deep);}
-  .office__title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;font-weight:600;color:var(--melon-deep);line-height:1.2;
-  }
+  .office__title{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--melon-deep);line-height:1.2;}
   @media (min-width:720px){ .office__title{ font-size:30px; } }
-  .office__title-zh{
-    font-family:'PingFang TC',sans-serif;
-    font-size:16px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.04em;
-  }
+  .office__title-zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.04em;}
   @media (min-width:720px){ .office__title-zh{ font-size:19px; } }
   .office__list{list-style:none;margin-top:14px;}
-  .office__list li{
-    padding:10px 0;border-bottom:1px dashed var(--line);
-    font-size:15px;color:var(--ink);line-height:1.5;
-    display:flex;gap:10px;align-items:baseline;
-  }
+  .office__list li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;color:var(--ink);line-height:1.5;display:flex;gap:10px;align-items:baseline;}
   @media (min-width:720px){ .office__list li{ font-size:17px; } }
   .office__list li:last-child{border-bottom:none;}
-  .office__list .ep{
-    flex:0 0 auto;
-    font-family:'Cormorant Garamond',serif;color:var(--melon);font-weight:700;
-    font-size:14px;letter-spacing:1.5px;
-  }
+  .office__list .ep{flex:0 0 auto;font-family:'Cormorant Garamond',serif;color:var(--melon);font-weight:700;font-size:14px;letter-spacing:1.5px;}
   @media (min-width:720px){ .office__list .ep{ font-size:15px; } }
 
-  /* Closing */
+  /* === Closing === */
   .closing{
     background:linear-gradient(135deg, var(--melon-deep) 0%, #5a1a1a 100%);
     color:#fff;border-radius:24px;padding:44px 32px;box-shadow:var(--shadow);
     border-top:4px solid var(--sail);
   }
   @media (min-width:720px){ .closing{ padding:60px 56px; } }
-  .closing__eyebrow{
-    color:var(--sail-soft);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  }
+  .closing__eyebrow{color:var(--sail-soft);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
   @media (min-width:720px){ .closing__eyebrow{ font-size:15px; } }
-  .closing__title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:34px;font-weight:600;line-height:1.25;letter-spacing:.005em;margin-top:14px;
-  }
+  .closing__title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;line-height:1.25;letter-spacing:.005em;margin-top:14px;}
   @media (min-width:720px){ .closing__title{ font-size:46px; } }
-  .closing__title small{
-    display:block;font-family:'PingFang TC',sans-serif;
-    font-size:19px;font-weight:600;color:rgba(255,255,255,.78);margin-top:10px;letter-spacing:.04em;
-  }
+  .closing__title small{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;font-weight:600;color:rgba(255,255,255,.78);margin-top:10px;letter-spacing:.04em;}
   @media (min-width:720px){ .closing__title small{ font-size:23px; } }
-  .closing__body{
-    margin-top:22px;font-size:18px;color:rgba(255,255,255,.92);line-height:1.7;
-  }
+  .closing__body{margin-top:22px;font-size:18px;color:rgba(255,255,255,.92);line-height:1.7;}
   @media (min-width:720px){ .closing__body{ font-size:21px; } }
-  .closing__body-zh{
-    font-family:'PingFang TC',sans-serif;
-    margin-top:14px;font-size:17px;color:rgba(255,255,255,.78);line-height:1.7;
-  }
+  .closing__body-zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:17px;color:rgba(255,255,255,.78);line-height:1.7;}
   @media (min-width:720px){ .closing__body-zh{ font-size:19px; } }
 
-  /* Footer */
-  footer{
-    text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;
-  }
+  /* === Footer === */
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:17px; } }
   footer .org{font-weight:600;color:var(--melon-deep);}
   footer a{color:var(--melon-deep);text-decoration:none;border-bottom:1px dashed var(--line);}
   footer a:hover{border-bottom-color:var(--melon-deep);}
-
-  /* ============ TOPBAR ============ */
-  .topbar{
-    background:rgba(255,255,255,.94);
-    border-bottom:1px solid var(--line);
-    padding:14px 0;
-    position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(8px);
-  }
-  .topbar-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:18px;
-  }
-  .topbar-brand{display:flex;align-items:center;gap:12px;}
-  .topbar-name{
-    font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:19px;font-weight:600;
-    color:var(--melon-deep);
-    line-height:1.1;
-  }
-  .topbar-name small{
-    display:block;
-    font-family:'PingFang TC',sans-serif;
-    font-size:12.5px;font-weight:500;
-    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
-  }
-  .topbar-nav{
-    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
-  }
-  .topbar-nav a{
-    color:var(--ink);font-size:14.5px;font-weight:500;
-    letter-spacing:.04em;text-decoration:none;
-  }
-  .topbar-nav a:hover{color:var(--melon);}
-  .topbar-nav a.is-active{color:var(--melon-deep);font-weight:700;}
-  @media (max-width:560px){
-    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
-    .topbar-nav{gap:14px;justify-content:flex-start;}
-    .topbar-nav a{font-size:13.5px;}
-  }
 </style>
 </head>
 <body>
 
 
-<!-- ============ TOPBAR ============ -->
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="topbar-brand">
-      <div class="topbar-name">
-        Wenchang Elementary
-        <small>彰化縣文昌國民小學</small>
-      </div>
-    </div>
-    <nav class="topbar-nav">
+<!-- ===== Subnav (大城國小 model) ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
       <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
       <a href="../principal/">Principal</a>
-      <a href="" class="is-active">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
       <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 
-<!-- ===== I. About Bilingual Campus ===== -->
+
+<!-- ===== Lede (intro hero) ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">I.</div>
-    <h2 class="sec__title">Bilingual is the air,<br>not the syllabus.</h2>
-    <div class="sec__title-zh">雙語校園 · 課堂之外的雙語日常</div>
-    <div class="sec__rule"></div>
-
-    <div class="lead">The strongest English program isn't a class &mdash; it's a campus.</div>
-    <div class="lead-zh">最強的英語計畫不是一堂課，而是一座校園。</div>
-
-    <div class="body">
-      <p>At Wenchang, bilingual life happens <strong>between</strong> the English lessons. It's the morning announcement that comes through the intercom in two languages. It's the homeroom teacher who says <em>"line up, please"</em> once a day. It's the office sign a first-grader reads without thinking &mdash; and remembers without studying.</p>
-      <p class="zh">在文昌，雙語不是一堂課，而是課堂之外的日常。是早上廣播的雙語版本、是導師偶爾說一句 <em>"line up, please"</em>、是處室門牌讓一年級孩子不假思索就能讀懂的字。</p>
-      <p>For a small village school in the watermelon country of Fuxing, this matters even more &mdash; because the bilingual environment our students get inside the school is the bilingual environment they get, full stop. We take that responsibility seriously.</p>
-      <p class="zh">對一所福興西瓜田裡的鄉村小學來說，這件事更為要緊——因為孩子在校園裡接觸到的雙語環境，就是他們能接觸到的全部雙語環境。我們把這份責任看得很重。</p>
-      <p>This page brings together the two halves of that quiet bilingual layer &mdash; what teachers say in the classroom, and what the campus says back through the intercom. Both video libraries are produced with <strong>My Culture Connect 人師教育協會</strong>, and shared across Changhua's bilingual schools.</p>
-      <p class="zh">這一頁把日常雙語的兩半合在一起呈現——老師在課堂裡的英語，與校園透過廣播說回來的英語。兩套影片都由<strong>人師教育協會</strong>製作，是彰化縣雙語學校跨校共用的資源。</p>
+    <div class="lede-box">
+      <h2>Bilingual is the air,<br>not the syllabus.</h2>
+      <div class="zh">雙語校園 · 課堂之外的雙語日常</div>
+      <p>
+        At Wenchang, bilingual life happens <strong>between</strong> the English lessons &mdash; the announcement on the morning intercom, the teacher's <em>"line up, please,"</em> the office sign a first-grader reads without studying. For a small village school in Fuxing's watermelon country, that <em>between-the-lessons</em> layer is the bilingual environment our students get. So we take it seriously.
+        <span class="zh-inline">在文昌，雙語不是一堂課，而是課堂之外的日常——早上廣播的雙語版本、導師說的 <em>"line up, please"</em>、一年級孩子不假思索就讀懂的處室門牌。對一所福興西瓜田裡的鄉村小學來說，這層「課堂之外」就是孩子整個雙語環境，所以我們把它看得很重。</span>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ===== II. Classroom English ===== -->
+
+<!-- ===== I. Setting Sail (Wenchang-specific spotlight) ===== -->
 <section>
   <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Setting Sail in International Education</h2>
+    <div class="sec__title-zh">揚帆學校認證 · 走出教科書，揚帆向世界</div>
+    <div class="sec__rule"></div>
+
+    <div class="spotlight">
+      <div style="text-align:center;"><div class="spotlight__badge">Certified · 彰化縣領航學校 揚帆級</div></div>
+      <div class="spotlight__title" style="text-align:center;">A village school with a global horizon.</div>
+      <div class="spotlight__zh" style="text-align:center;">一所鄉村小學，看得見世界的視野。</div>
+
+      <p class="spotlight__body">
+        Wenchang Elementary is certified by Changhua County as a <strong>"Setting Sail" school</strong> (揚帆學校) under the Ministry of Education's International Education 2.0 framework. The framework grades schools by how far they have moved from classroom textbooks toward <strong>real cross-cultural exchange</strong>, and "Setting Sail" is the level given to schools doing that work in practice. Our children have already taken part in online cross-cultural exchanges with classrooms abroad &mdash; the work of making sure "international" never stays an idea on paper.
+        <span class="zh">文昌國小通過彰化縣領航學校認證，取得教育部國際教育 2.0「<strong>課程教學－國際教育／揚帆學校</strong>」級別——這是給「實際走出教科書、進入真實國際交流」的學校的等級。本校孩子已經參與過跨國線上文化交流活動。對一所這樣規模的鄉村小學來說，這正是「揚帆」這個名字最想表達的事：讓「國際」永遠不會只停留在紙上。</span>
+      </p>
+
+      <div class="spotlight__meta">
+        <div class="spot-card">
+          <div class="spot-card__label">Certification · 縣府認證</div>
+          <div class="spot-card__value">課程教學－國際教育<br>揚帆級</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-card__label">Programme · 已執行</div>
+          <div class="spot-card__value">Online Cross-Cultural Exchange<br>跨國線上文化交流</div>
+        </div>
+        <div class="spot-card">
+          <div class="spot-card__label">Scope · 規模</div>
+          <div class="spot-card__value">Two-village school<br>鎮平村 + 三和村</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== II. English in Action (Wenchang stories) ===== -->
+<section class="alt">
+  <div class="wrap">
     <div class="sec__no">II.</div>
+    <h2 class="sec__title">English in Action</h2>
+    <div class="sec__title-zh">三個讓孩子真實使用英文的場景</div>
+    <div class="sec__rule"></div>
+
+    <div class="story-list">
+
+      <article class="story">
+        <div class="story__icon">🎉</div>
+        <div>
+          <div class="story__date">Since · 2026</div>
+          <div class="story__title">Plugged Into the Festival English Series</div>
+          <div class="story__title-zh">加入跨校節慶英語平台</div>
+          <div class="story__body">
+            Wenchang students join the <strong>Festival English Series</strong> &mdash; a shared bilingual platform across Changhua's partner schools. <strong>Eight festivals</strong>, from Lunar New Year and Lantern Festival to Easter, Earth Day, and Dragon Boat &mdash; each with bilingual handouts and a 12-question mini-quiz that lets every child practise the same English content classmates across the county are practising too.
+          </div>
+          <div class="story__zh">
+            文昌國小已加入彰化縣 89 校共用的 Festival English Series 節慶英語平台——8 個節慶，從春節、元宵到復活節、地球日、端午，每一個都附中英對照講義與 12 題小考，讓本校孩子和全縣其他學校的同學練同一份英語內容。
+          </div>
+          <a href="https://changhua-bilingual.org/festivals/?from=wenchang" class="story__cta">Open Wenchang's Festival page · 進入文昌版節慶頁 →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__icon">🌐</div>
+        <div>
+          <div class="story__date">Ongoing · 進行中</div>
+          <div class="story__title">Online Cross-Cultural Exchanges</div>
+          <div class="story__title-zh">跨國線上文化交流</div>
+          <div class="story__body">
+            As part of being a Setting Sail school, Wenchang has run <strong>online cross-cultural exchange sessions</strong> connecting our students with classrooms abroad. For a village school on Fuxing's watermelon fields, the conversation that begins as <em>"My name is&hellip;"</em> ends, three meetings later, as a real conversation about lives lived very far apart.
+          </div>
+          <div class="story__zh">
+            作為揚帆學校的一環，文昌已實際辦過跨國線上文化交流，讓孩子與國外教室對話。對一所福興西瓜田裡的鄉村小學來說，那個從 <em>"My name is&hellip;"</em> 開始的對話，三次見面之後，會變成一段關於彼此生活的真實交流。
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__icon">🏆</div>
+        <div>
+          <div class="story__date">Featured · 校內競賽榮譽領域</div>
+          <div class="story__title">Students Step Out for English Contests</div>
+          <div class="story__title-zh">學生走出校門參加英語競賽</div>
+          <div class="story__body">
+            Alongside taekwondo, weiqi, and inline skating, <strong>English-language contests</strong> are one of the competition areas the school specifically features &mdash; putting our students' English to work outside the classroom, on a stage where it has to be heard.
+          </div>
+          <div class="story__zh">
+            除了跆拳道、圍棋、溜冰，學校特別列出的競賽榮譽領域還包含<strong>英語競賽</strong>——讓孩子的英文走出教室，到一個必須真的被聽見的舞台上發聲。
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== III. Classroom English (shared MCC playlist) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Classroom English</h2>
     <div class="sec__title-zh">課室英語 · 給老師的口袋句庫（影片版）</div>
     <div class="sec__rule"></div>
 
-    <div class="lead">The phrases teachers say between the lessons &mdash; taught on video.</div>
-    <div class="lead-zh">老師在課堂裡每天會用上的英文句子——這次有人示範給你看。</div>
-
-    <div class="body">
-      <p>A practical video library covering the everyday English a Taiwanese teacher actually uses in the classroom: <strong>greetings and roll call, pre-class set-up, instructions, praise and correction, classroom management, lesson activities, assigning homework, wrapping up, and exam directions.</strong> Each video isolates one situation so the phrases stick on first hearing.</p>
-      <p class="zh">這個影片教材庫涵蓋臺灣老師每天會用到的課堂英語——問候點名、課前準備、講解、回饋讚美、糾正、教室管理、課堂活動、分派作業、課堂收尾、考試指令。每支影片只處理一個情境，第一次聽就能記住。</p>
-      <p>The series is designed for in-service teachers at <strong>any grade level</strong> &mdash; the phrases work just as well in a 1st-grade classroom as they do in 6th.</p>
-      <p class="zh">這套教材適用於<strong>任何年段</strong>的在職教師——同樣的句型，在一年級教室和六年級教室都用得上。</p>
-    </div>
+    <p style="font-size:21px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:24px;">
+      A practical video library of the everyday English a Taiwanese teacher actually uses in the classroom &mdash; <strong>greetings &amp; roll call, pre-class prep, instructions, praise &amp; correction, classroom management, lesson activities, homework, wrap-up, exam directions.</strong> Each video isolates one situation so the phrases stick on first hearing.
+      <span style="display:block;color:var(--ink-soft);font-size:18px;margin-top:10px;font-family:'PingFang TC',sans-serif;">這個影片教材庫涵蓋臺灣老師每天會用到的課堂英語，每支影片只處理一個情境，第一次聽就能記住。由 <strong>My Culture Connect 人師教育協會</strong>製作，89 所合作校共用。</span>
+    </p>
 
     <div class="credits">
       <div class="credits__cell">
@@ -407,23 +472,19 @@
   </div>
 </section>
 
-<!-- ===== III. Bilingual Announcements ===== -->
-<section>
+
+<!-- ===== IV. Bilingual Announcements (shared MCC playlist) ===== -->
+<section class="alt">
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Bilingual Announcements</h2>
     <div class="sec__title-zh">雙語廣播 · 校園的英語之聲</div>
     <div class="sec__rule"></div>
 
-    <div class="lead">The morning intercom in two languages &mdash; written and recorded by the four offices that keep school life running.</div>
-    <div class="lead-zh">早上的校園廣播，雙語版本——由教務、學務、總務、輔導四個處室共同寫稿、共同上鏡。</div>
-
-    <div class="body">
-      <p>A <strong>13-episode bilingual announcement series</strong>, organized by the four school offices: <strong>Academic Affairs (教務處)</strong>, <strong>Student Affairs (學務處)</strong>, <strong>General Affairs (總務處)</strong>, and <strong>Counselling (輔導室)</strong>. Each office introduces what it does, in both English and Chinese &mdash; turning the school's daily public-address routine into a real-world bilingual exposure for every student walking the corridors.</p>
-      <p class="zh">這是一個 13 集的雙語校園廣播系列，依四個處室分組：教務處、學務處、總務處、輔導室，由各組親自介紹自己的工作，雙語對照——把學校每天的廣播時間，變成全校學生在走廊上就能接收的英語浸潤。</p>
-      <p>For elementary students, <em>hearing</em> the language daily &mdash; before they can fully read it &mdash; is what gives them the courage, three years later, to actually use it.</p>
-      <p class="zh">對小學階段的孩子來說，<em>每天聽到</em>這個語言——比他們有能力流利閱讀的時間還早——正是日後三年讓他們敢真正開口說的勇氣來源。</p>
-    </div>
+    <p style="font-size:21px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:24px;">
+      A <strong>13-episode bilingual announcement series</strong>, organised by the four school offices: <strong>Academic Affairs, Student Affairs, General Affairs, Counselling.</strong> Each office introduces what it does &mdash; turning the school's daily public-address routine into a real-world bilingual exposure for every student walking the corridors.
+      <span style="display:block;color:var(--ink-soft);font-size:18px;margin-top:10px;font-family:'PingFang TC',sans-serif;">13 集雙語校園廣播，依教務、學務、總務、輔導四個處室分組，把廣播時間變成校內真實雙語浸潤。</span>
+    </p>
 
     <div class="credits is-broadcast">
       <div class="credits__cell">
@@ -502,7 +563,8 @@
   </div>
 </section>
 
-<!-- ===== IV. Closing ===== -->
+
+<!-- ===== Closing ===== -->
 <section>
   <div class="wrap">
     <div class="closing">
@@ -511,10 +573,10 @@
         <small>第二語言是在走廊上學會的，不只是在教室裡。</small>
       </h3>
       <p class="closing__body">
-        A timetabled English period is necessary, but never sufficient. Real fluency takes hold when the language steps out of the textbook and into the everyday &mdash; the hallway, the broadcast, the teacher's natural voice. That is what Wenchang's bilingual campus is quietly building, on the watermelon fields of Fuxing, one announcement and one classroom phrase at a time.
+        A timetabled English period is necessary, but never sufficient. Real fluency takes hold when the language steps out of the textbook and into the everyday &mdash; the hallway, the broadcast, the teacher's natural voice, the festival quiz the whole county is taking. That is what Wenchang's bilingual campus is quietly building, on the watermelon fields of Fuxing, one announcement and one classroom phrase at a time.
       </p>
       <p class="closing__body-zh">
-        排在課表上的英語節數是必要的，但永遠不足夠。真正能扎根的英語能力，是讓語言從課本走進日常——走進走廊、走進廣播、走進老師最自然的聲音。這正是文昌國小，在福興鄉的西瓜田之間，一段廣播、一句課室英語慢慢建立起來的雙語校園。
+        排在課表上的英語節數是必要的，但永遠不足夠。真正能扎根的英語能力，是讓語言從課本走進日常——走進走廊、走進廣播、走進老師最自然的聲音、走進全縣一起做的節慶小考。這正是文昌國小，在福興鄉的西瓜田之間，一段廣播、一句課室英語慢慢建立起來的雙語校園。
       </p>
     </div>
   </div>

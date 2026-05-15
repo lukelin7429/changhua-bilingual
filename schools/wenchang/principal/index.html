@@ -45,45 +45,15 @@ a:hover{color:var(--leaf);}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 .wrap-narrow{max-width:var(--max-narrow);margin:0 auto;padding:0 24px;}
 
-/* ============ TOPBAR ============ */
-.topbar{
-  background:rgba(255,255,255,.94);
-  border-bottom:1px solid var(--line);
-  padding:14px 0;
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(8px);
-}
-.topbar-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:18px;
-}
-.topbar-brand{display:flex;align-items:center;gap:12px;}
-.topbar-name{
-  font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:19px;font-weight:600;
-  color:var(--melon-deep);
-  line-height:1.1;
-}
-.topbar-name small{
-  display:block;
-  font-family:'PingFang TC',sans-serif;
-  font-size:12.5px;font-weight:500;
-  color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
-}
-.topbar-nav{
-  display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
-}
-.topbar-nav a{
-  color:var(--ink);font-size:14.5px;font-weight:500;
-  letter-spacing:.04em;text-decoration:none;
-}
-.topbar-nav a:hover{color:var(--melon);}
-.topbar-nav a.is-active{color:var(--melon-deep);font-weight:700;}
-@media (max-width:560px){
-  .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .topbar-nav{gap:14px;justify-content:flex-start;}
-  .topbar-nav a{font-size:13.5px;}
-}
+/* === Subnav (大城國小 model) === */
+.subnav{background:var(--leaf-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+.subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+@media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+.subnav a{color:var(--leaf-deep);text-decoration:none;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+.subnav a:hover{background:#fff;color:var(--melon-deep);}
+.subnav a.is-active{background:var(--melon);color:#fff;}
+.subnav__sep{color:var(--ink-soft);opacity:.4;}
+@media (max-width:600px){ .subnav__sep{display:none;} }
 
 /* ===== HERO ===== */
 .po-hero{
@@ -387,23 +357,20 @@ section.po-body + section.po-body{padding-top:0;}
 </head>
 <body>
 
-<!-- ============ TOPBAR ============ -->
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="topbar-brand">
-      <div class="topbar-name">
-        Wenchang Elementary
-        <small>彰化縣文昌國民小學</small>
-      </div>
-    </div>
-    <nav class="topbar-nav">
+<!-- ===== Subnav (大城國小 model) ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
       <a href="../">Home</a>
-      <a href="" class="is-active">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Principal</a>
+      <span class="subnav__sep">·</span>
       <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
       <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 
 
 <!-- HERO -->
