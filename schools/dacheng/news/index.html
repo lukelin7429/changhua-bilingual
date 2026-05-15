@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News &amp; Stories · 公告新聞 · Dacheng Elementary</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/dacheng/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/dacheng/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/dacheng/favicon-180.png">
+<link rel="shortcut icon" href="/schools/dacheng/favicon.ico">
+<meta name="description" content="Recent news and stories from Dacheng Elementary School — student honours, school events, and bilingual partnerships. 大城國小近期公告、榮譽榜、雙語活動紀錄。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#2c3a8c;--blue:#4760c5;--blue-soft:#e2e6f5;
+    --olive:#bcbe1f;--olive-deep:#8c8e0a;--olive-soft:#f3f4cf;
+    --red:#e63d2e;--red-deep:#b32619;--red-soft:#fde2dd;
+    --wheat:#d4ad6a;--wheat-deep:#9c7c30;--wheat-soft:#faecd0;
+    --bg-soft:#f6f7fb;--line:#e3e6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(44,58,140,.30);--shadow-sm:0 6px 16px -6px rgba(44,58,140,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--olive);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--blue-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--red-deep);}
+  .subnav a.is-active{background:var(--red);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .lede-box{
+    background:linear-gradient(135deg, var(--blue-soft) 0%, var(--wheat-soft) 100%);
+    border-radius:24px;padding:40px 30px;
+  }
+  @media (min-width:720px){ .lede-box{ padding:56px 48px; } }
+  .lede-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--blue-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:38px; } }
+  .lede-box .zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
+  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.55;}
+
+  /* === Honor roll === */
+  .roll{display:flex;flex-direction:column;gap:16px;}
+  .item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 26px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:1fr;gap:6px;
+    border-left:6px solid var(--olive);
+  }
+  @media (min-width:720px){ .item{ grid-template-columns:160px 1fr;gap:24px;padding:26px 32px; } }
+  .item:nth-child(odd){border-left-color:var(--red);}
+  .item__date{font-family:'Playfair Display',serif;color:var(--red-deep);font-size:17px;font-weight:700;letter-spacing:1.5px;}
+  @media (min-width:720px){ .item__date{ font-size:19px; } }
+  .item__title{font-size:20px;color:var(--blue-deep);font-weight:700;line-height:1.4;}
+  @media (min-width:720px){ .item__title{ font-size:22px; } }
+  .item__zh{font-size:17px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .item__zh{ font-size:19px; } }
+
+  /* === Coming soon === */
+  .coming{
+    background:linear-gradient(135deg, var(--wheat-soft) 0%, var(--red-soft) 100%);
+    border-radius:20px;padding:32px 28px;border:1.5px dashed var(--wheat-deep);
+    text-align:center;
+  }
+  @media (min-width:720px){ .coming{ padding:48px 40px; } }
+  .coming__icon{font-size:54px;line-height:1;}
+  @media (min-width:720px){ .coming__icon{ font-size:72px; } }
+  .coming__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);margin-top:12px;}
+  @media (min-width:720px){ .coming__title{ font-size:30px; } }
+  .coming__zh{font-size:17px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
+  @media (min-width:720px){ .coming__zh{ font-size:19px; } }
+  .coming__body{font-size:17px;color:var(--ink);max-width:560px;margin:14px auto 0;line-height:1.65;}
+  @media (min-width:720px){ .coming__body{ font-size:19px; } }
+
+  .source-row{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px;}
+  @media (min-width:720px){ .source-row{ grid-template-columns:1fr 1fr;gap:18px; } }
+  .src{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 22px;text-decoration:none;color:var(--ink);transition:all .2s;}
+  .src:hover{border-color:var(--red);background:var(--red-soft);}
+  .src__icon{background:var(--blue-deep);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .src__text{flex:1;}
+  .src__text strong{font-family:'Playfair Display',serif;font-size:19px;color:var(--blue-deep);display:block;}
+  .src__text span{font-size:14px;color:var(--ink-soft);}
+  .src__arrow{font-size:24px;color:var(--red-deep);}
+
+  .back-cta{text-align:center;margin-top:24px;}
+  .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
+  .back-cta a:hover{background:var(--red);}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--blue-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=dacheng">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Lede ===== -->
+<section>
+  <div class="wrap">
+    <div class="lede-box">
+      <h2>What's happening at Dacheng this season</h2>
+      <div class="zh">大城國小近期動態 · 公告 / 榮譽榜 / 雙語活動</div>
+      <p>
+        This page collects what's recent at Dacheng — student honours, school events, and the bilingual partnerships that have shaped our school year. Detailed story write-ups will be added over the coming weeks as photos and reports arrive from the school's Facebook page.
+        <span class="zh-inline">本頁彙整大城國小近期的學生獲獎、校內活動與雙語合作紀錄。詳細圖文故事將於未來數週陸續上線——資料來源以學校粉絲團與官網公告為主。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Honor Roll ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Honour Roll</h2>
+    <div class="sec__title-zh">學生榮譽榜 · 114 學年度</div>
+    <div class="sec__rule"></div>
+
+    <div class="roll">
+
+      <article class="item">
+        <div class="item__date">2026-04-30</div>
+        <div>
+          <div class="item__title">Taiwanese-language Storybook Storytelling Contest · Honourable Mention</div>
+          <div class="item__zh">辜筠芷、魏呈叡、蔡念穎（四年乙班）獲彰化縣台灣母語<strong>尪仔冊講古比賽佳作</strong>。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2026-03-30</div>
+        <div>
+          <div class="item__title">Little Storytellers Contest · Full House</div>
+          <div class="item__zh">小小說書人比賽<strong>全壘打</strong>——大城所有參賽選手全數獲獎。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2026-03-24</div>
+        <div>
+          <div class="item__title">UN Association SDGs Visit · International Exchange</div>
+          <div class="item__zh">聯合國協會橙縣分會（UN Association, Orange County Chapter）代表到校進行 <strong>SDGs 教學</strong>，學生以陶鼓表演開場、用英文與訪賓進行 SDGs 互動討論。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2025-12</div>
+        <div>
+          <div class="item__title">County Creative Theatre Contest · 1st (Stage), 2nd (Puppetry)</div>
+          <div class="item__zh">彰化縣 114 學年度學生創意戲劇比賽：<strong>舞台劇類國小組第一名、綜合偶戲類國小組第二名</strong>。指導老師：謝豐全。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2025-12</div>
+        <div>
+          <div class="item__title">County Dodgeball Championship · 2nd Place</div>
+          <div class="item__zh">彰化縣 114 學年度縣長盃躲避球錦標賽<strong>六年級班隊組第二名</strong>。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2025-10-31</div>
+        <div>
+          <div class="item__title">6th-Grade English Reading Contest · Honourable Mention</div>
+          <div class="item__zh">六年甲班英語朗讀比賽<strong>佳作</strong>。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2025-09-22</div>
+        <div>
+          <div class="item__title">114 Year Language Competition · Multi-Discipline Honours</div>
+          <div class="item__zh">114 年度語文競賽佳績：<strong>國語朗讀第二名（黃品蓁）、台語演說第五名（蔡念穎）、國語作文第五名（吳以晴）</strong>。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2025</div>
+        <div>
+          <div class="item__title">National Heritage Cup Taiko Competition · 1st Place</div>
+          <div class="item__zh">本校太鼓隊參加 <strong>2025 全國教育傳承盃太鼓比賽</strong>表現精彩——指導老師：妙汶老師。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2024</div>
+        <div>
+          <div class="item__title">MOE Seed School · Disaster-Prevention Campus</div>
+          <div class="item__zh">榮獲教育部防災校園「<strong>種子校園</strong>」認證——W.H.E.A.T. 五力課程的最高肯定。</div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__date">2024</div>
+        <div>
+          <div class="item__title">Changhua County Outstanding Digital Learning School</div>
+          <div class="item__zh">彰化縣 113 學年度<strong>數位學習績優學校</strong>。</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Coming Soon ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Story Notebook</h2>
+    <div class="sec__title-zh">校園故事筆記 · 陸續上線</div>
+    <div class="sec__rule"></div>
+
+    <div class="coming">
+      <div class="coming__icon">📝</div>
+      <div class="coming__title">More stories on the way</div>
+      <div class="coming__zh">更多細節故事與照片整理中</div>
+      <p class="coming__body">
+        Detailed story pages — with photos and full narratives — are being compiled from the school's Facebook page and the existing bilingual site. New entries will appear here over the coming weeks.<br>
+        <span style="color:var(--ink-soft);font-size:.92em;display:block;margin-top:6px;">細節故事與照片整理自學校粉絲團與既有雙語站，將於未來幾週陸續發布。</span>
+      </p>
+    </div>
+
+    <div class="source-row">
+      <a class="src" href="https://dcps.chc.edu.tw/" target="_blank" rel="noopener">
+        <span class="src__icon">📰</span>
+        <span class="src__text">
+          <strong>School announcements · 官網公告</strong>
+          <span>dcps.chc.edu.tw</span>
+        </span>
+        <span class="src__arrow">↗</span>
+      </a>
+      <a class="src" href="https://dacheng.twrses.org/community/school-news" target="_blank" rel="noopener">
+        <span class="src__icon">🗞</span>
+        <span class="src__text">
+          <strong>Bilingual school news · 雙語站 School News</strong>
+          <span>dacheng.twrses.org</span>
+        </span>
+        <span class="src__arrow">↗</span>
+      </a>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 大城國小 Dacheng Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:var(--blue-deep);">Changhua Bilingual Network</a>
+</footer>
+
+</body>
+</html>
