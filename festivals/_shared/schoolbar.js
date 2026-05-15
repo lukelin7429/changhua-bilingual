@@ -61,6 +61,13 @@
       color: '#4760c5',
       colorDeep: '#2c3a8c',
       url: 'https://changhua-bilingual.org/schools/dacheng/'
+    },
+    'fusing-jhs': {
+      name: 'Fusing Junior High',
+      nameZh: '福興國中',
+      color: '#3461a8',
+      colorDeep: '#1a4791',
+      url: 'https://changhua-bilingual.org/schools/fusing-jhs/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
