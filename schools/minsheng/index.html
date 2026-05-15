@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minsheng Elementary School · 彰化縣彰化市民生國民小學</title>
+<meta name="description" content="Minsheng Elementary School — A century-old public school in central Changhua. Founded in 1916 inside the Changhua Confucius Temple, today the seat of the County English Hub and a Ministry of Education Bilingual Teaching Base. 彰化縣彰化市民生國民小學 — 1916 創校於彰化孔子廟，今日是彰化縣國際教育暨英語教育資源中心所在地，亦為教育部雙語教學基地。">
+<meta property="og:title" content="Minsheng Elementary School · 彰化縣彰化市民生國民小學">
+<meta property="og:description" content="A 110-year school born in the Confucius Temple · 彰化孔廟誕生的百年小學">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --crimson:#7B1E1E;
+    --crimson-deep:#4d1212;
+    --crimson-soft:#fbe9e9;
+    --gold:#B8954A;
+    --gold-deep:#7a5e20;
+    --gold-soft:#f5edd9;
+    --slate:#3a4a5c;
+    --slate-soft:#e3e8ee;
+    --ink:#1f1a16;
+    --ink-soft:#5e5750;
+    --line:#ead9d4;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(77,18,18,.28);
+    --shadow-sm:0 4px 14px -4px rgba(77,18,18,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--crimson-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ TITLE (gradient hero — no photo yet) ============ */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(135deg,#1a0808 0%,#3d0f0f 45%,#7B1E1E 100%),
+      radial-gradient(ellipse at top right,rgba(184,149,74,.4),transparent 60%);
+    padding:90px 0 80px;
+    text-align:center;
+    color:#fff;
+    border-bottom:4px solid var(--gold);
+    overflow:hidden;
+  }
+  .title::after{
+    content:"";position:absolute;
+    inset:0;background:
+      radial-gradient(circle at 80% 20%,rgba(184,149,74,.22),transparent 50%),
+      radial-gradient(circle at 20% 80%,rgba(123,30,30,.35),transparent 50%);
+    pointer-events:none;
+  }
+  .title > .wrap{position:relative;z-index:1;}
+  .title__eyebrow{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.28em;
+    color:rgba(255,236,196,.95);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(40px,7vw,64px);
+    line-height:1.05;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:6px;
+    text-shadow:0 2px 16px rgba(0,0,0,.45);
+  }
+  .title .h1-zh{
+    font-size:clamp(20px,2.6vw,26px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.9);
+    margin-top:12px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .title__divider{
+    width:60px;height:2px;
+    background:var(--gold);
+    margin:24px auto 18px;
+    border:0;
+  }
+  .title__tagline{
+    max-width:640px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:rgba(255,255,255,.95);
+    line-height:1.55;
+  }
+  .title__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;
+    margin-top:8px;
+    color:rgba(255,255,255,.78);
+    letter-spacing:.06em;
+  }
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--gold-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(40px,6vw,60px);
+    font-weight:600;color:var(--crimson-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:19px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:#fff;}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:36px;color:var(--crimson-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:19.5px;color:var(--ink);margin-bottom:18px;line-height:1.7;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    padding:0 14px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:19px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .zh p + p{margin-top:14px;}
+
+  /* Timeline diagram (instead of about photo) */
+  .timeline{
+    background:linear-gradient(180deg,var(--crimson-soft) 0%,#fff 100%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:34px 30px;
+    box-shadow:var(--shadow-sm);
+  }
+  .timeline__label{
+    text-align:center;
+    font-size:13px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--crimson-deep);
+    margin-bottom:24px;
+  }
+  .timeline__row{
+    display:grid;grid-template-columns:64px 1fr;
+    gap:14px;align-items:start;
+    padding:14px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .timeline__row:last-child{border-bottom:none;}
+  .timeline__row.is-seed{
+    background:linear-gradient(90deg,rgba(123,30,30,.06),transparent);
+    border-radius:10px;padding-left:14px;
+  }
+  .timeline__row.is-now{
+    background:linear-gradient(90deg,rgba(184,149,74,.10),transparent);
+    border-radius:10px;padding-left:14px;
+  }
+  .timeline__year{
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;font-weight:700;
+    color:var(--crimson);
+    line-height:1.2;
+  }
+  .timeline__row.is-seed .timeline__year,
+  .timeline__row.is-now .timeline__year{color:var(--crimson-deep);font-size:20px;}
+  .timeline__event{
+    font-size:14.5px;color:var(--ink);
+    line-height:1.5;
+  }
+  .timeline__event strong{color:var(--crimson-deep);font-weight:700;}
+  .timeline__event .zh{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:13.5px;color:var(--ink-soft);margin-top:2px;
+  }
+  .timeline__caption{
+    margin-top:22px;text-align:center;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15.5px;color:var(--ink-soft);line-height:1.6;
+  }
+  .timeline__caption .zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:14px;margin-top:4px;
+  }
+
+  /* ============ Identity (3 pillars) ============ */
+  .identity{background:linear-gradient(180deg,#fff 0%,var(--crimson-soft) 100%);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 30px 32px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+  }
+  .pillar:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--crimson);
+  }
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    background:var(--crimson-soft);color:var(--crimson-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;font-weight:700;
+    font-family:'Cormorant Garamond',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(2) .icon{background:var(--gold-soft);color:var(--gold-deep);}
+  .pillar:nth-child(3) .icon{background:var(--slate-soft);color:var(--slate);}
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:26px;color:var(--crimson-deep);
+    line-height:1.25;font-weight:600;margin-bottom:6px;
+  }
+  .pillar h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .pillar .en-body{
+    font-size:17.5px;color:var(--ink);
+    margin:18px 0 8px;line-height:1.7;
+  }
+  .pillar .divider-tiny{
+    height:1px;background:var(--line);
+    margin:14px 0;
+  }
+  .pillar .zh-body{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink);line-height:1.85;
+  }
+
+  /* ============ Principal ============ */
+  .principal{background:#fff;}
+  .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:1/1;
+    box-shadow:var(--shadow-sm);
+    background:linear-gradient(135deg,var(--crimson-soft) 0%,#fff 60%,var(--gold-soft) 100%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .principal-photo .placeholder{
+    text-align:center;color:var(--crimson-deep);
+    font-family:'Cormorant Garamond',serif;
+  }
+  .principal-photo .placeholder .glyph{
+    font-size:80px;line-height:1;font-weight:600;
+  }
+  .principal-photo .placeholder .label{
+    font-family:'PingFang TC',sans-serif;
+    font-size:13.5px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .principal-text .role{
+    color:var(--gold-deep);font-size:14px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;font-weight:600;color:var(--crimson-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text .since{
+    font-size:14.5px;color:var(--ink-soft);
+    font-style:italic;margin-top:8px;
+  }
+  .principal-text blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:22px;color:var(--ink);
+    line-height:1.65;margin:26px 0 14px;
+    padding-left:22px;
+    border-left:3px solid var(--crimson);
+  }
+  .principal-text .zh-quote{
+    font-family:'PingFang TC',sans-serif;
+    font-style:normal;
+    font-size:19px;color:var(--ink);
+    line-height:1.85;
+    padding-left:22px;
+    border-left:3px solid var(--gold);
+    margin-top:18px;
+  }
+  .principal-cta{
+    margin-top:24px;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border:1.5px solid var(--crimson);
+    border-radius:99px;color:var(--crimson-deep);
+    font-weight:600;font-size:15px;letter-spacing:.04em;
+    transition:background .2s,color .2s;
+  }
+  .principal-cta:hover{background:var(--crimson);color:#fff;}
+
+  /* ============ Student Life ============ */
+  .life{background:linear-gradient(180deg,var(--crimson-soft) 0%,#fff 100%);}
+  .life-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .life-card{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .life-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+  }
+  .life-card__img{
+    aspect-ratio:16/10;
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .life-card__img.bg-crimson{background:linear-gradient(135deg,var(--crimson-soft) 0%,#fff 100%);}
+  .life-card__img.bg-gold{background:linear-gradient(135deg,var(--gold-soft) 0%,#fff 100%);}
+  .life-card__img.bg-slate{background:linear-gradient(135deg,var(--slate-soft) 0%,#fff 100%);}
+  .life-card__img.bg-mixed{background:linear-gradient(135deg,var(--crimson-soft) 0%,var(--gold-soft) 100%);}
+  .life-card__img .glyph{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;color:var(--crimson-deep);text-align:center;
+    line-height:1.05;
+  }
+  .life-card__img .glyph small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16px;color:var(--ink);font-weight:500;
+    font-style:normal;margin-top:10px;letter-spacing:.04em;
+  }
+  .life-card__img img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .life-card__body{padding:26px 28px 30px;}
+  .life-card .tag{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:700;
+    margin-bottom:8px;
+  }
+  .life-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:26px;color:var(--crimson-deep);
+    line-height:1.25;font-weight:600;margin-bottom:4px;
+  }
+  .life-card h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .life-card .en-text{
+    font-size:17px;color:var(--ink);margin:14px 0 8px;
+    line-height:1.7;
+  }
+  .life-card .zh-text{
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;color:var(--ink-soft);line-height:1.8;
+    padding-top:10px;border-top:1px dashed var(--line);
+    margin-top:12px;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--crimson-deep);color:#fff;padding:80px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:18.5px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:17.5px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    color:#f5e6c4;font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:19px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:#f5e6c4;border-color:#f5e6c4;}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#1a0808;color:rgba(255,255,255,.62);
+    padding:36px 0;font-size:15.5px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:#f5e6c4;font-weight:600;}
+  footer .partner a{color:#f5e6c4;border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:#f5e6c4;}
+
+  /* ============ Mobile ============ */
+  @media (max-width: 880px) {
+    .title{padding:60px 0 50px;}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;
+    color:var(--crimson-deep);
+    line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{
+    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--crimson);}
+  .topbar-nav a.is-active{color:var(--crimson-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* 110 ribbon */
+  .ribbon-110{
+    display:inline-block;margin-top:22px;
+    background:rgba(184,149,74,.95);color:#1a0808;
+    font-family:'Cormorant Garamond',serif;
+    font-size:13.5px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:6px 18px;border-radius:99px;
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Minsheng Elementary
+        <small>彰化縣彰化市民生國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="english-resource-center/">English Hub</a>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=minsheng">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ TITLE ============ -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Central Changhua · Est. 1916 · Confucius Temple Birth</span>
+    <h1>Minsheng Elementary School
+      <div class="h1-zh">彰化縣彰化市民生國民小學</div>
+    </h1>
+
+    <hr class="title__divider">
+
+    <p class="title__tagline">
+      A century-old school born in the Confucius Temple, still walking the same path
+      <span class="tagline-zh">百年前在孔廟誕生，百年後仍走在同一條路上</span>
+    </p>
+
+    <div class="ribbon-110">1916 — 2026 · 110<sup>th</sup> Anniversary</div>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>Born in the Confucius Temple</h2>
+      <div class="h2-zh">在孔廟誕生的學校</div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+        <h3>One school, one century &mdash; from temple courtyard to county hub.</h3>
+        <p class="en">On the first day of April, 1916, a school opened inside the courtyard of the <strong>Changhua Confucius Temple</strong>, borrowing its halls as classrooms. They called her, then, the <strong>Changhua Girls' Public School</strong>. Eleven years later, she moved into her present building on Minsheng Road, and over the next century she would change names five times before settling on the one we still use today: <strong>Minsheng</strong>.</p>
+        <p class="en">A hundred and ten years on, Minsheng is no longer just an elementary school. She is the seat of the <strong>Changhua County International &amp; English Education Resource Center</strong>, a <strong>Ministry of Education Bilingual Teaching Base</strong>, and home to one of the county's oldest gifted-class programs (since 1973) and music classes (since 1985). And she still stands a short walk from the temple where she was born.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>1916 年 4 月 1 日，一所學校在<strong>彰化孔子廟</strong>的院子裡開學，借廟堂為教室——那時她叫做「<strong>彰化女子公學校</strong>」。十一年後，她遷到今天的民生路校址，又在後續百年間，更名五次，才落在今天我們仍叫她的名字：<strong>民生</strong>。</p>
+          <p>一百一十年後，民生不再只是一所國小。她是<strong>彰化縣國際教育暨英語教育資源中心</strong>的所在地、<strong>教育部雙語教學基地</strong>、也是彰化縣最早的<strong>資優實驗班</strong>（1973 年成立）與<strong>音樂班</strong>（1985 年成立）的搖籃。她至今仍與當年的孔廟，只有幾條街的距離。</p>
+        </div>
+      </div>
+
+      <aside class="timeline" aria-label="Minsheng's century timeline">
+        <div class="timeline__label">A Century in Twelve Lines · 百年校史十二筆</div>
+
+        <div class="timeline__row is-seed">
+          <div class="timeline__year">1916</div>
+          <div class="timeline__event">Founded as <strong>Changhua Girls' Public School</strong> inside the Confucius Temple.
+            <span class="zh">創校於彰化孔子廟，原名「彰化女子公學校」。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1927</div>
+          <div class="timeline__event">Moved into the current campus on Minsheng Road.
+            <span class="zh">遷入現址（民生路 338 號）。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1941</div>
+          <div class="timeline__event">Renamed <strong>Kasuga (Spring Day) National School</strong>.
+            <span class="zh">改稱「春日國民學校」。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1946</div>
+          <div class="timeline__event">Post-war renaming to <strong>Minsheng Road National School</strong>.
+            <span class="zh">戰後改稱「民生路國民學校」。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1968</div>
+          <div class="timeline__event">Becomes <strong>Minsheng Elementary School</strong> &mdash; the name we use today.
+            <span class="zh">定名為「民生國民小學」，沿用至今。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1973</div>
+          <div class="timeline__event"><strong>Gifted-class experimental program</strong> opens &mdash; the earliest in Changhua County.
+            <span class="zh">開設資優實驗班——彰化縣最早。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1975</div>
+          <div class="timeline__event">Designated <strong>county gymnastics training center</strong>.
+            <span class="zh">指定為體操訓練中心學校。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">1985</div>
+          <div class="timeline__event"><strong>Music class</strong> founded.
+            <span class="zh">音樂班成立。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">2018</div>
+          <div class="timeline__event">Opens <em>Phoenix Tree Playground</em> &mdash; Changhua's first creative playground.
+            <span class="zh">「鳳凰樹下的遊樂天地」啟用——彰化縣第一座創意遊戲場。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">2019</div>
+          <div class="timeline__event">Awarded the <strong>International School Award</strong>; non-profit kindergarten opens.
+            <span class="zh">獲頒國際學校獎 ISA；民生非營利幼兒園落成。</span>
+          </div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__year">2021</div>
+          <div class="timeline__event">Begins video-link exchanges with <strong>Komatsu, Japan</strong>.
+            <span class="zh">與日本小松市松東綠學園展開視訊交流。</span>
+          </div>
+        </div>
+        <div class="timeline__row is-now">
+          <div class="timeline__year">2026</div>
+          <div class="timeline__event"><strong>110<sup>th</sup> anniversary</strong> · One hundred and ten years on the same path.
+            <span class="zh">110 週年校慶——一所走在同一條路上的百年小學。</span>
+          </div>
+        </div>
+
+        <p class="timeline__caption">
+          From a temple courtyard in 1916, to the county's English hub in 2026.
+          <span class="zh">從 1916 年的孔廟廟埕，到 2026 年的彰化縣英語樞紐。</span>
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ IDENTITY (3 pillars) ============ -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What Makes Us Minsheng</div>
+      <h2>Three Threads in Our Daily Life</h2>
+      <div class="h2-zh">三條交織在校園日常的線</div>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">儒</div>
+        <h3>The Temple Roots
+          <small>從孔廟出發的百年校</small>
+        </h3>
+        <p class="en-body">Few schools in Taiwan can point to a single courtyard and say <em>"this is where we started."</em> Minsheng can. We opened in 1916 inside the halls of the Changhua Confucius Temple &mdash; and a century later, those Confucian roots still shape how we teach: <strong>steady, demanding, careful with each child</strong>. The temple is a five-minute walk from our gate.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">臺灣很少有學校能指著一個院子說：「我們從這裡開始。」民生可以。我們在 1916 年於彰化孔子廟的廟埕中開學——一個世紀後，那份儒家根底仍塑造著我們的教學氣質：<strong>穩、嚴、對每個孩子細心</strong>。從民生校門步行到孔廟，只需五分鐘。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">語</div>
+        <h3>The County English Hub
+          <small>彰化縣英語政策的所在地</small>
+        </h3>
+        <p class="en-body">Minsheng is not only a school &mdash; it is the home of the <strong>Changhua County International &amp; English Education Resource Center</strong>, which runs the county's reading competitions, speech contests, readers' theatre, and bilingual teacher training. We are also a <strong>Ministry of Education Bilingual Teaching Base</strong>. Bilingual education is not something we do alongside our work; it <em>is</em> our work.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">民生不只是一所學校，她也是<strong>彰化縣國際教育暨英語教育資源中心</strong>的所在地——縣級英語朗讀、演講、讀者劇場比賽與雙語教師研習都由此中心承辦。同時，民生也是<strong>教育部雙語教學基地</strong>。對民生而言，雙語不是「順便做的事」，而<em>就是</em>我們的事。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">藝</div>
+        <h3>Three Class Tracks
+          <small>普通班 · 音樂班 · 資優班</small>
+        </h3>
+        <p class="en-body">Inside our gates, three learning tracks live side by side: the regular-class students, the <strong>music class</strong> (since 1985), and the <strong>gifted-class</strong> students (since 1973 &mdash; the oldest in Changhua). Cross all three with our <strong>SMART school-wide curriculum</strong> &mdash; Science, Math, Art, Reading, Technology &mdash; and you get a campus where 1,200+ children find, somewhere, the door that fits them.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">民生校園裡，三條學習軌道並肩前進：普通班、<strong>音樂班</strong>（1985 年成立）、<strong>資優班</strong>（1973 年——彰化縣最早的資優實驗班）。再加上跨越三條軌道的<strong>SMART 校本課程</strong>——科學、數學、藝術、閱讀、科技——讓 1,200 多位孩子，總能在民生找到一扇適合自己的門。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRINCIPAL ============ -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A Word from Our Principal</div>
+      <h2>The Twelfth Walk</h2>
+      <div class="h2-zh">第十二任校長的腳步</div>
+    </div>
+
+    <div class="principal-card">
+      <div class="principal-photo">
+        <div class="placeholder">
+          <div class="glyph">曾</div>
+          <div class="label">Principal Photo<br>校長照片待補</div>
+        </div>
+      </div>
+
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Tseng Chun-yao
+          <small>曾俊堯 校長</small>
+        </h3>
+        <p class="since">12th Principal &middot; Appointed August 2024 &middot; 第十二任校長 · 2024 年 8 月就任</p>
+
+        <blockquote>
+          To Love, To Live, To Lead, To Learn &mdash; four verbs we hold ourselves to, every day a child walks through Minsheng's gate.
+        </blockquote>
+
+        <div class="zh-quote">
+          關愛、樂活、引導、學習——這四個動詞，是民生每天面對每一個走進校門的孩子時，我們對自己的要求。
+        </div>
+
+        <a class="principal-cta" href="principal/">More from the Principal's Office &middot; 進入校長室 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STUDENT LIFE ============ -->
+<section class="life" id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Student Life</div>
+      <h2>Where the Year Quietly Happens</h2>
+      <div class="h2-zh">一年裡，那些靜靜發生的事</div>
+    </div>
+
+    <div class="life-grid">
+
+      <article class="life-card">
+        <div class="life-card__img bg-gold">
+          <div class="glyph">🎼 🎻<small>Music Class · 音樂班</small></div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Music · 音樂教育</span>
+          <h3>Forty Years of Strings, Reeds, and Voices
+            <small>音樂班四十年的弦、簧、人聲</small>
+          </h3>
+          <p class="en-text">Minsheng's music class opened in 1985 &mdash; forty years and many concerts later, the corridors here still carry, at any hour, the sound of a violin warming up, a piano running scales, or a children's choir finding the next note. Music isn't a subject at Minsheng; it is a daily voice in our building.</p>
+          <p class="zh-text">民生音樂班自 1985 年成立至今，四十年、無數場音樂會。任何時間走過民生的走廊，你都會聽見：一把暖好的小提琴、一台彈著音階的鋼琴、或是一群孩子在尋找下一個音的童聲合唱。在民生，音樂不是一個科目，而是這座建築物每天最自然的聲音。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img bg-crimson">
+          <div class="glyph">🧠 🔬<small>Gifted Class · 資優班</small></div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Gifted Education · 資優教育</span>
+          <h3>The County's Oldest Gifted Program
+            <small>彰化縣最早的資優實驗班</small>
+          </h3>
+          <p class="en-text">In 1973, Minsheng opened Changhua County's first experimental gifted class &mdash; long before "gifted education" had a vocabulary in Taiwan. More than fifty years later, the program runs as it always has: not as a fast lane, but as a place where curious children meet teachers who treat their questions with the seriousness they deserve.</p>
+          <p class="zh-text">1973 年，民生開設了彰化縣最早的資優實驗班——那時臺灣還沒有「資優教育」這個詞。五十多年後，這個班仍以一貫的方式運作：它不是一條快車道，而是一個讓好奇心強的孩子，能遇見一群把他們問題當一回事的老師的地方。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img bg-mixed">
+          <div class="glyph">SMART<small>S · M · A · R · T 校本課程</small></div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">School-Wide · 校本課程</span>
+          <h3>Five Letters, One Curriculum
+            <small>科學 · 數學 · 藝術 · 閱讀 · 科技</small>
+          </h3>
+          <p class="en-text">SMART is Minsheng's school-wide curriculum &mdash; <strong>S</strong>cience, <strong>M</strong>ath, <strong>A</strong>rt, <strong>R</strong>eading, <strong>T</strong>echnology &mdash; not five separate subjects, but five strands threaded into one learning year. The goal is not for a child to be good at all five. The goal is for every child to find <em>one</em> that opens.</p>
+          <p class="zh-text">SMART 是民生的校本課程——<strong>S</strong>cience（科學）、<strong>M</strong>ath（數學）、<strong>A</strong>rt（藝術）、<strong>R</strong>eading（閱讀）、<strong>T</strong>echnology（科技）。不是五個彼此獨立的科目，而是五條交織在一年學習裡的線。目標不是讓孩子五科都精；目標是讓每個孩子，找到那 <em>一</em> 條會為他打開的線。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img bg-slate">
+          <div class="glyph">🌐 ✈️<small>English Village · 國際交流</small></div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">International · 國際教育</span>
+          <h3>From English Village to Komatsu
+            <small>從英語村到日本小松</small>
+          </h3>
+          <p class="en-text">Our <strong>English Village</strong> lets students walk into bilingual situations &mdash; a high-speed-rail station, a market, a restaurant &mdash; without leaving campus. And since 2021, we have run regular video-link exchanges with <strong>Matsuhigashi-Midori Gakuen</strong> in Komatsu, Japan, plus the International School Award we received in 2019. A child's first international experience often happens, quietly, in a classroom at Minsheng.</p>
+          <p class="zh-text">我們的<strong>英語村</strong>讓孩子不用走出校門，就能走進雙語情境——一座高鐵站、一個市集、一家餐廳。2021 年起，我們也與日本小松市的<strong>松東綠學園</strong>固定進行視訊交流，並在 2019 年獲頒國際學校獎（ISA）。對許多孩子來說，第一次的「國際經驗」，靜靜地，就發生在民生的一間教室裡。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞校交流</small>
+        </h2>
+        <p>We welcome educators, parents, and friends &mdash; from across Changhua, across Taiwan, and from anywhere in the world &mdash; to visit the school that began inside the Confucius Temple, and to share what works in your own classroom.</p>
+        <p class="zh">歡迎彰化各校、臺灣各地、以及世界各地的教育工作者、家長與朋友——蒞臨這所從彰化孔廟開始的百年小學，並把您課堂裡有效的做法相互傳承下去。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 學校地址</dt>
+            <dd>500 彰化縣彰化市民生路 338 號<br>
+            No. 338, Minsheng Rd., Changhua City, Changhua County 500, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+88647224122">04-7224122</a> &nbsp;·&nbsp; Fax 04-7235290</dd>
+          </div>
+          <div>
+            <dt>Website · 學校官網</dt>
+            <dd><a href="https://mses.chc.edu.tw/" target="_blank" rel="noopener">mses.chc.edu.tw</a></dd>
+          </div>
+          <div>
+            <dt>Facebook &middot; YouTube</dt>
+            <dd>
+              <a href="https://www.facebook.com/mses.chc/" target="_blank" rel="noopener">facebook.com/mses.chc</a><br>
+              <a href="https://www.youtube.com/@mseschc" target="_blank" rel="noopener">youtube.com/@mseschc</a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣彰化市民生國民小學 · Minsheng Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'minsheng-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+  Array.from(document.images).forEach(function(img){
+    if (!img.complete) img.addEventListener('load', report);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -40,6 +40,13 @@
       color: '#C28A40',
       colorDeep: '#7a5217',
       url: 'https://changhua-bilingual.org/schools/zhongzheng/'
+    },
+    minsheng: {
+      name: 'Minsheng Elementary',
+      nameZh: '民生國小',
+      color: '#7B1E1E',
+      colorDeep: '#4d1212',
+      url: 'https://changhua-bilingual.org/schools/minsheng/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
