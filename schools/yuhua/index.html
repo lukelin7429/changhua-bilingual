@@ -47,6 +47,38 @@
   a:hover{color:var(--leaf-deep);}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 
+  /* ============ Top bar (sub-nav) ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;color:var(--sea-deep);line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);
+    margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--sea);}
+  .topbar-nav a.is-active{color:var(--sea-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
   /* ============ TITLE (clean, no banner) ============ */
   .title{
     background:#fff;
@@ -458,6 +490,26 @@
 </style>
 </head>
 <body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Yuhua Elementary
+        <small>彰化縣芳苑鄉育華國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="./" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="news/">News</a>
+      <a href="classroom-english/">Classroom English</a>
+      <a href="announcements/">Announcements</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
+    </nav>
+  </div>
+</div>
 
 <!-- ============ TITLE ============ -->
 <header class="title">

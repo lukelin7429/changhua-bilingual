@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Principal's Office · Principal Chen Chih-ming · Yuhua Elementary</title>
+<meta name="description" content="Principal Chen Chih-ming of Yuhua Elementary School — steward of a small coastal school in Yongxing Village, Fangyuan, Changhua. A school built one bowl of rice at a time, now teaching its children that the tide and the field are the second classroom. 育華國小陳志明校長 — 守護一所 1957 年由「斗米建校」而生的沿海小校。">
+<meta property="og:title" content="Principal's Office · Yuhua Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sea:#22638a;
+    --sea-deep:#0f3a55;
+    --sea-soft:#dceaf2;
+    --leaf:#3d7a3d;
+    --leaf-deep:#235024;
+    --leaf-soft:#dde8d4;
+    --sand:#caa056;
+    --sand-deep:#8b6a17;
+    --sand-soft:#f7eed9;
+    --cream:#ffffff;
+    --ink:#1a201f;
+    --ink-soft:#5a615f;
+    --line:#e3ddd0;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(15,58,85,.30);
+    --shadow-sm:0 4px 14px -4px rgba(15,58,85,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--sea);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--leaf-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--sea-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--sea);}
+  .topbar-nav a.is-active{color:var(--sea-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* page header */
+  .page-head{background:#fff;padding:64px 0 32px;text-align:center;border-bottom:1px solid var(--line);}
+  .page-head__eyebrow{display:inline-block;font-size:14px;letter-spacing:.22em;color:var(--leaf-deep);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,6vw,58px);line-height:1.12;font-weight:600;color:var(--sea-deep);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
+  .page-head .lede{max-width:640px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.55;}
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:8px;}
+
+  /* hero card */
+  .hero{padding:64px 0 24px;background:#fff;}
+  .hero-card{
+    display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
+    background:linear-gradient(135deg, var(--sea-soft) 0%, var(--sand-soft) 100%);
+    border-radius:24px;padding:36px 28px;border:1px solid var(--line);
+  }
+  @media (min-width:880px){ .hero-card{grid-template-columns:380px 1fr;gap:48px;padding:48px 44px;} }
+  .hero-photo{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);padding:14px;}
+  .hero-photo img{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;}
+  .hero-photo__cap{margin-top:12px;text-align:center;font-style:italic;font-size:15.5px;color:var(--ink-soft);line-height:1.5;}
+  .hero-photo__cap b{color:var(--sea-deep);font-style:normal;}
+  .hero-text .role{color:var(--leaf-deep);font-size:14.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .hero-text h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;color:var(--sea-deep);line-height:1.1;}
+  @media (min-width:720px){ .hero-text h2{font-size:58px;} }
+  .hero-text h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;}
+  .hero-text .lede2{font-size:19.5px;color:var(--ink);margin-top:16px;line-height:1.65;}
+  .hero-text .lede2 strong{color:var(--sea-deep);font-weight:700;}
+  .hero-text .lede2-zh{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+
+  /* section base */
+  section.sec{padding:72px 0;border-top:1px solid var(--line);}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--sand-deep);font-size:22px;font-weight:700;letter-spacing:5px;}
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;font-weight:600;color:var(--sea-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{font-size:54px;} }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  .sec__rule{width:96px;height:5px;background:var(--leaf);border-radius:3px;margin:22px 0 36px;}
+  .sec__lede{font-size:19px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:26px;}
+  .sec__lede .zh{display:block;color:var(--ink-soft);font-size:17.5px;margin-top:8px;line-height:1.65;}
+
+  /* fact strip */
+  .facts{display:grid;grid-template-columns:1fr;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .facts{grid-template-columns:repeat(3,1fr);gap:24px;padding:30px 32px;} }
+  .fact{padding:10px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ .fact{border-bottom:none;border-right:1px solid var(--line);padding:0 24px 0 0;} .fact:last-child{border-right:none;} }
+  .fact__label{font-size:13px;color:var(--ink-soft);font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+  .fact__value{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--sea-deep);font-weight:600;margin-top:6px;line-height:1.25;}
+  .fact__sub{font-size:15.5px;color:var(--ink-soft);margin-top:4px;}
+
+  /* values grid (3 pillars) */
+  .values{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:680px){ .values{grid-template-columns:repeat(3,1fr);gap:24px;} }
+  .value{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:30px 28px;box-shadow:var(--shadow-sm);
+    border-top:7px solid var(--sea);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .value:nth-child(2){border-top-color:var(--leaf);}
+  .value:nth-child(3){border-top-color:var(--sand);}
+  .value:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .value__icon{font-size:42px;line-height:1;margin-bottom:10px;}
+  .value__no{font-family:'Cormorant Garamond',serif;color:var(--sand-deep);font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
+  .value__title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--sea-deep);line-height:1.2;margin-top:6px;}
+  .value__title-zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:1.5px;}
+  .value__quote{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18.5px;color:var(--sea);margin-top:18px;line-height:1.6;border-left:3px solid var(--sand);padding-left:14px;}
+  .value__zh{font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:12px;line-height:1.75;padding-top:12px;border-top:1px dashed var(--line);}
+
+  /* school context card */
+  .ctx{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 28px;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .ctx{padding:38px 36px;} }
+  .ctx h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--sea-deep);font-weight:600;border-bottom:2px solid var(--sand);padding-bottom:8px;display:inline-block;}
+  .ctx h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);margin-top:4px;font-weight:600;}
+  .ctx p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  .ctx p .zh{display:block;color:var(--ink-soft);font-size:17.5px;margin-top:8px;line-height:1.7;}
+  .ctx p strong{color:var(--sea-deep);}
+
+  /* pull quote */
+  .pull-quote{background:var(--leaf-soft);border-left:6px solid var(--leaf);padding:24px 28px;border-radius:0 14px 14px 0;margin-top:36px;}
+  .pull-quote__text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:600;color:var(--leaf-deep);line-height:1.4;}
+  .pull-quote__zh{font-size:17.5px;color:var(--ink);margin-top:8px;line-height:1.6;}
+
+  /* note box */
+  .note{background:var(--sand-soft);border:1px dashed var(--sand);border-radius:14px;padding:18px 22px;margin-top:28px;font-size:16.5px;color:var(--ink);line-height:1.65;}
+  .note strong{color:var(--sand-deep);}
+
+  /* back cta */
+  .back-cta{text-align:center;margin-top:30px;}
+  .back-cta a{display:inline-block;background:var(--sea-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;}
+  .back-cta a:hover{background:var(--sand);color:#fff;}
+
+  /* footer */
+  footer{background:#0a1f2d;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--sand-soft);font-weight:600;}
+  footer .partner a{color:var(--sand-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--sand-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Yuhua Elementary
+        <small>彰化縣芳苑鄉育華國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="./" class="is-active">Principal</a>
+      <a href="../news/">News</a>
+      <a href="../classroom-english/">Classroom English</a>
+      <a href="../announcements/">Announcements</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">Principal's Office · 校長室</div>
+    <h1>A Word from Our Principal
+      <span class="zh">校長的話 · 一所沿海小校的辦學初衷</span>
+    </h1>
+    <p class="lede">
+      A small school doesn't mean a small life &mdash; here, every child is seen, every day.
+      <span class="zh-inline">小校不代表小格局——在這裡，每一個孩子，每一天，都被看見。</span>
+    </p>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <div class="hero-photo">
+        <img src="../photos/principal-portrait.jpg" alt="Principal Chen Chih-ming at his desk, with calligraphy reading 桃李勝春華 and 緣慶 hanging behind him">
+        <div class="hero-photo__cap">
+          <b>Principal Chen Chih-ming</b><br>陳志明 校長 · Yuhua Elementary School
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="role">Principal · 校長</div>
+        <h2>Chen Chih-ming<span class="zh">陳志明 校長</span></h2>
+        <p class="lede2">
+          The steward of <strong>Yuhua Elementary</strong> &mdash; a small coastal school in Yongxing Village, born in 1957 from the <strong>Bowl-of-Rice Movement</strong>, where neighbours pooled what little they had so the village's children would not have to grow up unschooled.
+        </p>
+        <p class="lede2-zh">
+          育華國小座落於芳苑鄉永興村沿海，1957 年由地方「斗米建校」而生。陳志明校長承襲了那份「為了孩子湊一把」的厚情，帶著全校 6 個班級的孩子，在海風與田畝裡持續辦學。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. AT A GLANCE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">At a Glance</h2>
+    <div class="sec__title-zh">基本資訊</div>
+    <div class="sec__rule"></div>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fact__label">Name · 姓名</div>
+        <div class="fact__value">陳志明 校長</div>
+        <div class="fact__sub">Principal Chen Chih-ming <br><em>(English spelling pending school confirmation · 英文拼音待校方確認)</em></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">School · 任職學校</div>
+        <div class="fact__value">Yuhua Elementary</div>
+        <div class="fact__sub">彰化縣芳苑鄉育華國民小學</div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">School Profile · 學校屬性</div>
+        <div class="fact__value">Coastal Village School</div>
+        <div class="fact__sub">沿海單村學區小校 · 一至六年級各一班</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <div class="pull-quote__text">"A small school doesn't mean a small life. It means every child is seen, every day &mdash; and that is the foundation of everything we do here."</div>
+      <div class="pull-quote__zh">「小校，不代表小格局。它代表的是——在這裡，每一個孩子，每一天，都被看見。這也是育華一切教學的基礎。」<br>—— 陳志明校長</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. THREE VALUES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Three Stories That Shape Our School</h2>
+    <div class="sec__title-zh">塑造育華的三段敘事 · 校長的辦學底色</div>
+    <div class="sec__rule"></div>
+
+    <p class="sec__lede">
+      Yuhua's identity is not built on one slogan but on three threads the principal returns to whenever he speaks about the school: <strong>where we came from, where we stand, and how we grow each child</strong>.
+      <span class="zh">育華的辦學精神不是一句口號，而是校長一再說起的三條主軸：<strong>我們從哪裡來、我們站在什麼地方、以及我們怎麼一個一個把孩子養大</strong>。</span>
+    </p>
+
+    <div class="values">
+
+      <article class="value">
+        <div class="value__icon">米</div>
+        <div class="value__no">I · 來</div>
+        <h3 class="value__title">The Bowl-of-Rice Spirit</h3>
+        <div class="value__title-zh">斗米建校的精神</div>
+        <div class="value__quote">"Built when no one had much &mdash; a bowl of rice from each home, given for children who weren't yet theirs."</div>
+        <div class="value__zh">育華是在大家都沒有什麼的年代，由地方一家一斗米捐出來的學校。校長一再提醒孩子：「努力比豐盛更重要，社區是大家一起建出來的。」</div>
+      </article>
+
+      <article class="value">
+        <div class="value__icon">浪</div>
+        <div class="value__no">II · 在</div>
+        <h3 class="value__title">The Tide as Teacher</h3>
+        <div class="value__title-zh">潮間帶與田畝是教室</div>
+        <div class="value__quote">"Place is our second textbook. The wetlands and the rice paddies belong on every lesson plan we write."</div>
+        <div class="value__zh">王功濕地距校門僅幾分鐘，校園四周是稻田。育華把潮間帶、有機菜園、獨輪車環鄉，都寫進課程：這片土地，就是孩子的第二本課本。</div>
+      </article>
+
+      <article class="value">
+        <div class="value__icon">心</div>
+        <div class="value__no">III · 養</div>
+        <h3 class="value__title">Character &amp; Reading</h3>
+        <div class="value__title-zh">品德與閱讀，小校的大功課</div>
+        <div class="value__quote">"In a school of fewer than fifty children, every student is known by every teacher &mdash; and every habit is shaped on purpose."</div>
+        <div class="value__zh">在我們這樣的小校，每位老師都認識每一位孩子。育華孩子已獲縣級品德教育獎與閱讀盃，並透過文化踏查、博物館校外教學，把學習延伸到村界以外。</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. SCHOOL CONTEXT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">The School He Looks After</h2>
+    <div class="sec__title-zh">他守護的這所學校</div>
+    <div class="sec__rule"></div>
+
+    <div class="ctx">
+      <h3>Yongxing Village · 永興村
+        <span class="zh">芳苑鄉永興村單村學區</span>
+      </h3>
+      <p>
+        Yuhua serves a single coastal village in Fangyuan Township &mdash; agricultural and fisheries by livelihood, with the famous <strong>Wanggong oyster flats</strong> just minutes from the schoolyard. The school district is contained: just one village, one school, every family known.
+        <span class="zh">育華國小是芳苑鄉永興村的單村學區小學，村民務農兼採蚵，著名的王功蚵棚就在校門外幾分鐘的距離。學區小、家家相識——這正是育華「每個孩子都被看見」最實際的條件。</span>
+      </p>
+      <p>
+        Founded in 1957, Yuhua emerged from the <strong>Bowl-of-Rice Movement</strong> after the 1948 floods washed away the bridge that village children used to cross to attend Fangyuan Elementary. Lessons first began in 1951 in the <strong>village chief's hallway</strong>; today's school was built one rice donation at a time.
+        <span class="zh">育華 1957 年正式獨立設校。1948 年大水沖毀通往芳苑國校的小橋後，1951 年謝三雄老師調來，課堂從洪村長家走廊開始；1952 年洪丁丑村長發起「斗米建校」，由各家戶捐出一斗米募款建校。今天的育華，是一斗一斗米堆出來的。</span>
+      </p>
+    </div>
+
+    <div class="note">
+      <strong>Note · 校長英文拼音與職涯資訊</strong>　&mdash;　陳志明校長的英文姓名拼音（Wade-Giles / Hanyu Pinyin / Tongyong Pinyin）與完整學經歷待校方確認後補上；本頁先以中英並陳方式呈現，方便外籍與本地讀者皆可閱讀。
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to School Home · 回到學校首頁</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣芳苑鄉育華國民小學 · Yuhua Elementary School</div>
+    <div class="partner">Bilingual web by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+/* iframe height auto-report */
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'yuhua-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+</body>
+</html>

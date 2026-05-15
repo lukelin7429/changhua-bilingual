@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News &amp; Stories · Yuhua Elementary · 育華國小</title>
+<meta name="description" content="Stories from Yuhua Elementary School — character-education honours, the Wanggong wetlands as a classroom, the unicycle village tour, and field trips that take coastal-village children far beyond the tide line. 彰化縣芳苑鄉育華國民小學最近的故事與校園紀錄。">
+<meta property="og:title" content="News &amp; Stories · Yuhua Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sea:#22638a;
+    --sea-deep:#0f3a55;
+    --sea-soft:#dceaf2;
+    --leaf:#3d7a3d;
+    --leaf-deep:#235024;
+    --leaf-soft:#dde8d4;
+    --sand:#caa056;
+    --sand-deep:#8b6a17;
+    --sand-soft:#f7eed9;
+    --cream:#ffffff;
+    --ink:#1a201f;
+    --ink-soft:#5a615f;
+    --line:#e3ddd0;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(15,58,85,.30);
+    --shadow-sm:0 4px 14px -4px rgba(15,58,85,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--sea);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--leaf-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--sea-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--sea);}
+  .topbar-nav a.is-active{color:var(--sea-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* page header */
+  .page-head{background:#fff;padding:64px 0 32px;text-align:center;border-bottom:1px solid var(--line);}
+  .page-head__eyebrow{display:inline-block;font-size:14px;letter-spacing:.22em;color:var(--leaf-deep);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,6vw,58px);line-height:1.12;font-weight:600;color:var(--sea-deep);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
+  .page-head .lede{max-width:680px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.55;}
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:8px;}
+
+  /* stories grid */
+  .stories{padding:64px 0 80px;}
+  .grid{display:grid;grid-template-columns:1fr;gap:26px;}
+  @media (min-width:780px){ .grid{grid-template-columns:1fr 1fr;gap:30px;} }
+
+  .story{
+    background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    border-top:8px solid var(--sea);
+    display:flex;flex-direction:column;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .story:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .story.is-featured{grid-column:1 / -1;}
+  @media (min-width:780px){ .story.is-featured{display:grid;grid-template-columns:1.1fr 1fr;} }
+
+  .story:nth-child(2){border-top-color:var(--leaf);}
+  .story:nth-child(3){border-top-color:var(--sand);}
+  .story:nth-child(4){border-top-color:var(--sea-deep);}
+  .story:nth-child(5){border-top-color:var(--leaf-deep);}
+
+  .story__img{aspect-ratio:16/10;background:var(--sea-soft);overflow:hidden;position:relative;}
+  .story.is-featured .story__img{aspect-ratio:auto;height:100%;min-height:320px;}
+  .story__img img{width:100%;height:100%;object-fit:cover;}
+  .story__img--placeholder{
+    background:linear-gradient(135deg, var(--sea-soft) 0%, var(--leaf-soft) 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    color:var(--sea-deep);padding:32px;
+  }
+  .story__img--placeholder .icon{font-size:64px;line-height:1;}
+  .story__img--placeholder .label{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:var(--sea);margin-top:14px;line-height:1.5;
+  }
+  .story__img--placeholder .label-zh{
+    font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);
+    margin-top:6px;letter-spacing:.04em;
+  }
+  .story__body{padding:28px 30px 32px;display:flex;flex-direction:column;flex:1;}
+  .story.is-featured .story__body{padding:38px 38px 40px;}
+  .story__cat{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf-deep);font-weight:700;margin-bottom:8px;}
+  .story:nth-child(2) .story__cat{color:var(--leaf-deep);}
+  .story:nth-child(3) .story__cat{color:var(--sand-deep);}
+  .story:nth-child(5) .story__cat{color:var(--sand-deep);}
+  .story__date{font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:14px;}
+  .story__date .badge{
+    display:inline-block;background:var(--leaf-soft);color:var(--leaf-deep);
+    padding:2px 10px;border-radius:6px;font-weight:700;font-size:12.5px;margin-left:8px;
+    letter-spacing:.04em;
+  }
+  .story h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:28px;line-height:1.22;color:var(--sea-deep);font-weight:600;margin-bottom:4px;}
+  .story.is-featured h2{font-size:36px;}
+  .story h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.04em;}
+  .story__hook{font-size:17.5px;color:var(--ink);line-height:1.7;margin-top:16px;}
+  .story__hook strong{color:var(--sea-deep);}
+  .story__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);line-height:1.85;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);}
+  .story__src{margin-top:auto;padding-top:20px;font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+  .story__src a{color:var(--sea);}
+
+  /* footer note */
+  .more-note{
+    background:var(--sand-soft);border:1px dashed var(--sand);border-radius:14px;
+    padding:22px 26px;margin-top:40px;
+    font-size:16.5px;color:var(--ink);line-height:1.7;text-align:center;
+  }
+  .more-note strong{color:var(--sand-deep);}
+  .more-note a{color:var(--sea-deep);font-weight:600;border-bottom:1px solid var(--sand);}
+
+  .back-cta{text-align:center;margin-top:30px;}
+  .back-cta a{display:inline-block;background:var(--sea-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;}
+  .back-cta a:hover{background:var(--sand);color:#fff;}
+
+  /* footer */
+  footer{background:#0a1f2d;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--sand-soft);font-weight:600;}
+  footer .partner a{color:var(--sand-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--sand-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Yuhua Elementary
+        <small>彰化縣芳苑鄉育華國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="./" class="is-active">News</a>
+      <a href="../classroom-english/">Classroom English</a>
+      <a href="../announcements/">Announcements</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">News &amp; Stories · 校園新聞</div>
+    <h1>Stories from Yuhua
+      <span class="zh">育華的故事 · 沿海小校的近期紀錄</span>
+    </h1>
+    <p class="lede">
+      Character honours, wetland walks, and trips well beyond the tide line &mdash; what a small village school can do, child by child.
+      <span class="zh-inline">品德獎章、潮間帶踏查、走得比海岸線更遠的校外教學——一所沿海小校能做的事，一個一個孩子地累積。</span>
+    </p>
+  </div>
+</header>
+
+<!-- STORIES -->
+<section class="stories">
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- FEATURED: I ❤️ YHES character & reading -->
+      <article class="story is-featured">
+        <div class="story__img">
+          <img src="../photos/banner-3.jpg" alt="Yuhua students on the running track holding I-love-YHES placards and the Character Education and Reading Cup trophies">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Honours · 縣級榮譽</div>
+          <div class="story__date">2026 School Year <span class="badge">FEATURED</span></div>
+          <h2>I ❤️ YHES &mdash; Character &amp; Reading Honoured at the County Level
+            <span class="zh">縣級品德教育與閱讀盃雙料肯定</span>
+          </h2>
+          <p class="story__hook">
+            On the running track behind the Yuhua schoolyard, every child held a placard up to the sky &mdash; <strong>I ❤️ YHES</strong> &mdash; alongside the year's Character Education and Reading Cup trophies. In a school of fewer than fifty children, every student is named in every honour the school receives. Recognition here is not a few names on a board; it is the whole school, lined up in one frame.
+          </p>
+          <p class="story__zh">
+            運動場上，全校孩子高舉「I ❤️ YHES」字卡，與當學年的縣級品德教育獎與閱讀盃獎座一起拍照。在一所不到五十個孩子的小校裡，每一份榮譽都屬於每一位學生——不是榮譽榜上幾個名字，而是整所學校站在同一張照片裡。
+          </p>
+          <p class="story__src">Source · 校方提供照片 · 校史紀錄</p>
+        </div>
+      </article>
+
+      <!-- 2: Halloween whole school -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/banner-1.jpg" alt="Yuhua students and teachers in costumes on the running track for Halloween">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">School Life · 校園生活</div>
+          <div class="story__date">October 2025</div>
+          <h2>Halloween on the Running Track &mdash; the Whole School in One Frame
+            <span class="zh">萬聖節，全校一張合照</span>
+          </h2>
+          <p class="story__hook">
+            For Halloween, every child and teacher dressed up and came out to the school running track for one whole-school photograph. In Yuhua, festivals aren't a class activity &mdash; they are a school activity, by default. Every grade joins, every face is in the frame.
+          </p>
+          <p class="story__zh">
+            萬聖節這天，全校師生變裝齊聚運動場，拍一張全校大合照。在育華，節慶不是某一班的活動，而是「全校一起」的活動：每個年級都加入，每張臉都在鏡頭裡。
+          </p>
+        </div>
+      </article>
+
+      <!-- 3: World mural / international view -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/banner-2.jpg" alt="Yuhua students costumed in front of a colourful hand-painted world map mural">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">International View · 國際視野</div>
+          <div class="story__date">Ongoing · 校園壁畫</div>
+          <h2>The World on Our Wall
+            <span class="zh">世界，畫在我們的牆上</span>
+          </h2>
+          <p class="story__hook">
+            Just outside our classrooms stands a hand-painted world map mural, with English words like <em>"to read"</em> and <em>"true"</em> woven into its colours. From a village of one hundred families on Taiwan's west coast, our children learn early that they belong to a world bigger than the tide line.
+          </p>
+          <p class="story__zh">
+            校園外牆有一幅手繪世界地圖壁畫，上面用英文寫著 <em>to read</em>、<em>only true</em> 等字眼。從這個百戶人家的小村出發，育華孩子很早就知道：自己所屬的世界，比海岸線更寬廣。
+          </p>
+        </div>
+      </article>
+
+      <!-- 4: Field trip to NMNS -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/banner-4.jpg" alt="Yuhua students at the National Museum of Natural Science with a dinosaur skeleton overhead">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Field Study · 校外教學</div>
+          <div class="story__date">Annual · 年度校外教學</div>
+          <h2>Under the Dinosaur &mdash; A Field Trip Beyond the Tide Line
+            <span class="zh">恐龍骨架下的孩子 · 把世界裝進心裡</span>
+          </h2>
+          <p class="story__hook">
+            When you grow up by the sea, the rest of the world should never feel far. Our students travelled to the <strong>National Museum of Natural Science</strong> in Taichung, walked under the dinosaur skeletons, and came home with a wider sense of what is possible &mdash; and what they might one day want to study.
+          </p>
+          <p class="story__zh">
+            在海邊長大的孩子，更不應覺得世界遙遠。育華學生走訪台中國立自然科學博物館，從恐龍骨架下走過，把世界裝進心裡——也帶回一份「我以後也許會想研究這個」的可能。
+          </p>
+        </div>
+      </article>
+
+      <!-- 5: Cultural walk to coastal temples -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/banner-5.jpg" alt="Yuhua students in front of a historic Mazu temple during a cultural walk along the coast">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Cultural Walk · 文化踏查</div>
+          <div class="story__date">Annual · 在地踏查</div>
+          <h2>Reading Our Coast Through Its Temples
+            <span class="zh">從廟口讀我們的海岸</span>
+          </h2>
+          <p class="story__hook">
+            Coastal Taiwan's history is written in its temples. Each year, our students walk to neighbouring Mazu temples on the western shore, listen to elders speak about the pilgrimage, and learn that local culture is something you stand inside &mdash; not something you only read about.
+          </p>
+          <p class="story__zh">
+            沿海台灣的歷史，寫在一座座廟裡。每年我們會帶孩子走到鄉內的廟口，聽長輩說媽祖遶境的故事——讓他們知道，在地文化不是教科書上的一行字，而是自己正站在裡面的東西。
+          </p>
+        </div>
+      </article>
+
+      <!-- 6: Performance -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/banner-6.jpg" alt="Yuhua students seated in a classroom for a school event, all giving a peace sign">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Performance · 校園表演</div>
+          <div class="story__date">Term-end · 學期末活動</div>
+          <h2>Every Child Gets the Stage
+            <span class="zh">每個孩子，都有自己的舞台</span>
+          </h2>
+          <p class="story__hook">
+            In a school where every classroom holds a single grade, no one disappears in a crowd. Talent shows, festival performances, and end-of-term concerts include every student by design. Confidence is not a privilege here &mdash; it is built, child by child.
+          </p>
+          <p class="story__zh">
+            在這裡，每一個年級只有一個班，沒有人會被人海蓋過。才藝表演、節慶演出、學期末演奏會，每一場都是「每個孩子都上場」。在育華，自信不是少數人的特權，而是被一個一個孩子養出來的。
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="more-note">
+      <strong>More stories on the way ·  更多新聞陸續整理中</strong><br>
+      We are working with Yuhua to bring more recent stories &mdash; the unicycle village tour, Wanggong wetland exploration, the organic garden &amp; Iron Chef contest, and the Bowl-of-Rice school history walk &mdash; onto this page as photographs and notes arrive from the school.
+      <br>
+      <span style="font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);">獨輪車環鄉、王功濕地探索、有機菜園與食神大賽、斗米建校校史踏查等育華特色活動，將隨校方提供的照片與紀錄陸續上線。</span>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to School Home · 回到學校首頁</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣芳苑鄉育華國民小學 · Yuhua Elementary School</div>
+    <div class="partner">Bilingual web by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'yuhua-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+</body>
+</html>

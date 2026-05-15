@@ -68,6 +68,13 @@
       color: '#3461a8',
       colorDeep: '#1a4791',
       url: 'https://changhua-bilingual.org/schools/fusing-jhs/'
+    },
+    yuhua: {
+      name: 'Yuhua Elementary',
+      nameZh: '育華國小',
+      color: '#22638a',
+      colorDeep: '#0f3a55',
+      url: 'https://changhua-bilingual.org/schools/yuhua/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
