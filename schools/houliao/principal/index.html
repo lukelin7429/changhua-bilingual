@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Principal's Office · Principal Yan-zhi · Houliao Elementary</title>
+<meta name="description" content="Principal Yan-zhi of Houliao Elementary School — guardian of a 1950-founded village school in Fangyuan Township, Changhua. Four enduring values: gratitude, vitality, optimism, and many paths forward. 後寮國小彥志校長 — 一所 1950 年創立、芳苑鄉的偏鄉小校，四項核心價值：感恩惜福、活力創新、樂觀進取、多元發展。">
+<meta property="og:title" content="Principal's Office · Houliao Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#1f5e6e;
+    --teal-deep:#0e3a45;
+    --teal-soft:#dceaee;
+    --paddy:#4a6e3a;
+    --paddy-deep:#2f4823;
+    --paddy-soft:#e2eadb;
+    --gold:#c08a3e;
+    --gold-deep:#7a5a17;
+    --gold-soft:#f4ead4;
+    --cream:#ffffff;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#e2dfd3;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(14,58,69,.28);
+    --shadow-sm:0 4px 14px -4px rgba(14,58,69,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--teal);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--teal-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--teal);}
+  .topbar-nav a.is-active{color:var(--teal-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* page header */
+  .page-head{background:#fff;padding:64px 0 28px;text-align:center;border-bottom:1px solid var(--line);}
+  .page-head__eyebrow{display:inline-block;font-size:14px;letter-spacing:.22em;color:var(--paddy);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,6vw,58px);line-height:1.12;font-weight:600;color:var(--teal-deep);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
+  .page-head .lede{max-width:620px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.55;}
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:8px;}
+
+  /* hero card */
+  .hero{padding:64px 0 24px;background:#fff;}
+  .hero-card{
+    display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
+    background:linear-gradient(135deg, var(--teal-soft) 0%, var(--gold-soft) 100%);
+    border-radius:24px;padding:36px 28px;border:1px solid var(--line);
+  }
+  @media (min-width:880px){ .hero-card{grid-template-columns:420px 1fr;gap:48px;padding:48px 44px;} }
+  .hero-photo{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);padding:14px;}
+  .hero-photo img{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;}
+  .hero-photo__cap{margin-top:12px;text-align:center;font-style:italic;font-size:15.5px;color:var(--ink-soft);line-height:1.5;}
+  .hero-photo__cap b{color:var(--teal-deep);font-style:normal;}
+  .hero-text .role{color:var(--paddy);font-size:14.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .hero-text h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;color:var(--teal-deep);line-height:1.1;}
+  @media (min-width:720px){ .hero-text h2{font-size:58px;} }
+  .hero-text h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;}
+  .hero-text .lede2{font-size:19.5px;color:var(--ink);margin-top:16px;line-height:1.65;}
+  .hero-text .lede2 strong{color:var(--teal-deep);font-weight:700;}
+  .hero-text .lede2-zh{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+
+  /* section base */
+  section.sec{padding:72px 0;border-top:1px solid var(--line);}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:22px;font-weight:700;letter-spacing:5px;}
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;font-weight:600;color:var(--teal-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{font-size:54px;} }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  .sec__rule{width:96px;height:5px;background:var(--paddy);border-radius:3px;margin:22px 0 36px;}
+  .sec__lede{font-size:19px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:26px;}
+  .sec__lede .zh{display:block;color:var(--ink-soft);font-size:17.5px;margin-top:8px;line-height:1.65;}
+
+  /* values grid (4 pillars) */
+  .values{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:680px){ .values{grid-template-columns:1fr 1fr;gap:24px;} }
+  .value{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:30px 28px;box-shadow:var(--shadow-sm);
+    border-top:7px solid var(--teal);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .value:nth-child(2){border-top-color:var(--paddy);}
+  .value:nth-child(3){border-top-color:var(--gold);}
+  .value:nth-child(4){border-top-color:var(--teal-deep);}
+  .value:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .value__icon{font-size:42px;line-height:1;margin-bottom:10px;}
+  .value__no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
+  .value__title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--teal-deep);line-height:1.2;margin-top:6px;}
+  .value__title-zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:1.5px;}
+  .value__quote{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18.5px;color:var(--teal);margin-top:18px;line-height:1.6;border-left:3px solid var(--gold);padding-left:14px;}
+  .value__zh{font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:12px;line-height:1.75;padding-top:12px;border-top:1px dashed var(--line);}
+
+  /* school context card */
+  .ctx{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 28px;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .ctx{padding:38px 36px;} }
+  .ctx h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--teal-deep);font-weight:600;border-bottom:2px solid var(--gold);padding-bottom:8px;display:inline-block;}
+  .ctx h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);margin-top:4px;font-weight:600;}
+  .ctx p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  .ctx p .zh{display:block;color:var(--ink-soft);font-size:17.5px;margin-top:8px;line-height:1.7;}
+  .ctx p strong{color:var(--teal-deep);}
+
+  /* quote */
+  .pull-quote{background:var(--paddy-soft);border-left:6px solid var(--paddy);padding:24px 28px;border-radius:0 14px 14px 0;margin-top:36px;}
+  .pull-quote__text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;font-weight:600;color:var(--paddy-deep);line-height:1.4;}
+  .pull-quote__zh{font-size:17.5px;color:var(--ink);margin-top:8px;line-height:1.6;}
+
+  /* fact strip */
+  .facts{display:grid;grid-template-columns:1fr;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .facts{grid-template-columns:repeat(3,1fr);gap:24px;padding:30px 32px;} }
+  .fact{padding:10px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ .fact{border-bottom:none;border-right:1px solid var(--line);padding:0 24px 0 0;} .fact:last-child{border-right:none;} }
+  .fact__label{font-size:13px;color:var(--ink-soft);font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+  .fact__value{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--teal-deep);font-weight:600;margin-top:6px;line-height:1.25;}
+  .fact__sub{font-size:15.5px;color:var(--ink-soft);margin-top:4px;}
+
+  /* note box */
+  .note{background:var(--gold-soft);border:1px dashed var(--gold);border-radius:14px;padding:18px 22px;margin-top:28px;font-size:16.5px;color:var(--ink);line-height:1.65;}
+  .note strong{color:var(--gold-deep);}
+
+  /* back cta */
+  .back-cta{text-align:center;margin-top:30px;}
+  .back-cta a{display:inline-block;background:var(--teal-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;}
+  .back-cta a:hover{background:var(--gold);color:#fff;}
+
+  /* footer */
+  footer{background:#0a2229;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Houliao Elementary
+        <small>彰化縣後寮國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="./" class="is-active">Principal</a>
+      <a href="../news/">News</a>
+      <a href="../classroom-english/">Classroom English</a>
+      <a href="../announcements/">Announcements</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=houliao">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">Principal's Office · 校長室</div>
+    <h1>A Word from Our Principal
+      <span class="zh">校長的話 · 一所偏鄉小校的辦學初衷</span>
+    </h1>
+    <p class="lede">
+      Four enduring values, one small village school by the rice fields.
+      <span class="zh-inline">四項核心價值，承載著稻浪邊上一所偏鄉小校的辦學初衷。</span>
+    </p>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <div class="hero-photo">
+        <img src="../photos/principal-with-students.jpg" alt="Principal Yan-zhi with student award winners on the school sports field">
+        <div class="hero-photo__cap">
+          <b>Principal Yan-zhi</b><br>彥志 校長 · Houliao Elementary School
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="role">Principal · 校長</div>
+        <h2>Principal Yan-zhi<span class="zh">彥志 校長</span></h2>
+        <p class="lede2">
+          The steward of a school of <strong>86 children</strong> in the village of Houliao &mdash; a quiet leader who, by name and by reputation, stands behind every soccer kit, every croquet line-up, and every podium photo our students appear in.
+        </p>
+        <p class="lede2-zh">
+          後寮國小 86 位孩子的守護者，是一位安靜的校長——校內每一張領獎照、每一條足球隊紅布條、每一次槌球出賽，公告中署名的「彥志校長」都站在背後推動。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. AT A GLANCE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">At a Glance</h2>
+    <div class="sec__title-zh">基本資訊</div>
+    <div class="sec__rule"></div>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fact__label">Name · 姓名</div>
+        <div class="fact__value">彥志 校長</div>
+        <div class="fact__sub">Principal Yan-zhi <br><em>(English spelling pending school confirmation · 英文拼音待校方確認)</em></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">School · 任職學校</div>
+        <div class="fact__value">Houliao Elementary</div>
+        <div class="fact__sub">彰化縣芳苑鄉後寮國民小學</div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">School Profile · 學校屬性</div>
+        <div class="fact__value">6 Classes · 86 Pupils</div>
+        <div class="fact__sub">小型偏鄉小學 · 每年級僅 1 班</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <div class="pull-quote__text">"A small school by the rice fields, raising big-hearted children."</div>
+      <div class="pull-quote__zh">「稻浪邊的小校，培育大格局的孩子。」<br>—— 後寮國小辦學底色</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FOUR VALUES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Four Values, One School</h2>
+    <div class="sec__title-zh">學校四項核心價值 · 公開揭示的辦學願景</div>
+    <div class="sec__rule"></div>
+
+    <p class="sec__lede">
+      These four short phrases are what Houliao puts on its own front page and what the principal returns to every morning assembly: <strong>gratitude, vitality, optimism, and the room for each child to find their own path</strong>.
+      <span class="zh">這四項是後寮國小公開揭示的學校願景，也是校長在每一次升旗、頒獎、運動會上重複向孩子說的話：感恩、活力、樂觀、屬於自己的路。</span>
+    </p>
+
+    <div class="values">
+
+      <article class="value">
+        <div class="value__icon">🌾</div>
+        <div class="value__no">Value 01</div>
+        <div class="value__title">Gratitude &amp; Contentment</div>
+        <div class="value__title-zh">感恩惜福</div>
+        <p class="value__quote">"To know how blessed we are &mdash; and then to turn around and help someone else."</p>
+        <p class="value__zh">「做一個知福惜福的人，懂得獲得後再去幫助別人；做一個能夠被人感恩的人。」</p>
+      </article>
+
+      <article class="value">
+        <div class="value__icon">⚡</div>
+        <div class="value__no">Value 02</div>
+        <div class="value__title">Vitality &amp; Innovation</div>
+        <div class="value__title-zh">活力創新</div>
+        <p class="value__quote">"Encourage children to invent &mdash; and to keep their learning alive."</p>
+        <p class="value__zh">「鼓勵在各方面的創新，確保高度學習的活力。」</p>
+      </article>
+
+      <article class="value">
+        <div class="value__icon">🌅</div>
+        <div class="value__no">Value 03</div>
+        <div class="value__title">Optimism &amp; Drive</div>
+        <div class="value__title-zh">樂觀進取</div>
+        <p class="value__quote">"Optimism is a lantern &mdash; it lights the road of hope. Children who learn to face life with optimism find joy on the way."</p>
+        <p class="value__zh">「樂觀如明燈，照亮希望的前程……樂觀進取，才能面對喜悅的人生。」</p>
+      </article>
+
+      <article class="value">
+        <div class="value__icon">🌱</div>
+        <div class="value__no">Value 04</div>
+        <div class="value__title">Many Paths Forward</div>
+        <div class="value__title-zh">多元發展</div>
+        <p class="value__quote">"Grow with each child's gift in mind &mdash; let every Houliao student find what they are good at, and stand in that light."</p>
+        <p class="value__zh">「因應學童的個性與天分來發展，協助學童發揮潛能、尋得專長。」</p>
+      </article>
+
+    </div>
+
+    <div class="note">
+      <strong>A note on the principal's name · 校長姓名說明：</strong>
+      Houliao Elementary publishes news under the line <em>"under Principal Yan-zhi's leadership"</em> but the surname has not been listed publicly. The English spelling on this page will be updated as soon as the school confirms the full name. <br>
+      後寮國小官網落款用「彥志校長」，姓氏未在網站上公開，本頁英文拼音將於校方確認後同步更新。
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT THE PRINCIPAL STANDS BEHIND -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">What the Principal Stands Behind</h2>
+    <div class="sec__title-zh">校長在背後推動的事</div>
+    <div class="sec__rule"></div>
+
+    <p class="sec__lede">
+      In a school of 86 children, leadership shows up in the everyday &mdash; <strong>showing up at the field, the assembly, and the prize-giving</strong>. Below is what we have learned about the principal's quiet hand on Houliao's recent year.
+      <span class="zh">一所 86 人的小校，校長的領導力在日常顯現——出現在球場邊、升旗台前、頒獎時刻。下方是過去這一年，校長默默推動的事。</span>
+    </p>
+
+    <div class="ctx">
+      <h3>Soccer, croquet, inline-skating &mdash; sports as confidence
+        <span class="zh">用球場讓孩子建立自信</span>
+      </h3>
+      <p>
+        Three sports teams &mdash; <strong>five-a-side soccer, croquet, and inline-skate speed-racing</strong> &mdash; have all won county-level honours under the principal's tenure. The 2026 公告 thanking <em>"Principal Yan-zhi's promotion, Coach Chou's training, and Teacher Chun-chieh's guidance"</em> for the soccer victory is the public face of what is, in practice, a daily commitment to keeping rural children on the field.
+        <span class="zh">校內三支校隊——五人制足球、槌球、競速直排輪——都在校長任內走到全縣榮譽榜。校方 2026 年公告中那句「彥智校長的推動，周教練、俊傑老師的指導」是公開的致謝，背後則是日復一日讓偏鄉孩子持續站上球場的承諾。</span>
+      </p>
+    </div>
+
+    <div class="ctx" style="margin-top:22px;">
+      <h3>Reading Passport &mdash; the 25 / 50 / 75-book milestones
+        <span class="zh">閱讀護照 · 25 / 50 / 75 本的里程碑</span>
+      </h3>
+      <p>
+        The school's <strong>Reading Passport</strong> programme recognises every child who reads 25, 50, or 75 books in a semester. Each milestone gets its own roll-call at assembly &mdash; one of the principal's clearest signals that, even in a small village school, <strong>every page read is publicly celebrated</strong>.
+        <span class="zh">校內「閱讀護照」計畫，每學期表揚 25 本、50 本、75 本三個里程碑達成者。每一級在升旗台上都有自己的點名時刻——這是校長對全校孩子最清楚的訊號：在偏鄉小校，每一本讀完的書，都會被公開看見。</span>
+      </p>
+    </div>
+
+    <div class="ctx" style="margin-top:22px;">
+      <h3>Built-in safeguards for a small rural school
+        <span class="zh">為偏鄉小校建構的基本守護</span>
+      </h3>
+      <p>
+        Houliao publishes campus policies on <strong>gender-equity education, smoke-free school, mobile-device management, and gender-incident prevention</strong>. In a school where everyone knows everyone, these aren't paperwork &mdash; they're the quiet scaffolding the principal keeps in place so the day-to-day stays safe and predictable.
+        <span class="zh">後寮的校園政策頁列有性別平等教育、無菸校園、行動載具管理、校園性別事件防治——這些不是表單，而是校長為「彼此都認得」的小校維持安全、可預期日常的底層支架。</span>
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      <div class="pull-quote__text">"Small enough that every teacher knows every child &mdash; and every child has a chance to lead."</div>
+      <div class="pull-quote__zh">「小到每位老師都認得每一個孩子，每個孩子也都有屬於自己的舞台。」<br>—— 後寮國小辦學底色</div>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣後寮國民小學 · Houliao Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'houliao-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if(!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+
+</body>
+</html>

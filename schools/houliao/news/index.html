@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News &amp; Highlights · Houliao Elementary · 後寮國小</title>
+<meta name="description" content="Recent news and student honours from Houliao Elementary School — five-a-side soccer, croquet, inline-skate speed-racing, and the Reading Passport milestones. 彰化縣芳苑鄉後寮國民小學最近的榮譽榜與校園新聞。">
+<meta property="og:title" content="News &amp; Highlights · Houliao Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#1f5e6e;
+    --teal-deep:#0e3a45;
+    --teal-soft:#dceaee;
+    --paddy:#4a6e3a;
+    --paddy-deep:#2f4823;
+    --paddy-soft:#e2eadb;
+    --gold:#c08a3e;
+    --gold-deep:#7a5a17;
+    --gold-soft:#f4ead4;
+    --cream:#ffffff;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#e2dfd3;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(14,58,69,.28);
+    --shadow-sm:0 4px 14px -4px rgba(14,58,69,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--teal);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--teal-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--teal);}
+  .topbar-nav a.is-active{color:var(--teal-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* page header */
+  .page-head{background:#fff;padding:64px 0 32px;text-align:center;border-bottom:1px solid var(--line);}
+  .page-head__eyebrow{display:inline-block;font-size:14px;letter-spacing:.22em;color:var(--paddy);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,6vw,58px);line-height:1.12;font-weight:600;color:var(--teal-deep);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
+  .page-head .lede{max-width:640px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.55;}
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:8px;}
+
+  /* stories grid */
+  .stories{padding:64px 0 80px;}
+  .grid{display:grid;grid-template-columns:1fr;gap:26px;}
+  @media (min-width:780px){ .grid{grid-template-columns:1fr 1fr;gap:30px;} }
+
+  .story{
+    background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    border-top:8px solid var(--teal);
+    display:flex;flex-direction:column;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .story:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .story.is-featured{grid-column:1 / -1;}
+  @media (min-width:780px){ .story.is-featured{display:grid;grid-template-columns:1.1fr 1fr;} }
+
+  .story:nth-child(2){border-top-color:var(--gold);}
+  .story:nth-child(3){border-top-color:var(--paddy);}
+  .story:nth-child(4){border-top-color:var(--teal-deep);}
+  .story:nth-child(5){border-top-color:var(--gold-deep);}
+
+  .story__img{aspect-ratio:16/10;background:var(--teal-soft);overflow:hidden;position:relative;}
+  .story.is-featured .story__img{aspect-ratio:auto;height:100%;min-height:320px;}
+  .story__img img{width:100%;height:100%;object-fit:cover;}
+  .story__img--placeholder{
+    background:linear-gradient(135deg, var(--teal-soft) 0%, var(--paddy-soft) 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    color:var(--teal-deep);padding:32px;
+  }
+  .story__img--placeholder .icon{font-size:64px;line-height:1;}
+  .story__img--placeholder .label{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:var(--teal);margin-top:14px;line-height:1.5;
+  }
+  .story__img--placeholder .label-zh{
+    font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);
+    margin-top:6px;letter-spacing:.04em;
+  }
+  .story__body{padding:28px 30px 32px;display:flex;flex-direction:column;flex:1;}
+  .story.is-featured .story__body{padding:38px 38px 40px;}
+  .story__cat{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--paddy);font-weight:700;margin-bottom:8px;}
+  .story:nth-child(2) .story__cat{color:var(--gold-deep);}
+  .story:nth-child(3) .story__cat{color:var(--paddy);}
+  .story:nth-child(5) .story__cat{color:var(--gold-deep);}
+  .story__date{font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:14px;}
+  .story__date .badge{
+    display:inline-block;background:var(--paddy-soft);color:var(--paddy-deep);
+    padding:2px 10px;border-radius:6px;font-weight:700;font-size:12.5px;margin-left:8px;
+    letter-spacing:.04em;
+  }
+  .story h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:28px;line-height:1.22;color:var(--teal-deep);font-weight:600;margin-bottom:4px;}
+  .story.is-featured h2{font-size:36px;}
+  .story h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.04em;}
+  .story__hook{font-size:17.5px;color:var(--ink);line-height:1.7;margin-top:16px;}
+  .story__hook strong{color:var(--teal-deep);}
+  .story__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);line-height:1.85;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);}
+  .story__src{margin-top:auto;padding-top:20px;font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+  .story__src a{color:var(--teal);}
+
+  /* footer note */
+  .more-note{
+    background:var(--gold-soft);border:1px dashed var(--gold);border-radius:14px;
+    padding:22px 26px;margin-top:40px;
+    font-size:16.5px;color:var(--ink);line-height:1.7;text-align:center;
+  }
+  .more-note strong{color:var(--gold-deep);}
+  .more-note a{color:var(--teal-deep);font-weight:600;border-bottom:1px solid var(--gold);}
+
+  .back-cta{text-align:center;margin-top:30px;}
+  .back-cta a{display:inline-block;background:var(--teal-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;}
+  .back-cta a:hover{background:var(--gold);color:#fff;}
+
+  /* footer */
+  footer{background:#0a2229;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Houliao Elementary
+        <small>彰化縣後寮國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="./" class="is-active">News</a>
+      <a href="../classroom-english/">Classroom English</a>
+      <a href="../announcements/">Announcements</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=houliao">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">News &amp; Highlights · 校園新聞</div>
+    <h1>Stories from Houliao
+      <span class="zh">後寮的故事 · 86 個孩子，一座小校的近期榮譽</span>
+    </h1>
+    <p class="lede">
+      Sports, reading milestones, township carnivals — what 86 children can do when every one of them is given the field.
+      <span class="zh-inline">運動、閱讀里程碑、鄉運嘉年華——當 86 個孩子每一個都被認真對待，能做的事比想像更多。</span>
+    </p>
+  </div>
+</header>
+
+<!-- STORIES -->
+<section class="stories">
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- FEATURED: 五人制足球 -->
+      <article class="story is-featured">
+        <div class="story__img">
+          <img src="../photos/croquet-team-fields.jpg" alt="Houliao students lined up by the field — placeholder until soccer-team photo arrives">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Sport · 校隊運動</div>
+          <div class="story__date">April 27, 2026 <span class="badge">FEATURED</span></div>
+          <h2>Houliao Boys Take the Trophy at the Dayuan Junior-Chamber Soccer Invitational
+            <span class="zh">參加大園青商盃五人制足球邀請賽獲獎</span>
+          </h2>
+          <p class="story__hook">
+            Grade-three boys from Houliao came back from Taoyuan with a podium finish at the 2026 Dayuan Junior-Chamber Five-a-Side Soccer Invitational. The school's public note thanked <strong>Principal Yan-zhi's promotion, Coach Chou's training, and Teacher Chun-chieh's guidance</strong> &mdash; the trio behind a soccer programme that has now travelled outside Changhua County.
+          </p>
+          <div class="story__zh">
+            後寮國小三甲學生參加 2026 年「大園青商盃五人制足球邀請賽」（桃園大園）獲頒優勝。校方公告中特別感謝<strong>彥智校長的推動，周教練、俊傑老師的指導</strong>——這支讓偏鄉孩子有機會走出彰化縣的足球隊，背後是長期默默支撐的鐵三角。
+          </div>
+          <div class="story__src">
+            Source · 來源：<a href="https://hles.chc.edu.tw/posts/1006" target="_blank" rel="noopener">學校官網公告 hles.chc.edu.tw/posts/1006</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 閱讀護照 + 期中評量 -->
+      <article class="story">
+        <div class="story__img story__img--placeholder">
+          <div class="icon">📖</div>
+          <div class="label">"25 books. 50 books. 75 books.<br>Every milestone gets a name."</div>
+          <div class="label-zh">25 / 50 / 75 本，每一級都點到名</div>
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Reading · 閱讀</div>
+          <div class="story__date">April 25, 2026</div>
+          <h2>Mid-Term Honour Roll &amp; Reading Passport Achievers
+            <span class="zh">114 學年度第二學期期中評量成績優異暨閱讀護照達標</span>
+          </h2>
+          <p class="story__hook">
+            The school's spring semester honour roll runs from Grade 1 through Grade 6 &mdash; with separate recognition lists for students who crossed the <strong>25-, 50-, and 75-book Reading Passport milestones</strong>. In a school of 86, this list is almost the whole student body.
+          </p>
+          <div class="story__zh">
+            114 學年度第二學期期中評量公布全校成績優異名單，並同時表揚「閱讀護照」達 25 本、50 本、75 本三個里程碑的孩子。對一所 86 人的小校來說，這份榜單幾乎覆蓋了全校。
+          </div>
+          <div class="story__src">
+            Source · 來源：<a href="https://hles.chc.edu.tw/posts/1002" target="_blank" rel="noopener">學校官網公告 hles.chc.edu.tw/posts/1002</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 槌球 -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/croquet-trophy.jpg" alt="Houliao croquet team posing with the championship trophy">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Sport · 校隊運動</div>
+          <div class="story__date">April 18, 2026</div>
+          <h2>Silver at the County Education Cup &mdash; Croquet, Three-Player Division
+            <span class="zh">教育盃槌球錦標賽榮獲佳績</span>
+          </h2>
+          <p class="story__hook">
+            At the Changhua County Education Cup Croquet Championships, Houliao's three-player team brought home a <strong>second-place finish</strong>. Croquet here is a school sport, not a hobby &mdash; the team meets after school on the same field where the soccer team trains.
+          </p>
+          <div class="story__zh">
+            彰化縣教育盃槌球錦標賽，後寮國小三人制隊伍榮獲<strong>第二名</strong>。槌球在後寮是正式的校隊運動，與足球隊共用校內運動場域，每週固定練習。
+          </div>
+          <div class="story__src">
+            Source · 來源：學校官網公告 hles.chc.edu.tw/posts
+          </div>
+        </div>
+      </article>
+
+      <!-- 直排輪 -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/track-awards.jpg" alt="Houliao students receiving inline-skate awards on the school track">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Sport · 校隊運動</div>
+          <div class="story__date">April 14, 2026</div>
+          <h2>Inline-Skate Speed Racers Bring Home Medals
+            <span class="zh">教育盃競速直排輪溜冰錦標賽獲佳績</span>
+          </h2>
+          <p class="story__hook">
+            The Houliao inline-skate speed-racing team competed at the Changhua County Education Cup and returned with medals. <strong>Three sports, one ask</strong>: show up at practice, train hard, race for Houliao. Soccer, croquet, and inline-skating each carry that same line.
+          </p>
+          <div class="story__zh">
+            後寮國小競速直排輪校隊參加彰化縣教育盃競速直排輪溜冰錦標賽，獲頒佳績。<strong>足球、槌球、直排輪</strong>——這三項運動對每個孩子的要求都一樣：到場、認真練、為後寮出賽。
+          </div>
+          <div class="story__src">
+            Source · 來源：學校官網公告 hles.chc.edu.tw/posts
+          </div>
+        </div>
+      </article>
+
+      <!-- 鄉運嘉年華 -->
+      <article class="story">
+        <div class="story__img">
+          <img src="../photos/carnival-podium.jpg" alt="Houliao students at the Fangyuan Township sports carnival">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">Community · 社區共學</div>
+          <div class="story__date">Spring 2026</div>
+          <h2>At the Fangyuan Township Carnival, Houliao Stands Tall
+            <span class="zh">芳苑鄉運動嘉年華 · 後寮的孩子站上更大的舞台</span>
+          </h2>
+          <p class="story__hook">
+            Every spring the ten-plus schools of Fangyuan Township meet for the township-wide Sports Carnival. Houliao students come home with certificates, ribbons, and the quiet pride of having <strong>represented their small village on a bigger stage</strong>.
+          </p>
+          <div class="story__zh">
+            每年春天，芳苑鄉十多所學校一同參與「運動嘉年華」。後寮的孩子帶著獎狀與勳章回來，靜靜地站在校門口拍照——他們知道，自己代表的是<strong>後寮這個小村莊</strong>。
+          </div>
+          <div class="story__src">
+            Source · 來源：校內活動紀錄
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="more-note">
+      <strong>More stories on the way · 持續更新中：</strong>
+      Photos and details from the school's <a href="https://www.facebook.com/chchles/" target="_blank" rel="noopener">Facebook page (彰化縣後寮國小)</a> will be added as Principal Yan-zhi and the school office share them. <br>
+      更多後寮的故事與照片，將由校方臉書粉專素材陸續整理上線。
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣後寮國民小學 · Houliao Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'houliao-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if(!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+
+</body>
+</html>
