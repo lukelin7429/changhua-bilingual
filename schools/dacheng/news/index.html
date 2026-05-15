@@ -103,6 +103,39 @@
   .item__zh{font-size:17px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
   @media (min-width:720px){ .item__zh{ font-size:19px; } }
 
+  /* === Story cards === */
+  .stories{display:flex;flex-direction:column;gap:24px;}
+  .story{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    overflow:hidden;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:1fr;gap:0;
+  }
+  @media (min-width:720px){ .story{ grid-template-columns:280px 1fr; } }
+  .story__media{
+    background:var(--bg-soft);min-height:200px;display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  @media (min-width:720px){ .story__media{ border-bottom:none;border-right:1px solid var(--line);min-height:auto; } }
+  .story__media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .story__placeholder{padding:32px 24px;text-align:center;}
+  .story__placeholder__icon{font-size:54px;line-height:1;opacity:.4;}
+  @media (min-width:720px){ .story__placeholder__icon{ font-size:64px; } }
+  .story__placeholder__note{font-size:13px;color:var(--ink-soft);margin-top:10px;letter-spacing:1.5px;font-weight:600;text-transform:uppercase;}
+  @media (min-width:720px){ .story__placeholder__note{ font-size:14px; } }
+  .story__body{padding:26px 26px 30px;}
+  @media (min-width:720px){ .story__body{ padding:30px 32px 34px; } }
+  .story__date{font-family:'Playfair Display',serif;color:var(--red-deep);font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+  @media (min-width:720px){ .story__date{ font-size:16px; } }
+  .story__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);line-height:1.25;margin-top:8px;}
+  @media (min-width:720px){ .story__title{ font-size:30px; } }
+  .story__title-zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.4;}
+  @media (min-width:720px){ .story__title-zh{ font-size:22px; } }
+  .story__body p{font-size:17px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  @media (min-width:720px){ .story__body p{ font-size:19px; } }
+  .story__body p.zh{color:var(--ink-soft);font-size:16px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .story__body p.zh{ font-size:18px; } }
+  .story__body p strong{color:var(--blue-deep);}
+
   /* === Coming soon === */
   .coming{
     background:linear-gradient(135deg, var(--wheat-soft) 0%, var(--red-soft) 100%);
@@ -306,22 +339,113 @@
   </div>
 </section>
 
-<!-- ===== IV. Coming Soon ===== -->
+<!-- ===== IV. Story Notebook ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">III.</div>
     <h2 class="sec__title">Story Notebook</h2>
-    <div class="sec__title-zh">校園故事筆記 · 陸續上線</div>
+    <div class="sec__title-zh">校園故事筆記 · 來自雙語站 School News</div>
     <div class="sec__rule"></div>
 
-    <div class="coming">
-      <div class="coming__icon">📝</div>
-      <div class="coming__title">More stories on the way</div>
-      <div class="coming__zh">更多細節故事與照片整理中</div>
-      <p class="coming__body">
-        Detailed story pages — with photos and full narratives — are being compiled from the school's Facebook page and the existing bilingual site. New entries will appear here over the coming weeks.<br>
-        <span style="color:var(--ink-soft);font-size:.92em;display:block;margin-top:6px;">細節故事與照片整理自學校粉絲團與既有雙語站，將於未來幾週陸續發布。</span>
-      </p>
+    <p style="font-size:18px;color:var(--ink-soft);max-width:780px;line-height:1.65;margin-bottom:30px;">
+      Four recent stories drawn from the school's bilingual news page. Photos arrive next week — the bilingual narratives below are the school's own writing.<br>
+      <span style="display:block;color:var(--ink-soft);font-size:.92em;margin-top:6px;">以下四則故事直接取自學校既有雙語站 School News（dacheng.twrses.org）。照片下週補上，文字為學校原文。</span>
+    </p>
+
+    <div class="stories">
+
+      <article class="story">
+        <div class="story__media">
+          <div class="story__placeholder">
+            <div class="story__placeholder__icon">💬</div>
+            <div class="story__placeholder__note">Photo coming next week</div>
+          </div>
+        </div>
+        <div class="story__body">
+          <div class="story__date">2026-03-03</div>
+          <div class="story__title">Speaking with Confidence: English Practice at Dacheng</div>
+          <div class="story__title-zh">幸福大城口說練習 · 外師 Alyssa 帶孩子勇敢開口說</div>
+          <p>
+            On March 3, 2026, our foreign teacher, <strong>Alyssa</strong>, led a fun English speaking class at Dacheng Elementary School. The lesson focused on daily conversations, starting with simple questions like <em>"What's your name?"</em> and <em>"How are you?"</em>. Students practiced answering with phrases like <em>"I am great"</em> or <em>"Not bad."</em>
+          </p>
+          <p>
+            Teacher Alyssa showed everyone how to speak clearly and slowly. Through many fun activities, every child had a chance to speak and practice. This helped them feel more confident using English. At Dacheng, we work hard to make English learning a happy and warm journey for all our students!
+          </p>
+          <p class="zh">
+            2026-03-03，外師 Alyssa 老師帶領大城孩子上一堂日常英語對話課——從 "What's your name?"、"How are you?" 開始，孩子們練習用 "I am great"、"Not bad" 回應。Alyssa 老師示範把話講清楚、講慢，並透過大量互動活動讓每個孩子都能開口練習。我們希望讓每位大城孩子在英文學習路上，都能帶著快樂與安全感前進。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__media">
+          <div class="story__placeholder">
+            <div class="story__placeholder__icon">🥁</div>
+            <div class="story__placeholder__note">Photo coming next week</div>
+          </div>
+        </div>
+        <div class="story__body">
+          <div class="story__date">Flower Sea Festival · 花海生活節</div>
+          <div class="story__title">Drumming in the Flower Sea: Dacheng's Taiko Performance</div>
+          <div class="story__title-zh">震盪花海 · 大城太鼓隊的力與美</div>
+          <p>
+            At the colorful <strong>"Dacheng Flower Sea Life Festival,"</strong> our Taiko Drum Team delivered a powerful opening performance! The students showcased their hard work and amazing rhythm, bringing energy to the entire festival.
+          </p>
+          <p>
+            By performing at this local event, our students gained a great platform to build confidence and connect with the community. Their drumming was the perfect start to a beautiful day. <strong>We are so proud of our young drummers for shining bright in the flower fields!</strong>
+          </p>
+          <p class="zh">
+            在繽紛的「大城花海生活節」上，大城太鼓隊獻上震撼人心的開場演出！孩子們把練習成果毫無保留地交出來，鏗鏘鼓聲為整場節慶注入了能量。透過社區舞台，孩子們不只練習自信，也與在地建立連結——這群在花海中發光的小鼓手，是大城國小的驕傲。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__media">
+          <div class="story__placeholder">
+            <div class="story__placeholder__icon">🏆</div>
+            <div class="story__placeholder__note">Photo coming next week</div>
+          </div>
+        </div>
+        <div class="story__body">
+          <div class="story__date">2025-12 · 114 學年度</div>
+          <div class="story__title">Excellent Growth: Shining in Both Studies and Sports</div>
+          <div class="story__title-zh">文武全才 · 綻放光芒的卓越表現</div>
+          <p>
+            In December 2025, our students showed great talent in both learning and sports! We won top prizes in the county <strong>language competition</strong>, which is a very special achievement for our school. Our <strong>dodgeball team also won their very first tournament!</strong> This shows that our students are great at both thinking and moving.
+          </p>
+          <p>
+            We also use digital tools to help students improve their reading and prepare for a bright future. By giving awards to our role models, we encourage every child to do their best. At Dacheng, we help every student find their strengths and shine!
+          </p>
+          <p class="zh">
+            2025 年 12 月，大城孩子在學業與運動雙線綻放——縣語文競賽奪下名次，是學校年度榮耀；躲避球隊則在生平首場錦標賽就抱回冠軍，動腦與動身都不缺席。我們也用數位工具陪伴孩子提升閱讀與面對未來的能力；榮譽榜的表揚，是要讓每個孩子都能找到自己發光的方向。
+          </p>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story__media">
+          <div class="story__placeholder">
+            <div class="story__placeholder__icon">🎭</div>
+            <div class="story__placeholder__note">Photo coming next week</div>
+          </div>
+        </div>
+        <div class="story__body">
+          <div class="story__date">2025-12 · 114 學年度</div>
+          <div class="story__title">Shining on Stage: Drama Competition Winners</div>
+          <div class="story__title-zh">綻放舞台 · 戲劇比賽榮獲佳績</div>
+          <p>
+            In December 2025, students from Dacheng performed wonderfully at the <strong>Changhua Drama Competition</strong>. We are proud to share that we won <strong>1st Place in the Stage Play category</strong> and <strong>2nd Place in the Puppet Show category</strong>.
+          </p>
+          <p>
+            We want to say a huge thank you to <strong>Mr. Xie Fengquan</strong> for his professional guidance. We also thank our Parents' Association and volunteers for their amazing support. This experience gave our students a great chance to show their talents and build confidence on stage.
+          </p>
+          <p class="zh">
+            2025 年 12 月，大城孩子在彰化縣戲劇比賽中表現驚艷——舞台劇類獲第一名、綜合偶戲類獲第二名。感謝謝豐全老師專業指導，也感謝家長會與志工的全力支持。這次經驗讓孩子們在大舞台上展現天賦、建立自信。
+          </p>
+        </div>
+      </article>
+
     </div>
 
     <div class="source-row">
