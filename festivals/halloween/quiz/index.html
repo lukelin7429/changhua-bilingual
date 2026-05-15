@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Festival 12 Quiz · Halloween · Festival English Series</title>
+<meta name="description" content="Festival 12 Quiz — Halloween. 12 questions on origins, vocabulary, traditions, and roleplay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#2a2725;--blue:#4a4239;--blue-soft:#ece5dc;--olive:#c9c920;--olive-soft:#f0f1c3;--olive-deep:#8c8e0a;--red:#e63d2e;--red-soft:#fde2dd;--sun:#f0a722;--sun-soft:#feeed0;--sun-deep:#a06c10;--green:#5b9d5b;--green-soft:#e7f3e7;--cream:#fbf7e8;--cream-warm:#fffcef;--line:#e3dfca;--ink:#1f2530;--ink-soft:#5a606e;--shadow:0 16px 40px -16px rgba(42,39,37,.30);--shadow-sm:0 6px 18px -6px rgba(42,39,37,.20);}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{min-height:100%;background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ html,body{ font-size:25.5px; } }
+  .wrap{max-width:840px;margin:0 auto;padding:32px 22px 60px;min-height:100vh;display:flex;flex-direction:column;}
+  .head{background:var(--navy);color:#fff;border-radius:20px;padding:28px 28px;text-align:center;border-bottom:6px solid var(--olive);box-shadow:var(--shadow);}
+  .head__brand{font-size:14.5px;letter-spacing:3px;color:var(--olive);text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+  @media (min-width:720px){ .head__brand{ font-size:16.5px; } }
+  .head__title{font-family:'Playfair Display',serif;font-size:35px;font-weight:800;letter-spacing:.5px;line-height:1.1;}
+  @media (min-width:720px){ .head__title{ font-size:48px; } }
+  .head__sub{color:#d8d2c8;font-size:17.5px;margin-top:8px;font-style:italic;}
+  @media (min-width:720px){ .head__sub{ font-size:21px; } }
+  .card{background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);padding:34px 30px;margin-top:26px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .card{ padding:48px 44px; } }
+  .progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .progress__no{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--red);letter-spacing:1.5px;}
+  @media (min-width:720px){ .progress__no{ font-size:24px; } }
+  .progress__bar{flex:1;margin-left:18px;height:8px;background:var(--cream);border:1px solid var(--line);border-radius:99px;overflow:hidden;}
+  @media (min-width:720px){ .progress__bar{ height:10px; } }
+  .progress__fill{height:100%;background:var(--olive);border-radius:99px;transition:width .3s ease;width:0%;}
+  .question{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.4;margin-top:8px;letter-spacing:.2px;}
+  @media (min-width:720px){ .question{ font-size:36px; } }
+  .question__zh{font-size:18px;color:var(--ink-soft);line-height:1.55;margin-top:10px;}
+  @media (min-width:720px){ .question__zh{ font-size:22px; } }
+  .options{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .opt{background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px 20px;font-size:21px;font-family:inherit;font-weight:600;color:var(--ink);text-align:left;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:16px;line-height:1.4;}
+  @media (min-width:720px){ .opt{ font-size:25px;padding:22px 24px; } }
+  .opt:hover:not(:disabled){border-color:var(--olive);background:var(--cream-warm);transform:translateX(2px);}
+  .opt__mark{width:42px;height:42px;border-radius:50%;background:var(--cream);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:18px;border:2px solid var(--line);font-family:'Playfair Display',serif;}
+  @media (min-width:720px){ .opt__mark{ width:48px;height:48px;font-size:21px; } }
+  .opt.is-correct{background:var(--green-soft);border-color:var(--green);color:#2c6b2c;}
+  .opt.is-correct .opt__mark{background:var(--green);color:#fff;border-color:var(--green);}
+  .opt.is-wrong{background:var(--red-soft);border-color:var(--red);color:#8b2e22;}
+  .opt.is-wrong .opt__mark{background:var(--red);color:#fff;border-color:var(--red);}
+  .opt:disabled{cursor:default;}
+  .feedback{margin-top:22px;padding:14px 18px;border-radius:12px;font-size:18px;font-weight:600;text-align:center;line-height:1.5;min-height:0;opacity:0;transition:opacity .2s;}
+  @media (min-width:720px){ .feedback{ font-size:21px; } }
+  .feedback.show{opacity:1;}
+  .feedback--ok{background:var(--green-soft);color:#2c6b2c;border:1.5px solid var(--green);}
+  .feedback--ng{background:var(--red-soft);color:#8b2e22;border:1.5px solid var(--red);}
+  .result{text-align:center;}
+  .result__emoji{font-size:72px;line-height:1;}
+  @media (min-width:720px){ .result__emoji{ font-size:96px; } }
+  .result__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--navy);margin-top:14px;letter-spacing:.5px;}
+  @media (min-width:720px){ .result__title{ font-size:50px; } }
+  .result__score{font-family:'Playfair Display',serif;font-size:68px;font-weight:800;color:var(--red);margin:18px 0 6px;line-height:1;}
+  @media (min-width:720px){ .result__score{ font-size:92px; } }
+  .result__score small{font-size:30px;color:var(--ink-soft);font-weight:600;font-family:inherit;}
+  @media (min-width:720px){ .result__score small{ font-size:38px; } }
+  .result__msg{font-size:22px;color:var(--ink);line-height:1.6;margin-top:16px;max-width:560px;margin-left:auto;margin-right:auto;}
+  @media (min-width:720px){ .result__msg{ font-size:26px; } }
+  .result__zh{font-size:17px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .result__zh{ font-size:19px; } }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px 32px;font-size:21px;font-weight:700;font-family:inherit;letter-spacing:.5px;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s, box-shadow .15s, background .15s;}
+  @media (min-width:720px){ .btn{ font-size:24px;padding:20px 36px; } }
+  .btn:active{transform:scale(.97);}
+  .btn--primary{background:var(--olive);color:var(--navy);box-shadow:0 6px 18px -6px rgba(201,201,32,.5);}
+  .btn--primary:hover{background:var(--navy);color:#fff;}
+  .btn--ghost{background:#fff;color:var(--navy);border:2px solid var(--line);}
+  .btn--ghost:hover{background:var(--cream-warm);border-color:var(--olive);}
+  .result__actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;align-items:center;}
+  @media (min-width:720px){ .result__actions{ flex-direction:row;justify-content:center;gap:16px; } }
+  .result__actions .btn{min-width:240px;}
+  .foot{text-align:center;font-size:14.5px;color:var(--ink-soft);font-style:italic;letter-spacing:.5px;margin-top:24px;}
+  @media (min-width:720px){ .foot{ font-size:16.5px; } }
+  .foot a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--olive);}
+  .foot a:hover{color:var(--navy);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="head">
+    <div class="head__brand">Festival 12 · Festival English Series</div>
+    <h1 class="head__title">Quiz · Halloween</h1>
+    <div class="head__sub">萬聖節小測驗 · 12 questions · 共 12 題</div>
+  </header>
+
+  <main class="card" id="quiz-card">
+    <div class="progress">
+      <div class="progress__no" id="qno">Question 1 / 12</div>
+      <div class="progress__bar"><div class="progress__fill" id="bar"></div></div>
+    </div>
+    <div class="question" id="question">Loading…</div>
+    <div class="question__zh" id="question-zh"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback"></div>
+  </main>
+
+  <main class="card result" id="result-card" style="display:none;">
+    <div class="result__emoji" id="r-emoji">🎃</div>
+    <div class="result__title" id="r-title">Happy Halloween!</div>
+    <div class="result__score">
+      <span id="r-score">0</span> / <span id="r-total">12</span>
+      <small id="r-pct">(0%)</small>
+    </div>
+    <p class="result__msg" id="r-msg-en">You did great!</p>
+    <p class="result__zh" id="r-msg-zh">完成了！</p>
+    <div class="result__actions">
+      <button class="btn btn--primary" id="btn-restart">Try again · 再試一次</button>
+      <a class="btn btn--ghost" href="../">← Back to handout · 回講義</a>
+    </div>
+  </main>
+
+  <div class="foot">
+    Festival English Series · 2026 Curriculum &nbsp;·&nbsp;
+    <a href="../">View the lesson handout · 查看講義</a>
+  </div>
+</div>
+
+<script>
+const QUIZ = [
+  { q:'Which word means "clothes you wear to look like someone or something else"?',
+    zh:'哪一個單字代表「讓你看起來像別人或別的東西的衣服」？',
+    options:['Pumpkin','Costume','Candy','Skeleton'], answer:1,
+    explain:'"Costume" 變裝服——萬聖節最核心的字。' },
+
+  { q:'Which orange vegetable is used to make a Jack-o\'-Lantern?',
+    zh:'哪一種橘色蔬菜被用來做傑克南瓜燈？',
+    options:['Carrot','Tomato','Pumpkin','Sweet potato'], answer:2,
+    explain:'"Pumpkin" 南瓜——big and round, perfect for carving。' },
+
+  { q:'Which verb means "to cut a shape into a hard surface"?',
+    zh:'哪一個動詞代表「在硬物上雕出形狀」？',
+    options:['Wrap','Carve','Race','Hide'], answer:1,
+    explain:'"Carve" 雕刻——carve a face into the pumpkin。' },
+
+  { q:'Which adjective means "a little scary in a fun way"?',
+    zh:'哪一個形容詞代表「有點嚇人但好玩的」？',
+    options:['Sweet','Spooky','Bright','Lazy'], answer:1,
+    explain:'"Spooky" 陰森的——萬聖節的招牌氣氛。' },
+
+  { q:'Which two phrases do kids shout at the door on Halloween night?',
+    zh:'萬聖夜小朋友在門口會大喊哪兩個字？',
+    options:['Hi or bye','Trick or treat','Happy birthday','Knock knock'], answer:1,
+    explain:'"Trick or treat!" 不給糖就搗蛋——萬聖節最有名的口號。' },
+
+  { q:'Which group of people started the original Halloween traditions?',
+    zh:'最早的萬聖節傳統來自哪一群人？',
+    options:['The Romans','The Celts','The Japanese','The Spanish'], answer:1,
+    explain:'凱爾特人 Celts——居住於愛爾蘭、英國與法國北部。' },
+
+  { q:'What does the word "Halloween" come from?',
+    zh:'「Halloween」這個字是從哪裡來的？',
+    options:['"Happy Eve"','"All Hallows\' Eve"','"Holy Night"','"Hollow Pumpkin"'], answer:1,
+    explain:'All Hallows\' Eve = 萬聖節前夜——簡化後變成 Halloween。' },
+
+  { q:'Which immigrants brought Halloween to America in the 1800s?',
+    zh:'1800 年代是哪一群移民把萬聖節傳統帶到美國？',
+    options:['Italian','Japanese','Irish','Chinese'], answer:2,
+    explain:'愛爾蘭裔 Irish——他們把家鄉的習俗帶到新大陸。' },
+
+  { q:'What is "apple bobbing"?',
+    zh:'什麼是 apple bobbing？',
+    options:['A type of music','Catching apples from water using only your mouth','A spicy apple snack','Tossing apples into a basket'], answer:1,
+    explain:'臉直接伸進水盆裡用嘴咬蘋果——古老的豐收派對遊戲。' },
+
+  { q:'Tim: "I want to be a ____ — the glow-in-the-dark kind."',
+    zh:'Roleplay 1：「我要扮 ____——會在黑暗中發光的那種。」',
+    options:['ghost','skeleton','pumpkin','witch'], answer:1,
+    explain:'Scenario 1 用 skeleton——夜光骷髏裝是經典款。' },
+
+  { q:'Neighbor: "Here is some chocolate ____ for you. Happy Halloween!"',
+    zh:'Roleplay 2 鄰居：「這些巧克力 ____ 給你，萬聖節快樂！」',
+    options:['candy','soup','tea','soap'], answer:0,
+    explain:'Scenario 2 用 candy——萬聖夜的主角是糖果。' },
+
+  { q:'Dad: "Sure. What kind of face — funny or ____?"',
+    zh:'Roleplay 3 爸爸：「好啊，要刻好笑的還是 ____ 的臉？」',
+    options:['heavy','spooky','quiet','hungry'], answer:1,
+    explain:'Scenario 3 用 spooky——南瓜燈最有名的兩種風格。' },
+];
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+const state = { idx:0, score:0, answers:[] };
+
+function render(){
+  const q = QUIZ[state.idx];
+  $('#qno').textContent = `Question ${state.idx + 1} / ${QUIZ.length}`;
+  $('#bar').style.width = (state.idx / QUIZ.length * 100) + '%';
+  $('#question').textContent = q.q;
+  $('#question-zh').textContent = q.zh;
+  $('#feedback').textContent = '';
+  $('#feedback').className = 'feedback';
+  const box = $('#options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt__mark">${'ABCD'[i]}</span><span>${opt}</span>`;
+    btn.addEventListener('click', () => answer(i, btn));
+    box.appendChild(btn);
+  });
+  $('#question').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function answer(picked, btn){
+  const q = QUIZ[state.idx];
+  const ok = picked === q.answer;
+  state.answers.push({ q: state.idx, picked, correct: ok });
+  if(ok) state.score++;
+  $$('#options .opt').forEach((b, i) => {
+    b.disabled = true;
+    if(i === q.answer) b.classList.add('is-correct');
+    if(i === picked && !ok) b.classList.add('is-wrong');
+  });
+  const fb = $('#feedback');
+  fb.classList.add('show');
+  fb.classList.add(ok ? 'feedback--ok' : 'feedback--ng');
+  fb.innerHTML = ok
+    ? `✓ Correct! 答對了！<br><span style="font-weight:500;">${q.explain}</span>`
+    : `✗ The answer is: <b>${q.options[q.answer]}</b><br><span style="font-weight:500;">${q.explain}</span>`;
+  $('#bar').style.width = ((state.idx + 1) / QUIZ.length * 100) + '%';
+  setTimeout(() => {
+    state.idx++;
+    if(state.idx >= QUIZ.length) finish();
+    else render();
+  }, 2200);
+}
+
+function finish(){
+  const total = QUIZ.length, score = state.score, pct = Math.round(score / total * 100);
+  $('#r-score').textContent = score;
+  $('#r-total').textContent = total;
+  $('#r-pct').textContent = `(${pct}%)`;
+  let emoji, title, msgEn, msgZh;
+  if(pct === 100)      { emoji='🏆'; title='Perfect score!';   msgEn='Spooktacular! A bag full of candy is yours!'; msgZh='滿分！糖果袋滿滿是你的！'; }
+  else if(pct >= 80)   { emoji='🎃'; title='Excellent work!';  msgEn='Wonderful — a brave little vampire of vocabulary!'; msgZh='做得很好！單字小吸血鬼登場。'; }
+  else if(pct >= 60)   { emoji='👻'; title='Good effort!';     msgEn='Nice try — review the spooky vocabulary once more.'; msgZh='繼續加油！再去複習單字。'; }
+  else                 { emoji='🦇'; title='Keep practicing!'; msgEn="Don't give up — go back to the handout and try again!"; msgZh='不要放棄！回去再讀一次講義就會了。'; }
+  $('#r-emoji').textContent = emoji;
+  $('#r-title').textContent = title;
+  $('#r-msg-en').textContent = msgEn;
+  $('#r-msg-zh').textContent = msgZh;
+  $('#quiz-card').style.display = 'none';
+  $('#result-card').style.display = 'flex';
+  $('#result-card').style.flexDirection = 'column';
+  $('#result-card').style.alignItems = 'center';
+  $('#result-card').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+$('#btn-restart').addEventListener('click', () => {
+  state.idx = 0; state.score = 0; state.answers = [];
+  $('#result-card').style.display = 'none';
+  $('#quiz-card').style.display = 'flex';
+  render();
+});
+
+render();
+</script>
+<script src="../../_shared/schoolbar.js"></script>
+</body>
+</html>
