@@ -217,6 +217,44 @@
   .quote--teal{background:var(--teal-soft);border-left-color:var(--teal);}
   .quote--teal .quote__text{color:var(--teal-deep);}
 
+  /* === Disaster English units (cross-school shared) === */
+  .units{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:560px){ .units{ grid-template-columns:1fr 1fr;gap:24px; } }
+  @media (min-width:960px){ .units{ grid-template-columns:1fr 1fr 1fr;gap:26px; } }
+  .unit{
+    background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .unit:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .unit__hero{
+    height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){ .unit__hero{ height:160px; } }
+  .unit__emoji{font-size:60px;line-height:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
+  @media (min-width:720px){ .unit__emoji{ font-size:80px; } }
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+  .unit.d-1 .unit__hero{background:linear-gradient(135deg, #f4a04d 0%, #a85a0c 100%);}
+  .unit.d-2 .unit__hero{background:linear-gradient(135deg, #f06956 0%, #b32916 100%);}
+  .unit.d-3 .unit__hero{background:linear-gradient(135deg, #4a90c2 0%, #1c4d7e 100%);}
+  .unit.d-4 .unit__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}
+  .unit.d-5 .unit__hero{background:linear-gradient(135deg, #7dc47d 0%, #3d7a3d 100%);}
+  .unit.d-6 .unit__hero{background:linear-gradient(135deg, #e5cb5a 0%, #8c8e0a 100%);}
+  .unit__body{padding:24px 24px 28px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .unit__body{ padding:28px 28px 32px; } }
+  .unit__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red-deep);}
+  @media (min-width:720px){ .unit__no{ font-size:14px; } }
+  .unit__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:6px;}
+  @media (min-width:720px){ .unit__title{ font-size:28px; } }
+  .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .unit__title-zh{ font-size:19px; } }
+  .unit__desc{font-size:16px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .unit__desc{ font-size:18px; } }
+  .unit__cta{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);color:var(--red-deep);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;letter-spacing:.5px;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  @media (min-width:720px){ .unit__cta{ font-size:18px; } }
+  .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
+  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+
   .back-cta{text-align:center;margin-top:24px;}
   .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
   .back-cta a:hover{background:var(--red);}
@@ -542,10 +580,104 @@
   </div>
 </section>
 
-<!-- ===== VII. SDGs ===== -->
+<!-- ===== VII. Disaster English (cross-school shared) ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="sec__no">VII.</div>
+    <h2 class="sec__title">Disaster English</h2>
+    <div class="sec__title-zh">防災英文系列 · 六堂課堂可用的雙語教材（含講義 + 小考）</div>
+    <div class="sec__rule"></div>
+
+    <div class="intro__body" style="margin-top:0;max-width:840px;">
+      <p>
+        Six bilingual lessons covering the disasters every Taiwan kid should know — each unit pairs a <strong>handout</strong> with a <strong>10-question quiz</strong>. The series is shared across all Changhua Bilingual partner schools, so a Dacheng kid and a Dazhuang kid see the same vocabulary at the same level.
+      </p>
+      <p class="zh">
+        六堂課，涵蓋台灣孩子應該認識的災害類型——每單元含<strong>講義</strong> + <strong>10 題小考</strong>。本系列跨校共用，大城孩子與大莊孩子拿到的是同一份內容、同一套詞彙基準。
+      </p>
+    </div>
+
+    <div class="units" style="margin-top:36px;">
+
+      <a class="unit d-1" href="https://changhua-bilingual.org/disaster-english/earthquake/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🌍</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 01 · Disaster</div>
+          <div class="unit__title">Earthquake Safety</div>
+          <div class="unit__title-zh">地震安全</div>
+          <div class="unit__desc">When the ground shakes — Drop, Cover, Hold On.</div>
+          <div class="unit__cta">Open Unit 1 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit d-2" href="https://changhua-bilingual.org/disaster-english/fire/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🔥</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 02 · Disaster</div>
+          <div class="unit__title">Fire Safety</div>
+          <div class="unit__title-zh">火災安全</div>
+          <div class="unit__desc">If you smell smoke — Stay Low, Find Exit, Stay Out.</div>
+          <div class="unit__cta">Open Unit 2 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit d-3" href="https://changhua-bilingual.org/disaster-english/flood/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🌊</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 03 · Disaster</div>
+          <div class="unit__title">Flood Safety</div>
+          <div class="unit__title-zh">水災安全</div>
+          <div class="unit__desc">When water rises — go to high ground, stay away.</div>
+          <div class="unit__cta">Open Unit 3 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit d-4" href="https://changhua-bilingual.org/disaster-english/typhoon/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🌀</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 04 · Disaster</div>
+          <div class="unit__title">Typhoon Safety</div>
+          <div class="unit__title-zh">颱風安全</div>
+          <div class="unit__desc">A typhoon is coming — prepare, stay home, listen.</div>
+          <div class="unit__cta">Open Unit 4 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit d-5" href="https://changhua-bilingual.org/disaster-english/first-aid/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🚑</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 05 · Disaster</div>
+          <div class="unit__title">First Aid &amp; CPR</div>
+          <div class="unit__title-zh">急救與心肺復甦</div>
+          <div class="unit__desc">If someone is hurt — Call 119, stay calm, press hard.</div>
+          <div class="unit__cta">Open Unit 5 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit d-6" href="https://changhua-bilingual.org/disaster-english/everyday/?from=dacheng">
+        <div class="unit__hero"><span class="unit__emoji">🛡️</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 06 · Disaster</div>
+          <div class="unit__title">Everyday Safety</div>
+          <div class="unit__title-zh">日常安全</div>
+          <div class="unit__desc">Stay safe at school, on the road, and at home.</div>
+          <div class="unit__cta">Open Unit 6 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="quote quote--red" style="margin-top:40px;">
+      <div class="quote__text">"What gets practiced gets remembered."</div>
+      <div class="quote__zh">「練過的，才記得起來。」<br>—— 為什麼 W.H.E.A.T. 防災課程要搭配每單元的小考</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIII. SDGs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VIII.</div>
     <h2 class="sec__title">SDGs Alignment</h2>
     <div class="sec__title-zh">扣緊聯合國永續發展目標</div>
     <div class="sec__rule"></div>
