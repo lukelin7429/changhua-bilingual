@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Campus Gallery · 校園剪影 · Dacheng Elementary</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/dacheng/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/dacheng/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/dacheng/favicon-180.png">
+<link rel="shortcut icon" href="/schools/dacheng/favicon.ico">
+<meta name="description" content="A photo gallery of life at Dacheng Elementary School — competition honours, the W.H.E.A.T. curriculum in action, beautiful learning spaces, diverse extracurriculars, and the teaching team. 大城國小校園剪影 · 競賽表現 / 課程教學 / 美感空間 / 多元學習 / 教學團隊。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#2c3a8c;--blue:#4760c5;--blue-soft:#e2e6f5;
+    --olive:#bcbe1f;--olive-deep:#8c8e0a;--olive-soft:#f3f4cf;
+    --red:#e63d2e;--red-deep:#b32619;--red-soft:#fde2dd;
+    --wheat:#d4ad6a;--wheat-deep:#9c7c30;--wheat-soft:#faecd0;
+    --teal:#0f8389;--teal-deep:#075b60;--teal-soft:#d3eced;
+    --plum:#8e3b80;--plum-deep:#5e2453;--plum-soft:#f0dcec;
+    --bg-soft:#f6f7fb;--line:#e3e6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(44,58,140,.30);--shadow-sm:0 6px 16px -6px rgba(44,58,140,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+  section.alt{background:var(--bg-soft);}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--olive);border-radius:3px;margin:22px 0 36px;}
+  section:nth-of-type(3) .sec__rule{background:var(--red);}
+  section:nth-of-type(4) .sec__rule{background:var(--olive);}
+  section:nth-of-type(5) .sec__rule{background:var(--teal);}
+  section:nth-of-type(6) .sec__rule{background:var(--plum);}
+  section:nth-of-type(7) .sec__rule{background:var(--wheat);}
+
+  .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--blue-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--red-deep);}
+  .subnav a.is-active{background:var(--red);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Banner === */
+  .banner{
+    background:
+      radial-gradient(ellipse at 18% 24%, rgba(212,173,106,.55) 0%, transparent 52%),
+      radial-gradient(ellipse at 82% 26%, rgba(188,190,31,.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 92%, rgba(230,61,46,.55) 0%, transparent 60%),
+      linear-gradient(135deg, var(--blue-deep) 0%, var(--plum-deep) 100%);
+    color:#fff;padding:48px 24px 56px;text-align:center;position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ padding:72px 24px 84px; } }
+  .banner__brand{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:5px;color:#fde6c2;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:.5px;text-shadow:0 4px 20px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner h1{ font-size:78px; } }
+  .banner__zh{font-size:21px;color:#f0e7d5;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 12px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
+  .banner__tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#ffe7c8;margin:18px auto 0;line-height:1.45;max-width:760px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner__tagline{ font-size:22px; } }
+
+  /* === Quick jump === */
+  .jump{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px;}
+  .jump a{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:8px 16px;border-radius:99px;transition:background .15s;}
+  @media (min-width:720px){ .jump a{ font-size:17px; } }
+  .jump a:hover{background:rgba(255,255,255,.3);}
+
+  /* === Intro === */
+  .intro__lead{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.35;letter-spacing:.3px;}
+  @media (min-width:720px){ .intro__lead{ font-size:36px; } }
+  .intro__lead-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .intro__lead-zh{ font-size:24px; } }
+  .intro__body{margin-top:24px;font-size:19px;color:var(--ink);line-height:1.75;max-width:840px;}
+  @media (min-width:720px){ .intro__body{ font-size:21px; } }
+  .intro__body p{margin-top:14px;}
+  .intro__body p:first-child{margin-top:0;}
+  .intro__body .zh{color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .intro__body .zh{ font-size:20px; } }
+
+  /* === Gallery grid === */
+  .gal{display:grid;grid-template-columns:repeat(1, 1fr);gap:18px;}
+  @media (min-width:560px){ .gal{ grid-template-columns:repeat(2, 1fr); } }
+  @media (min-width:960px){ .gal{ grid-template-columns:repeat(3, 1fr); } }
+  @media (min-width:1280px){ .gal{ grid-template-columns:repeat(4, 1fr); } }
+  .gal-item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .gal-item:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .gal-item img{
+    width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+    background:var(--bg-soft);
+  }
+  .gal-item__cap{padding:14px 16px 16px;flex:1;}
+  .gal-item__en{font-family:'Playfair Display',serif;font-size:17px;color:var(--blue-deep);font-weight:700;line-height:1.3;}
+  @media (min-width:720px){ .gal-item__en{ font-size:19px; } }
+  .gal-item__zh{font-size:14px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+  @media (min-width:720px){ .gal-item__zh{ font-size:15px; } }
+
+  /* === Footer of section: anchor + count === */
+  .sec__meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .sec__count{font-size:14px;color:var(--ink-soft);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+  @media (min-width:720px){ .sec__count{ font-size:15px; } }
+
+  .back-cta{text-align:center;margin-top:36px;}
+  .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
+  .back-cta a:hover{background:var(--red);}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--blue-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">English Life</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Gallery</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=dacheng">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Banner ===== -->
+<header class="banner">
+  <div class="banner__brand">Photo Gallery · 校園剪影</div>
+  <h1>One Campus, Many Stories</h1>
+  <div class="banner__zh">大城國小 · 五大特色一次看</div>
+  <p class="banner__tagline">Competition honours, curriculum in action, beautiful spaces, diverse extracurriculars, and the people who hold it all together.</p>
+  <div class="jump">
+    <a href="#competitions">🏆 Competitions</a>
+    <a href="#curriculum">📚 Curriculum</a>
+    <a href="#spaces">🏛 Spaces</a>
+    <a href="#activities">🎭 Activities</a>
+    <a href="#team">👥 Team</a>
+  </div>
+</header>
+
+<!-- ===== I. Intro ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">A Quick Tour</h2>
+    <div class="sec__title-zh">先說明：這個頁面在看什麼</div>
+    <div class="sec__rule"></div>
+
+    <div class="intro__lead">Some schools are best understood by walking the grounds. Until you can, this is the next best thing.</div>
+    <div class="intro__lead-zh">有些學校要走過一遍才能懂——在你還沒走進來之前，這頁就是次好的方式。</div>
+
+    <div class="intro__body">
+      <p>
+        Below are five chapters of life at Dacheng — the same five chapters the school uses internally to describe itself: <strong>competition honours, quality curriculum teaching, aesthetic learning spaces, diverse extracurricular learning, and the teaching team</strong>. We've curated a few representative photos for each — not a complete archive, just enough to give you the feel of a 110-year-old rural campus that's still trying new things.
+      </p>
+      <p class="zh">
+        以下五個章節，是大城國小自己描述自己的五個面向：<strong>優異的競賽表現、優質的課程教學、美感的學習空間、豐富的多元學習、優質的教學團隊</strong>。每個章節選了幾張代表照——不是完整檔案庫，只是讓沒走進來的人也能感受這所百年偏鄉小校現在的樣子。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Competitions ===== -->
+<section id="competitions" class="alt">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Competition Honours</h2>
+    <div class="sec__title-zh">優異的競賽表現 · 學生在縣級與全國舞台上的成績</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__meta">
+      <p style="font-size:18px;color:var(--ink);max-width:780px;line-height:1.65;">
+        Drama, storytelling, language, dodgeball, English reading, disaster picture-book creation, digital learning, fine art — Dacheng kids show up across the board.
+      </p>
+      <span class="sec__count">8 of many · 精選 8 張</span>
+    </div>
+
+    <div class="gal">
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/01-drama-1st.jpg" alt="戲劇舞台劇第一名" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Drama · County 1st Place</div>
+          <div class="gal-item__zh">彰化縣 114 學年度創意戲劇比賽 · 國小組舞台劇類第一名</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/02-storytelling-1st.jpg" alt="說故事大賽第一名" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Storytelling Contest · 1st Place</div>
+          <div class="gal-item__zh">林睦硯同學 · 林詩芸文教基金會彰化縣說故事大賽第一名</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/03-dodgeball-2nd.jpg" alt="躲避球錦標賽第二名" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Dodgeball · County 2nd</div>
+          <div class="gal-item__zh">114 學年度縣長盃躲避球錦標賽 · 六年級班隊組第二名</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/04-english-reading.jpg" alt="英語團體朗讀比賽佳作" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">English Team Reading · Honourable Mention</div>
+          <div class="gal-item__zh">彰化縣 114 年國民小學英語團體朗讀比賽 · C 組佳作</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/05-language-trio.jpg" alt="語文競賽三項佳績" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Language Competition · Trio of Honours</div>
+          <div class="gal-item__zh">國語朗讀第二名 黃品蓁 · 台語演說第五名 蔡念穎 · 國語作文第五名 吳以晴</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/06-disaster-picturebook.jpg" alt="防災繪本創作表揚" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Disaster-Prevention Picture-Book Creation</div>
+          <div class="gal-item__zh">114 學年度防災繪本創作表揚 · W.H.E.A.T. 課程延伸</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/07-digital-learning.jpg" alt="數位學習推動" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Digital Learning in Action</div>
+          <div class="gal-item__zh">扎實推動數位學習 · 113 學年度彰化縣數位學習績優學校</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/competitions/08-art-comic.jpg" alt="學生美術比賽漫畫類佳作" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Fine Art · Comics &amp; Drawing</div>
+          <div class="gal-item__zh">彰化縣 114 學年度學生美術比賽 · 漫畫類、繪畫類佳作（四乙 吳依瑄）</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Curriculum ===== -->
+<section id="curriculum">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Curriculum in Action</h2>
+    <div class="sec__title-zh">優質的課程教學 · W.H.E.A.T. 防災五力 × 食農 × 雙語</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__meta">
+      <p style="font-size:18px;color:var(--ink);max-width:780px;line-height:1.65;">
+        From bilingual conversation to wheat-planting fields to the Field-Study Centre's disaster-prevention game stations — what Dacheng teaches, in pictures.
+      </p>
+      <span class="sec__count">8 of many · 精選 8 張</span>
+    </div>
+
+    <div class="gal">
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/01-bilingual.jpg" alt="大城國小雙語教育" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Bilingual Classroom</div>
+          <div class="gal-item__zh">大城國小雙語教育 · 外師 Alyssa 老師日常對話課</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/02-wheat-planting.jpg" alt="小麥種植課程" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Wheat-Planting Lab</div>
+          <div class="gal-item__zh">小麥種植課程 · 從播種到收成的食農教育</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/03-life-education.jpg" alt="生命教育故事課程" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Life Education Storytelling</div>
+          <div class="gal-item__zh">大城國小生命教育故事課程</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/04-library-reading.jpg" alt="大城鄉圖書館閱讀推廣" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Library Reading Outreach</div>
+          <div class="gal-item__zh">大城鄉圖書館閱讀推廣活動 · 二年級聽故事 + 手作</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/05-food-art.jpg" alt="食農藝術教育研習" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Food &amp; Art Education</div>
+          <div class="gal-item__zh">食農藝術教育研習 · 林雅娟老師指導</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/06-disaster-sdgs.jpg" alt="防災闖關 永續發展知多少" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">SDGs Quiz Stations</div>
+          <div class="gal-item__zh">大城去佗位 · 防災闖關活動「永續發展知多少」</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/07-disaster-action.jpg" alt="災害來臨怎麼辦" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">When Disaster Strikes</div>
+          <div class="gal-item__zh">大城去佗位 · 防災闖關活動「災害來臨怎麼辦」</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/curriculum/08-disaster-bike.jpg" alt="騎福大城逍遙遊" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Cycling the Township</div>
+          <div class="gal-item__zh">大城去佗位 · 騎福大城逍遙遊（單車環鄉、認識疏散動線）</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Spaces ===== -->
+<section id="spaces" class="alt">
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Aesthetic Learning Spaces</h2>
+    <div class="sec__title-zh">美感的學習空間 · 校門、廣場、彩繪、生態池</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__meta">
+      <p style="font-size:18px;color:var(--ink);max-width:780px;line-height:1.65;">
+        Walking into a school you can see is loved is half of why it works. These are the corners we're proud of.
+      </p>
+      <span class="sec__count">8 of many · 精選 8 張</span>
+    </div>
+
+    <div class="gal">
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/01-gate.jpg" alt="校門口景觀" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">The School Gate</div>
+          <div class="gal-item__zh">校門口景觀 · 中平路上的大城國小</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/02-plaza.jpg" alt="大城廣場" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Dacheng Plaza</div>
+          <div class="gal-item__zh">大城廣場 · 校園集會與表演的中心</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/03-courtyard.jpg" alt="中庭一隅" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">A Corner of the Courtyard</div>
+          <div class="gal-item__zh">中庭一隅 · 下課時間孩子最喜歡的角落</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/04-track.jpg" alt="TEAM DACHENG 運動場" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">TEAM DACHENG Track</div>
+          <div class="gal-item__zh">TEAM DACHENG 運動場 · 運動會與大會舞的主場</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/05-mural.jpg" alt="大城出頭天彩繪" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">"Dacheng Rises" Mural</div>
+          <div class="gal-item__zh">大城出頭天彩繪 · 在地認同的視覺地標</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/06-gigo-classroom.jpg" alt="智高遊學教室" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">GIGO Field-Study Classroom</div>
+          <div class="gal-item__zh">智高遊學教室 · 115 學年度新課程的家</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/07-ecology-pond.jpg" alt="生態池一隅" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Ecology Pond</div>
+          <div class="gal-item__zh">生態池一隅 · 校園自然教育現場</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/spaces/08-playground.jpg" alt="校園遊戲區" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Playground Zone</div>
+          <div class="gal-item__zh">校園遊戲區 · 下課十分鐘最熱鬧的地方</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Activities ===== -->
+<section id="activities">
+  <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Diverse Extracurriculars</h2>
+    <div class="sec__title-zh">豐富的多元學習 · 七大社團 × 社區展演 × 寒暑假營隊</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__meta">
+      <p style="font-size:18px;color:var(--ink);max-width:780px;line-height:1.65;">
+        Taiko, north-pipe music, diabolo, choir, autumn pipe concerts, dance shows, summer writing camp, Christmas caroling — seven clubs and a packed calendar.
+      </p>
+      <span class="sec__count">8 of many · 精選 8 張</span>
+    </div>
+
+    <div class="gal">
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/01-taiko.jpg" alt="太鼓隊" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Taiko Drum Team</div>
+          <div class="gal-item__zh">大城太鼓隊 · 2025 全國教育傳承盃太鼓比賽第一名</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/02-beiguan.jpg" alt="北管社" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">North-Pipe Music Club</div>
+          <div class="gal-item__zh">北管社 · 在地傳統音樂的少年傳承</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/03-diabolo.jpg" alt="扯鈴社" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Diabolo Club</div>
+          <div class="gal-item__zh">扯鈴社 · 民俗體育的校園日常</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/04-autumn-music.jpg" alt="2025 南北管秋之饗宴" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Autumn Pipe-Music Concert</div>
+          <div class="gal-item__zh">2025 南北管秋之饗宴 · 社區音樂節展演</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/05-dance-show.jpg" alt="健康舞蹈活動表演" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Healthy Dance Showcase</div>
+          <div class="gal-item__zh">114 年運動 i 台灣 2.0 健康舞蹈活動表演</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/06-summer-writing-camp.jpg" alt="暑假寫作營" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Summer Writing Camp</div>
+          <div class="gal-item__zh">暑假寫作營體驗課程 · 把假期變成創作工作坊</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/07-caroling.jpg" alt="喜樂報佳音" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Christmas Caroling</div>
+          <div class="gal-item__zh">喜樂報佳音 · 走出校園唱進社區</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/activities/08-anniversary-dance.jpg" alt="111 周年校慶大會舞" loading="lazy">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">111th Anniversary Dance</div>
+          <div class="gal-item__zh">111 週年校慶運動會 · 大會舞才藝秀</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Team ===== -->
+<section id="team" class="alt">
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
+    <h2 class="sec__title">The Teaching Team</h2>
+    <div class="sec__title-zh">優質的教學團隊 · 114 學年度教職員工合照</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__meta">
+      <p style="font-size:18px;color:var(--ink);max-width:780px;line-height:1.65;">
+        The people who actually do this work every day — without whom none of the above happens.
+      </p>
+      <span class="sec__count">114 學年度 · 全體合照</span>
+    </div>
+
+    <div class="gal" style="grid-template-columns:1fr; max-width:900px;margin:0 auto;">
+      <figure class="gal-item">
+        <img src="../photos/gallery/team/01-staff-group.jpg" alt="114 學年度大城國小教職員工合照" loading="lazy" style="aspect-ratio:auto;">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Staff Group Photo (Casual)</div>
+          <div class="gal-item__zh">114 學年度大城國小教職員工合照 · 校史室前</div>
+        </figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="../photos/gallery/team/02-staff-formal.jpg" alt="114 學年度大城國小教職員工合照（正式）" loading="lazy" style="aspect-ratio:auto;">
+        <figcaption class="gal-item__cap">
+          <div class="gal-item__en">Staff Group Photo (Formal)</div>
+          <div class="gal-item__zh">114 學年度大城國小教職員工合照 · 司令台前</div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回大城首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 大城國小 Dacheng Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:var(--blue-deep);">Changhua Bilingual Network</a>
+</footer>
+
+</body>
+</html>
