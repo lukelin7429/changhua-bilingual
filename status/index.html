@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>School Build Status · Changhua Bilingual Hub</title>
+<meta name="description" content="Internal progress dashboard for partner-school websites in the Changhua Bilingual Hub. Status by township.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a2725;
+    --warm:#4a4239;
+    --warm-light:#7a6e62;
+    --warm-soft:#ece5dc;
+    --olive:#c9c920;
+    --olive-deep:#8c8e0a;
+    --green:#5b9d5b;
+    --green-soft:#e7f3e7;
+    --sun:#f0a722;
+    --sun-soft:#feeed0;
+    --sun-deep:#a06c10;
+    --line:#e3dfca;
+    --ink:#1f2530;
+    --ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(42,39,37,.30);
+    --shadow-sm:0 6px 16px -6px rgba(42,39,37,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+
+  /* Header */
+  .head{background:var(--navy);color:#fff;padding:40px 24px;text-align:center;border-bottom:6px solid var(--olive);}
+  @media (min-width:720px){ .head{ padding:56px 24px; } }
+  .head__brand{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:4px;color:var(--olive);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  @media (min-width:720px){ .head__brand{ font-size:15px; } }
+  .head__title{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;letter-spacing:.5px;line-height:1.1;}
+  @media (min-width:720px){ .head__title{ font-size:52px; } }
+  .head__zh{font-size:18px;color:#d8d2c8;font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .head__zh{ font-size:22px; } }
+  .head__sub{color:#b8b0a4;font-size:14px;font-style:italic;margin-top:14px;letter-spacing:.5px;max-width:640px;margin-left:auto;margin-right:auto;}
+  @media (min-width:720px){ .head__sub{ font-size:15.5px; } }
+
+  /* KPI strip */
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0 8px;}
+  @media (max-width:520px){ .kpis{grid-template-columns:repeat(3,1fr);gap:8px;} .kpi{padding:14px 8px;} .kpi__num{font-size:30px;} }
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;text-align:center;box-shadow:var(--shadow-sm);}
+  .kpi__num{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--navy);line-height:1;}
+  .kpi__lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-top:8px;}
+
+  /* Township section */
+  main{padding:24px 0 80px;}
+  .twp{margin-top:48px;}
+  .twp__head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--navy);padding-bottom:8px;margin-bottom:20px;}
+  .twp__name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--navy);}
+  .twp__count{font-size:13px;color:var(--ink-soft);letter-spacing:1px;}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;transition:transform .15s ease,box-shadow .15s ease;}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card__name{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--navy);line-height:1.2;}
+  .card__note{font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
+  .card__link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--warm);font-weight:600;text-decoration:none;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto;word-break:break-all;}
+  .card__link:hover{color:var(--olive-deep);}
+  .card__link span.arrow{flex-shrink:0;}
+
+  /* Status badges */
+  .badge{display:inline-block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;flex-shrink:0;}
+  .badge--live{background:var(--green-soft);color:#2d6a2d;}
+  .badge--design{background:var(--sun-soft);color:var(--sun-deep);}
+  .badge--upgrade{background:var(--warm-soft);color:var(--warm);}
+
+  /* Footer */
+  .foot{border-top:1px solid var(--line);padding:28px 0;margin-top:60px;text-align:center;font-size:13px;color:var(--ink-soft);}
+  .foot a{color:var(--warm);font-weight:600;text-decoration:none;}
+  .foot__date{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;margin-top:6px;color:var(--warm-light);}
+
+  /* Legend */
+  .legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 18px;margin-top:18px;font-size:12.5px;color:var(--ink-soft);}
+  .legend__item{display:inline-flex;align-items:center;gap:6px;}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="head__brand">Changhua Bilingual Hub · Internal</div>
+  <h1 class="head__title">School Build Status</h1>
+  <div class="head__zh">合作學校網站建置進度</div>
+  <p class="head__sub">An at-a-glance view of which partner-school sites are live, in progress, or pending an upgrade. Organized by township.</p>
+</header>
+
+<div class="wrap">
+
+  <section class="kpis" aria-label="Summary counts">
+    <div class="kpi"><div class="kpi__num">15</div><div class="kpi__lbl">Schools</div></div>
+    <div class="kpi"><div class="kpi__num">15</div><div class="kpi__lbl">Live</div></div>
+    <div class="kpi"><div class="kpi__num">8</div><div class="kpi__lbl">Townships</div></div>
+  </section>
+
+  <main>
+
+    <!-- 彰化市 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Changhua City · 彰化市</div><div class="twp__count">2 schools</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">民生國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Minsheng Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">City-center elementary in Changhua City.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/minsheng/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/minsheng</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">陽明國中<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Yangming Junior High</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Fully customized junior-high site with multiple sub-pages.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/yangming-jhs/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/yangming-jhs</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 花壇鄉 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Huatan · 花壇鄉</div><div class="twp__count">1 school</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">花壇國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Huatan Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Reference build &mdash; the prototype other school designs follow.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/huatan/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/huatan</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 福興鄉 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Fuxing · 福興鄉</div><div class="twp__count">2 schools</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">福興國中<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Fusing Junior High</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Migrated from a legacy Google Sites build to the new Hub design.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/fusing-jhs/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/fusing-jhs</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">文昌國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Wenchang Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Built on the Huatan reference pattern.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/wenchang/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/wenchang</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 二林鎮 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Erlin · 二林鎮</div><div class="twp__count">4 schools</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">中正國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Zhongzheng Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">First Erlin school on the new platform.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/zhongzheng/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/zhongzheng</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">萬興國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Wansing Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Erlin&rsquo;s flagship custom build; centennial-school heritage.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/wansing/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/wansing</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">育德國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Yude Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Erlin elementary; part of the southern four-school lineage.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/yude/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/yude</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">香田國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Siangtian Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Tiny rural school (~65 students) with food-and-farming focus.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/siangtian/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/siangtian</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 溪州鄉 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Xizhou · 溪州鄉</div><div class="twp__count">1 school</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">大莊國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Dajuang Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">One of the largest content libraries in the Hub.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/dajuang/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/dajuang</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 大城鄉 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Dacheng · 大城鄉</div><div class="twp__count">3 schools</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">西港國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Sigang Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">First Dacheng partner school; coastal mini-campus (~75 students).</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/sigang/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/sigang</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">大城國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Dacheng Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Mid-sized rural campus (~263 students).</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/dacheng/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/dacheng</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">美豐國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Meifeng Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Coastal ultra-small school (~32 students); MOE-designated remote.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/meifeng/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/meifeng</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 芳苑鄉 -->
+    <section class="twp">
+      <div class="twp__head"><div class="twp__name">Fangyuan · 芳苑鄉</div><div class="twp__count">2 schools</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">後寮國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Houliao Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Small rural school near the Erlin border; agricultural community.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/houliao/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/houliao</a>
+        </article>
+        <article class="card">
+          <div class="card__top">
+            <div class="card__name">育華國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Yuhua Elementary</span></div>
+            <span class="badge badge--live">Live</span>
+          </div>
+          <div class="card__note">Coastal school anchored on environmental-education identity.</div>
+          <a class="card__link" href="https://changhua-bilingual.org/schools/yuhua/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/yuhua</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div>Maintained by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect · 人師教育協會</a></div>
+    <div class="foot__date">Last updated · 2026-05-16</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
