@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Yude Elementary · 彰化縣二林鎮育德國民小學</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c93b69'/%3E%3Ctext x='50%25' y='58%25' font-family='Georgia,serif' font-size='18' font-weight='800' fill='%23faf3e6' text-anchor='middle'%3E育%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Yude Elementary School — a small rural campus in Erlin Township, Changhua. Home of the Soaring Arts curriculum, the Yude Reading Time programme, and Teacher Amanda's drama-rooted English classroom. 彰化縣二林鎮育德國民小學 · 藝翔天開 · 育德愛閱 · 走讀外竹 · 蕎見二林。">
+<meta property="og:title" content="Yude Elementary · 彰化縣二林鎮育德國民小學">
+<meta property="og:description" content="Born from Zhongzheng. Growing on our own soil since 1970. 一所從中正分立、在外竹里自己長出來的南境小校。">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rose-deep:#9d2a52;
+    --rose:#c93b69;
+    --rose-soft:#fce3eb;
+    --cream:#faf3e6;
+    --cream-deep:#f0e4cb;
+    --bamboo:#5b9b6e;
+    --bamboo-deep:#36703f;
+    --bamboo-soft:#dff0e1;
+    --gold:#d9a23a;
+    --gold-deep:#a07414;
+    --gold-soft:#faecc8;
+    --ink:#2a1f2c;
+    --ink-soft:#5d4e5a;
+    --line:#ecdfd5;
+    --shadow:0 14px 38px -16px rgba(157,42,82,.28);
+    --shadow-sm:0 6px 16px -6px rgba(157,42,82,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#fff;color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:'Playfair Display','PingFang TC',serif;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--rose);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--rose-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  /* === Sub-nav === */
+  .subnav{
+    background:var(--rose-soft);padding:18px 0;border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;
+    font-family:'Playfair Display','PingFang TC',serif;font-size:19px;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{
+    color:var(--rose-deep);text-decoration:none;font-weight:600;
+    padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;
+  }
+  .subnav a:hover{background:#fff;color:var(--rose);}
+  .subnav a.is-active{background:var(--rose);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Hero Banner === */
+  .banner{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(157,42,82,.0) 0%, rgba(157,42,82,.55) 100%),
+      url('photos/hero-rainbow.png') center 38%/cover;
+    background-color:var(--rose-deep);
+    min-height:300px;display:flex;align-items:flex-end;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ min-height:420px; } }
+  @media (min-width:1080px){ .banner{ min-height:480px; } }
+  .banner__inner{
+    position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
+    padding:32px 24px 28px;color:#fff;display:flex;align-items:flex-end;gap:18px;
+  }
+  @media (min-width:720px){ .banner__inner{ padding:48px 36px 40px;gap:24px; } }
+  .banner__text{flex:1;min-width:0;}
+  .banner__brand{
+    font-family:'Playfair Display',serif;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;margin-bottom:12px;
+  }
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{
+    font-family:'Playfair Display',serif;
+    font-size:44px;font-weight:800;line-height:1.0;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.55);
+  }
+  @media (min-width:720px){ .banner h1{ font-size:74px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:92px; } }
+  .banner__zh{
+    font-size:20px;color:#fbeef3;margin-top:6px;font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
+  }
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
+  .banner__tagline{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:17px;color:var(--cream);margin-top:14px;line-height:1.45;
+    max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.5);
+  }
+  @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
+  .banner__badge{
+    flex-shrink:0;align-self:flex-end;
+    width:54px;height:54px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--rose-deep);
+    box-shadow:0 8px 22px -6px rgba(0,0,0,.5);
+  }
+  @media (min-width:720px){ .banner__badge{ width:78px;height:78px;font-size:42px; } }
+
+  /* === About === */
+  .about__lead{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:700;color:var(--rose-deep);line-height:1.35;letter-spacing:.3px;
+  }
+  @media (min-width:720px){ .about__lead{ font-size:38px; } }
+  .about__lead-zh{font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .about__lead-zh{ font-size:25px; } }
+  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
+  @media (min-width:720px){ .about__body{ font-size:22px; } }
+  .about__body p{margin-top:16px;}
+  .about__body p:first-child{margin-top:0;}
+  .about__body .zh{color:var(--ink-soft);font-size:19px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .about__body .zh{ font-size:21px; } }
+  .about__body strong{color:var(--rose-deep);font-weight:700;}
+
+  .figure{
+    margin-top:36px;background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:14px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .figure{ padding:20px; } }
+  .figure img{width:100%;height:auto;display:block;border-radius:10px;}
+  .figure figcaption{
+    margin-top:14px;text-align:center;font-style:italic;
+    font-size:18px;color:var(--ink-soft);line-height:1.5;padding:0 8px;
+  }
+  @media (min-width:720px){ .figure figcaption{ font-size:20px; } }
+  .figure figcaption b{color:var(--rose-deep);font-style:normal;}
+
+  .quote{
+    margin-top:36px;background:var(--gold-soft);border-left:6px solid var(--gold);
+    padding:24px 28px;border-radius:0 12px 12px 0;
+  }
+  .quote__text{
+    font-family:'Playfair Display',serif;
+    font-size:26px;font-weight:700;color:var(--rose-deep);line-height:1.4;font-style:italic;
+  }
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+  .quote--rose{background:var(--rose-soft);border-left-color:var(--rose);}
+  .quote--bamboo{background:var(--bamboo-soft);border-left-color:var(--bamboo);}
+  .quote--bamboo .quote__text{color:var(--bamboo-deep);}
+
+  /* === Stat strip === */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;}
+  @media (min-width:720px){ .stats{ grid-template-columns:repeat(4,1fr);gap:18px; } }
+  .stat{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    padding:18px 14px;text-align:center;
+  }
+  .stat__num{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--rose);line-height:1;}
+  @media (min-width:720px){ .stat__num{ font-size:44px; } }
+  .stat__num--small{font-size:24px;}
+  @media (min-width:720px){ .stat__num--small{ font-size:30px; } }
+  .stat__label{font-size:14px;color:var(--ink-soft);font-weight:600;letter-spacing:1px;margin-top:6px;text-transform:uppercase;}
+  @media (min-width:720px){ .stat__label{ font-size:16px; } }
+  .stat__zh{font-size:14px;color:var(--ink-soft);margin-top:2px;font-weight:500;}
+  @media (min-width:720px){ .stat__zh{ font-size:15px; } }
+
+  /* === Four pillars === */
+  .pillars{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:720px){ .pillars{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .pillar{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:28px 26px;box-shadow:var(--shadow-sm);
+    border-top:6px solid var(--rose);transition:transform .2s, box-shadow .2s;
+  }
+  @media (min-width:720px){ .pillar{ padding:36px 32px; } }
+  .pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .pillar:nth-child(2){border-top-color:var(--gold);}
+  .pillar:nth-child(3){border-top-color:var(--bamboo);}
+  .pillar:nth-child(4){border-top-color:var(--rose-deep);}
+  .pillar__icon{font-size:46px;line-height:1;margin-bottom:12px;}
+  @media (min-width:720px){ .pillar__icon{ font-size:56px; } }
+  .pillar__title{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:700;color:var(--rose-deep);line-height:1.2;
+    border-bottom:3px solid var(--gold);padding-bottom:6px;display:inline-block;
+  }
+  @media (min-width:720px){ .pillar__title{ font-size:34px; } }
+  .pillar__title-zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .pillar__title-zh{ font-size:23px; } }
+  .pillar__body{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .pillar__body{ font-size:20px; } }
+  .pillar__body strong{color:var(--ink);font-weight:700;}
+
+  /* === Spotlight (Soaring Arts) === */
+  .spotlight{
+    background:linear-gradient(135deg, var(--rose-soft) 0%, var(--gold-soft) 100%);
+    border-radius:24px;padding:36px 28px;border:2px solid var(--rose);box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .spotlight{ padding:56px 48px; } }
+  .spotlight__badge{
+    display:inline-block;background:var(--rose);color:#fff;
+    font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .spotlight__badge{ font-size:16px; } }
+  .spotlight__title{
+    font-family:'Playfair Display',serif;
+    font-size:34px;font-weight:800;color:var(--rose-deep);line-height:1.15;
+    margin-top:14px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .spotlight__title{ font-size:50px; } }
+  .spotlight__zh{font-size:21px;color:var(--ink-soft);font-weight:600;margin-top:8px;}
+  @media (min-width:720px){ .spotlight__zh{ font-size:25px; } }
+  .spotlight__body{font-size:19px;color:var(--ink);margin-top:20px;line-height:1.7;}
+  @media (min-width:720px){ .spotlight__body{ font-size:21px; } }
+  .spotlight__body strong{color:var(--rose-deep);font-weight:700;}
+  .spotlight__body .zh{color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;display:block;}
+  @media (min-width:720px){ .spotlight__body .zh{ font-size:20px; } }
+
+  .arts-list{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));
+    gap:10px;margin-top:24px;
+  }
+  @media (min-width:720px){ .arts-list{ gap:14px;margin-top:30px; } }
+  .arts-item{
+    background:#fff;border-radius:12px;padding:14px 8px;text-align:center;
+    border:1.5px solid var(--rose);box-shadow:var(--shadow-sm);
+  }
+  .arts-item__icon{font-size:32px;line-height:1;}
+  @media (min-width:720px){ .arts-item__icon{ font-size:38px; } }
+  .arts-item__en{
+    font-family:'Playfair Display',serif;
+    font-size:16px;font-weight:700;color:var(--rose-deep);margin-top:6px;letter-spacing:.3px;line-height:1.2;
+  }
+  @media (min-width:720px){ .arts-item__en{ font-size:18px; } }
+  .arts-item__zh{font-size:13px;color:var(--ink-soft);font-weight:600;margin-top:4px;letter-spacing:1px;}
+  @media (min-width:720px){ .arts-item__zh{ font-size:15px; } }
+
+  /* === Programs === */
+  .programs{display:flex;flex-direction:column;gap:24px;}
+  .program{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:28px 24px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start;
+  }
+  @media (min-width:720px){
+    .program{grid-template-columns:120px 1fr;gap:36px;padding:38px 36px;}
+  }
+  .program__icon{
+    font-size:54px;line-height:1;text-align:center;
+    background:var(--rose-soft);border-radius:14px;padding:14px 0;color:var(--rose-deep);
+  }
+  @media (min-width:720px){ .program__icon{ font-size:78px;padding:20px 0; } }
+  .program:nth-child(2) .program__icon{background:var(--gold-soft);color:var(--gold-deep);}
+  .program:nth-child(3) .program__icon{background:var(--bamboo-soft);color:var(--bamboo-deep);}
+  .program:nth-child(4) .program__icon{background:var(--rose-soft);color:var(--rose-deep);}
+  .program__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--rose-deep);line-height:1.2;}
+  @media (min-width:720px){ .program__title{ font-size:34px; } }
+  .program__title-zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .program__title-zh{ font-size:22px; } }
+  .program__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .program__body{ font-size:21px; } }
+  .program__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .program__zh{ font-size:19px; } }
+  .program__honor{
+    margin-top:12px;display:inline-block;background:var(--gold-soft);color:var(--gold-deep);
+    font-size:15px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .program__honor{ font-size:17px; } }
+  .program__figure{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+  .program__figure img{width:100%;height:auto;display:block;}
+
+  /* === Teacher Amanda === */
+  .amanda{
+    background:linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 100%);
+    color:#fff;border-radius:24px;padding:40px 30px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .amanda{ padding:60px 56px; } }
+  .amanda__label{
+    font-family:'Playfair Display',serif;
+    font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;
+  }
+  @media (min-width:720px){ .amanda__label{ font-size:17px; } }
+  .amanda__name{
+    font-family:'Playfair Display',serif;
+    font-size:40px;font-weight:800;line-height:1.05;margin-top:10px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .amanda__name{ font-size:58px; } }
+  .amanda__name-zh{font-size:22px;color:#fce3eb;margin-top:8px;font-weight:600;}
+  @media (min-width:720px){ .amanda__name-zh{ font-size:26px; } }
+  .amanda__rule{width:90px;height:5px;background:var(--gold);border-radius:3px;margin:24px 0 30px;}
+  .amanda__lead{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:23px;line-height:1.4;color:var(--cream);font-weight:500;
+  }
+  @media (min-width:720px){ .amanda__lead{ font-size:28px; } }
+  .amanda__body{font-size:19px;line-height:1.7;margin-top:20px;color:#fce3eb;}
+  @media (min-width:720px){ .amanda__body{ font-size:21px; } }
+  .amanda__body p{margin-top:14px;}
+  .amanda__body p:first-child{margin-top:0;}
+  .amanda__body .zh{font-size:17px;line-height:1.6;color:#f5cfdb;margin-top:6px;display:block;}
+  @media (min-width:720px){ .amanda__body .zh{ font-size:19px; } }
+  .amanda__body strong{color:#fff;font-weight:700;}
+  .amanda__creds{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;
+  }
+  .amanda__cred{
+    background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    color:#fff;padding:6px 14px;border-radius:99px;font-size:15px;font-weight:600;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .amanda__cred{ font-size:17px; } }
+  .amanda__cta{margin-top:30px;}
+  .amanda__cta a{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:var(--rose-deep);
+    padding:16px 28px;border-radius:14px;text-decoration:none;font-weight:700;
+    font-size:18px;letter-spacing:.5px;transition:transform .15s, background .15s;
+  }
+  @media (min-width:720px){ .amanda__cta a{ font-size:20px;padding:18px 32px; } }
+  .amanda__cta a:hover{background:#fff;transform:translateY(-2px);}
+
+  /* === Timeline === */
+  .timeline{position:relative;padding-left:42px;}
+  .timeline::before{
+    content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;
+    background:linear-gradient(180deg, var(--gold) 0%, var(--rose) 100%);border-radius:2px;
+  }
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:8px;
+    width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--rose);box-shadow:0 0 0 4px var(--cream);
+  }
+  .tl-year{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--rose);line-height:1;letter-spacing:.5px;}
+  @media (min-width:720px){ .tl-year{ font-size:38px; } }
+  .tl-event{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .tl-event{ font-size:23px; } }
+  .tl-detail{font-size:18px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .tl-detail{ font-size:20px; } }
+
+  /* === Contact === */
+  .contact{
+    background:linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 100%);
+    color:#fff;border-radius:24px;padding:48px 36px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .contact{ padding:64px 56px; } }
+  .contact__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;letter-spacing:.5px;}
+  @media (min-width:720px){ .contact__title{ font-size:50px; } }
+  .contact__zh{font-size:21px;color:#fce3eb;margin-top:8px;}
+  @media (min-width:720px){ .contact__zh{ font-size:23px; } }
+  .contact__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:20px 0 28px;}
+  .contact__grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
+  @media (min-width:720px){ .contact__grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .contact__row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);}
+  .contact__icon{font-size:24px;flex-shrink:0;margin-top:2px;color:var(--gold);}
+  @media (min-width:720px){ .contact__icon{ font-size:28px; } }
+  .contact__label{font-size:15px;color:#fce3eb;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+  @media (min-width:720px){ .contact__label{ font-size:17px; } }
+  .contact__value{font-size:20px;color:#fff;font-weight:600;margin-top:2px;line-height:1.45;}
+  @media (min-width:720px){ .contact__value{ font-size:22px; } }
+  .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--gold);}
+  .contact__value a:hover{color:var(--gold);}
+  .contact__ctas{margin-top:32px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:720px){ .contact__ctas{ grid-template-columns:1fr 1fr;gap:16px; } }
+  .official-cta{
+    background:var(--gold);color:#3a2810;border-radius:14px;padding:22px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    text-decoration:none;transition:transform .15s, background .15s;
+    box-shadow:0 8px 22px -8px rgba(217,162,58,.5);
+  }
+  @media (min-width:720px){ .official-cta{ padding:24px 30px; } }
+  .official-cta:hover{background:#fff;transform:translateY(-3px);}
+  .official-cta--old{background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.4);box-shadow:none;}
+  .official-cta--old:hover{background:#fff;color:var(--rose-deep);border-color:#fff;}
+  .official-cta__title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1.2;}
+  @media (min-width:720px){ .official-cta__title{ font-size:24px; } }
+  .official-cta__zh{font-size:16px;margin-top:4px;font-weight:600;opacity:.92;}
+  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
+  .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
+  @media (min-width:720px){ .official-cta__arrow{ font-size:36px; } }
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--rose-deep);}
+  footer a{color:var(--rose-deep);}
+</style>
+</head>
+<body>
+
+<!-- ===== Sub-nav ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="#top" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="#about">About</a>
+      <span class="subnav__sep">·</span>
+      <a href="#pillars">Curriculum</a>
+      <span class="subnav__sep">·</span>
+      <a href="#arts">Soaring Arts</a>
+      <span class="subnav__sep">·</span>
+      <a href="#amanda">Teacher Amanda</a>
+      <span class="subnav__sep">·</span>
+      <a href="#story">Our Story</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=yude">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner" id="top">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <div class="banner__brand">A Small Rural Campus · Established 1970 · Outer Bamboo, Erlin</div>
+      <h1>Yude Elementary</h1>
+      <div class="banner__zh">彰化縣二林鎮育德國民小學</div>
+      <p class="banner__tagline">Born from Zhongzheng. Growing on our own soil since 1970. 從中正分立，在外竹里自己長出來的南境小校。</p>
+    </div>
+    <div class="banner__badge">育</div>
+  </div>
+</header>
+
+<!-- ===== I. About ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">About Yude</h2>
+    <div class="sec__title-zh">關於育德 · 一所逆勢生長的南境小校</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__lead">A six-class rural school in Outer Bamboo Village — small in number, steady in growth, deep in roots.</div>
+    <div class="about__lead-zh">坐落於二林鎮外竹里的六班小校——人數不多，逆勢成長，根扎得深。</div>
+
+    <div class="about__body">
+      <p>
+        <strong>Yude Elementary School</strong> sits in <strong>Outer Bamboo Village (外竹里)</strong>, in the southern reach of Erlin Township — Taiwan's largest buckwheat-growing region. The school began as a branch of <strong>Zhongzheng Elementary</strong> in 1959, and became independent in <strong>August 1970</strong>. After more than half a century, eleven principals, and countless harvests, we remain a school that knows each child by name.
+      </p>
+      <p class="zh">
+        育德國小位於二林鎮外竹里——全台最大蕎麥產區的南端。1959 年從 <a href="https://changhua-bilingual.org/schools/zhongzheng/" style="color:var(--rose-deep);font-weight:600;">中正國小</a>外竹分班教室起步，1970 年 8 月正式獨立設校。半世紀、十一任校長、無數蕎麥收成之後，我們仍然是一所「每個孩子都叫得出名字」的小學校。
+      </p>
+
+      <p>
+        Our six classrooms hold around <strong>60 children</strong>. Our teacher-to-student ratio is <strong>1:4.8</strong>. And in a county where most rural schools shrink each year, <strong>Yude has grown 23.5 % in student numbers</strong> — a quiet vote of confidence from the families of Outer Bamboo and beyond.
+      </p>
+      <p class="zh">
+        全校 6 班、約 60 位孩子，師生比 <strong>1:4.8</strong>。在彰化縣多數偏鄉小校少子化壓力下，育德國小的<strong>學生數逆勢成長 23.5%</strong>——這是外竹里與鄰近家庭，對學校最安靜的肯定。
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">6</div>
+        <div class="stat__label">Classes</div>
+        <div class="stat__zh">班級</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">63</div>
+        <div class="stat__label">Students</div>
+        <div class="stat__zh">學生</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num stat__num--small">1:4.8</div>
+        <div class="stat__label">Teacher Ratio</div>
+        <div class="stat__zh">師生比</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">+23.5%</div>
+        <div class="stat__label">Student Growth</div>
+        <div class="stat__zh">學生成長率</div>
+      </div>
+    </div>
+
+    <figure class="figure">
+      <img src="photos/campus-pink-trees.png" alt="Pink flowering trees lining Yude's campus path · 育德校園的粉紅花樹步道">
+      <figcaption><b>Spring at Yude · 育德的春日</b><br>The flowering trees along the campus path — a quiet reminder that small schools, too, bloom in their own season.</figcaption>
+    </figure>
+
+    <div class="quote">
+      <div class="quote__text">"Born from Zhongzheng. Growing on our own soil."</div>
+      <div class="quote__zh">「從中正分立，在外竹里自己長出來的學校。」——育德國小的根與志。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Four Pillars ===== -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Four School-Based Curricula</h2>
+    <div class="sec__title-zh">四大校本課程 · 育德辦學的四根柱子</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
+      <p>
+        Four signature curricula carry every Yude child through six years — one for the arts, one for the page, one for the village, one for the table.
+      </p>
+      <p class="zh">
+        我們以四大校本課程陪伴每一位育德的孩子走過六年——一個給藝術、一個給閱讀、一個給社區、一個給餐桌。
+      </p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar">
+        <div class="pillar__icon">🎷</div>
+        <div class="pillar__title">Soaring Arts</div>
+        <div class="pillar__title-zh">藝翔天開</div>
+        <div class="pillar__body">A full-spectrum arts curriculum — <strong>ocarina, ukulele, keyboard, saxophone, drawing, calligraphy, dance</strong> — anchored by our saxophone ensemble and the biennial <em>Soaring Arts Exhibition</em> at the Erlin Township Library.</div>
+      </article>
+      <article class="pillar">
+        <div class="pillar__icon">📖</div>
+        <div class="pillar__title">Yude Reading Time</div>
+        <div class="pillar__title-zh">育德愛閱</div>
+        <div class="pillar__body">From the Fo Guang Shan <strong>mobile-library truck</strong> that pulls into our courtyard, to daily reading rituals and community read-alongs — books are how Yude children meet the world beyond Outer Bamboo.</div>
+      </article>
+      <article class="pillar">
+        <div class="pillar__icon">🌾</div>
+        <div class="pillar__title">Exploring Outer Bamboo</div>
+        <div class="pillar__title-zh">走讀外竹</div>
+        <div class="pillar__body">The village is the syllabus. Our students <strong>walk Outer Bamboo</strong> — its lanes, temples, fields, and elders — turning the place they live into the place they learn.</div>
+      </article>
+      <article class="pillar">
+        <div class="pillar__icon">🥟</div>
+        <div class="pillar__title">A Taste of Erlin</div>
+        <div class="pillar__title-zh">蕎見二林</div>
+        <div class="pillar__body">Erlin grows <strong>more buckwheat than anywhere else in Taiwan</strong>. From the autumn buckwheat-flower fields to our winter dumpling festival with community partners, taste is how Yude children learn what it means to be from here.</div>
+      </article>
+    </div>
+
+    <div class="quote quote--bamboo">
+      <div class="quote__text">"The smaller the school, the more each child can grow."</div>
+      <div class="quote__zh">「越小的學校，越能讓每個孩子長成自己。」——育德國小辦學精神。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Soaring Arts Spotlight ===== -->
+<section id="arts">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Soaring Arts</h2>
+    <div class="sec__title-zh">藝翔天開 · 育德的招牌課程</div>
+    <div class="sec__rule"></div>
+
+    <div class="spotlight">
+      <div style="text-align:center;"><div class="spotlight__badge">Signature Curriculum · 校本課程</div></div>
+      <div class="spotlight__title" style="text-align:center;">A small school with a big sound.</div>
+      <div class="spotlight__zh" style="text-align:center;">一所迷你校，發出不迷你的聲音。</div>
+
+      <div class="spotlight__body">
+        <p>
+          Few rural schools of <strong>six classes</strong> can field a saxophone ensemble. We can. Our students learn <strong>ocarina, ukulele, keyboard, saxophone, drawing, calligraphy, and dance</strong> — and every other year, their work fills the walls of the <strong>Erlin Township Library</strong> for the <em>Soaring Arts Exhibition</em>.
+          <span class="zh">很少有 6 班規模的偏鄉小校能組起薩克斯風樂團——育德可以。孩子們從陶笛、烏克麗麗、鍵盤樂器、薩克斯風、繪畫、書法到舞蹈都學，每兩年一次的「藝翔天開」師生美展，更把孩子們的作品掛上二林鎮立圖書館的牆。</span>
+        </p>
+      </div>
+
+      <div class="arts-list">
+        <div class="arts-item">
+          <div class="arts-item__icon">🎷</div>
+          <div class="arts-item__en">Saxophone</div>
+          <div class="arts-item__zh">薩克斯風</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">🎹</div>
+          <div class="arts-item__en">Keyboard</div>
+          <div class="arts-item__zh">鍵盤樂器</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">🪈</div>
+          <div class="arts-item__en">Ocarina</div>
+          <div class="arts-item__zh">陶笛</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">🎸</div>
+          <div class="arts-item__en">Ukulele</div>
+          <div class="arts-item__zh">烏克麗麗</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">🎨</div>
+          <div class="arts-item__en">Painting</div>
+          <div class="arts-item__zh">繪畫</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">🖌️</div>
+          <div class="arts-item__en">Calligraphy</div>
+          <div class="arts-item__zh">書法</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">💃</div>
+          <div class="arts-item__en">Dance</div>
+          <div class="arts-item__zh">舞蹈</div>
+        </div>
+        <div class="arts-item">
+          <div class="arts-item__icon">⚽</div>
+          <div class="arts-item__en">Soccer Club</div>
+          <div class="arts-item__zh">足球社團</div>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:32px;background:transparent;border:none;padding:0;box-shadow:none;">
+        <img src="photos/saxophone-band.jpg" alt="Yude saxophone ensemble · 育德國小薩克斯風樂團" style="border-radius:14px;border:4px solid #fff;box-shadow:var(--shadow);">
+        <figcaption style="color:var(--ink-soft);font-style:italic;"><b>The Yude Saxophone Ensemble · 育德國小薩克斯風樂團</b><br>Performing in their signature gold polos — a familiar sight at township and county-level cultural events.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Featured Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Programs & Moments</h2>
+    <div class="sec__title-zh">特色課程與校園時刻</div>
+    <div class="sec__rule"></div>
+
+    <div class="programs">
+
+      <article class="program">
+        <div class="program__icon">📚</div>
+        <div>
+          <div class="program__title">Reading on Wheels</div>
+          <div class="program__title-zh">行動圖書車 · 育德愛閱現場</div>
+          <div class="program__body">When the Fo Guang Shan mobile library pulls into our courtyard, the schoolyard becomes a reading room. Children sit on stools beside the green truck, choosing books while spring leaves drift overhead — a small ritual, repeated year after year.</div>
+          <div class="program__zh">佛光山行動圖書車開進育德校園，操場就成了閱讀室。孩子們在綠色卡車旁坐成一排，挑書、看書、聊書——一個小小的儀式，年復一年地重複。</div>
+          <div class="program__figure">
+            <img src="photos/mobile-library.jpeg" alt="Children reading beside the mobile library truck · 孩子們在行動圖書車旁閱讀">
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🥟</div>
+        <div>
+          <div class="program__title">Winter Dumpling Festival</div>
+          <div class="program__title-zh">冬饗 · 育德餃者</div>
+          <div class="program__body">Every winter, students, parents, and community-college partners gather in our hall to wrap dumplings together — part of the <strong>"Community College × 12-Year Basic Education"</strong> project. Children learn that food is also a way of belonging.</div>
+          <div class="program__zh">每年冬天，學生、家長與「社區大學連結十二年國教計畫」夥伴齊聚校內，一起包餃子——孩子們在這個冬日活動裡，學到食物也是一種「歸屬」的方式。</div>
+          <span class="program__honor">🤝 Community-College Partnership</span>
+          <div class="program__figure">
+            <img src="photos/dumpling-festival.jpg" alt="Yude dumpling festival group photo · 育德餃者活動大合照">
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🖼️</div>
+        <div>
+          <div class="program__title">Soaring Arts Exhibition</div>
+          <div class="program__title-zh">藝翔天開美展 · 二林鎮立圖書館</div>
+          <div class="program__body">Every other year, the <strong>Erlin Township Library</strong> hands its walls to Yude. Our students' paintings — bold characters, mythic deer, dragon girls, harvest grapes — fill the public space and make the village look again at what its children can do.</div>
+          <div class="program__zh">每兩年一次，二林鎮立圖書館把整面牆讓給育德——孩子們筆下的大字、傳說中的鹿、龍少女、葡萄豐收……佔滿公共空間，讓整個社區重新看見「我們的孩子能做什麼」。</div>
+          <span class="program__honor">🎨 5th Biennial Exhibition</span>
+          <div class="program__figure">
+            <img src="photos/student-art-yude.png" alt="Yude student artworks featured at the Soaring Arts Exhibition · 育德學生作品在藝翔天開美展">
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🎺</div>
+        <div>
+          <div class="program__title">Music Across the Day</div>
+          <div class="program__title-zh">音樂課 × 才藝課程</div>
+          <div class="program__body">Keyboard, drum, saxophone — and traditional ensemble work too. With <strong>only 60 children</strong>, every student gets enough time on the instrument and enough attention from the teacher to actually progress.</div>
+          <div class="program__zh">鍵盤、鼓、薩克斯風，加上傳統樂團——因為全校只有 60 個孩子，每個學生都有<strong>足夠的時間摸到樂器、足夠的師資注意力</strong>，才真的能進步。</div>
+          <div class="program__figure">
+            <img src="photos/music-class.png" alt="Music class scenes — keyboard, traditional ensemble, individual coaching · 育德音樂課剪影">
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Teacher Amanda ===== -->
+<section id="amanda">
+  <div class="wrap">
+    <div class="amanda">
+      <div class="amanda__label">Meet Our Resident Foreign Teacher</div>
+      <h2 class="amanda__name">Teacher Amanda</h2>
+      <div class="amanda__name-zh">Amanda Kalinowski · 柯晴曦 · 育德國小駐校外師</div>
+      <div class="amanda__rule"></div>
+
+      <div class="amanda__lead">"Drama is how I teach English — because both ask children to step forward, listen, and speak as themselves."</div>
+
+      <div class="amanda__body">
+        <p>
+          Amanda joined Yude in <strong>September 2024</strong>, bringing a theatre-trained ear and a culture-first classroom. A graduate of <strong>East Stroudsburg University in Pennsylvania</strong> with a Bachelor's in Drama, and certified in both <strong>TEFL and TESOL</strong>, she teaches English through story, performance, and the small daily conversations that make English feel like a real way to be in the world.
+        </p>
+        <p class="zh">
+          Amanda 老師 2024 年 9 月加入育德——她有戲劇背景的耳朵，也有以文化為核心的課堂。畢業於美國<strong>賓州 East Stroudsburg University</strong> 戲劇學系，並持有 <strong>TEFL + TESOL</strong> 英語教學認證。她用故事、表演、與每日的小對話來教英文——讓英語不只是課本，而是孩子真正可以「在世界裡活」的方式。
+        </p>
+        <p>
+          Her classroom rests on four small commitments: <strong>build positive relationships, keep the door open, hold student safety and trust above all, and let children lead</strong>. Her signature methods — giant puzzle games, class mascots, drama performances — turn a 60-student school into a stage where every voice can be heard.
+        </p>
+        <p class="zh">
+          她的課堂建立在四個簡單的承諾上：<strong>建立正向師生關係、開放政策、學生安全與信任、學生主動性</strong>。她最招牌的教法——巨型拼圖遊戲、班級吉祥物制度、戲劇表演——讓 60 個孩子的迷你校，變成每個聲音都被聽見的舞台。
+        </p>
+      </div>
+
+      <div class="amanda__creds">
+        <span class="amanda__cred">🎓 ESU Drama, BA</span>
+        <span class="amanda__cred">📜 TEFL · TESOL</span>
+        <span class="amanda__cred">🇺🇸 Pennsylvania, USA</span>
+        <span class="amanda__cred">📅 At Yude since Sept 2024</span>
+      </div>
+
+      <div class="amanda__cta">
+        <a href="https://amanda.mycultureconnect.org/" target="_blank" rel="noopener">
+          Visit Teacher Amanda's classroom site
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Timeline ===== -->
+<section id="story">
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
+    <h2 class="sec__title">Our Story</h2>
+    <div class="sec__title-zh">校史時間軸 · 從分班到 11 任校長</div>
+    <div class="sec__rule"></div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1959</div>
+        <div class="tl-event">Zhongzheng Elementary opens a branch classroom in Outer Bamboo</div>
+        <div class="tl-detail">民國 48 年，中正國民學校於外竹里成立「外竹分班教室」——育德的起點。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1961</div>
+        <div class="tl-event">Upgraded to a full branch class</div>
+        <div class="tl-detail">民國 50 年，升格為「外竹分班」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1962</div>
+        <div class="tl-event">Upgraded again — to a branch campus</div>
+        <div class="tl-detail">民國 51 年，升格為「外竹分校」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1970</div>
+        <div class="tl-event">Independent school founded — <em>Yude Elementary</em></div>
+        <div class="tl-detail">民國 59 年 8 月，外竹分校正式獨立設校，定名「<strong>育德國民小學</strong>」（創校元年）。首任校長：謝登。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1986</div>
+        <div class="tl-event">Principal Hong Dou begins the longest tenure (10.5 years)</div>
+        <div class="tl-detail">民國 75 年，洪斗校長（第五任）就任，任期長達 10 年半，是 11 任中最長者。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Principal Lin Chih-ting takes office (11th principal)</div>
+        <div class="tl-detail">民國 113 年 8 月，林志汀校長（第十一任）就任。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Teacher Amanda joins Yude (Sept)</div>
+        <div class="tl-detail">民國 113 年 9 月，Amanda 老師加入育德，成為駐校外師。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div class="tl-event">Yude bilingual site launches with My Culture Connect</div>
+        <div class="tl-detail">民國 115 年 5 月，育德國小雙語網站新版上線——由人師教育協會（My Culture Connect）與校方共同建置。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VII. Contact ===== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__title">Visit Us · 聯絡育德</div>
+      <div class="contact__zh">A small school in Outer Bamboo — always glad to welcome you.</div>
+      <div class="contact__rule"></div>
+
+      <div class="contact__grid">
+        <div class="contact__row">
+          <div class="contact__icon">📍</div>
+          <div>
+            <div class="contact__label">Address · 地址</div>
+            <div class="contact__value">52652 彰化縣二林鎮外竹里中南巷 41-1 號<br><span style="font-size:.85em;color:#fce3eb;font-weight:500;">No. 41-1, Zhongnan Ln., Waizhu Vil., Erlin Township, Changhua County 52652, Taiwan</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📞</div>
+          <div>
+            <div class="contact__label">Phone · 電話</div>
+            <div class="contact__value"><a href="tel:+88648962574">04-8962574</a></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📠</div>
+          <div>
+            <div class="contact__label">Fax · 傳真</div>
+            <div class="contact__value">04-8954117</div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">🎓</div>
+          <div>
+            <div class="contact__label">School type · 校別</div>
+            <div class="contact__value">Public 6-year Elementary School<br><span style="font-size:.85em;color:#fce3eb;font-weight:500;">公立六年制國民小學 · 6 班 · 全校約 60 人</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__ctas">
+        <a class="official-cta" href="https://ydes.chc.edu.tw/" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Official Website</div>
+            <div class="official-cta__zh">育德國小全球資訊網 · ydes.chc.edu.tw</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+        <a class="official-cta official-cta--old" href="https://yude.twrses.org/home" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Bilingual Site (Legacy)</div>
+            <div class="official-cta__zh">舊版雙語站 · yude.twrses.org</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 育德國小 Yude Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
