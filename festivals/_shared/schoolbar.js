@@ -47,6 +47,20 @@
       color: '#7B1E1E',
       colorDeep: '#4d1212',
       url: 'https://changhua-bilingual.org/schools/minsheng/'
+    },
+    dajuang: {
+      name: 'Dajuang Elementary',
+      nameZh: '大莊國小',
+      color: '#d97818',
+      colorDeep: '#a85a0c',
+      url: 'https://changhua-bilingual.org/schools/dajuang/'
+    },
+    dacheng: {
+      name: 'Dacheng Elementary',
+      nameZh: '大城國小',
+      color: '#4760c5',
+      colorDeep: '#2c3a8c',
+      url: 'https://changhua-bilingual.org/schools/dacheng/'
     }
     /* Add more schools here as they adopt the Festival English Series. */
   };
