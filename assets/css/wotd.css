@@ -1,0 +1,171 @@
+/* Word of the Day — page-specific styles
+   Loads on top of hub.css. */
+
+.wotd-hero {
+  background: linear-gradient(135deg, #1f6e6e 0%, #155454 100%);
+  color: #fff;
+  padding: 72px 24px 56px;
+}
+.wotd-hero-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.wotd-hero .hub-eyebrow { color: #ffd28a; }
+.wotd-hero .hub-h1 { color: #fff; font-size: clamp(2.2rem, 4.5vw, 3.4rem); }
+.wotd-hero-sub {
+  font-size: 1.08rem; max-width: 60ch; opacity: .92; margin: 0;
+}
+.wotd-hero-sub + .wotd-hero-sub { margin-top: 8px; }
+.wotd-hero .hub-zh { color: rgba(255,255,255,.85); }
+
+/* Sticky toolbar */
+.wotd-toolbar-wrap {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hub-line);
+}
+.wotd-toolbar {
+  max-width: 1200px; margin: 0 auto;
+  padding: 16px 24px;
+  display: grid; grid-template-columns: 1fr 280px auto; gap: 12px; align-items: center;
+}
+.wotd-search { margin: 0; }
+.wotd-toolbar select {
+  height: 48px; padding: 0 16px;
+  border: 1px solid var(--hub-line); border-radius: 999px;
+  background: #fff; font-size: .92rem; color: var(--hub-ink);
+  font-family: var(--hub-en-font), var(--hub-zh-font);
+  cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+  background-repeat: no-repeat; background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 38px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.wotd-toolbar select:focus { outline: none; border-color: var(--hub-primary); }
+.wotd-count {
+  font-size: .85rem; color: var(--hub-ink-faint); font-weight: 500; white-space: nowrap;
+}
+
+.wotd-section { padding-top: 40px; }
+
+/* Card grid */
+.wotd-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.wotd-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--hub-line); border-radius: 12px;
+  overflow: hidden;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.wotd-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hub-shadow-hover);
+  border-color: var(--hub-primary);
+}
+
+/* Lazy YouTube facade */
+.wotd-yt {
+  position: relative; aspect-ratio: 16 / 9;
+  background: #000; cursor: pointer; overflow: hidden;
+  display: block;
+}
+.wotd-yt img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(.85);
+  transition: filter .2s, transform .3s;
+}
+.wotd-yt:hover img { filter: brightness(1); transform: scale(1.02); }
+.wotd-yt::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 64px; height: 64px; transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.65) no-repeat center/24px url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><polygon points="6,4 20,12 6,20"/></svg>');
+  border-radius: 50%; pointer-events: none;
+  transition: background-color .2s;
+}
+.wotd-yt:hover::after { background-color: #e63946; }
+.wotd-yt.loaded { cursor: default; }
+.wotd-yt.loaded::after { display: none; }
+.wotd-yt iframe { width: 100%; height: 100%; border: 0; }
+
+.wotd-body { padding: 18px 20px 22px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.wotd-keyword {
+  font-family: var(--hub-serif);
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--hub-primary-deep);
+  margin: 0; line-height: 1.2;
+}
+.wotd-keyword .pos {
+  font-family: var(--hub-en-font); font-weight: 500;
+  font-size: .82rem; color: var(--hub-ink-faint);
+  margin-left: 4px;
+}
+.wotd-zh {
+  font-family: var(--hub-zh-font);
+  color: var(--hub-ink-soft); font-size: .98rem;
+  margin: -4px 0 0;
+}
+.wotd-sentence {
+  font-size: .92rem; line-height: 1.55; color: var(--hub-ink); margin: 0;
+}
+.wotd-sentence + .wotd-sentence-zh {
+  font-family: var(--hub-zh-font); font-size: .88rem;
+  color: var(--hub-ink-soft); margin-top: -4px;
+}
+.wotd-divider {
+  border: 0; border-top: 1px dashed var(--hub-line);
+  margin: 6px 0;
+}
+.wotd-school {
+  margin: auto -20px -22px; padding: 12px 20px;
+  background: #fafaf6; border-top: 1px solid var(--hub-line);
+  font-family: var(--hub-zh-font); font-size: .82rem;
+  color: var(--hub-ink-soft); font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.wotd-school::before {
+  content: ""; display: inline-block; width: 14px; height: 14px;
+  background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f6e6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 6 8-3 8 3"/><path d="M4 10h16"/><path d="M4 10v10h16V10"/><path d="M8 21V14h8v7"/></svg>');
+}
+
+.wotd-empty {
+  text-align: center; padding: 64px 24px;
+  color: var(--hub-ink-soft);
+}
+
+/* Top contributing schools */
+.wotd-credits { background: #fafaf6; margin-top: 80px; }
+.wotd-top {
+  list-style: none; padding: 0; margin: 24px 0 0;
+  display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  counter-reset: top;
+}
+.wotd-top li { counter-increment: top; }
+.wotd-top-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; gap: 12px;
+  padding: 14px 16px;
+  background: #fff; border: 1px solid var(--hub-line); border-radius: 8px;
+  font-family: inherit; cursor: pointer; text-align: left;
+  transition: border-color .15s, background .15s;
+}
+.wotd-top-btn::before {
+  content: counter(top); flex-shrink: 0;
+  width: 28px; height: 28px; display: inline-flex;
+  align-items: center; justify-content: center;
+  background: var(--hub-line-soft); border-radius: 50%;
+  font-size: .78rem; font-weight: 700; color: var(--hub-primary-deep);
+}
+.wotd-top-btn strong { flex: 1; font-weight: 600; font-size: .92rem; }
+.wotd-top-btn span { font-size: .8rem; color: var(--hub-ink-faint); }
+.wotd-top-btn:hover { border-color: var(--hub-primary); background: var(--hub-line-soft); }
+
+@media (max-width: 800px) {
+  .wotd-toolbar { grid-template-columns: 1fr; }
+  .wotd-toolbar .wotd-count { text-align: right; }
+}

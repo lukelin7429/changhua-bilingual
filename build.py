@@ -10,11 +10,14 @@ Reads YAML in data/, regenerates:
 Workflow: edit YAML → run `python3 build.py` → git commit & push.
 """
 
+import csv
 import json
 import re
 from pathlib import Path
 
 import yaml
+
+YT_ID_RX = re.compile(r"(?:v=|/shorts/|youtu\.be/|/embed/)([A-Za-z0-9_-]{11})")
 
 ROOT = Path(__file__).parent
 
@@ -22,6 +25,7 @@ SECTIONS = [
     ("/", "Home"),
     ("/schools/", "Schools"),
     ("/fets/", "FETs"),
+    ("/word-of-the-day/", "Word of the Day"),
     ("/resources/", "Resources"),
 ]
 
@@ -129,7 +133,7 @@ def build_township_index(townships, schools):
 
 
 # -------- Page builders --------
-def build_home(townships_data, schools_data):
+def build_home(townships_data, schools_data, wotd_items):
     townships = townships_data["townships"]
     schools = schools_data["schools"]
     idx = build_township_index(townships, schools)
@@ -137,6 +141,8 @@ def build_home(townships_data, schools_data):
 
     total_schools = len(schools)
     townships_with_schools = sum(1 for t in idx.values() if t["school_count"])
+    total_videos = len(wotd_items)
+    contributing_schools = len({r["sch"] for r in wotd_items if r["sch"]})
 
     content = f"""
 <section class="hub-hero">
@@ -146,8 +152,8 @@ def build_home(townships_data, schools_data):
     <p>{total_schools} bilingual school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
     <p class="hub-zh">彰化縣 {townships_with_schools} 個鄉鎮、{total_schools} 所合作學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
     <div class="hub-hero-actions">
-      <a class="hub-btn hub-btn--primary" href="/schools/">Browse Schools →</a>
-      <a class="hub-btn hub-btn--ghost" href="/fets/">Meet the FETs</a>
+      <a class="hub-btn hub-btn--primary" href="/word-of-the-day/">Watch {total_videos:,} videos →</a>
+      <a class="hub-btn hub-btn--ghost" href="/schools/">Browse Schools</a>
     </div>
   </div>
   <div class="hub-map-wrap">
@@ -159,24 +165,30 @@ def build_home(townships_data, schools_data):
   <p class="hub-eyebrow">What's inside</p>
   <h2 class="hub-h2">Explore the Hub</h2>
   <div class="hub-feature-grid" style="margin-top:32px">
+    <a class="hub-card hub-card--featured" href="/word-of-the-day/">
+      <span class="hub-card-tag">Signature</span>
+      <h3>Word of the Day 校園百科</h3>
+      <p>Our flagship classroom-video library — every word taught in a real Changhua classroom, in two example sentences, by a real teacher.</p>
+      <div class="hub-card-meta">{total_videos:,} videos · {contributing_schools} schools</div>
+    </a>
     <a class="hub-card" href="/schools/">
       <h3>Schools 學校</h3>
-      <p>Bilingual websites for every partner school in Changhua, grouped by township. Click through to each campus's own site.</p>
+      <p>Bilingual websites for every partner school in Changhua, grouped by township.</p>
       <div class="hub-card-meta">{total_schools} schools · {townships_with_schools} townships</div>
     </a>
     <a class="hub-card" href="/fets/">
       <h3>FETs 外籍教師</h3>
-      <p>Meet the Foreign English Teachers placed across our partner schools — elementary, junior high, and senior high.</p>
+      <p>Meet the Foreign English Teachers placed across our partner schools.</p>
       <div class="hub-card-meta">Roster · Photos · Profiles</div>
     </a>
     <a class="hub-card" href="/resources/">
       <h3>Resources 教學資源</h3>
-      <p>Word of the Day, EduResources, Charming Changhua, Study Tour Centers, and cross-campus shared content.</p>
+      <p>EduResources, Charming Changhua, Study Tour Centers, and cross-campus shared content.</p>
       <div class="hub-card-meta">Classroom-ready</div>
     </a>
     <a class="hub-card" href="/festivals/">
       <h3>Festivals 節慶教材</h3>
-      <p>Eight festivals · one shared playbook. Embed the same units on every school's site with a single line.</p>
+      <p>Eight festivals · one shared playbook. Embed the same units on every school's site.</p>
       <div class="hub-card-meta">8 festivals · cross-campus</div>
     </a>
   </div>
@@ -306,6 +318,101 @@ def build_fets(fets_data, schools_data):
     return page_shell("FETs", content, "/fets/")
 
 
+def load_wotd():
+    rows = []
+    with open(ROOT / "data" / "wotd.csv", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            yt = (r.get("youtube") or "").strip()
+            m = YT_ID_RX.search(yt)
+            if not m:
+                continue
+            rows.append({
+                "k": r["keyword"].strip(),
+                "kz": (r.get("keyword_zh") or "").strip(),
+                "s1": r["sentence_1"].strip(),
+                "s1z": r["sentence_1_zh"].strip(),
+                "s2": r["sentence_2"].strip(),
+                "s2z": r["sentence_2_zh"].strip(),
+                "sch": (r.get("school") or "").strip(),
+                "v": m.group(1),
+            })
+    return rows
+
+
+def normalize_school(name):
+    """Strip 彰化縣XX鄉/鎮/市 prefix to get the bare school name for grouping."""
+    if not name:
+        return ""
+    n = name
+    n = re.sub(r"^彰化縣[^國市鄉鎮]*[市鎮鄉]", "", n)
+    return n.strip() or name.strip()
+
+
+def build_wotd():
+    items = load_wotd()
+    # Build school facets — count per (display name)
+    school_counts = {}
+    for r in items:
+        school_counts[r["sch"]] = school_counts.get(r["sch"], 0) + 1
+    top_schools = sorted(school_counts.items(), key=lambda x: -x[1])[:20]
+
+    # Write data file for client
+    data_path = ROOT / "assets" / "data" / "wotd.json"
+    data_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "items": items,
+        "schools": sorted(school_counts.items(), key=lambda x: -x[1]),
+        "generated_at": "build-time",
+    }
+    data_path.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"  wrote /assets/data/wotd.json  ({data_path.stat().st_size:,} bytes, {len(items)} items)")
+
+    content = f"""
+<section class="wotd-hero">
+  <div class="wotd-hero-inner">
+    <p class="hub-eyebrow">Our signature collection</p>
+    <h1 class="hub-h1">Word of the Day</h1>
+    <p class="wotd-hero-sub">{len(items):,} bilingual classroom videos · {len(school_counts)} schools · every word lived in a real Changhua classroom.</p>
+    <p class="hub-zh wotd-hero-sub">{len(items):,} 支雙語教室實拍影片，來自 {len(school_counts)} 所學校。每個單字都是真實課堂的活紀錄。</p>
+  </div>
+</section>
+
+<section class="wotd-toolbar-wrap">
+  <div class="wotd-toolbar">
+    <div class="hub-search wotd-search">
+      <input id="wotd-q" type="search" placeholder="Search a word, a Chinese gloss, or a school…" autocomplete="off" />
+    </div>
+    <select id="wotd-school" aria-label="Filter by school">
+      <option value="">All schools · 全部 {len(school_counts)} 校</option>
+      {''.join(f'<option value="{sch}">{sch} ({c})</option>' for sch, c in sorted(school_counts.items(), key=lambda x: -x[1]))}
+    </select>
+    <div id="wotd-count" class="wotd-count">{len(items):,} videos</div>
+  </div>
+</section>
+
+<section class="hub-section wotd-section">
+  <div id="wotd-grid" class="wotd-grid" aria-live="polite"></div>
+  <div id="wotd-loadmore-wrap" style="text-align:center;margin-top:40px;display:none">
+    <button id="wotd-loadmore" class="hub-btn hub-btn--ghost">Load more →</button>
+  </div>
+  <div id="wotd-empty" class="wotd-empty" hidden>
+    <p>No videos match. Try a different word or pick another school.</p>
+  </div>
+</section>
+
+<aside class="hub-section wotd-credits">
+  <h2 class="hub-h2">Top contributing schools</h2>
+  <p>Schools that have produced the most Word-of-the-Day videos. Tap a name to filter the gallery.</p>
+  <ol class="wotd-top">
+    {''.join(f'<li><button class="wotd-top-btn" data-school="{sch}"><strong>{sch}</strong><span>{c} videos</span></button></li>' for sch, c in top_schools)}
+  </ol>
+</aside>
+""".strip()
+    extra_head = '<link rel="stylesheet" href="/assets/css/wotd.css">\n  <script defer src="/assets/js/wotd.js"></script>'
+    return page_shell("Word of the Day", content, "/word-of-the-day/", extra_head)
+
+
 def build_resources():
     # Static content — three groupings.
     bilingual_campus = [
@@ -382,10 +489,12 @@ def main():
     townships = load_yaml("townships.yml")
     schools = load_yaml("schools.yml")
     fets = load_yaml("fets.yml")
-    print(f"Loaded: {len(townships['townships'])} townships, {len(schools['schools'])} schools, {len(fets['fets'])} fets")
-    write("index.html", build_home(townships, schools))
+    wotd_items = load_wotd()
+    print(f"Loaded: {len(townships['townships'])} townships, {len(schools['schools'])} schools, {len(fets['fets'])} fets, {len(wotd_items)} wotd videos")
+    write("index.html", build_home(townships, schools, wotd_items))
     write("schools/index.html", build_schools(townships, schools))
     write("fets/index.html", build_fets(fets, schools))
+    write("word-of-the-day/index.html", build_wotd())
     write("resources/index.html", build_resources())
     print("Done.")
 

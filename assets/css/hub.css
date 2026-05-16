@@ -172,6 +172,24 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   margin-top: 14px; font-size: .78rem; letter-spacing: .15em;
   text-transform: uppercase; color: var(--hub-accent); font-weight: 600;
 }
+.hub-card { position: relative; }
+.hub-card--featured {
+  background: linear-gradient(180deg, #fff 0%, #f6fbfa 100%);
+  border-color: var(--hub-primary);
+  grid-column: span 2;
+}
+.hub-card--featured h3 { font-size: 1.5rem; padding-right: 88px; }
+.hub-card-tag {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--hub-primary); color: #fff;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700;
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .hub-card--featured { grid-column: auto; }
+  .hub-card--featured h3 { padding-right: 0; }
+}
 
 /* ----- Township sections (schools page) ----- */
 .hub-township-block { padding: 40px 0; border-top: 1px solid var(--hub-line-soft); }
