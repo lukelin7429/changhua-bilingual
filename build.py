@@ -217,11 +217,24 @@ def build_schools(townships_data, schools_data):
             badge_cls = "jh" if level == "junior-high" else ("sh" if level == "senior-high" else "")
             badge_text = {"junior-high": "JHS", "senior-high": "HS", "elementary": "ES"}.get(level, "ES")
             search_data = f"{s['name']} {s.get('zh','')} {t['en']} {t['zh']} {s['slug']}"
+            slug = s["slug"]
+            # Photo: /assets/images/schools/<slug>.jpg if it exists, else fallback to Chinese char tile
+            photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
+            if photo_path.exists():
+                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg" alt="{s["name"]}" loading="lazy">'
+            else:
+                zh = s.get("zh","") or s["name"]
+                # show first 2 chars
+                fallback = zh[:2] if zh else s["name"][:2]
+                photo_html = f'<div class="photo-fallback" aria-hidden="true">{fallback}</div>'
             cards.append(f"""
 <a class="hub-school-card" href="{s['url']}" target="_blank" rel="noopener" data-search="{search_data}">
-  <p class="name">{s['name']}</p>
-  <p class="zh">{s.get('zh','')}</p>
-  <span class="badge {badge_cls}">{badge_text}</span>
+  {photo_html}
+  <div class="body">
+    <p class="name">{s['name']}</p>
+    <p class="zh">{s.get('zh','')}</p>
+    <span class="badge {badge_cls}">{badge_text}</span>
+  </div>
 </a>
 """.strip())
         blocks.append(f"""
@@ -323,6 +336,81 @@ def build_fets(fets_data, schools_data):
     return page_shell("FETs", content, "/fets/")
 
 
+WOTD_THEMES = [
+    ("tasks", "Tasks", "校園百科", [
+        "sweep","clean","mop","wipe","wash","dust","tidy","pick up","trash","garbage","recycle",
+        "attendance","line up","raise hand","stand up","sit down","line","queue","duty","chore",
+        "homework","assignment","report","journal","schedule","timetable","bell","greeting","greet",
+    ]),
+    ("physical-activities", "Physical Activities", "體育活動", [
+        "soccer","basketball","baseball","football","badminton","volleyball","tennis","table tennis","ping pong",
+        "swim","swimming","jump rope","jump","run","running","throw","kick","catch","dodgeball",
+        "exercise","sport","gym","pe","race","relay","dance","stretch","push-up","sit-up","track","field",
+        "archery","skip","hike","hiking","cycling","bike","skate","skating",
+    ]),
+    ("festivals", "Festivals & Celebrations", "節慶慶典", [
+        "christmas","new year","halloween","easter","thanksgiving","valentine","mother's day","father's day",
+        "lunar","lantern","mid-autumn","mid autumn","dragon boat","moon cake","mooncake","tomb sweeping",
+        "festival","celebrate","celebration","graduation","ceremony","parade","carnival","party","birthday",
+        "joss paper","red turtle cake","red envelope","red packet","fireworks","firecracker",
+    ]),
+    ("food-agriculture", "Food & Agriculture", "食物與農業", [
+        "rice","noodle","bread","dumpling","cake","pizza","cookie","soup","tea","milk","juice",
+        "apple","banana","orange","grape","pear","watermelon","strawberry","mango","pineapple","tomato",
+        "vegetable","cabbage","carrot","onion","potato","pepper","cucumber","corn","peanut","bean",
+        "fruit","fish","meat","chicken","beef","pork","egg",
+        "farm","field","plant","seed","crop","harvest","grow","garden","greenhouse","tractor",
+        "rice field","paddy","oyster","grape","mushroom","moringa",
+        "cook","bake","fry","boil","kitchen","menu","recipe","lunch","breakfast","dinner","snack",
+    ]),
+    ("learning-subjects", "Learning Subjects", "學科", [
+        "math","mathematics","science","chinese","english","japanese","french","social studies","history",
+        "geography","biology","chemistry","physics","art","music","pe","computer","information",
+        "subject","class","lesson","course",
+    ]),
+    ("clubs-teams", "Clubs & Teams", "社團", [
+        "club","team","band","choir","orchestra","drum","drumming","cheerleading","squad","group",
+        "society","association","scout","practice","rehearsal","competition","contest",
+        "singing contest","talent show","performance","perform",
+    ]),
+    ("facilities-equipment", "Facilities & Equipment", "設施設備", [
+        "library","playground","classroom","auditorium","gym","gymnasium","hallway","corridor","stairs",
+        "lab","laboratory","cafeteria","office","clinic","computer room","music room","art room",
+        "blackboard","whiteboard","desk","chair","table","book","textbook","backpack","pencil","pen",
+        "ruler","scissors","glue","tape","eraser","crayon","marker","notebook","paper","map","globe",
+        "recorder","piano","keyboard","violin","guitar","flute","drum","triangle",
+        "broom","mop","dustpan","sink","faucet","trash can","bin","bucket","ladder","scale",
+        "projector","screen","microphone","speaker","camera",
+        "mobile library","reading corner","bulletin board",
+    ]),
+    ("cultural-artistic", "Cultural & Artistic", "文化藝術", [
+        "calligraphy","painting","draw","drawing","sketch","clay","pottery","sculpt","origami","craft",
+        "weave","knit","embroider","print","stamp","poster",
+        "dance","sing","song","poem","poetry","story","storytelling","theater","drama","puppet",
+        "culture","tradition","traditional","heritage","temple","shrine","museum","exhibit","exhibition",
+        "kite","fan","mask",
+    ]),
+    ("health-safety", "Health & Safety", "健康安全", [
+        "wash your hands","wash hands","brush teeth","sleep","rest","health","healthy","clean",
+        "doctor","nurse","clinic","medicine","cold","cough","fever","sick","ill","hospital",
+        "safety","safe","danger","emergency","fire","drill","earthquake","helmet","seat belt",
+        "traffic","crosswalk","sidewalk","cross the street","look both ways",
+        "wear","glove","mask","sanitize","sanitizer","tissue","bandage","first aid",
+    ]),
+]
+WOTD_FALLBACK = ("picture-description", "Picture Description", "看圖說話")
+
+
+def classify_keyword(keyword, sentence_1):
+    text = (keyword + " " + (sentence_1 or "")).lower()
+    # Try each theme — first match wins (in priority order)
+    for slug, _en, _zh, kws in WOTD_THEMES:
+        for kw in kws:
+            if kw in text:
+                return slug
+    return WOTD_FALLBACK[0]
+
+
 def load_wotd():
     rows = []
     with open(ROOT / "data" / "wotd.csv", encoding="utf-8") as f:
@@ -332,15 +420,23 @@ def load_wotd():
             m = YT_ID_RX.search(yt)
             if not m:
                 continue
+            kw = r["keyword"].strip()
+            s1 = r["sentence_1"].strip()
+            theme = classify_keyword(kw, s1)
+            # Initial letter (A-Z) — strip POS tags etc.
+            base = re.sub(r"[^A-Za-z]", "", kw)
+            letter = base[0].upper() if base else "#"
             rows.append({
-                "k": r["keyword"].strip(),
+                "k": kw,
                 "kz": (r.get("keyword_zh") or "").strip(),
-                "s1": r["sentence_1"].strip(),
+                "s1": s1,
                 "s1z": r["sentence_1_zh"].strip(),
                 "s2": r["sentence_2"].strip(),
                 "s2z": r["sentence_2_zh"].strip(),
                 "sch": (r.get("school") or "").strip(),
                 "v": m.group(1),
+                "t": theme,
+                "l": letter,
             })
     return rows
 
@@ -358,9 +454,17 @@ def build_wotd():
     items = load_wotd()
     # Build school facets — count per (display name)
     school_counts = {}
+    theme_counts = {}
+    letter_counts = {}
     for r in items:
         school_counts[r["sch"]] = school_counts.get(r["sch"], 0) + 1
+        theme_counts[r["t"]] = theme_counts.get(r["t"], 0) + 1
+        letter_counts[r["l"]] = letter_counts.get(r["l"], 0) + 1
     top_schools = sorted(school_counts.items(), key=lambda x: -x[1])[:20]
+
+    # Theme metadata for UI
+    themes_meta = [(slug, en, zh, theme_counts.get(slug, 0)) for slug, en, zh, _ in WOTD_THEMES]
+    themes_meta.append((WOTD_FALLBACK[0], WOTD_FALLBACK[1], WOTD_FALLBACK[2], theme_counts.get(WOTD_FALLBACK[0], 0)))
 
     # Write data file for client
     data_path = ROOT / "assets" / "data" / "wotd.json"
@@ -368,10 +472,22 @@ def build_wotd():
     payload = {
         "items": items,
         "schools": sorted(school_counts.items(), key=lambda x: -x[1]),
+        "themes": [{"slug": s, "en": en, "zh": zh, "count": c} for s, en, zh, c in themes_meta],
         "generated_at": "build-time",
     }
     data_path.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"  wrote /assets/data/wotd.json  ({data_path.stat().st_size:,} bytes, {len(items)} items)")
+
+    theme_chips = ''.join(
+        f'<button class="wotd-theme-chip" data-theme="{slug}"><span class="en">{en}</span><span class="zh">{zh}</span><span class="ct">{c}</span></button>'
+        for slug, en, zh, c in themes_meta if c > 0
+    )
+
+    letters = sorted(letter_counts.keys())
+    az_chips = ''.join(
+        f'<button class="wotd-az-chip" data-letter="{L}">{L}<span class="ct">{letter_counts[L]}</span></button>'
+        for L in letters
+    )
 
     content = f"""
 <section class="wotd-hero">
@@ -386,7 +502,7 @@ def build_wotd():
 <section class="wotd-toolbar-wrap">
   <div class="wotd-toolbar">
     <div class="hub-search wotd-search">
-      <input id="wotd-q" type="search" placeholder="Search a word, a Chinese gloss, or a school…" autocomplete="off" />
+      <input id="wotd-q" type="search" placeholder="🔎 Search English, 中文, or school name…" autocomplete="off" />
     </div>
     <select id="wotd-school" aria-label="Filter by school">
       <option value="">All schools · 全部 {len(school_counts)} 校</option>
@@ -396,18 +512,32 @@ def build_wotd():
   </div>
 </section>
 
-<section class="hub-section wotd-section">
+<section class="hub-section wotd-filters">
+  <h2 class="wotd-filter-label">Browse by theme · 主題瀏覽</h2>
+  <div class="wotd-theme-row">
+    <button class="wotd-theme-chip wotd-theme-chip--all is-active" data-theme="">All themes<span class="ct">{len(items)}</span></button>
+    {theme_chips}
+  </div>
+
+  <h2 class="wotd-filter-label" style="margin-top:32px">Browse A–Z · 字母索引</h2>
+  <div class="wotd-az-row">
+    <button class="wotd-az-chip wotd-az-chip--all is-active" data-letter="">All</button>
+    {az_chips}
+  </div>
+</section>
+
+<section class="hub-section wotd-section" style="padding-top:24px">
   <div id="wotd-grid" class="wotd-grid" aria-live="polite"></div>
   <div id="wotd-loadmore-wrap" style="text-align:center;margin-top:40px;display:none">
     <button id="wotd-loadmore" class="hub-btn hub-btn--ghost">Load more →</button>
   </div>
   <div id="wotd-empty" class="wotd-empty" hidden>
-    <p>No videos match. Try a different word or pick another school.</p>
+    <p>No videos match. Try a different word, pick another school, or clear the filters.</p>
   </div>
 </section>
 
 <aside class="hub-section wotd-credits">
-  <h2 class="hub-h2">Top contributing schools</h2>
+  <h2 class="hub-h2">Top contributing schools · 影片貢獻學校</h2>
   <p>Schools that have produced the most Word-of-the-Day videos. Tap a name to filter the gallery.</p>
   <ol class="wotd-top">
     {''.join(f'<li><button class="wotd-top-btn" data-school="{sch}"><strong>{sch}</strong><span>{c} videos</span></button></li>' for sch, c in top_schools)}

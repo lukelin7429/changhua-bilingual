@@ -41,7 +41,7 @@
 <section class="wotd-toolbar-wrap">
   <div class="wotd-toolbar">
     <div class="hub-search wotd-search">
-      <input id="wotd-q" type="search" placeholder="Search a word, a Chinese gloss, or a school…" autocomplete="off" />
+      <input id="wotd-q" type="search" placeholder="🔎 Search English, 中文, or school name…" autocomplete="off" />
     </div>
     <select id="wotd-school" aria-label="Filter by school">
       <option value="">All schools · 全部 150 校</option>
@@ -51,18 +51,32 @@
   </div>
 </section>
 
-<section class="hub-section wotd-section">
+<section class="hub-section wotd-filters">
+  <h2 class="wotd-filter-label">Browse by theme · 主題瀏覽</h2>
+  <div class="wotd-theme-row">
+    <button class="wotd-theme-chip wotd-theme-chip--all is-active" data-theme="">All themes<span class="ct">2966</span></button>
+    <button class="wotd-theme-chip" data-theme="tasks"><span class="en">Tasks</span><span class="zh">校園百科</span><span class="ct">150</span></button><button class="wotd-theme-chip" data-theme="physical-activities"><span class="en">Physical Activities</span><span class="zh">體育活動</span><span class="ct">770</span></button><button class="wotd-theme-chip" data-theme="festivals"><span class="en">Festivals & Celebrations</span><span class="zh">節慶慶典</span><span class="ct">119</span></button><button class="wotd-theme-chip" data-theme="food-agriculture"><span class="en">Food & Agriculture</span><span class="zh">食物與農業</span><span class="ct">448</span></button><button class="wotd-theme-chip" data-theme="learning-subjects"><span class="en">Learning Subjects</span><span class="zh">學科</span><span class="ct">521</span></button><button class="wotd-theme-chip" data-theme="clubs-teams"><span class="en">Clubs & Teams</span><span class="zh">社團</span><span class="ct">71</span></button><button class="wotd-theme-chip" data-theme="facilities-equipment"><span class="en">Facilities & Equipment</span><span class="zh">設施設備</span><span class="ct">186</span></button><button class="wotd-theme-chip" data-theme="cultural-artistic"><span class="en">Cultural & Artistic</span><span class="zh">文化藝術</span><span class="ct">98</span></button><button class="wotd-theme-chip" data-theme="health-safety"><span class="en">Health & Safety</span><span class="zh">健康安全</span><span class="ct">55</span></button><button class="wotd-theme-chip" data-theme="picture-description"><span class="en">Picture Description</span><span class="zh">看圖說話</span><span class="ct">548</span></button>
+  </div>
+
+  <h2 class="wotd-filter-label" style="margin-top:32px">Browse A–Z · 字母索引</h2>
+  <div class="wotd-az-row">
+    <button class="wotd-az-chip wotd-az-chip--all is-active" data-letter="">All</button>
+    <button class="wotd-az-chip" data-letter="A">A<span class="ct">109</span></button><button class="wotd-az-chip" data-letter="B">B<span class="ct">156</span></button><button class="wotd-az-chip" data-letter="C">C<span class="ct">331</span></button><button class="wotd-az-chip" data-letter="D">D<span class="ct">166</span></button><button class="wotd-az-chip" data-letter="E">E<span class="ct">114</span></button><button class="wotd-az-chip" data-letter="F">F<span class="ct">127</span></button><button class="wotd-az-chip" data-letter="G">G<span class="ct">77</span></button><button class="wotd-az-chip" data-letter="H">H<span class="ct">68</span></button><button class="wotd-az-chip" data-letter="I">I<span class="ct">40</span></button><button class="wotd-az-chip" data-letter="J">J<span class="ct">55</span></button><button class="wotd-az-chip" data-letter="K">K<span class="ct">35</span></button><button class="wotd-az-chip" data-letter="L">L<span class="ct">82</span></button><button class="wotd-az-chip" data-letter="M">M<span class="ct">188</span></button><button class="wotd-az-chip" data-letter="N">N<span class="ct">23</span></button><button class="wotd-az-chip" data-letter="O">O<span class="ct">54</span></button><button class="wotd-az-chip" data-letter="P">P<span class="ct">292</span></button><button class="wotd-az-chip" data-letter="Q">Q<span class="ct">4</span></button><button class="wotd-az-chip" data-letter="R">R<span class="ct">213</span></button><button class="wotd-az-chip" data-letter="S">S<span class="ct">408</span></button><button class="wotd-az-chip" data-letter="T">T<span class="ct">210</span></button><button class="wotd-az-chip" data-letter="U">U<span class="ct">23</span></button><button class="wotd-az-chip" data-letter="V">V<span class="ct">40</span></button><button class="wotd-az-chip" data-letter="W">W<span class="ct">144</span></button><button class="wotd-az-chip" data-letter="X">X<span class="ct">2</span></button><button class="wotd-az-chip" data-letter="Y">Y<span class="ct">2</span></button><button class="wotd-az-chip" data-letter="Z">Z<span class="ct">3</span></button>
+  </div>
+</section>
+
+<section class="hub-section wotd-section" style="padding-top:24px">
   <div id="wotd-grid" class="wotd-grid" aria-live="polite"></div>
   <div id="wotd-loadmore-wrap" style="text-align:center;margin-top:40px;display:none">
     <button id="wotd-loadmore" class="hub-btn hub-btn--ghost">Load more →</button>
   </div>
   <div id="wotd-empty" class="wotd-empty" hidden>
-    <p>No videos match. Try a different word or pick another school.</p>
+    <p>No videos match. Try a different word, pick another school, or clear the filters.</p>
   </div>
 </section>
 
 <aside class="hub-section wotd-credits">
-  <h2 class="hub-h2">Top contributing schools</h2>
+  <h2 class="hub-h2">Top contributing schools · 影片貢獻學校</h2>
   <p>Schools that have produced the most Word-of-the-Day videos. Tap a name to filter the gallery.</p>
   <ol class="wotd-top">
     <li><button class="wotd-top-btn" data-school="彰化縣芳苑鄉路上國小"><strong>彰化縣芳苑鄉路上國小</strong><span>148 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣彰化市中山國小"><strong>彰化縣彰化市中山國小</strong><span>139 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣北斗鎮萬來國小"><strong>彰化縣北斗鎮萬來國小</strong><span>132 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣田中鎮三潭國小"><strong>彰化縣田中鎮三潭國小</strong><span>110 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣福興鄉永豐國小"><strong>彰化縣福興鄉永豐國小</strong><span>102 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣人師教育協會"><strong>彰化縣人師教育協會</strong><span>98 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣竹塘鄉竹塘國小"><strong>彰化縣竹塘鄉竹塘國小</strong><span>97 videos</span></button></li><li><button class="wotd-top-btn" data-school=""><strong></strong><span>93 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣伸港鄉大同國小"><strong>彰化縣伸港鄉大同國小</strong><span>91 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣員林市饒明國小"><strong>彰化縣員林市饒明國小</strong><span>90 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣社頭鄉湳雅國小"><strong>彰化縣社頭鄉湳雅國小</strong><span>77 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣田中鎮新民國小"><strong>彰化縣田中鎮新民國小</strong><span>60 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣員林市育英國小"><strong>彰化縣員林市育英國小</strong><span>57 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣彰化市大成國小"><strong>彰化縣彰化市大成國小</strong><span>50 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣伸港鄉新港國小"><strong>彰化縣伸港鄉新港國小</strong><span>50 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣溪州鄉水尾國小"><strong>彰化縣溪州鄉水尾國小</strong><span>48 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣二林鎮二林國小"><strong>彰化縣二林鎮二林國小</strong><span>48 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣芬園鄉文德國小"><strong>彰化縣芬園鄉文德國小</strong><span>48 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣溪州鄉溪州國小"><strong>彰化縣溪州鄉溪州國小</strong><span>46 videos</span></button></li><li><button class="wotd-top-btn" data-school="彰化縣和美鎮和仁國小"><strong>彰化縣和美鎮和仁國小</strong><span>46 videos</span></button></li>
