@@ -39,18 +39,18 @@
     if (!nodes.length) return;
     nodes.forEach(function(n){
       var path = n.getAttribute('data-cb-path') || window.location.pathname;
-      // GoatCounter's counter endpoint: /counter/PATH.json (path-encoded)
-      // The `~` prefix means "starts with" — counts all sub-paths under it
-      var encoded = encodeURIComponent('~' + path);
+      // GoatCounter's counter endpoint: /counter/PATH.json (path-encoded).
+      // It returns ONLY the exact-path count (no wildcards), so this counts
+      // landings on the school home page (a fair proxy for "visited the site").
+      // Values are returned as strings — `Number()` handles both.
+      var encoded = encodeURIComponent(path);
       var url = 'https://changhua-bilingual.goatcounter.com/counter/' + encoded + '.json';
       fetch(url, { credentials: 'omit' })
         .then(function(r){ return r.ok ? r.json() : null; })
         .then(function(data){
-          if (data && typeof data.count_unique === 'number') {
-            n.textContent = data.count_unique.toLocaleString();
-          } else if (data && typeof data.count === 'number') {
-            n.textContent = data.count.toLocaleString();
-          }
+          if (!data) return;
+          var num = Number(data.count_unique || data.count || 0);
+          if (!isNaN(num)) n.textContent = num.toLocaleString();
         })
         .catch(function(){ /* silent fail — keep the "----" placeholder */ });
     });
