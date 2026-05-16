@@ -1,0 +1,293 @@
+/* Changhua Bilingual Hub — shared shell
+   Scoped to the Hub pages (/, /schools/, /fets/, /resources/).
+   Individual school sites under /schools/<slug>/ have their own styles and are not affected. */
+
+:root {
+  --hub-ink: #1a1a1a;
+  --hub-ink-soft: #4a4a4a;
+  --hub-ink-faint: #8a8a8a;
+  --hub-primary: #1f6e6e;
+  --hub-primary-deep: #155454;
+  --hub-accent: #e89a3c;
+  --hub-bg: #ffffff;
+  --hub-line: #e7e3dc;
+  --hub-line-soft: #f1ede5;
+  --hub-radius: 12px;
+  --hub-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  --hub-shadow-hover: 0 2px 4px rgba(0,0,0,.06), 0 14px 32px rgba(0,0,0,.10);
+  --hub-zh-font: 'PingFang TC', 'Apple LiGothic Medium', 'Microsoft JhengHei', sans-serif;
+  --hub-en-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --hub-serif: 'Playfair Display', 'PingFang TC', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--hub-en-font), var(--hub-zh-font);
+  color: var(--hub-ink);
+  background: var(--hub-bg);
+  line-height: 1.6;
+  font-size: 16px;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--hub-primary); text-decoration: none; }
+a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
+
+/* ----- Top Nav ----- */
+.hub-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--hub-line);
+}
+.hub-nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+}
+.hub-brand {
+  font-family: var(--hub-serif); font-weight: 700; font-size: 1.25rem;
+  letter-spacing: .01em; color: var(--hub-primary-deep);
+}
+.hub-brand:hover { text-decoration: none; color: var(--hub-primary); }
+.hub-brand small {
+  font-family: var(--hub-zh-font);
+  display: block; font-size: .68rem; font-weight: 400; letter-spacing: .25em;
+  color: var(--hub-ink-faint); margin-top: 2px;
+}
+.hub-nav ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; gap: 4px;
+}
+.hub-nav a.hub-nav-link {
+  display: block; padding: 8px 14px; border-radius: 8px;
+  font-weight: 500; font-size: .95rem;
+  color: var(--hub-ink); text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.hub-nav a.hub-nav-link:hover { background: var(--hub-line-soft); color: var(--hub-primary-deep); }
+.hub-nav a.hub-nav-link[aria-current="page"] {
+  background: var(--hub-primary); color: #fff;
+}
+.hub-nav-toggle { display: none; }
+
+/* ----- Layout ----- */
+.hub-section { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
+.hub-section--narrow { max-width: 880px; }
+
+/* ----- Headings ----- */
+.hub-h1, .hub-h2 {
+  font-family: var(--hub-serif); font-weight: 700;
+  color: var(--hub-ink); letter-spacing: -.01em;
+  margin: 0 0 16px;
+}
+.hub-h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.hub-h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.2; }
+.hub-eyebrow {
+  text-transform: uppercase; letter-spacing: .2em;
+  font-size: .72rem; font-weight: 600; color: var(--hub-accent);
+  margin: 0 0 12px;
+}
+.hub-zh { font-family: var(--hub-zh-font); color: var(--hub-ink-soft); }
+
+/* ----- Hero ----- */
+.hub-hero {
+  padding: 96px 24px 64px;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center;
+}
+.hub-hero-text p {
+  font-size: 1.08rem; color: var(--hub-ink-soft);
+  max-width: 52ch;
+}
+.hub-hero-text p + p { margin-top: 12px; }
+.hub-hero-actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+.hub-btn {
+  display: inline-block; padding: 12px 22px; border-radius: 8px;
+  font-weight: 600; font-size: .95rem; text-decoration: none;
+  transition: transform .15s, box-shadow .15s, background .15s;
+}
+.hub-btn--primary {
+  background: var(--hub-primary); color: #fff;
+}
+.hub-btn--primary:hover { background: var(--hub-primary-deep); color: #fff; text-decoration: none; box-shadow: var(--hub-shadow); }
+.hub-btn--ghost {
+  background: transparent; color: var(--hub-primary-deep);
+  border: 1px solid var(--hub-line);
+}
+.hub-btn--ghost:hover { background: var(--hub-line-soft); text-decoration: none; }
+
+/* ----- Map ----- */
+.hub-map-wrap {
+  position: relative; aspect-ratio: 5 / 4;
+  background: var(--hub-line-soft);
+  border-radius: var(--hub-radius);
+  overflow: hidden;
+}
+#hub-map { width: 100%; height: 100%; display: block; }
+#hub-map .township {
+  fill: #f1ede5; stroke: #d8d2c5; stroke-width: 0.8;
+  cursor: pointer; transition: fill .15s;
+}
+#hub-map .township:hover { fill: var(--hub-accent); }
+#hub-map .township.has-schools { fill: #e8efec; }
+#hub-map .township.has-schools:hover { fill: var(--hub-primary); }
+.hub-map-tooltip {
+  position: absolute; pointer-events: none;
+  background: var(--hub-ink); color: #fff;
+  padding: 6px 10px; border-radius: 6px;
+  font-size: .82rem; font-weight: 500;
+  opacity: 0; transform: translate(-50%, -130%);
+  transition: opacity .12s; white-space: nowrap;
+}
+.hub-map-tooltip.visible { opacity: 1; }
+
+/* ----- Feature cards ----- */
+.hub-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.hub-card {
+  display: block; padding: 28px;
+  background: #fff; border: 1px solid var(--hub-line);
+  border-radius: var(--hub-radius); text-decoration: none;
+  color: var(--hub-ink); transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hub-shadow-hover);
+  border-color: var(--hub-primary);
+  text-decoration: none;
+}
+.hub-card h3 {
+  font-family: var(--hub-serif); margin: 0 0 8px; font-size: 1.25rem;
+  color: var(--hub-primary-deep);
+}
+.hub-card p { margin: 0; color: var(--hub-ink-soft); font-size: .95rem; }
+.hub-card .hub-card-meta {
+  margin-top: 14px; font-size: .78rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--hub-accent); font-weight: 600;
+}
+
+/* ----- Township sections (schools page) ----- */
+.hub-township-block { padding: 40px 0; border-top: 1px solid var(--hub-line-soft); }
+.hub-township-block:first-of-type { border-top: 0; padding-top: 0; }
+.hub-township-head {
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  margin: 0 0 24px;
+}
+.hub-township-head h2 {
+  font-family: var(--hub-serif); font-size: 1.7rem; margin: 0;
+  color: var(--hub-primary-deep);
+}
+.hub-township-head .zh { font-family: var(--hub-zh-font); color: var(--hub-ink-soft); font-size: 1rem; }
+.hub-township-head .meta { color: var(--hub-ink-faint); font-size: .85rem; margin-left: auto; }
+
+.hub-school-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.hub-school-card {
+  position: relative; display: block;
+  padding: 18px 18px 16px;
+  background: #fff;
+  border: 1px solid var(--hub-line); border-radius: 10px;
+  text-decoration: none; color: var(--hub-ink);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.hub-school-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hub-shadow);
+  border-color: var(--hub-primary);
+  text-decoration: none;
+}
+.hub-school-card .name {
+  font-weight: 600; font-size: 1.02rem; color: var(--hub-ink);
+  margin: 0 0 4px;
+}
+.hub-school-card .zh {
+  font-family: var(--hub-zh-font); color: var(--hub-ink-soft);
+  font-size: .9rem; margin: 0 0 10px;
+}
+.hub-school-card .badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--hub-line-soft); color: var(--hub-ink-faint); font-weight: 600;
+}
+.hub-school-card .badge.jh { background: #fff4e6; color: #b06a00; }
+.hub-school-card .badge.sh { background: #fde2e2; color: #b73838; }
+
+/* ----- Search bar ----- */
+.hub-search {
+  position: relative;
+  margin: 0 0 32px;
+}
+.hub-search input {
+  width: 100%; padding: 14px 20px 14px 48px;
+  font-size: 1rem; border: 1px solid var(--hub-line);
+  border-radius: 999px; background: #fff;
+  color: var(--hub-ink);
+  transition: border-color .15s, box-shadow .15s;
+}
+.hub-search input:focus {
+  outline: none; border-color: var(--hub-primary);
+  box-shadow: 0 0 0 4px rgba(31,110,110,.12);
+}
+.hub-search::before {
+  content: ""; position: absolute; left: 18px; top: 50%;
+  width: 18px; height: 18px; transform: translateY(-50%);
+  background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>');
+}
+
+/* ----- Footer ----- */
+.hub-footer {
+  margin-top: 96px; padding: 48px 24px;
+  background: #fafaf7; border-top: 1px solid var(--hub-line);
+}
+.hub-footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px;
+}
+.hub-footer h4 {
+  font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 700; color: var(--hub-ink); margin: 0 0 12px;
+}
+.hub-footer p, .hub-footer a {
+  font-size: .9rem; color: var(--hub-ink-soft); margin: 4px 0;
+}
+.hub-footer a { display: block; }
+.hub-footer-credit {
+  margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--hub-line);
+  max-width: 1200px; margin-left: auto; margin-right: auto;
+  font-size: .78rem; color: var(--hub-ink-faint); text-align: center;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 800px) {
+  .hub-hero {
+    grid-template-columns: 1fr; gap: 32px;
+    padding: 56px 20px 48px;
+  }
+  .hub-section { padding: 48px 20px; }
+  .hub-nav-inner { padding: 12px 20px; }
+  .hub-nav ul.hub-nav-list {
+    position: absolute; top: 100%; right: 0; left: 0;
+    flex-direction: column; padding: 12px 20px 20px;
+    background: #fff; border-bottom: 1px solid var(--hub-line);
+    transform: translateY(-12px); opacity: 0; pointer-events: none;
+    transition: transform .2s, opacity .2s;
+  }
+  .hub-nav.open ul.hub-nav-list { transform: none; opacity: 1; pointer-events: auto; }
+  .hub-nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border: 1px solid var(--hub-line);
+    border-radius: 8px; background: #fff; cursor: pointer;
+  }
+  .hub-nav-toggle svg { width: 20px; height: 20px; }
+  .hub-footer-inner { grid-template-columns: 1fr; }
+}
