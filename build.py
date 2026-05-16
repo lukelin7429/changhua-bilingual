@@ -260,57 +260,62 @@ def build_schools(townships_data, schools_data):
 
 def build_fets(fets_data, schools_data):
     fets = fets_data["fets"]
-    schools_by_slug = {s["slug"]: s for s in schools_data["schools"]}
 
     def card(fet):
-        school_field = fet.get("school", "")
-        if school_field in schools_by_slug:
-            sch = schools_by_slug[school_field]
-            school_display = f'{sch["name"]} <span class="zh" style="color:var(--hub-ink-faint);font-size:.85em">· {sch.get("zh","")}</span>'
-        else:
-            school_display = school_field
+        name = fet.get("name", "")
+        school_en = fet.get("school", "")
+        school_zh = fet.get("school_zh", "")
         photo = fet.get("photo", "")
-        if photo:
-            img_html = f'<img src="/assets/images/fets/{photo}" alt="{fet["name"]}" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;background:var(--hub-line-soft)">'
-        else:
-            initials = "".join(w[0] for w in fet["name"].split()[:2]).upper()
-            img_html = f'<div aria-hidden="true" style="width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:var(--hub-line-soft);border-radius:50%;font-family:var(--hub-serif);font-size:1.8rem;color:var(--hub-primary)">{initials}</div>'
         site = fet.get("site", "")
-        wrap_open = f'<a href="{site}" target="_blank" rel="noopener" class="hub-school-card" style="text-align:center">' if site else '<div class="hub-school-card" style="text-align:center">'
-        wrap_close = "</a>" if site else "</div>"
+
+        if photo:
+            img_html = (
+                f'<img src="/assets/images/fets/{photo}" alt="{name}" loading="lazy" '
+                f'class="fet-photo">'
+            )
+        else:
+            initials = "".join(w[0] for w in name.split()[:2]).upper()
+            img_html = f'<div class="fet-photo fet-initials" aria-hidden="true">{initials}</div>'
+
+        if site:
+            wrap_open = f'<a class="fet-card" href="{site}" target="_blank" rel="noopener">'
+            wrap_close = "</a>"
+        else:
+            wrap_open = '<div class="fet-card">'
+            wrap_close = "</div>"
+
+        zh_line = f'<p class="fet-school-zh">{school_zh}</p>' if school_zh else ""
         return f"""
 {wrap_open}
-  <div style="padding:0 16px 12px">{img_html}</div>
-  <p class="name">{fet["name"]}</p>
-  <p class="zh">{school_display}</p>
+  {img_html}
+  <p class="fet-name">{name}</p>
+  <p class="fet-school">{school_en}</p>
+  {zh_line}
 {wrap_close}
 """.strip()
 
-    elem = [card(f) for f in fets if f.get("segment") != "senior-high"]
+    elem_jh = [card(f) for f in fets if f.get("segment") in ("elementary", "junior-high")]
     senior = [card(f) for f in fets if f.get("segment") == "senior-high"]
+    total = len(fets)
 
     content = f"""
 <section class="hub-section">
   <p class="hub-eyebrow">Foreign English Teachers</p>
   <h1 class="hub-h1">Meet our FETs</h1>
-  <p style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:60ch">
-    Foreign English Teachers placed across Changhua's partner schools — bringing classrooms a global voice.
+  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:60ch">
+    {total} Foreign English Teachers placed across Changhua's partner schools — bringing classrooms a global voice.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    服務於彰化縣各合作學校的外籍英語教師——把世界帶進教室。
+    服務於彰化縣各合作學校的 {total} 位外籍英語教師——把世界帶進教室。
   </p>
 
-  <div style="margin-top:48px;padding:14px 18px;background:#fff8ec;border:1px solid #f5d997;border-radius:10px;color:#7a5300">
-    <strong>Roster being rebuilt.</strong> The full FET list with photos and individual sites is being migrated from the legacy Hub. This page currently shows the structure and a sample.
+  <h2 class="hub-h2" style="margin-top:56px">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
+  <div class="fet-grid" style="margin-top:24px">
+    {''.join(elem_jh)}
   </div>
 
-  <h2 class="hub-h2" style="margin-top:56px">Elementary &amp; Junior High</h2>
-  <div class="hub-school-grid" style="margin-top:24px">
-    {''.join(elem)}
-  </div>
-
-  <h2 class="hub-h2" style="margin-top:56px">Senior High</h2>
-  <div class="hub-school-grid" style="margin-top:24px">
+  <h2 class="hub-h2" style="margin-top:72px">Senior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">高中</span></h2>
+  <div class="fet-grid" style="margin-top:24px">
     {''.join(senior)}
   </div>
 </section>

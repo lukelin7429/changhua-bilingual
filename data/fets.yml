@@ -1,35 +1,88 @@
-# Changhua Bilingual Hub — Foreign English Teachers
-# Single source of truth — edit this file and the website updates automatically.
-#
-# Field reference:
-#   name      = English name (as the teacher self-identifies)
-#   school    = school slug (must match data/schools.yml) OR free-text if not yet linked
-#   photo     = relative path under /assets/images/fets/, fallback to placeholder if blank
-#   site      = teacher's personal site (Google Sites / Canva / other)
-#   segment   = elementary | junior-high | senior-high
-#
-# Photos pending: this file is the structure. Photos will be filled in once Chrome MCP
-# scrapes the legacy /fets page with name-to-image mapping.
+# Changhua Bilingual Hub — Foreign English Teachers (FETs)
+# Single source of truth — edit and run `python3 build.py`.
+# Sourced from changhua.mycultureconnect.org/fets — 83 FETs.
 
 fets:
-  # ===== Elementary & Junior High School FETs =====
-  # Sample (full roster pending Chrome MCP scrape of legacy /fets page).
-  # Names below are confirmed from /fets static HTML; school assignments need verification.
-  - { name: "Ma Aloha Acodili Blanco",          school: tianwei,    segment: junior-high, photo: "", site: "" }
-  - { name: "Marian Grace Almendralejo Ontanillas", school: sinjuang, segment: elementary, photo: "", site: "" }
-  - { name: "Chris Truter Nieuwoudt",           school: shingang,   segment: elementary, photo: "", site: "" }
-  - { name: "Jennifer Chen",                     school: dongshing,  segment: elementary, photo: "", site: "" }
-  - { name: "Amanda Kalinowski",                school: yude,       segment: elementary, photo: "", site: "" }
-
-  # ===== Senior High School FETs =====
-  - { name: "Marnie Tatad",                     school: "Erlin Senior High",       segment: senior-high, photo: "", site: "" }
-  - { name: "Jennifer Lim",                     school: "Chengkung Senior High",    segment: senior-high, photo: "", site: "" }
-  - { name: "Jenica Shayne Rizon",              school: "Tianzhong Senior High",    segment: senior-high, photo: "", site: "" }
-  - { name: "Elizabeth Sallowman",              school: "Changhua Senior High",     segment: senior-high, photo: "", site: "" }
-  - { name: "Timothy Cox",                      school: "Hemei Senior High",        segment: senior-high, photo: "", site: "" }
-
-  # TODO (next session via Chrome MCP):
-  # - Full roster of ~49 elementary/junior-high FETs
-  # - Verify school assignment for each (school slug from schools.yml)
-  # - Map photo URL → /assets/images/fets/<slug>.jpg
-  # - Capture each teacher's personal site URL
+  - { name: "Ma Aloha Acodili Blanco", school: "Tianwei JH", school_zh: "田尾國中", segment: junior-high, photo: "ma-aloha-acodili-blanco.jpg", site: "https://www.alohablanco.com/index.php#about" }
+  - { name: "Marian Grace Almendralejo Ontanillas", school: "Sinjuang", school_zh: "新庄國小", segment: elementary, photo: "marian-grace-almendralejo-ontanillas.jpg", site: "https://sites.google.com/mycultureconnect.org/teachermariansclassroom?usp=sharing" }
+  - { name: "Chris Truter Nieuwoudt", school: "Shingang", school_zh: "新港國小", segment: elementary, photo: "chris-truter-nieuwoudt.jpg", site: "https://sgps-fet.mycultureconnect.org/" }
+  - { name: "Andrea Rosario De Castro Zeta", school: "Wunde", school_zh: "文德國小", segment: elementary, photo: "andrea-rosario-de-castro-zeta.jpg", site: "https://sites.google.com/mycultureconnect.org/andreazeta?usp=sharing" }
+  - { name: "Jovel Morbos Capitle", school: "Taiping", school_zh: "太平國小", segment: elementary, photo: "jovel-morbos-capitle.jpg", site: "https://sites.google.com/mycultureconnect.org/fetjovelmorboscapitle?usp=sharing" }
+  - { name: "Jhonna Mae Mambiar Copias", school: "Dacun", school_zh: "大村國小", segment: elementary, photo: "jhonna-mae-mambiar-copias.jpg", site: "https://sites.google.com/mycultureconnect.org/fet-dacunelementaryschool?usp=sharing" }
+  - { name: "Jovanni Rafols Aniban", school: "Minsheng", school_zh: "民生國小", segment: elementary, photo: "jovanni-rafols-aniban.jpg", site: "https://sites.google.com/mycultureconnect.org/englishlearningjourney?usp=sharing" }
+  - { name: "Jericho Sandoval", school: "Santan", school_zh: "三潭國小", segment: elementary, photo: "jericho-sandoval.jpg", site: "https://sites.google.com/mycultureconnect.org/jericho?usp=sharing" }
+  - { name: "Abraham Jr. Capulong Otrera", school: "Shengang JH", school_zh: "伸港國中", segment: junior-high, photo: "abraham-jr-capulong-otrera.jpg", site: "https://sites.google.com/view/lordyman/home" }
+  - { name: "Ronica Gabriel Tambogon", school: "Hsinyi", school_zh: "信義國中小", segment: junior-high, photo: "ronica-gabriel-tambogon.jpg", site: "https://sites.google.com/mycultureconnect.org/fet-ronica-gabriel-tambogon?usp=sharing" }
+  - { name: "Anne Faith Macatangay Abarquez", school: "Tsunshang", school_zh: "村上國小", segment: elementary, photo: "anne-faith-macatangay-abarquez.jpg", site: "https://sites.google.com/mycultureconnect.org/annefaithabarquez?usp=sharing" }
+  - { name: "Mary Marilyn Igoogan Quisay", school: "Nanhsing", school_zh: "南興國小", segment: elementary, photo: "mary-marilyn-igoogan-quisay.jpg", site: "https://sites.google.com/mycultureconnect.org/mariquis?usp=sharing" }
+  - { name: "Caren Harden Canoy", school: "Dasi", school_zh: "大西國小", segment: elementary, photo: "caren-harden-canoy.jpg", site: "https://sites.google.com/mycultureconnect.org/teacher-caren?usp=sharing" }
+  - { name: "Dessa Lou Vega Macatangay", school: "Chengkung SHS", school_zh: "成功高中", segment: senior-high, photo: "dessa-lou-vega-macatangay.jpg", site: "https://sites.google.com/mycultureconnect.org/dessalouvegamacatangay?usp=sharing" }
+  - { name: "Geraldine Bayno Destacamento", school: "Siansi", school_zh: "線西國小", segment: elementary, photo: "geraldine-bayno-destacamento.jpg", site: "https://sites.google.com/mycultureconnect.org/siansielementaryschool?usp=sharing" }
+  - { name: "Maelyn De Torres Villano", school: "Cundong", school_zh: "村東國小", segment: elementary, photo: "maelyn-de-torres-villano.jpg", site: "https://sites.google.com/mycultureconnect.org/a-mae-zing-english?usp=sharing" }
+  - { name: "Eldie Amoyo Atienza", school: "Erlin", school_zh: "二林國小", segment: elementary, photo: "eldie-amoyo-atienza.jpg", site: "https://sites.google.com/mycultureconnect.org/eatienza?usp=sharing" }
+  - { name: "Laurence Corvera Layson", school: "Huatan JH", school_zh: "花壇國中", segment: junior-high, photo: "laurence-corvera-layson.jpg", site: "https://sites.google.com/mycultureconnect.org/laurencecorveralayson?usp=sharing" }
+  - { name: "Chariz Arano", school: "Lujiang Intl S", school_zh: "鹿江國中小", segment: junior-high, photo: "chariz-arano.jpg", site: "https://sites.google.com/mycultureconnect.org/chainchanghua?usp=sharing" }
+  - { name: "Cynthia Villanea Estrella", school: "Tianjhong", school_zh: "田中國小", segment: elementary, photo: "cynthia-villanea-estrella.jpg", site: "https://sites.google.com/mycultureconnect.org/teachercynthiaspage?usp=sharing" }
+  - { name: "Hannah Mae Lopez Tolosa", school: "Huxi", school_zh: "湖西國小", segment: elementary, photo: "hannah-mae-lopez-tolosa.jpg", site: "https://sites.google.com/mycultureconnect.org/hannah-mae-lopez-tolosa?usp=sharing" }
+  - { name: "Quennie Mae Gonzaga Dianon", school: "Luoqing", school_zh: "螺青國小", segment: elementary, photo: "quennie-mae-gonzaga-dianon.jpg", site: "https://sites.google.com/mycultureconnect.org/quirkyquail?usp=sharing" }
+  - { name: "Karla Miro Roflo", school: "Hosin", school_zh: "合興國小", segment: elementary, photo: "karla-miro-roflo.jpg", site: "https://sites.google.com/mycultureconnect.org/karla-roflo?usp=sharing" }
+  - { name: "Crislin Jakosalem Alo", school: "Loojing", school_zh: "鹿東國小", segment: elementary, photo: "crislin-jakosalem-alo.jpg", site: "https://sites.google.com/mycultureconnect.org/creativelearning?usp=sharing" }
+  - { name: "Aileen Moralde Sim", school: "Beidou JH", school_zh: "北斗國中", segment: junior-high, photo: "aileen-moralde-sim.jpg", site: "https://sites.google.com/view/aileenmoraldesim/future-hub?pli=1" }
+  - { name: "Nelson Dolim Sia", school: "Dongfang", school_zh: "東芳國小", segment: elementary, photo: "nelson-dolim-sia.jpg", site: "https://sites.google.com/mycultureconnect.org/teachernel?usp=sharing" }
+  - { name: "Danesa Mae Latonio", school: "Siangtian", school_zh: "香田國小", segment: elementary, photo: "danesa-mae-latonio.jpg", site: "https://sites.google.com/mycultureconnect.org/danesalatonio?usp=sharing" }
+  - { name: "Mbali Beketele Mathabela", school: "Pusin JH", school_zh: "埔心國中", segment: junior-high, photo: "mbali-beketele-mathabela.jpg", site: "https://sites.google.com/view/fet-beke?usp=sharing" }
+  - { name: "Kristine Joy Mangino Sabillo", school: "Wenkai", school_zh: "文開國小", segment: elementary, photo: "kristine-joy-mangino-sabillo.jpg", site: "https://sites.google.com/mycultureconnect.org/letter-corner-by-kristine?usp=sharing" }
+  - { name: "Florentino III Arriola Pigao", school: "Yuandou", school_zh: "原斗國中小", segment: junior-high, photo: "florentino-iii-arriola-pigao.jpg", site: "https://sites.google.com/mycultureconnect.org/learnandgowithteacherinno?usp=sharing" }
+  - { name: "Michaela Kristelle Balanon Sanchez", school: "Hemei HS", school_zh: "和美高中", segment: senior-high, photo: "michaela-kristelle-balanon-sanchez.jpg", site: "https://sites.google.com/mycultureconnect.org/michaelakristellesanchez?usp=sharing" }
+  - { name: "Sindile Sellinah Morris", school: "Dingfan", school_zh: "頂番國小", segment: elementary, photo: "sindile-sellinah-morris.jpg", site: "https://sites.google.com/mycultureconnect.org/selinasenglishclass?usp=sharing" }
+  - { name: "April Ann Jaranilla Lloren", school: "Yuanlin JH", school_zh: "員林國中", segment: junior-high, photo: "april-ann-jaranilla-lloren.jpg", site: "https://sites.google.com/mycultureconnect.org/yuanlinjuniorhighschool?usp=sharing" }
+  - { name: "Rica Jane Natividad", school: "Mingli", school_zh: "明禮國小", segment: elementary, photo: "rica-jane-natividad.jpg", site: "https://sites.google.com/twrses.org/laoshislounge?usp=sharing" }
+  - { name: "Maritess Ledonio Cuenco", school: "Tongan", school_zh: "同安國小", segment: elementary, photo: "maritess-ledonio-cuenco.jpg", site: "https://sites.google.com/mycultureconnect.org/tonganelementaryschool?usp=sharing" }
+  - { name: "Neysa Florize Cayetano", school: "Dayuan", school_zh: "大園國小", segment: elementary, photo: "neysa-florize-cayetano.jpg", site: "https://sites.google.com/mycultureconnect.org/neysas-english-class?usp=sharing" }
+  - { name: "Danilo Abril", school: "Wufeng", school_zh: "梧鳳國小", segment: elementary, photo: "danilo-abril.jpg", site: "https://sites.google.com/view/teacher-danz-personal-website/introduction" }
+  - { name: "Jesaira Lunod Bonggot", school: "Changan JH", school_zh: "彰安國中小", segment: junior-high, photo: "jesaira-lunod-bonggot.jpg", site: "https://sites.google.com/mycultureconnect.org/jessyydjs?usp=sharing" }
+  - { name: "Anna Mae Canada Betidos", school: "Beidou", school_zh: "北斗國小", segment: elementary, photo: "anna-mae-canada-betidos.jpg", site: "https://sites.google.com/twrses.org/anna?usp=sharing" }
+  - { name: "Jennifer Chen", school: "Dongshan", school_zh: "東山國小", segment: elementary, photo: "jennifer-chen.jpg", site: "https://sites.google.com/mycultureconnect.org/okapi?usp=sharing" }
+  - { name: "Amanda Kalinowski", school: "Yude", school_zh: "育德國小", segment: elementary, photo: "amanda-kalinowski.jpg", site: "https://amanda.mycultureconnect.org/home" }
+  - { name: "Ben David Rose", school: "Shetou JH", school_zh: "社頭國中", segment: junior-high, photo: "ben-david-rose.jpg", site: "https://sites.google.com/mycultureconnect.org/changhuareadsprogram?usp=sharing" }
+  - { name: "Anabelle Geronimo", school: "Nanzhou", school_zh: "南州國小", segment: elementary, photo: "anabelle-geronimo.jpg", site: "https://sites.google.com/twrses.org/english-corner/meet-the-teacher" }
+  - { name: "Chlarise Raven Cruz", school: "Huanan", school_zh: "華南國小", segment: elementary, photo: "chlarise-raven-cruz.jpg", site: "https://sites.google.com/twrses.org/chlariseraventcruz?usp=sharing" }
+  - { name: "Dexter Espiritu", school: "Shanxi", school_zh: "陝西國小", segment: elementary, photo: "dexter-espiritu.jpg", site: "https://sites.google.com/twrses.org/teacher-dex?usp=sharing" }
+  - { name: "Ivy Grace Aborde", school: "Wansing", school_zh: "萬興國小", segment: elementary, photo: "ivy-grace-aborde.jpg", site: "https://sites.google.com/twrses.org/fet-ivygraceaborde?usp=sharing" }
+  - { name: "Syrile Talidted Mangudang", school: "Sanchun", school_zh: "三春國小", segment: elementary, photo: "syrile-talidted-mangudang.jpg", site: "https://sites.google.com/twrses.org/teacher-syrile/introduction" }
+  - { name: "Carissa Wico", school: "Peiying", school_zh: "培英國小", segment: elementary, photo: "carissa-wico.jpg", site: "https://sites.google.com/twrses.org/pyes-fetcarissa1818?usp=sharing" }
+  - { name: "Odeza Hernandez", school: "Sihu", school_zh: "溪湖國小", segment: elementary, photo: "odeza-hernandez.jpg", site: "https://sites.google.com/twrses.org/teacheraudie/home" }
+  - { name: "Rochelle Pangan Sansano", school: "Taihe", school_zh: "泰和國小", segment: elementary, photo: "rochelle-pangan-sansano.jpg", site: "https://sites.google.com/twrses.org/rochellesansano-taihe/my-information" }
+  - { name: "Vannesa Joy Pajarito", school: "Darong", school_zh: "大榮國小", segment: elementary, photo: "vannesa-joy-pajarito.jpg", site: "https://sites.google.com/twrses.org/vannesajoy?usp=sharing" }
+  - { name: "Esmeralda Angela", school: "Hechun JH", school_zh: "和群國中", segment: junior-high, photo: "esmeralda-angela.jpg", site: "https://angelaesmeraldahcjhs.my.canva.site/angela-s" }
+  - { name: "Cristine Joy Peria", school: "Chungshan", school_zh: "中山國小", segment: elementary, photo: "cristine-joy-peria.jpg", site: "https://sites.google.com/twrses.org/cristine-joy?usp=sharing" }
+  - { name: "Gladys Valois Mabute", school: "Nanhsing", school_zh: "南興國小", segment: elementary, photo: "gladys-valois-mabute.jpg", site: "https://sites.google.com/twrses.org/gladysmabute?usp=sharing" }
+  - { name: "Daylin Cojeda Ayson", school: "Dacun JH", school_zh: "大村國中", segment: junior-high, photo: "daylin-cojeda-ayson.jpg", site: "https://sites.google.com/twrses.org/fet-teacher-daylin?usp=sharing" }
+  - { name: "Amelia Matier Wade", school: "Dashin", school_zh: "大新國小", segment: elementary, photo: "amelia-matier-wade.jpg", site: "https://sites.google.com/twrses.org/amelia-wade/welcome" }
+  - { name: "Romnick Mutcha Padilla", school: "Daxing", school_zh: "大興國小", segment: elementary, photo: "romnick-mutcha-padilla.jpg", site: "https://sites.google.com/twrses.org/romnick?usp=sharing" }
+  - { name: "Kaye Cee Reyla Dacula", school: "Datong", school_zh: "大同國小", segment: elementary, photo: "kaye-cee-reyla-dacula.jpg", site: "https://sites.google.com/twrses.org/beyourbestversionwithteachkaye/home" }
+  - { name: "Khemberly Panganod Cruzat", school: "Dacun", school_zh: "大村國小", segment: elementary, photo: "khemberly-panganod-cruzat.jpg", site: "https://sites.google.com/twrses.org/khemberly-cruzat?usp=sharing" }
+  - { name: "Mechell Villareal Amor", school: "Hudong", school_zh: "湖東國小", segment: elementary, photo: "mechell-villareal-amor.jpg", site: "https://sites.google.com/twrses.org/mechell-englishwithme?usp=sharing" }
+  - { name: "Nancy Soriano", school: "Guosheng", school_zh: "國聖國小", segment: elementary, photo: "nancy-soriano.jpg", site: "https://sites.google.com/twrses.org/teachernancy?usp=sharing" }
+  - { name: "Vinice Jovero Cayabyab", school: "Chienshing", school_zh: "建新國小", segment: elementary, photo: "vinice-jovero-cayabyab.jpg", site: "https://sites.google.com/chc.edu.tw/vinice-j-cayabyab?usp=sharing" }
+  - { name: "Izielle Jorlano Aborde", school: "Shetou", school_zh: "社頭國小", segment: elementary, photo: "izielle-jorlano-aborde.jpg", site: "" }
+  - { name: "Jaffrey Sultan", school: "Yongfeng", school_zh: "永豐國小", segment: elementary, photo: "jaffrey-sultan.jpg", site: "" }
+  - { name: "Jairah Denosta Teodosio", school: "Chiaoyi", school_zh: "僑義國小", segment: elementary, photo: "jairah-denosta-teodosio.jpg", site: "" }
+  - { name: "Mira Elise Kron", school: "Rixin", school_zh: "日新國小", segment: elementary, photo: "mira-elise-kron.jpg", site: "" }
+  - { name: "Axciel Sinadjan", school: "Wunde", school_zh: "文德國小", segment: elementary, photo: "axciel-sinadjan.jpg", site: "https://sites.google.com/twrses.org/axciel?usp=sharing" }
+  - { name: "Angel Mae", school: "Wanlai", school_zh: "萬來國小", segment: elementary, photo: "angel-mae.jpg", site: "https://sites.google.com/twrses.org/angel/home" }
+  - { name: "Marnie Tatad", school: "Erlin SHS", school_zh: "二林高中", segment: senior-high, photo: "marnie-tatad.jpg", site: "https://sites.google.com/mycultureconnect.org/marnietatad?usp=sharing" }
+  - { name: "Jennifer Lim", school: "Chengkung SHS", school_zh: "成功高中", segment: senior-high, photo: "jennifer-lim.jpg", site: "https://sites.google.com/mycultureconnect.org/jennifer-lim?usp=sharing" }
+  - { name: "Jenica Shayne Rizon", school: "Tianzhong SHS", school_zh: "田中高中", segment: senior-high, photo: "jenica-shayne-rizon.jpg", site: "https://sites.google.com/mycultureconnect.org/jenica-rizon-fet?usp=sharing" }
+  - { name: "Elizabeth Sallowman", school: "Changhua Arts HS", school_zh: "彰化藝術高中", segment: senior-high, photo: "elizabeth-sallowman.jpg", site: "https://sites.google.com/mycultureconnect.org/elizabethpsalloman?usp=sharing" }
+  - { name: "Timothy Cox", school: "Hemei HS", school_zh: "和美高中", segment: senior-high, photo: "timothy-cox.jpg", site: "https://sites.google.com/mycultureconnect.org/timothycox/home" }
+  - { name: "Julianne Marie Meredor", school: "Sijhou", school_zh: "溪州國小", segment: elementary, photo: "julianne-marie-meredor.jpg", site: "https://sites.google.com/mycultureconnect.org/iteachicare?usp=sharing" }
+  - { name: "Christopher Curry", school: "Heren", school_zh: "和仁國小", segment: elementary, photo: "christopher-curry.jpg", site: "https://sites.google.com/twrses.org/christopher-curry/home" }
+  - { name: "Renante Valderama Pomasin", school: "Lujiang Intl S", school_zh: "鹿江國中小", segment: junior-high, photo: "renante-valderama-pomasin.jpg", site: "https://sites.google.com/mycultureconnect.org/trenwebsite?usp=sharing" }
+  - { name: "Alexander Emil Bernatzky", school: "Changde JH", school_zh: "彰德國中", segment: junior-high, photo: "alexander-emil-bernatzky.jpg", site: "https://sites.google.com/mycultureconnect.org/alex-changte?usp=sharing" }
+  - { name: "Gladys Mateo", school: "Zhongxiao", school_zh: "忠孝國小", segment: elementary, photo: "gladys-mateo.jpg", site: "https://sites.google.com/mycultureconnect.org/teachergladys?usp=sharing" }
+  - { name: "Jane Nelse Parago", school: "Yongxing", school_zh: "永興國小", segment: elementary, photo: "jane-nelse-parago.jpg", site: "https://sites.google.com/twrses.org/teacherjane?usp=sharing" }
+  - { name: "Melgrace Palmones Onguda", school: "Rihsin", school_zh: "日新國小", segment: elementary, photo: "melgrace-palmones-onguda.jpg", site: "https://sites.google.com/twrses.org/melon?usp=sharing" }
+  - { name: "Joy Marie Tikiing Varquez", school: "Nanzhen", school_zh: "南鎮國小", segment: elementary, photo: "joy-marie-tikiing-varquez.jpg", site: "https://sites.google.com/twrses.org/joy-marie-varquez?usp=sharing" }
+  - { name: "Lana Wong", school: "Yongfeng", school_zh: "永豐國小", segment: elementary, photo: "lana-wong.jpg", site: "https://sites.google.com/twrses.org/lana-wong?usp=sharing" }
+  - { name: "Jyramhe Paculba Montero", school: "Chiaoyi", school_zh: "僑義國小", segment: elementary, photo: "jyramhe-paculba-montero.jpg", site: "https://sites.google.com/mycultureconnect.org/jyramhe-montero?usp=sharing" }

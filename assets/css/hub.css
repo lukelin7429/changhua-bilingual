@@ -240,6 +240,54 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 .hub-school-card .badge.jh { background: #fff4e6; color: #b06a00; }
 .hub-school-card .badge.sh { background: #fde2e2; color: #b73838; }
 
+/* ----- FET cards ----- */
+.fet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+.fet-card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 22px 16px 20px;
+  background: #fff;
+  border: 1px solid var(--hub-line); border-radius: 12px;
+  text-decoration: none; color: var(--hub-ink);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+  text-align: center;
+}
+.fet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hub-shadow-hover);
+  border-color: var(--hub-primary);
+  text-decoration: none;
+}
+.fet-photo {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--hub-line-soft);
+  margin-bottom: 14px;
+}
+.fet-initials {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--hub-serif);
+  font-size: 1.7rem; font-weight: 700;
+  color: var(--hub-primary);
+}
+.fet-name {
+  font-weight: 600; font-size: .98rem; line-height: 1.25;
+  color: var(--hub-ink); margin: 0 0 4px;
+}
+.fet-school {
+  font-size: .82rem; color: var(--hub-primary);
+  font-weight: 500; margin: 0;
+}
+.fet-school-zh {
+  font-family: var(--hub-zh-font);
+  font-size: .8rem; color: var(--hub-ink-faint);
+  margin: 2px 0 0;
+}
+
 /* ----- Search bar ----- */
 .hub-search {
   position: relative;
