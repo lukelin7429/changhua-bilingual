@@ -47,8 +47,8 @@
   @media (min-width:720px){ .head__sub{ font-size:15.5px; } }
 
   /* KPI strip */
-  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0 8px;}
-  @media (max-width:520px){ .kpis{grid-template-columns:repeat(3,1fr);gap:8px;} .kpi{padding:14px 8px;} .kpi__num{font-size:30px;} }
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:32px 0 8px;}
+  @media (max-width:640px){ .kpis{grid-template-columns:repeat(2,1fr);} }
   .kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;text-align:center;box-shadow:var(--shadow-sm);}
   .kpi__num{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--navy);line-height:1;}
   .kpi__lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-top:8px;}
@@ -100,9 +100,15 @@
 
   <section class="kpis" aria-label="Summary counts">
     <div class="kpi"><div class="kpi__num">15</div><div class="kpi__lbl">Schools</div></div>
-    <div class="kpi"><div class="kpi__num">15</div><div class="kpi__lbl">Live</div></div>
+    <div class="kpi"><div class="kpi__num">14</div><div class="kpi__lbl">Live</div></div>
+    <div class="kpi"><div class="kpi__num">1</div><div class="kpi__lbl">In Design</div></div>
     <div class="kpi"><div class="kpi__num">8</div><div class="kpi__lbl">Townships</div></div>
   </section>
+
+  <div class="legend">
+    <span class="legend__item"><span class="badge badge--live">Live</span> 已上線</span>
+    <span class="legend__item"><span class="badge badge--design">In Design</span> 設計／建置中</span>
+  </div>
 
   <main>
 
@@ -182,10 +188,9 @@
         <article class="card">
           <div class="card__top">
             <div class="card__name">萬興國小<br><span style="font-size:13px;color:var(--ink-soft);font-weight:400;">Wansing Elementary</span></div>
-            <span class="badge badge--live">Live</span>
+            <span class="badge badge--design">In Design</span>
           </div>
-          <div class="card__note">Erlin&rsquo;s flagship custom build; centennial-school heritage.</div>
-          <a class="card__link" href="https://changhua-bilingual.org/schools/wansing/" target="_blank" rel="noopener"><span class="arrow">↗</span>changhua-bilingual.org/schools/wansing</a>
+          <div class="card__note">Centennial-school heritage; intended as the Erlin flagship custom build.</div>
         </article>
         <article class="card">
           <div class="card__top">
