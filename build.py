@@ -193,6 +193,69 @@ def build_home(townships_data, schools_data, wotd_items):
     </a>
   </div>
 </section>
+
+<section class="home-changhua">
+  <div class="home-changhua-inner">
+    <div class="home-changhua-text">
+      <p class="hub-eyebrow" style="color:#ffd28a">Discover Changhua · 認識彰化</p>
+      <h2 class="hub-h2" style="color:#fff;font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:18px">
+        A county whose name means <em style="color:#ffd28a">to manifest refined civilization</em>.
+      </h2>
+      <p style="color:rgba(255,255,255,.92);max-width:60ch;font-size:1.05rem;line-height:1.65">
+        Changhua County (彰化縣) was founded in <strong>1723</strong> — its very name comes from the Qing-era phrase <strong>"建學立師以彰雅化"</strong>: <em>establish schools and teachers to manifest refined civilization</em>. Education is built into our county's identity.
+      </p>
+      <p class="hub-zh" style="color:rgba(255,255,255,.85);max-width:60ch;font-size:1rem;line-height:1.75;margin-top:14px">
+        彰化於 1723 年（清雍正元年）設縣，得名於「建學立師以彰雅化」。教育在彰化從來不是邊角，而是縣的本名與本心。
+      </p>
+      <div style="margin-top:24px">
+        <a class="hub-btn hub-btn--primary" href="/resources/about-changhua/" style="background:#ffd28a;color:var(--hub-primary-deep)">Read more →</a>
+      </div>
+    </div>
+    <div class="home-changhua-stats">
+      <div class="home-stat">
+        <p class="home-stat-num">1,074<span class="unit">km²</span></p>
+        <p class="home-stat-label">Total area<br><span class="zh">全台最小縣</span></p>
+      </div>
+      <div class="home-stat">
+        <p class="home-stat-num">1.2<span class="unit">M</span></p>
+        <p class="home-stat-label">Population<br><span class="zh">全台人口最多縣</span></p>
+      </div>
+      <div class="home-stat">
+        <p class="home-stat-num">1723</p>
+        <p class="home-stat-label">Founded<br><span class="zh">清雍正元年</span></p>
+      </div>
+      <div class="home-stat">
+        <p class="home-stat-num">26</p>
+        <p class="home-stat-label">Townships<br><span class="zh">2 市 + 6 鎮 + 18 鄉</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hub-section">
+  <p class="hub-eyebrow">The bilingual ecosystem · 雙語教育生態</p>
+  <h2 class="hub-h2">Three partners. One mission.</h2>
+  <p style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:32px">
+    Changhua's bilingual program runs on a tri-partite partnership — government policy, expert resources, and a non-profit that has brought 4,000+ foreign English teachers to the county since 2002.
+  </p>
+  <div class="hub-feature-grid">
+    <a class="hub-card" href="https://education.chcg.gov.tw/" target="_blank" rel="noopener">
+      <h3>彰化縣政府教育處</h3>
+      <p>Sets policy &amp; funds the program through 學務管理及課程發展科 (Student Affairs &amp; Curriculum Development), including 精進教學計畫 and 教學卓越獎.</p>
+      <div class="hub-card-meta">Department of Education</div>
+    </a>
+    <a class="hub-card" href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">
+      <h3>CIEETRC</h3>
+      <p>彰化縣國際教育暨英語教育資源中心 — produces shared resources, runs the SIEP testing program, co-publishes this Hub.</p>
+      <div class="hub-card-meta">Resource center</div>
+    </a>
+    <a class="hub-card" href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">
+      <h3>人師教育協會 MCC</h3>
+      <p>Non-profit founded 2002. Recruits and places foreign English teachers; has connected 4,000+ teachers to Changhua classrooms.</p>
+      <div class="hub-card-meta">Since 2002 · 4,000+ teachers</div>
+    </a>
+  </div>
+</section>
 """.strip()
 
     extra_head = f"<script>window.HUB_TOWNSHIP_INDEX = {inline_idx};</script>"
@@ -597,6 +660,11 @@ def build_resources():
       <p>Eight festival units shared across every partner school — Mother's Day, Mid-Autumn, Christmas, and more.</p>
       <div class="hub-card-meta">8 festivals · cross-campus</div>
     </a>
+    <a class="hub-card" href="/resources/sdgs/">
+      <h3>17 SDGs 永續發展目標</h3>
+      <p>The UN's 17 Sustainable Development Goals — each adapted for elementary &amp; junior-high classrooms with discussion prompts.</p>
+      <div class="hub-card-meta">17 goals · classroom-ready</div>
+    </a>
   </div>
 
   <h2 class="hub-h2" style="margin-top:80px">Partner Networks 夥伴網絡</h2>
@@ -922,6 +990,139 @@ def build_books_for_taiwan():
     return page_shell("Books for Taiwan", content, "/resources/")
 
 
+SDGS = [
+    (1,  "No Poverty",                      "終結貧窮",         "#E5243B", "Make sure everyone has enough to live a safe, healthy life.",
+         "讓每個人都能擁有安全、健康的生活。", [
+            "Are there students in your school who don't have lunch money? How do you help?",
+            "What's one thing your family does to help neighbors in need?",
+            "Brainstorm 3 ways your class could support a local charity."]),
+    (2,  "Zero Hunger",                     "消除飢餓",         "#DDA63A", "Everyone deserves enough food — and the right kind of food.",
+         "每個人都應該擁有足夠且營養的食物。", [
+            "How does your school's lunch program reduce food waste?",
+            "Where does the rice on your plate come from? (Hint: probably a Changhua farm!)",
+            "Plan a 'sharing meal' where each student brings something to share."]),
+    (3,  "Good Health & Well-being",        "健康與福祉",       "#4C9F38", "Stay healthy in body and mind — at every age.",
+         "在每個年齡都能身心健康。", [
+            "What 3 habits keep you healthy at school?",
+            "How does your school help students who feel sad or stressed?",
+            "Plan a 10-minute daily exercise routine you can do at home."]),
+    (4,  "Quality Education",               "優質教育",         "#C5192D", "Every child gets to go to school and learn well.",
+         "讓每個孩子都能上學並好好學習。", [
+            "Why is bilingual education important for your future?",
+            "What's one subject you wish your school taught more of?",
+            "Interview a senior in your family — what was school like in their time?"]),
+    (5,  "Gender Equality",                 "性別平等",         "#FF3A21", "Boys and girls should have the same chances, choices, and respect.",
+         "男生女生應該擁有同樣的機會、選擇與尊重。", [
+            "Are there activities at your school that only boys or only girls do? Why?",
+            "Name 3 women in science, sports, or leadership you admire.",
+            "What does fair sharing of housework look like at your home?"]),
+    (6,  "Clean Water & Sanitation",        "潔淨水與衛生",     "#26BDE2", "Clean water for drinking, washing, and farming — for everyone.",
+         "讓每個人都有乾淨的水可以喝、洗、灌溉。", [
+            "Track your water use for one day. Where could you save?",
+            "How does Changhua's water travel from the mountains to your tap?",
+            "What happens to the dirty water after it goes down the drain?"]),
+    (7,  "Affordable & Clean Energy",       "可負擔的潔淨能源", "#FCC30B", "Use energy that doesn't pollute and that everyone can afford.",
+         "使用不污染、人人負擔得起的能源。", [
+            "Count the lights and devices on at your home right now. Could any be off?",
+            "What's the difference between solar energy and coal energy?",
+            "If your school had a solar roof, what could it power?"]),
+    (8,  "Decent Work & Economic Growth",   "尊嚴就業與經濟成長", "#A21942", "Everyone should have a fair job that pays enough and is safe.",
+         "每個人都該有公平、安全、足夠的工作。", [
+            "What do your parents do for work? What do they like about it?",
+            "What's one job in Changhua that didn't exist 20 years ago?",
+            "Interview a local farmer or shopkeeper about their work."]),
+    (9,  "Industry, Innovation & Infrastructure", "產業創新與基礎建設", "#FD6925", "Build strong roads, bridges, and ideas to help society grow.",
+         "建造堅固的道路、橋樑與創新點子，幫助社會進步。", [
+            "What's the newest building in your town? What's it used for?",
+            "What invention has changed your life the most?",
+            "Design a bridge or road that connects two parts of your town."]),
+    (10, "Reduced Inequalities",            "減少不平等",       "#DD1367", "Everyone deserves the same chances, no matter who they are.",
+         "不論身分背景，每個人都該有同樣的機會。", [
+            "Have you ever been treated unfairly? How did it feel?",
+            "How does your school welcome new students from other places?",
+            "Plan a 'kindness day' at your school where every student is included."]),
+    (11, "Sustainable Cities & Communities", "永續城鄉",         "#FD9D24", "Make our towns safer, cleaner, and more welcoming.",
+         "讓城市與鄉村更安全、乾淨、宜居。", [
+            "What's the prettiest place in your township? Why?",
+            "How could your school playground be safer?",
+            "Suggest one small change that would make your neighborhood greener."]),
+    (12, "Responsible Consumption & Production", "責任消費與生產", "#BF8B2E", "Buy less, use longer, throw away less.",
+         "少買、耐用、少丟棄。", [
+            "How many things in your school bag are reusable?",
+            "What's one item your family threw away that could have been used longer?",
+            "Plan a class 'swap day' where everyone trades books or toys."]),
+    (13, "Climate Action",                  "氣候行動",         "#3F7E44", "Help slow down climate change before it's too late.",
+         "在來不及之前，一起減緩氣候變遷。", [
+            "How is the weather in Changhua different from your grandparents' time?",
+            "Name 3 things your family does that release CO₂.",
+            "Plan one 'no electricity' hour for your home each week."]),
+    (14, "Life Below Water",                "海洋生態",         "#0A97D9", "Protect the oceans, rivers, and the creatures that live in them.",
+         "保護海洋、河川與其中的生物。", [
+            "Changhua faces the Taiwan Strait. What sea creatures live near your coast?",
+            "Trace a piece of trash from your home — could it reach the ocean?",
+            "Design a poster to tell people not to litter at the beach."]),
+    (15, "Life on Land",                    "陸地生態",         "#56C02B", "Protect forests, fields, and the animals that share our home.",
+         "保護森林、田野與我們的動物鄰居。", [
+            "Name 5 trees or birds you can see in your school yard.",
+            "What's one animal that used to live near Changhua but is now rare?",
+            "Plant a seed at home and write a journal about how it grows."]),
+    (16, "Peace, Justice & Strong Institutions", "和平、正義與健全制度", "#00689D", "Be fair, be peaceful, and trust each other to keep promises.",
+         "公平、和平，並彼此信任、信守承諾。", [
+            "What rules at your school make everyone feel safe?",
+            "Have you ever solved a disagreement peacefully? How?",
+            "Why do we have laws? What would happen without them?"]),
+    (17, "Partnerships for the Goals",      "多元夥伴關係",     "#19486A", "Work together — schools, families, governments — to reach all the goals.",
+         "學校、家庭、政府一起合作，達成所有目標。", [
+            "Who are your school's partners (e.g. the Education Department, MCC, foreign teachers)?",
+            "What's one goal your class could tackle together this year?",
+            "Pick one SDG from above and plan a class project around it."]),
+]
+
+
+def build_sdgs():
+    cards = []
+    for n, en, zh, hex_color, en_sum, zh_sum, qs in SDGS:
+        qs_html = ''.join(f'<li>{q}</li>' for q in qs)
+        cards.append(f"""
+<article class="sdg-card" style="--sdg:{hex_color}">
+  <header class="sdg-head">
+    <span class="sdg-num">{n:02d}</span>
+    <h2 class="sdg-title">{en}</h2>
+    <p class="sdg-zh">{zh}</p>
+  </header>
+  <div class="sdg-body">
+    <p class="sdg-sum">{en_sum}</p>
+    <p class="sdg-sum-zh">{zh_sum}</p>
+    <h3 class="sdg-prompt-label">Try this in class · 課堂試試看</h3>
+    <ul class="sdg-prompts">{qs_html}</ul>
+  </div>
+</article>
+""".strip())
+
+    content = f"""
+<section class="hub-section">
+  <p class="hub-eyebrow">Resources · SDGs</p>
+  <h1 class="hub-h1">17 Sustainable Development Goals</h1>
+  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
+    The United Nations' 17 SDGs are the world's shared to-do list for the year 2030: end poverty, protect the planet, ensure peace and prosperity. Below, we adapt each one for elementary and junior-high classrooms in Changhua — with a one-sentence summary, plus three discussion or project prompts you can use today.
+  </p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
+    聯合國 17 項永續發展目標（SDGs）是全世界共同努力到 2030 年的目標：消除貧窮、保護地球、確保和平與繁榮。下面為彰化國中小教室改編每項目標——附一句重點摘要與三個可立刻使用的討論或專題提示。
+  </p>
+
+  <div class="sdg-grid">
+    {''.join(cards)}
+  </div>
+
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+""".strip()
+    extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
+    return page_shell("17 SDGs", content, "/resources/", extra)
+
+
 def build_eric_berman():
     stories = [
         ("Kite-Making at Siling Elementary", "西陵國小放風箏",
@@ -995,6 +1196,7 @@ def main():
     write("resources/classroom-english/index.html", build_classroom_english())
     write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
     write("resources/eric-berman/index.html", build_eric_berman())
+    write("resources/sdgs/index.html", build_sdgs())
     print("Done.")
 
 

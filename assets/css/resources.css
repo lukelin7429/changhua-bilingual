@@ -216,3 +216,93 @@
   .story-title { font-size: 2rem; }
   .story-en { font-size: 1.1rem; }
 }
+
+/* ===== SDG cards ===== */
+.sdg-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+}
+@media (min-width: 720px) {
+  .sdg-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+}
+@media (min-width: 1080px) {
+  .sdg-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.sdg-card {
+  background: #fff;
+  border: 1px solid var(--hub-line);
+  border-top: 8px solid var(--sdg, #888);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px -8px rgba(0,0,0,.12);
+  display: flex; flex-direction: column;
+}
+.sdg-head {
+  padding: 22px 24px 16px;
+  background: linear-gradient(180deg, var(--sdg, #888) 0%, color-mix(in srgb, var(--sdg) 88%, black) 100%);
+  color: #fff;
+}
+.sdg-num {
+  display: inline-block;
+  font-family: var(--hub-serif);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: rgba(255,255,255,.5);
+  margin-right: 4px;
+  vertical-align: -4px;
+}
+.sdg-title {
+  display: inline;
+  font-family: var(--hub-serif);
+  font-size: 1.4rem; font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0;
+}
+.sdg-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1rem; font-weight: 500;
+  color: rgba(255,255,255,.88);
+  letter-spacing: .06em;
+  margin: 8px 0 0;
+}
+.sdg-body {
+  padding: 20px 24px 24px;
+  flex: 1; display: flex; flex-direction: column;
+}
+.sdg-sum {
+  font-size: 1.02rem; line-height: 1.55;
+  color: var(--hub-ink); font-weight: 500;
+  margin: 0;
+}
+.sdg-sum-zh {
+  font-family: var(--hub-zh-font);
+  font-size: .92rem; line-height: 1.65;
+  color: var(--hub-ink-soft);
+  margin: 6px 0 0;
+}
+.sdg-prompt-label {
+  font-family: var(--hub-serif);
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--sdg, #888);
+  margin: 18px 0 8px;
+}
+.sdg-prompts {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.sdg-prompts li {
+  font-size: .94rem; line-height: 1.5;
+  color: var(--hub-ink);
+  padding-left: 22px;
+  position: relative;
+}
+.sdg-prompts li::before {
+  content: "→";
+  position: absolute; left: 0; top: 0;
+  color: var(--sdg, #888);
+  font-weight: 700;
+}
