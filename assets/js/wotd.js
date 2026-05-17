@@ -255,17 +255,6 @@
   setActive('.wotd-theme-chip', activeTheme);
   setActive('.wotd-az-chip', activeLetter);
 
-  // Top-contributors quick-filter — bind immediately (works after data loads)
-  document.querySelectorAll('.wotd-top-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var s = btn.getAttribute('data-school');
-      if (qInput) qInput.value = '';
-      if (schoolSel) schoolSel.value = s;
-      applyFilterSafe();
-      window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
-    });
-  });
-
   // Show a subtle "loading" hint so users know the data is coming
   if (countEl) countEl.textContent = 'Loading…';
 

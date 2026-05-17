@@ -162,7 +162,9 @@ def build_home(townships_data, schools_data, wotd_items):
     total_videos = len(wotd_items)
     videos_rounded = "3,000"  # Luke 2026-05-17: hardcoded rounded-up aspirational number
     contributing_schools = len({r["sch"] for r in wotd_items if r["sch"]})
-    contributing_rounded = f"{round_down(contributing_schools, 10)}+"
+    # Luke 2026-05-17: hardcoded conservative count — match WOTD page hero ("100+ schools").
+    # Raw 116 canonical schools, but ~22 have ≤2 videos so the real "participating" count is closer to 100.
+    contributing_rounded = "100+"
 
     content = f"""
 <div class="hub-hero-wrap">
@@ -891,7 +893,7 @@ def build_resources():
     <a class="hub-card" href="/word-of-the-day/">
       <h3>Word of the Day 校園百科</h3>
       <p>Our signature classroom-video library — every word taught in a real Changhua classroom.</p>
-      <div class="hub-card-meta">3,000 videos · 150+ schools</div>
+      <div class="hub-card-meta">3,000 videos · 100+ schools</div>
     </a>
     <a class="hub-card" href="/resources/classroom-english/">
       <h3>Classroom English 教室英語</h3>
@@ -920,17 +922,6 @@ def build_resources():
   </div>
 </section>
 
-<!-- ===== Place & Travel ===== -->
-<section class="hub-section" style="padding-top:24px">
-  <h2 class="resources-h2">Place &amp; Travel <small>場域與遊學</small></h2>
-  <div class="hub-feature-grid">
-    <a class="hub-card" href="/resources/study-tour-centers/">
-      <h3>Study Tour Centers 遊學中心</h3>
-      <p>15 cross-county study-tour destinations integrating local culture with experiential learning.</p>
-      <div class="hub-card-meta">15 centers</div>
-    </a>
-  </div>
-</section>
 """.strip()
     extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
     return page_shell("Resources", content, "/resources/", extra)
@@ -2461,77 +2452,6 @@ def build_about_changhua():
     return page_shell("About Changhua", content, "/resources/", extra)
 
 
-def build_study_tour_centers(schools_data):
-    schools_by_slug = {s["slug"]: s for s in schools_data["schools"]}
-    centers = [
-        # Try to match to schools.yml slug where possible
-        ("Changhua Arts High School", "彰化藝術高中", "Changhua City", None),
-        ("Chungshan Elementary", "中山國小", "Changhua City", "chungshan"),
-        ("Tongan Elementary", "同安國小", "Fenyuan", None),
-        ("Wunde Elementary", "文德國小", "Fenyuan", "wunde"),
-        ("Tianwei Junior High", "田尾國中", "Tianwei", None),
-        ("Beidou Junior High", "北斗國中", "Beidou", "beidou-jh"),
-        ("Ershui Junior High", "二水國中", "Ershui", None),
-        ("Dajuang Elementary", "大莊國小", "Xizhou", "dajuang"),
-        ("Lu Jiang International School", "鹿江國中小", "Lukang", "lujiang"),
-        ("Lukang Elementary", "鹿港國小", "Lukang", "lukang"),
-        ("Ma Tsuo Elementary", "媽厝國小", "Xihu", "matsuo"),
-        ("Fangyuan Elementary", "芳苑國小", "Fangyuan", "fangyuan"),
-        ("Guanxing Elementary", "廣興國小", "Erlin", "guangxing"),
-        ("Dacheng Elementary", "大城國小", "Dacheng", "dacheng"),
-        ("Changhua Fun Study Tour Center", "彰化特色遊學中心", "—", None),
-    ]
-    cards = []
-    for en, zh, township, slug in centers:
-        photo_html = ""
-        link_html_open = "<div class=\"hub-school-card\">"
-        link_html_close = "</div>"
-        if slug and slug in schools_by_slug:
-            sch = schools_by_slug[slug]
-            link_html_open = f'<a class="hub-school-card" href="{sch["url"]}" target="_blank" rel="noopener">'
-            link_html_close = "</a>"
-            photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
-            if photo_path.exists():
-                mtime = int(photo_path.stat().st_mtime)
-                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg?v={mtime}" alt="{en}" loading="lazy">'
-        if not photo_html:
-            initials = zh[:2] if zh else en[:2]
-            photo_html = f'<div class="photo-fallback" aria-hidden="true">{initials}</div>'
-        cards.append(f"""
-{link_html_open}
-  {photo_html}
-  <div class="body">
-    <p class="name">{en}</p>
-    <p class="zh">{zh}</p>
-    <span class="badge">{township}</span>
-  </div>
-{link_html_close}
-""".strip())
-
-    content = f"""
-<section class="hub-section">
-  <p class="hub-eyebrow">Resources · Study Tour</p>
-  <h1 class="hub-h1">Fun Study Tour Centers</h1>
-  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
-    A network of {len(centers)} cross-county study-tour destinations that integrate local culture with experiential learning. Originally curated by the Changhua County Education Department to promote school-based field trips and career exploration.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
-    {len(centers)} 個跨縣特色遊學中心，整合在地文化與體驗式學習，由彰化縣政府教育處規劃，推動校本戶外教育與職業探索。
-  </p>
-
-  <h2 class="hub-h2" style="margin-top:56px">All centers · 全部中心</h2>
-  <div class="hub-school-grid" style="margin-top:24px">
-    {''.join(cards)}
-  </div>
-
-  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
-</section>
-""".strip()
-    return page_shell("Study Tour Centers", content, "/resources/")
-
-
 def build_classroom_english():
     situations = [
         ("Greetings &amp; Attendance", "問候語＆點名", "blue", [
@@ -3221,7 +3141,6 @@ def main():
     write("word-of-the-day/index.html", build_wotd())
     write("resources/index.html", build_resources())
     write("resources/about-changhua/index.html", build_about_changhua())
-    write("resources/study-tour-centers/index.html", build_study_tour_centers(schools))
     write("resources/classroom-english/index.html", build_classroom_english())
     write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
     write("resources/eric-berman/index.html", build_eric_berman())
