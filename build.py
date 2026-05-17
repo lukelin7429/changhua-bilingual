@@ -558,6 +558,9 @@ def build_wotd():
         school_counts[r["sch"]] = school_counts.get(r["sch"], 0) + 1
         theme_counts[r["t"]] = theme_counts.get(r["t"], 0) + 1
         letter_counts[r["l"]] = letter_counts.get(r["l"], 0) + 1
+    # Drop the empty-school bucket — those videos are uncredited and shouldn't
+    # appear as a phantom "" row in the Top contributors list or filter dropdown.
+    school_counts.pop("", None)
     top_schools = sorted(school_counts.items(), key=lambda x: -x[1])[:20]
 
     # Theme metadata for UI
