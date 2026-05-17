@@ -359,3 +359,104 @@
   color: var(--sdg, #888);
   font-weight: 700;
 }
+
+/* ===== About Changhua — rich cards & callouts ===== */
+.about-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  margin-top: 24px;
+}
+@media (min-width: 640px) {
+  .about-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 960px) {
+  .about-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .about-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+.about-card {
+  background: #fff;
+  border: 1px solid var(--hub-line);
+  border-left: 4px solid var(--hub-primary);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.about-card--blue { border-left-color: var(--c-blue); background: linear-gradient(180deg, #fff 0%, var(--c-blue-soft) 200%); }
+.about-card--green { border-left-color: var(--c-green); background: linear-gradient(180deg, #fff 0%, var(--c-green-soft) 200%); }
+.about-card--orange { border-left-color: var(--c-orange); background: linear-gradient(180deg, #fff 0%, var(--c-orange-soft) 200%); }
+.about-card--purple { border-left-color: var(--c-purple); background: linear-gradient(180deg, #fff 0%, var(--c-purple-soft) 200%); }
+.about-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.about-card h4 {
+  font-family: var(--hub-serif);
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--hub-primary-deep);
+  line-height: 1.3;
+}
+.about-card--blue h4 { color: var(--c-blue-deep); }
+.about-card--green h4 { color: var(--c-green-deep); }
+.about-card--orange h4 { color: var(--c-orange-deep); }
+.about-card--purple h4 { color: var(--c-purple-deep); }
+.about-card h4 .about-card-zh {
+  display: block;
+  font-family: var(--hub-zh-font);
+  font-size: .86rem;
+  color: var(--hub-ink-faint);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.about-card p {
+  margin: 4px 0 0;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: var(--hub-ink-soft);
+}
+
+.about-callout {
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, var(--c-blue-soft) 0%, #fff 100%);
+  border-left: 5px solid var(--c-blue);
+  border-radius: 10px;
+}
+.about-callout p { margin: 0; }
+.about-callout p + p { margin-top: 8px; }
+
+.about-quote {
+  margin: 32px 0 0;
+  padding: 24px 28px;
+  background: var(--hub-line-soft);
+  border-radius: 12px;
+  border-left: 4px solid var(--hub-primary);
+}
+.about-quote-text {
+  font-family: var(--hub-serif);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--hub-ink);
+  margin: 0;
+  font-style: italic;
+}
+.about-quote-cite {
+  display: block;
+  margin-top: 10px;
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--hub-ink-faint);
+  font-weight: 600;
+}
+.about-quote-zh {
+  font-family: var(--hub-zh-font);
+  font-size: .98rem;
+  color: var(--hub-ink-soft);
+  margin: 10px 0 0;
+  line-height: 1.7;
+}

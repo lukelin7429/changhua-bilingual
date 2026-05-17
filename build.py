@@ -76,20 +76,15 @@ def footer_html():
     </div>
     <div>
       <h4>Producing Units</h4>
-      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>彰化縣國際教育暨英語教育資源中心</a>
-      <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會（中文）<br>twrses.org</a>
-      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect (English)<br>mycultureconnect.org</a>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
     </div>
     <div>
       <h4>Contact</h4>
       <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
-      <a href="https://github.com/lukelin7429/changhua-bilingual" target="_blank" rel="noopener">View source on GitHub</a>
     </div>
   </div>
-  <p class="hub-footer-credit">
-    Source imagery and content credit: CIEETRC and MCC.
-    Map data via <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a>.
-  </p>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
 </footer>
 """.strip()
 
@@ -165,7 +160,7 @@ def build_home(townships_data, schools_data, wotd_items):
     townships_with_schools = sum(1 for t in idx.values() if t["school_count"])
     townships_rounded = f"{round_down(townships_with_schools, 5)}+"  # 25 → 20+
     total_videos = len(wotd_items)
-    videos_rounded = f"{round_down(total_videos, 100):,}+"  # 2966 → 2,900+
+    videos_rounded = "3,000+"  # Luke 2026-05-17: hardcoded rounded-up aspirational number
     contributing_schools = len({r["sch"] for r in wotd_items if r["sch"]})
     contributing_rounded = f"{round_down(contributing_schools, 10)}+"
 
@@ -175,8 +170,8 @@ def build_home(townships_data, schools_data, wotd_items):
   <div class="hub-hero-text">
     <p class="hub-eyebrow">Welcome / 歡迎</p>
     <h1 class="hub-h1">A bilingual gateway to <em style="color:var(--hub-primary)">Changhua</em>'s schools.</h1>
-    <p>{schools_rounded} partner school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
-    <p class="hub-zh">{townships_rounded} 鄉鎮、{schools_rounded} 合作學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
+    <p>{schools_rounded} school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
+    <p class="hub-zh">{townships_rounded} 鄉鎮、{schools_rounded} 學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
     <div class="hub-hero-actions">
       <a class="hub-btn hub-btn--primary" href="/word-of-the-day/">Watch {videos_rounded} videos →</a>
       <a class="hub-btn hub-btn--ghost" href="/schools/">Browse Schools</a>
@@ -200,12 +195,12 @@ def build_home(townships_data, schools_data, wotd_items):
     </a>
     <a class="hub-card" href="/schools/">
       <h3>Schools 學校</h3>
-      <p>Bilingual websites for every partner school in Changhua, grouped by township.</p>
+      <p>Bilingual websites for every school in Changhua, grouped by township.</p>
       <div class="hub-card-meta">{schools_rounded} schools · {townships_rounded} townships</div>
     </a>
     <a class="hub-card" href="/fets/">
       <h3>FETs 外籍教師</h3>
-      <p>Meet the Foreign English Teachers placed across our partner schools.</p>
+      <p>Meet the Foreign English Teachers placed across Changhua schools.</p>
       <div class="hub-card-meta">Roster · Photos · Profiles</div>
     </a>
     <a class="hub-card" href="/resources/">
@@ -258,23 +253,23 @@ def build_home(townships_data, schools_data, wotd_items):
   <p class="hub-eyebrow">The bilingual ecosystem · 雙語教育生態</p>
   <h2 class="hub-h2">Three partners. One mission.</h2>
   <p style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:32px">
-    Changhua's bilingual program runs on a tri-partite partnership — government policy, expert resources, and a non-profit that has brought 4,000+ foreign English teachers to the county since 2002.
+    Changhua's bilingual program runs on a tri-partite partnership — government policy, expert resources, and a non-profit that has brought foreign English teachers to the county since 2009.
   </p>
   <div class="hub-feature-grid">
-    <a class="hub-card" href="https://education.chcg.gov.tw/" target="_blank" rel="noopener">
+    <a class="hub-card" href="https://newboe.chc.edu.tw/" target="_blank" rel="noopener">
       <h3>彰化縣政府教育處</h3>
-      <p>Sets policy &amp; funds the program through 學務管理及課程發展科 (Student Affairs &amp; Curriculum Development), including 精進教學計畫 and 教學卓越獎.</p>
+      <p>Sets county-wide bilingual education policy and channels Ministry of Education funding to schools through the Student Affairs &amp; Curriculum Development Division (學務管理及課程發展科). Flagship programs include the Teaching Enhancement Program (精進教學計畫), the Teaching Excellence Awards (教學卓越獎), and bilingual immersion grants that place foreign English teachers in classrooms across all 26 townships.</p>
       <div class="hub-card-meta">Department of Education</div>
     </a>
     <a class="hub-card" href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">
       <h3>CIEETRC</h3>
-      <p>彰化縣國際教育暨英語教育資源中心 — produces shared resources, runs the SIEP testing program, co-publishes this Hub.</p>
+      <p>Changhua County's International &amp; English Education Resource Center (彰化縣國際教育暨英語教育資源中心), hosted at Minsheng Elementary School. Produces shared bilingual teaching materials, runs the SIEP testing program for county schools, organises professional development for English teachers, and serves as the curatorial home of this Hub.</p>
       <div class="hub-card-meta">Resource center</div>
     </a>
     <div class="hub-card">
       <h3>人師教育協會 · My Culture Connect</h3>
-      <p>Non-profit founded 2002. Recruits and places foreign English teachers; has connected 4,000+ teachers to Changhua classrooms.</p>
-      <div class="hub-card-meta" style="margin-top:12px">Since 2002 · 4,000+ teachers</div>
+      <p>Non-profit that recruits, trains, and places foreign English teachers across Changhua's elementary and junior-high schools. Handles host-school matching, day-to-day placement coordination, and on-the-ground support for teachers and host campuses alike. Serving the county since 2009.</p>
+      <div class="hub-card-meta" style="margin-top:12px">In Changhua since 2009</div>
       <div class="partner-links">
         <a href="https://www.twrses.org/" target="_blank" rel="noopener" class="partner-link">
           <span class="partner-link__label">中文站</span>
@@ -297,13 +292,29 @@ def build_home(townships_data, schools_data, wotd_items):
 def build_schools(townships_data, schools_data):
     townships = townships_data["townships"]
     schools = schools_data["schools"]
-    by_township = {}
+    township_lookup = {t["slug"]: t for t in townships}
+
+    # Group by level (high → junior-high → elementary)
+    by_level = {"senior-high": [], "junior-high": [], "elementary": []}
     for s in schools:
-        by_township.setdefault(s["township"], []).append(s)
+        level = s.get("level", "elementary")
+        if level not in by_level:
+            level = "elementary"
+        by_level[level].append(s)
+
+    # Sort each group A-Z by English name (case-insensitive)
+    for lvl in by_level:
+        by_level[lvl].sort(key=lambda s: s["name"].lower())
+
+    level_meta = [
+        ("senior-high", "Senior High Schools", "高中"),
+        ("junior-high", "Junior High Schools", "國中"),
+        ("elementary", "Elementary Schools", "國小"),
+    ]
 
     blocks = []
-    for t in townships:
-        ss = by_township.get(t["slug"], [])
+    for lvl_slug, lvl_en, lvl_zh in level_meta:
+        ss = by_level[lvl_slug]
         if not ss:
             continue
         cards = []
@@ -311,7 +322,10 @@ def build_schools(townships_data, schools_data):
             level = s.get("level", "elementary")
             badge_cls = "jh" if level == "junior-high" else ("sh" if level == "senior-high" else "")
             badge_text = {"junior-high": "JHS", "senior-high": "HS", "elementary": "ES"}.get(level, "ES")
-            search_data = f"{s['name']} {s.get('zh','')} {t['en']} {t['zh']} {s['slug']}"
+            t = township_lookup.get(s["township"], {"en": "", "zh": ""})
+            t_en = t.get("en", "")
+            t_zh = t.get("zh", "")
+            search_data = f"{s['name']} {s.get('zh','')} {t_en} {t_zh} {s['slug']}"
             slug = s["slug"]
             # Photo: /assets/images/schools/<slug>.jpg if it exists, else fallback to Chinese char tile
             photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
@@ -328,16 +342,17 @@ def build_schools(townships_data, schools_data):
   <div class="body">
     <p class="name">{s['name']}</p>
     <p class="zh">{s.get('zh','')}</p>
+    <p class="township">{t_en} <span class="township-zh">{t_zh}</span></p>
     <span class="badge {badge_cls}">{badge_text}</span>
   </div>
 </a>
 """.strip())
         blocks.append(f"""
-<section id="{t['slug']}" class="hub-township-block">
+<section id="level-{lvl_slug}" class="hub-township-block">
   <header class="hub-township-head">
-    <h2>{t['en']}</h2>
-    <span class="zh">{t['zh']}</span>
-    <span class="meta">{len(ss)} schools · {t['zip']}</span>
+    <h2>{lvl_en}</h2>
+    <span class="zh">{lvl_zh}</span>
+    <span class="meta">{len(ss)} schools · A–Z</span>
   </header>
   <div class="hub-school-grid">
     {''.join(cards)}
@@ -346,7 +361,7 @@ def build_schools(townships_data, schools_data):
 """.strip())
 
     total = len(schools)
-    townships_with = len(by_township)
+    townships_with = len({s["township"] for s in schools})
     schools_r = f"{round_down(total, 10)}+"
     townships_r = f"{round_down(townships_with, 5)}+"
     content = f"""
@@ -354,10 +369,10 @@ def build_schools(townships_data, schools_data):
   <p class="hub-eyebrow">Directory</p>
   <h1 class="hub-h1">Bilingual School Sites</h1>
   <p style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:60ch">
-    {schools_r} partner schools across {townships_r} townships in Changhua. Each card opens that school's own bilingual website.
+    {schools_r} schools across {townships_r} townships in Changhua, grouped by level (senior high → junior high → elementary). Each group is listed A–Z by English name. Click a card to open that school's bilingual website.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    彰化縣 {townships_r} 鄉鎮、{schools_r} 合作學校的雙語網站索引。點擊卡片開啟該校網站。
+    彰化縣 {townships_r} 鄉鎮、{schools_r} 學校的雙語網站索引，依層級分組（高中／國中／國小），每組以英文字母 A–Z 排序。點擊卡片開啟該校網站。
   </p>
   <div class="hub-search" style="margin-top:36px;max-width:560px">
     <input id="hub-search-input" type="search" placeholder="Search by school name, township, or slug…" autocomplete="off">
@@ -414,10 +429,10 @@ def build_fets(fets_data, schools_data):
   <p class="hub-eyebrow">Foreign English Teachers</p>
   <h1 class="hub-h1">Meet our FETs</h1>
   <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:60ch">
-    {total_r} Foreign English Teachers placed across Changhua's partner schools — bringing classrooms a global voice.
+    {total_r} Foreign English Teachers placed across Changhua schools — bringing classrooms a global voice.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    服務於彰化縣各合作學校的 {total_r} 位外籍英語教師——把世界帶進教室。
+    服務於彰化縣 {total_r} 位外籍英語教師——把世界帶進教室。
   </p>
 
   <h2 class="hub-h2" style="margin-top:56px">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
@@ -598,7 +613,7 @@ def build_wotd():
     <p class="hub-eyebrow">Our signature collection</p>
     <h1 class="hub-h1">Word of the Day</h1>
     <p class="wotd-hero-sub">{items_r} bilingual classroom videos · {schools_r} schools · every word filmed in a real Changhua classroom.</p>
-    <p class="hub-zh wotd-hero-sub">{items_r} 支彰化雙語教室實拍影片，來自 {schools_r} 所合作學校——每個單字都在真實課堂裡發生。</p>
+    <p class="hub-zh wotd-hero-sub">{items_r} 支彰化雙語教室實拍影片，來自 {schools_r} 所學校——每個單字都在真實課堂裡發生。</p>
   </div>
 </section>
 
@@ -720,7 +735,7 @@ def build_resources():
 <section class="hub-section" style="padding-top:24px">
   <h2 class="resources-h2">Festival English Series <small>節慶英文</small></h2>
   <p style="color:var(--hub-ink-soft);max-width:60ch;margin-bottom:24px">
-    Sixteen festivals — Spring &amp; Fall semester — each with a handout and a quiz, freely usable by every partner school.
+    Sixteen festivals — Spring &amp; Fall semester — each with a handout and a quiz, freely usable by every Changhua school.
   </p>
   <div class="hub-feature-grid">
     <a class="hub-card hub-card--featured" href="/festivals/">
@@ -754,7 +769,7 @@ def build_resources():
     <a class="hub-card" href="/word-of-the-day/">
       <h3>Word of the Day 校園百科</h3>
       <p>Our signature classroom-video library — every word taught in a real Changhua classroom.</p>
-      <div class="hub-card-meta">2,900+ videos · 150+ schools</div>
+      <div class="hub-card-meta">3,000+ videos · 150+ schools</div>
     </a>
     <a class="hub-card" href="/resources/classroom-english/">
       <h3>Classroom English 教室英語</h3>
@@ -806,8 +821,8 @@ def build_resources():
     </a>
     <div class="hub-card">
       <h3>人師教育協會 · My Culture Connect</h3>
-      <p>Non-profit that has placed 4,000+ foreign English teachers since 2002. Two sites for two audiences.</p>
-      <div class="hub-card-meta" style="margin-top:12px">MCC · since 2002</div>
+      <p>Non-profit that recruits and places foreign English teachers in Changhua schools. Two sites for two audiences.</p>
+      <div class="hub-card-meta" style="margin-top:12px">MCC · in Changhua since 2009</div>
       <div class="partner-links">
         <a href="https://www.twrses.org/" target="_blank" rel="noopener" class="partner-link">
           <span class="partner-link__label">中文站</span>
@@ -819,7 +834,7 @@ def build_resources():
         </a>
       </div>
     </div>
-    <a class="hub-card" href="https://education.chcg.gov.tw/" target="_blank" rel="noopener">
+    <a class="hub-card" href="https://newboe.chc.edu.tw/" target="_blank" rel="noopener">
       <h3>彰化縣政府教育處</h3>
       <p>Department of Education, Changhua County Government — policy, supervision, and bilingual program funding.</p>
       <div class="hub-card-meta">Government →</div>
@@ -1108,7 +1123,7 @@ def build_morning_assembly():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "2,900+ videos to spotlight at assembly — pick your own school's contributions for instant pride.", "meta": "For Activity 02"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "3,000+ videos to spotlight at assembly — pick your own school's contributions for instant pride.", "meta": "For Activity 02"},
             {"href": "/festivals/", "title": "Festival English Series", "desc": "16 festival handouts — pull one the week before each holiday for Activity 06.", "meta": "For Activity 06"},
             {"href": "/resources/bilingual-campus/announcements/", "title": "Bilingual Announcements", "desc": "Sarah Thomas &amp; Susan Rose's 13-episode broadcast playlist — train your student announcers with it.", "meta": "Training material"},
         ],
@@ -1226,7 +1241,7 @@ def build_school_tours():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull station-specific vocabulary from the Hub's 2,900+ video library to brief students.", "meta": "Vocabulary source"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull station-specific vocabulary from the Hub's 3,000+ video library to brief students.", "meta": "Vocabulary source"},
             {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Use morning assembly the week before a visit to announce the tour and recruit student guides.", "meta": "Pre-visit ramp-up"},
             {"href": "/resources/bilingual-campus/intl-sister-school/", "title": "International Sister School", "desc": "Sister-school delegates are the most common tour audience — see the sister-school workflow.", "meta": "Frequent audience"},
         ],
@@ -2074,8 +2089,8 @@ def build_one_minute_english():
         {"n": 2, "color": "green",
          "en": "Sourcing Clips · 影片來源", "zh": "現成可用的庫",
          "duration": "Sourcing once · use all year",
-         "what_en": "Three reliable sources: (1) The Hub's Word of the Day library — 2,900+ ready clips with Changhua schools' credits. (2) BBC Learning English daily clips. (3) Sesame Street YouTube channel for younger grades.",
-         "what_zh": "三個可靠的影片來源：(1) Hub 的校園百科 — 2,900+ 支現成影片，附上彰化各校 credits。(2) BBC Learning English 每日短片。(3) Sesame Street YouTube 頻道（適合低年級）。",
+         "what_en": "Three reliable sources: (1) The Hub's Word of the Day library — 3,000+ ready clips with Changhua schools' credits. (2) BBC Learning English daily clips. (3) Sesame Street YouTube channel for younger grades.",
+         "what_zh": "三個可靠的影片來源：(1) Hub 的校園百科 — 3,000+ 支現成影片，附上彰化各校 credits。(2) BBC Learning English 每日短片。(3) Sesame Street YouTube 頻道（適合低年級）。",
          "script": [
              ("Teacher (to class): ", "Today's clip is from our own Hub. Watch — this is from Changhua Elementary."),
              ("Clip: ", "[plays Word of the Day video]"),
@@ -2137,7 +2152,7 @@ def build_one_minute_english():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "The Hub's 2,900+ clip library is the primary source for daily One Minute English. Start here.", "meta": "Primary source"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "The Hub's 3,000+ clip library is the primary source for daily One Minute English. Start here.", "meta": "Primary source"},
             {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Morning assembly's Word of the Day Spotlight uses the same clip library — pair the routines.", "meta": "Same source"},
             {"href": "/resources/bilingual-campus/school-news/", "title": "School News", "desc": "Student-made One Minute clips can become a regular segment on School News.", "meta": "Distribution channel"},
         ],
@@ -2156,7 +2171,7 @@ def build_about_changhua():
   </p>
   <p class="hub-zh" style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:62ch;line-height:1.7;margin-top:18px">
     彰化縣於 1723 年（清雍正元年）設縣，得名於「<strong>建學立師以彰雅化</strong>」。
-    教育在彰化從來不是邊角，而是縣的本名與本心。
+    教育在彰化從來不是邊角，而是縣的本名與本心。三百年來，這片台灣中部最小、人口最多的平原，孕育了鹿港的商埠文化、八卦山的信仰地景、賴和的新文學，以及一代又一代守在課堂裡的老師。
   </p>
 
   <div class="about-stats">
@@ -2176,43 +2191,180 @@ def build_about_changhua():
       <p class="about-stat-zh">清雍正元年設縣</p>
     </div>
   </div>
+
+  <div class="about-quote">
+    <p class="about-quote-text">"Establish schools and teachers, so that refined civilization may be made visible."</p>
+    <p class="about-quote-zh">「建學立師以彰雅化」——這八個字是雍正皇帝為新設立的縣賜下的期許，也是「彰化」二字的出處。三百年來，這份命名一直是這片土地的本心。</p>
+    <span class="about-quote-cite">Emperor Yongzheng · 1723</span>
+  </div>
 </section>
 
-<section class="hub-section hub-section--narrow" style="padding-top:24px">
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
   <h2 class="hub-h2">Geography &amp; landscape <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">地理</span></h2>
-  <p>Sitting on Taiwan's west-coast plain, Changhua is <strong>87.69 % plain</strong> with the Bagua Plateau rising on the eastern edge.
-  This is Taiwan's lowest county by average elevation — every village reachable within an hour from the county seat.</p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft)">座落於台灣中部西岸，87.69% 為平原，東緣為八卦台地。
-  全台海拔最低的縣，從彰化市出發一小時內可達任一鄉鎮。</p>
+  <p>Sitting on Taiwan's west-coast plain between the Dadu and Zhuoshui Rivers, Changhua is <strong>87.69 % plain</strong> with the Bagua Plateau rising on the eastern edge. The Taiwan Strait shoreline on the west forms one of the country's largest <strong>tidal flats</strong> — home to oyster farms, mudskippers, and fiddler crabs. This is Taiwan's lowest county by average elevation: every village is reachable within an hour from the county seat.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">座落於台灣中部西岸，介於大肚溪與濁水溪之間，87.69% 為平原，東緣為八卦台地。西側緊鄰台灣海峽，擁有全台最大潮間帶之一——蚵田、彈塗魚、招潮蟹皆在此繁衍。全台海拔最低的縣，從彰化市出發一小時內可達任一鄉鎮。</p>
 
-  <h2 class="hub-h2" style="margin-top:64px">Heritage &amp; culture <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">文化遺產</span></h2>
-  <ul class="about-list">
-    <li><strong>Bagua Mountain Great Buddha</strong> (八卦山大佛) — 22 m bronze Buddha, the county's iconic landmark.</li>
-    <li><strong>Changhua Confucian Temple</strong> (彰化孔廟, 1726) — second-oldest in Taiwan, a five-minute walk from the Department of Education building.</li>
-    <li><strong>Lukang Old Street &amp; Longshan Temple</strong> (鹿港老街、龍山寺) — Qing-era trading-port heritage.</li>
-    <li><strong>"Taiwan's Rice Basket"</strong> — major rice-producing region, with Xihu Township as the grape capital.</li>
-  </ul>
+  <div class="about-callout">
+    <p><strong>Three landscape zones in one county:</strong> coastal tidal flats (Fangyuan, Dacheng, Wanggong) feed Taiwan's oyster &amp; clam industry; the central plain (Yuanlin, Tianzhong, Tianwei) is the rice-and-flower heartland; the Bagua Plateau (Bagua Mountain, Eight Trigrams Mountain) holds the county's spiritual landmarks.</p>
+    <p class="hub-zh" style="color:var(--hub-ink-soft);font-size:.95rem">一縣三貌：西海岸潮間帶供養全台蚵業，中央彰化平原是稻米與花卉重鎮，八卦山則是信仰與文化地景的所在。</p>
+  </div>
+</section>
 
-  <h2 class="hub-h2" style="margin-top:64px">Administrative divisions <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">行政區</span></h2>
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">What Changhua is famous for <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">在地物產與產業</span></h2>
+  <p style="color:var(--hub-ink-soft)">Eighteen townships, eighteen specialties. From bawan to bicycles, this is what Taiwan thinks of when it thinks of Changhua.</p>
+
+  <div class="about-grid about-grid--3">
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🥟</span>
+      <h4>Bawan · Meatball<span class="about-card-zh">彰化肉圓</span></h4>
+      <p>The translucent steamed-then-fried pork dumpling that Taiwanese kids associate, by reflex, with Changhua. Two rival traditions: Changhua City (deep-fried) and Beidou (steamed).</p>
+    </div>
+    <div class="about-card about-card--purple">
+      <span class="about-card-icon">🍇</span>
+      <h4>Grapes &amp; wine<span class="about-card-zh">溪湖／大村葡萄</span></h4>
+      <p>Xihu and Dacun townships produce most of Taiwan's table grapes — black Kyoho in summer, Golden Muscat in winter — and run small-batch wineries open to visitors.</p>
+    </div>
+    <div class="about-card about-card--green">
+      <span class="about-card-icon">🌸</span>
+      <h4>Tianwei flowers<span class="about-card-zh">田尾公路花園</span></h4>
+      <p>Taiwan's largest cluster of nurseries and florists. Six kilometres of greenhouses along Highway 1, supplying flowers to the entire island.</p>
+    </div>
+    <div class="about-card about-card--blue">
+      <span class="about-card-icon">🧦</span>
+      <h4>Shetou socks<span class="about-card-zh">社頭織襪</span></h4>
+      <p>One small town. <strong>~70 % of Taiwan's socks.</strong> Family-run knitting mills have made Shetou the sock capital of the country since the 1960s.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🌊</span>
+      <h4>Wanggong oysters<span class="about-card-zh">王功蚵</span></h4>
+      <p>Ox-cart rides take you out across the tidal flats at low tide to harvest oysters. Wanggong Fishing Port is the place to eat them — oyster omelette, oyster vermicelli, fried oysters.</p>
+    </div>
+    <div class="about-card about-card--purple">
+      <span class="about-card-icon">🚲</span>
+      <h4>Bicycles &amp; baking<span class="about-card-zh">員林食品與工業</span></h4>
+      <p>Yuanlin and Dacun host bicycle-component factories and snack giants (think pineapple cakes, mochi, and Taiwan's biggest pineapple-tart maker). A small-town manufacturing powerhouse.</p>
+    </div>
+    <div class="about-card about-card--green">
+      <span class="about-card-icon">🍚</span>
+      <h4>Rice &amp; agriculture<span class="about-card-zh">米鄉</span></h4>
+      <p>Called <em>"Taiwan's rice basket."</em> The Zhuoshui-fed paddies of Ershui, Tianzhong, and Xizhou yield some of the island's most-praised rice — and pomelo, asparagus, lychee on the side.</p>
+    </div>
+    <div class="about-card about-card--blue">
+      <span class="about-card-icon">🪟</span>
+      <h4>Lukang glass &amp; crafts<span class="about-card-zh">鹿港玻璃／工藝</span></h4>
+      <p>Stained-glass mazu temples, hand-blown glass shrines, lantern-makers, tin-smiths, woodcarvers. Lukang remains Taiwan's densest concentration of traditional craftspeople.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🍜</span>
+      <h4>Street-food culture<span class="about-card-zh">小吃文化</span></h4>
+      <p>Changhua scallion pancake-wrapped braised pork rice (爌肉飯), Lukang oyster vermicelli (麵線糊), Yuanlin chicken-foot jelly (雞腳凍), Beidou rice dumplings (肉粽). A whole atlas of regional snacks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">Iconic places to visit <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">必訪景點</span></h2>
+  <p style="color:var(--hub-ink-soft)">If you only have a weekend in Changhua, start here.</p>
+
+  <div class="about-grid about-grid--3">
+    <div class="about-card about-card--blue">
+      <span class="about-card-icon">🪷</span>
+      <h4>Bagua Mountain Great Buddha<span class="about-card-zh">八卦山大佛</span></h4>
+      <p>A <strong>22 m bronze Buddha</strong> overlooking Changhua City since 1961 — the county's most-photographed landmark. The skywalk behind it gives the best sunset view of the central plain.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🛕</span>
+      <h4>Lukang Old Street &amp; Longshan Temple<span class="about-card-zh">鹿港老街、龍山寺</span></h4>
+      <p>Once Taiwan's second-largest port (<em>一府二鹿三艋舺</em>). Today: Qing-era brick lanes, hand-made pastries, and the 1786 Longshan Temple — often called "the Forbidden City of Taiwan" for its woodwork.</p>
+    </div>
+    <div class="about-card about-card--green">
+      <span class="about-card-icon">🚂</span>
+      <h4>Changhua Roundhouse<span class="about-card-zh">彰化扇形車庫</span></h4>
+      <p>Taiwan's <strong>only surviving fan-shaped locomotive depot</strong> (1922). A working turntable rotates real steam and diesel engines for railway fans. Free to visit.</p>
+    </div>
+    <div class="about-card about-card--purple">
+      <span class="about-card-icon">🌊</span>
+      <h4>Wanggong Fishing Port<span class="about-card-zh">王功漁港</span></h4>
+      <p>Sunset over the oyster farms, ox-cart rides at low tide, and the red-and-white Wanggong Lighthouse. The west-coast Changhua experience in one afternoon.</p>
+    </div>
+    <div class="about-card about-card--blue">
+      <span class="about-card-icon">🏛️</span>
+      <h4>Changhua Confucian Temple<span class="about-card-zh">彰化孔廟</span></h4>
+      <p>Built in 1726 — <strong>Taiwan's second-oldest Confucian temple.</strong> A five-minute walk from the county's Department of Education building. Confucius would approve.</p>
+    </div>
+    <div class="about-card about-card--green">
+      <span class="about-card-icon">🌷</span>
+      <h4>Tianwei Highway Garden<span class="about-card-zh">田尾公路花園</span></h4>
+      <p>Six kilometres of nurseries and flower farms — a slow drive past every orchid, rose, hydrangea, and bonsai you can imagine. Best in spring and autumn.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">Cultural figures &amp; festivals <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">人物與節慶</span></h2>
+  <p style="color:var(--hub-ink-soft)">A county's character lives in the people it produces and the rituals it keeps.</p>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <span class="about-card-icon">✍️</span>
+      <h4>Lai Ho (賴和, 1894–1943)<span class="about-card-zh">「台灣新文學之父」</span></h4>
+      <p>Doctor, poet, and social-reformer born in Changhua City. Wrote in Taiwanese and Chinese during the Japanese era to give voice to ordinary farmers. His former clinic is now the Lai Ho Memorial Hall.</p>
+    </div>
+    <div class="about-card">
+      <span class="about-card-icon">📜</span>
+      <h4>Chen Hsu-ku (陳虛谷, 1896–1965)<span class="about-card-zh">和美詩人</span></h4>
+      <p>Poet and resistance writer from Hemei. With Lai Ho, anchored the Changhua literary circle that pushed back against colonial censorship through verse and short fiction.</p>
+    </div>
+    <div class="about-card">
+      <span class="about-card-icon">🌾</span>
+      <h4>Wu Sheng (吳晟, 1944–)<span class="about-card-zh">當代田園詩人</span></h4>
+      <p>Contemporary poet and environmentalist who still farms in Xizhou. His poems about Taiwanese soil, mothers, and trees are taught in classrooms across the country.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🐉</span>
+      <h4>Lukang Dragon Boat Festival<span class="about-card-zh">鹿港慶端陽</span></h4>
+      <p>Changhua's signature summer festival. Dragon-boat races on the Fulu River, lion dances, lantern parades, and Lukang's old streets at full festival pitch. Mid-June.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">⛩️</span>
+      <h4>Baishatun Mazu pilgrimage<span class="about-card-zh">白沙屯媽祖進香</span></h4>
+      <p>Each spring, the Baishatun Mazu palanquin makes a nine-day pilgrimage that traditionally crosses Changhua — drawing tens of thousands of pilgrims through Lukang and Yuanlin.</p>
+    </div>
+    <div class="about-card about-card--orange">
+      <span class="about-card-icon">🪔</span>
+      <h4>Lukang Lantern Festival<span class="about-card-zh">鹿港燈會</span></h4>
+      <p>Old Street lit by thousands of hand-painted lanterns for two weeks after Lunar New Year. A century-old tradition that draws photographers from across Asia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">Administrative divisions <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">行政區</span></h2>
   <p><strong>26 divisions</strong>: 2 cities (Changhua City &amp; Yuanlin City), 6 urban townships, 18 rural townships.</p>
   <ul class="about-list">
     <li><strong>Cities</strong>: Changhua 彰化 · Yuanlin 員林</li>
     <li><strong>Urban townships</strong>: Hemei 和美 · Lukang 鹿港 · Xihu 溪湖 · Tianzhong 田中 · Beidou 北斗 · Erlin 二林</li>
     <li><strong>Rural townships</strong> (18): Shenkang 伸港, Xianxi 線西, Fuxing 福興, Xiushui 秀水, Huatan 花壇, Fenyuan 芬園, Dacun 大村, Puyan 埔鹽, Puxin 埔心, Yongjing 永靖, Shetou 社頭, Ershui 二水, Tianwei 田尾, Pitou 埤頭, Xizhou 溪州, Zhutang 竹塘, Fangyuan 芳苑, Dacheng 大城.</li>
   </ul>
+</section>
 
-  <h2 class="hub-h2" style="margin-top:64px">Education ecosystem <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">教育生態</span></h2>
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">Education ecosystem <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">教育生態</span></h2>
   <p>Changhua's bilingual education runs on a tri-partite partnership:</p>
   <ol class="about-list">
-    <li><strong>Department of Education, Changhua County Government</strong> 教育處 — sets policy and funds the program through 學務管理及課程發展科 (Student Affairs &amp; Curriculum Development) under its 精進教學計畫 and 教學卓越獎.</li>
-    <li><strong>CIEETRC</strong> 彰化縣國際教育暨英語教育資源中心 — produces resources and runs the SIEP testing program.</li>
-    <li><strong>My Culture Connect</strong> 人師教育協會 — recruits and places foreign English teachers; since 2002 has placed over 4,000 teachers.</li>
+    <li><strong>Department of Education, Changhua County Government</strong> (教育處) — sets policy and funds the bilingual program through the Student Affairs &amp; Curriculum Development Division (學務管理及課程發展科), via initiatives like the Teaching Enhancement Program (精進教學計畫) and the Teaching Excellence Awards (教學卓越獎).</li>
+    <li><strong>CIEETRC</strong> (彰化縣國際教育暨英語教育資源中心) — produces shared resources and runs the SIEP testing program.</li>
+    <li><strong>My Culture Connect</strong> (人師教育協會) — recruits and places foreign English teachers in Changhua schools. Serving the county since 2009.</li>
   </ol>
-  <p>The county is home to <strong>3 universities</strong> (National Changhua University of Education, Da Yeh, Jianguo Tech), <strong>12 senior high schools</strong>, and a dense network of junior high and elementary schools — over 100 of which participate in this Hub.</p>
+  <p>The county is home to <strong>3 universities</strong> — <strong>National Changhua University of Education</strong> (NCUE, 國立彰化師範大學, one of Taiwan's three flagship teacher-training universities), Da Yeh University, and Chienkuo Technology University — plus <strong>12 senior high schools</strong> and a dense network of junior high and elementary schools, over 100 of which participate in this Hub.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">彰化縣擁有 3 所大專院校（國立彰化師範大學、大葉大學、建國科技大學）、12 所高中，以及綿密的國中小網路——其中超過 100 所學校加入本資源網。</p>
+</section>
 
-  <h2 class="hub-h2" style="margin-top:64px">Why this Hub exists <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">本平台緣起</span></h2>
-  <p>The bilingual sites of more than 100 partner schools were scattered across Google Sites, Canva, and dozens of subdomains. This Hub gathers them into one searchable directory, alongside the resources, foreign-teacher profiles, and 2,966+ classroom videos that connect them.</p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft)">100 多所合作學校的雙語網站原本散落在 Google Sites、Canva 與數十個子網域。本平台把它們收進同一份可搜尋的索引，並串接共用資源、外師檔案，以及 2,966+ 部課堂影片。</p>
+<section class="hub-section hub-section--narrow" style="padding-top:32px">
+  <h2 class="hub-h2">Why this Hub exists <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">本平台緣起</span></h2>
+  <p>The bilingual sites of more than 100 Changhua schools were scattered across Google Sites, Canva, and dozens of subdomains. This Hub gathers them into one searchable directory, alongside the resources, foreign-teacher profiles, and 2,966+ classroom videos that connect them.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">彰化縣 100 多所學校的雙語網站原本散落在 Google Sites、Canva 與數十個子網域。本平台把它們收進同一份可搜尋的索引，並串接共用資源、外師檔案，以及 2,966+ 部課堂影片。</p>
 </section>
 """.strip()
     extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
