@@ -1,0 +1,218 @@
+/* Resources sub-pages — About / Classroom English / Stories
+   Loads on top of hub.css. Uses the WotD color palette for accents. */
+
+/* Inherit WotD palette if wotd.css is not loaded */
+:root {
+  --r-blue: #2d6aa8;
+  --r-blue-deep: #1c4d7e;
+  --r-blue-soft: #e3eef8;
+  --r-green: #5b9d5b;
+  --r-green-deep: #3d7a3d;
+  --r-green-soft: #e7f3e7;
+  --r-orange: #d97818;
+  --r-orange-deep: #a85a0c;
+  --r-orange-soft: #fce7d0;
+  --r-purple: #7e5fa3;
+  --r-purple-deep: #5b417d;
+  --r-purple-soft: #ece4f4;
+}
+
+/* About Changhua stats strip */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--hub-line);
+  border-bottom: 1px solid var(--hub-line);
+}
+@media (min-width: 720px) {
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+}
+.about-stat {
+  text-align: left;
+}
+.about-stats .about-stat-num {
+  font-family: var(--hub-serif);
+  font-size: 2.6rem; font-weight: 700;
+  color: var(--hub-primary);
+  letter-spacing: -.01em;
+  margin: 0 0 6px;
+  line-height: 1;
+}
+@media (min-width: 720px) {
+  .about-stats .about-stat-num { font-size: 3rem; }
+}
+.about-stats .about-stat-num .unit {
+  font-size: .42em; font-weight: 500;
+  color: var(--hub-ink-faint);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.about-stats .about-stat-en {
+  font-size: .82rem; letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--hub-ink-soft);
+  font-weight: 700; margin: 0 0 4px;
+}
+.about-stats .about-stat-zh {
+  font-family: var(--hub-zh-font);
+  font-size: .88rem; color: var(--hub-ink-faint);
+  margin: 0; line-height: 1.5;
+}
+
+.about-list {
+  margin: 16px 0 0 0;
+  padding-left: 22px;
+  font-size: 1.02rem; line-height: 1.75;
+  color: var(--hub-ink);
+}
+.about-list li { margin-bottom: 8px; }
+.about-list li strong { color: var(--hub-primary-deep); }
+
+.hub-section--narrow p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 12px 0 0;
+  color: var(--hub-ink);
+}
+.hub-section--narrow .hub-zh {
+  color: var(--hub-ink-soft);
+}
+
+/* ===== Classroom English ===== */
+.ce-grid {
+  display: grid; gap: 28px;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+}
+@media (min-width: 880px) {
+  .ce-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+.ce-card {
+  background: #fff;
+  border: 1px solid var(--hub-line);
+  border-top: 8px solid var(--r-blue);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px -6px rgba(28,77,126,.10);
+}
+.ce-card.t-blue { border-top-color: var(--r-blue); }
+.ce-card.t-green { border-top-color: var(--r-green); }
+.ce-card.t-orange { border-top-color: var(--r-orange); }
+.ce-card.t-purple { border-top-color: var(--r-purple); }
+.ce-head {
+  padding: 24px 26px 16px;
+}
+.ce-num {
+  font-family: var(--hub-serif);
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--r-orange-deep);
+  margin: 0 0 4px;
+}
+.ce-card.t-green .ce-num { color: var(--r-green-deep); }
+.ce-card.t-orange .ce-num { color: var(--r-orange-deep); }
+.ce-card.t-purple .ce-num { color: var(--r-purple-deep); }
+.ce-title {
+  font-family: var(--hub-serif);
+  font-size: 1.65rem; font-weight: 700;
+  color: var(--r-blue-deep);
+  margin: 0;
+  line-height: 1.15;
+}
+.ce-card.t-green .ce-title { color: var(--r-green-deep); }
+.ce-card.t-orange .ce-title { color: var(--r-orange-deep); }
+.ce-card.t-purple .ce-title { color: var(--r-purple-deep); }
+.ce-zh {
+  font-family: var(--hub-zh-font);
+  color: var(--hub-ink-soft);
+  font-size: 1.02rem; font-weight: 500;
+  margin: 4px 0 0;
+}
+.ce-phrases {
+  list-style: none; padding: 0; margin: 0;
+}
+.ce-phrase {
+  padding: 14px 26px;
+  border-top: 1px solid var(--hub-line-soft);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ce-phrase:nth-child(odd) {
+  background: #fbfbf9;
+}
+.ce-phrase .en {
+  font-size: 1rem; line-height: 1.5;
+  color: var(--hub-ink); font-weight: 500;
+}
+.ce-phrase .zh {
+  font-family: var(--hub-zh-font);
+  font-size: .88rem;
+  color: var(--hub-ink-soft);
+  line-height: 1.55;
+}
+
+/* ===== Story cards (Eric Berman) ===== */
+.story-list {
+  display: grid; gap: 32px;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+}
+.story-card {
+  padding: 32px 36px;
+  background: #fff;
+  border: 1px solid var(--hub-line);
+  border-left: 6px solid var(--r-orange);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px -6px rgba(28,77,126,.08);
+}
+.story-card:nth-child(2) { border-left-color: var(--r-blue); }
+.story-card:nth-child(3) { border-left-color: var(--r-green); }
+.story-card:nth-child(4) { border-left-color: var(--r-purple); }
+
+.story-num {
+  font-family: var(--hub-serif);
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--r-orange-deep);
+  margin: 0;
+}
+.story-card:nth-child(2) .story-num { color: var(--r-blue-deep); }
+.story-card:nth-child(3) .story-num { color: var(--r-green-deep); }
+.story-card:nth-child(4) .story-num { color: var(--r-purple-deep); }
+.story-title {
+  font-family: var(--hub-serif);
+  font-size: 1.7rem; font-weight: 700;
+  color: var(--r-orange-deep);
+  margin: 8px 0 4px;
+  line-height: 1.2;
+}
+.story-card:nth-child(2) .story-title { color: var(--r-blue-deep); }
+.story-card:nth-child(3) .story-title { color: var(--r-green-deep); }
+.story-card:nth-child(4) .story-title { color: var(--r-purple-deep); }
+.story-title-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1.1rem; color: var(--hub-ink-soft);
+  font-weight: 500;
+  margin: 0 0 18px;
+  letter-spacing: .04em;
+}
+.story-body {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.story-en {
+  font-size: 1.05rem; line-height: 1.65;
+  color: var(--hub-ink);
+}
+.story-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1rem; line-height: 1.75;
+  color: var(--hub-ink-soft);
+}
+
+@media (min-width: 720px) {
+  .story-card { padding: 36px 44px; }
+  .story-title { font-size: 2rem; }
+  .story-en { font-size: 1.1rem; }
+}
