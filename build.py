@@ -13,11 +13,15 @@ Workflow: edit YAML → run `python3 build.py` → git commit & push.
 import csv
 import json
 import re
+import sys
 from pathlib import Path
 
 import yaml
 
 YT_ID_RX = re.compile(r"(?:v=|/shorts/|youtu\.be/|/embed/)([A-Za-z0-9_-]{11})")
+
+sys.path.insert(0, str(Path(__file__).parent / "data"))
+from sdgs_content import SDG_CONTENT  # noqa: E402
 
 ROOT = Path(__file__).parent
 
@@ -1352,7 +1356,9 @@ def build_sdgs():
 
     def card_html(t):
         n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum, qs = t
-        qs_html = ''.join(f'<li>{q}</li>' for q in qs)
+        # URL-safe slug from English title
+        slug = re.sub(r"[^a-z0-9]+", "-", en.lower()).strip("-")
+        base = f"/resources/sdgs/{n:02d}-{slug}"
         return f"""
 <article class="sdg" style="--sdg:{color}">
   <div class="sdg__head">
@@ -1368,9 +1374,9 @@ def build_sdgs():
   </div>
   <div class="sdg__brief">{en_sum}</div>
   <div class="sdg__brief-zh">{zh_sum}</div>
-  <div class="sdg__prompts-wrap">
-    <div class="sdg__prompts-label">Try this in class · 課堂試試看</div>
-    <ul class="sdg__prompts">{qs_html}</ul>
+  <div class="sdg__buttons">
+    <a class="sdg-btn sdg-btn--handout" href="{base}/">📖 Handout · 講義</a>
+    <a class="sdg-btn sdg-btn--quiz" href="{base}/quiz/">📝 Quiz · 測驗</a>
   </div>
 </article>
 """.strip()
@@ -1412,6 +1418,204 @@ def build_sdgs():
 """.strip()
     extra = '<link rel="stylesheet" href="/assets/css/sdgs.css">'
     return page_shell("17 SDGs", content, "/resources/", extra)
+
+
+def build_sdg_handout(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum, prompts):
+    content = SDG_CONTENT.get(n)
+    slug = re.sub(r"[^a-z0-9]+", "-", en.lower()).strip("-")
+    base = f"/resources/sdgs/{n:02d}-{slug}"
+
+    vocab_html = ""
+    activity_html = ""
+    if content:
+        vocab_rows = ''.join(
+            f'<tr><td class="vocab-en">{w_en}</td><td class="vocab-zh">{w_zh}</td><td class="vocab-def">{def_en}<br><span class="zh">{def_zh}</span></td></tr>'
+            for w_en, w_zh, def_en, def_zh in content["vocab"]
+        )
+        vocab_html = f"""
+<section class="sdg-detail-section">
+  <h2 class="sdg-detail-h2">Vocabulary <span class="zh">單字</span></h2>
+  <table class="sdg-vocab">
+    <thead><tr><th>English</th><th>中文</th><th>Definition · 釋義</th></tr></thead>
+    <tbody>{vocab_rows}</tbody>
+  </table>
+</section>
+""".strip()
+
+        act = content["activity"]
+        activity_html = f"""
+<section class="sdg-detail-section">
+  <h2 class="sdg-detail-h2">Classroom Activity <span class="zh">課堂活動</span></h2>
+  <div class="sdg-activity">
+    <h3 class="sdg-activity-title">{act['title_en']}</h3>
+    <p class="sdg-activity-zh-title">{act['title_zh']}</p>
+    <p class="sdg-activity-body">{act['body_en']}</p>
+    <p class="sdg-activity-body zh">{act['body_zh']}</p>
+  </div>
+</section>
+""".strip()
+
+    prompts_html = ''.join(f'<li>{p}</li>' for p in prompts)
+
+    page = f"""
+<article class="sdg-detail" style="--sdg:{color}">
+  <header class="sdg-detail-hero">
+    <div class="sdg-detail-icon">{icon}</div>
+    <div class="sdg-detail-head">
+      <p class="sdg-detail-eyebrow">SDG {n:02d} · {group_en} 人類&prosperity&planet&peace&partnership / {group_zh}</p>
+      <h1 class="sdg-detail-title">{en}</h1>
+      <p class="sdg-detail-zh">{zh}</p>
+    </div>
+  </header>
+
+  <section class="sdg-detail-section">
+    <h2 class="sdg-detail-h2">In one sentence <span class="zh">一句話</span></h2>
+    <p class="sdg-detail-lede">{en_sum}</p>
+    <p class="sdg-detail-lede zh">{zh_sum}</p>
+  </section>
+
+  {vocab_html}
+
+  {activity_html}
+
+  <section class="sdg-detail-section">
+    <h2 class="sdg-detail-h2">Discussion prompts <span class="zh">討論題</span></h2>
+    <ul class="sdg-detail-prompts">{prompts_html}</ul>
+  </section>
+
+  <div class="sdg-detail-cta">
+    <a class="sdg-btn sdg-btn--quiz sdg-btn-big" href="{base}/quiz/">📝 Take the quiz · 開始測驗 →</a>
+  </div>
+
+  <p style="margin-top:40px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/sdgs/">← All 17 SDGs</a> · <a href="/resources/">← Resources</a>
+  </p>
+</article>
+""".strip()
+
+    # Replace the typo placeholder
+    page = page.replace(f"{group_en} 人類&prosperity&planet&peace&partnership / {group_zh}", f"{group_en} · {group_zh}")
+
+    extra = '<link rel="stylesheet" href="/assets/css/sdgs.css">'
+    return page_shell(f"SDG {n:02d} · {en}", page, "/resources/", extra)
+
+
+def build_sdg_quiz(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum):
+    content = SDG_CONTENT.get(n)
+    if not content:
+        return None
+    slug = re.sub(r"[^a-z0-9]+", "-", en.lower()).strip("-")
+    base = f"/resources/sdgs/{n:02d}-{slug}"
+    questions = content["quiz"]
+
+    q_html_blocks = []
+    for i, q in enumerate(questions, 1):
+        opts = q["options"]
+        opt_html = ''.join(
+            f'<label class="quiz-opt"><input type="radio" name="q{i}" value="{j}"><span class="opt-letter">{chr(65+j)}</span><span class="opt-text"><strong>{en_text}</strong><br><span class="zh">{zh_text}</span></span></label>'
+            for j, (en_text, zh_text) in enumerate(opts)
+        )
+        q_html_blocks.append(f"""
+<article class="quiz-q" data-q="{i-1}">
+  <p class="quiz-q-num">Question {i}</p>
+  <h3 class="quiz-q-en">{q['q_en']}</h3>
+  <p class="quiz-q-zh">{q['q_zh']}</p>
+  <div class="quiz-opts">{opt_html}</div>
+  <div class="quiz-feedback" hidden>
+    <p class="quiz-feedback-en">{q['explain_en']}</p>
+    <p class="quiz-feedback-zh">{q['explain_zh']}</p>
+  </div>
+</article>
+""".strip())
+
+    correct_array = json.dumps([q["correct"] for q in questions])
+
+    page = f"""
+<article class="quiz-page" style="--sdg:{color}">
+  <header class="quiz-hero">
+    <div class="sdg-detail-icon">{icon}</div>
+    <div>
+      <p class="sdg-detail-eyebrow">SDG {n:02d} · Quiz · 測驗</p>
+      <h1 class="quiz-title">{en}</h1>
+      <p class="sdg-detail-zh">{zh}</p>
+    </div>
+  </header>
+
+  <p class="quiz-instructions">Five questions · 五題選擇題. Pick the best answer for each. When you're done, hit Submit.</p>
+  <p class="quiz-instructions zh">五題選擇題。每題選最佳答案，全部完成後按 Submit。</p>
+
+  <form id="quiz-form" class="quiz-form">
+    {''.join(q_html_blocks)}
+    <div class="quiz-submit-wrap">
+      <button type="submit" class="sdg-btn sdg-btn--quiz sdg-btn-big">Submit · 交卷</button>
+    </div>
+  </form>
+
+  <div id="quiz-result" class="quiz-result" hidden>
+    <p class="quiz-score-label">Your score · 你的得分</p>
+    <p class="quiz-score-big"><span id="quiz-score">0</span> / {len(questions)}</p>
+    <p id="quiz-grade" class="quiz-grade"></p>
+    <div class="quiz-result-cta">
+      <button type="button" id="quiz-retry" class="sdg-btn sdg-btn--handout">↻ Try again · 再試一次</button>
+      <a class="sdg-btn sdg-btn--quiz" href="{base}/">📖 Review handout</a>
+    </div>
+  </div>
+
+  <p style="margin-top:40px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="{base}/">← Back to handout</a> · <a href="/resources/sdgs/">All SDGs</a>
+  </p>
+</article>
+
+<script>
+(function(){{
+  var CORRECT = {correct_array};
+  var form = document.getElementById('quiz-form');
+  var result = document.getElementById('quiz-result');
+  var scoreEl = document.getElementById('quiz-score');
+  var gradeEl = document.getElementById('quiz-grade');
+  var retry = document.getElementById('quiz-retry');
+  form.addEventListener('submit', function(e){{
+    e.preventDefault();
+    var score = 0;
+    CORRECT.forEach(function(c, i){{
+      var qEl = form.querySelector('[data-q="' + i + '"]');
+      var chosen = qEl.querySelector('input:checked');
+      var fb = qEl.querySelector('.quiz-feedback');
+      var inputs = qEl.querySelectorAll('input');
+      inputs.forEach(function(inp){{ inp.disabled = true; }});
+      // mark correct option
+      var correctLabel = qEl.querySelectorAll('.quiz-opt')[c];
+      correctLabel.classList.add('is-correct');
+      if (chosen){{
+        var chosenIdx = parseInt(chosen.value, 10);
+        if (chosenIdx === c){{ score++; }}
+        else {{ chosen.closest('.quiz-opt').classList.add('is-wrong'); }}
+      }}
+      fb.hidden = false;
+    }});
+    scoreEl.textContent = score;
+    var pct = score / CORRECT.length;
+    if (pct === 1) gradeEl.textContent = '🌟 Perfect! 滿分！';
+    else if (pct >= 0.8) gradeEl.textContent = '✨ Great work! 太厲害了！';
+    else if (pct >= 0.6) gradeEl.textContent = '👍 Good effort! 表現不錯！';
+    else gradeEl.textContent = '💪 Read the handout and try again. 看講義再來一次。';
+    result.hidden = false;
+    result.scrollIntoView({{behavior:'smooth', block:'center'}});
+  }});
+  retry.addEventListener('click', function(){{
+    form.reset();
+    form.querySelectorAll('input').forEach(function(inp){{ inp.disabled = false; }});
+    form.querySelectorAll('.quiz-opt').forEach(function(o){{ o.classList.remove('is-correct','is-wrong'); }});
+    form.querySelectorAll('.quiz-feedback').forEach(function(fb){{ fb.hidden = true; }});
+    result.hidden = true;
+    form.scrollIntoView({{behavior:'smooth', block:'start'}});
+  }});
+}})();
+</script>
+""".strip()
+
+    extra = '<link rel="stylesheet" href="/assets/css/sdgs.css">'
+    return page_shell(f"SDG {n:02d} Quiz · {en}", page, "/resources/", extra)
 
 
 def build_eric_berman():
@@ -1488,6 +1692,15 @@ def main():
     write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
     write("resources/eric-berman/index.html", build_eric_berman())
     write("resources/sdgs/index.html", build_sdgs())
+    # 17 SDG handout + quiz pages
+    for sdg in SDGS:
+        n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum, prompts = sdg
+        slug = re.sub(r"[^a-z0-9]+", "-", en.lower()).strip("-")
+        write(f"resources/sdgs/{n:02d}-{slug}/index.html",
+              build_sdg_handout(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum, prompts))
+        quiz_html = build_sdg_quiz(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum)
+        if quiz_html:
+            write(f"resources/sdgs/{n:02d}-{slug}/quiz/index.html", quiz_html)
     # Bilingual Campus pages — Classroom English + Announcements have full content; rest are stubs
     write("resources/bilingual-campus/announcements/index.html", build_announcements())
     for slug, en, zh, brief in BILINGUAL_CAMPUS:
