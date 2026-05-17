@@ -358,7 +358,7 @@ def build_schools(townships_data, schools_data):
     schools_r = f"{round_down(total, 10)}+"
     townships_r = f"{round_down(townships_with, 5)}+"
 
-    hero = editorial_hero(
+    hero = curve_hero(
         variant="schools",
         eyebrow="Directory",
         title_html="Schools of<br>Changhua.",
@@ -391,9 +391,6 @@ def curve_hero(variant, eyebrow, title_html, lede_en, lede_zh, pull_en, pull_zh,
         'preserveAspectRatio="none" aria-hidden="true">'
         '<path d="M 0,0 L 760,0 C 720,140 800,290 720,420 '
         'C 660,520 760,560 700,600 L 0,600 Z"/>'
-        '<path class="accent" d="M 760,0 C 720,140 800,290 720,420 '
-        'C 660,520 760,560 700,600 L 760,600 L 820,500 '
-        'C 760,380 840,260 800,140 L 820,0 Z"/>'
         '</svg>'
     )
     return f"""
@@ -733,7 +730,7 @@ def build_wotd():
     # ~22 schools have ≤2 videos so the "real participating" count is ~100). Hard-set to 100+.
     schools_r = "100+"
 
-    hero = editorial_hero(
+    hero = curve_hero(
         variant="wotd",
         eyebrow="Our signature collection",
         title_html="Word of<br>the Day.",
@@ -818,7 +815,7 @@ def build_resources():
   <p>{brief}</p>
 </a>""".strip())
 
-    hero = editorial_hero(
+    hero = curve_hero(
         variant="resources",
         eyebrow="Library",
         title_html="Resources for<br>the classroom.",
