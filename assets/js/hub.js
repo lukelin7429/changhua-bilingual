@@ -157,9 +157,72 @@
     input.addEventListener('input', filter);
   }
 
+  // ----- FETs page client-side search -----
+  function bindFetsSearch() {
+    var input = document.getElementById('fets-search-input');
+    if (!input) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.fet-card'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.fet-group'));
+    var emptyEl = document.getElementById('fets-search-empty');
+
+    function filter() {
+      var q = input.value.trim().toLowerCase();
+      var anyVisible = false;
+      cards.forEach(function (card) {
+        var hay = (card.getAttribute('data-search') || '').toLowerCase();
+        var match = !q || hay.indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+      });
+      groups.forEach(function (g) {
+        var v = g.querySelectorAll('.fet-card:not([style*="display: none"])').length;
+        g.style.display = v ? '' : 'none';
+      });
+      if (emptyEl) emptyEl.hidden = !q || anyVisible;
+    }
+    input.addEventListener('input', filter);
+  }
+
+  // ----- Resources page client-side search -----
+  function bindResourcesSearch() {
+    var input = document.getElementById('resources-search-input');
+    if (!input) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('main .hub-card'));
+    var allSections = Array.prototype.slice.call(document.querySelectorAll('main .hub-section'));
+    var cardSections = allSections.filter(function (s) {
+      return s.querySelectorAll('.hub-card').length > 0;
+    });
+    var emptyEl = document.getElementById('resources-search-empty');
+
+    function filter() {
+      var q = input.value.trim().toLowerCase();
+      var anyVisible = false;
+      cards.forEach(function (card) {
+        var ds = card.getAttribute('data-search');
+        var hay = ((ds !== null ? ds : card.textContent) || '').toLowerCase();
+        var match = !q || hay.indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+      });
+      cardSections.forEach(function (s) {
+        var v = s.querySelectorAll('.hub-card:not([style*="display: none"])').length;
+        s.style.display = v ? '' : 'none';
+      });
+      if (emptyEl) emptyEl.hidden = !q || anyVisible;
+    }
+    input.addEventListener('input', filter);
+  }
+
+  function initAll() {
+    renderMap();
+    bindSearch();
+    bindFetsSearch();
+    bindResourcesSearch();
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { renderMap(); bindSearch(); });
+    document.addEventListener('DOMContentLoaded', initAll);
   } else {
-    renderMap(); bindSearch();
+    initAll();
   }
 })();

@@ -444,6 +444,7 @@ def build_fets(fets_data, schools_data):
         school_zh = fet.get("school_zh", "")
         photo = fet.get("photo", "")
         site = fet.get("site", "")
+        search_data = f"{name} {school_en} {school_zh}".strip()
 
         if photo:
             img_html = (
@@ -455,10 +456,10 @@ def build_fets(fets_data, schools_data):
             img_html = f'<div class="fet-photo fet-initials" aria-hidden="true">{initials}</div>'
 
         if site:
-            wrap_open = f'<a class="fet-card" href="{site}" target="_blank" rel="noopener">'
+            wrap_open = f'<a class="fet-card" href="{site}" data-search="{search_data}" target="_blank" rel="noopener">'
             wrap_close = "</a>"
         else:
-            wrap_open = '<div class="fet-card">'
+            wrap_open = f'<div class="fet-card" data-search="{search_data}">'
             wrap_close = "</div>"
 
         zh_line = f'<p class="fet-school-zh">{school_zh}</p>' if school_zh else ""
@@ -480,15 +481,17 @@ def build_fets(fets_data, schools_data):
     past_section = ""
     if past:
         past_section = f"""
-  <h2 class="hub-h2" style="margin-top:72px">Past FETs <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">離職的外師</span></h2>
-  <p style="color:var(--hub-ink-soft);max-width:60ch;margin-top:-8px">
-    With gratitude to the teachers whose service in Changhua has concluded.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    感謝以下曾在彰化任教、現已結束服務的外籍英語教師。
-  </p>
-  <div class="fet-grid" style="margin-top:24px">
-    {''.join(past)}
+  <div class="fet-group" style="margin-top:72px">
+    <h2 class="hub-h2">Past FETs <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">離職的外師</span></h2>
+    <p style="color:var(--hub-ink-soft);max-width:60ch;margin-top:-8px">
+      With gratitude to the teachers whose service in Changhua has concluded.
+    </p>
+    <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
+      感謝以下曾在彰化任教、現已結束服務的外籍英語教師。
+    </p>
+    <div class="fet-grid" style="margin-top:24px">
+      {''.join(past)}
+    </div>
   </div>
 """
 
@@ -507,14 +510,23 @@ def build_fets(fets_data, schools_data):
 {hero}
 
 <section class="hub-section">
-  <h2 class="hub-h2">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
-  <div class="fet-grid" style="margin-top:24px">
-    {''.join(elem_jh)}
+  <div class="hub-search" style="max-width:560px;margin-bottom:40px">
+    <input id="fets-search-input" type="search" placeholder="Search teacher or school… · 搜尋外師或學校" autocomplete="off">
+  </div>
+  <p id="fets-search-empty" class="hub-search-empty" hidden>No matching teachers. Try a different name or school. · 沒有相符的外師，請換個關鍵字。</p>
+
+  <div class="fet-group">
+    <h2 class="hub-h2">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
+    <div class="fet-grid" style="margin-top:24px">
+      {''.join(elem_jh)}
+    </div>
   </div>
 
-  <h2 class="hub-h2" style="margin-top:72px">Senior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">高中</span></h2>
-  <div class="fet-grid" style="margin-top:24px">
-    {''.join(senior)}
+  <div class="fet-group" style="margin-top:72px">
+    <h2 class="hub-h2">Senior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">高中</span></h2>
+    <div class="fet-grid" style="margin-top:24px">
+      {''.join(senior)}
+    </div>
   </div>
 {past_section}
 </section>
@@ -828,6 +840,13 @@ def build_resources():
 
     content = f"""
 {hero}
+
+<section class="hub-section" style="padding-top:48px;padding-bottom:8px">
+  <div class="hub-search" style="max-width:560px">
+    <input id="resources-search-input" type="search" placeholder="Search resources… · 搜尋資源" autocomplete="off">
+  </div>
+  <p id="resources-search-empty" class="hub-search-empty" hidden>No matching resources. Try another keyword. · 沒有相符的資源，請換個關鍵字。</p>
+</section>
 
 <!-- ===== Background & Identity ===== -->
 <section class="hub-section" style="padding-top:0">
