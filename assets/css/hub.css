@@ -117,7 +117,9 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 /* ----- Hero ----- */
 .hub-hero-wrap {
   background: linear-gradient(180deg, #fafbfb 0%, #ffffff 100%);
-  border-bottom: 1px solid var(--hub-line);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, #c66830 0%, #1f6e6e 35%, #4a4e8a 70%, #8b2c4f 100%) 1;
   position: relative;
   overflow: hidden;
 }
@@ -125,14 +127,14 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   content: ""; position: absolute;
   top: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(31,110,110,.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(31,110,110,.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .hub-hero-wrap::after {
   content: ""; position: absolute;
   bottom: -150px; left: -150px;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(31,110,110,.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(198,104,48,.10) 0%, transparent 70%);
   pointer-events: none;
 }
 .hub-hero {
