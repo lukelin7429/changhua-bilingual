@@ -155,10 +155,13 @@
   letter-spacing: .05em;
 }
 
-/* Card grid */
+/* Card grid — 1 col mobile, 2 col desktop (matches 大莊 design) */
 .wotd-grid {
-  display: grid; gap: 28px;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  display: grid; gap: 32px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) {
+  .wotd-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
 }
 .wotd-card {
   display: flex; flex-direction: column;
@@ -205,14 +208,18 @@
 .wotd-yt iframe { width: 100%; height: 100%; border: 0; }
 
 .wotd-head {
-  padding: 20px 22px 14px;
+  padding: 26px 30px 18px;
+  min-height: 150px;
+}
+@media (min-width: 720px) {
+  .wotd-head { padding: 32px 34px 20px; min-height: 180px; }
 }
 .wotd-num {
   font-family: var(--hub-serif);
-  font-size: .75rem; font-weight: 700;
+  font-size: .8rem; font-weight: 700;
   letter-spacing: .22em; text-transform: uppercase;
   color: var(--wotd-orange-deep);
-  margin: 0 0 4px;
+  margin: 0 0 6px;
 }
 .wotd-card.t-green .wotd-num { color: var(--wotd-green-deep); }
 .wotd-card.t-orange .wotd-num { color: var(--wotd-orange-deep); }
@@ -221,10 +228,13 @@
 
 .wotd-keyword {
   font-family: var(--hub-serif);
-  font-size: 1.85rem; font-weight: 700;
+  font-size: 2rem; font-weight: 700;
   color: var(--wotd-blue-deep);
   margin: 0; line-height: 1.15;
   letter-spacing: -.005em;
+}
+@media (min-width: 720px) {
+  .wotd-keyword { font-size: 2.6rem; }
 }
 .wotd-card.t-green .wotd-keyword { color: var(--wotd-green-deep); }
 .wotd-card.t-orange .wotd-keyword { color: var(--wotd-orange-deep); }
@@ -243,12 +253,18 @@
 .wotd-card.t-purple .wotd-keyword .pos { color: var(--wotd-purple); }
 .wotd-zh {
   font-family: var(--hub-zh-font);
-  color: var(--hub-ink); font-size: 1.1rem;
-  font-weight: 600; letter-spacing: .04em;
-  margin: 6px 0 0;
+  color: var(--hub-ink); font-size: 1.2rem;
+  font-weight: 600; letter-spacing: .06em;
+  margin: 8px 0 0;
+}
+@media (min-width: 720px) {
+  .wotd-zh { font-size: 1.5rem; }
 }
 
-.wotd-body { padding: 18px 22px 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.wotd-body { padding: 22px 30px 28px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+@media (min-width: 720px) {
+  .wotd-body { padding: 26px 34px 32px; gap: 16px; }
+}
 
 .wotd-ex {
   background: var(--wotd-blue-soft);
@@ -268,9 +284,13 @@
 .wotd-card.t-purple .wotd-ex.alt { background: var(--wotd-green-soft); border-left-color: var(--wotd-green); }
 .wotd-card.t-pink .wotd-ex { background: var(--wotd-pink-soft); border-left-color: var(--wotd-pink); }
 .wotd-card.t-pink .wotd-ex.alt { background: var(--wotd-purple-soft); border-left-color: var(--wotd-purple); }
+.wotd-ex { padding: 14px 18px; }
 .wotd-ex .en {
-  font-size: .95rem; line-height: 1.5;
+  font-size: 1.05rem; line-height: 1.55;
   color: var(--hub-ink); font-weight: 500;
+}
+@media (min-width: 720px) {
+  .wotd-ex .en { font-size: 1.15rem; }
 }
 .wotd-ex .en b {
   background: rgba(217,120,24,.18);
@@ -284,17 +304,23 @@
 .wotd-card.t-pink .wotd-ex .en b { background: rgba(28,77,126,.14); color: var(--wotd-blue-deep); }
 .wotd-ex .zh {
   font-family: var(--hub-zh-font);
-  font-size: .85rem; line-height: 1.55;
+  font-size: .95rem; line-height: 1.6;
   color: var(--hub-ink-soft);
-  margin-top: 4px;
+  margin-top: 6px;
+}
+@media (min-width: 720px) {
+  .wotd-ex .zh { font-size: 1.02rem; }
 }
 
 .wotd-school {
-  margin: auto -22px -22px; padding: 12px 22px;
+  margin: auto -30px -28px; padding: 14px 30px;
   background: #fafaf6; border-top: 1px solid var(--hub-line);
-  font-family: var(--hub-zh-font); font-size: .82rem;
+  font-family: var(--hub-zh-font); font-size: .92rem;
   color: var(--hub-ink-soft); font-weight: 500;
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+@media (min-width: 720px) {
+  .wotd-school { margin: auto -34px -32px; padding: 16px 34px; font-size: 1rem; }
 }
 .wotd-school::before {
   content: ""; display: inline-block; width: 14px; height: 14px;
