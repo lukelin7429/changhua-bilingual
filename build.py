@@ -44,8 +44,11 @@ def nav_html(current_path):
 <header class="hub-nav" role="banner">
   <div class="hub-nav-inner">
     <a class="hub-brand" href="/">
-      Changhua Bilingual Hub
-      <small>彰化雙語資源網</small>
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
     </a>
     <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -97,7 +100,14 @@ def page_shell(title, content, current_path, extra_head=""):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} · Changhua Bilingual Hub</title>
   <meta name="description" content="Bilingual education resources across Changhua County, Taiwan.">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="{title} · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
@@ -134,26 +144,37 @@ def build_township_index(townships, schools):
 
 
 # -------- Page builders --------
+def round_down(n, step):
+    """Round down to nearest multiple of step (e.g. 106 → 100)."""
+    return (n // step) * step
+
+
 def build_home(townships_data, schools_data, wotd_items):
     townships = townships_data["townships"]
     schools = schools_data["schools"]
     idx = build_township_index(townships, schools)
     inline_idx = json.dumps(idx, ensure_ascii=False)
 
+    # Use rounded-down phrasing for volatile counts; keep exact for stable facts
     total_schools = len(schools)
+    schools_rounded = f"{round_down(total_schools, 10)}+"  # 106 → 100+
     townships_with_schools = sum(1 for t in idx.values() if t["school_count"])
+    townships_rounded = f"{round_down(townships_with_schools, 5)}+"  # 25 → 20+
     total_videos = len(wotd_items)
+    videos_rounded = f"{round_down(total_videos, 100):,}+"  # 2966 → 2,900+
     contributing_schools = len({r["sch"] for r in wotd_items if r["sch"]})
+    contributing_rounded = f"{round_down(contributing_schools, 10)}+"
 
     content = f"""
+<div class="hub-hero-wrap">
 <section class="hub-hero">
   <div class="hub-hero-text">
     <p class="hub-eyebrow">Welcome / 歡迎</p>
     <h1 class="hub-h1">A bilingual gateway to <em style="color:var(--hub-primary)">Changhua</em>'s schools.</h1>
-    <p>{total_schools} bilingual school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
-    <p class="hub-zh">彰化縣 {townships_with_schools} 個鄉鎮、{total_schools} 所合作學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
+    <p>{schools_rounded} partner school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
+    <p class="hub-zh">{townships_rounded} 鄉鎮、{schools_rounded} 合作學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
     <div class="hub-hero-actions">
-      <a class="hub-btn hub-btn--primary" href="/word-of-the-day/">Watch {total_videos:,} videos →</a>
+      <a class="hub-btn hub-btn--primary" href="/word-of-the-day/">Watch {videos_rounded} videos →</a>
       <a class="hub-btn hub-btn--ghost" href="/schools/">Browse Schools</a>
     </div>
   </div>
@@ -161,6 +182,7 @@ def build_home(townships_data, schools_data, wotd_items):
     <div id="hub-map" data-geo="/assets/map/changhua-townships.geojson"></div>
   </div>
 </section>
+</div>
 
 <section class="hub-section">
   <p class="hub-eyebrow">What's inside</p>
@@ -170,12 +192,12 @@ def build_home(townships_data, schools_data, wotd_items):
       <span class="hub-card-tag">Signature</span>
       <h3>Word of the Day 校園百科</h3>
       <p>Our flagship classroom-video library — every word taught in a real Changhua classroom, in two example sentences, by a real teacher.</p>
-      <div class="hub-card-meta">{total_videos:,} videos · {contributing_schools} schools</div>
+      <div class="hub-card-meta">{videos_rounded} videos · {contributing_rounded} schools</div>
     </a>
     <a class="hub-card" href="/schools/">
       <h3>Schools 學校</h3>
       <p>Bilingual websites for every partner school in Changhua, grouped by township.</p>
-      <div class="hub-card-meta">{total_schools} schools · {townships_with_schools} townships</div>
+      <div class="hub-card-meta">{schools_rounded} schools · {townships_rounded} townships</div>
     </a>
     <a class="hub-card" href="/fets/">
       <h3>FETs 外籍教師</h3>
@@ -326,15 +348,17 @@ def build_schools(townships_data, schools_data):
 
     total = len(schools)
     townships_with = len(by_township)
+    schools_r = f"{round_down(total, 10)}+"
+    townships_r = f"{round_down(townships_with, 5)}+"
     content = f"""
 <section class="hub-section">
   <p class="hub-eyebrow">Directory</p>
   <h1 class="hub-h1">Bilingual School Sites</h1>
   <p style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:60ch">
-    {total} schools across {townships_with} townships in Changhua. Each card opens that school's own bilingual website.
+    {schools_r} partner schools across {townships_r} townships in Changhua. Each card opens that school's own bilingual website.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    彰化縣 {townships_with} 個鄉鎮、{total} 所合作學校的雙語網站索引。點擊卡片開啟該校網站。
+    彰化縣 {townships_r} 鄉鎮、{schools_r} 合作學校的雙語網站索引。點擊卡片開啟該校網站。
   </p>
   <div class="hub-search" style="margin-top:36px;max-width:560px">
     <input id="hub-search-input" type="search" placeholder="Search by school name, township, or slug…" autocomplete="off">
@@ -384,16 +408,17 @@ def build_fets(fets_data, schools_data):
     elem_jh = [card(f) for f in fets if f.get("segment") in ("elementary", "junior-high")]
     senior = [card(f) for f in fets if f.get("segment") == "senior-high"]
     total = len(fets)
+    total_r = f"{round_down(total, 10)}+"
 
     content = f"""
 <section class="hub-section">
   <p class="hub-eyebrow">Foreign English Teachers</p>
   <h1 class="hub-h1">Meet our FETs</h1>
   <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:60ch">
-    {total} Foreign English Teachers placed across Changhua's partner schools — bringing classrooms a global voice.
+    {total_r} Foreign English Teachers placed across Changhua's partner schools — bringing classrooms a global voice.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    服務於彰化縣各合作學校的 {total} 位外籍英語教師——把世界帶進教室。
+    服務於彰化縣各合作學校的 {total_r} 位外籍英語教師——把世界帶進教室。
   </p>
 
   <h2 class="hub-h2" style="margin-top:56px">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
@@ -563,13 +588,15 @@ def build_wotd():
         for L in letters
     )
 
+    items_r = f"{round_down(len(items), 100):,}+"
+    schools_r = f"{round_down(len(school_counts), 10)}+"
     content = f"""
 <section class="wotd-hero">
   <div class="wotd-hero-inner">
     <p class="hub-eyebrow">Our signature collection</p>
     <h1 class="hub-h1">Word of the Day</h1>
-    <p class="wotd-hero-sub">{len(items):,} bilingual classroom videos · {len(school_counts)} schools · every word lived in a real Changhua classroom.</p>
-    <p class="hub-zh wotd-hero-sub">{len(items):,} 支雙語教室實拍影片，來自 {len(school_counts)} 所學校。每個單字都是真實課堂的活紀錄。</p>
+    <p class="wotd-hero-sub">{items_r} bilingual classroom videos · {schools_r} schools · every word lived in a real Changhua classroom.</p>
+    <p class="hub-zh wotd-hero-sub">{items_r} 支雙語教室實拍影片，來自 {schools_r} 所學校。每個單字都是真實課堂的活紀錄。</p>
   </div>
 </section>
 
