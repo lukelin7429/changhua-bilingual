@@ -991,135 +991,189 @@ def build_books_for_taiwan():
 
 
 SDGS = [
-    (1,  "No Poverty",                      "終結貧窮",         "#E5243B", "Make sure everyone has enough to live a safe, healthy life.",
-         "讓每個人都能擁有安全、健康的生活。", [
-            "Are there students in your school who don't have lunch money? How do you help?",
-            "What's one thing your family does to help neighbors in need?",
-            "Brainstorm 3 ways your class could support a local charity."]),
-    (2,  "Zero Hunger",                     "消除飢餓",         "#DDA63A", "Everyone deserves enough food — and the right kind of food.",
-         "每個人都應該擁有足夠且營養的食物。", [
-            "How does your school's lunch program reduce food waste?",
-            "Where does the rice on your plate come from? (Hint: probably a Changhua farm!)",
-            "Plan a 'sharing meal' where each student brings something to share."]),
-    (3,  "Good Health & Well-being",        "健康與福祉",       "#4C9F38", "Stay healthy in body and mind — at every age.",
-         "在每個年齡都能身心健康。", [
-            "What 3 habits keep you healthy at school?",
-            "How does your school help students who feel sad or stressed?",
-            "Plan a 10-minute daily exercise routine you can do at home."]),
-    (4,  "Quality Education",               "優質教育",         "#C5192D", "Every child gets to go to school and learn well.",
-         "讓每個孩子都能上學並好好學習。", [
-            "Why is bilingual education important for your future?",
-            "What's one subject you wish your school taught more of?",
-            "Interview a senior in your family — what was school like in their time?"]),
-    (5,  "Gender Equality",                 "性別平等",         "#FF3A21", "Boys and girls should have the same chances, choices, and respect.",
-         "男生女生應該擁有同樣的機會、選擇與尊重。", [
-            "Are there activities at your school that only boys or only girls do? Why?",
-            "Name 3 women in science, sports, or leadership you admire.",
-            "What does fair sharing of housework look like at your home?"]),
-    (6,  "Clean Water & Sanitation",        "潔淨水與衛生",     "#26BDE2", "Clean water for drinking, washing, and farming — for everyone.",
-         "讓每個人都有乾淨的水可以喝、洗、灌溉。", [
-            "Track your water use for one day. Where could you save?",
-            "How does Changhua's water travel from the mountains to your tap?",
-            "What happens to the dirty water after it goes down the drain?"]),
-    (7,  "Affordable & Clean Energy",       "可負擔的潔淨能源", "#FCC30B", "Use energy that doesn't pollute and that everyone can afford.",
-         "使用不污染、人人負擔得起的能源。", [
-            "Count the lights and devices on at your home right now. Could any be off?",
-            "What's the difference between solar energy and coal energy?",
-            "If your school had a solar roof, what could it power?"]),
-    (8,  "Decent Work & Economic Growth",   "尊嚴就業與經濟成長", "#A21942", "Everyone should have a fair job that pays enough and is safe.",
-         "每個人都該有公平、安全、足夠的工作。", [
-            "What do your parents do for work? What do they like about it?",
-            "What's one job in Changhua that didn't exist 20 years ago?",
-            "Interview a local farmer or shopkeeper about their work."]),
-    (9,  "Industry, Innovation & Infrastructure", "產業創新與基礎建設", "#FD6925", "Build strong roads, bridges, and ideas to help society grow.",
-         "建造堅固的道路、橋樑與創新點子，幫助社會進步。", [
-            "What's the newest building in your town? What's it used for?",
-            "What invention has changed your life the most?",
-            "Design a bridge or road that connects two parts of your town."]),
-    (10, "Reduced Inequalities",            "減少不平等",       "#DD1367", "Everyone deserves the same chances, no matter who they are.",
-         "不論身分背景，每個人都該有同樣的機會。", [
-            "Have you ever been treated unfairly? How did it feel?",
-            "How does your school welcome new students from other places?",
-            "Plan a 'kindness day' at your school where every student is included."]),
-    (11, "Sustainable Cities & Communities", "永續城鄉",         "#FD9D24", "Make our towns safer, cleaner, and more welcoming.",
-         "讓城市與鄉村更安全、乾淨、宜居。", [
-            "What's the prettiest place in your township? Why?",
-            "How could your school playground be safer?",
-            "Suggest one small change that would make your neighborhood greener."]),
-    (12, "Responsible Consumption & Production", "責任消費與生產", "#BF8B2E", "Buy less, use longer, throw away less.",
-         "少買、耐用、少丟棄。", [
-            "How many things in your school bag are reusable?",
-            "What's one item your family threw away that could have been used longer?",
-            "Plan a class 'swap day' where everyone trades books or toys."]),
-    (13, "Climate Action",                  "氣候行動",         "#3F7E44", "Help slow down climate change before it's too late.",
-         "在來不及之前，一起減緩氣候變遷。", [
-            "How is the weather in Changhua different from your grandparents' time?",
-            "Name 3 things your family does that release CO₂.",
-            "Plan one 'no electricity' hour for your home each week."]),
-    (14, "Life Below Water",                "海洋生態",         "#0A97D9", "Protect the oceans, rivers, and the creatures that live in them.",
-         "保護海洋、河川與其中的生物。", [
-            "Changhua faces the Taiwan Strait. What sea creatures live near your coast?",
-            "Trace a piece of trash from your home — could it reach the ocean?",
-            "Design a poster to tell people not to litter at the beach."]),
-    (15, "Life on Land",                    "陸地生態",         "#56C02B", "Protect forests, fields, and the animals that share our home.",
-         "保護森林、田野與我們的動物鄰居。", [
-            "Name 5 trees or birds you can see in your school yard.",
-            "What's one animal that used to live near Changhua but is now rare?",
-            "Plant a seed at home and write a journal about how it grows."]),
-    (16, "Peace, Justice & Strong Institutions", "和平、正義與健全制度", "#00689D", "Be fair, be peaceful, and trust each other to keep promises.",
-         "公平、和平，並彼此信任、信守承諾。", [
-            "What rules at your school make everyone feel safe?",
-            "Have you ever solved a disagreement peacefully? How?",
-            "Why do we have laws? What would happen without them?"]),
-    (17, "Partnerships for the Goals",      "多元夥伴關係",     "#19486A", "Work together — schools, families, governments — to reach all the goals.",
-         "學校、家庭、政府一起合作，達成所有目標。", [
-            "Who are your school's partners (e.g. the Education Department, MCC, foreign teachers)?",
-            "What's one goal your class could tackle together this year?",
-            "Pick one SDG from above and plan a class project around it."]),
+    # (n, icon, en, zh, group_en, group_zh, color, en_summary, zh_summary, [prompts])
+    (1,  "💰", "No Poverty",                            "終結貧窮",           "People",      "人類",       "#E5243B",
+         "Make sure everyone has enough to live a safe, healthy life.",
+         "讓每個人都能擁有安全、健康的生活。",
+         ["Are there students in your school who don't have lunch money? How can you help?",
+          "What's one thing your family does to help neighbors in need?",
+          "Brainstorm 3 ways your class could support a local charity."]),
+    (2,  "🌾", "Zero Hunger",                           "消除飢餓",           "People",      "人類",       "#DDA63A",
+         "Everyone deserves enough food — and the right kind of food.",
+         "每個人都應該擁有足夠且營養的食物。",
+         ["How does your school's lunch program reduce food waste?",
+          "Where does the rice on your plate come from? (Hint: probably a Changhua farm!)",
+          "Plan a 'sharing meal' where each student brings something to share."]),
+    (3,  "🏥", "Good Health & Well-being",              "健康與福祉",         "People",      "人類",       "#4C9F38",
+         "Stay healthy in body and mind — at every age.",
+         "在每個年齡都能身心健康。",
+         ["What 3 habits keep you healthy at school?",
+          "How does your school help students who feel sad or stressed?",
+          "Plan a 10-minute daily exercise routine you can do at home."]),
+    (4,  "📚", "Quality Education",                     "優質教育",           "People",      "人類",       "#C5192D",
+         "Every child gets to go to school and learn well.",
+         "讓每個孩子都能上學並好好學習。",
+         ["Why is bilingual education important for your future?",
+          "What's one subject you wish your school taught more of?",
+          "Interview a senior in your family — what was school like in their time?"]),
+    (5,  "👫", "Gender Equality",                       "性別平等",           "People",      "人類",       "#FF3A21",
+         "Boys and girls should have the same chances, choices, and respect.",
+         "男生女生應該擁有同樣的機會、選擇與尊重。",
+         ["Are there activities at your school that only boys or only girls do? Why?",
+          "Name 3 women in science, sports, or leadership you admire.",
+          "What does fair sharing of housework look like at your home?"]),
+    (6,  "💧", "Clean Water & Sanitation",              "潔淨水與衛生",       "Planet",      "地球",       "#26BDE2",
+         "Clean water for drinking, washing, and farming — for everyone.",
+         "讓每個人都有乾淨的水可以喝、洗、灌溉。",
+         ["Track your water use for one day. Where could you save?",
+          "How does Changhua's water travel from the mountains to your tap?",
+          "What happens to the dirty water after it goes down the drain?"]),
+    (7,  "⚡", "Affordable & Clean Energy",             "可負擔的潔淨能源",   "Prosperity",  "繁榮",       "#FCC30B",
+         "Use energy that doesn't pollute and that everyone can afford.",
+         "使用不污染、人人負擔得起的能源。",
+         ["Count the lights and devices on at your home right now. Could any be off?",
+          "What's the difference between solar energy and coal energy?",
+          "If your school had a solar roof, what could it power?"]),
+    (8,  "💼", "Decent Work & Economic Growth",         "尊嚴就業與經濟成長", "Prosperity",  "繁榮",       "#A21942",
+         "Everyone should have a fair job that pays enough and is safe.",
+         "每個人都該有公平、安全、足夠的工作。",
+         ["What do your parents do for work? What do they like about it?",
+          "What's one job in Changhua that didn't exist 20 years ago?",
+          "Interview a local farmer or shopkeeper about their work."]),
+    (9,  "🏗️", "Industry, Innovation & Infrastructure", "產業創新與基礎建設", "Prosperity",  "繁榮",       "#FD6925",
+         "Build strong roads, bridges, and ideas to help society grow.",
+         "建造堅固的道路、橋樑與創新點子，幫助社會進步。",
+         ["What's the newest building in your town? What's it used for?",
+          "What invention has changed your life the most?",
+          "Design a bridge or road that connects two parts of your town."]),
+    (10, "🤝", "Reduced Inequalities",                  "減少不平等",         "Prosperity",  "繁榮",       "#DD1367",
+         "Everyone deserves the same chances, no matter who they are.",
+         "不論身分背景，每個人都該有同樣的機會。",
+         ["Have you ever been treated unfairly? How did it feel?",
+          "How does your school welcome new students from other places?",
+          "Plan a 'kindness day' at your school where every student is included."]),
+    (11, "🏙️", "Sustainable Cities & Communities",      "永續城鄉",           "Prosperity",  "繁榮",       "#FD9D24",
+         "Make our towns safer, cleaner, and more welcoming.",
+         "讓城市與鄉村更安全、乾淨、宜居。",
+         ["What's the prettiest place in your township? Why?",
+          "How could your school playground be safer?",
+          "Suggest one small change that would make your neighborhood greener."]),
+    (12, "🛒", "Responsible Consumption & Production",  "責任消費與生產",     "Planet",      "地球",       "#BF8B2E",
+         "Buy less, use longer, throw away less.",
+         "少買、耐用、少丟棄。",
+         ["How many things in your school bag are reusable?",
+          "What's one item your family threw away that could have been used longer?",
+          "Plan a class 'swap day' where everyone trades books or toys."]),
+    (13, "🌍", "Climate Action",                        "氣候行動",           "Planet",      "地球",       "#3F7E44",
+         "Help slow down climate change before it's too late.",
+         "在來不及之前，一起減緩氣候變遷。",
+         ["How is the weather in Changhua different from your grandparents' time?",
+          "Name 3 things your family does that release CO₂.",
+          "Plan one 'no electricity' hour for your home each week."]),
+    (14, "🐠", "Life Below Water",                      "海洋生態",           "Planet",      "地球",       "#0A97D9",
+         "Protect the oceans, rivers, and the creatures that live in them.",
+         "保護海洋、河川與其中的生物。",
+         ["Changhua faces the Taiwan Strait. What sea creatures live near your coast?",
+          "Trace a piece of trash from your home — could it reach the ocean?",
+          "Design a poster to tell people not to litter at the beach."]),
+    (15, "🌳", "Life on Land",                          "陸地生態",           "Planet",      "地球",       "#56C02B",
+         "Protect forests, fields, and the animals that share our home.",
+         "保護森林、田野與我們的動物鄰居。",
+         ["Name 5 trees or birds you can see in your school yard.",
+          "What's one animal that used to live near Changhua but is now rare?",
+          "Plant a seed at home and write a journal about how it grows."]),
+    (16, "🕊️", "Peace, Justice & Strong Institutions",  "和平、正義與健全制度", "Peace",     "和平",       "#00689D",
+         "Be fair, be peaceful, and trust each other to keep promises.",
+         "公平、和平，並彼此信任、信守承諾。",
+         ["What rules at your school make everyone feel safe?",
+          "Have you ever solved a disagreement peacefully? How?",
+          "Why do we have laws? What would happen without them?"]),
+    (17, "🌐", "Partnerships for the Goals",            "多元夥伴關係",       "Partnership", "夥伴關係",   "#19486A",
+         "Work together — schools, families, governments — to reach all the goals.",
+         "學校、家庭、政府一起合作，達成所有目標。",
+         ["Who are your school's partners (e.g. the Education Department, MCC, foreign teachers)?",
+          "What's one goal your class could tackle together this year?",
+          "Pick one SDG from above and plan a class project around it."]),
 ]
 
 
 def build_sdgs():
-    cards = []
-    for n, en, zh, hex_color, en_sum, zh_sum, qs in SDGS:
+    # 5P groups for section headings
+    PILLARS = [
+        ("People",      "人類",         "Five goals that ensure no one is left behind: ending poverty, hunger, and inequality; protecting health, education, and dignity for all.",
+                                        "五項確保「不讓任何人被遺忘」的目標：消除貧窮、飢餓與不平等；守護每個人的健康、教育與尊嚴。", [1,2,3,4,5]),
+        ("Prosperity",  "繁榮",         "Five goals that build a fair, modern economy: clean energy, decent work, innovation, equality, and sustainable cities.",
+                                        "五項建立公平現代經濟的目標：潔淨能源、尊嚴就業、創新、平等、永續城市。", [7,8,9,10,11]),
+        ("Planet",      "地球",         "Five goals that protect the Earth: clean water, responsible consumption, climate action, oceans, and land.",
+                                        "五項保護地球的目標：潔淨水、責任消費、氣候行動、海洋與陸地生態。", [6,12,13,14,15]),
+        ("Peace",       "和平",         "One goal anchoring fairness, safety, and trust in our institutions.",
+                                        "一項目標，為公平、安全與制度信任奠基。", [16]),
+        ("Partnership", "夥伴關係",     "One goal that reminds us: alone we go faster, together we go farther.",
+                                        "一項目標提醒我們：獨行快、眾行遠。", [17]),
+    ]
+    by_n = {n: t for t in SDGS for nn in [t[0]] if (n := nn)}
+
+    def card_html(t):
+        n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum, qs = t
         qs_html = ''.join(f'<li>{q}</li>' for q in qs)
-        cards.append(f"""
-<article class="sdg-card" style="--sdg:{hex_color}">
-  <header class="sdg-head">
-    <span class="sdg-num">{n:02d}</span>
-    <h2 class="sdg-title">{en}</h2>
-    <p class="sdg-zh">{zh}</p>
-  </header>
-  <div class="sdg-body">
-    <p class="sdg-sum">{en_sum}</p>
-    <p class="sdg-sum-zh">{zh_sum}</p>
-    <h3 class="sdg-prompt-label">Try this in class · 課堂試試看</h3>
-    <ul class="sdg-prompts">{qs_html}</ul>
+        return f"""
+<article class="sdg" style="--sdg:{color}">
+  <div class="sdg__head">
+    <div class="sdg__icon">{icon}</div>
+    <div class="sdg__main">
+      <div class="sdg__meta">
+        <span class="sdg__no">SDG {n:02d}</span>
+        <span class="sdg__pillar">{group_en} · {group_zh}</span>
+      </div>
+      <div class="sdg__title">{en}</div>
+      <div class="sdg__zh">{zh}</div>
+    </div>
+  </div>
+  <div class="sdg__brief">{en_sum}</div>
+  <div class="sdg__brief-zh">{zh_sum}</div>
+  <div class="sdg__prompts-wrap">
+    <div class="sdg__prompts-label">Try this in class · 課堂試試看</div>
+    <ul class="sdg__prompts">{qs_html}</ul>
   </div>
 </article>
+""".strip()
+
+    sections_html = []
+    for pillar_en, pillar_zh, blurb_en, blurb_zh, indices in PILLARS:
+        cards = ''.join(card_html(by_n[i]) for i in indices)
+        sections_html.append(f"""
+<section class="pillar">
+  <h2 class="pillar__title">{pillar_en} <small>{pillar_zh} · {len(indices)} goal{'s' if len(indices)>1 else ''}</small></h2>
+  <p class="pillar__brief">{blurb_en}</p>
+  <p class="pillar__brief-zh">{blurb_zh}</p>
+  <div class="sdg-grid">{cards}</div>
+</section>
 """.strip())
 
     content = f"""
-<section class="hub-section">
-  <p class="hub-eyebrow">Resources · SDGs</p>
-  <h1 class="hub-h1">17 Sustainable Development Goals</h1>
-  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
-    The United Nations' 17 SDGs are the world's shared to-do list for the year 2030: end poverty, protect the planet, ensure peace and prosperity. Below, we adapt each one for elementary and junior-high classrooms in Changhua — with a one-sentence summary, plus three discussion or project prompts you can use today.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
-    聯合國 17 項永續發展目標（SDGs）是全世界共同努力到 2030 年的目標：消除貧窮、保護地球、確保和平與繁榮。下面為彰化國中小教室改編每項目標——附一句重點摘要與三個可立刻使用的討論或專題提示。
-  </p>
+<header class="sdg-head-strip">
+  <div class="sdg-head-strip__brand">United Nations 2030 Agenda · 彰化雙語資源網</div>
+  <h1 class="sdg-head-strip__title">17 Sustainable Development Goals</h1>
+  <div class="sdg-head-strip__zh">永續發展目標 · 17 項全球共同承諾</div>
+  <div class="sdg-head-strip__sub">A classroom-ready adaptation for elementary &amp; junior-high students in Changhua.</div>
+</header>
 
-  <div class="sdg-grid">
-    {''.join(cards)}
-  </div>
-
-  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
+<section class="sdg-intro wrap">
+  <div class="sdg-intro__title">5 pillars · 17 goals · one shared planet.</div>
+  <div class="sdg-intro__zh">五大支柱、十七項目標、一個共有的星球。</div>
+  <p class="sdg-intro__body">The UN's 17 SDGs are the world's shared to-do list for the year 2030. Below, we group them into the UN's five "P" pillars — <strong>People, Prosperity, Planet, Peace, Partnership</strong> — and adapt each goal for Changhua's classrooms.</p>
+  <p class="sdg-intro__body hub-zh">聯合國 17 項永續發展目標（SDGs）是全世界共同努力到 2030 年的目標。下面依聯合國「5P」框架（人類、繁榮、地球、和平、夥伴關係）分組，並為彰化教室改編每項目標。</p>
 </section>
+
+<main class="wrap sdg-main">
+  {''.join(sections_html)}
+</main>
+
+<p style="text-align:center;padding:24px 0 48px;color:var(--hub-ink-faint);font-size:.95rem">
+  <a href="/resources/">← Back to Resources</a>
+</p>
 """.strip()
-    extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
+    extra = '<link rel="stylesheet" href="/assets/css/sdgs.css">'
     return page_shell("17 SDGs", content, "/resources/", extra)
 
 
