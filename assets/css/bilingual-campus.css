@@ -1,10 +1,12 @@
 /* =========================================================
-   Morning Assembly · 升旗雙語日課
-   Teacher-PD page styled to match Festival / SDG handout vibe.
+   Bilingual Campus topic pages
+   Shared layout for all teacher-PD style topic pages under
+   /resources/bilingual-campus/* — Morning Assembly, School
+   Tours, Self-Intro, Sister School, Practice Corner, etc.
    ========================================================= */
 
 /* ---------- MOE policy alignment card ---------- */
-.ma-moe-card {
+.bc-moe-card {
   background: linear-gradient(135deg, #f0f6fc 0%, #e3eef8 100%);
   border-left: 5px solid var(--c-blue);
   border-radius: 10px;
@@ -14,14 +16,14 @@
   box-shadow: 0 2px 12px rgba(28, 77, 126, 0.06);
 }
 
-.ma-moe-card p {
+.bc-moe-card p {
   margin: 0 0 12px;
   line-height: 1.7;
   color: var(--hub-ink);
   font-size: 1rem;
 }
 
-.ma-moe-card p:last-child {
+.bc-moe-card p:last-child {
   margin-bottom: 0;
   margin-top: 16px;
   padding-top: 14px;
@@ -29,19 +31,16 @@
   font-size: .97rem;
 }
 
-.ma-moe-card strong {
-  color: var(--c-blue-deep);
-  font-weight: 600;
-}
+.bc-moe-card strong { color: var(--c-blue-deep); font-weight: 600; }
 
-.ma-moe-card .hub-zh {
+.bc-moe-card .hub-zh {
   font-family: var(--hub-zh-font);
   color: var(--hub-ink-soft);
   line-height: 1.85;
 }
 
-/* ---------- Activity grid ---------- */
-.ma-grid {
+/* ---------- Section grid ---------- */
+.bc-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
@@ -49,51 +48,51 @@
   margin: 0 auto;
 }
 
-/* ---------- Activity card ---------- */
-.ma-activity {
+/* ---------- Section card ---------- */
+.bc-activity {
   background: #fff;
   border-radius: 12px;
   border: 1px solid #ece8de;
-  border-top: 6px solid var(--ma-c, var(--c-blue));
+  border-top: 6px solid var(--bc-c, var(--c-blue));
   overflow: hidden;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
 }
 
-.ma-activity.t-blue   { --ma-c: var(--c-blue);   --ma-c-deep: var(--c-blue-deep);   --ma-c-soft: var(--c-blue-soft); }
-.ma-activity.t-green  { --ma-c: var(--c-green);  --ma-c-deep: var(--c-green-deep);  --ma-c-soft: var(--c-green-soft); }
-.ma-activity.t-orange { --ma-c: var(--c-orange); --ma-c-deep: var(--c-orange-deep); --ma-c-soft: var(--c-orange-soft); }
-.ma-activity.t-purple { --ma-c: var(--c-purple); --ma-c-deep: var(--c-purple-deep); --ma-c-soft: var(--c-purple-soft); }
+.bc-activity.t-blue   { --bc-c: var(--c-blue);   --bc-c-deep: var(--c-blue-deep);   --bc-c-soft: var(--c-blue-soft); }
+.bc-activity.t-green  { --bc-c: var(--c-green);  --bc-c-deep: var(--c-green-deep);  --bc-c-soft: var(--c-green-soft); }
+.bc-activity.t-orange { --bc-c: var(--c-orange); --bc-c-deep: var(--c-orange-deep); --bc-c-soft: var(--c-orange-soft); }
+.bc-activity.t-purple { --bc-c: var(--c-purple); --bc-c-deep: var(--c-purple-deep); --bc-c-soft: var(--c-purple-soft); }
 
-/* ---------- Activity head ---------- */
-.ma-activity-head {
-  background: var(--ma-c-soft);
+/* ---------- Section head ---------- */
+.bc-activity-head {
+  background: var(--bc-c-soft);
   padding: 22px 28px 18px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.ma-activity-num {
+.bc-activity-num {
   display: inline-block;
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--ma-c-deep);
+  color: var(--bc-c-deep);
   background: rgba(255, 255, 255, 0.65);
   padding: 4px 10px;
   border-radius: 4px;
   margin-bottom: 10px;
 }
 
-.ma-activity-title {
+.bc-activity-title {
   margin: 0;
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.55rem;
   font-weight: 700;
-  color: var(--ma-c-deep);
+  color: var(--bc-c-deep);
   line-height: 1.25;
 }
 
-.ma-activity-zh {
+.bc-activity-zh {
   margin: 4px 0 10px;
   font-family: var(--hub-zh-font);
   font-size: 1.05rem;
@@ -102,38 +101,38 @@
   letter-spacing: .03em;
 }
 
-.ma-activity-duration {
+.bc-activity-duration {
   display: inline-block;
   font-size: .85rem;
-  color: var(--ma-c-deep);
+  color: var(--bc-c-deep);
   font-weight: 500;
   letter-spacing: .02em;
 }
 
-/* ---------- Activity body ---------- */
-.ma-activity-body {
+/* ---------- Section body ---------- */
+.bc-activity-body {
   padding: 22px 28px 26px;
   display: grid;
   gap: 22px;
 }
 
-.ma-h3 {
+.bc-h3 {
   margin: 0 0 8px;
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.02rem;
   font-weight: 700;
-  color: var(--ma-c-deep);
+  color: var(--bc-c-deep);
   letter-spacing: .01em;
 }
 
-.ma-activity-body p {
+.bc-activity-body p {
   margin: 0 0 6px;
   line-height: 1.7;
   color: var(--hub-ink);
   font-size: .98rem;
 }
 
-.ma-activity-body .hub-zh {
+.bc-activity-body .hub-zh {
   font-family: var(--hub-zh-font);
   color: var(--hub-ink-soft);
   line-height: 1.85;
@@ -141,18 +140,18 @@
   line-break: strict;
 }
 
-/* ---------- Sample script box ---------- */
-.ma-script-box {
+/* ---------- Script / dialogue box ---------- */
+.bc-script-box {
   background: #fafaf6;
   border: 1px solid #ece8de;
-  border-left: 3px solid var(--ma-c);
+  border-left: 3px solid var(--bc-c);
   border-radius: 6px;
   padding: 16px 18px;
   display: grid;
   gap: 10px;
 }
 
-.ma-script-line {
+.bc-script-line {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2px;
@@ -160,28 +159,53 @@
   line-height: 1.6;
 }
 
-.ma-script-line strong {
-  color: var(--ma-c-deep);
+.bc-script-line strong {
+  color: var(--bc-c-deep);
   font-weight: 600;
   font-size: .82rem;
   letter-spacing: .02em;
   text-transform: uppercase;
 }
 
-.ma-script-line span {
+.bc-script-line span {
   color: var(--hub-ink);
   font-family: var(--hub-en-font), var(--hub-zh-font);
 }
 
+/* ---------- Vocab chip row ---------- */
+.bc-vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.bc-vocab .chip {
+  background: var(--bc-c-soft);
+  color: var(--bc-c-deep);
+  font-size: .88rem;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 14px;
+  letter-spacing: .01em;
+}
+
+.bc-vocab .chip small {
+  font-family: var(--hub-zh-font);
+  font-weight: 500;
+  margin-left: 4px;
+  opacity: .82;
+}
+
 /* ---------- Checklist ---------- */
-.ma-checklist {
+.bc-checklist {
   max-width: 760px;
   margin: 0 auto;
   display: grid;
   gap: 14px;
 }
 
-.ma-checklist label {
+.bc-checklist label {
   display: block;
   background: #fff;
   border: 1px solid #ece8de;
@@ -195,18 +219,18 @@
   transition: background .15s ease, border-color .15s ease;
 }
 
-.ma-checklist label:hover {
+.bc-checklist label:hover {
   background: #fcfaf3;
   border-left-color: var(--c-orange);
 }
 
-.ma-checklist input[type="checkbox"] {
+.bc-checklist input[type="checkbox"] {
   margin-right: 10px;
   transform: translateY(1px);
   accent-color: var(--hub-primary);
 }
 
-.ma-checklist .hub-zh {
+.bc-checklist .hub-zh {
   display: inline-block;
   margin-top: 4px;
   margin-left: 26px;
@@ -220,12 +244,10 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  .ma-moe-card {
-    padding: 22px 20px;
-  }
-  .ma-activity-head { padding: 18px 20px 14px; }
-  .ma-activity-body { padding: 18px 20px 22px; }
-  .ma-activity-title { font-size: 1.32rem; }
-  .ma-checklist label { padding: 12px 14px; }
-  .ma-checklist .hub-zh { margin-left: 0; }
+  .bc-moe-card { padding: 22px 20px; }
+  .bc-activity-head { padding: 18px 20px 14px; }
+  .bc-activity-body { padding: 18px 20px 22px; }
+  .bc-activity-title { font-size: 1.32rem; }
+  .bc-checklist label { padding: 12px 14px; }
+  .bc-checklist .hub-zh { margin-left: 0; }
 }

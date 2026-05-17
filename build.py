@@ -831,8 +831,131 @@ def build_resources():
     return page_shell("Resources", content, "/resources/", extra)
 
 
+def render_bilingual_topic(
+    page_title, current_path,
+    h1_en, h1_zh,
+    hero_en, hero_zh,
+    moe_en, moe_zh, core_principle,
+    sections_h2_en, sections_h2_zh,
+    sections_intro_en, sections_intro_zh,
+    sections,
+    checklist_h2_en, checklist_h2_zh,
+    checklist_items,
+    companion_h2_en, companion_h2_zh,
+    companion_cards,
+):
+    """Render a Bilingual Campus topic page (Morning Assembly style).
+
+    sections: list of dicts. Required keys: n, color, en, zh, duration, what_en, what_zh.
+              Optional: script (list of (speaker, text) tuples), vocab (list of (en, zh) tuples),
+                        tips_en, tips_zh.
+    checklist_items: list of (en, zh) tuples.
+    companion_cards: list of dicts {href, title, desc, meta}.
+    """
+    section_html_parts = []
+    for a in sections:
+        body_blocks = [
+            f"""<div class=\"bc-what\">
+      <h3 class=\"bc-h3\">What it is · 做法</h3>
+      <p>{a['what_en']}</p>
+      <p class=\"hub-zh\">{a['what_zh']}</p>
+    </div>"""
+        ]
+        if a.get("script"):
+            script_html = ''.join(
+                f'<div class="bc-script-line"><strong>{speaker}</strong><span>{text}</span></div>'
+                for speaker, text in a["script"]
+            )
+            body_blocks.append(f"""<div class=\"bc-script\">
+      <h3 class=\"bc-h3\">Sample script · 範本對話</h3>
+      <div class=\"bc-script-box\">{script_html}</div>
+    </div>""")
+        if a.get("vocab"):
+            chips = ''.join(
+                f'<span class="chip">{en} <small>{zh}</small></span>'
+                for en, zh in a["vocab"]
+            )
+            body_blocks.append(f"""<div class=\"bc-vocab-wrap\">
+      <h3 class=\"bc-h3\">Key vocabulary · 關鍵詞彙</h3>
+      <div class=\"bc-vocab\">{chips}</div>
+    </div>""")
+        if a.get("tips_en"):
+            body_blocks.append(f"""<div class=\"bc-tips\">
+      <h3 class=\"bc-h3\">Implementation tip · 實施建議</h3>
+      <p>{a['tips_en']}</p>
+      <p class=\"hub-zh\">{a['tips_zh']}</p>
+    </div>""")
+        section_html_parts.append(f"""
+<article class="bc-activity t-{a['color']}">
+  <header class="bc-activity-head">
+    <span class="bc-activity-num">Activity {a['n']:02d}</span>
+    <h2 class="bc-activity-title">{a['en']}</h2>
+    <p class="bc-activity-zh">{a['zh']}</p>
+    <span class="bc-activity-duration">⏱ {a['duration']}</span>
+  </header>
+  <div class="bc-activity-body">
+    {''.join(body_blocks)}
+  </div>
+</article>
+""".strip())
+
+    checklist_html = ''.join(
+        f'<label><input type="checkbox"> {en}<br><span class="hub-zh">{zh}</span></label>'
+        for en, zh in checklist_items
+    )
+
+    companion_html = ''.join(
+        f"""<a class="hub-card" href="{c['href']}">
+      <h3>{c['title']}</h3>
+      <p>{c['desc']}</p>
+      <div class="hub-card-meta">{c['meta']}</div>
+    </a>"""
+        for c in companion_cards
+    )
+
+    content = f"""
+<section class="hub-section hub-section--narrow" style="padding-bottom:0">
+  <p class="hub-eyebrow">Resources · Bilingual Campus</p>
+  <h1 class="hub-h1">{h1_en} <small style="font-family:var(--hub-zh-font);font-size:.45em;color:var(--hub-ink-faint);font-weight:500;letter-spacing:.05em;margin-left:8px">{h1_zh}</small></h1>
+  <p style="font-size:1.1rem;color:var(--hub-ink-soft);max-width:62ch;line-height:1.65">{hero_en}</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch;line-height:1.75">{hero_zh}</p>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <div class="bc-moe-card">
+    <p class="hub-eyebrow" style="color:var(--c-blue-deep);margin-bottom:8px">Why it matters · 政策對齊</p>
+    <p>{moe_en}</p>
+    <p class="hub-zh">{moe_zh}</p>
+    <p><strong>Core principle · 核心原則</strong>: {core_principle}</p>
+  </div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:32px;padding-bottom:64px">
+  <h2 class="resources-h2">{sections_h2_en} <small>{sections_h2_zh}</small></h2>
+  <p style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:24px">{sections_intro_en}</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:32px">{sections_intro_zh}</p>
+  <div class="bc-grid">{''.join(section_html_parts)}</div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-top:0;padding-bottom:80px">
+  <h2 class="resources-h2">{checklist_h2_en} <small>{checklist_h2_zh}</small></h2>
+  <div class="bc-checklist">{checklist_html}</div>
+</section>
+
+<section class="hub-section hub-section--narrow" style="padding-bottom:64px">
+  <h2 class="resources-h2">{companion_h2_en} <small>{companion_h2_zh}</small></h2>
+  <div class="hub-feature-grid">{companion_html}</div>
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+""".strip()
+    extra = '<link rel="stylesheet" href="/assets/css/bilingual-campus.css">'
+    return page_shell(page_title, content, current_path, extra)
+
+
 def build_morning_assembly():
-    activities = [
+    sections = [
         {
             "n": 1, "color": "blue",
             "en": "Opening Greeting & Pledge Echo",
@@ -840,7 +963,7 @@ def build_morning_assembly():
             "duration": "2 minutes · 兩分鐘",
             "what_en": "The principal or duty teacher opens the assembly in English; students echo a short bilingual pledge before the national anthem.",
             "what_zh": "由校長或值週老師以英文開場，學生在國歌之前以雙語齊聲覆誦短句宣示。",
-            "script_en": [
+            "script": [
                 ("Teacher (在司令台): ", "Good morning, everyone! How are you today?"),
                 ("Students (台下): ", "Good morning! We are fine, thank you!"),
                 ("Teacher: ", "Let's stand up straight, take a deep breath, and start our day together."),
@@ -856,7 +979,7 @@ def build_morning_assembly():
             "duration": "1–2 minutes · 一到兩分鐘",
             "what_en": "Play one short Word of the Day video from the Hub on the assembly screen. The 'word announcer' (a rotating student role) reads the word, the Chinese, and one example sentence.",
             "what_zh": "在升旗台螢幕播放 Hub 上的「校園百科」短片一支。當週「報字員」（學生輪值）朗讀單字、中文、與一句例句。",
-            "script_en": [
+            "script": [
                 ("Word Announcer: ", "Today's word is **calligraphy**, 書法 — c-a-l-l-i-g-r-a-p-h-y."),
                 ("Announcer: ", "Calligraphy means the art of beautiful writing. 書法就是把字寫得很美的藝術。"),
                 ("Announcer: ", "Listen — 'My grandfather practices calligraphy every Sunday.' 我爺爺每個星期天練書法。"),
@@ -872,7 +995,7 @@ def build_morning_assembly():
             "duration": "2–3 minutes · 兩到三分鐘",
             "what_en": "On Fridays, two student weather reporters give a 30-second bilingual forecast for the weekend, written collaboratively in English class earlier in the week.",
             "what_zh": "每週五，兩位學生氣象主播以中英文播報本週末天氣，內容於該週英文課事先共同擬稿。",
-            "script_en": [
+            "script": [
                 ("Reporter A: ", "Good morning! Here is your weekend weather report."),
                 ("Reporter B: ", "Saturday will be sunny with a high of 28 degrees. 星期六晴朗，最高溫 28 度。"),
                 ("Reporter A: ", "Sunday will be cloudy with a chance of rain in the afternoon. 星期天多雲，下午可能有雨。"),
@@ -888,7 +1011,7 @@ def build_morning_assembly():
             "duration": "1 minute · 一分鐘",
             "what_en": "Once a week, the duty teacher reads the names of students with birthdays that week and the whole school sings 'Happy Birthday' in English.",
             "what_zh": "每週一次，值週老師唸出本週生日的學生姓名，全校用英文齊唱 Happy Birthday。",
-            "script_en": [
+            "script": [
                 ("Teacher: ", "This week, we celebrate the birthdays of: 王小明, 林雅婷, 陳家豪. Please stand up!"),
                 ("Teacher: ", "Everyone, ready? One, two, three —"),
                 ("All: ", "Happy birthday to you, happy birthday to you, happy birthday dear friends, happy birthday to you!"),
@@ -904,7 +1027,7 @@ def build_morning_assembly():
             "duration": "2 minutes · 兩分鐘",
             "what_en": "Recognize the cleanest classroom, the winning team in a recent contest, or a class with perfect attendance — entirely in English, then translated.",
             "what_zh": "表揚整潔比賽優勝班級、近期競賽得獎隊伍，或全勤班級——全英文表揚後再附中文翻譯。",
-            "script_en": [
+            "script": [
                 ("Teacher: ", "This week's Cleanest Classroom Award goes to… Class 5-3! Congratulations!"),
                 ("Teacher: ", "本週「整潔比賽優勝班級」是五年三班，恭喜！"),
                 ("Teacher: ", "Class 5-3, please come to the front to receive the flag. Let's give them a big hand!"),
@@ -919,7 +1042,7 @@ def build_morning_assembly():
             "duration": "2 minutes · 兩分鐘",
             "what_en": "On the week leading up to a festival (Mother's Day, Mid-Autumn, Christmas…), a 1-minute bilingual introduction with two key vocabulary words and one tradition.",
             "what_zh": "節慶前一週（母親節、中秋節、聖誕節⋯），用一分鐘雙語介紹兩個關鍵單字與一個習俗。",
-            "script_en": [
+            "script": [
                 ("Announcer: ", "Next Sunday is **Mother's Day** — 母親節. The word 'appreciation' means 感謝."),
                 ("Announcer: ", "On Mother's Day we show appreciation with cards, hugs, or simply by helping with the housework."),
                 ("Announcer: ", "母親節我們用卡片、擁抱、或者幫忙家事，來表達感謝。"),
@@ -935,7 +1058,7 @@ def build_morning_assembly():
             "duration": "1 minute · 一分鐘 (Mon) + 2 minutes · 兩分鐘 (Fri)",
             "what_en": "On Monday, the principal poses one open question in English. On Friday, two student volunteers share their thoughts. Questions can be small ('What's your favorite breakfast?') or big ('If you could change one thing about our school, what would it be?').",
             "what_zh": "週一校長以英文提出一個開放性問題，週五由兩位志願學生分享想法。問題可小可大：從「最愛的早餐」到「想改變學校的一件事」。",
-            "script_en": [
+            "script": [
                 ("Monday — Principal: ", "This week's question: **What's something you learned this month that surprised you?**"),
                 ("Principal: ", "本週的問題：這個月你學到什麼讓你覺得驚奇的事？"),
                 ("Friday — Student volunteer: ", "I was surprised that Changhua is Taiwan's smallest county. 我很驚訝彰化是台灣最小的縣。"),
@@ -951,7 +1074,7 @@ def build_morning_assembly():
             "duration": "1–2 minutes · 一到兩分鐘",
             "what_en": "Once a month, a teacher or invited guest tells a 60-second story in English about a real classroom moment, a local hero, or a memory from their own school days. Theme = the school's monthly value (kindness, perseverance, curiosity).",
             "what_zh": "每月一次，老師或受邀來賓用一分鐘英文講一個真實的故事——某個課堂瞬間、在地英雄、或自己學生時代的回憶。主題對應該月校本品格教育（仁慈、堅毅、好奇心）。",
-            "script_en": [
+            "script": [
                 ("Teacher: ", "One year, we had a new student from another city. She was quiet and didn't make friends."),
                 ("Teacher: ", "But one boy in her class started saying 'Good morning' to her every single day."),
                 ("Teacher: ", "After three weeks, she smiled back. After six weeks, she had three best friends."),
@@ -962,137 +1085,1063 @@ def build_morning_assembly():
         },
     ]
 
-    activity_html = []
-    for a in activities:
-        script_html = ''.join(
-            f'<div class="ma-script-line"><strong>{speaker}</strong><span>{text}</span></div>'
-            for speaker, text in a["script_en"]
-        )
-        activity_html.append(f"""
-<article class="ma-activity t-{a['color']}">
-  <header class="ma-activity-head">
-    <span class="ma-activity-num">Activity {a['n']:02d}</span>
-    <h2 class="ma-activity-title">{a['en']}</h2>
-    <p class="ma-activity-zh">{a['zh']}</p>
-    <span class="ma-activity-duration">⏱ {a['duration']}</span>
-  </header>
-  <div class="ma-activity-body">
-    <div class="ma-what">
-      <h3 class="ma-h3">What it is · 做法</h3>
-      <p>{a['what_en']}</p>
-      <p class="hub-zh">{a['what_zh']}</p>
-    </div>
-    <div class="ma-script">
-      <h3 class="ma-h3">Sample script · 範本對話</h3>
-      <div class="ma-script-box">
-        {script_html}
-      </div>
-    </div>
-    <div class="ma-tips">
-      <h3 class="ma-h3">Implementation tip · 實施建議</h3>
-      <p>{a['tips_en']}</p>
-      <p class="hub-zh">{a['tips_zh']}</p>
-    </div>
-  </div>
-</article>
-""".strip())
-
-    content = f"""
-<section class="hub-section hub-section--narrow" style="padding-bottom:0">
-  <p class="hub-eyebrow">Resources · Bilingual Campus</p>
-  <h1 class="hub-h1">Morning Assembly <small style="font-family:var(--hub-zh-font);font-size:.45em;color:var(--hub-ink-faint);font-weight:500;letter-spacing:.05em;margin-left:8px">升旗 · 雙語日課</small></h1>
-  <p style="font-size:1.1rem;color:var(--hub-ink-soft);max-width:62ch;line-height:1.65">
-    The flag-raising assembly is the one school moment when <strong>every student is in the same place, at the same time, listening together</strong>. It's the highest-leverage four minutes in your bilingual program — and the easiest place to make English feel like part of the school's daily life, not a special-occasion language.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch;line-height:1.75">
-    升旗是整個學校一週中唯一一段「全校學生在同一地方、同一時間、同時聆聽」的時段。也是雙語生活化最高槓桿的四分鐘——也是把英語從「特別場合的語言」轉成「校園生活一部份」最容易切入的場域。
-  </p>
-</section>
-
-<section class="hub-section hub-section--narrow" style="padding-top:24px">
-  <div class="ma-moe-card">
-    <p class="hub-eyebrow" style="color:var(--c-blue-deep);margin-bottom:8px">Why it matters · 政策對齊</p>
-    <p>This page aligns with the Ministry of Education's <strong>2030 雙語國家政策</strong> implementation guidelines on "Bilingual Daily Life on Campus" (雙語生活化校園) — specifically the call to integrate English into existing school routines rather than create separate English-only events.</p>
-    <p class="hub-zh">本頁設計對齊教育部 <strong>2030 雙語國家政策</strong>之「雙語生活化校園」實施要點——強調將英語融入既有校園作息，而非另闢英語專屬活動。</p>
-    <p><strong>Core principle · 核心原則</strong>: 升旗本來就要做的事，用雙語做就好。English doesn't add to what schools already do at assembly — it just turns existing moments into language exposure.</p>
-  </div>
-</section>
-
-<section class="hub-section hub-section--narrow" style="padding-top:32px;padding-bottom:64px">
-  <h2 class="resources-h2">Eight ready-to-use activities <small>八個立即可用的活動</small></h2>
-  <p style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:32px">
-    Each activity below includes the rationale, a sample bilingual script, and an implementation tip from real Changhua campuses. Mix and match across the week — you don't need all eight on the same day.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:32px">
-    以下八個活動皆附做法、範本對話、與彰化校園的實施建議。一週搭配輪替即可，不用單日全部上場。
-  </p>
-
-  <div class="ma-grid">
-    {''.join(activity_html)}
-  </div>
-</section>
-
-<section class="hub-section hub-section--narrow" style="padding-top:0;padding-bottom:80px">
-  <h2 class="resources-h2">Implementation checklist <small>實施檢核表</small></h2>
-  <div class="ma-checklist">
-    <label><input type="checkbox"> A duty teacher who is comfortable saying short English lines (1–2 sentences max)<br><span class="hub-zh">一位能自在說 1–2 句英文短句的值週老師</span></label>
-    <label><input type="checkbox"> A monthly rotation schedule for student announcers (5th–6th grade) so every student gets a turn<br><span class="hub-zh">學生報播輪值表（高年級），讓每位學生一年至少上場一次</span></label>
-    <label><input type="checkbox"> A printable script binder kept on the flagpole/stage podium<br><span class="hub-zh">司令台或國旗台旁邊放一本可印的腳本資料夾</span></label>
-    <label><input type="checkbox"> Pre-recorded backup audio on a USB for days when announcers are absent<br><span class="hub-zh">隨身碟備好錄音備案，學生缺席時可播放</span></label>
-    <label><input type="checkbox"> Family-day script — a once-a-month version where parents are invited to watch<br><span class="hub-zh">親師日版本——每月一次邀請家長到校觀看</span></label>
-    <label><input type="checkbox"> Bilingual school-wide poster of the daily greetings (so even kindergarteners can chant along)<br><span class="hub-zh">全校張貼雙語問候語海報，讓幼稚園學生也能跟著唸</span></label>
-  </div>
-</section>
-
-<section class="hub-section hub-section--narrow" style="padding-bottom:64px">
-  <h2 class="resources-h2">Companion Hub resources <small>搭配 Hub 其他資源</small></h2>
-  <div class="hub-feature-grid">
-    <a class="hub-card" href="/word-of-the-day/">
-      <h3>Word of the Day</h3>
-      <p>2,900+ videos to spotlight at assembly — pick your own school's contributions for instant pride.</p>
-      <div class="hub-card-meta">For Activity 02</div>
-    </a>
-    <a class="hub-card" href="/festivals/">
-      <h3>Festival English Series</h3>
-      <p>16 festival handouts — pull one the week before each holiday for Activity 06.</p>
-      <div class="hub-card-meta">For Activity 06</div>
-    </a>
-    <a class="hub-card" href="/resources/bilingual-campus/announcements/">
-      <h3>Bilingual Announcements</h3>
-      <p>Sarah Thomas &amp; Susan Rose's 13-episode broadcast playlist — train your student announcers with it.</p>
-      <div class="hub-card-meta">Training material</div>
-    </a>
-  </div>
-
-  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
-</section>
-""".strip()
-    extra = '<link rel="stylesheet" href="/assets/css/morning-assembly.css">'
-    return page_shell("Morning Assembly", content, "/resources/", extra)
+    return render_bilingual_topic(
+        page_title="Morning Assembly", current_path="/resources/",
+        h1_en="Morning Assembly", h1_zh="升旗 · 雙語日課",
+        hero_en="The flag-raising assembly is the one school moment when <strong>every student is in the same place, at the same time, listening together</strong>. It's the highest-leverage four minutes in your bilingual program — and the easiest place to make English feel like part of the school's daily life, not a special-occasion language.",
+        hero_zh="升旗是整個學校一週中唯一一段「全校學生在同一地方、同一時間、同時聆聽」的時段。也是雙語生活化最高槓桿的四分鐘——也是把英語從「特別場合的語言」轉成「校園生活一部份」最容易切入的場域。",
+        moe_en="This page aligns with the Ministry of Education's <strong>2030 雙語國家政策</strong> implementation guidelines on \"Bilingual Daily Life on Campus\" (雙語生活化校園) — specifically the call to integrate English into existing school routines rather than create separate English-only events.",
+        moe_zh="本頁設計對齊教育部 <strong>2030 雙語國家政策</strong>之「雙語生活化校園」實施要點——強調將英語融入既有校園作息，而非另闢英語專屬活動。",
+        core_principle="升旗本來就要做的事，用雙語做就好。English doesn't add to what schools already do at assembly — it just turns existing moments into language exposure.",
+        sections_h2_en="Eight ready-to-use activities", sections_h2_zh="八個立即可用的活動",
+        sections_intro_en="Each activity below includes the rationale, a sample bilingual script, and an implementation tip from real Changhua campuses. Mix and match across the week — you don't need all eight on the same day.",
+        sections_intro_zh="以下八個活動皆附做法、範本對話、與彰化校園的實施建議。一週搭配輪替即可，不用單日全部上場。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("A duty teacher who is comfortable saying short English lines (1–2 sentences max)", "一位能自在說 1–2 句英文短句的值週老師"),
+            ("A monthly rotation schedule for student announcers (5th–6th grade) so every student gets a turn", "學生報播輪值表（高年級），讓每位學生一年至少上場一次"),
+            ("A printable script binder kept on the flagpole/stage podium", "司令台或國旗台旁邊放一本可印的腳本資料夾"),
+            ("Pre-recorded backup audio on a USB for days when announcers are absent", "隨身碟備好錄音備案，學生缺席時可播放"),
+            ("Family-day script — a once-a-month version where parents are invited to watch", "親師日版本——每月一次邀請家長到校觀看"),
+            ("Bilingual school-wide poster of the daily greetings (so even kindergarteners can chant along)", "全校張貼雙語問候語海報，讓幼稚園學生也能跟著唸"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "2,900+ videos to spotlight at assembly — pick your own school's contributions for instant pride.", "meta": "For Activity 02"},
+            {"href": "/festivals/", "title": "Festival English Series", "desc": "16 festival handouts — pull one the week before each holiday for Activity 06.", "meta": "For Activity 06"},
+            {"href": "/resources/bilingual-campus/announcements/", "title": "Bilingual Announcements", "desc": "Sarah Thomas &amp; Susan Rose's 13-episode broadcast playlist — train your student announcers with it.", "meta": "Training material"},
+        ],
+    )
 
 
-def build_bilingual_campus_stub(slug, en, zh, brief):
-    content = f"""
-<section class="hub-section hub-section--narrow">
-  <p class="hub-eyebrow">Resources · Bilingual Campus</p>
-  <h1 class="hub-h1">{en}</h1>
-  <p style="font-family:var(--hub-zh-font);font-size:1.4rem;color:var(--hub-ink);font-weight:600;letter-spacing:.04em;margin:8px 0 24px">{zh}</p>
-  <p style="font-size:1.1rem;color:var(--hub-ink-soft);line-height:1.65;max-width:62ch">{brief}</p>
+# ----- School Tours · 校園導覽 ------------------------------------------------
+def build_school_tours():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "The Front Gate · 校門口", "zh": "歡迎與校史開場",
+         "duration": "1–2 minutes · 一到兩分鐘",
+         "what_en": "Two student guides welcome visitors at the gate, ask their country of origin, and walk them through what they'll see in the next 15 minutes.",
+         "what_zh": "兩位學生導覽員在校門口迎接訪客，請對方介紹自己的國家，並告訴對方接下來 15 分鐘會看到的內容。",
+         "script": [
+             ("Guide A: ", "Good morning! Welcome to our school. May I ask your name?"),
+             ("Guide B: ", "We are so happy to meet you. Where are you from?"),
+             ("Guide A: ", "Today we will show you our library, our classroom, and our playground. Are you ready?"),
+             ("Guide B: ", "Please follow us. Watch your step!"),
+         ],
+         "vocab": [("welcome", "歡迎"), ("school motto", "校訓"), ("security guard", "警衛"), ("principal", "校長"), ("watch your step", "小心台階")],
+         "tips_en": "Pair shy and confident students together. Print the script on a small card the guides can hold — visitors expect this and it lowers anxiety.",
+         "tips_zh": "讓害羞和外向的學生兩兩搭配。把腳本印在小卡片上讓導覽員握著——訪客其實期待這樣的工具，孩子也比較放鬆。"},
+        {"n": 2, "color": "green",
+         "en": "Principal's Office & School History · 校長室與校史", "zh": "用英文介紹百年校史",
+         "duration": "2 minutes · 兩分鐘",
+         "what_en": "A short introduction of the principal, the founding year, the student count (rounded), and one award or distinction the school is proud of.",
+         "what_zh": "簡介校長、創校年（不寫死數字，用「百年以上」「超過五十年」等表達）、學生人數（取整數），與學校最自豪的一項榮譽。",
+         "script": [
+             ("Guide A: ", "This is our principal's office. Our school was founded in 1955."),
+             ("Guide B: ", "We have around 200 students from Grade 1 to Grade 6."),
+             ("Guide A: ", "Last year, our calligraphy team won the county championship."),
+             ("Guide B: ", "Our principal will say a few words. Please come in."),
+         ],
+         "vocab": [("founded in", "創立於"), ("award", "榮譽"), ("champion", "冠軍"), ("around", "大約"), ("history", "歷史")],
+         "tips_en": "Encourage 'around' / 'about' instead of exact numbers — easier to remember and more natural English. Update once a year, not constantly.",
+         "tips_zh": "教學生用「around」「about」代替精確數字——既好記，英文也更自然。一年更新一次即可，不必每月改。"},
+        {"n": 3, "color": "orange",
+         "en": "The Library · 圖書館", "zh": "書區與閱讀風景",
+         "duration": "2 minutes · 兩分鐘",
+         "what_en": "Tour of book sections (picture books, chapter books, English shelf), reading nooks, and the weekly reading routine.",
+         "what_zh": "介紹書區（繪本、章節書、英文書架）、閱讀角落，以及每週固定的閱讀時間。",
+         "script": [
+             ("Guide A: ", "Welcome to our library. We have over 5,000 books."),
+             ("Guide B: ", "This shelf is for picture books. This one is for chapter books."),
+             ("Guide A: ", "Here is our English shelf — these are books donated by foreign teachers."),
+             ("Guide B: ", "Every Wednesday, we read silently here for 30 minutes. Do you like reading?"),
+         ],
+         "vocab": [("library", "圖書館"), ("picture book", "繪本"), ("chapter book", "章節書"), ("donate", "捐贈"), ("silent reading", "默讀")],
+         "tips_en": "If your library has a 'foreign teachers donated this' shelf, lead visitors to it — they almost always smile and recognize a title.",
+         "tips_zh": "如果圖書館裡有「外師捐書」專區，特別帶訪客過去看——他們幾乎一定會笑、認出某本書，氣氛立刻溫暖起來。"},
+        {"n": 4, "color": "purple",
+         "en": "The Classroom · 教室", "zh": "走進日常上課的空間",
+         "duration": "2–3 minutes · 兩到三分鐘",
+         "what_en": "Brief tour of a typical classroom — seating, smart screen, schedule on the wall, student artwork. Ideally enter a class during a non-test period so visitors see real teaching.",
+         "what_zh": "簡介一般教室——座位安排、智慧螢幕、牆上課表、學生作品。最好挑非考試時段，讓訪客看見真正在上的課。",
+         "script": [
+             ("Guide A: ", "This is our Grade 5 classroom. There are 28 students in this class."),
+             ("Guide B: ", "On the wall, you can see our weekly schedule and our class agreements."),
+             ("Guide A: ", "These are paintings from our last art class. Do you like them?"),
+             ("Guide B: ", "Please say hello to our classmates. Class — let's welcome our guests!"),
+         ],
+         "vocab": [("classroom", "教室"), ("smart screen", "智慧螢幕"), ("schedule", "課表"), ("agreement", "約定"), ("artwork", "作品")],
+         "tips_en": "Brief the teacher of the chosen class one day in advance. A 20-second classroom interaction often becomes the visitor's strongest memory of the tour.",
+         "tips_zh": "提前一天通知該班導師。教室裡短短 20 秒的互動，往往是訪客整趟參訪最印象深刻的一段。"},
+        {"n": 5, "color": "blue",
+         "en": "The Cafeteria · 學生餐廳", "zh": "用英文介紹台灣校園午餐",
+         "duration": "1–2 minutes · 一到兩分鐘",
+         "what_en": "Visitors are almost always curious about Taiwan's school lunch system. Show the kitchen window, today's menu, and the recycling station.",
+         "what_zh": "訪客對台灣的營養午餐制度幾乎都好奇。帶他們看廚房窗口、今日菜單、與餐後分類回收站。",
+         "script": [
+             ("Guide A: ", "This is our cafeteria. We eat lunch in our classroom, but the food is prepared here."),
+             ("Guide B: ", "Today's lunch is rice, fish, vegetables, and miso soup."),
+             ("Guide A: ", "After eating, every class takes turns washing the lunch boxes."),
+             ("Guide B: ", "We separate food waste, plastic, and paper. The school is very strict about this!"),
+         ],
+         "vocab": [("cafeteria", "餐廳"), ("school lunch", "營養午餐"), ("menu", "菜單"), ("recycle", "回收"), ("food waste", "廚餘")],
+         "tips_en": "If visitors arrive at lunch time, invite them to eat with the students. The shared meal is the most memorable bilingual exchange of the day.",
+         "tips_zh": "若訪客剛好在午餐時間到，邀他們和學生一起吃飯。共桌一餐，比任何導覽都更能成就雙語交流。"},
+        {"n": 6, "color": "green",
+         "en": "The Playground · 操場", "zh": "全校最熱鬧的空間",
+         "duration": "1–2 minutes · 一到兩分鐘",
+         "what_en": "End the tour at the playground — running track, basketball court, weekly assembly area. Open question time here under the trees.",
+         "what_zh": "在操場作為導覽尾聲——跑道、籃球場、每週升旗集合處。在大樹下開放訪客提問。",
+         "script": [
+             ("Guide A: ", "This is where we have morning assembly every Monday."),
+             ("Guide B: ", "The basketball court is for Grades 5 and 6 during recess."),
+             ("Guide A: ", "We have a 200-meter track around the field. Some students run every morning."),
+             ("Guide B: ", "Do you have any questions about our school? We will try our best to answer!"),
+         ],
+         "vocab": [("playground", "操場"), ("track", "跑道"), ("basketball court", "籃球場"), ("recess", "下課時間"), ("question", "問題")],
+         "tips_en": "Always end at the playground with open Q&A. Students who were quiet during the scripted tour often light up when asked about their hobbies or favorite teacher.",
+         "tips_zh": "導覽結尾一定要回到操場開放問答。腳本講過的孩子常會緊張，但被問「最喜歡哪位老師、最愛什麼運動」時，反而閃閃發亮。"},
+    ]
+    return render_bilingual_topic(
+        page_title="School Tours", current_path="/resources/",
+        h1_en="School Tours", h1_zh="校園導覽 · 雙語走讀",
+        hero_en="A campus tour led by students is one of the highest-confidence English-speaking moments of the year. Foreign visitors, parents, and sister-school delegates often visit Taiwanese schools — turn that visit into a vocabulary-rich student stage instead of a teacher monologue.",
+        hero_zh="學生帶隊導覽校園，是全年最能讓學生展現英文自信的場合之一。外國訪客、家長、姊妹校代表常造訪台灣學校——把這個場合留給學生當主角，比老師獨白更能累積詞彙。",
+        moe_en="Aligns with Bilingual Daily Life on Campus implementation guideline 4: \"Use existing school resources as bilingual learning materials.\" School tours convert physical campus assets into living English vocabulary.",
+        moe_zh="對齊雙語生活化校園實施要點第 4 條：「善用校園既有資源作為雙語學習素材」。校園導覽把實體校園資產轉化為活的英文詞彙。",
+        core_principle="學校本來就要接待訪客，讓學生當主角就好。Tour-giving turns visitor reception into a student-led teachable moment instead of a teacher-only task.",
+        sections_h2_en="Six classroom-ready stations", sections_h2_zh="六個立即上線的雙語站",
+        sections_intro_en="Each station below comes with a bilingual script, key vocabulary, and a tip from real Changhua campuses. Pair students up, hand them the cards, and rehearse twice in English class before the visit.",
+        sections_intro_zh="以下六站皆附中英對話、關鍵詞彙、與彰化校園的實施建議。學生兩兩搭配，握著小卡，英文課裡彩排兩次即可上場。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Master vocabulary cards (laminated, one per station)", "每站詞彙小卡（過塑、好攜帶）"),
+            ("Two rehearsal sessions in English class before the visit", "訪客來訪前在英文課裡彩排兩次"),
+            ("Student guide pairs — never solo", "學生導覽員兩兩搭檔——不單獨上場"),
+            ("Backup teacher to step in if a student freezes", "備援老師站在後方，學生卡住時可即時銜接"),
+            ("Photo permission noted in the tour announcement", "事先在訪客通知中註明拍照同意事項"),
+            ("Bilingual visitor feedback form (4 questions, takes 2 min)", "雙語訪客回饋單（四題，兩分鐘填完）"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull station-specific vocabulary from the Hub's 2,900+ video library to brief students.", "meta": "Vocabulary source"},
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Use morning assembly the week before a visit to announce the tour and recruit student guides.", "meta": "Pre-visit ramp-up"},
+            {"href": "/resources/bilingual-campus/intl-sister-school/", "title": "International Sister School", "desc": "Sister-school delegates are the most common tour audience — see the sister-school workflow.", "meta": "Frequent audience"},
+        ],
+    )
 
-  <div style="margin-top:48px;padding:24px 28px;background:#fff8ec;border-left:6px solid #f5d997;border-radius:8px;color:#7a5300">
-    <p style="margin:0;font-weight:600">📝 Content in development.</p>
-    <p style="margin:8px 0 0;font-size:.95rem">This unit is being built out. Check back later for vocabulary lists, sample dialogues, and downloadable handouts.</p>
-    <p class="hub-zh" style="margin:6px 0 0;font-size:.92rem;color:#7a5300">本主題仍在開發中。之後會補上單字表、對話範本與可下載講義。</p>
-  </div>
 
-  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
-</section>
-""".strip()
-    return page_shell(en, content, "/resources/")
+# ----- English Self-Introduction · 英文自介 -----------------------------------
+def build_english_self_intro():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Grade 1–2 Template · 低年級範本", "zh": "四句話起步",
+         "duration": "4 sentences · 30 seconds",
+         "what_en": "The simplest self-introduction — four sentences students can master in two weeks. Builds on what they already know from textbooks plus one favorite item to make it personal.",
+         "what_zh": "最簡單的自我介紹——四句話，兩週內可以背熟。建立在課本既有句型上，加一個「最愛」讓內容個人化。",
+         "script": [
+             ("Student: ", "Hello! My name is Lin Yating."),
+             ("Student: ", "I am eight years old."),
+             ("Student: ", "I am in Grade 2, Class 3."),
+             ("Student: ", "My favorite animal is a panda. Thank you!"),
+         ],
+         "vocab": [("hello", "你好"), ("name", "名字"), ("years old", "歲"), ("favorite", "最愛的"), ("thank you", "謝謝")],
+         "tips_en": "Don't correct pronunciation in performance — only in rehearsal. The goal at this age is courage, not accuracy. Applaud loudly after every student.",
+         "tips_zh": "上台不糾音，只在練習時糾。這個年紀的目標是「敢開口」，不是「完美」。每位學生講完都熱烈鼓掌。"},
+        {"n": 2, "color": "green",
+         "en": "Grade 3–4 Template · 中年級範本", "zh": "擴充到家庭與興趣",
+         "duration": "8 sentences · 1 minute",
+         "what_en": "Add family members, school, and one hobby. Introduce the pattern 'I like ___ because ___.' to give students a tool for expansion.",
+         "what_zh": "加入家庭成員、就讀學校、與一個興趣。教「I like ___ because ___」的擴充句型，給學生延展的工具。",
+         "script": [
+             ("Student: ", "Hi everyone! I am Chen Jiahao, and I am ten years old."),
+             ("Student: ", "I study at Tianzhong Elementary School. I am in Grade 4."),
+             ("Student: ", "I have one sister and a small dog at home."),
+             ("Student: ", "I like drawing because it helps me feel calm. My favorite color is blue."),
+             ("Student: ", "On weekends, I play badminton with my dad. Thanks for listening!"),
+         ],
+         "vocab": [("study at", "就讀於"), ("hobby", "興趣"), ("because", "因為"), ("weekend", "週末"), ("listen", "聆聽")],
+         "tips_en": "Make 'because' the new word of the month — it transforms a list of facts into a personality. The first time a student uses 'because' unprompted, mark the moment.",
+         "tips_zh": "把「because」當成本月關鍵字——它把「事實清單」變成「個性」。學生第一次自然用出 because，要特別記下。"},
+        {"n": 3, "color": "orange",
+         "en": "Grade 5–6 Template · 高年級範本", "zh": "加入夢想與特殊技能",
+         "duration": "12 sentences · 90 seconds",
+         "what_en": "Move beyond facts to dreams and opinions. Add a future-tense sentence ('I want to be ___') and an opinion sentence ('I think ___ is important').",
+         "what_zh": "從「事實」進階到「夢想與觀點」。加入未來式（I want to be ___）與意見句（I think ___ is important）。",
+         "script": [
+             ("Student: ", "Good afternoon! I'm Wang Yuting, a sixth grader from Lukang Elementary School."),
+             ("Student: ", "My family is small — just my mom, my older brother, and me."),
+             ("Student: ", "I love reading mystery novels, and I have read more than thirty books this year."),
+             ("Student: ", "In the future, I want to be a journalist because I think the truth is important."),
+             ("Student: ", "My special skill is calligraphy. I have been practicing for four years."),
+             ("Student: ", "Thank you for listening. Do you have any questions for me?"),
+         ],
+         "vocab": [("in the future", "未來"), ("journalist", "記者"), ("truth", "真相"), ("special skill", "特長"), ("practice", "練習")],
+         "tips_en": "End with a question to the audience — this turns a monologue into a conversation and trains students to receive English questions, not just deliver scripts.",
+         "tips_zh": "結尾向聽眾提問——把獨白變成對話，也訓練學生「接英文問題」的能力，不只是背稿。"},
+        {"n": 4, "color": "purple",
+         "en": "Junior High Template · 國中範本", "zh": "段落型自介",
+         "duration": "Connected paragraph · 2 minutes",
+         "what_en": "Move from sentence-list format to a connected paragraph with transition words. Add a 'something not on the resume' sentence — a memorable detail that makes the student a person, not a profile.",
+         "what_zh": "從「句子清單」進入「段落結構」，加入轉折詞。加一句「履歷上看不到的事」——一個讓聽眾記住的個人細節。",
+         "script": [
+             ("Student: ", "Hello. My name is Lin Pinghao, and I'm a ninth grader at Yuanlin Junior High."),
+             ("Student: ", "I've grown up here in Changhua, and I think it's a place that gets quieter the more you explore it."),
+             ("Student: ", "In addition to my schoolwork, I'm part of the chorus and the eco club."),
+             ("Student: ", "However, what I really love — and few people know this — is cooking with my grandmother on Sundays."),
+             ("Student: ", "I'd like to study food science in the future, so this self-introduction is also a small thank-you to her."),
+         ],
+         "vocab": [("in addition to", "除了"), ("however", "然而"), ("get quieter", "變得安靜"), ("food science", "食品科學"), ("thank-you", "感謝")],
+         "tips_en": "Coach students to slow down at the 'however' sentence — that's where the personality lives. Speeding through the resume part is fine; the personal sentence is the one to land.",
+         "tips_zh": "教學生在「however」那句放慢——個性就藏在這裡。前面條列式的部分可以快，那一句個人話一定要落得到。"},
+        {"n": 5, "color": "blue",
+         "en": "Presentation Tips · 上台技巧", "zh": "讓內容被聽見的方法",
+         "duration": "Coaching session · 30 minutes",
+         "what_en": "Four habits that turn an OK self-intro into a confident one — eye contact (look at 3 people), pacing (one second between sentences), volume (the back of the room must hear you), and smile (just at the start and end).",
+         "what_zh": "四個習慣，把普通自介變成自信自介——眼神（看三個聽眾）、節奏（句句之間停一秒）、音量（最後排聽得到）、微笑（開頭與結尾各一次）。",
+         "script": [
+             ("Coach: ", "Look up. Choose three people in the room — front-left, center, back-right."),
+             ("Coach: ", "Between each sentence, count to one in your head. The pause is where listeners catch up."),
+             ("Coach: ", "Smile at the start, smile at the end. In the middle, just be calm."),
+             ("Coach: ", "If you make a mistake, do not say sorry. Just keep going."),
+         ],
+         "vocab": [("eye contact", "眼神接觸"), ("pause", "停頓"), ("volume", "音量"), ("calm", "冷靜"), ("keep going", "繼續")],
+         "tips_en": "Record students with a phone, then watch together once. Most fix their own habits in a single viewing — much faster than verbal feedback from the teacher.",
+         "tips_zh": "用手機錄下學生練習，一起看一次回放。多數學生會自己發現問題並修正，比老師口頭糾正快得多。"},
+    ]
+    return render_bilingual_topic(
+        page_title="English Self-Introduction", current_path="/resources/",
+        h1_en="English Self-Introduction", h1_zh="英文自介 · 自信表達的第一塊磚",
+        hero_en="A confident English self-introduction is the foundation of every other English speaking moment — sister-school meet-ups, contest entries, foreign visitors. We teach it in stages: 4 sentences in Grade 1, expanding to 12+ sentences by Grade 6, and a connected paragraph in junior high.",
+        hero_zh="一段自信的英文自介，是其他所有英文口說場合的基礎——姊妹校連線、比賽、外賓接待都要用。我們分階段教：一年級 4 句，到六年級擴展為 12 句以上，國中則進入段落結構。",
+        moe_en="Speaking ability is one of the four core competencies of the 12-year Basic Education English curriculum. Self-introduction is the highest-frequency speaking task across a student's school career.",
+        moe_zh="口說能力是十二年國教英文領域四大核心素養之一。自我介紹是學生整個求學歷程中使用頻率最高的口說任務。",
+        core_principle="自介不是「會講英文」，是「敢開口」的第一塊磚。Confidence is the deliverable; vocabulary follows.",
+        sections_h2_en="Templates by grade band", sections_h2_zh="各年段範本",
+        sections_intro_en="The same task — introduce yourself in English — scales across grade bands. Each template below builds on the previous one, so a Grade 5 student already knows the Grade 1 foundation. Print the template, rehearse, record, refine.",
+        sections_intro_zh="同樣是「英文自介」，不同年段有不同深度。下方範本層層遞進，五年級的學生本就會一年級的基礎。印出來、彩排、錄影、修正。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Grade-band template printed for each student", "每位學生一張該年段範本"),
+            ("Recording phone (the student's own is fine)", "錄影手機（學生自己的就行）"),
+            ("Pair rehearsal partner — every student practices with one other", "兩兩搭檔練習——每位學生都和另一位演練"),
+            ("Audience etiquette taught once at the start of the year", "聽眾禮儀於開學時教一次"),
+            ("Application moments mapped out (contest, visitor, sister-school meet)", "羅列出可用的場合（比賽、訪客、姊妹校連線）"),
+            ("Yearly recording saved to the student portfolio", "每年錄影歸檔到學生學習履歷"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Have the week's student announcer open with a 30-second self-intro — built-in practice for every announcer.", "meta": "Built-in practice"},
+            {"href": "/resources/bilingual-campus/intl-sister-school/", "title": "International Sister School", "desc": "Self-intro is the centerpiece of every sister-school first contact. Pair this page with the sister-school workflow.", "meta": "Highest-stakes use"},
+            {"href": "/resources/bilingual-campus/school-news/", "title": "School News", "desc": "Student anchors deliver a sign-off self-intro each episode — a weekly practice loop.", "meta": "Weekly practice"},
+        ],
+    )
+
+
+# ----- English Reading Corner · 英文閱讀角 ------------------------------------
+def build_english_reading_corner():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Setting Up the Space · 空間規劃", "zh": "從一張地毯開始",
+         "duration": "One-time setup · 4–6 hours",
+         "what_en": "The physical setup matters more than the book count. A rug, soft lighting, and labeled shelves at child height invite use; a tall locked bookshelf does the opposite.",
+         "what_zh": "空間規劃比藏書量更關鍵。一張地毯、暖光、與學童高度可及的標示書架最能吸引使用；高大上鎖的書櫃則完全相反。",
+         "script": [
+             ("Teacher (to class): ", "This is our new English reading corner. Take off your shoes when you come in."),
+             ("Teacher: ", "Books with a blue dot are Level 1 — these are the easiest. Red dots are harder."),
+             ("Teacher: ", "Please pick a book, sit on the rug, and read silently for ten minutes."),
+             ("Teacher: ", "When you finish, write the title and one sentence in your reading log."),
+         ],
+         "vocab": [("rug", "地毯"), ("shelf", "書架"), ("label", "標籤"), ("level", "級數"), ("reading log", "閱讀紀錄")],
+         "tips_en": "Spend 60% of your budget on the rug, lighting, and shelving. Books can be donated, borrowed from the school library, or rotated quarterly. The corner that gets used is the corner that feels good.",
+         "tips_zh": "60% 的預算花在地毯、燈光、書架。書可以收捐贈、跟學校圖書館借、每季輪換。會被使用的閱讀角，是「待起來舒服」的閱讀角。"},
+        {"n": 2, "color": "green",
+         "en": "Daily 10-Minute Reading Routine · 每日 10 分鐘", "zh": "早自修就讀",
+         "duration": "10 minutes · daily",
+         "what_en": "The single most effective routine is silent reading at the start of homeroom. No questions, no quiz, no reading log on the first month — just the habit.",
+         "what_zh": "單一最有效的閱讀慣性：早自修一進教室就默讀。第一個月不問問題、不考試、不寫紀錄——就只是養成習慣。",
+         "script": [
+             ("Teacher: ", "Good morning. Please get your reading book from your bag."),
+             ("Teacher: ", "We will read silently for ten minutes. The timer will tell us when to stop."),
+             ("Teacher: ", "If you finish a book, place it back on the shelf and pick a new one quietly."),
+             ("Teacher (after 10 min): ", "Stop. Mark your page. Tell your partner one word you saw today."),
+         ],
+         "vocab": [("silent reading", "默讀"), ("timer", "計時器"), ("mark your page", "做頁標"), ("partner", "搭檔"), ("one word", "一個字")],
+         "tips_en": "Resist the urge to assess. The day you add a quiz is the day half the class starts faking. Trust the routine — measurable gains show up in 8 weeks.",
+         "tips_zh": "忍住「想評量」的衝動。一加考試，一半的孩子立刻開始假裝。相信習慣本身——8 週後成效自然顯現。"},
+        {"n": 3, "color": "orange",
+         "en": "Book Curation by Level · 分級選書", "zh": "讓孩子找得到自己讀得懂的書",
+         "duration": "Once per term · 2 hours",
+         "what_en": "Color-code books by level (blue dot = beginner, green = intermediate, red = advanced). Students self-select; the teacher only nudges the ones who pick too easy or too hard for three weeks in a row.",
+         "what_zh": "用顏色貼紙標示級數（藍 = 入門、綠 = 中級、紅 = 進階）。學生自選；老師只在連續三週都選太簡單或太難的孩子身上輕輕提醒。",
+         "script": [
+             ("Teacher: ", "If you read a blue-dot book and it felt easy, try a green-dot book next time."),
+             ("Teacher: ", "If you read a red-dot book and gave up, that's okay. Choose a green one."),
+             ("Teacher: ", "There is no right level. There is only the level that helps you finish."),
+             ("Student (asking): ", "Teacher, what level am I? "),
+             ("Teacher: ", "The level that lets you read three sentences without stopping."),
+         ],
+         "vocab": [("beginner", "入門"), ("intermediate", "中級"), ("advanced", "進階"), ("give up", "放棄"), ("right level", "適合的級數")],
+         "tips_en": "Don't tell students their official 'level' — it becomes an identity. The phrase 'three sentences without stopping' is a self-test they can use anywhere, any book.",
+         "tips_zh": "不要告訴孩子他「正式的級數」——會被當成身分。教他們用「三句話不停下來」當作自我檢測，到哪本書都能用。"},
+        {"n": 4, "color": "purple",
+         "en": "Reading Challenge Chart · 閱讀挑戰表", "zh": "讓進度被看見",
+         "duration": "Ongoing · resets each term",
+         "what_en": "A wall chart with every student's name and a row of empty boxes. One sticker per finished book — small, simple, visible. Resets each term so no one falls 'too far behind' for the year.",
+         "what_zh": "一張掛在牆上的表，每位學生一行空格。讀完一本貼一張貼紙——小、簡單、看得見。每學期重新開始，沒人會「整年落後太多」。",
+         "script": [
+             ("Teacher: ", "You finished 'Frog and Toad Are Friends'? Excellent. Pick a sticker."),
+             ("Student: ", "Can I have the dinosaur one?"),
+             ("Teacher: ", "Of course. Put it in the box next to your name."),
+             ("Teacher (to class): ", "Look at our chart growing. Every sticker is a book that someone finished. That is the whole goal."),
+         ],
+         "vocab": [("chart", "挑戰表"), ("sticker", "貼紙"), ("finished", "完成"), ("excellent", "很棒"), ("the whole goal", "全部的目標")],
+         "tips_en": "Resist 'prizes for reading the most.' Competition kills intrinsic motivation. Stickers themselves are enough — the visible row is the reward.",
+         "tips_zh": "不要設「讀最多得獎」。競賽會殺死內在動機。貼紙本身就夠了——那一行看得見的成果，就是獎賞。"},
+        {"n": 5, "color": "blue",
+         "en": "Book Sharing Time · 分享時間", "zh": "讓書活起來",
+         "duration": "10 minutes · weekly (Friday)",
+         "what_en": "Every Friday, three students share one sentence about a book they finished this week. Just one sentence — recommend it or don't, but be specific.",
+         "what_zh": "每週五，三位學生各用一句話分享本週讀完的書。就一句——推薦或不推薦，但要具體。",
+         "script": [
+             ("Student 1: ", "I read 'Charlotte's Web.' The ending made me cry, but in a good way."),
+             ("Student 2: ", "I read 'Diary of a Wimpy Kid.' It is funny but a little too long for me."),
+             ("Student 3: ", "I read a picture book about a cat who paints. I want to find more by this writer."),
+             ("Teacher: ", "Three books, three honest opinions. That is reading. Thank you, everyone."),
+         ],
+         "vocab": [("recommend", "推薦"), ("ending", "結局"), ("opinion", "意見"), ("writer", "作者"), ("specific", "具體")],
+         "tips_en": "Teach 'specific' over 'positive' — a real opinion ('too long for me') is more valuable than fake praise ('it was good'). Reading becomes honest.",
+         "tips_zh": "教孩子「具體」比「正向」更重要——真實的意見（「對我來說太長了」）比客套（「很好看」）有價值。閱讀才會誠實。"},
+    ]
+    return render_bilingual_topic(
+        page_title="English Reading Corner", current_path="/resources/",
+        h1_en="English Reading Corner", h1_zh="英文閱讀角 · 一個學年讀的書比課本多",
+        hero_en="A well-curated English reading corner reads more books across a school year than any textbook can cover. Don't just put a bookshelf in the corner — design the routines that make students return to it.",
+        hero_zh="一個用心策劃的英文閱讀角，一整學年讀完的書比課本多得多。重點不是把書架放進角落，而是設計讓學生主動回來的閱讀慣性。",
+        moe_en="The reading-corner model aligns with the 12-year curriculum's emphasis on self-directed learning and multi-modal literacy, plus the 2030 bilingual policy's principle of low-stakes, high-frequency English exposure.",
+        moe_zh="閱讀角模式對齊十二年國教「自主學習」與「多元識讀」素養，並符合 2030 雙語政策「低門檻、高頻率英文接觸」的原則。",
+        core_principle="閱讀角的勝負在「慣性」，不在「藏書量」。The win condition is the habit, not the bookshelf inventory.",
+        sections_h2_en="Five steps to a working corner", sections_h2_zh="五個步驟，做出能用的閱讀角",
+        sections_intro_en="Each step below is in order — the space, then the routine, then curation, then visibility, then sharing. Skip a step and the corner stalls. Start with one class for a term before scaling.",
+        sections_intro_zh="以下五步有順序——先空間，再慣性，再分級，再可視化，再分享。跳一步就會停滯。先從一個班做一學期，再擴展。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("30+ books appropriate to school size", "符合學校規模的 30 本以上書籍"),
+            ("Sign-out system (paper sheet or QR code)", "借書登記制（紙本或 QR Code）"),
+            ("Weekly book swap with another class", "與另一班每週交換書籍"),
+            ("FET-led \"book talk\" twice per month", "外師主持的 Book Talk，每月兩次"),
+            ("Parent donation drive for used English books", "向家長徵集二手英文書"),
+            ("Yearly inventory and level audit", "每年盤點與重新分級"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/books-for-taiwan/", "title": "Books for Taiwan", "desc": "Long-running donation initiative — apply for English book bundles for your reading corner.", "meta": "Book source"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull a 'reading-related' word from the Hub for daily warm-ups before silent reading.", "meta": "Warm-up vocab"},
+            {"href": "/resources/eric-berman/", "title": "Eric Berman", "desc": "Storytelling teacher — his style is a model for FET-led book talks.", "meta": "Storytelling model"},
+        ],
+    )
+
+
+# ----- Amazing Changhua · 探索彰化 -------------------------------------------
+def build_amazing_changhua():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Lukang Old Street · 鹿港老街", "zh": "三百年的廟宇與街屋",
+         "duration": "Field-trip script · 3 hours",
+         "what_en": "Lukang's 300-year-old streets and temples — Mazu Temple, Longshan Temple, Nine-Turn Lane — are Changhua's most photographed cultural site. A bilingual student-led tour for visitors makes the place visible to the world.",
+         "what_zh": "鹿港三百年的老街與廟宇——天后宮、龍山寺、九曲巷——是彰化最常被拍攝的文化景點。學生帶外賓走一趟雙語導覽，等於把這個地方介紹給世界。",
+         "script": [
+             ("Student guide: ", "Welcome to Lukang. This town is over 300 years old."),
+             ("Guide: ", "This is Mazu Temple. Mazu is the goddess of the sea. Fishermen and sailors pray here for safe trips."),
+             ("Guide: ", "These small alleys are called 'Nine-Turn Lane' — they were built narrow to slow down sea winds."),
+             ("Guide: ", "Before we leave, try a bowl of 'meat ball' — Lukang's most famous food."),
+         ],
+         "vocab": [("temple", "廟宇"), ("goddess", "女神"), ("pray", "祈禱"), ("alley", "巷弄"), ("over 300 years old", "三百多年歷史")],
+         "tips_en": "Pre-teach 'over' as in 'over 300 years' — students often default to exact numbers and freeze when uncertain. 'Over' is a confidence word.",
+         "tips_zh": "提前教「over」（如 over 300 years）——學生常執著精確數字，不確定就卡住。「Over」是個讓孩子自信的詞。"},
+        {"n": 2, "color": "green",
+         "en": "Bagua Mountain & The Great Buddha · 八卦山大佛", "zh": "彰化的標誌",
+         "duration": "Landmark intro · 1–2 minutes",
+         "what_en": "The 22-meter Great Buddha statue on Bagua Mountain is visible from anywhere in Changhua City. Every Changhua child should be able to introduce it in English to a visitor.",
+         "what_zh": "八卦山上 22 公尺高的大佛像，從彰化市任何角落都看得見。每位彰化的孩子都該能用英文向訪客介紹這座像。",
+         "script": [
+             ("Student: ", "This is the Great Buddha of Bagua Mountain. It is 22 meters tall."),
+             ("Student: ", "From this hill, you can see all of Changhua City."),
+             ("Student: ", "The statue was built in 1961 — older than my grandfather."),
+             ("Student: ", "Many families come here on Sundays. The view at sunset is the most beautiful."),
+         ],
+         "vocab": [("statue", "雕像"), ("meters tall", "公尺高"), ("hill", "山丘"), ("view", "景色"), ("sunset", "夕陽")],
+         "tips_en": "The phrase 'older than my grandfather' is a child-natural way to express age. Use it as a model — every Changhua landmark gets a personal comparison.",
+         "tips_zh": "「older than my grandfather」是孩子最自然的年齡表達方式。當示範句——彰化每個地標都可以配一個個人比喻。"},
+        {"n": 3, "color": "orange",
+         "en": "Rice Country · 米鄉", "zh": "彰化平原的兩季稻",
+         "duration": "Field-trip or classroom · varies",
+         "what_en": "Changhua plains produce some of Taiwan's best rice — Erlin and Tianzhong are nationally known. Help students introduce the two-crop calendar (March planting, July first harvest; August planting, December second harvest).",
+         "what_zh": "彰化平原出產台灣最好的米——二林、田中全國知名。讓學生介紹兩季稻的時程（三月種，七月收一期；八月種，十二月收二期）。",
+         "script": [
+             ("Student: ", "Changhua is a famous rice region in Taiwan."),
+             ("Student: ", "We have two crops a year — one in summer, one in winter."),
+             ("Student: ", "In March, farmers plant young rice in the paddy field."),
+             ("Student: ", "In July, the rice turns golden. That is harvest time. The whole village smells like rice."),
+         ],
+         "vocab": [("paddy field", "稻田"), ("plant", "種植"), ("harvest", "收成"), ("golden", "金黃色的"), ("village", "村莊")],
+         "tips_en": "If your school has a rice paddy nearby, a 30-minute walk for vocabulary on-site beats any classroom lesson. Smell, color, sound all become language anchors.",
+         "tips_zh": "如果學校附近有稻田，30 分鐘的現場走讀勝過任何教室課。氣味、顏色、聲音都成為英文詞彙的記憶錨點。"},
+        {"n": 4, "color": "purple",
+         "en": "Mazu Pilgrimage · 媽祖遶境", "zh": "九天八夜的信仰之旅",
+         "duration": "Annual · March",
+         "what_en": "The 9-day Mazu pilgrimage from Dajia to Beigang crosses Changhua every March. It's the largest religious procession in Taiwan and one of the most distinctive cultural events students can speak about with pride.",
+         "what_zh": "每年三月，從大甲到北港九天八夜的媽祖遶境會穿越彰化。這是全台最大的宗教遶境，也是學生最能驕傲介紹的文化盛事。",
+         "script": [
+             ("Student: ", "Every March, the Mazu Pilgrimage passes through our town."),
+             ("Student: ", "Mazu is the goddess who protects fishermen and travelers."),
+             ("Student: ", "The pilgrimage is nine days long. Devotees walk over 300 kilometers."),
+             ("Student: ", "Our family gives food and water to walkers as they pass our street. It is a way of saying thank you."),
+         ],
+         "vocab": [("pilgrimage", "遶境"), ("devotee", "信徒"), ("palanquin", "神轎"), ("blessing", "祝福"), ("hospitality", "好客")],
+         "tips_en": "Many students have personally walked some of the pilgrimage with their family. Invite those students to share — first-person experience beats any textbook explanation of culture.",
+         "tips_zh": "很多學生其實跟家人走過部分遶境。邀請這些學生分享——第一人稱的經驗，遠勝任何課本上的文化解說。"},
+        {"n": 5, "color": "blue",
+         "en": "Local Food · 在地小吃", "zh": "從一碗肉圓開始",
+         "duration": "Tasting + presentation · 45 minutes",
+         "what_en": "Changhua's signature foods — meat balls (rou-yuan), oyster omelette, baked egg cookies — are the easiest entry point for cultural English. Pair a tasting with student-prepared mini-introductions.",
+         "what_zh": "彰化的招牌小吃——肉圓、蚵仔煎、蛋黃酥——是文化英文最容易切入的點。安排品嚐活動，搭配學生事先準備的雙語小簡介。",
+         "script": [
+             ("Student: ", "This is 'rou-yuan,' or meat ball. It is Changhua's most famous food."),
+             ("Student: ", "The outside is made from sweet potato flour. It is chewy and a little soft."),
+             ("Student: ", "Inside, there is pork, mushroom, and a special sauce."),
+             ("Student: ", "Try one bite. If you like it, the shop on the corner has been making them for sixty years."),
+         ],
+         "vocab": [("meat ball / rou-yuan", "肉圓"), ("oyster omelette", "蚵仔煎"), ("chewy", "Q 彈"), ("sauce", "醬料"), ("signature dish", "招牌菜")],
+         "tips_en": "Don't translate 'rou-yuan' to 'meat ball' alone — students should learn that some food names stay in Taiwanese. 'Rou-yuan' IS the word; the English translation is the gloss.",
+         "tips_zh": "不要把「肉圓」直譯成 meat ball 就結束——讓學生知道有些食物名稱保留台語讀音才正確。「Rou-yuan」就是那個字；meat ball 只是補充解釋。"},
+    ]
+    return render_bilingual_topic(
+        page_title="Amazing Changhua", current_path="/resources/",
+        h1_en="Amazing Changhua", h1_zh="探索彰化 · 用英文認識家鄉",
+        hero_en="Bilingual education isn't just about importing global English — it's about telling our own story to the world. Changhua's temples, food, agriculture, and festivals deserve English words so students can become ambassadors of the place they come from.",
+        hero_zh="雙語教育不只是「進口國際英文」，更是「把自己的故事用英文講出去」。彰化的廟宇、美食、農業、節慶值得有英文版本，讓學生成為自己家鄉的文化大使。",
+        moe_en="Aligns with the Bilingual Daily Life guideline on \"Local culture in bilingual education\" and the 2030 policy's call to integrate Taiwanese content — not only imported topics — into English learning.",
+        moe_zh="對齊雙語生活化「本土文化融入雙語教育」要點，並回應 2030 政策強調「將台灣本土內容融入英語學習」、而非單向引入外國主題的訴求。",
+        core_principle="學生不只是學「英文」，更是用英文當「家鄉的代言人」。Students aren't only learning English — they're becoming the place where they live, told in another language.",
+        sections_h2_en="Five Changhua icons, ready for English", sections_h2_zh="五個彰化代表，配好英文",
+        sections_intro_en="Each section below gives a bilingual introduction script, the most useful vocabulary, and an implementation tip — for when foreign visitors come, for sister-school exchanges, or simply as cultural enrichment in regular English class.",
+        sections_intro_zh="以下五個主題各附中英對話、最實用的詞彙、與實施建議——可用於外賓接待、姊妹校交流，或日常英文課的文化加值。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Field trip pre-vocab session (2 weeks before visit)", "校外教學前兩週的詞彙預習課"),
+            ("Student-made bilingual brochure for each landmark", "每個景點一份學生製作的雙語小手冊"),
+            ("\"Show a foreigner around Changhua\" Grade 6 culminating project", "六年級畢業專案：用英文帶外國人玩彰化"),
+            ("Sister-school exchange topic: my hometown", "姊妹校交流題目：我的家鄉"),
+            ("Annual Changhua Day with English bilingual showcase", "每年一次彰化日，搭配英文雙語展演"),
+            ("Local elder interview project — record family memory", "在地耆老訪談——記錄家族記憶"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/about-changhua/", "title": "About Changhua", "desc": "Hub's main Changhua background page — geography, history, schools, deep facts.", "meta": "Background reading"},
+            {"href": "/festivals/", "title": "Festival English Series", "desc": "Mid-Autumn, Lantern, and Mazu festival units — perfectly aligned with this page's Mazu section.", "meta": "Festival deep-dives"},
+            {"href": "/resources/bilingual-campus/school-tours/", "title": "School Tours", "desc": "Many sister-school delegates come to see Changhua — combine the school tour with an Amazing Changhua field trip.", "meta": "Visitor pairing"},
+        ],
+    )
+
+
+# ----- School News · 校園新聞 -------------------------------------------------
+def build_school_news():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "News Team Roles · 新聞部成員", "zh": "六個角色，全班都有任務",
+         "duration": "Team setup · 45 minutes",
+         "what_en": "Six rotating roles let an entire class participate without overcrowding the screen — anchor, on-location reporter, weather, sports, camera operator, and an editor who never appears.",
+         "what_zh": "六個輪值角色，全班都能參與、又不會擠在鏡頭前——主播、外景記者、氣象、體育、攝影、後製剪輯（不露臉）。",
+         "script": [
+             ("Anchor: ", "Good morning! I'm Yuting, your anchor today. Here is this week's top story."),
+             ("Reporter (on location): ", "I'm at the playground. Yesterday our basketball team played their first game of the season."),
+             ("Weather: ", "Today will be sunny, with a high of 26 degrees. Tomorrow, rain in the afternoon."),
+             ("Sports: ", "In sports news, the volleyball team is preparing for the county tournament next week."),
+         ],
+         "vocab": [("anchor", "主播"), ("on location", "外景"), ("top story", "頭條"), ("season", "賽季"), ("tournament", "錦標賽")],
+         "tips_en": "Rotate roles every two episodes — every student should sit in every chair across a semester. The shy student often becomes the best editor.",
+         "tips_zh": "每兩集輪換角色——一學期下來每位學生都坐過每個位置。最害羞的孩子往往成為最好的剪輯師。"},
+        {"n": 2, "color": "green",
+         "en": "Weekly Episode Template · 每週節目模板", "zh": "3 分鐘的結構",
+         "duration": "Episode runtime · 3 minutes",
+         "what_en": "A consistent 3-minute structure: 30s opener → 50s segment 1 → 50s segment 2 → 50s segment 3 → 20s sign-off. The same shape every week means students don't have to reinvent format.",
+         "what_zh": "固定的 3 分鐘結構：30 秒開場 → 50 秒第一段 → 50 秒第二段 → 50 秒第三段 → 20 秒結尾。每週同樣節奏，學生不必每次重新發明格式。",
+         "script": [
+             ("Anchor: ", "Welcome back to Changhua School News. I'm Yuting and this is your three-minute weekly update."),
+             ("Anchor: ", "Our top story this week: the bilingual reading marathon results. Let's go to our reporter on location."),
+             ("Reporter: ", "[on location segment] ..."),
+             ("Anchor: ", "That's all from us today. See you next Monday morning. Have a great week!"),
+         ],
+         "vocab": [("segment", "段落"), ("transition", "轉場"), ("update", "更新"), ("throw to", "切到"), ("sign off", "結尾"),],
+         "tips_en": "The hardest part isn't reading — it's the smooth transition between segments. Practice transitions twice for every once you practice the segments themselves.",
+         "tips_zh": "最難的不是讀稿，是段落之間的銜接。轉場練習時間應該是「段落練習」的兩倍。"},
+        {"n": 3, "color": "orange",
+         "en": "Anchor Script Template · 主播稿模板", "zh": "從歡迎到再見",
+         "duration": "Script prep · 90 minutes weekly",
+         "what_en": "A reusable Word document with [BLANK] fields for the week's content. Anchors only need to fill in the story names, dates, and names — the connecting language is already there.",
+         "what_zh": "一份可重複使用的 Word 模板，預留 [BLANK] 待填位置。主播只需填入本週的故事、日期、姓名——銜接語言已經寫好。",
+         "script": [
+             ("Template — Opening: ", "Welcome to Changhua School News for [DATE]. I'm [NAME] and here are the headlines."),
+             ("Template — Segment intro: ", "Our [first / second / third] story this week is about [TOPIC]. Let's hear from [REPORTER NAME]."),
+             ("Template — Sign-off: ", "That's the news for [DATE]. From all of us at [SCHOOL NAME], have a wonderful week ahead."),
+             ("Template — Backup: ", "We had a small technical problem with one of our stories. We will bring it to you next week. Thank you for your patience."),
+         ],
+         "vocab": [("template", "模板"), ("blank", "空格"), ("headlines", "頭條"), ("backup", "備案"), ("patience", "耐心")],
+         "tips_en": "Print the script in 14pt with double spacing. Smaller fonts cause stumbles. The bigger the font, the smoother the read.",
+         "tips_zh": "稿子用 14pt 雙倍行距印。字小會卡。字越大，讀得越順。"},
+        {"n": 4, "color": "purple",
+         "en": "Recording & Editing · 錄製與後製", "zh": "一支手機就夠了",
+         "duration": "Production · 60 minutes weekly",
+         "what_en": "Use a tripod-mounted phone, free editing apps (CapCut, iMovie), and built-in caption tools. Don't aim for broadcast quality — aim for student-watchable quality.",
+         "what_zh": "用三腳架架手機、免費剪輯 App（CapCut、iMovie）、內建字幕工具。不必追求廣播品質，達到「學生愛看」的程度就好。",
+         "script": [
+             ("Director: ", "Quiet on set. We are recording in three, two, one — action."),
+             ("Anchor (mid-take): ", "Sorry, let me start again."),
+             ("Director: ", "No problem. Let's go again — three, two, one — action."),
+             ("Director: ", "And cut! Good take. Let's add the captions in editing."),
+         ],
+         "vocab": [("take", "鏡次"), ("retake", "重來"), ("action", "開始（拍）"), ("cut", "切（停拍）"), ("caption", "字幕")],
+         "tips_en": "Always add Chinese captions — non-fluent students watch the captions to catch up. Bilingual captioning doubles the educational value of every episode.",
+         "tips_zh": "字幕中英文都要上——英文還不流利的學生靠中文字幕跟上。雙語字幕讓每一集的教育價值翻倍。"},
+        {"n": 5, "color": "blue",
+         "en": "Distribution · 發布", "zh": "三個頻道，全校都看得到",
+         "duration": "Weekly publishing · 15 minutes",
+         "what_en": "Three channels: (a) Monday morning playback at assembly, (b) classroom TV during homeroom that week, (c) school YouTube channel for parents and alumni. Same content, three audiences.",
+         "what_zh": "三個發布管道：(a) 週一升旗播放，(b) 該週早自修教室電視播放，(c) 學校 YouTube 頻道給家長與校友。同樣的內容，三種觀眾。",
+         "script": [
+             ("Principal (Monday assembly): ", "Before our anthem, let's watch this week's School News. Anchors, take a bow!"),
+             ("Homeroom teacher (in class): ", "We'll watch the School News during the first five minutes. Eyes on the screen."),
+             ("Parent (at home, on YouTube): ", "Look — Yuting was on the news this week. She was really good!"),
+             ("Alumnus (overseas): ", "Subscribed. Watching my old school's news makes me homesick in a good way."),
+         ],
+         "vocab": [("publish", "發布"), ("subscribe", "訂閱"), ("playback", "重播"), ("alumnus", "校友"), ("homesick", "想家")],
+         "tips_en": "Your school's YouTube channel becomes a 5-year archive of student growth. Parents will rewatch their child's segments decades later. Treat the channel like a yearbook.",
+         "tips_zh": "學校 YouTube 頻道會累積成五年的學生成長檔案。家長幾十年後仍會回看自己孩子的段落。把頻道當畢業紀念冊經營。"},
+    ]
+    return render_bilingual_topic(
+        page_title="School News", current_path="/resources/",
+        h1_en="School News", h1_zh="校園新聞 · 學生主播訓練班",
+        hero_en="A weekly 3-minute student-produced English news bulletin teaches more sustained spoken English than any 40-minute class. Anchors prepare for hours; everyone watching learns from someone their own age.",
+        hero_zh="一週一支 3 分鐘的學生英文校園新聞，教會學生的口說英文比一堂 40 分鐘的課還多。主播事前準備數小時；觀眾從同齡人身上學。",
+        moe_en="Implements the 2030 bilingual policy's principle of \"student-led bilingual production\" — high-leverage authentic-task speaking with a real audience and weekly cadence.",
+        moe_zh="實踐 2030 雙語政策「學生主導之雙語產出」原則——高槓桿、真實任務的口說訓練，有真實觀眾、固定週期。",
+        core_principle="一週一支三分鐘，比一堂四十分鐘還有效。Three minutes a week, repeated, beats a lesson plan that aims for an hour.",
+        sections_h2_en="Five components of a running news team", sections_h2_zh="五個讓新聞部運轉的元件",
+        sections_intro_en="The five components below assemble into a working weekly broadcast. Read in order — roles first, then format, then script, then production, then distribution. Don't optimize for polish; optimize for sustainability.",
+        sections_intro_zh="以下五個元件組裝成一支可運行的週播節目。順序：先角色、再格式、再腳本、再製作、再發布。重點不在精緻，在「能持續做下去」。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Anchor pair — rotate every 2 weeks", "主播搭檔——每兩週輪換"),
+            ("Editing teacher or student — one weekly owner", "剪輯老師或學生——每週一位負責人"),
+            ("Weekly story planning meeting (Fridays for next Monday)", "每週故事企劃會議（週五規劃下週一）"),
+            ("Backup story bank for slow weeks", "備案故事庫（沒新聞的週用）"),
+            ("Parent permission for student on-screen appearance", "學生入鏡家長同意書"),
+            ("Archive folder on Google Drive or school server", "雲端歸檔（Google Drive 或學校伺服器）"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/bilingual-campus/announcements/", "title": "Bilingual Announcements", "desc": "Sarah Thomas &amp; Susan Rose's 13-episode broadcast playlist — best training material for anchors.", "meta": "Anchor training"},
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Monday-morning assembly is the primary distribution channel for School News.", "meta": "Distribution channel"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull a 'word of the week' segment from the Hub library and weave it into each episode.", "meta": "Weekly segment"},
+        ],
+    )
+
+
+# ----- International Sister School · 國際姊妹校 ------------------------------
+def build_intl_sister_school():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Finding a Partner School · 尋找夥伴學校", "zh": "從免費的國際媒合計畫開始",
+         "duration": "Setup · 6–10 weeks",
+         "what_en": "Several free or low-cost matching programs exist — ePals, iEARN, MOFA's Taiwan-friendly school network. Apply through one rather than cold-emailing schools abroad; the platform handles time-zone matching and basic vetting.",
+         "what_zh": "幾個免費或低成本的媒合平台——ePals、iEARN、外交部的台灣友校網絡。透過平台申請，比直接寫信給海外學校有效；平台會處理時區媒合與初步審核。",
+         "script": [
+             ("Coordinating teacher: ", "We are an elementary school in Changhua, Taiwan. We have around 200 students from Grade 1 to Grade 6."),
+             ("Teacher: ", "We are looking for a partner school in a country where English is the main language."),
+             ("Teacher: ", "Our goal is two video meet-ups per semester, plus a pen-pal letter exchange."),
+             ("Teacher: ", "We can communicate in English. Our preferred time zone is GMT+8."),
+         ],
+         "vocab": [("partnership", "夥伴關係"), ("exchange", "交流"), ("MOU", "備忘錄"), ("time zone", "時區"), ("coordinator", "聯絡人")],
+         "tips_en": "Match by school size and rural/urban character, not just country. A rural Changhua school often connects more meaningfully with a small-town American or Australian school than with a big-city one.",
+         "tips_zh": "以學校規模和城鄉特性媒合，不只看國家。彰化的小型鄉村學校，常和美國或澳洲的小鎮學校更投緣，反而不一定是大城市裡的學校。"},
+        {"n": 2, "color": "green",
+         "en": "Video Letter Exchange · 影片信", "zh": "兩分鐘自介短片",
+         "duration": "Per round · 4 weeks production",
+         "what_en": "The simplest first contact: every student records a 30-second self-intro. Edit four into a 2-minute class video. Send via Google Drive or WeTransfer. Partner school responds with theirs.",
+         "what_zh": "最簡單的初接觸：每位學生錄一段 30 秒自介，剪成 2 分鐘班級影片。透過 Google Drive 或 WeTransfer 寄送，夥伴校再回寄他們的版本。",
+         "script": [
+             ("Student 1 (on camera): ", "Hi! I'm Yating, I'm ten years old, and I live in Changhua, Taiwan."),
+             ("Student 2: ", "Hello from Taiwan! My favorite food is rou-yuan. That's a kind of meat ball."),
+             ("Student 3: ", "I have one brother and a dog. I like reading comic books."),
+             ("Class together: ", "We hope you will visit Changhua one day. Bye!"),
+         ],
+         "vocab": [("record", "錄影"), ("edit", "剪輯"), ("class video", "班級短片"), ("send", "寄送"), ("respond", "回應")],
+         "tips_en": "Watch the partner school's video together as a class. Pause and discuss every detail — house style, accent, classroom look. The first video sets the tone for the year.",
+         "tips_zh": "全班一起看夥伴校寄來的影片，每個細節都暫停討論——他們的家、口音、教室樣子。第一支影片定下一整年的調性。"},
+        {"n": 3, "color": "orange",
+         "en": "Live Zoom Meet-Up · 即時連線", "zh": "30 分鐘的真實互動",
+         "duration": "Per meet-up · 30 minutes",
+         "what_en": "A 30-minute Zoom with a structured agenda: 5 min ice-breaker → 10 min mini-tour of each classroom (camera walk) → 10 min Q&A → 5 min farewells. Don't open the screen without an agenda.",
+         "what_zh": "30 分鐘的 Zoom，要有議程：5 分鐘破冰 → 10 分鐘各班教室小導覽（用相機走一圈）→ 10 分鐘問答 → 5 分鐘道別。沒議程的連線就是混亂。",
+         "script": [
+             ("Teacher (host): ", "Hello everyone! Can you hear us? Thumbs up if you can hear."),
+             ("Student: ", "Hi! My name is Pinghao. Can I ask you a question?"),
+             ("Partner-school student: ", "Sure! What do you want to know?"),
+             ("Student: ", "What time is it in your school right now? It is 9 in the morning here."),
+         ],
+         "vocab": [("greet", "問候"), ("share screen", "分享螢幕"), ("thumbs up", "比讚"), ("ask a question", "提問"), ("time difference", "時差")],
+         "tips_en": "Pre-write 8–10 questions in English class the day before. Tape them to each student's desk. Even shy students will ask one if they don't have to invent it on the spot.",
+         "tips_zh": "連線前一天的英文課裡預擬 8–10 個問題，貼在每位學生桌上。即使害羞的孩子，只要不必當下發明，都會敢問。"},
+        {"n": 4, "color": "purple",
+         "en": "Pen-Pal Letters · 筆友通信", "zh": "兩個月一封的紙本溫度",
+         "duration": "Per round · 8-week cycle",
+         "what_en": "Despite all the digital tools, physical letters still produce the deepest writing. Bimonthly handwritten letters, mailed in a class envelope. Students keep their pen-pal's letters in a portfolio.",
+         "what_zh": "再多數位工具，紙本信件仍會逼出最深的寫作。兩個月一輪手寫信，整班裝同一個信封寄出。學生把收到的信收進個人學習履歷。",
+         "script": [
+             ("Letter template (opening): ", "Dear [PEN-PAL NAME], How are you? I hope you are well."),
+             ("Body: ", "My name is [NAME]. I am [AGE] years old. I live in Changhua with my family."),
+             ("Body: ", "Last month, I went to the Mazu Pilgrimage with my grandmother. It was crowded but exciting."),
+             ("Sign-off: ", "I am looking forward to your letter. Please tell me about your school. Your friend, [NAME]."),
+         ],
+         "vocab": [("greeting", "問候"), ("sign-off", "結尾"), ("address", "地址"), ("postage", "郵資"), ("look forward to", "期待")],
+         "tips_en": "Photograph every outgoing letter. When a student loses theirs (it happens), the photo is the only record. Also: parents love seeing the photos.",
+         "tips_zh": "每封寄出的信都拍照。學生弄丟（很常發生）時，照片是唯一的紀錄。家長也喜歡看到照片。"},
+        {"n": 5, "color": "blue",
+         "en": "Exchange Visit Preparation · 互訪準備", "zh": "從第二年起，把連線變成真實見面",
+         "duration": "Annual · 4-day visit",
+         "what_en": "After 1–2 years of online exchange, plan an in-person visit (your side hosts first; reciprocal visit follows). Even if only 4–6 students go, the rest of the school participates as hosts.",
+         "what_zh": "經過 1–2 年的線上交流後，安排實地互訪（先由我方接待，下一年回訪）。即便只去 4–6 位學生，全校都能以接待者身份參與。",
+         "script": [
+             ("Host family parent: ", "Welcome to our home! Please come in. Are you tired?"),
+             ("Visiting student: ", "Thank you. I'm a little tired but very excited."),
+             ("Host student: ", "This is your room. The bathroom is over there. Do you want some water?"),
+             ("Host family parent: ", "Dinner will be at 7. We are having rou-yuan and stir-fried vegetables."),
+         ],
+         "vocab": [("host", "接待"), ("homestay", "寄宿家庭"), ("gift", "禮物"), ("customs", "習俗"), ("reciprocal visit", "回訪")],
+         "tips_en": "Brief host families in writing two weeks before. Most awkwardness comes from over-formality. Coach families: 'Be normal. Eat at your normal time. Watch your normal TV. They are here to see your real life.'",
+         "tips_zh": "出發前兩週書面提醒接待家庭。大多數尷尬來自「過度客氣」。教家庭：「就照平常過。平常時間吃飯、平常電視一起看。他們是來看你們真實生活的。」"},
+    ]
+    return render_bilingual_topic(
+        page_title="International Sister School", current_path="/resources/",
+        h1_en="International Sister School", h1_zh="國際姊妹校 · 同齡學生的真實連結",
+        hero_en="A sister-school relationship gives students someone real — same age, on the other side of the world — to speak English to. Even a 20-minute Zoom meet-up per semester transforms how students think about why they're learning the language.",
+        hero_zh="姊妹校關係給學生一個「真實的人」——同齡、住在地球另一端——去說英文。即便每學期一次 20 分鐘的 Zoom 連線，都能改變學生對「為什麼要學英文」的想像。",
+        moe_en="International exchange aligns with the 12-year curriculum's \"Global Citizenship\" core competency and the 2030 bilingual policy's \"International perspective\" pillar.",
+        moe_zh="國際交流對齊十二年國教「全球公民素養」核心素養，與 2030 雙語政策「國際視野」支柱。",
+        core_principle="姊妹校的勝負在「持續」，不在「華麗」。Sustained quarterly contact beats a one-time spectacular visit.",
+        sections_h2_en="Five stages from match to visit", sections_h2_zh="從媒合到互訪的五階段",
+        sections_intro_en="The five stages below are in order — match, video letters, live meet-ups, pen-pal letters, then in-person visits. Each stage assumes the prior one is working. Don't skip to Zoom before video letters; don't fly people without two years of online history.",
+        sections_intro_zh="以下五個階段有順序——先媒合、再影片信、再連線、再筆友、最後實地互訪。每階段都建立在前一階段的基礎上。不要跳過影片信直接 Zoom；不要在沒有兩年線上交流前先飛人去見面。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Designated coordinating teacher — one on each side", "雙方各一位專責的聯絡老師"),
+            ("Calendar of 2 meet-ups per semester (booked at year start)", "每學期 2 次連線（學年初就排好）"),
+            ("Bilingual permission slip + photo release", "雙語同意書與肖像授權書"),
+            ("Backup activities for tech failure", "技術故障備案"),
+            ("Parent debrief after each meet-up (5 min email)", "每次連線後 5 分鐘家長回顧（電郵）"),
+            ("Yearly reflection ceremony — what we learned about them", "年度反思儀式：我們從對方身上學到什麼"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/bilingual-campus/english-self-intro/", "title": "English Self-Introduction", "desc": "Self-intro is the centerpiece of every sister-school first contact. Master that page before reaching out.", "meta": "Prerequisite"},
+            {"href": "/resources/bilingual-campus/school-tours/", "title": "School Tours", "desc": "When sister-school delegates visit, the school tour is the main agenda — combine the two pages.", "meta": "Visit day pairing"},
+            {"href": "/resources/bilingual-campus/amazing-changhua/", "title": "Amazing Changhua", "desc": "\"My hometown\" is the most-requested sister-school topic. Use the Changhua page as content scaffold.", "meta": "Topic content"},
+        ],
+    )
+
+
+# ----- English Practice Corner · 英語練習角 ----------------------------------
+def build_english_practice_corner():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Setting Up the Corner · 角落設定", "zh": "找一張桌子就開幕",
+         "duration": "One-time setup · 2 hours",
+         "what_en": "Find a corner near the FET's office or a high-traffic area like the library entrance. A small sign, two chairs, and a 'prompt of the week' card are enough. No registration, no schedule.",
+         "what_zh": "在外師辦公室附近或圖書館入口等人流多的地方設置。一個小招牌、兩張椅子、一張本週對話提示卡就夠。不報名、不排課表。",
+         "script": [
+             ("FET (sitting at the corner): ", "Hi! I'm here for the next 20 minutes. Come and chat anytime."),
+             ("Student (passing by): ", "Hello, teacher. What's the prompt today?"),
+             ("FET: ", "Today's prompt is: 'What was the funniest thing that happened to you this week?'"),
+             ("Student: ", "Oh, I have one. Can I tell you in English?"),
+         ],
+         "vocab": [("drop-in", "隨到隨聊"), ("recess", "下課時間"), ("prompt", "提示"), ("sign", "招牌"), ("twenty minutes", "二十分鐘")],
+         "tips_en": "20 minutes is the magic number — long enough for 4-5 student conversations, short enough that the FET doesn't burn out. Better to do this 3x/week reliably than 5x/week unevenly.",
+         "tips_zh": "20 分鐘是黃金時間——可以聊 4-5 位學生，外師也不會累。穩定每週三次，遠勝忽多忽少做五次。"},
+        {"n": 2, "color": "green",
+         "en": "Daily Prompt Cards · 每日對話卡", "zh": "20 張卡輪流用",
+         "duration": "Setup once · use all year",
+         "what_en": "20 prompt cards on a ring — questions like 'What did you eat for breakfast?', 'If you could fly, where would you go?', 'What's a small thing that made you smile this week?' Rotate one per day.",
+         "what_zh": "20 張用書圈穿在一起的對話卡，題目像「今天早餐吃什麼？」「如果會飛，你想去哪裡？」「這週讓你嘴角上揚的小事是什麼？」每天換一張。",
+         "script": [
+             ("Card 1 (front EN): ", "What's something you learned this week?"),
+             ("Card 1 (back ZH hint): ", "本週你學到什麼？提示：可以是課本上的，也可以是課本外的。"),
+             ("Card 2 (front EN): ", "If you had one extra hour today, what would you do with it?"),
+             ("Card 2 (back ZH hint): ", "今天如果多了一小時，你會用來做什麼？"),
+         ],
+         "vocab": [("prompt card", "對話卡"), ("rotate", "輪換"), ("hint", "提示"), ("extra hour", "多出來的一小時"), ("for example", "例如")],
+         "tips_en": "Mix easy and hard prompts. The easy ones get shy students through the door; the hard ones reward those who come back. Don't sort prompts by difficulty on the card itself — let chance decide.",
+         "tips_zh": "簡單和困難的題目混合。簡單的讓害羞學生進來，困難的獎勵常客。卡片本身不要標難度——讓隨機決定。"},
+        {"n": 3, "color": "orange",
+         "en": "FET Conversation Routines · 外師對話例行", "zh": "讓對話自然發生的小技巧",
+         "duration": "Coaching · 30 minutes onboarding",
+         "what_en": "Five lightweight habits that make the corner feel safe — greet by name when you can, reference last week's chat, listen twice as much as you speak, never correct grammar unprompted, end with a warm send-off.",
+         "what_zh": "五個讓角落感覺安全的小習慣——能叫名字就叫名字、提到上次聊過的事、聽比說多兩倍、不主動糾文法、結尾要熱情送別。",
+         "script": [
+             ("FET (greeting): ", "Yating! Welcome back. How was the volleyball game on Saturday?"),
+             ("Student: ", "We lost, but my serve was better this time."),
+             ("FET (listening, not correcting): ", "Tell me more about your serve. What did you change?"),
+             ("FET (closing): ", "Thanks for stopping by. See you next time. Have a great rest of your day!"),
+         ],
+         "vocab": [("greet by name", "叫得出名字的問候"), ("listen", "聆聽"), ("never correct", "不糾正"), ("send-off", "送別"), ("see you next time", "下次見")],
+         "tips_en": "If a student says 'I goed to the store,' do NOT correct them in the moment. Note it mentally and weave 'went' into your next 3 sentences. They will absorb without embarrassment.",
+         "tips_zh": "如果學生說「I goed to the store」，當下千萬不要糾正。記在心裡，接下來三句話自然多用「went」幾次。學生會吸收，但不會被羞辱。"},
+        {"n": 4, "color": "purple",
+         "en": "Self-Service Activities · 自助活動", "zh": "外師不在時也能用",
+         "duration": "Ongoing · refresh monthly",
+         "what_en": "When the FET is in a class or absent: a small basket of self-service materials — tongue twisters laminated cards, joke-of-the-week sheet, two short reading passages, a 'leave a message for our FET' notebook.",
+         "what_zh": "外師上課中或請假時，提供一籃自助材料——繞口令過塑卡、本週笑話、兩段短文、「留言給外師」筆記本。",
+         "script": [
+             ("Tongue twister card: ", "She sells sea shells by the sea shore. (Try this 3 times fast!)"),
+             ("Joke of the week: ", "Why don't scientists trust atoms? — Because they make up everything!"),
+             ("Reading passage: ", "Did you know that octopuses have three hearts? Two pump blood to the gills, and the third pumps blood to the rest of the body."),
+             ("Notebook prompt: ", "Tell our FET about your favorite movie. We will read your message together this Friday."),
+         ],
+         "vocab": [("tongue twister", "繞口令"), ("joke", "笑話"), ("reading passage", "短文"), ("notebook", "留言本"), ("message", "訊息")],
+         "tips_en": "The notebook is the secret weapon. Students often write more bravely than they speak. The FET reads aloud the best entries each Friday — public praise without putting the student on the spot.",
+         "tips_zh": "留言本是秘密武器。學生「寫」比「說」更敢。外師每週五朗讀最棒的留言——公開表揚，但又不讓學生被聚光燈追到。"},
+    ]
+    return render_bilingual_topic(
+        page_title="English Practice Corner", current_path="/resources/",
+        h1_en="English Practice Corner", h1_zh="英語練習角 · 下課十分鐘的英文",
+        hero_en="A drop-in spot — usually a corner near the FET's office — where any student can have a 60-second English chat during recess. Low stakes, high frequency. The goal isn't to teach; it's to make speaking English feel like a normal thing to do at school.",
+        hero_zh="一個下課可以隨時走進去的小角落——通常設在外師辦公室附近——任何學生都能找他做 60 秒英文閒聊。低門檻、高頻率。目的不是教學，是讓「在學校說英文」變成稀鬆平常的事。",
+        moe_en="Reduces affective filter through casual, unevaluated speaking opportunities — directly implements the 雙語生活化校園 principle of \"casual encounters with English in daily routines.\"",
+        moe_zh="透過無評量壓力的隨機口說機會，降低情意過濾——直接實踐「雙語生活化校園」要點中「英語融入日常作息」的精神。",
+        core_principle="說英文不必到課堂才能說，下課十分鐘也算。Speaking English isn't a class. It's a recess.",
+        sections_h2_en="Four pieces of a working corner", sections_h2_zh="一個有效角落的四個元件",
+        sections_intro_en="The four pieces below assemble into a sustainable practice corner. The corner runs on the FET's energy, so keep it modest in scope — better to do less, reliably, than more, sporadically.",
+        sections_intro_zh="以下四個元件組裝成一個能持續運作的練習角。整個角落靠外師的能量驅動，所以範圍要節制——做得少而穩，勝過做得多但散。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Bilingual sign at the door (\"English Practice Corner · 英語練習角\")", "雙語門口招牌"),
+            ("Daily prompt board (rotating, visible from the hallway)", "每日提示板（輪換、從走廊看得見）"),
+            ("Optional student log (one-line entry, low pressure)", "學生使用紀錄（一句話登錄、不強迫）"),
+            ("Backup self-service materials always available", "備用自助材料隨時可用"),
+            ("Monthly refresh of prompts (so regulars stay engaged)", "每月更新題目（讓常客保持新鮮感）"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/classroom-english/", "title": "Classroom English", "desc": "FETs use the corner to extend the language students hear in classroom routines — pair this with classroom English.", "meta": "Vocabulary bridge"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pick today's prompt card to feature the WotD word — natural reinforcement.", "meta": "Daily integration"},
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Announce the week's prompt at morning assembly — drives students to the corner during recess.", "meta": "Awareness driver"},
+        ],
+    )
+
+
+# ----- School Teams & Clubs · 校隊與社團 -------------------------------------
+def build_school_teams_clubs():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Joining a Club · 加入社團", "zh": "從報名到第一次出席",
+         "duration": "Sign-up week · 30 minutes",
+         "what_en": "The first English-rich moment of the club year is sign-up. Bilingual sign-up forms, an English question-asking ritual, and a welcome handshake from older students set the tone.",
+         "what_zh": "社團年度的第一個英文密集時刻是報名。雙語報名表、英文提問儀式、學長姐英文歡迎握手，奠定整年的調性。",
+         "script": [
+             ("New member: ", "Hello. I want to join the basketball club. Where can I sign up?"),
+             ("Returning student: ", "Welcome! Sign here. What grade are you in?"),
+             ("New member: ", "Grade 4."),
+             ("Returning student: ", "Great. We practice every Tuesday at 3:30. Bring your sports shoes. See you next week!"),
+         ],
+         "vocab": [("sign up", "報名"), ("schedule", "時間表"), ("meeting", "聚會"), ("equipment", "裝備"), ("see you next week", "下週見")],
+         "tips_en": "Have older students run the sign-up table, not teachers. Older students naturally use the same simple English a Grade-4 needs. Plus it gives them leadership ownership.",
+         "tips_zh": "讓高年級學生顧報名桌，不要老師顧。高年級會自然用四年級孩子聽得懂的簡單英文。也讓他們承擔起社團的責任。"},
+        {"n": 2, "color": "orange",
+         "en": "Sports Team Practice · 運動隊練習", "zh": "球場上的英文",
+         "duration": "Every practice · 5 minutes warm-up",
+         "what_en": "Sports vocabulary is the easiest English students will ever learn — they NEED these words to play. Teach 'pass,' 'shoot,' 'foul,' 'time-out' in the first practice and reinforce every session.",
+         "what_zh": "運動詞彙是學生最容易學的英文——他們「需要」這些字才能玩。第一次練習就教 pass / shoot / foul / time-out，之後每次練習都重複使用。",
+         "script": [
+             ("Coach: ", "Today we warm up first. Five minutes of jogging — go!"),
+             ("Coach (during play): ", "Good pass! Now shoot! Yes!"),
+             ("Coach (calling pause): ", "Time-out. Everyone, listen up. Let's talk about defense."),
+             ("Coach (closing): ", "Good practice today. Cool down. See you on Thursday."),
+         ],
+         "vocab": [("warm up", "暖身"), ("pass", "傳球"), ("shoot", "投籃"), ("defense", "防守"), ("time-out", "暫停")],
+         "tips_en": "Use ONLY English for sports calls during practice — even if the coach also speaks Mandarin. The chaos of a game is the perfect context: students figure out 'pass' the second time they hear it.",
+         "tips_zh": "練習中發號施令一律用英文——即使教練也會中文。比賽的混亂正是最好的語境：學生第二次聽到 pass 就會懂。"},
+        {"n": 3, "color": "purple",
+         "en": "Art / Music Club · 藝術音樂社團", "zh": "器材與創作的英文",
+         "duration": "Per meeting · 5 minutes setup",
+         "what_en": "Art and music clubs offer rich vocabulary tied directly to physical objects — brushes, palettes, scores, instruments. Label every shared item bilingually. The label becomes the lesson.",
+         "what_zh": "美術社與音樂社提供大量與實體物品直接連結的詞彙——畫筆、調色盤、樂譜、樂器。把每件共用器材貼雙語標籤。標籤就是教材。",
+         "script": [
+             ("Music teacher: ", "Today we will practice page 12 in your score. Flutes, start. Strings, ready."),
+             ("Art teacher: ", "Please get your brush, your palette, and one piece of paper from the shelf."),
+             ("Art teacher: ", "Mix red and blue. What color do you get? Yes — purple!"),
+             ("Music teacher: ", "From the top, everyone — one, two, three, four!"),
+         ],
+         "vocab": [("brush", "畫筆"), ("palette", "調色盤"), ("score", "樂譜"), ("rehearsal", "排練"), ("from the top", "從頭")],
+         "tips_en": "End every art/music session with a 30-second 'show your work in English' — students hold up their piece and say one sentence about it. Builds presentation muscle alongside creative skill.",
+         "tips_zh": "每次美術／音樂社結尾留 30 秒「英文展示作品」——學生舉起作品，用一句英文介紹。創作能力與表達能力同步建立。"},
+        {"n": 4, "color": "green",
+         "en": "Service / Eco Club · 服務生態社", "zh": "公益行動的英文",
+         "duration": "Per project · 60 minutes",
+         "what_en": "Service clubs (cleaning, recycling, beach clean-ups, food bank visits) give students English tied to action verbs and civic vocabulary — 'volunteer,' 'donate,' 'recycle,' 'community.'",
+         "what_zh": "公益社團（打掃、回收、淨灘、食物銀行訪問）讓學生學到與行動相關的英文與公民詞彙——volunteer、donate、recycle、community。",
+         "script": [
+             ("Club leader: ", "Today we are going to the beach to clean up trash. Wear gloves. Bring your water bottle."),
+             ("Volunteer: ", "What kind of trash do we collect?"),
+             ("Leader: ", "Plastic, bottles, and cigarette butts. We separate them into three bags."),
+             ("Leader (after): ", "Good job, everyone! We collected three bags of plastic. That is three less bags in the ocean."),
+         ],
+         "vocab": [("volunteer", "志工"), ("donate", "捐贈"), ("recycle", "回收"), ("community", "社區"), ("clean up", "清理")],
+         "tips_en": "Document service projects with bilingual photo captions — those become great content for school news, sister-school exchanges, and parent newsletters. One project, four content uses.",
+         "tips_zh": "服務專案要拍照並寫雙語圖說——可以同時用於校園新聞、姊妹校交流、家長通訊。一個專案，四種用途。"},
+        {"n": 5, "color": "blue",
+         "en": "Tournament Day · 比賽日", "zh": "比賽中的英文",
+         "duration": "Per tournament · all day",
+         "what_en": "Tournament day brings out cheering and sportsmanship vocabulary in a way no class can replicate. Pre-teach a small set of cheers and post-game phrases — 'Good game,' 'Well played,' 'See you next time.'",
+         "what_zh": "比賽日帶出加油與運動家風範的詞彙，是任何課堂都比不上的真實情境。事先教一組加油詞和賽後用語——「Good game」「Well played」「下次再戰」。",
+         "script": [
+             ("Cheerleader: ", "Go, team, go! Let's go, let's go, L-E-T-S G-O!"),
+             ("Coach (timeout): ", "Catch your breath. Drink water. We have two more minutes."),
+             ("Player (post-game, to opponent): ", "Good game. Well played. See you next time."),
+             ("Coach (closing): ", "Win or lose, we played with respect. That's what matters."),
+         ],
+         "vocab": [("opponent", "對手"), ("referee", "裁判"), ("sportsmanship", "運動家風範"), ("good game", "好球"), ("respect", "尊重")],
+         "tips_en": "Teach 'Good game' as the unconditional post-match phrase — whether you win, lose, or tie. It's the one piece of English that travels with these students for life.",
+         "tips_zh": "教孩子「Good game」是賽後無條件的招呼——贏、輸、平手都說。這句英文會跟孩子一輩子。"},
+    ]
+    return render_bilingual_topic(
+        page_title="School Teams & Clubs", current_path="/resources/",
+        h1_en="School Teams & Clubs", h1_zh="校隊與社團 · 興趣即詞彙",
+        hero_en="After-school clubs are where students develop deeper English vocabulary tied to their passions — not the textbook list, but words they actually want to know. Basketball, choir, robotics, eco-club: each becomes a vocabulary universe.",
+        hero_zh="課後社團是學生發展深層英文詞彙的地方——不是課本上的單字，而是學生「真心想知道」的詞。籃球、合唱、機器人、生態社團，每一個都是一座詞彙宇宙。",
+        moe_en="Implements the 2030 bilingual policy's guideline on \"Bilingual extracurricular activities\" — clubs are the most natural place for sustained authentic English use.",
+        moe_zh="實踐 2030 雙語政策「雙語課外活動」要點——社團是最自然的、能長期使用真實英文的場域。",
+        core_principle="社團不是「多教一點英文」，是「英文就在你已經愛的事情裡」。Clubs aren't a place to add more English — English is just already there, in what students already love.",
+        sections_h2_en="Five club-life moments, ready for English", sections_h2_zh="社團生活的五個雙語時刻",
+        sections_intro_en="The five moments below cover the typical year of any club — joining, practicing, creating, serving, competing. Pull the section that matches your club type; don't try to apply all five everywhere.",
+        sections_intro_zh="以下五個時刻涵蓋任何社團的典型年度——入社、練習、創作、服務、比賽。挑符合你社團類型的段落用，不必五段全套照搬。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Club English glossary — 3–5 words per week, taught in opening minutes", "社團英文詞彙表——每週 3-5 字，社團開始時教"),
+            ("Mid-year showcase with bilingual MC", "期中成果發表，雙語主持"),
+            ("\"English Club Moment\" — at least one session/month run entirely in English", "「英文社團日」——每月至少一次社團全程英文"),
+            ("Bilingual coaching cards for the coach (cheat-sheet style)", "教練雙語小抄（cheat sheet 樣式）"),
+            ("End-of-year reflection (bilingual, what we learned)", "年末雙語反思：今年學到的"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Many WotD videos feature sport, art, and ecology vocabulary — perfect for club opening minutes.", "meta": "Vocabulary source"},
+            {"href": "/festivals/", "title": "Festival English Series", "desc": "Festival vocabulary often crosses with club projects (art club for Lantern Festival, service club for Mid-Autumn).", "meta": "Theme overlap"},
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Use morning assembly to announce upcoming tournaments and showcase club results.", "meta": "Awareness driver"},
+        ],
+    )
+
+
+# ----- Summer Fun Program · 暑期樂活營 ---------------------------------------
+def build_summer_fun_program():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Daily Camp Schedule · 每日營隊作息", "zh": "從上午到下午的雙語節奏",
+         "duration": "Per camp day · 8:30am–3:30pm",
+         "what_en": "A consistent daily schedule is half the camp. Morning briefing in English, four rotating activity blocks, lunch, two more blocks, closing circle. Repeat for 5 days.",
+         "what_zh": "穩定的每日作息就是營隊的一半。早晨英文集合 → 4 個輪替活動 → 午餐 → 2 個活動 → 結業圈圈。5 天循環。",
+         "script": [
+             ("Camp leader (morning): ", "Good morning, campers! Today is Day Three. Let's check the schedule on the board."),
+             ("Camp leader: ", "Group A — you start at the science station. Group B — start at sports. Switch in 45 minutes."),
+             ("Camp leader (afternoon closing): ", "Everyone sit in a circle. What was your favorite moment today? Share one word."),
+             ("Camper: ", "Splash! (from water games this morning)"),
+         ],
+         "vocab": [("schedule", "作息"), ("rotation", "輪換"), ("group", "組別"), ("camper", "營員"), ("closing circle", "結業圈圈")],
+         "tips_en": "Use 'Day One,' 'Day Two,' 'Day Three' rather than dates — feels more like camp and easier for English. By Day Five, students will count down on their own.",
+         "tips_zh": "用 Day One / Day Two 而非日期——更有營隊感、英文也好理解。第五天時學生會自己倒數。"},
+        {"n": 2, "color": "green",
+         "en": "Activity Buckets · 活動分類", "zh": "四種主題，輪流上場",
+         "duration": "Per block · 45 minutes",
+         "what_en": "Four activity buckets cover camp without exhausting any teacher: SPORTS (outdoor games), CRAFTS (art and making), SCIENCE (simple experiments), DRAMA (skits and storytelling). Each bucket has 5 prepped activities — one per day.",
+         "what_zh": "四種活動分類就足以涵蓋一整週、不操爆任何老師：運動（戶外遊戲）、手作（藝術與動手做）、科學（簡單實驗）、戲劇（短劇與說故事）。每類預備 5 個活動——每日一個。",
+         "script": [
+             ("Sports station leader: ", "Today's game is 'Capture the Flag.' Two teams. The blue team's flag is over there. Ready?"),
+             ("Crafts station leader: ", "Today we are making paper boats. Take one piece of paper. Watch — fold, fold, fold."),
+             ("Science station leader: ", "What happens when we mix baking soda and vinegar? Let's see! Pour it in — wow!"),
+             ("Drama station leader: ", "Today's story is 'The Tortoise and the Hare.' Who wants to be the tortoise? The hare?"),
+         ],
+         "vocab": [("station", "站別"), ("rotation", "輪換"), ("supplies", "物料"), ("experiment", "實驗"), ("skit", "短劇")],
+         "tips_en": "Stagger the four stations so no two are loud at the same time. Sports outside, drama in the gym, crafts in the cafeteria, science in a classroom — geography prevents overlap.",
+         "tips_zh": "四站錯開避免吵：運動在戶外、戲劇在禮堂、手作在餐廳、科學在教室——靠空間區隔解決音量衝突。"},
+        {"n": 3, "color": "orange",
+         "en": "English-Integrated Games · 英文遊戲", "zh": "玩中學的設計",
+         "duration": "Per game · 15–30 minutes",
+         "what_en": "Three classics that work at any skill level — Bingo (with vocabulary cards instead of numbers), Scavenger Hunt (English clues hidden around the school), Charades (act out the word the FET shows you).",
+         "what_zh": "三個經典遊戲，任何程度都能玩——賓果（用詞彙卡而非數字）、尋寶（藏英文線索在校園各處）、比手畫腳（外師給字，學生比劃，全組猜）。",
+         "script": [
+             ("Bingo caller: ", "Next word — 'rainbow.' If you have 'rainbow' on your card, mark it!"),
+             ("Scavenger hunt leader: ", "Clue number three: 'I am red, round, and grow on a tree. The teacher eats me at lunch.' Where do we go?"),
+             ("Charades player (acting): ", "[swimming motion]"),
+             ("Team: ", "Swim! Swimming! Pool!"),
+         ],
+         "vocab": [("turn", "輪到"), ("score", "得分"), ("winner", "贏家"), ("again", "再一次"), ("guess", "猜")],
+         "tips_en": "Charades is the highest-leverage English game in camp — total physical commitment unlocks vocabulary even shy kids will shout. Mix in 2-3 rounds every day.",
+         "tips_zh": "比手畫腳是營隊裡英文槓桿最大的遊戲——全身投入會逼出連害羞孩子都不自覺喊出來的詞彙。每天混 2-3 輪。"},
+        {"n": 4, "color": "purple",
+         "en": "Closing Showcase · 成果發表", "zh": "最後一天的舞台",
+         "duration": "Friday afternoon · 60 minutes",
+         "what_en": "On Day 5, each group performs a 3-minute skit they wrote together. Parents are invited. The skit doesn't need to be polished — bumbling through it together is the achievement.",
+         "what_zh": "第五天，每組演一齣 3 分鐘自編短劇，邀家長到場觀賞。短劇不必精緻——能一起跌跌撞撞演完，就是成就。",
+         "script": [
+             ("MC (camper): ", "Welcome to our Camp Showcase! First up, the Lion Group will perform 'A Day at the Beach.'"),
+             ("Group performer: ", "It's a sunny day. Let's go to the beach!"),
+             ("Group performer 2: ", "I forgot my swimsuit! Oh no!"),
+             ("MC: ", "Let's give them a big hand. Next up — the Tiger Group with 'The Lost Dog.'"),
+         ],
+         "vocab": [("perform", "演出"), ("audience", "觀眾"), ("applause", "掌聲"), ("MC", "主持人"), ("thank you", "謝謝")],
+         "tips_en": "Record every group's performance and share the videos with parents via QR code. The video becomes the family memento — and shows up at the kid's wedding twenty years later.",
+         "tips_zh": "每組演出都錄影，用 QR Code 分享給家長。這支影片會變成家族紀念品——二十年後孩子的婚禮上會被重播。"},
+        {"n": 5, "color": "blue",
+         "en": "Parent Reception · 家長迎接", "zh": "結業時的家長英文",
+         "duration": "Friday · 30 minutes",
+         "what_en": "After the showcase, a 30-minute parent reception. Each camper introduces their parents to one teacher in English ('This is my mom. This is Teacher Sarah.'). A 2-sentence ceremony bridges school and home.",
+         "what_zh": "成果發表後，30 分鐘的家長交流。每位營員用英文把家長介紹給一位老師：「這是我媽媽。這是 Sarah 老師。」兩句話的儀式，連結學校與家庭。",
+         "script": [
+             ("Camper: ", "Mom, this is Teacher Sarah. She teaches our drama class."),
+             ("Parent: ", "Hello. Thank you for taking care of my child this week."),
+             ("Teacher: ", "It was my pleasure. Your son is very brave on stage."),
+             ("Camper (closing): ", "We made paper boats today. Can I show you?"),
+         ],
+         "vocab": [("introduce", "介紹"), ("parent", "家長"), ("certificate", "證書"), ("congratulations", "恭喜"), ("family", "家庭")],
+         "tips_en": "Give parents a printed bilingual 'phrases for tonight' card when they arrive — five short English sentences they can use with the FET. Adult anxiety drops; parent-teacher relationship deepens.",
+         "tips_zh": "家長到場時發一張雙語「今晚可以說的話」卡——五句可以對外師說的短英文。大人焦慮感降低，親師關係加深。"},
+    ]
+    return render_bilingual_topic(
+        page_title="Summer Fun Program", current_path="/resources/",
+        h1_en="Summer Fun Program", h1_zh="暑期樂活營 · 一週密集雙語",
+        hero_en="When the school year ends, English doesn't have to. A one-week summer camp built around games, crafts, and sports — all in light English — gives students 25 hours of bilingual time per year. Better still: students sign up voluntarily.",
+        hero_zh="學年結束，英文不必跟著放假。一週暑期營以遊戲、手作、運動為主軸，全程以輕鬆英文進行，能為學生每年多累積 25 小時的雙語時間。重點是：學生自願報名。",
+        moe_en="Aligns with Ministry of Education's \"夏日樂學\" summer enrichment program and 2030 bilingual policy's voluntary out-of-class learning opportunities.",
+        moe_zh="對齊教育部「夏日樂學」暑期增能計畫，並符合 2030 雙語政策「自願性課外英語接觸機會」精神。",
+        core_principle="暑假最稀缺的不是時間，是「孩子願意學英文的時間」。Summer's scarcest resource isn't hours — it's hours when kids choose to use English.",
+        sections_h2_en="Five days, five layers", sections_h2_zh="五天，五個層次",
+        sections_intro_en="The five sections below give you the full camp shape — daily schedule, activity buckets, English-rich games, the closing performance, and the parent reception. Print, adapt, run.",
+        sections_intro_zh="以下五段給你完整營隊架構——每日作息、活動分類、英文密集遊戲、成果發表、家長交流。印出來、改寫、執行。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("5-day curriculum mapped to your grade band", "符合該年段的 5 日課程表"),
+            ("FET + local teacher pair per group (never solo FET)", "每組外師＋本地老師搭檔（不單獨外師）"),
+            ("Camp T-shirts (identity matters — kids wear them for years)", "營隊 T 恤（孩子的歸屬感，會穿好幾年）"),
+            ("Daily attendance + photo release on file", "每日出席表＋肖像授權書存檔"),
+            ("Parent reception schedule communicated week before", "家長交流時程提前一週通知"),
+            ("Post-camp 5-minute parent survey", "結營後 5 分鐘家長問卷"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/resources/classroom-english/", "title": "Classroom English", "desc": "Camp leaders use the same 10 classroom situations daily — refresh them before camp starts.", "meta": "Leader prep"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Use 5 WotD videos as 'Word of the Day' moments at camp opening each morning.", "meta": "Daily opener"},
+            {"href": "/festivals/", "title": "Festival English Series", "desc": "If camp coincides with a festival week, pull the matching festival unit as a Day-3 theme.", "meta": "Theme integration"},
+        ],
+    )
+
+
+# ----- One Minute English · 一分鐘英文 ---------------------------------------
+def build_one_minute_english():
+    sections = [
+        {"n": 1, "color": "blue",
+         "en": "Daily Clip Structure · 每日短片結構", "zh": "60 秒怎麼分配",
+         "duration": "Per clip · 60 seconds",
+         "what_en": "A 60-second clip is exactly long enough to teach one word with two examples. Structure: 5s opening (word + Chinese) → 30s meaning and example → 25s repeat-after-me. Shorter feels rushed; longer loses attention.",
+         "what_zh": "60 秒剛好夠教一個字、兩個例句。結構：5 秒開場（單字＋中文）→ 30 秒意思與例句 → 25 秒跟讀。再短會匆促，再長會分心。",
+         "script": [
+             ("Narrator: ", "Today's word — 'curious.' 好奇的."),
+             ("Narrator: ", "Curious means 'wanting to know more about something.' For example: 'The cat is curious about the box.'"),
+             ("Narrator: ", "Another example: 'I am curious about your weekend. Tell me!'"),
+             ("Narrator: ", "Now you say it — 'curious.' One more time — 'curious.' Great. See you tomorrow!"),
+         ],
+         "vocab": [("introduce", "介紹"), ("example", "例句"), ("repeat after me", "跟著我說"), ("see you tomorrow", "明天見"), ("curious", "好奇的")],
+         "tips_en": "End every clip with the same sign-off — 'See you tomorrow!' Repetition of the closing turns it into a daily ritual; students start chanting along with the speaker by Week 2.",
+         "tips_zh": "每支短片用同一句結尾——「明天見！」重複的結尾變成日常儀式，第二週開始學生就會自動跟著喊。"},
+        {"n": 2, "color": "green",
+         "en": "Sourcing Clips · 影片來源", "zh": "現成可用的庫",
+         "duration": "Sourcing once · use all year",
+         "what_en": "Three reliable sources: (1) The Hub's Word of the Day library — 2,900+ ready clips with Changhua schools' credits. (2) BBC Learning English daily clips. (3) Sesame Street YouTube channel for younger grades.",
+         "what_zh": "三個可靠的影片來源：(1) Hub 的校園百科 — 2,900+ 支現成影片，附上彰化各校 credits。(2) BBC Learning English 每日短片。(3) Sesame Street YouTube 頻道（適合低年級）。",
+         "script": [
+             ("Teacher (to class): ", "Today's clip is from our own Hub. Watch — this is from Changhua Elementary."),
+             ("Clip: ", "[plays Word of the Day video]"),
+             ("Teacher: ", "Did you notice the school name at the end? That's from Changhua's Hub library."),
+             ("Student: ", "Teacher, can our class make one next month?"),
+             ("Teacher: ", "Yes — and it will live in the Hub forever. Let's pick our word this Friday."),
+         ],
+         "vocab": [("source", "來源"), ("channel", "頻道"), ("subscribe", "訂閱"), ("playlist", "播放清單"), ("credit", "署名")],
+         "tips_en": "Always prefer Hub clips when available — students light up seeing a Taiwan-made clip with a Changhua school's name. Generic BBC clips work; Hub clips are personal.",
+         "tips_zh": "優先用 Hub 的影片——學生看到台灣自製、彰化學校署名的影片，眼睛會發亮。BBC 也可以用，但 Hub 才是「自己的」。"},
+        {"n": 3, "color": "orange",
+         "en": "Classroom Routine · 教室常規", "zh": "讓播放變成儀式",
+         "duration": "Per session · 90 seconds",
+         "what_en": "Same time, same place, same opening signal. Most schools play it after the bell, before homeroom announcements. The teacher waits at the front, says 'Eyes on the screen' once, and the room quiets within 5 seconds.",
+         "what_zh": "同樣時間、同樣地點、同樣開場訊號。多數學校在鐘響後、早自修宣布事項前播放。老師站在前面，說一次「Eyes on the screen」，全班 5 秒內安靜。",
+         "script": [
+             ("Teacher (bell rings): ", "Good morning. Bags on the floor. Eyes on the screen."),
+             ("Clip plays for 60 seconds: ", "[plays]"),
+             ("Teacher: ", "Today's word — 'curious.' Everyone, together — 'curious.'"),
+             ("Class: ", "Curious!"),
+         ],
+         "vocab": [("ready", "準備好"), ("repeat", "重複"), ("again", "再一次"), ("listen", "聆聽"), ("together", "一起")],
+         "tips_en": "Resist the urge to discuss the word. The clip is for exposure, not comprehension testing. If a student is curious, they'll ask later in the corridor — that's the right time, not in the classroom.",
+         "tips_zh": "別忍不住要討論。短片是用來「接觸」，不是「測驗」。學生若好奇，他會在走廊問你——那才是對的時機，不是在教室裡。"},
+        {"n": 4, "color": "purple",
+         "en": "Student-Made Clips · 學生自製短片", "zh": "六年級為低年級拍",
+         "duration": "Production · 4 hours per clip",
+         "what_en": "Once a month, Grade 6 students produce one One-Minute clip themselves — picked word, written script, recorded with a phone, edited with free software. Younger grades love watching older students teach them.",
+         "what_zh": "每月一次，六年級學生自己製作一支一分鐘短片——選字、寫腳本、用手機錄、用免費軟體剪輯。低年級看高年級教自己，會特別投入。",
+         "script": [
+             ("Production team meeting (Grade 6): ", "Our word this month is 'patient.' That's 耐心的."),
+             ("Team: ", "Who wants to be the speaker? Pinghao? Okay. Let's write the script."),
+             ("Speaker (on camera): ", "Hi, Grade 1 friends! Today's word is 'patient.' My grandmother is very patient with me when I learn to cook."),
+             ("Editor: ", "Add the captions and the school logo at the end. Done — let's send it to Miss Wang."),
+         ],
+         "vocab": [("record", "錄影"), ("edit", "剪輯"), ("audience", "觀眾"), ("narrate", "旁白"), ("upload", "上傳")],
+         "tips_en": "Make the Grade 6 production a yearly tradition. By the time these students leave, they have a portfolio of 5–6 clips — a real video resume to take to junior high. Some win county prizes.",
+         "tips_zh": "六年級拍短片做成年度傳統。學生畢業時各自累積 5–6 支作品——是一份真正的「影片履歷」帶到國中。有的還能得縣級獎項。"},
+    ]
+    return render_bilingual_topic(
+        page_title="One Minute English", current_path="/resources/",
+        h1_en="One Minute English", h1_zh="一分鐘英文 · 每日 60 秒影音英文",
+        hero_en="A 60-second English clip every school day. Watched at the start of homeroom, before lunch, or in any spare minute. Over a school year, that's 60+ hours of casual English — and the shadowing builds pronunciation no class can give.",
+        hero_zh="每個上學日 60 秒的英文短片。在早自修開始、午餐前、或任何空檔播放。一學年累積超過 60 小時輕量英文——而 shadowing 跟讀建立的口音感，是任何一堂課都給不了的。",
+        moe_en="Implements the 2030 policy's \"Daily exposure to English\" principle — high-frequency, low-friction touchpoints that accumulate into significant exposure over a year.",
+        moe_zh="實踐 2030 雙語政策「每日英語接觸」原則——高頻率、低門檻的小接觸，一年下來累積成可觀的曝光時數。",
+        core_principle="一天一分鐘，比一週一小時更有效。One minute a day beats one hour a week.",
+        sections_h2_en="Four components of a working daily clip", sections_h2_zh="一支能用的每日短片，四個元件",
+        sections_intro_en="The four sections below assemble into a sustainable daily-clip routine — clip structure, sourcing, classroom routine, and a monthly student-production loop. The first three are mandatory; the fourth is the icing.",
+        sections_intro_zh="以下四個元件組裝成可持續的每日短片常規——影片結構、影片來源、教室常規、學生月度自製。前三項必備，第四項是錦上添花。",
+        sections=sections,
+        checklist_h2_en="Implementation checklist", checklist_h2_zh="實施檢核表",
+        checklist_items=[
+            ("Daily playlist scheduled in advance (one week at a time)", "每日播放清單預排（一次排一週）"),
+            ("Speaker / screen ready before bell rings", "鐘響前播放器與螢幕都備妥"),
+            ("Shadow protocol consistent (\"Now you say it — together\")", "跟讀流程一致（「現在你說 — 一起」）"),
+            ("Weekly review — which clip stuck?", "每週回顧——哪支最印象深刻？"),
+            ("Student-made archive folder (saved for years)", "學生自製作品的歸檔資料夾（保留多年）"),
+        ],
+        companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
+        companion_cards=[
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "The Hub's 2,900+ clip library is the primary source for daily One Minute English. Start here.", "meta": "Primary source"},
+            {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Morning assembly's Word of the Day Spotlight uses the same clip library — pair the routines.", "meta": "Same source"},
+            {"href": "/resources/bilingual-campus/school-news/", "title": "School News", "desc": "Student-made One Minute clips can become a regular segment on School News.", "meta": "Distribution channel"},
+        ],
+    )
 
 
 def build_about_changhua():
@@ -1941,13 +2990,19 @@ def main():
         quiz_html = build_sdg_quiz(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum)
         if quiz_html:
             write(f"resources/sdgs/{n:02d}-{slug}/quiz/index.html", quiz_html)
-    # Bilingual Campus pages — Classroom English / Announcements / Morning Assembly have full content; rest are stubs
+    # Bilingual Campus pages — all 13 have full content
     write("resources/bilingual-campus/announcements/index.html", build_announcements())
     write("resources/bilingual-campus/morning-assembly/index.html", build_morning_assembly())
-    for slug, en, zh, brief in BILINGUAL_CAMPUS:
-        if slug in ("classroom-english", "announcements", "morning-assembly"):
-            continue
-        write(f"resources/bilingual-campus/{slug}/index.html", build_bilingual_campus_stub(slug, en, zh, brief))
+    write("resources/bilingual-campus/school-tours/index.html", build_school_tours())
+    write("resources/bilingual-campus/english-self-intro/index.html", build_english_self_intro())
+    write("resources/bilingual-campus/english-reading-corner/index.html", build_english_reading_corner())
+    write("resources/bilingual-campus/amazing-changhua/index.html", build_amazing_changhua())
+    write("resources/bilingual-campus/school-news/index.html", build_school_news())
+    write("resources/bilingual-campus/intl-sister-school/index.html", build_intl_sister_school())
+    write("resources/bilingual-campus/english-practice-corner/index.html", build_english_practice_corner())
+    write("resources/bilingual-campus/school-teams-clubs/index.html", build_school_teams_clubs())
+    write("resources/bilingual-campus/summer-fun-program/index.html", build_summer_fun_program())
+    write("resources/bilingual-campus/one-minute-english/index.html", build_one_minute_english())
     print("Done.")
 
 
