@@ -264,7 +264,7 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 /* ----- Curve Hero (MCC-style: asymmetric color block + SVG curve) ----- */
 .hub-curve-hero {
   position: relative;
-  background: #fff;
+  background: var(--ch-tint, #faf6f2);
   border-bottom: 1px solid var(--hub-line);
   overflow: hidden;
   min-height: 440px;
@@ -335,7 +335,30 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   z-index: 1;
   padding: 8px 0 8px 4px;
 }
+.hub-curve-hero-side::before {
+  content: "";
+  position: absolute;
+  top: -40px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: var(--ch-accent);
+  opacity: .07;
+  pointer-events: none;
+  z-index: -1;
+}
+.hub-curve-hero-side::after {
+  content: "";
+  position: absolute;
+  bottom: 12px; left: -52px;
+  width: 96px; height: 96px;
+  border: 2px solid var(--ch-accent);
+  border-radius: 50%;
+  opacity: .22;
+  pointer-events: none;
+  z-index: -1;
+}
 .hub-curve-hero-pull {
+  position: relative;
   font-family: var(--hub-serif);
   font-style: italic;
   font-weight: 500;
@@ -344,6 +367,17 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   color: var(--ch-accent-deep, #8a3f17);
   margin: 0 0 16px;
   letter-spacing: -.005em;
+}
+.hub-curve-hero-pull::before {
+  content: "\201C";
+  font-family: var(--hub-serif);
+  font-style: normal;
+  font-size: 4.5rem;
+  line-height: 0;
+  color: var(--ch-accent);
+  opacity: .3;
+  margin-right: 6px;
+  vertical-align: -.32em;
 }
 .hub-curve-hero-pull-zh {
   font-family: var(--hub-zh-font);
@@ -363,18 +397,22 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 .hub-curve-hero--fets {
   --ch-accent: #c66830;
   --ch-accent-deep: #8a3f17;
+  --ch-tint: #fbf3eb;
 }
 .hub-curve-hero--schools {
   --ch-accent: #1f6e6e;
   --ch-accent-deep: #0f4747;
+  --ch-tint: #ecf4f2;
 }
 .hub-curve-hero--resources {
   --ch-accent: #4a4e8a;
   --ch-accent-deep: #2f3266;
+  --ch-tint: #f0f0f9;
 }
 .hub-curve-hero--wotd {
   --ch-accent: #8b2c4f;
   --ch-accent-deep: #5a1a32;
+  --ch-tint: #faf0f3;
 }
 @media (max-width: 840px) {
   .hub-curve-hero { min-height: auto; }
