@@ -765,26 +765,51 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 
 /* ----- Footer ----- */
 .hub-footer {
-  margin-top: 96px; padding: 48px 24px;
-  background: #fafaf7; border-top: 1px solid var(--hub-line);
+  margin-top: 96px;
+  padding: 64px 24px 40px;
+  background: linear-gradient(180deg, #155454 0%, #0d3838 100%);
+  color: rgba(255,255,255,.86);
+  position: relative;
+}
+.hub-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c66830 0%, #1f6e6e 35%, #4a4e8a 70%, #8b2c4f 100%);
 }
 .hub-footer-inner {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
 }
 .hub-footer h4 {
-  font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
-  font-weight: 700; color: var(--hub-ink); margin: 0 0 12px;
+  font-size: .82rem; letter-spacing: .24em; text-transform: uppercase;
+  font-weight: 700; color: #ffd28a; margin: 0 0 18px;
 }
 .hub-footer p, .hub-footer a {
-  font-size: .9rem; color: var(--hub-ink-soft); margin: 4px 0;
+  font-size: .96rem; color: rgba(255,255,255,.85); margin: 6px 0;
+  line-height: 1.6;
 }
-.hub-footer a { display: block; }
+.hub-footer a {
+  display: block;
+  text-decoration: none;
+  transition: color .15s;
+}
+.hub-footer a:hover {
+  color: #ffd28a;
+  text-decoration: none;
+}
 .hub-footer-credit {
-  margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--hub-line);
+  margin-top: 44px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.14);
   max-width: 1200px; margin-left: auto; margin-right: auto;
-  font-size: .78rem; color: var(--hub-ink-faint); text-align: center;
+  font-size: .82rem; color: rgba(255,255,255,.55); text-align: center;
 }
+.hub-footer-credit a {
+  display: inline;
+  color: rgba(255,255,255,.72);
+}
+.hub-footer-credit a:hover { color: #ffd28a; }
 
 /* ----- Home: Discover Changhua block ----- */
 .home-changhua {
