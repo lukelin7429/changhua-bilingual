@@ -321,7 +321,8 @@ def build_schools(townships_data, schools_data):
             # Photo: /assets/images/schools/<slug>.jpg if it exists, else fallback to Chinese char tile
             photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
             if photo_path.exists():
-                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg" alt="{s["name"]}" loading="lazy">'
+                mtime = int(photo_path.stat().st_mtime)
+                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg?v={mtime}" alt="{s["name"]}" loading="lazy">'
             else:
                 zh = s.get("zh","") or s["name"]
                 # show first 2 chars
@@ -2392,7 +2393,8 @@ def build_study_tour_centers(schools_data):
             link_html_close = "</a>"
             photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
             if photo_path.exists():
-                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg" alt="{en}" loading="lazy">'
+                mtime = int(photo_path.stat().st_mtime)
+                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg?v={mtime}" alt="{en}" loading="lazy">'
         if not photo_html:
             initials = zh[:2] if zh else en[:2]
             photo_html = f'<div class="photo-fallback" aria-hidden="true">{initials}</div>'
