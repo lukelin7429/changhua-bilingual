@@ -70,7 +70,8 @@ def footer_html():
     <div>
       <h4>Producing Units</h4>
       <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>彰化縣國際教育暨英語教育資源中心</a>
-      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect (MCC)<br>彰化縣人師教育協會</a>
+      <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會（中文）<br>twrses.org</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect (English)<br>mycultureconnect.org</a>
     </div>
     <div>
       <h4>Contact</h4>
@@ -249,11 +250,21 @@ def build_home(townships_data, schools_data, wotd_items):
       <p>彰化縣國際教育暨英語教育資源中心 — produces shared resources, runs the SIEP testing program, co-publishes this Hub.</p>
       <div class="hub-card-meta">Resource center</div>
     </a>
-    <a class="hub-card" href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">
-      <h3>人師教育協會 MCC</h3>
+    <div class="hub-card">
+      <h3>人師教育協會 · My Culture Connect</h3>
       <p>Non-profit founded 2002. Recruits and places foreign English teachers; has connected 4,000+ teachers to Changhua classrooms.</p>
-      <div class="hub-card-meta">Since 2002 · 4,000+ teachers</div>
-    </a>
+      <div class="hub-card-meta" style="margin-top:12px">Since 2002 · 4,000+ teachers</div>
+      <div class="partner-links">
+        <a href="https://www.twrses.org/" target="_blank" rel="noopener" class="partner-link">
+          <span class="partner-link__label">中文站</span>
+          <span class="partner-link__url">twrses.org →</span>
+        </a>
+        <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" class="partner-link">
+          <span class="partner-link__label">English site</span>
+          <span class="partner-link__url">mycultureconnect.org →</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 """.strip()
@@ -672,17 +683,27 @@ def build_resources():
     <a class="hub-card" href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">
       <h3>CIEETRC</h3>
       <p>彰化縣國際教育暨英語教育資源中心 — Changhua's International &amp; English Education Resource Center.</p>
-      <div class="hub-card-meta">Official site</div>
+      <div class="hub-card-meta">Official site →</div>
     </a>
-    <a class="hub-card" href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">
-      <h3>My Culture Connect</h3>
-      <p>人師教育協會 — Non-profit that has placed 4,000+ foreign English teachers since 2002.</p>
-      <div class="hub-card-meta">MCC · since 2002</div>
-    </a>
+    <div class="hub-card">
+      <h3>人師教育協會 · My Culture Connect</h3>
+      <p>Non-profit that has placed 4,000+ foreign English teachers since 2002. Two sites for two audiences.</p>
+      <div class="hub-card-meta" style="margin-top:12px">MCC · since 2002</div>
+      <div class="partner-links">
+        <a href="https://www.twrses.org/" target="_blank" rel="noopener" class="partner-link">
+          <span class="partner-link__label">中文站</span>
+          <span class="partner-link__url">twrses.org →</span>
+        </a>
+        <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" class="partner-link">
+          <span class="partner-link__label">English site</span>
+          <span class="partner-link__url">mycultureconnect.org →</span>
+        </a>
+      </div>
+    </div>
     <a class="hub-card" href="https://education.chcg.gov.tw/" target="_blank" rel="noopener">
       <h3>彰化縣政府教育處</h3>
       <p>Department of Education, Changhua County Government — policy, supervision, and bilingual program funding.</p>
-      <div class="hub-card-meta">Government</div>
+      <div class="hub-card-meta">Government →</div>
     </a>
   </div>
 </section>

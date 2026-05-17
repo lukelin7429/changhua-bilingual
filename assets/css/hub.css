@@ -245,6 +245,39 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 .hub-feature-grid .hub-card:nth-child(5n+2) .hub-card-meta { color: var(--c-green-deep); }
 .hub-feature-grid .hub-card:nth-child(5n+3) .hub-card-meta { color: var(--c-orange-deep); }
 .hub-feature-grid .hub-card:nth-child(5n+4) .hub-card-meta { color: var(--c-purple-deep); }
+
+/* Dual-link cards (e.g. MCC: 中文站 + English site) */
+.partner-links {
+  display: flex; flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  border-top: 1px solid var(--hub-line);
+  padding-top: 16px;
+}
+.partner-link {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px;
+  background: var(--hub-line-soft);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s, transform .12s;
+}
+.partner-link:hover {
+  background: var(--c-blue-soft);
+  text-decoration: none;
+  transform: translateX(2px);
+}
+.partner-link__label {
+  font-weight: 600; font-size: .92rem;
+  color: var(--hub-ink);
+  font-family: var(--hub-zh-font), var(--hub-en-font);
+}
+.partner-link__url {
+  font-size: .82rem;
+  color: var(--c-blue-deep);
+  font-weight: 500;
+  letter-spacing: .01em;
+}
 .hub-card { position: relative; }
 .hub-card--featured {
   background: linear-gradient(180deg, #fff 0%, #f6fbfa 100%);
