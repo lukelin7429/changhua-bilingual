@@ -586,7 +586,7 @@ def build_wotd():
 
     letters = sorted(letter_counts.keys())
     az_chips = ''.join(
-        f'<button class="wotd-az-chip" data-letter="{L}">{L}<span class="ct">{letter_counts[L]}</span></button>'
+        f'<button class="wotd-az-chip" data-letter="{L}" title="{letter_counts[L]} words starting with {L}">{L}</button>'
         for L in letters
     )
 

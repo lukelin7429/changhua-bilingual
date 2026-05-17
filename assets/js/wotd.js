@@ -225,17 +225,23 @@
   if (schoolSel) schoolSel.addEventListener('change', applyFilterSafe);
   if (moreBtn) moreBtn.addEventListener('click', renderMore);
 
+  // Theme and letter filters are mutually exclusive — clicking one clears the other,
+  // so the count shown on the clicked chip always equals what the user is about to see.
   document.querySelectorAll('.wotd-theme-chip').forEach(function (btn) {
     btn.addEventListener('click', function () {
       activeTheme = btn.getAttribute('data-theme') || '';
+      activeLetter = '';
       setActive('.wotd-theme-chip', activeTheme);
+      setActive('.wotd-az-chip', activeLetter);
       applyFilterSafe();
     });
   });
   document.querySelectorAll('.wotd-az-chip').forEach(function (btn) {
     btn.addEventListener('click', function () {
       activeLetter = btn.getAttribute('data-letter') || '';
+      activeTheme = '';
       setActive('.wotd-az-chip', activeLetter);
+      setActive('.wotd-theme-chip', activeTheme);
       applyFilterSafe();
     });
   });
