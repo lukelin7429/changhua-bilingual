@@ -412,8 +412,24 @@ def build_fets(fets_data, schools_data):
 
     elem_jh = [card(f) for f in fets if f.get("segment") in ("elementary", "junior-high")]
     senior = [card(f) for f in fets if f.get("segment") == "senior-high"]
+    past = [card(f) for f in fets if f.get("segment") == "past"]
     total = len(fets)
     total_r = f"{round_down(total, 10)}+"
+
+    past_section = ""
+    if past:
+        past_section = f"""
+  <h2 class="hub-h2" style="margin-top:72px">Past FETs <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">離職的外師</span></h2>
+  <p style="color:var(--hub-ink-soft);max-width:60ch;margin-top:-8px">
+    With gratitude to the teachers whose service in Changhua has concluded.
+  </p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
+    感謝以下曾在彰化任教、現已結束服務的外籍英語教師。
+  </p>
+  <div class="fet-grid" style="margin-top:24px">
+    {''.join(past)}
+  </div>
+"""
 
     content = f"""
 <section class="hub-section">
@@ -435,6 +451,7 @@ def build_fets(fets_data, schools_data):
   <div class="fet-grid" style="margin-top:24px">
     {''.join(senior)}
   </div>
+{past_section}
 </section>
 """.strip()
     return page_shell("FETs", content, "/fets/")
