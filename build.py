@@ -374,6 +374,28 @@ def build_schools(townships_data, schools_data):
     return page_shell("Schools", content, "/schools/")
 
 
+def editorial_hero(variant, eyebrow, title_html, lede_en, lede_zh, pull_en, pull_zh, attr):
+    """Editorial-magazine style hero: serif headline left, pull-quote right.
+    variant is one of: schools, fets, resources (drives the accent color)."""
+    return f"""
+<section class="hub-editorial-hero hub-editorial-hero--{variant}">
+  <div class="hub-editorial-hero-inner">
+    <div class="hub-editorial-hero-left">
+      <p class="hub-eyebrow">{eyebrow}</p>
+      <h1 class="hub-editorial-hero-title">{title_html}</h1>
+      <p class="hub-editorial-hero-lede">{lede_en}</p>
+      <p class="hub-editorial-hero-lede-zh">{lede_zh}</p>
+    </div>
+    <aside class="hub-editorial-hero-right">
+      <p class="hub-editorial-hero-pull">{pull_en}</p>
+      <p class="hub-editorial-hero-pull-zh">{pull_zh}</p>
+      <p class="hub-editorial-hero-attr">{attr}</p>
+    </aside>
+  </div>
+</section>
+""".strip()
+
+
 def build_fets(fets_data, schools_data):
     fets = fets_data["fets"]
 
@@ -431,18 +453,22 @@ def build_fets(fets_data, schools_data):
   </div>
 """
 
-    content = f"""
-<section class="hub-section">
-  <p class="hub-eyebrow">Foreign English Teachers</p>
-  <h1 class="hub-h1">Meet our FETs</h1>
-  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:60ch">
-    {total_r} Foreign English Teachers placed across Changhua schools — bringing classrooms a global voice.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    服務於彰化縣 {total_r} 位外籍英語教師——把世界帶進教室。
-  </p>
+    hero = editorial_hero(
+        variant="fets",
+        eyebrow="Foreign English Teachers",
+        title_html="Meet our<br>FETs.",
+        lede_en=f"{total_r} teachers placed across Changhua schools — bringing a global voice to every classroom.",
+        lede_zh=f"{total_r} 位外籍英語教師，分布彰化校園——把世界帶進每一間教室。",
+        pull_en="A global voice<br>in every classroom.",
+        pull_zh="教室裡的世界。",
+        attr="Changhua Bilingual Hub",
+    )
 
-  <h2 class="hub-h2" style="margin-top:56px">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
+    content = f"""
+{hero}
+
+<section class="hub-section">
+  <h2 class="hub-h2">Elementary &amp; Junior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">國中小</span></h2>
   <div class="fet-grid" style="margin-top:24px">
     {''.join(elem_jh)}
   </div>

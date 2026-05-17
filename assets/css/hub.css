@@ -40,8 +40,8 @@ body {
   font-family: var(--hub-en-font), var(--hub-zh-font);
   color: var(--hub-ink);
   background: var(--hub-bg);
-  line-height: 1.6;
-  font-size: 16px;
+  line-height: 1.65;
+  font-size: 17px;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--hub-primary); text-decoration: none; }
@@ -105,19 +105,19 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   color: var(--hub-ink); letter-spacing: -.01em;
   margin: 0 0 16px;
 }
-.hub-h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
-.hub-h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.2; }
+.hub-h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1; }
+.hub-h2 { font-size: clamp(1.65rem, 2.7vw, 2.2rem); line-height: 1.2; }
 .hub-eyebrow {
-  text-transform: uppercase; letter-spacing: .2em;
-  font-size: .72rem; font-weight: 600; color: var(--hub-accent);
-  margin: 0 0 12px;
+  text-transform: uppercase; letter-spacing: .22em;
+  font-size: .82rem; font-weight: 600; color: var(--hub-accent);
+  margin: 0 0 14px;
 }
 .hub-zh { font-family: var(--hub-zh-font); color: var(--hub-ink-soft); }
 
 /* ----- Hero ----- */
 .hub-hero-wrap {
-  background: linear-gradient(180deg, #fffcef 0%, #fbf7e8 100%);
-  border-bottom: 6px solid var(--c-orange);
+  background: linear-gradient(180deg, #fafbfb 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--hub-line);
   position: relative;
   overflow: hidden;
 }
@@ -125,14 +125,14 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   content: ""; position: absolute;
   top: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(31,110,110,.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(31,110,110,.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .hub-hero-wrap::after {
   content: ""; position: absolute;
   bottom: -150px; left: -150px;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(232,154,60,.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(31,110,110,.05) 0%, transparent 70%);
   pointer-events: none;
 }
 .hub-hero {
@@ -161,6 +161,111 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   border: 1px solid var(--hub-line);
 }
 .hub-btn--ghost:hover { background: var(--hub-line-soft); text-decoration: none; }
+
+/* ----- Editorial Hero (used on /schools, /fets, /resources) -----
+   Two-column layout: left holds eyebrow + serif headline + lede;
+   right holds a pull-quote separated by a vertical hairline. */
+.hub-editorial-hero {
+  background: #fff;
+  border-bottom: 1px solid var(--hub-line);
+  padding: 88px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hub-editorial-hero::before {
+  content: ""; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--eh-accent, var(--hub-primary));
+  opacity: .85;
+}
+.hub-editorial-hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.55fr 1fr;
+  gap: 80px; align-items: start;
+}
+.hub-editorial-hero .hub-eyebrow {
+  color: var(--eh-accent, var(--hub-primary));
+  margin-bottom: 18px;
+}
+.hub-editorial-hero-title {
+  font-family: var(--hub-serif);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -.022em;
+  color: var(--eh-ink, var(--hub-primary-deep));
+  margin: 0 0 28px;
+}
+.hub-editorial-hero-lede {
+  font-size: 1.18rem;
+  line-height: 1.55;
+  color: var(--hub-ink-soft);
+  max-width: 42ch;
+  margin: 0 0 10px;
+  text-wrap: pretty;
+}
+.hub-editorial-hero-lede-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--hub-ink-soft);
+  max-width: 36em;
+  margin: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.hub-editorial-hero-right {
+  border-left: 2px solid var(--eh-accent, var(--hub-primary));
+  padding: 14px 0 14px 36px;
+  margin-top: 28px;
+}
+.hub-editorial-hero-pull {
+  font-family: var(--hub-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 1.9vw, 1.7rem);
+  line-height: 1.35;
+  color: var(--hub-ink);
+  margin: 0 0 16px;
+  letter-spacing: -.005em;
+}
+.hub-editorial-hero-pull-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--hub-ink-soft);
+  margin: 0 0 18px;
+}
+.hub-editorial-hero-attr {
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--hub-ink-faint);
+  margin: 0;
+}
+/* Color variants — each page picks its own accent */
+.hub-editorial-hero--schools {
+  --eh-accent: #1f6e6e;
+  --eh-ink: #0f4747;
+}
+.hub-editorial-hero--fets {
+  --eh-accent: #c66830;
+  --eh-ink: #8a3f17;
+}
+.hub-editorial-hero--resources {
+  --eh-accent: #4a4e8a;
+  --eh-ink: #2f3266;
+}
+@media (max-width: 840px) {
+  .hub-editorial-hero { padding: 56px 22px 48px; }
+  .hub-editorial-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hub-editorial-hero-right {
+    border-left: none;
+    border-top: 2px solid var(--eh-accent, var(--hub-primary));
+    padding: 28px 0 0 0;
+    margin-top: 8px;
+  }
+}
 
 /* ----- Map ----- */
 .hub-map-wrap {
