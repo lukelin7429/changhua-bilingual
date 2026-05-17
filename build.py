@@ -380,6 +380,40 @@ def build_schools(townships_data, schools_data):
     return page_shell("Schools", content, "/schools/")
 
 
+def curve_hero(variant, eyebrow, title_html, lede_en, lede_zh, pull_en, pull_zh, attr):
+    """MCC-style hero: asymmetric color block on the left (~60% width) carved
+    out by an SVG curve; pull-quote sits in the white space on the right.
+    variant: schools | fets | resources | wotd."""
+    bg_svg = (
+        '<svg class="hub-curve-hero-bg" viewBox="0 0 1200 600" '
+        'preserveAspectRatio="none" aria-hidden="true">'
+        '<path d="M 0,0 L 760,0 C 720,140 800,290 720,420 '
+        'C 660,520 760,560 700,600 L 0,600 Z"/>'
+        '<path class="accent" d="M 760,0 C 720,140 800,290 720,420 '
+        'C 660,520 760,560 700,600 L 760,600 L 820,500 '
+        'C 760,380 840,260 800,140 L 820,0 Z"/>'
+        '</svg>'
+    )
+    return f"""
+<section class="hub-curve-hero hub-curve-hero--{variant}">
+  {bg_svg}
+  <div class="hub-curve-hero-inner">
+    <div class="hub-curve-hero-block">
+      <p class="hub-eyebrow">{eyebrow}</p>
+      <h1 class="hub-curve-hero-title">{title_html}</h1>
+      <p class="hub-curve-hero-lede">{lede_en}</p>
+      <p class="hub-curve-hero-lede-zh">{lede_zh}</p>
+    </div>
+    <aside class="hub-curve-hero-side">
+      <p class="hub-curve-hero-pull">{pull_en}</p>
+      <p class="hub-curve-hero-pull-zh">{pull_zh}</p>
+      <p class="hub-curve-hero-attr">{attr}</p>
+    </aside>
+  </div>
+</section>
+""".strip()
+
+
 def editorial_hero(variant, eyebrow, title_html, lede_en, lede_zh, pull_en, pull_zh, attr):
     """Editorial-magazine style hero: serif headline left, pull-quote right.
     variant is one of: schools, fets, resources (drives the accent color)."""
@@ -459,7 +493,7 @@ def build_fets(fets_data, schools_data):
   </div>
 """
 
-    hero = editorial_hero(
+    hero = curve_hero(
         variant="fets",
         eyebrow="Foreign English Teachers",
         title_html="Meet our<br>FETs.",
@@ -586,7 +620,7 @@ def load_wotd():
                 "s1z": r["sentence_1_zh"].strip(),
                 "s2": r["sentence_2"].strip(),
                 "s2z": r["sentence_2_zh"].strip(),
-                "sch": (r.get("school") or "").strip(),
+                "sch": canonical_school((r.get("school") or "").strip()),
                 "v": m.group(1),
                 "t": theme,
                 "l": letter,
@@ -603,6 +637,54 @@ def normalize_school(name):
     return n.strip() or name.strip()
 
 
+# Canonicalize school-name variants (extra spaces, typos, missing prefixes)
+# so the dropdown / counts treat one school as one school.
+SCHOOL_CANONICAL_MAP = {
+    # 多空格 / 空白
+    "彰化縣 溪州鄉溪州國小": "彰化縣溪州鄉溪州國小",
+    "彰化縣溪州鄉 溪州國小": "彰化縣溪州鄉溪州國小",
+    "彰化縣 芳苑鄉新寶國小": "彰化縣芳苑鄉新寶國小",
+    "彰化縣芳苑鄉 新寶國小": "彰化縣芳苑鄉新寶國小",
+    "彰化縣芳苑鄉新寶國小 彰化縣芳苑鄉新寶國小": "彰化縣芳苑鄉新寶國小",
+    "彰化縣員林市 饒明國小": "彰化縣員林市饒明國小",
+    "彰化縣社頭鄉 湳雅國小": "彰化縣社頭鄉湳雅國小",
+    "彰化縣彰化市 中山國小": "彰化縣彰化市中山國小",
+    "彰化縣彰化市 快官國小": "彰化縣彰化市快官國小",
+    "彰化縣田中鎮 三潭國小": "彰化縣田中鎮三潭國小",
+    "彰化縣田中鎮 田中國小": "彰化縣田中鎮田中國小",
+    "彰化縣社頭鄉 朝興國小": "彰化縣社頭鄉朝興國小",
+    "彰化縣芳苑鄉 路上國小": "彰化縣芳苑鄉路上國小",
+    "彰化縣和美鎮 新庄國小": "彰化縣和美鎮新庄國小",
+    "彰化縣 二水國小": "彰化縣二水鄉二水國小",
+    "彰化縣二水國小": "彰化縣二水鄉二水國小",
+    # typos
+    "彰化線福興鄉永豐國小": "彰化縣福興鄉永豐國小",  # 線→縣
+    "彰化縣芳園鄉文德國小": "彰化縣芬園鄉文德國小",  # 芳→芬
+    "彰化縣新港鄉大同國小": "彰化縣伸港鄉大同國小",  # 新→伸
+    "彰化縣港鄉新港國小": "彰化縣伸港鄉新港國小",      # 補 伸
+    "彰化縣社頭心湳雅國小": "彰化縣社頭鄉湳雅國小",  # 心→鄉
+    "彰化縣社頭湳雅國小": "彰化縣社頭鄉湳雅國小",      # 補 鄉
+    "湳雅國小": "彰化縣社頭鄉湳雅國小",
+    "彰化縣員林鎮饒明國小": "彰化縣員林市饒明國小",  # 鎮→市
+    "彰化縣鹿鳴國中雙語資源網": "彰化縣鹿港鎮鹿鳴國中",
+    # 缺彰化縣前綴
+    "彰化市中山國小": "彰化縣彰化市中山國小",
+    "彰化市大成國小": "彰化縣彰化市大成國小",
+    "彰化市平和國小": "彰化縣彰化市平和國小",
+    "彰化市彰興國中": "彰化縣彰化市彰興國中",
+    "彰化縣彰興國中": "彰化縣彰化市彰興國中",
+    "彰化市東芳國小": "彰化縣彰化市東芳國小",
+    "彰化市民生國小": "彰化縣彰化市民生國小",
+}
+
+
+def canonical_school(name):
+    """Map any known school-name variant to its canonical form."""
+    if not name:
+        return ""
+    return SCHOOL_CANONICAL_MAP.get(name.strip(), name.strip())
+
+
 def build_wotd():
     items = load_wotd()
     # Build school facets — count per (display name)
@@ -614,9 +696,8 @@ def build_wotd():
         theme_counts[r["t"]] = theme_counts.get(r["t"], 0) + 1
         letter_counts[r["l"]] = letter_counts.get(r["l"], 0) + 1
     # Drop the empty-school bucket — those videos are uncredited and shouldn't
-    # appear as a phantom "" row in the Top contributors list or filter dropdown.
+    # appear as a phantom "" row in the filter dropdown.
     school_counts.pop("", None)
-    top_schools = sorted(school_counts.items(), key=lambda x: -x[1])[:20]
 
     # Theme metadata for UI
     themes_meta = [(slug, en, zh, theme_counts.get(slug, 0)) for slug, en, zh, _ in WOTD_THEMES]
@@ -646,7 +727,9 @@ def build_wotd():
     )
 
     items_r = "3,000"  # Luke 2026-05-17: match home hero aspirational round
-    schools_r = f"{round_down(len(school_counts), 10)}+"
+    # Luke 2026-05-17: conservative count — gut-check beats raw dedup (raw 148 → canonical ~122, but
+    # ~22 schools have ≤2 videos so the "real participating" count is ~100). Hard-set to 100+.
+    schools_r = "100+"
 
     hero = editorial_hero(
         variant="wotd",
@@ -668,8 +751,8 @@ def build_wotd():
       <input id="wotd-q" type="search" placeholder="🔎 Search English, 中文, or school name…" autocomplete="off" />
     </div>
     <select id="wotd-school" aria-label="Filter by school">
-      <option value="">All schools · 全部 {len(school_counts)} 校</option>
-      {''.join(f'<option value="{sch}">{sch} ({c})</option>' for sch, c in sorted(school_counts.items(), key=lambda x: -x[1]))}
+      <option value="">All schools · 全部學校</option>
+      {''.join(f'<option value="{sch}">{sch}</option>' for sch in sorted(school_counts.keys()))}
     </select>
     <div id="wotd-count" class="wotd-count">{len(items):,} videos</div>
   </div>
@@ -698,14 +781,6 @@ def build_wotd():
     <p>No videos match. Try a different word, pick another school, or clear the filters.</p>
   </div>
 </section>
-
-<aside class="hub-section wotd-credits">
-  <h2 class="hub-h2">Top contributing schools · 影片貢獻學校</h2>
-  <p>Schools that have produced the most Word-of-the-Day videos. Tap a name to filter the gallery.</p>
-  <ol class="wotd-top">
-    {''.join(f'<li><button class="wotd-top-btn" data-school="{sch}"><strong>{sch}</strong><span>{c} videos</span></button></li>' for sch, c in top_schools)}
-  </ol>
-</aside>
 """.strip()
     extra_head = '<link rel="stylesheet" href="/assets/css/wotd.css">\n  <script defer src="/assets/js/wotd.js"></script>'
     return page_shell("Word of the Day", content, "/word-of-the-day/", extra_head)

@@ -260,6 +260,153 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   --eh-accent: #8b2c4f;
   --eh-ink: #5a1a32;
 }
+
+/* ----- Curve Hero (MCC-style: asymmetric color block + SVG curve) ----- */
+.hub-curve-hero {
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid var(--hub-line);
+  overflow: hidden;
+  min-height: 440px;
+}
+.hub-curve-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.hub-curve-hero-bg path {
+  fill: var(--ch-accent, #c66830);
+}
+.hub-curve-hero-bg path.accent {
+  fill: var(--ch-accent-deep, #8a3f17);
+  opacity: .18;
+}
+.hub-curve-hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 24px 72px;
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hub-curve-hero-block {
+  color: #fff;
+}
+.hub-curve-hero-block .hub-eyebrow {
+  color: rgba(255,255,255,.88);
+  letter-spacing: .26em;
+  margin-bottom: 22px;
+}
+.hub-curve-hero-title {
+  font-family: var(--hub-serif);
+  font-weight: 700;
+  font-size: clamp(2.9rem, 6.2vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.022em;
+  color: #fff;
+  margin: 0 0 28px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.04);
+}
+.hub-curve-hero-lede {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,.95);
+  max-width: 42ch;
+  margin: 0 0 12px;
+  text-wrap: pretty;
+}
+.hub-curve-hero-lede-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,.88);
+  max-width: 36em;
+  margin: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.hub-curve-hero-side {
+  position: relative;
+  z-index: 1;
+  padding: 8px 0 8px 4px;
+}
+.hub-curve-hero-pull {
+  font-family: var(--hub-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 1.95vw, 1.8rem);
+  line-height: 1.35;
+  color: var(--ch-accent-deep, #8a3f17);
+  margin: 0 0 16px;
+  letter-spacing: -.005em;
+}
+.hub-curve-hero-pull-zh {
+  font-family: var(--hub-zh-font);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--hub-ink-soft);
+  margin: 0 0 20px;
+}
+.hub-curve-hero-attr {
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--hub-ink-faint);
+  margin: 0;
+}
+/* Color variants */
+.hub-curve-hero--fets {
+  --ch-accent: #c66830;
+  --ch-accent-deep: #8a3f17;
+}
+.hub-curve-hero--schools {
+  --ch-accent: #1f6e6e;
+  --ch-accent-deep: #0f4747;
+}
+.hub-curve-hero--resources {
+  --ch-accent: #4a4e8a;
+  --ch-accent-deep: #2f3266;
+}
+.hub-curve-hero--wotd {
+  --ch-accent: #8b2c4f;
+  --ch-accent-deep: #5a1a32;
+}
+@media (max-width: 840px) {
+  .hub-curve-hero { min-height: auto; }
+  .hub-curve-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 56px 22px 44px;
+  }
+  .hub-curve-hero-bg {
+    /* On mobile, the SVG stretches to a horizontal band that covers
+       only the block portion; let CSS handle the split by hiding SVG
+       and giving the block a solid background. */
+    display: none;
+  }
+  .hub-curve-hero-block {
+    background: var(--ch-accent);
+    margin: -56px -22px 0;
+    padding: 56px 22px 48px;
+    position: relative;
+  }
+  .hub-curve-hero-block::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -28px;
+    height: 32px;
+    background: var(--ch-accent);
+    clip-path: polygon(0 0, 100% 0, 88% 60%, 24% 100%, 0 70%);
+  }
+  .hub-curve-hero-side {
+    padding-top: 24px;
+  }
+}
 @media (max-width: 840px) {
   .hub-editorial-hero { padding: 56px 22px 48px; }
   .hub-editorial-hero-inner { grid-template-columns: 1fr; gap: 36px; }
