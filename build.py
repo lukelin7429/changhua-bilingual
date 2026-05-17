@@ -167,23 +167,28 @@ def build_home(townships_data, schools_data, wotd_items):
     contributing_rounded = "100+"
 
     content = f"""
-<div class="hub-hero-wrap">
-<section class="hub-hero">
-  <div class="hub-hero-text">
-    <p class="hub-eyebrow">Welcome / 歡迎</p>
-    <h1 class="hub-h1">A bilingual gateway to <em style="color:var(--hub-primary)">Changhua</em>'s schools.</h1>
-    <p>{schools_rounded} school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
-    <p class="hub-zh">{townships_rounded} 鄉鎮、{schools_rounded} 學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
-    <div class="hub-hero-actions">
-      <a class="hub-btn hub-btn--primary" href="/word-of-the-day/">Watch {videos_rounded} videos →</a>
-      <a class="hub-btn hub-btn--ghost" href="/schools/">Browse Schools</a>
+<section class="hub-curve-hero hub-curve-hero--home">
+  <svg class="hub-curve-hero-bg" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M 0,0 L 760,0 C 720,140 800,290 720,420 C 660,520 760,560 700,600 L 0,600 Z"/>
+  </svg>
+  <div class="hub-curve-hero-inner">
+    <div class="hub-curve-hero-block">
+      <p class="hub-eyebrow">Welcome / 歡迎</p>
+      <h1 class="hub-curve-hero-title">A bilingual gateway<br>to <em>Changhua's</em> schools.</h1>
+      <p class="hub-curve-hero-lede">{schools_rounded} school sites, foreign English teacher profiles, and a growing library of classroom resources — all in one place.</p>
+      <p class="hub-curve-hero-lede-zh">{townships_rounded} 鄉鎮、{schools_rounded} 學校的雙語網站、外籍英語教師介紹，以及共用教材，集中一站。</p>
+      <div class="hub-curve-hero-actions">
+        <a class="hub-btn hub-btn--on-block" href="/word-of-the-day/">Watch {videos_rounded} videos →</a>
+        <a class="hub-btn hub-btn--on-block-ghost" href="/schools/">Browse Schools</a>
+      </div>
+    </div>
+    <div class="hub-curve-hero-side hub-curve-hero-side--map">
+      <div class="hub-map-wrap">
+        <div id="hub-map" data-geo="/assets/map/changhua-townships.geojson"></div>
+      </div>
     </div>
   </div>
-  <div class="hub-map-wrap">
-    <div id="hub-map" data-geo="/assets/map/changhua-townships.geojson"></div>
-  </div>
 </section>
-</div>
 
 <section class="hub-section">
   <p class="hub-eyebrow">What's inside</p>
