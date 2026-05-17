@@ -2966,6 +2966,8 @@ def write(path, html):
 
 def main():
     townships = load_yaml("townships.yml")
+    # Sort townships by ZIP code (500 → 530) — matches the legacy Changhua hub order
+    townships["townships"].sort(key=lambda t: int(t["zip"]))
     schools = load_yaml("schools.yml")
     fets = load_yaml("fets.yml")
     wotd_items = load_wotd()
