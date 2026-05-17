@@ -597,8 +597,8 @@ def build_wotd():
   <div class="wotd-hero-inner">
     <p class="hub-eyebrow">Our signature collection</p>
     <h1 class="hub-h1">Word of the Day</h1>
-    <p class="wotd-hero-sub">{items_r} bilingual classroom videos · {schools_r} schools · every word lived in a real Changhua classroom.</p>
-    <p class="hub-zh wotd-hero-sub">{items_r} 支雙語教室實拍影片，來自 {schools_r} 所學校。每個單字都是真實課堂的活紀錄。</p>
+    <p class="wotd-hero-sub">{items_r} bilingual classroom videos · {schools_r} schools · every word filmed in a real Changhua classroom.</p>
+    <p class="hub-zh wotd-hero-sub">{items_r} 支彰化雙語教室實拍影片，來自 {schools_r} 所合作學校——每個單字都在真實課堂裡發生。</p>
   </div>
 </section>
 
