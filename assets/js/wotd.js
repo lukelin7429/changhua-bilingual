@@ -210,55 +210,70 @@
     debounce = setTimeout(applyFilter, 120);
   }
 
-  // Boot
+  // ===== Bind ALL listeners IMMEDIATELY (before JSON loads) =====
+  // If user types/clicks before JSON arrives, queue a pending filter call.
+  var pendingApply = false;
+  function applyFilterSafe() {
+    if (ALL.length === 0) { pendingApply = true; return; }
+    applyFilter();
+  }
+
+  if (qInput) qInput.addEventListener('input', function () {
+    clearTimeout(debounce);
+    debounce = setTimeout(applyFilterSafe, 120);
+  });
+  if (schoolSel) schoolSel.addEventListener('change', applyFilterSafe);
+  if (moreBtn) moreBtn.addEventListener('click', renderMore);
+
+  document.querySelectorAll('.wotd-theme-chip').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeTheme = btn.getAttribute('data-theme') || '';
+      setActive('.wotd-theme-chip', activeTheme);
+      applyFilterSafe();
+    });
+  });
+  document.querySelectorAll('.wotd-az-chip').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeLetter = btn.getAttribute('data-letter') || '';
+      setActive('.wotd-az-chip', activeLetter);
+      applyFilterSafe();
+    });
+  });
+
+  // Restore filter state from URL immediately (visual chip selection)
+  var initEarly = paramsFromUrl();
+  if (qInput && initEarly.q) qInput.value = initEarly.q;
+  if (schoolSel && initEarly.school) schoolSel.value = initEarly.school;
+  activeTheme = initEarly.theme || '';
+  activeLetter = initEarly.letter || '';
+  setActive('.wotd-theme-chip', activeTheme);
+  setActive('.wotd-az-chip', activeLetter);
+
+  // Top-contributors quick-filter — bind immediately (works after data loads)
+  document.querySelectorAll('.wotd-top-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var s = btn.getAttribute('data-school');
+      if (qInput) qInput.value = '';
+      if (schoolSel) schoolSel.value = s;
+      applyFilterSafe();
+      window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+    });
+  });
+
+  // Show a subtle "loading" hint so users know the data is coming
+  if (countEl) countEl.textContent = 'Loading…';
+
+  // Boot — load data
   fetch('/assets/data/wotd.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       ALL = data.items || [];
-      var init = paramsFromUrl();
-      if (qInput && init.q) qInput.value = init.q;
-      if (schoolSel && init.school) schoolSel.value = init.school;
-      activeTheme = init.theme || '';
-      activeLetter = init.letter || '';
-      setActive('.wotd-theme-chip', activeTheme);
-      setActive('.wotd-az-chip', activeLetter);
       applyFilter();
-
-      if (qInput) qInput.addEventListener('input', onInput);
-      if (schoolSel) schoolSel.addEventListener('change', applyFilter);
-      if (moreBtn) moreBtn.addEventListener('click', renderMore);
-
-      // Theme chip click
-      document.querySelectorAll('.wotd-theme-chip').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          activeTheme = btn.getAttribute('data-theme') || '';
-          setActive('.wotd-theme-chip', activeTheme);
-          applyFilter();
-        });
-      });
-
-      // A-Z chip click
-      document.querySelectorAll('.wotd-az-chip').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          activeLetter = btn.getAttribute('data-letter') || '';
-          setActive('.wotd-az-chip', activeLetter);
-          applyFilter();
-        });
-      });
-
-      // Top-contributors quick-filter
-      document.querySelectorAll('.wotd-top-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var s = btn.getAttribute('data-school');
-          if (qInput) qInput.value = '';
-          if (schoolSel) schoolSel.value = s;
-          applyFilter();
-          window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
-        });
-      });
+      pendingApply = false;
     })
     .catch(function (e) {
       console.error(e);
+      if (countEl) countEl.textContent = 'Error loading';
       grid.innerHTML = '<p style="padding:40px;text-align:center;color:#888">Could not load the video library. Please refresh.</p>';
     });
 })();

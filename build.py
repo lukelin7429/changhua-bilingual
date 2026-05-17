@@ -649,8 +649,37 @@ def build_wotd():
     return page_shell("Word of the Day", content, "/word-of-the-day/", extra_head)
 
 
+BILINGUAL_CAMPUS = [
+    # (slug, en, zh, brief_en)
+    ("school-tours",          "School Tours",            "校園導覽",       "Guided tours in English — gates, classrooms, library, playground."),
+    ("classroom-english",     "Classroom English",       "教室英語",       "Ten everyday classroom situations with ready-to-use phrases."),
+    ("morning-assembly",      "Morning Assembly",        "朝會",           "The school's daily English ritual: pledge, news, weather, words of the day."),
+    ("school-teams-clubs",    "School Teams & Clubs",    "校隊與社團",     "Sports teams, arts clubs, and after-school groups — vocabulary and roleplay."),
+    ("announcements",         "Announcements",           "校園廣播",       "PA-system English: lost-and-found, schedule changes, special events."),
+    ("english-reading-corner","English Reading Corner",  "英文閱讀角",     "Designated spaces and routines for sustained English reading."),
+    ("intl-sister-school",    "International Sister School","國際姊妹校", "Video letters, Zoom meet-ups, and exchange visits between campuses."),
+    ("english-practice-corner","English Practice Corner","英語練習角",     "Drop-in spots for spontaneous speaking practice with FETs."),
+    ("amazing-changhua",      "Amazing Changhua",        "探索彰化",       "Local-culture mini-projects — temples, food, agriculture, festivals."),
+    ("school-news",           "School News",             "校園新聞",       "Student-produced English news bulletins about campus life."),
+    ("summer-fun-program",    "Summer Fun Program",      "暑期樂活營",     "Bilingual summer camps mixing academics, sports, and crafts."),
+    ("english-self-intro",    "English Self-Introduction","英文自介",      "Structured templates teaching students to introduce themselves confidently."),
+    ("one-minute-english",    "One Minute English",      "一分鐘英文",     "Sixty-second daily English clips students can watch and shadow."),
+]
+
+
 def build_resources():
-    content = """
+    # Build Bilingual Campus card grid
+    bc_cards = []
+    for slug, en, zh, brief in BILINGUAL_CAMPUS:
+        # Classroom English already has a full page; others link to stub pages we'll build alongside
+        href = f"/resources/{slug}/" if slug == "classroom-english" else f"/resources/bilingual-campus/{slug}/"
+        bc_cards.append(f"""
+<a class="hub-card" href="{href}">
+  <h3>{en} <small style="font-family:var(--hub-zh-font);font-size:.65em;color:var(--hub-ink-faint);font-weight:500;letter-spacing:.04em">· {zh}</small></h3>
+  <p>{brief}</p>
+</a>""".strip())
+
+    content = f"""
 <section class="hub-section">
   <p class="hub-eyebrow">Resources</p>
   <h1 class="hub-h1">Bilingual Resources</h1>
@@ -660,23 +689,17 @@ def build_resources():
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
     彰化雙語校園背後的脈絡、共用教材與夥伴計畫——給老師、家長與訪客的入門資源。
   </p>
+</section>
 
-  <div class="hub-feature-grid" style="margin-top:48px">
+<!-- ===== Background & Identity ===== -->
+<section class="hub-section" style="padding-top:0">
+  <h2 class="resources-h2">Background &amp; Identity <small>背景與識別</small></h2>
+  <div class="hub-feature-grid">
     <a class="hub-card hub-card--featured" href="/resources/about-changhua/">
       <span class="hub-card-tag">Start here</span>
       <h3>About Changhua 認識彰化</h3>
       <p>1,074 km² · 1.2 million people · founded 1723 — Taiwan's name-sake of education. Geography, history, and the bilingual ecosystem at a glance.</p>
       <div class="hub-card-meta">Geography · History · Education</div>
-    </a>
-    <a class="hub-card" href="/resources/study-tour-centers/">
-      <h3>Study Tour Centers 遊學中心</h3>
-      <p>15 cross-county study tour destinations integrating local culture with experiential learning.</p>
-      <div class="hub-card-meta">15 centers</div>
-    </a>
-    <a class="hub-card" href="/resources/classroom-english/">
-      <h3>Classroom English 教室英語</h3>
-      <p>10 everyday classroom situations with ready-to-use English phrases — greetings, instructions, feedback, wrap-up.</p>
-      <div class="hub-card-meta">10 situations</div>
     </a>
     <a class="hub-card" href="/resources/books-for-taiwan/">
       <h3>Books for Taiwan</h3>
@@ -688,15 +711,53 @@ def build_resources():
       <p>Four short bilingual classroom stories — kite-making, attendance, a law lecture, and a first-grade opening ceremony.</p>
       <div class="hub-card-meta">4 stories · EN + 中文</div>
     </a>
+  </div>
+</section>
+
+<!-- ===== Festival English Series ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Festival English Series <small>節慶英文</small></h2>
+  <p style="color:var(--hub-ink-soft);max-width:60ch;margin-bottom:24px">
+    Sixteen festivals — Spring &amp; Fall semester — each with a handout and a quiz, freely usable by every partner school.
+  </p>
+  <div class="hub-feature-grid">
+    <a class="hub-card hub-card--featured" href="/festivals/">
+      <span class="hub-card-tag">All festivals</span>
+      <h3>Festival English Hub 節慶英文總覽</h3>
+      <p>Full year of festival lessons. Each unit includes vocabulary, traditions, roleplay, and a quiz. Embed on any school's site with one line.</p>
+      <div class="hub-card-meta">16 festivals · cross-campus</div>
+    </a>
+    <a class="hub-card" href="/festivals/chinese-new-year/">
+      <h3>🧧 Lunar New Year</h3>
+      <p>春節 · The story of Nian, twelve words, the reunion dinner and red envelopes.</p>
+      <div class="hub-card-meta">📖 Handout · 📝 Quiz</div>
+    </a>
+    <a class="hub-card" href="/festivals/mid-autumn-festival/">
+      <h3>🌕 Mid-Autumn Festival</h3>
+      <p>中秋節 · Moon cakes, family reunion under the full moon, and the legend of Chang'e.</p>
+      <div class="hub-card-meta">📖 Handout · 📝 Quiz</div>
+    </a>
+    <a class="hub-card" href="/festivals/christmas/">
+      <h3>🎄 Christmas</h3>
+      <p>聖誕節 · Carols, decorations, and Western traditions — for the school's annual Christmas show.</p>
+      <div class="hub-card-meta">📖 Handout · 📝 Quiz</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Classroom Material ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Classroom Material <small>課堂教材</small></h2>
+  <div class="hub-feature-grid">
     <a class="hub-card" href="/word-of-the-day/">
       <h3>Word of the Day 校園百科</h3>
-      <p>Our signature classroom-video library — 2,966 words taught in real Changhua classrooms.</p>
-      <div class="hub-card-meta">2,966 videos · 150 schools</div>
+      <p>Our signature classroom-video library — every word taught in a real Changhua classroom.</p>
+      <div class="hub-card-meta">2,900+ videos · 150+ schools</div>
     </a>
-    <a class="hub-card" href="/festivals/">
-      <h3>Festivals 節慶教材</h3>
-      <p>Eight festival units shared across every partner school — Mother's Day, Mid-Autumn, Christmas, and more.</p>
-      <div class="hub-card-meta">8 festivals · cross-campus</div>
+    <a class="hub-card" href="/resources/classroom-english/">
+      <h3>Classroom English 教室英語</h3>
+      <p>10 everyday classroom situations with ready-to-use English phrases.</p>
+      <div class="hub-card-meta">10 situations</div>
     </a>
     <a class="hub-card" href="/resources/sdgs/">
       <h3>17 SDGs 永續發展目標</h3>
@@ -704,9 +765,38 @@ def build_resources():
       <div class="hub-card-meta">17 goals · classroom-ready</div>
     </a>
   </div>
+</section>
 
-  <h2 class="hub-h2" style="margin-top:80px">Partner Networks 夥伴網絡</h2>
-  <div class="hub-feature-grid" style="margin-top:24px">
+<!-- ===== Bilingual Campus ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Bilingual Campus <small>雙語生活化校園 · 13 topics</small></h2>
+  <p style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:24px">
+    Thirteen everyday-school themes for embedding English into campus life — beyond the classroom. Each topic gets its own unit; we'll expand them over time.
+  </p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch;margin-bottom:24px">
+    十三個校園日常主題，把英語自然融入校園生活——不只是課堂。每個主題各自獨立、陸續展開。
+  </p>
+  <div class="hub-feature-grid">
+    {''.join(bc_cards)}
+  </div>
+</section>
+
+<!-- ===== Place & Travel ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Place &amp; Travel <small>場域與遊學</small></h2>
+  <div class="hub-feature-grid">
+    <a class="hub-card" href="/resources/study-tour-centers/">
+      <h3>Study Tour Centers 遊學中心</h3>
+      <p>15 cross-county study-tour destinations integrating local culture with experiential learning.</p>
+      <div class="hub-card-meta">15 centers</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Partner Networks ===== -->
+<section class="hub-section" style="padding-top:24px;padding-bottom:64px">
+  <h2 class="resources-h2">Partner Networks <small>夥伴網絡</small></h2>
+  <div class="hub-feature-grid">
     <a class="hub-card" href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">
       <h3>CIEETRC</h3>
       <p>彰化縣國際教育暨英語教育資源中心 — Changhua's International &amp; English Education Resource Center.</p>
@@ -735,7 +825,30 @@ def build_resources():
   </div>
 </section>
 """.strip()
-    return page_shell("Resources", content, "/resources/")
+    extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
+    return page_shell("Resources", content, "/resources/", extra)
+
+
+def build_bilingual_campus_stub(slug, en, zh, brief):
+    content = f"""
+<section class="hub-section hub-section--narrow">
+  <p class="hub-eyebrow">Resources · Bilingual Campus</p>
+  <h1 class="hub-h1">{en}</h1>
+  <p style="font-family:var(--hub-zh-font);font-size:1.4rem;color:var(--hub-ink);font-weight:600;letter-spacing:.04em;margin:8px 0 24px">{zh}</p>
+  <p style="font-size:1.1rem;color:var(--hub-ink-soft);line-height:1.65;max-width:62ch">{brief}</p>
+
+  <div style="margin-top:48px;padding:24px 28px;background:#fff8ec;border-left:6px solid #f5d997;border-radius:8px;color:#7a5300">
+    <p style="margin:0;font-weight:600">📝 Content in development.</p>
+    <p style="margin:8px 0 0;font-size:.95rem">This unit is being built out. Check back later for vocabulary lists, sample dialogues, and downloadable handouts.</p>
+    <p class="hub-zh" style="margin:6px 0 0;font-size:.92rem;color:#7a5300">本主題仍在開發中。之後會補上單字表、對話範本與可下載講義。</p>
+  </div>
+
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+""".strip()
+    return page_shell(en, content, "/resources/")
 
 
 def build_about_changhua():
@@ -1299,6 +1412,11 @@ def main():
     write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
     write("resources/eric-berman/index.html", build_eric_berman())
     write("resources/sdgs/index.html", build_sdgs())
+    # 12 bilingual campus stub pages (Classroom English is already built above as a full page)
+    for slug, en, zh, brief in BILINGUAL_CAMPUS:
+        if slug == "classroom-english":
+            continue
+        write(f"resources/bilingual-campus/{slug}/index.html", build_bilingual_campus_stub(slug, en, zh, brief))
     print("Done.")
 
 
