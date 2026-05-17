@@ -355,17 +355,23 @@ def build_schools(townships_data, schools_data):
     townships_with = len(by_township)
     schools_r = f"{round_down(total, 10)}+"
     townships_r = f"{round_down(townships_with, 5)}+"
+
+    hero = editorial_hero(
+        variant="schools",
+        eyebrow="Directory",
+        title_html="Schools of<br>Changhua.",
+        lede_en=f"{schools_r} schools across {townships_r} townships, each with its own bilingual website — listed by ZIP from 500 to 530.",
+        lede_zh=f"彰化 {townships_r} 鄉鎮、{schools_r} 所學校的雙語網站索引，依郵遞區號（500–530）排列。",
+        pull_en="One county.<br>One bilingual map.",
+        pull_zh="一個縣，一張雙語地圖。",
+        attr="Changhua Bilingual Hub",
+    )
+
     content = f"""
+{hero}
+
 <section class="hub-section">
-  <p class="hub-eyebrow">Directory</p>
-  <h1 class="hub-h1">Bilingual School Sites</h1>
-  <p style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:60ch">
-    {schools_r} schools across {townships_r} townships in Changhua, listed by township (ZIP 500 → 530). Within each township, schools appear senior high → junior high → elementary, A–Z within each level. Click a card to open that school's bilingual website.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    彰化縣 {townships_r} 鄉鎮、{schools_r} 學校的雙語網站索引，依鄉鎮（郵遞區號 500–530）排序；鄉鎮內依高中→國中→國小，同層級內以英文字母 A–Z 排序。點擊卡片開啟該校網站。
-  </p>
-  <div class="hub-search" style="margin-top:36px;max-width:560px">
+  <div class="hub-search" style="max-width:560px">
     <input id="hub-search-input" type="search" placeholder="Search by school name, township, or slug…" autocomplete="off">
   </div>
   {''.join(blocks)}
@@ -730,17 +736,19 @@ def build_resources():
   <p>{brief}</p>
 </a>""".strip())
 
+    hero = editorial_hero(
+        variant="resources",
+        eyebrow="Library",
+        title_html="Resources for<br>the classroom.",
+        lede_en="Background, classroom material, and partner programs that surround Changhua's bilingual schools — for teachers, parents, and visitors.",
+        lede_zh="彰化雙語校園背後的脈絡、共用教材與夥伴計畫——給老師、家長與訪客的入門資源。",
+        pull_en="Festivals, words,<br>and field stories.",
+        pull_zh="節慶、單字、田野故事。",
+        attr="Changhua Bilingual Hub",
+    )
+
     content = f"""
-<section class="hub-section">
-  <p class="hub-eyebrow">Resources</p>
-  <h1 class="hub-h1">Bilingual Resources</h1>
-  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
-    Background, classroom material, and partner programs that surround Changhua's bilingual schools — for teachers, parents, and visitors.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
-    彰化雙語校園背後的脈絡、共用教材與夥伴計畫——給老師、家長與訪客的入門資源。
-  </p>
-</section>
+{hero}
 
 <!-- ===== Background & Identity ===== -->
 <section class="hub-section" style="padding-top:0">
