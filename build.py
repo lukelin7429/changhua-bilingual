@@ -605,7 +605,7 @@ def build_wotd():
         for L in letters
     )
 
-    items_r = f"{round_down(len(items), 100):,}+"
+    items_r = "3,000+"  # Luke 2026-05-17: match home hero aspirational round
     schools_r = f"{round_down(len(school_counts), 10)}+"
     content = f"""
 <section class="wotd-hero">
