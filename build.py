@@ -160,7 +160,7 @@ def build_home(townships_data, schools_data, wotd_items):
     townships_with_schools = sum(1 for t in idx.values() if t["school_count"])
     townships_rounded = f"{round_down(townships_with_schools, 5)}+"  # 25 → 20+
     total_videos = len(wotd_items)
-    videos_rounded = "3,000+"  # Luke 2026-05-17: hardcoded rounded-up aspirational number
+    videos_rounded = "3,000"  # Luke 2026-05-17: hardcoded rounded-up aspirational number
     contributing_schools = len({r["sch"] for r in wotd_items if r["sch"]})
     contributing_rounded = f"{round_down(contributing_schools, 10)}+"
 
@@ -605,7 +605,7 @@ def build_wotd():
         for L in letters
     )
 
-    items_r = "3,000+"  # Luke 2026-05-17: match home hero aspirational round
+    items_r = "3,000"  # Luke 2026-05-17: match home hero aspirational round
     schools_r = f"{round_down(len(school_counts), 10)}+"
     content = f"""
 <section class="wotd-hero">
@@ -769,7 +769,7 @@ def build_resources():
     <a class="hub-card" href="/word-of-the-day/">
       <h3>Word of the Day 校園百科</h3>
       <p>Our signature classroom-video library — every word taught in a real Changhua classroom.</p>
-      <div class="hub-card-meta">3,000+ videos · 150+ schools</div>
+      <div class="hub-card-meta">3,000 videos · 150+ schools</div>
     </a>
     <a class="hub-card" href="/resources/classroom-english/">
       <h3>Classroom English 教室英語</h3>
@@ -1123,7 +1123,7 @@ def build_morning_assembly():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "3,000+ videos to spotlight at assembly — pick your own school's contributions for instant pride.", "meta": "For Activity 02"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "3,000 videos to spotlight at assembly — pick your own school's contributions for instant pride.", "meta": "For Activity 02"},
             {"href": "/festivals/", "title": "Festival English Series", "desc": "16 festival handouts — pull one the week before each holiday for Activity 06.", "meta": "For Activity 06"},
             {"href": "/resources/bilingual-campus/announcements/", "title": "Bilingual Announcements", "desc": "Sarah Thomas &amp; Susan Rose's 13-episode broadcast playlist — train your student announcers with it.", "meta": "Training material"},
         ],
@@ -1241,7 +1241,7 @@ def build_school_tours():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull station-specific vocabulary from the Hub's 3,000+ video library to brief students.", "meta": "Vocabulary source"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull station-specific vocabulary from the Hub's 3,000 video library to brief students.", "meta": "Vocabulary source"},
             {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Use morning assembly the week before a visit to announce the tour and recruit student guides.", "meta": "Pre-visit ramp-up"},
             {"href": "/resources/bilingual-campus/intl-sister-school/", "title": "International Sister School", "desc": "Sister-school delegates are the most common tour audience — see the sister-school workflow.", "meta": "Frequent audience"},
         ],
@@ -2089,8 +2089,8 @@ def build_one_minute_english():
         {"n": 2, "color": "green",
          "en": "Sourcing Clips · 影片來源", "zh": "現成可用的庫",
          "duration": "Sourcing once · use all year",
-         "what_en": "Three reliable sources: (1) The Hub's Word of the Day library — 3,000+ ready clips with Changhua schools' credits. (2) BBC Learning English daily clips. (3) Sesame Street YouTube channel for younger grades.",
-         "what_zh": "三個可靠的影片來源：(1) Hub 的校園百科 — 3,000+ 支現成影片，附上彰化各校 credits。(2) BBC Learning English 每日短片。(3) Sesame Street YouTube 頻道（適合低年級）。",
+         "what_en": "Three reliable sources: (1) The Hub's Word of the Day library — 3,000 ready clips with Changhua schools' credits. (2) BBC Learning English daily clips. (3) Sesame Street YouTube channel for younger grades.",
+         "what_zh": "三個可靠的影片來源：(1) Hub 的校園百科 — 3,000 支現成影片，附上彰化各校 credits。(2) BBC Learning English 每日短片。(3) Sesame Street YouTube 頻道（適合低年級）。",
          "script": [
              ("Teacher (to class): ", "Today's clip is from our own Hub. Watch — this is from Changhua Elementary."),
              ("Clip: ", "[plays Word of the Day video]"),
@@ -2152,7 +2152,7 @@ def build_one_minute_english():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "The Hub's 3,000+ clip library is the primary source for daily One Minute English. Start here.", "meta": "Primary source"},
+            {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "The Hub's 3,000 clip library is the primary source for daily One Minute English. Start here.", "meta": "Primary source"},
             {"href": "/resources/bilingual-campus/morning-assembly/", "title": "Morning Assembly", "desc": "Morning assembly's Word of the Day Spotlight uses the same clip library — pair the routines.", "meta": "Same source"},
             {"href": "/resources/bilingual-campus/school-news/", "title": "School News", "desc": "Student-made One Minute clips can become a regular segment on School News.", "meta": "Distribution channel"},
         ],
@@ -2363,8 +2363,8 @@ def build_about_changhua():
 
 <section class="hub-section hub-section--narrow" style="padding-top:32px">
   <h2 class="hub-h2">Why this Hub exists <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">本平台緣起</span></h2>
-  <p>The bilingual sites of more than 100 Changhua schools were scattered across Google Sites, Canva, and dozens of subdomains. This Hub gathers them into one searchable directory, alongside the resources, foreign-teacher profiles, and 2,966+ classroom videos that connect them.</p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft)">彰化縣 100 多所學校的雙語網站原本散落在 Google Sites、Canva 與數十個子網域。本平台把它們收進同一份可搜尋的索引，並串接共用資源、外師檔案，以及 2,966+ 部課堂影片。</p>
+  <p>The bilingual sites of more than 100 Changhua schools were scattered across Google Sites, Canva, and dozens of subdomains. This Hub gathers them into one searchable directory, alongside the resources, foreign-teacher profiles, and 3,000 classroom videos that connect them.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">彰化縣 100 多所學校的雙語網站原本散落在 Google Sites、Canva 與數十個子網域。本平台把它們收進同一份可搜尋的索引，並串接共用資源、外師檔案，以及 3,000 部課堂影片。</p>
 </section>
 """.strip()
     extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
