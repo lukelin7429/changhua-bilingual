@@ -647,15 +647,20 @@ def build_wotd():
 
     items_r = "3,000"  # Luke 2026-05-17: match home hero aspirational round
     schools_r = f"{round_down(len(school_counts), 10)}+"
+
+    hero = editorial_hero(
+        variant="wotd",
+        eyebrow="Our signature collection",
+        title_html="Word of<br>the Day.",
+        lede_en=f"{items_r} bilingual classroom videos from {schools_r} schools — every word filmed in a real Changhua classroom, by a real teacher.",
+        lede_zh=f"{items_r} 支來自 {schools_r} 所彰化學校的雙語教室實拍影片——每個單字都在真實課堂裡發生。",
+        pull_en="One word a day,<br>in a real classroom.",
+        pull_zh="每天一個字，在真實的教室裡。",
+        attr="Changhua Bilingual Hub",
+    )
+
     content = f"""
-<section class="wotd-hero">
-  <div class="wotd-hero-inner">
-    <p class="hub-eyebrow">Our signature collection</p>
-    <h1 class="hub-h1">Word of the Day</h1>
-    <p class="wotd-hero-sub">{items_r} bilingual classroom videos · {schools_r} schools · every word filmed in a real Changhua classroom.</p>
-    <p class="hub-zh wotd-hero-sub">{items_r} 支彰化雙語教室實拍影片，來自 {schools_r} 所學校——每個單字都在真實課堂裡發生。</p>
-  </div>
-</section>
+{hero}
 
 <section class="wotd-toolbar-wrap">
   <div class="wotd-toolbar">
