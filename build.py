@@ -290,31 +290,25 @@ def build_home(townships_data, schools_data, wotd_items):
 
 
 def build_schools(townships_data, schools_data):
-    townships = townships_data["townships"]
+    townships = townships_data["townships"]  # already ZIP-sorted in main()
     schools = schools_data["schools"]
-    township_lookup = {t["slug"]: t for t in townships}
 
-    # Group by level (high → junior-high → elementary)
-    by_level = {"senior-high": [], "junior-high": [], "elementary": []}
+    # Group schools by township slug
+    by_township = {}
     for s in schools:
-        level = s.get("level", "elementary")
-        if level not in by_level:
-            level = "elementary"
-        by_level[level].append(s)
+        by_township.setdefault(s["township"], []).append(s)
 
-    # Sort each group A-Z by English name (case-insensitive)
-    for lvl in by_level:
-        by_level[lvl].sort(key=lambda s: s["name"].lower())
-
-    level_meta = [
-        ("senior-high", "Senior High Schools", "高中"),
-        ("junior-high", "Junior High Schools", "國中"),
-        ("elementary", "Elementary Schools", "國小"),
-    ]
+    # Within each township: senior-high → junior-high → elementary, A-Z by name
+    level_priority = {"senior-high": 0, "junior-high": 1, "elementary": 2}
+    for ss in by_township.values():
+        ss.sort(key=lambda s: (
+            level_priority.get(s.get("level", "elementary"), 2),
+            s["name"].lower(),
+        ))
 
     blocks = []
-    for lvl_slug, lvl_en, lvl_zh in level_meta:
-        ss = by_level[lvl_slug]
+    for t in townships:
+        ss = by_township.get(t["slug"], [])
         if not ss:
             continue
         cards = []
@@ -322,10 +316,7 @@ def build_schools(townships_data, schools_data):
             level = s.get("level", "elementary")
             badge_cls = "jh" if level == "junior-high" else ("sh" if level == "senior-high" else "")
             badge_text = {"junior-high": "JHS", "senior-high": "HS", "elementary": "ES"}.get(level, "ES")
-            t = township_lookup.get(s["township"], {"en": "", "zh": ""})
-            t_en = t.get("en", "")
-            t_zh = t.get("zh", "")
-            search_data = f"{s['name']} {s.get('zh','')} {t_en} {t_zh} {s['slug']}"
+            search_data = f"{s['name']} {s.get('zh','')} {t['en']} {t['zh']} {s['slug']}"
             slug = s["slug"]
             # Photo: /assets/images/schools/<slug>.jpg if it exists, else fallback to Chinese char tile
             photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
@@ -342,17 +333,16 @@ def build_schools(townships_data, schools_data):
   <div class="body">
     <p class="name">{s['name']}</p>
     <p class="zh">{s.get('zh','')}</p>
-    <p class="township">{t_en} <span class="township-zh">{t_zh}</span></p>
     <span class="badge {badge_cls}">{badge_text}</span>
   </div>
 </a>
 """.strip())
         blocks.append(f"""
-<section id="level-{lvl_slug}" class="hub-township-block">
+<section id="{t['slug']}" class="hub-township-block">
   <header class="hub-township-head">
-    <h2>{lvl_en}</h2>
-    <span class="zh">{lvl_zh}</span>
-    <span class="meta">{len(ss)} schools · A–Z</span>
+    <h2>{t['en']}</h2>
+    <span class="zh">{t['zh']}</span>
+    <span class="meta">{len(ss)} schools · {t['zip']}</span>
   </header>
   <div class="hub-school-grid">
     {''.join(cards)}
@@ -361,7 +351,7 @@ def build_schools(townships_data, schools_data):
 """.strip())
 
     total = len(schools)
-    townships_with = len({s["township"] for s in schools})
+    townships_with = len(by_township)
     schools_r = f"{round_down(total, 10)}+"
     townships_r = f"{round_down(townships_with, 5)}+"
     content = f"""
@@ -369,10 +359,10 @@ def build_schools(townships_data, schools_data):
   <p class="hub-eyebrow">Directory</p>
   <h1 class="hub-h1">Bilingual School Sites</h1>
   <p style="font-size:1.05rem;color:var(--hub-ink-soft);max-width:60ch">
-    {schools_r} schools across {townships_r} townships in Changhua, grouped by level (senior high → junior high → elementary). Each group is listed A–Z by English name. Click a card to open that school's bilingual website.
+    {schools_r} schools across {townships_r} townships in Changhua, listed by township (ZIP 500 → 530). Within each township, schools appear senior high → junior high → elementary, A–Z within each level. Click a card to open that school's bilingual website.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:60ch">
-    彰化縣 {townships_r} 鄉鎮、{schools_r} 學校的雙語網站索引，依層級分組（高中／國中／國小），每組以英文字母 A–Z 排序。點擊卡片開啟該校網站。
+    彰化縣 {townships_r} 鄉鎮、{schools_r} 學校的雙語網站索引，依鄉鎮（郵遞區號 500–530）排序；鄉鎮內依高中→國中→國小，同層級內以英文字母 A–Z 排序。點擊卡片開啟該校網站。
   </p>
   <div class="hub-search" style="margin-top:36px;max-width:560px">
     <input id="hub-search-input" type="search" placeholder="Search by school name, township, or slug…" autocomplete="off">
