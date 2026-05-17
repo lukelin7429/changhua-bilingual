@@ -652,10 +652,10 @@ def build_wotd():
 BILINGUAL_CAMPUS = [
     # (slug, en, zh, brief_en)
     ("school-tours",          "School Tours",            "校園導覽",       "Guided tours in English — gates, classrooms, library, playground."),
-    ("classroom-english",     "Classroom English",       "教室英語",       "Ten everyday classroom situations with ready-to-use phrases."),
+    ("classroom-english",     "Classroom English",       "教室英語",       "Ten everyday classroom situations with ready-to-use phrases — video series by Sarah Thomas."),
     ("morning-assembly",      "Morning Assembly",        "朝會",           "The school's daily English ritual: pledge, news, weather, words of the day."),
     ("school-teams-clubs",    "School Teams & Clubs",    "校隊與社團",     "Sports teams, arts clubs, and after-school groups — vocabulary and roleplay."),
-    ("announcements",         "Announcements",           "校園廣播",       "PA-system English: lost-and-found, schedule changes, special events."),
+    ("announcements",         "Bilingual Announcements", "校園廣播英語",   "13-episode bilingual series on the four administrative offices — by Sarah Thomas &amp; Susan Rose."),
     ("english-reading-corner","English Reading Corner",  "英文閱讀角",     "Designated spaces and routines for sustained English reading."),
     ("intl-sister-school",    "International Sister School","國際姊妹校", "Video letters, Zoom meet-ups, and exchange visits between campuses."),
     ("english-practice-corner","English Practice Corner","英語練習角",     "Drop-in spots for spontaneous speaking practice with FETs."),
@@ -1091,12 +1091,26 @@ def build_classroom_english():
   <p class="hub-eyebrow">Resources · Classroom English</p>
   <h1 class="hub-h1">Classroom English</h1>
   <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
-    Ten everyday classroom situations with ready-to-use English phrases. Teachers can speak naturally; students hear the language used in context.
+    Ten everyday classroom situations with ready-to-use English phrases — taught by <strong>Sarah Thomas</strong> for My Culture Connect. Watch the full series below, then keep the phrase list nearby for daily reference.
   </p>
   <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
-    十個教室日常情境的實用英文短句。老師可以自然開口，學生在情境中聽到語言的真實用法。
+    十個教室日常情境的實用英文短句——由 <strong>Sarah Thomas</strong> 為人師教育協會主講。先看完整系列影片，再把下方的短句清單放在手邊。
   </p>
 
+  <div class="playlist-wrap">
+    <div class="playlist-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+        title="Classroom English playlist · Sarah Thomas · My Culture Connect"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="playlist-credit">
+      🎬 Playlist by <strong>Sarah Thomas</strong> · produced by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+    </p>
+  </div>
+
+  <h2 class="resources-h2" style="margin-top:64px">Phrase reference · 短句參考</h2>
   <div class="ce-grid">
     {''.join(sections)}
   </div>
@@ -1108,6 +1122,68 @@ def build_classroom_english():
 """.strip()
     extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
     return page_shell("Classroom English", content, "/resources/", extra)
+
+
+def build_announcements():
+    content = """
+<section class="hub-section">
+  <p class="hub-eyebrow">Resources · Bilingual Campus</p>
+  <h1 class="hub-h1">Bilingual Announcements <small style="font-family:var(--hub-zh-font);font-size:.45em;color:var(--hub-ink-faint);font-weight:500;letter-spacing:.05em">校園廣播英語</small></h1>
+  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:62ch">
+    A 13-episode bilingual series introducing the four administrative offices that keep a Taiwan elementary school running — taught by <strong>Sarah Thomas</strong> and <strong>Susan Rose</strong> for My Culture Connect.
+  </p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft);max-width:62ch">
+    13 集雙語影片，介紹台灣國小四大處室——教務處 5 集、學務處 3 集、總務處、輔導室。由 <strong>Sarah Thomas</strong> 與 <strong>Susan Rose</strong> 為人師教育協會主講。
+  </p>
+
+  <div class="playlist-wrap">
+    <div class="playlist-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+        title="Bilingual Announcements playlist · Sarah Thomas & Susan Rose · My Culture Connect"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="playlist-credit">
+      🎬 Playlist by <strong>Sarah Thomas</strong> &amp; <strong>Susan Rose</strong> · produced by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+    </p>
+  </div>
+
+  <h2 class="resources-h2" style="margin-top:64px">What's covered · 內容大綱</h2>
+  <div class="hub-feature-grid">
+    <div class="hub-card">
+      <h3>教務處 Academic Affairs</h3>
+      <p>The hub of curriculum, exams, and student records — 5 episodes covering schedules, course planning, and the everyday work of academic administration.</p>
+      <div class="hub-card-meta">5 episodes</div>
+    </div>
+    <div class="hub-card">
+      <h3>學務處 Student Affairs</h3>
+      <p>Safety, conduct, and student life — 3 episodes on discipline, campus events, and supporting student wellbeing.</p>
+      <div class="hub-card-meta">3 episodes</div>
+    </div>
+    <div class="hub-card">
+      <h3>總務處 General Affairs</h3>
+      <p>Facilities, budget, and operations — how the school's physical environment is maintained and procured.</p>
+      <div class="hub-card-meta">2 episodes</div>
+    </div>
+    <div class="hub-card">
+      <h3>輔導室 Counseling Office</h3>
+      <p>Student wellbeing, family liaison, and special-education support — the office that listens.</p>
+      <div class="hub-card-meta">3 episodes</div>
+    </div>
+  </div>
+
+  <h2 class="resources-h2" style="margin-top:64px">For schools using this · 學校使用方式</h2>
+  <p>This playlist is freely embeddable. Schools can use it on their announcement page, in morning assemblies, or as a starting reference for staff who handle bilingual broadcasts.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">本 playlist 可自由嵌入。各校可放在「廣播」單元、朝會播放，或當作雙語廣播輪值人員的入門參考。</p>
+
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+""".strip()
+    extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
+    return page_shell("Bilingual Announcements", content, "/resources/", extra)
 
 
 def build_books_for_taiwan():
@@ -1412,9 +1488,10 @@ def main():
     write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
     write("resources/eric-berman/index.html", build_eric_berman())
     write("resources/sdgs/index.html", build_sdgs())
-    # 12 bilingual campus stub pages (Classroom English is already built above as a full page)
+    # Bilingual Campus pages — Classroom English + Announcements have full content; rest are stubs
+    write("resources/bilingual-campus/announcements/index.html", build_announcements())
     for slug, en, zh, brief in BILINGUAL_CAMPUS:
-        if slug == "classroom-english":
+        if slug in ("classroom-english", "announcements"):
             continue
         write(f"resources/bilingual-campus/{slug}/index.html", build_bilingual_campus_stub(slug, en, zh, brief))
     print("Done.")

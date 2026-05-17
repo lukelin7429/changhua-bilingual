@@ -17,6 +17,38 @@
   --r-purple-soft: #ece4f4;
 }
 
+/* Embedded YouTube playlist (Classroom English, Announcements, etc.) */
+.playlist-wrap {
+  margin: 36px 0 12px;
+  max-width: 980px;
+}
+.playlist-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -16px rgba(28,77,126,.30);
+}
+.playlist-frame iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.playlist-credit {
+  margin-top: 14px;
+  font-size: .92rem;
+  color: var(--hub-ink-soft);
+  text-align: center;
+}
+.playlist-credit a {
+  color: var(--hub-primary-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--c-orange);
+}
+.playlist-credit a:hover { color: var(--c-orange-deep); }
+
 /* Resources section heading (mirrors festivals .sem__title pattern) */
 .resources-h2 {
   font-family: var(--hub-serif);
