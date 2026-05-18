@@ -81,7 +81,8 @@
   function cardHTML(item, idx) {
     var thumb = 'https://i.ytimg.com/vi/' + item.v + '/hqdefault.jpg';
     var kw = escapeHtml(item.k);
-    kw = kw.replace(/\s*\(([a-z.]{1,5})\)\s*/i, ' <span class="pos">($1)</span>');
+    // POS tag: (n.) (v.) (adj.) (adv.) (prep.) (conj.) (pron.) (interj.)
+    kw = kw.replace(/\s*\(([a-z.]{1,7})\)\s*/i, ' <span class="pos">($1)</span>');
     var theme = item.t || 'picture-description';
     var colorClass = THEME_COLOR[theme] || 't-blue';
     var base = baseKeyword(item.k);
@@ -90,6 +91,14 @@
     while (num.length < 3) num = '0' + num;
 
     var zh = item.kz ? '<p class="wotd-zh">' + escapeHtml(item.kz) + '</p>' : '';
+
+    var ex1 = '';
+    if (item.s1) {
+      ex1 = '<div class="wotd-ex">'
+          +   '<div class="en">' + highlightSentence(item.s1, base) + '</div>'
+          +   (item.s1z ? '<div class="zh">' + escapeHtml(item.s1z) + '</div>' : '')
+          + '</div>';
+    }
 
     var ex2 = '';
     if (item.s2) {
@@ -113,10 +122,7 @@
       +     '<img loading="lazy" src="' + thumb + '" alt="" />'
       +   '</div>'
       +   '<div class="wotd-body">'
-      +     '<div class="wotd-ex">'
-      +       '<div class="en">' + highlightSentence(item.s1, base) + '</div>'
-      +       (item.s1z ? '<div class="zh">' + escapeHtml(item.s1z) + '</div>' : '')
-      +     '</div>'
+      +     ex1
       +     ex2
       +     school
       +   '</div>'
