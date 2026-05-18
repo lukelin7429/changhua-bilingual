@@ -165,6 +165,9 @@ def build_home(townships_data, schools_data, wotd_items):
     # Luke 2026-05-17: hardcoded conservative count — match WOTD page hero ("100+ schools").
     # Raw 116 canonical schools, but ~22 have ≤2 videos so the real "participating" count is closer to 100.
     contributing_rounded = "100+"
+    # Cache-buster for the township geojson (browsers cache fetched JSON aggressively)
+    geojson_path = ROOT / "assets" / "map" / "changhua-townships.geojson"
+    geojson_v = int(geojson_path.stat().st_mtime)
 
     content = f"""
 <div class="hub-hero-wrap">
@@ -180,7 +183,7 @@ def build_home(townships_data, schools_data, wotd_items):
     </div>
   </div>
   <div class="hub-map-wrap">
-    <div id="hub-map" data-geo="/assets/map/changhua-townships.geojson"></div>
+    <div id="hub-map" data-geo="/assets/map/changhua-townships.geojson?v={geojson_v}"></div>
   </div>
 </section>
 </div>
