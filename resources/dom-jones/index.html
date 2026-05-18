@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dom Jones · School Assembly Tour · Changhua Bilingual Hub</title>
+  <meta name="description" content="Dom Jones — UN SDG ambassador and Chairwoman of the Advocacy Board at My Culture Connect — on her ongoing school assembly tour across Changhua County.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Dom Jones · School Assembly Tour · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <link rel="stylesheet" href="/assets/css/resources.css">
+  <style>
+    /* ── Dom Jones page-local styles ── */
+    .dom-bio {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    @media (min-width: 820px) {
+      .dom-bio { grid-template-columns: 1.05fr 1fr; gap: 44px; align-items: start; }
+    }
+    .dom-bio-text p { line-height: 1.85; color: var(--hub-ink); margin-bottom: 14px; font-size: 1.02rem; }
+    .dom-bio-text p:last-child { margin-bottom: 0; }
+    .dom-bio-text strong { color: var(--hub-ink); font-weight: 700; }
+    .dom-bio-zh p { color: var(--hub-ink-soft); font-size: .98rem; line-height: 1.95; margin-bottom: 14px; }
+    .dom-quote {
+      margin: 24px 0 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--c-orange);
+      background: #fbf5ec;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #4a3c28;
+      line-height: 1.75;
+    }
+    .dom-quote-attr {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--hub-ink-soft);
+      letter-spacing: .02em;
+    }
+
+    .dom-roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 36px 0 8px;
+    }
+    .dom-role {
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .dom-role:hover { border-color: var(--c-orange); box-shadow: 0 6px 18px -10px rgba(0,0,0,.18); }
+    .dom-role-icon { font-size: 1.35rem; margin-bottom: 6px; display: block; }
+    .dom-role-title { font-weight: 700; font-size: .96rem; color: var(--hub-ink); margin-bottom: 4px; line-height: 1.35; }
+    .dom-role-sub { font-size: .82rem; color: var(--hub-ink-soft); line-height: 1.55; }
+
+    .dom-bio-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 10px 20px;
+      background: var(--hub-primary-deep, #1c4d7e);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .92rem;
+      transition: background .15s, transform .15s;
+    }
+    .dom-bio-cta:hover { background: var(--c-orange-deep, #a85a0c); transform: translateY(-1px); }
+
+    /* Video grid */
+    .dom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 8px;
+    }
+    .dom-card {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .dom-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--c-orange);
+      box-shadow: 0 14px 32px -16px rgba(28,77,126,.30);
+    }
+    .dom-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      overflow: hidden;
+    }
+    .dom-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .25s;
+    }
+    .dom-card:hover .dom-thumb img { transform: scale(1.04); }
+    .dom-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 2px 12px rgba(0,0,0,.45);
+      pointer-events: none;
+    }
+    .dom-meta { padding: 14px 16px 16px; }
+    .dom-school {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--hub-ink);
+      line-height: 1.4;
+    }
+    .dom-school .dom-school-sub {
+      display: block;
+      font-weight: 500;
+      font-size: .82rem;
+      color: var(--hub-ink-soft);
+      margin-top: 2px;
+      letter-spacing: .01em;
+    }
+    .dom-date {
+      margin: 8px 0 0;
+      font-size: .82rem;
+      color: var(--hub-ink-faint);
+      font-family: var(--hub-en-font);
+      letter-spacing: .02em;
+    }
+
+    .dom-section-lede {
+      color: var(--hub-ink-soft);
+      max-width: 62ch;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+    .dom-section-lede-zh {
+      color: var(--hub-ink-soft);
+      max-width: 62ch;
+      margin-bottom: 24px;
+      font-size: .96rem;
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/" aria-current="page">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero / Bio ===== -->
+<section class="hub-section">
+  <p class="hub-eyebrow">Resources · Dom Jones</p>
+  <h1 class="hub-h1">From Compton to Changhua.</h1>
+  <p class="dom-section-lede">
+    <strong>Dom Jones</strong> — internationally recognized social advocate, educator, and media personality from California — has chosen Taiwan as her home. Since <strong>December 2025</strong>, she has partnered with My Culture Connect to bring a nationwide <strong>school assembly tour</strong> to Changhua County, sharing global citizenship, empathy, and the UN Sustainable Development Goals.
+  </p>
+  <p class="dom-section-lede-zh hub-zh">
+    <strong>Dom Jones（多姆．瓊斯）</strong>是來自美國加州的國際社會運動者、教育家與媒體人，目前長期定居台灣。自 <strong>2025 年 12 月</strong>起，她與人師教育協會合作，在彰化縣展開<strong>全國巡迴學校集會</strong>，以英語分享全球公民精神、同理心教育與聯合國永續發展目標。
+  </p>
+
+  <div class="dom-bio">
+    <div class="dom-bio-text">
+      <p>Born in the challenging streets of Compton to a mother of thirteen, Dom grew up in poverty and homelessness — and refused to be defined by it. She pursued higher education across the Midwest and Southern California in the humanities, communication studies, and women's studies.</p>
+      <p>With nearly <strong>20 years</strong> in fitness, yoga, and wellness advocacy, she is also the owner and CEO of <strong>Propel Cycle</strong>, Southern California's premier indoor cycling studio. She hosts <em>The Dom Jones Show</em> on <strong>Pho Bolsa TV (PBTV)</strong>, reaching millions of viewers across the United States and Vietnam.</p>
+      <p>In 2022, Dom appeared on CBS's <strong>The Amazing Race (Season 34)</strong>, sharing her message of empathy and cross-cultural understanding with a global audience. As <strong>Government Affairs Ambassador</strong> for the United Nations Association — Orange County Chapter, she has dedicated her career to advancing the UN 2030 Agenda.</p>
+      <div class="dom-quote">
+        "Growing up without the love, safety, and guidance every child deserves, Dom made a vow to become the love she did not receive. Her life mission is to give kindness, unity, and hope to the world — especially to young people who need to know their voice and dreams matter."
+        <span class="dom-quote-attr">— Dom Jones</span>
+      </div>
+      <a class="dom-bio-cta" href="https://lukelin7429.github.io/dom-jones/" target="_blank" rel="noopener">Read Dom's full bio →</a>
+    </div>
+    <div class="dom-bio-zh hub-zh">
+      <p>出生於美國加州康普頓街頭，是十三個孩子的母親撫養長大的孩子。Dom 在貧困與無家可歸的環境中成長，卻憑藉對教育的堅定信念，在美國中西部與南加州修讀了人文學、傳播學與女性研究。</p>
+      <p>近 <strong>20 年</strong>的健身、瑜伽與身心靈倡導經驗，使她深刻理解健康對每個人的意義。她同時是南加州頂級室內單車工作室 <strong>Propel Cycle</strong> 的執行長，並在越南國際新聞網 <strong>Pho Bolsa TV</strong> 主持《The Dom Jones Show》，跨國傳播至全球數百萬觀眾。</p>
+      <p>2022 年，她登上 CBS《<strong>The Amazing Race</strong>》第 34 季，向全球觀眾展現跨文化的理解與同理心。她也是聯合國協會橙縣分會的<strong>政府事務大使</strong>，長期推廣聯合國 2030 永續發展目標。</p>
+    </div>
+  </div>
+
+  <div class="dom-roles">
+    <div class="dom-role">
+      <span class="dom-role-icon">🌏</span>
+      <div class="dom-role-title">Chairwoman, Advocacy Board</div>
+      <div class="dom-role-sub">人師教育協會 倡議委員會主席</div>
+    </div>
+    <div class="dom-role">
+      <span class="dom-role-icon">🇺🇳</span>
+      <div class="dom-role-title">UN Ambassador</div>
+      <div class="dom-role-sub">UN Association · Orange County · 政府事務大使</div>
+    </div>
+    <div class="dom-role">
+      <span class="dom-role-icon">📺</span>
+      <div class="dom-role-title">The Dom Jones Show</div>
+      <div class="dom-role-sub">Pho Bolsa TV 主持人 · 跨國節目</div>
+    </div>
+    <div class="dom-role">
+      <span class="dom-role-icon">🏆</span>
+      <div class="dom-role-title">The Amazing Race S34</div>
+      <div class="dom-role-sub">CBS · 跨文化理解倡議</div>
+    </div>
+    <div class="dom-role">
+      <span class="dom-role-icon">💪</span>
+      <div class="dom-role-title">Propel Cycle CEO</div>
+      <div class="dom-role-sub">南加州頂級室內單車工作室</div>
+    </div>
+    <div class="dom-role">
+      <span class="dom-role-icon">💚</span>
+      <div class="dom-role-title">DemocraShe Co-Founder</div>
+      <div class="dom-role-sub">501(c)(3) 賦能女孩相信自身潛能</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Playlist embed ===== -->
+<section class="hub-section" style="padding-top:8px">
+  <h2 class="resources-h2">School Assembly Tour <small>校園巡迴 · Spring 2026</small></h2>
+  <p class="dom-section-lede">
+    Each visit is a full-school assembly: Dom takes the stage in English, students answer back, and every school's young reporters cover the day in a short news segment. Watch the playlist below — every campus, every classroom welcome.
+  </p>
+  <p class="dom-section-lede-zh hub-zh">
+    每一場巡迴都是全校英語集會：Dom 全英語演講、學生即時互動，並由各校學生記者製作校園新聞影片紀錄當天。下方播放清單收錄歷次巡迴的所有校園實況。
+  </p>
+
+  <div class="playlist-wrap">
+    <div class="playlist-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ&rel=0"
+        title="Dom's School Visits · 校園巡迴播放清單"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="playlist-credit">
+      🎬 Playlist <strong>Dom's School Visits</strong> · curated by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===== Individual video grid ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Every campus, every visit <small>每一場巡迴的校園新聞</small></h2>
+  <p class="dom-section-lede">
+    Click any school below to watch its student-produced news segment of Dom's assembly visit.
+  </p>
+  <p class="dom-section-lede-zh hub-zh">
+    點選下方任一所學校，觀看該校學生記者拍攝的 Dom Jones 蒞校交流校園新聞。
+  </p>
+
+  <div class="dom-grid">
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=7VJodV2HwnE&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/7VJodV2HwnE/mqdefault.jpg" alt="文昌國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣文昌國小<span class="dom-school-sub">Wenchang Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.05.12</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=x--JEdN8xPY&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/x--JEdN8xPY/mqdefault.jpg" alt="中和國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣中和國小<span class="dom-school-sub">Zhonghe Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.05.12</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=2flGVrz2fDE&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/2flGVrz2fDE/mqdefault.jpg" alt="快官國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣快官國小<span class="dom-school-sub">Kuaiguan Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.05.05</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=FY2SjU8L04w&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/FY2SjU8L04w/mqdefault.jpg" alt="溪州國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣溪州國小<span class="dom-school-sub">Xizhou Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.05.05</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=1CaTsQJHkpk&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/1CaTsQJHkpk/mqdefault.jpg" alt="僑信國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣僑信國小<span class="dom-school-sub">Qiaoxin Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.28</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=ul5CBsV0QkA&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/ul5CBsV0QkA/mqdefault.jpg" alt="新民國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣新民國小<span class="dom-school-sub">Xinmin Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.21</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=dH0MQxB4x8o&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/dH0MQxB4x8o/mqdefault.jpg" alt="仁豐國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣仁豐國小<span class="dom-school-sub">Renfeng Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.21</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=ugPeclZYyQM&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/ugPeclZYyQM/mqdefault.jpg" alt="明禮國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣明禮國小<span class="dom-school-sub">Mingli Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.14</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=UHlL9GpBeco&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/UHlL9GpBeco/mqdefault.jpg" alt="陸豐國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣陸豐國小<span class="dom-school-sub">Lufeng Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.14</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=kYcVaoMnYBo&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/kYcVaoMnYBo/mqdefault.jpg" alt="育新國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣育新國小<span class="dom-school-sub">Yuxin Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.07</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=hMMbheEwZkI&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/hMMbheEwZkI/mqdefault.jpg" alt="福興國中 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣福興國中<span class="dom-school-sub">Fusing Junior High · 校園新聞</span></h3>
+        <p class="dom-date">2026.04.07</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=3a2LlsTmLIU&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/3a2LlsTmLIU/mqdefault.jpg" alt="德興國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣德興國小<span class="dom-school-sub">Dexing Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.03.31</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=0CPDATRfMJ8&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/0CPDATRfMJ8/mqdefault.jpg" alt="福興國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣福興國小<span class="dom-school-sub">Fusing Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.03.31</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=CRdHUTZHl_8&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/CRdHUTZHl_8/mqdefault.jpg" alt="大城國中 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣大城國中<span class="dom-school-sub">Dacheng Junior High · 校園新聞</span></h3>
+        <p class="dom-date">2026.03.24</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=19rekCsqAjk&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/19rekCsqAjk/mqdefault.jpg" alt="大城國小 — Dom Jones 校園新聞" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣大城國小<span class="dom-school-sub">Dacheng Elementary · 校園新聞</span></h3>
+        <p class="dom-date">2026.03.24</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=h9XbU-mVjsY&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/h9XbU-mVjsY/mqdefault.jpg" alt="大同國小 — Small Hands, Big Impact" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣大同國小<span class="dom-school-sub">Datong · Small Hands, Big Impact 🌍</span></h3>
+        <p class="dom-date">校園新聞特輯</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=exNWJilPGMo&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/exNWJilPGMo/mqdefault.jpg" alt="大新國小 國際交流 — Dom Jones" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣大新國小<span class="dom-school-sub">Daxin Elementary · 國際交流</span></h3>
+        <p class="dom-date">International exchange</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=xQ-aT5w1e9A&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/xQ-aT5w1e9A/mqdefault.jpg" alt="北斗國小 國際交流 — Dom Jones" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣北斗國小<span class="dom-school-sub">Beidou Elementary · 國際交流</span></h3>
+        <p class="dom-date">International exchange</p>
+      </div>
+    </a>
+
+    <a class="dom-card" href="https://www.youtube.com/watch?v=gcDCu03Io2k&list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">
+      <div class="dom-thumb"><img src="https://i.ytimg.com/vi/gcDCu03Io2k/mqdefault.jpg" alt="陽明國中 — Dom Jones 蒞校交流" loading="lazy"><span class="dom-play">▶</span></div>
+      <div class="dom-meta">
+        <h3 class="dom-school">彰化縣陽明國中<span class="dom-school-sub">Yangming Junior High · 蒞校交流</span></h3>
+        <p class="dom-date">School visit</p>
+      </div>
+    </a>
+
+  </div>
+
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+</body>
+</html>
