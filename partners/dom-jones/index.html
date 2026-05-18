@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dom Jones × My Culture Connect × 聯合國永續發展目標</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #009EDB;
+      --green:   #3F7E44;
+      --gold:    #FCC30B;
+      --red:     #E5243B;
+      --orange:  #FF6B2B;
+      --purple:  #8F1838;
+      --teal:    #00A99D;
+      --navy:    #0A1F5C;
+      --light:   #F8F9FA;
+      --white:   #FFFFFF;
+      --text:    #1A1A2E;
+      --muted:   #6C757D;
+      --zh-font: 'PingFang TC', 'Apple LiGothic Medium', 'Microsoft JhengHei', sans-serif;
+      --en-font: 'Montserrat', 'Lato', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--zh-font);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .nav-logo {
+      font-family: var(--en-font);
+      font-weight: 900; font-size: 1.1rem;
+      color: var(--white); letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      font-family: var(--en-font); letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #162a6e 55%, #1a3a7a 100%);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      display: flex; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(0,158,219,0.15) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1100px; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-text { }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(252,195,11,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--en-font); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.85rem; border-radius: 50px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-family: var(--en-font);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.05;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name-zh {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 400; color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title-en {
+      font-family: var(--en-font); font-size: 1rem; font-weight: 600;
+      color: var(--gold); margin-bottom: 0.25rem;
+    }
+    .hero-title-zh {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      font-family: var(--en-font); font-weight: 700; font-size: 0.9rem;
+      padding: 0.8rem 2rem; border-radius: 50px;
+      text-decoration: none; letter-spacing: 0.05em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(252,195,11,0.4); }
+
+    .hero-photo-wrap {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .hero-photo-frame {
+      position: relative; width: 340px; height: 340px;
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      background: conic-gradient(var(--blue), var(--green), var(--gold), var(--red), var(--orange), var(--blue));
+      z-index: 0;
+    }
+    .hero-photo-frame img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      border-radius: 50%;
+      border: 6px solid var(--navy);
+    }
+    .sdg-ring {
+      position: absolute; bottom: -8px; right: -8px; z-index: 2;
+      background: var(--white); border-radius: 50%;
+      width: 72px; height: 72px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      font-size: 2rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--en-font); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 0.5rem;
+    }
+    .section-title-zh {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700;
+      line-height: 1.3; margin-bottom: 0.25rem; color: var(--navy);
+    }
+    .section-title-en {
+      font-family: var(--en-font); font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 600; color: var(--muted); margin-bottom: 2.5rem;
+    }
+
+    /* ── MISSION ── */
+    .mission { background: var(--light); }
+    .mission-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+    }
+    .mission-card {
+      background: var(--white); border-radius: 16px;
+      padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      border-top: 4px solid var(--blue);
+    }
+    .mission-card.zh { border-top-color: var(--teal); }
+    .lang-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      font-family: var(--en-font); letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      background: var(--blue); color: var(--white); margin-bottom: 1rem;
+    }
+    .lang-tag.zh { background: var(--teal); }
+    .mission-card p { font-size: 1rem; line-height: 1.9; color: #333; }
+    .mission-card p + p { margin-top: 1rem; }
+    .quote-block {
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--gold);
+      padding: 0.75rem 1rem;
+      background: rgba(252,195,11,0.08);
+      border-radius: 0 8px 8px 0;
+      font-style: italic; color: #444;
+    }
+
+    /* ── SDG ── */
+    .sdg { background: var(--navy); color: var(--white); }
+    .sdg .section-label { color: var(--gold); }
+    .sdg .section-title-zh { color: var(--white); }
+    .sdg .section-title-en { color: rgba(255,255,255,0.6); }
+    .sdg-intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .sdg-intro p { font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.85); }
+    .sdg-goals {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .sdg-goal {
+      border-radius: 12px; padding: 1.25rem 1rem;
+      text-align: center; transition: transform 0.2s;
+      cursor: default;
+    }
+    .sdg-goal:hover { transform: translateY(-4px); }
+    .sdg-goal .sdg-num {
+      font-family: var(--en-font); font-weight: 900;
+      font-size: 1.8rem; line-height: 1;
+    }
+    .sdg-goal .sdg-title-en {
+      font-family: var(--en-font); font-size: 0.68rem;
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; margin: 0.3rem 0 0.15rem;
+    }
+    .sdg-goal .sdg-title-zh { font-size: 0.78rem; }
+    /* SDG colors */
+    .sdg-1  { background:#E5243B; color:#fff; }
+    .sdg-3  { background:#4C9F38; color:#fff; }
+    .sdg-4  { background:#C5192D; color:#fff; }
+    .sdg-5  { background:#FF3A21; color:#fff; }
+    .sdg-10 { background:#DD1367; color:#fff; }
+    .sdg-16 { background:#00689D; color:#fff; }
+    .sdg-17 { background:#19486A; color:#fff; }
+
+    /* ── STORY ── */
+    .story { background: var(--white); }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .story-block h3 {
+      font-size: 1.1rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--blue);
+    }
+    .story-block p { font-size: 0.97rem; line-height: 1.9; color: #333; margin-bottom: 1rem; }
+
+    /* ── ROLES ── */
+    .roles { background: var(--light); }
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .role-card {
+      background: var(--white); border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .role-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+    .role-icon {
+      font-size: 1.5rem; flex-shrink: 0;
+      width: 2.5rem; height: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .role-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+    .role-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── AWARDS ── */
+    .awards {
+      background: linear-gradient(135deg, var(--green) 0%, #2a6e30 100%);
+      color: var(--white);
+    }
+    .awards .section-label { color: var(--gold); }
+    .awards .section-title-zh { color: var(--white); }
+    .awards .section-title-en { color: rgba(255,255,255,0.65); }
+    .awards-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .award-card {
+      background: rgba(255,255,255,0.12); border-radius: 12px;
+      padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .award-card .trophy { font-size: 2rem; margin-bottom: 0.75rem; }
+    .award-card h4 { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+    .award-card p { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--white); text-align: center; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--navy); color: var(--white);
+      text-decoration: none; padding: 0.7rem 1.5rem; border-radius: 50px;
+      font-family: var(--en-font); font-size: 0.85rem; font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-link:hover { background: var(--blue); transform: translateY(-2px); }
+    .contact-link.gold { background: var(--gold); color: var(--navy); }
+    .contact-link.gold:hover { background: #e6af0a; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.6);
+      text-align: center; padding: 2rem;
+      font-size: 0.8rem; font-family: var(--en-font);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-frame { width: 220px; height: 220px; }
+      .mission-grid, .sdg-intro, .story-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dom <span>Jones</span> × MCC</div>
+  <ul class="nav-links">
+    <li><a href="#mission">使命 Mission</a></li>
+    <li><a href="#sdg">SDGs</a></li>
+    <li><a href="#story">故事 Story</a></li>
+    <li><a href="#roles">角色 Roles</a></li>
+    <li><a href="#contact">聯絡 Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🌏 My Culture Connect × 彰化縣學校巡迴</div>
+      <h1 class="hero-name">Dom Jones</h1>
+      <p class="hero-name-zh">多姆．瓊斯</p>
+      <p class="hero-title-en">Chairwoman of the Advocacy Board, My Culture Connect</p>
+      <p class="hero-title-zh">人師教育協會 倡議委員會主席<br>聯合國永續發展目標（SDGs）推廣大使</p>
+      <a href="#mission" class="hero-cta">認識 Dom → Explore Her Story</a>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="images/dom-jones.png" alt="Dom Jones" />
+        <div class="sdg-ring">🌐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="container">
+    <p class="section-label">Mission 使命</p>
+    <h2 class="section-title-zh">為什麼 Dom 在台灣？</h2>
+    <p class="section-title-en">Why is Dom in Taiwan?</p>
+    <div class="mission-grid">
+      <div class="mission-card zh">
+        <span class="lang-tag zh">中文</span>
+        <p>Dom Jones 是美國加州國際知名的社會運動者、教育家與媒體人。目前她選擇<strong>長期定居台灣</strong>，全職投入服務台灣的青少年、學校與社區。</p>
+        <p>自 <strong>2025 年 12 月</strong>起，Dom 與人師教育協會（My Culture Connect）合作，展開<strong>全台灣巡迴學校集會計畫</strong>，走進彰化縣各中小學，以英語分享全球公民精神、同理心教育與聯合國永續發展目標（SDGs）。</p>
+        <div class="quote-block">
+          「我立誓要成為自己未曾獲得的那份愛。我的使命，是將善意、團結與希望帶給每一位年輕人——讓他們知道，自己的聲音和夢想同樣重要。」<br>— Dom Jones
+        </div>
+      </div>
+      <div class="mission-card">
+        <span class="lang-tag">English</span>
+        <p>Dom Jones is an internationally recognized social advocate, educator, and media personality from California, USA. She has chosen to become a <strong>full-time resident of Taiwan</strong>, committed to serving youth, schools, and local communities through cultural exchange and global education.</p>
+        <p>Since <strong>December 2025</strong>, Dom has partnered with My Culture Connect (人師教育協會) to launch a <strong>nationwide school assembly tour</strong> across Taiwan — visiting schools in Changhua County to share global citizenship, empathy, English motivation, and the UN Sustainable Development Goals (SDGs).</p>
+        <div class="quote-block">
+          "Growing up without the love and guidance every child deserves, Dom made a vow to become the love she did not receive. Her life mission is to give kindness, unity, and hope — especially to young people who need to know their voice and dreams matter."<br>— Dom Jones
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SDG -->
+<section class="sdg" id="sdg">
+  <div class="container">
+    <p class="section-label">United Nations SDGs 聯合國永續發展目標</p>
+    <h2 class="section-title-zh">Dom 帶來的 SDGs 訊息</h2>
+    <p class="section-title-en">The SDGs Dom Brings to Every Classroom</p>
+    <div class="sdg-intro">
+      <p>Dom Jones 擔任聯合國協會橙縣分會政府事務大使，長期推廣聯合國 2030 永續發展目標。她走進台灣的每一間教室，用真實的人生故事讓學生理解：SDGs 不是遙遠的口號，而是每個人每天都能實踐的行動。</p>
+      <p>As a Government Affairs Ambassador for the United Nations Association (Orange County Chapter), Dom has dedicated her career to advancing the UN 2030 Agenda. In every school she visits, she brings the SDGs to life — showing students that global goals begin with local actions and personal choices.</p>
+    </div>
+    <div class="sdg-goals">
+      <div class="sdg-goal sdg-1">
+        <div class="sdg-num">1</div>
+        <div class="sdg-title-en">No Poverty</div>
+        <div class="sdg-title-zh">消除貧窮</div>
+      </div>
+      <div class="sdg-goal sdg-3">
+        <div class="sdg-num">3</div>
+        <div class="sdg-title-en">Good Health</div>
+        <div class="sdg-title-zh">健康與福祉</div>
+      </div>
+      <div class="sdg-goal sdg-4">
+        <div class="sdg-num">4</div>
+        <div class="sdg-title-en">Quality Education</div>
+        <div class="sdg-title-zh">優質教育</div>
+      </div>
+      <div class="sdg-goal sdg-5">
+        <div class="sdg-num">5</div>
+        <div class="sdg-title-en">Gender Equality</div>
+        <div class="sdg-title-zh">性別平等</div>
+      </div>
+      <div class="sdg-goal sdg-10">
+        <div class="sdg-num">10</div>
+        <div class="sdg-title-en">Reduced Inequalities</div>
+        <div class="sdg-title-zh">減少不平等</div>
+      </div>
+      <div class="sdg-goal sdg-16">
+        <div class="sdg-num">16</div>
+        <div class="sdg-title-en">Peace & Justice</div>
+        <div class="sdg-title-zh">和平、正義</div>
+      </div>
+      <div class="sdg-goal sdg-17">
+        <div class="sdg-num">17</div>
+        <div class="sdg-title-en">Partnerships</div>
+        <div class="sdg-title-zh">全球夥伴關係</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="container">
+    <p class="section-label">Her Story 她的故事</p>
+    <h2 class="section-title-zh">從康普頓到全世界</h2>
+    <p class="section-title-en">From Compton to the World Stage</p>
+    <div class="story-grid">
+      <div class="story-block">
+        <h3>🇹🇼 中文版</h3>
+        <p>Dom Jones 出生於美國加州康普頓（Compton）貧困的街頭，是十三個孩子的母親撫養長大的孩子。她在貧困與無家可歸的困境中成長，卻憑藉對教育的堅定信念，在美國中西部與南加州修讀了人文學、傳播學與女性研究。</p>
+        <p>近 <strong>20 年</strong>的健身、瑜伽與身心靈倡導經驗，讓她深刻理解健康對每個人的意義。她更學習了<strong>越南語與塔加洛語</strong>，以傳遞美國多元族群的聲音。</p>
+        <p>2022 年，她登上 CBS 《<strong>The Amazing Race</strong>》第 34 季，向全球觀眾展現跨文化的理解與同理心。在 2024 年美國大選期間，逾 <strong>10 萬名</strong>美國公民投票支持她出任民意代表。</p>
+        <p>如今，她選擇在台灣紮根，將這段不凡的生命旅程，化為給每一位台灣孩子的禮物。</p>
+      </div>
+      <div class="story-block">
+        <h3>🇺🇸 English Version</h3>
+        <p>Dom Jones was born in the challenging streets of Compton, California, raised by a mother of thirteen children. Growing up in poverty and homelessness, she refused to be defined by her circumstances — pursuing higher education across the Midwest and Southern California in the humanities, communication studies, and women's studies.</p>
+        <p>With nearly <strong>20 years</strong> in fitness, yoga, and wellness advocacy, Dom understands the deep connection between physical and emotional health. She even learned <strong>Vietnamese and Tagalog</strong> to amplify voices within diverse American communities.</p>
+        <p>In 2022, Dom appeared on CBS's <strong>The Amazing Race (Season 34)</strong>, bringing her message of empathy and cross-cultural understanding to a global audience. During the 2024 U.S. elections, over <strong>100,000 American citizens</strong> voted to have her represent them.</p>
+        <p>Today, she has chosen Taiwan as her home — turning an extraordinary life journey into a gift for every student she meets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles" id="roles">
+  <div class="container">
+    <p class="section-label">Roles & Achievements 身份與成就</p>
+    <h2 class="section-title-zh">Dom 的多元身份</h2>
+    <p class="section-title-en">Who is Dom Jones?</p>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">🌏</div>
+        <div>
+          <h4>人師教育協會 倡議委員會主席</h4>
+          <p>Chairwoman of the Advocacy Board, My Culture Connect (MCC) — 全台巡迴學校集會計畫</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🇺🇳</div>
+        <div>
+          <h4>聯合國協會 政府事務大使</h4>
+          <p>Government Affairs Ambassador, UN Association – Orange County Chapter</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📺</div>
+        <div>
+          <h4>《The Dom Jones Show》主持人</h4>
+          <p>Host & Creator on Pho Bolsa TV (PBTV) — 全球數百萬名觀眾，跨國傳播至越南</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏆</div>
+        <div>
+          <h4>CBS《The Amazing Race》第 34 季</h4>
+          <p>Participated in Season 34, promoting empathy and cross-cultural understanding globally</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">💪</div>
+        <div>
+          <h4>Propel Cycle 執行長</h4>
+          <p>CEO & Owner of Propel Cycle — 南加州頂級室內單車工作室 · 近 20 年健身資歷</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">👧</div>
+        <div>
+          <h4>DemocraShe 共同創辦人</h4>
+          <p>Co-Founder — 501(c)(3) 非營利組織，賦能女孩相信自身潛能，不因環境設限</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">💚</div>
+        <div>
+          <h4>You Matter Global Movement 共同創辦人</h4>
+          <p>Co-Founder — 青少年社交情感學習（SEL）計畫</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🎓</div>
+        <div>
+          <h4>特殊教育教師 · 社區倡議者</h4>
+          <p>Special Needs Educator in Orange County · Community Advocate · Public Figure</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">✈️</div>
+        <div>
+          <h4>旅遊部落客 · 文化說故事者</h4>
+          <p>Travel Vlogger · Cultural Storyteller · Content Creator — 用影像連結世界各地的人</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards">
+  <div class="container">
+    <p class="section-label">Awards 獎項</p>
+    <h2 class="section-title-zh">榮譽與肯定</h2>
+    <p class="section-title-en">Recognition & Awards</p>
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="trophy">🌟</div>
+        <h4>2024 Young Leader of America</h4>
+        <p>美國聯合國國家執行委員會頒發<br>United Nations National Executive Council of the USA</p>
+      </div>
+      <div class="award-card">
+        <div class="trophy">🏅</div>
+        <h4>2023 Woman of the Year — Entrepreneurship</h4>
+        <p>希望之城與爾灣商會頒發<br>City of Hope & Irvine Chamber of Commerce</p>
+      </div>
+      <div class="award-card">
+        <div class="trophy">🕊️</div>
+        <h4>Government Affairs Ambassador</h4>
+        <p>橙縣政府事務大使<br>Orange County, California</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label">Contact 聯絡</p>
+    <h2 class="section-title-zh">邀請 Dom 到您的學校</h2>
+    <p class="section-title-en">Invite Dom to Your School</p>
+    <p style="max-width:640px; margin:0 auto; color:var(--muted); font-size:0.97rem; line-height:1.9;">
+      歡迎彰化縣各學校與人師教育協會聯繫，安排 Dom Jones 的校園集會或英語課程參訪。<br>
+      <em>Schools in Changhua are welcome to contact My Culture Connect to schedule a school assembly visit with Dom Jones.</em>
+    </p>
+
+    <div style="margin: 2.5rem auto 0; max-width: 500px; background: var(--light); border-radius: 16px; padding: 2rem; text-align: left;">
+      <p style="font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:1.25rem; font-family:var(--en-font);">
+        📋 主要聯絡人 Primary Contact
+      </p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem; color:#333;">
+        <tr>
+          <td style="padding:0.55rem 0; color:var(--muted); width:36%; vertical-align:top;">姓名 Name</td>
+          <td style="padding:0.55rem 0; font-weight:600;">Luke Lin｜林吉祥</td>
+        </tr>
+        <tr>
+          <td style="padding:0.55rem 0; color:var(--muted); vertical-align:top;">組織 Organization</td>
+          <td style="padding:0.55rem 0;">人師教育協會<br><span style="color:var(--muted); font-size:0.85rem;">My Culture Connect</span></td>
+        </tr>
+        <tr>
+          <td style="padding:0.55rem 0; color:var(--muted); vertical-align:top;">Email</td>
+          <td style="padding:0.55rem 0;"><a href="mailto:luke@mycultureconnect.org" style="color:var(--blue); text-decoration:none; font-weight:600;">luke@mycultureconnect.org</a></td>
+        </tr>
+        <tr>
+          <td style="padding:0.55rem 0; color:var(--muted); vertical-align:top;">LINE ID</td>
+          <td style="padding:0.55rem 0; font-weight:600; letter-spacing:0.05em;">luke7429</td>
+        </tr>
+        <tr>
+          <td style="padding:0.55rem 0; color:var(--muted); vertical-align:top;">網站 Website</td>
+          <td style="padding:0.55rem 0;"><a href="https://www.mycultureconnect.org" target="_blank" style="color:var(--blue); text-decoration:none; font-weight:600;">www.mycultureconnect.org</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="contact-links">
+      <a href="mailto:luke@mycultureconnect.org" class="contact-link gold">✉️ 寄信聯絡 Email Us</a>
+      <a href="https://www.mycultureconnect.org" class="contact-link" target="_blank">🌐 mycultureconnect.org</a>
+      <button onclick="document.getElementById('line-modal').style.display='flex'" class="contact-link" style="background:#06C755; border:none; cursor:pointer;">💬 LINE: luke7429</button>
+    </div>
+  </div>
+</section>
+
+<!-- LINE QR MODAL -->
+<div id="line-modal" onclick="this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:999; align-items:center; justify-content:center;">
+  <div onclick="event.stopPropagation()" style="background:#fff; border-radius:20px; padding:2rem; text-align:center; max-width:300px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <p style="font-weight:700; font-size:1.05rem; color:#06C755; margin-bottom:0.25rem;">💬 LINE</p>
+    <p style="font-size:0.85rem; color:#666; margin-bottom:1.25rem;">掃描 QR Code 加入 LINE<br><em>Scan to add on LINE</em></p>
+    <img src="images/line-qr.jpg" alt="LINE QR Code" style="width:220px; height:220px; border-radius:12px; display:block; margin:0 auto;" />
+    <p style="margin-top:1rem; font-weight:700; letter-spacing:0.08em; color:#333;">luke7429</p>
+    <button onclick="document.getElementById('line-modal').style.display='none'" style="margin-top:1.25rem; background:#f0f0f0; border:none; padding:0.6rem 2rem; border-radius:50px; cursor:pointer; font-size:0.85rem; color:#555;">關閉 Close</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025–2026 Dom Jones × <a href="mailto:luke@mycultureconnect.org">My Culture Connect 人師教育協會</a></p>
+  <p style="margin-top:0.4rem;">Empowering students across Taiwan with global citizenship, empathy &amp; UN SDGs</p>
+</footer>
+
+</body>
+</html>
