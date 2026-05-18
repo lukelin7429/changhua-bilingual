@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward Huang · UN Youth Climate Ambassador · Changhua Bilingual Hub</title>
+  <meta name="description" content="Edward Huang — UNFCCC YOUNGO member, LCOY Taiwan International Ambassador, UCLA Master — bringing UN climate diplomacy and SDGs to Changhua classrooms.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Edward Huang · UN Youth Climate Ambassador · Changhua Bilingual Hub">
+  <meta property="og:image" content="/partners/edward-huang/photos/edward-portrait.jpg">
+  <meta property="og:type" content="profile">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <link rel="stylesheet" href="/assets/css/resources.css">
+  <style>
+    /* ── Edward Huang page-local styles ── */
+    .eh-hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 32px;
+      align-items: start;
+    }
+    @media (min-width: 880px) {
+      .eh-hero { grid-template-columns: 1fr 320px; gap: 48px; }
+    }
+    .eh-hero-text p { line-height: 1.85; color: var(--hub-ink); font-size: 1.02rem; margin-bottom: 14px; }
+    .eh-hero-text strong { color: var(--hub-ink); font-weight: 700; }
+    .eh-hero-zh p { color: var(--hub-ink-soft); line-height: 1.95; font-size: .98rem; margin-bottom: 14px; }
+    .eh-portrait {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px -16px rgba(28,77,126,.35);
+      background: #0a3d62;
+    }
+    .eh-portrait img { width: 100%; height: 100%; display: block; object-fit: cover; aspect-ratio: 4/5; }
+    .eh-portrait-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 14px 16px;
+      background: linear-gradient(to top, rgba(6,41,64,.92) 0%, rgba(6,41,64,.7) 60%, transparent 100%);
+      color: #fff;
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+    .eh-portrait-caption strong { display: block; font-size: .95rem; font-weight: 700; margin-bottom: 2px; }
+
+    .eh-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 22px 0 4px;
+    }
+    .eh-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #eaf3f8;
+      color: var(--hub-primary-deep, #1c4d7e);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .eh-chip.gold { background: #fbf3dc; color: #8a6a0a; }
+    .eh-chip.green { background: #e7f4ec; color: #1e5f33; }
+
+    .eh-quote {
+      margin: 24px 0 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--c-orange);
+      background: #fbf5ec;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #4a3c28;
+      line-height: 1.75;
+    }
+    .eh-quote-attr {
+      display: block; margin-top: 8px; font-style: normal;
+      font-weight: 600; font-size: .88rem; color: var(--hub-ink-soft);
+    }
+
+    .eh-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px;
+    }
+    .eh-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      background: var(--hub-primary-deep, #1c4d7e);
+      color: #fff; text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600; font-size: .92rem;
+      transition: background .15s, transform .15s;
+    }
+    .eh-cta:hover { background: var(--c-orange-deep, #a85a0c); transform: translateY(-1px); }
+    .eh-cta.ghost {
+      background: transparent;
+      color: var(--hub-primary-deep, #1c4d7e);
+      border: 1.5px solid var(--hub-primary-deep, #1c4d7e);
+    }
+    .eh-cta.ghost:hover { background: var(--hub-primary-deep, #1c4d7e); color: #fff; }
+
+    /* Changhua tie-in callout */
+    .eh-changhua {
+      margin-top: 32px;
+      padding: 26px 28px;
+      background: linear-gradient(135deg, #fffdf6 0%, #fff5d6 100%);
+      border: 1px solid #f0d97a;
+      border-radius: 16px;
+    }
+    .eh-changhua h3 {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.35rem;
+      color: #6b4f0a;
+      margin: 0 0 6px;
+      letter-spacing: -.005em;
+    }
+    .eh-changhua h3 small { font-family: var(--hub-zh-font), sans-serif; font-size: .72em; color: #8a6a0a; font-weight: 500; margin-left: 10px; }
+    .eh-changhua p { color: #5a4413; line-height: 1.75; font-size: .98rem; margin: 6px 0; }
+    .eh-changhua a { color: #6b4f0a; font-weight: 600; border-bottom: 1px solid #d4a017; }
+    .eh-changhua a:hover { color: #a85a0c; }
+
+    /* Role grid */
+    .eh-roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 32px 0 8px;
+    }
+    .eh-role {
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .eh-role:hover { border-color: var(--c-orange); box-shadow: 0 6px 18px -10px rgba(0,0,0,.18); }
+    .eh-role-icon { font-size: 1.35rem; margin-bottom: 6px; display: block; }
+    .eh-role-title { font-weight: 700; font-size: .96rem; color: var(--hub-ink); margin-bottom: 4px; line-height: 1.35; }
+    .eh-role-sub { font-size: .82rem; color: var(--hub-ink-soft); line-height: 1.55; }
+
+    /* Vocabulary / glossary table */
+    .eh-vocab {
+      margin: 8px 0 0;
+      border: 1px solid var(--hub-line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .eh-vocab table { width: 100%; border-collapse: collapse; }
+    .eh-vocab th, .eh-vocab td {
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--hub-line);
+      font-size: .96rem;
+      vertical-align: top;
+    }
+    .eh-vocab tr:last-child th, .eh-vocab tr:last-child td { border-bottom: 0; }
+    .eh-vocab th {
+      background: #f5f8fa;
+      font-weight: 700;
+      color: var(--hub-primary-deep, #1c4d7e);
+      width: 20%;
+      letter-spacing: .03em;
+    }
+    .eh-vocab td.en { color: var(--hub-ink); width: 50%; }
+    .eh-vocab td.zh { color: var(--hub-ink-soft); width: 30%; font-size: .92rem; }
+    @media (max-width: 640px) {
+      .eh-vocab th, .eh-vocab td { padding: 11px 14px; font-size: .9rem; }
+      .eh-vocab th { width: 26%; }
+    }
+
+    /* Photo gallery */
+    .eh-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .eh-photo {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0a3d62;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 6px 20px -10px rgba(10,61,98,.30);
+    }
+    .eh-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s;
+    }
+    .eh-photo:hover img { transform: scale(1.04); }
+    .eh-photo figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 12px 12px;
+      background: linear-gradient(to top, rgba(6,41,64,.92) 0%, rgba(6,41,64,.55) 70%, transparent 100%);
+      color: #fff;
+      font-size: .78rem;
+      line-height: 1.4;
+      letter-spacing: .01em;
+    }
+    .eh-photo figcaption strong { display: block; font-size: .88rem; font-weight: 700; margin-bottom: 1px; }
+
+    .eh-section-lede {
+      color: var(--hub-ink-soft);
+      max-width: 64ch;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+    .eh-section-lede-zh {
+      color: var(--hub-ink-soft);
+      max-width: 64ch;
+      margin-bottom: 24px;
+      font-size: .96rem;
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/" aria-current="page">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero / Bio ===== -->
+<section class="hub-section">
+  <p class="hub-eyebrow">Resources · Edward Huang 黃雋翔</p>
+  <h1 class="hub-h1">A UN voice for Taiwan's youth.</h1>
+  <p class="eh-section-lede">
+    <strong>Edward Huang</strong> — UNFCCC YOUNGO member, <strong>LCOY Taiwan International Ambassador</strong>, and UCLA Master — brings the real stage of UN climate diplomacy and the Sustainable Development Goals into Changhua classrooms.
+  </p>
+  <p class="eh-section-lede-zh hub-zh">
+    <strong>Edward Huang（黃雋翔）</strong>—— UNFCCC YOUNGO 成員、<strong>LCOY Taiwan 國際大使</strong>、UCLA 碩士——透過人師教育協會，為彰化的孩子與台灣的青年開啟聯合國氣候峰會、SDGs 教學與跨國 PBL 的真實國際舞台。
+  </p>
+
+  <div class="eh-chips">
+    <span class="eh-chip">UNFCCC YOUNGO</span>
+    <span class="eh-chip">LCOY Taiwan Int. Ambassador</span>
+    <span class="eh-chip gold">UCLA Master</span>
+    <span class="eh-chip">Irvine, CA</span>
+    <span class="eh-chip green">UNESCO Greening Education Partnership</span>
+  </div>
+
+  <div class="eh-hero">
+    <div class="eh-hero-text">
+      <p>Based in Irvine, California, Edward is a member of <strong>YOUNGO</strong>, the official Children and Youth Constituency of the <strong>UNFCCC</strong>. Since 2023, he has been actively engaged in youth climate action — from the Global Conference of Youth (GCOY) to UN COP summits — and as an International Ambassador for <strong>LCOY Taiwan</strong>, he guides students in connecting their personal interests with the UN Sustainable Development Goals.</p>
+      <p>As the founder of <strong>Youth Network 青年網</strong>, Edward has secured Taiwan's <strong>sole UNFCCC-recognized hosting rights</strong> for LCOY Taiwan 2026 — making Taiwan one of only 113 countries worldwide authorized to convene this UN-recognized youth climate forum.</p>
+      <p>He also serves as senior editor and youth coach at the <strong>Etosha Education Consulting Institute (EECI)</strong> — a UNESCO Greening Education Partnership member — leading project-based learning programs that take students from rural Taiwan classrooms to the Seoul Invention Fair, Hawaii academic conferences, and UN climate summits in Dubai, Baku, and Belém.</p>
+
+      <div class="eh-quote">
+        "Every Taiwanese child — from rural elementary schools to university campuses — deserves a seat at the global table. My mission is to build that bridge: from K-12 climate literacy in Changhua, to the UN COP negotiations in Belém and beyond."
+        <span class="eh-quote-attr">— Edward Huang</span>
+      </div>
+
+      <div class="eh-cta-row">
+        <a class="eh-cta" href="/partners/edward-huang/">Read full profile →</a>
+        <a class="eh-cta ghost" href="https://www.instagram.com/p/DXi7OODGz46/" target="_blank" rel="noopener">UNFCCC recognition letter →</a>
+      </div>
+    </div>
+
+    <figure class="eh-portrait">
+      <img src="/partners/edward-huang/photos/edward-portrait.jpg" alt="Edward Huang at COY19 Baku, Azerbaijan">
+      <figcaption class="eh-portrait-caption">
+        <strong>Edward Huang 黃雋翔</strong>
+        UNFCCC YOUNGO · COY19 Baku, Azerbaijan
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Changhua tie-in -->
+  <div class="eh-changhua">
+    <h3>Every Monday at Dacheng Elementary <small>每週一在彰化大城國小</small></h3>
+    <p>Edward teaches a weekly online English-and-SDGs class for the students of <a href="/schools/dacheng/">Dacheng Elementary</a> — bringing UN climate vocabulary, global case studies, and an American cultural lens to one of Changhua's most rural campuses.</p>
+    <p class="hub-zh">Edward 每週一中午 12:40 線上指導<a href="/schools/dacheng/">大城國小</a>學生，以英語教授聯合國永續發展目標（SDGs）的理念、相關單字，並從美國文化視角介紹環境與社會議題——把聯合國的舞台搬進彰化最偏鄉的教室。</p>
+  </div>
+</section>
+
+<!-- ===== Roles ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Roles &amp; Affiliations <small>身份與職務</small></h2>
+  <div class="eh-roles">
+    <div class="eh-role">
+      <span class="eh-role-icon">🇺🇳</span>
+      <div class="eh-role-title">UNFCCC YOUNGO Member</div>
+      <div class="eh-role-sub">聯合國氣候公約官方青年代表團成員</div>
+    </div>
+    <div class="eh-role">
+      <span class="eh-role-icon">🌏</span>
+      <div class="eh-role-title">LCOY Taiwan Int. Ambassador</div>
+      <div class="eh-role-sub">聯合國臺灣青年氣候論壇 國際大使</div>
+    </div>
+    <div class="eh-role">
+      <span class="eh-role-icon">🏛️</span>
+      <div class="eh-role-title">Youth Network 創辦人</div>
+      <div class="eh-role-sub">2026 LCOY Taiwan 唯一主辦單位</div>
+    </div>
+    <div class="eh-role">
+      <span class="eh-role-icon">🎓</span>
+      <div class="eh-role-title">UCLA Master</div>
+      <div class="eh-role-sub">University of California, Los Angeles</div>
+    </div>
+    <div class="eh-role">
+      <span class="eh-role-icon">📐</span>
+      <div class="eh-role-title">EECI Senior Editor &amp; Youth Coach</div>
+      <div class="eh-role-sub">Etosha Education Consulting Institute · 青年教練</div>
+    </div>
+    <div class="eh-role">
+      <span class="eh-role-icon">🌱</span>
+      <div class="eh-role-title">UNESCO Greening Education</div>
+      <div class="eh-role-sub">EECI 為聯合國教科文「綠色教育夥伴」成員</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Vocabulary ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">UN Climate Vocabulary <small>聯合國氣候名詞對照</small></h2>
+  <p class="eh-section-lede">
+    The acronyms behind Edward's work — every term students hear in a UN-recognized climate forum.
+  </p>
+  <p class="eh-section-lede-zh hub-zh">
+    Edward 工作中常用的聯合國氣候名詞——也是青年走進國際論壇前要先認識的關鍵詞。
+  </p>
+
+  <div class="eh-vocab">
+    <table>
+      <tr><th>UNESCO</th><td class="en">United Nations Educational, Scientific and Cultural Organization</td><td class="zh">聯合國教科文組織</td></tr>
+      <tr><th>UNFCCC</th><td class="en">United Nations Framework Convention on Climate Change</td><td class="zh">聯合國氣候變化綱要公約</td></tr>
+      <tr><th>YOUNGO</th><td class="en">Official Children and Youth Constituency of the UNFCCC</td><td class="zh">聯合國氣候公約官方青年代表團</td></tr>
+      <tr><th>LCOY</th><td class="en">Local Conference of Youth</td><td class="zh">聯合國在地青年氣候論壇</td></tr>
+      <tr><th>LCOY Taiwan</th><td class="en">Local Conference of Youth @ Taiwan</td><td class="zh">聯合國臺灣青年氣候論壇<br>（Youth Network 主辦）</td></tr>
+      <tr><th>GCOY</th><td class="en">Global Conference of Youth and Children</td><td class="zh">聯合國青年兒童氣候論壇</td></tr>
+      <tr><th>COP</th><td class="en">Conference of Parties</td><td class="zh">聯合國政治論壇<br>（聯合國氣候締約方大會）</td></tr>
+      <tr><th>NDC</th><td class="en">Nationally Determined Contributions</td><td class="zh">國家自定貢獻<br>（各國的氣候承諾與減碳目標）</td></tr>
+      <tr><th>SDGs</th><td class="en">Sustainable Development Goals (UN 2030 Agenda)</td><td class="zh">聯合國永續發展目標（2030 議程）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">From Changhua to the UN <small>從彰化到聯合國的舞台</small></h2>
+  <p class="eh-section-lede">
+    Six years guiding youth — from rural Taiwan classrooms to UN climate summits in Dubai, Baku, and Belém.
+  </p>
+  <p class="eh-section-lede-zh hub-zh">
+    六年的青年教練資歷——從台灣偏鄉教室一路帶到杜拜、亞塞拜然、巴西的聯合國氣候峰會。
+  </p>
+
+  <div class="eh-gallery">
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2025-coy20-belem.jpg" alt="COY20 Belém, Brazil 2025" loading="lazy">
+      <figcaption><strong>COY20 Belém, Brazil</strong>Global Conference of Youth · 2025</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2024-coy19-baku.jpg" alt="COY19 Baku, Azerbaijan 2024" loading="lazy">
+      <figcaption><strong>COY19 Baku, Azerbaijan</strong>Global Conference of Youth · 2024</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/edward-presenting.jpg" alt="COY20 Keynote Speaker" loading="lazy">
+      <figcaption><strong>COY20 Keynote Speaker</strong>Shaping Green Job Traits for Youth · 2024</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/edward-lcoy-west.jpg" alt="LCOY WEST USA, City of Irvine 2023" loading="lazy">
+      <figcaption><strong>LCOY WEST USA</strong>City of Irvine · 2023</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2024-lcoy-taiwan.jpg" alt="LCOY Taiwan launch ceremony 2024" loading="lazy">
+      <figcaption><strong>LCOY Taiwan Launch</strong>2024</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2024-lcoy-okinawa.jpg" alt="LCOY Taiwan International Ceremony Okinawa Japan" loading="lazy">
+      <figcaption><strong>LCOY Taiwan Int. Ceremony</strong>Okinawa, Japan · 2024</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/edward-siif.jpg" alt="Seoul International Invention Fair 2024" loading="lazy">
+      <figcaption><strong>Seoul Invention Fair</strong>SIIF 2024</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/edward-hice.jpg" alt="Hawaii International Conference on Education 2025" loading="lazy">
+      <figcaption><strong>Hawaii Int. Conf. on Education</strong>HICE 2025</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2025-irvine-eco-fair.jpg" alt="Cool Irvine Eco Fair 2025" loading="lazy">
+      <figcaption><strong>Cool Irvine Eco Fair</strong>2025</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-2025-icity-group.jpg" alt="Irvine Conference of International and Transnational Youth 2025" loading="lazy">
+      <figcaption><strong>Irvine CITY 2025</strong>Int. &amp; Transnational Youth</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/edward-tutoring-taiwan.jpg" alt="Online English Tutoring for Taiwan Students" loading="lazy">
+      <figcaption><strong>Rural Online Tutoring</strong>Taiwan · 2026</figcaption>
+    </figure>
+    <figure class="eh-photo">
+      <img src="/partners/edward-huang/photos/event-kanglang-elementary.jpg" alt="Kanglang Elementary onsite education" loading="lazy">
+      <figcaption><strong>槺榔國小 沉浸式英語</strong>Taichung · 2025</figcaption>
+    </figure>
+  </div>
+
+  <p style="margin-top:36px;color:var(--hub-ink-soft);font-size:.92rem;text-align:center">
+    <a href="/partners/edward-huang/" style="color:var(--hub-primary-deep);font-weight:600;border-bottom:1px solid var(--c-orange)">See the full profile, press coverage &amp; the LCOY Taiwan platform →</a>
+  </p>
+
+  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/">← Back to Resources</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+</body>
+</html>
