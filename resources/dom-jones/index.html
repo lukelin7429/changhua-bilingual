@@ -54,10 +54,11 @@
     }
     .dom-portrait-caption strong { display: block; font-size: .95rem; font-weight: 700; margin-bottom: 2px; }
 
-    /* Dom-with-students featured strip */
+    /* Dom-with-students featured strip — match .playlist-wrap width */
     .dom-feature-photo {
       position: relative;
       margin: 36px 0 4px;
+      max-width: 980px;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 18px 40px -18px rgba(10,31,92,.28);
@@ -65,7 +66,7 @@
     }
     .dom-feature-photo img {
       width: 100%; display: block;
-      aspect-ratio: 16 / 7;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       object-position: center;
     }
@@ -234,6 +235,61 @@
       margin-bottom: 24px;
       font-size: .96rem;
     }
+
+    /* Mission three pillars */
+    .dom-mission {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    @media (min-width: 760px) {
+      .dom-mission { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    }
+    .dom-pillar {
+      position: relative;
+      padding: 28px 26px 24px;
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 16px;
+      border-top: 4px solid var(--c-orange);
+      box-shadow: 0 10px 28px -16px rgba(10,31,92,.18);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .dom-pillar:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -16px rgba(10,31,92,.28); }
+    .dom-pillar:nth-child(2) { border-top-color: #2d6aa8; }
+    .dom-pillar:nth-child(3) { border-top-color: #d4a017; }
+    .dom-pillar-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .dom-pillar h3 {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.35rem;
+      color: var(--hub-ink);
+      margin: 0 0 2px;
+      letter-spacing: -.005em;
+    }
+    .dom-pillar-zh {
+      font-size: .92rem;
+      color: var(--hub-ink-soft);
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .dom-pillar p.dom-pillar-body {
+      font-size: .95rem;
+      line-height: 1.75;
+      color: var(--hub-ink);
+      margin: 0 0 10px;
+    }
+    .dom-pillar p.dom-pillar-body-zh {
+      font-size: .9rem;
+      line-height: 1.85;
+      color: var(--hub-ink-soft);
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -265,10 +321,10 @@
   <div class="dom-hero">
     <div>
       <p class="dom-section-lede">
-        <strong>Dom Jones</strong> — internationally recognized social advocate, educator, and media personality from California — has chosen Taiwan as her home. Since <strong>December 2025</strong>, she has partnered with My Culture Connect to bring a nationwide <strong>school assembly tour</strong> to Changhua County, sharing global citizenship, empathy, and the UN Sustainable Development Goals.
+        <strong>Dom Jones</strong> — internationally recognized social advocate, educator, and media personality from California — has chosen Taiwan as her home. Since <strong>December 2025</strong>, she has partnered with My Culture Connect to bring a nationwide <strong>school assembly tour</strong> to Changhua County, built around three pillars: <strong>English education, global connections, and kindness</strong>.
       </p>
       <p class="dom-section-lede-zh hub-zh">
-        <strong>Dom Jones（多姆．瓊斯）</strong>是來自美國加州的國際社會運動者、教育家與媒體人，目前長期定居台灣。自 <strong>2025 年 12 月</strong>起，她與人師教育協會合作，在彰化縣展開<strong>全國巡迴學校集會</strong>，以英語分享全球公民精神、同理心教育與聯合國永續發展目標。
+        <strong>Dom Jones（多姆．瓊斯）</strong>是來自美國加州的國際社會運動者、教育家與媒體人，目前長期定居台灣。自 <strong>2025 年 12 月</strong>起，她與人師教育協會合作，在彰化縣展開<strong>全國巡迴學校集會</strong>——以<strong>英語教育、全球連結、善意與愛</strong>為三大主軸。
       </p>
     </div>
     <figure class="dom-portrait">
@@ -329,6 +385,41 @@
       <div class="dom-role-title">DemocraShe Co-Founder</div>
       <div class="dom-role-sub">501(c)(3) 賦能女孩相信自身潛能</div>
     </div>
+  </div>
+</section>
+
+<!-- ===== Mission · Three Pillars ===== -->
+<section class="hub-section" style="padding-top:8px">
+  <h2 class="resources-h2">Our Mission <small>校園巡迴的三大主軸</small></h2>
+  <p class="dom-section-lede">
+    Every campus visit is built around three commitments that Dom carries from California to every Changhua classroom.
+  </p>
+  <p class="dom-section-lede-zh hub-zh">
+    Dom 在每一場彰化校園巡迴中，都圍繞著三大不變的承諾。
+  </p>
+
+  <div class="dom-mission">
+    <article class="dom-pillar">
+      <div class="dom-pillar-icon">🗣️</div>
+      <h3>English Education</h3>
+      <p class="dom-pillar-zh">英語教育</p>
+      <p class="dom-pillar-body">Real, lived English in every classroom. Dom speaks to students as a working American media personality — every word is something she would actually say in California tomorrow, not textbook English.</p>
+      <p class="dom-pillar-body-zh">把真實生活中的英語帶進每一堂課。Dom 以正在做媒體工作的美國人身份對學生說話——每一句話都是她明天在加州會用到的英文，不是課本英文。</p>
+    </article>
+    <article class="dom-pillar">
+      <div class="dom-pillar-icon">🌐</div>
+      <h3>Global Connections</h3>
+      <p class="dom-pillar-zh">全球連結</p>
+      <p class="dom-pillar-body">From Compton to the UN to Taiwan. Dom shows students that Changhua is connected to Los Angeles, to Hanoi, to the UN — and that their voices matter on every one of those stages.</p>
+      <p class="dom-pillar-body-zh">從康普頓、聯合國，到台灣。Dom 讓彰化學生看見：他們的校園與洛杉磯、河內、聯合國是相連的——而他們的聲音，在每一個舞台上都很重要。</p>
+    </article>
+    <article class="dom-pillar">
+      <div class="dom-pillar-icon">💛</div>
+      <h3>Kindness</h3>
+      <p class="dom-pillar-zh">善意與愛</p>
+      <p class="dom-pillar-body">"Be the love you did not receive." Dom leads every assembly with empathy and unity, and the belief that every student's dreams matter — especially those who are told they don't.</p>
+      <p class="dom-pillar-body-zh">「成為你不曾擁有的那份愛。」Dom 以同理心與團結帶領每一場集會，相信每一個孩子的夢想都很重要——尤其是那些被告知不重要的孩子。</p>
+    </article>
   </div>
 </section>
 
