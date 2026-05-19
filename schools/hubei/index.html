@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hu Bei Elementary School · 彰化縣溪湖鎮湖北國民小學</title>
+<meta name="description" content="Hu Bei Elementary School — A twenty-year-old school in Xihu, Changhua, built on four visions: Energy, Diversity, Gratitude, Creativity. Founded 2005. 彰化縣溪湖鎮湖北國民小學 — 2005 創校的二十年新興小學，以「活力／多元／感恩／創新」四大願景為校園日常的底色。">
+<meta property="og:title" content="Hu Bei Elementary School · 彰化縣溪湖鎮湖北國民小學">
+<meta property="og:description" content="Energy. Diversity. Gratitude. Creativity. — A school built on four words.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="photos/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Palette derived directly from Hu Bei's school crest */
+    --blue:#3B95C7;        /* crest blue petal */
+    --blue-deep:#1d4d70;
+    --blue-soft:#e3f0f8;
+    --green:#4CAE7E;       /* crest green petal */
+    --green-deep:#1f6e47;
+    --green-soft:#e0f1e8;
+    --orange:#E08B41;      /* crest orange petal */
+    --orange-deep:#9c5212;
+    --orange-soft:#fbeada;
+    --gold:#D4A52E;        /* crest gold (Chinese name calligraphy) */
+    --gold-deep:#8a6a16;
+    --gold-soft:#fbf2d8;
+
+    --ink:#1c1810;
+    --ink-soft:#5a534a;
+    --line:#e6dfd1;
+
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(29,77,112,.28);
+    --shadow-sm:0 4px 14px -4px rgba(29,77,112,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--blue-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--orange-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:14px;}
+  .topbar-brand img{
+    width:42px;height:42px;object-fit:contain;
+  }
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;
+    color:var(--blue-deep);
+    line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{
+    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--blue);}
+  .topbar-nav a.is-active{color:var(--blue-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* ============ TITLE (gradient hero with EDGE wordmark) ============ */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%),
+      radial-gradient(ellipse at top right,rgba(76,174,126,.35),transparent 60%);
+    padding:96px 0 88px;
+    text-align:center;
+    color:#fff;
+    border-bottom:4px solid var(--blue);
+    overflow:hidden;
+  }
+  .title::after{
+    content:"";position:absolute;
+    inset:0;background:
+      radial-gradient(circle at 80% 20%,rgba(224,139,65,.20),transparent 55%),
+      radial-gradient(circle at 18% 78%,rgba(76,174,126,.18),transparent 55%);
+    pointer-events:none;
+  }
+  .title > .wrap{position:relative;z-index:1;}
+  .title__eyebrow{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.28em;
+    color:rgba(255,236,196,.95);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,7.2vw,68px);
+    line-height:1.04;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:6px;
+    text-shadow:0 2px 18px rgba(0,0,0,.45);
+  }
+  .title .h1-zh{
+    font-size:clamp(20px,2.6vw,26px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.9);
+    margin-top:14px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .title__divider{
+    width:60px;height:2px;
+    background:var(--orange);
+    margin:28px auto 22px;
+    border:0;
+  }
+  .title__edge{
+    display:flex;justify-content:center;align-items:baseline;
+    gap:clamp(14px,3.5vw,38px);
+    margin:18px 0 10px;
+    flex-wrap:wrap;
+  }
+  .title__edge .letter{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+  }
+  .title__edge .big{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,6vw,58px);
+    font-weight:700;
+    line-height:1;
+    background:linear-gradient(135deg,#fff,#ffeac4);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 16px rgba(0,0,0,.3);
+  }
+  .title__edge .word{
+    font-size:13px;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(255,255,255,.85);
+  }
+  .title__edge .e .big{color:#bfe2f4;background:none;-webkit-text-fill-color:#bfe2f4;text-shadow:0 2px 12px rgba(59,149,199,.6);}
+  .title__edge .d .big{color:#cdeedb;background:none;-webkit-text-fill-color:#cdeedb;text-shadow:0 2px 12px rgba(76,174,126,.6);}
+  .title__edge .g .big{color:#ffd9b0;background:none;-webkit-text-fill-color:#ffd9b0;text-shadow:0 2px 12px rgba(224,139,65,.6);}
+  .title__edge .c .big{color:#ffe8a3;background:none;-webkit-text-fill-color:#ffe8a3;text-shadow:0 2px 12px rgba(212,165,46,.6);}
+  .title__tagline{
+    max-width:640px;margin:18px auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:rgba(255,255,255,.95);
+    line-height:1.55;
+  }
+  .title__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;
+    margin-top:8px;
+    color:rgba(255,255,255,.78);
+    letter-spacing:.06em;
+  }
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--green-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(38px,5.8vw,58px);
+    font-weight:600;color:var(--blue-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:19px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:#fff;}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:center;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:36px;color:var(--blue-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:19.5px;color:var(--ink);margin-bottom:18px;line-height:1.7;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    padding:0 14px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:19px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .zh p + p{margin-top:14px;}
+
+  /* 20th anniversary card */
+  .anniversary{
+    background:linear-gradient(180deg,var(--blue-soft) 0%,#fff 100%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:38px 32px 30px;
+    box-shadow:var(--shadow-sm);
+    text-align:center;
+  }
+  .anniversary__img{
+    max-width:280px;margin:0 auto 18px;
+  }
+  .anniversary__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:96px;line-height:1;font-weight:700;
+    background:linear-gradient(135deg,var(--orange) 0%,var(--gold) 40%,var(--green) 70%,var(--blue) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    letter-spacing:-.02em;
+  }
+  .anniversary__num small{
+    font-size:34px;font-weight:600;vertical-align:super;
+    margin-left:2px;
+  }
+  .anniversary__label{
+    margin-top:6px;
+    font-size:13px;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--blue-deep);
+  }
+  .anniversary__line{
+    margin-top:14px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:var(--ink);line-height:1.55;
+  }
+  .anniversary__line .zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15.5px;color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .anniversary__milestones{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    margin-top:22px;padding-top:22px;
+    border-top:1px dashed var(--line);
+    gap:10px;
+  }
+  .anniversary__milestone{
+    flex:1;text-align:center;
+  }
+  .anniversary__milestone .year{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-weight:700;
+    color:var(--blue-deep);
+  }
+  .anniversary__milestone .label{
+    font-size:12px;color:var(--ink-soft);font-weight:600;
+    letter-spacing:.06em;margin-top:2px;line-height:1.35;
+  }
+
+  /* ============ EDGE 4 visions (pillars) ============ */
+  .visions{
+    background:linear-gradient(180deg,#fff 0%,var(--blue-soft) 100%);
+  }
+  .visions__heading-edge{
+    display:inline-flex;gap:6px;align-items:baseline;
+    margin-bottom:14px;
+    color:var(--blue-deep);
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;font-size:16px;letter-spacing:.04em;
+  }
+  .visions__heading-edge .l{
+    display:inline-block;padding:0 6px;border-radius:6px;
+    color:#fff;
+  }
+  .visions__heading-edge .l.e{background:var(--blue);}
+  .visions__heading-edge .l.d{background:var(--green);}
+  .visions__heading-edge .l.g{background:var(--orange);}
+  .visions__heading-edge .l.c{background:var(--gold);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:22px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 26px 30px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .pillar::before{
+    content:"";position:absolute;
+    top:0;left:0;right:0;height:5px;
+    background:var(--blue);
+  }
+  .pillar:nth-child(2)::before{background:var(--green);}
+  .pillar:nth-child(3)::before{background:var(--orange);}
+  .pillar:nth-child(4)::before{background:var(--gold);}
+  .pillar:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+  }
+  .pillar .letter{
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;line-height:1;font-weight:700;
+    color:var(--blue);
+    margin-bottom:6px;
+  }
+  .pillar:nth-child(2) .letter{color:var(--green);}
+  .pillar:nth-child(3) .letter{color:var(--orange);}
+  .pillar:nth-child(4) .letter{color:var(--gold);}
+  .pillar .vision-en{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;font-weight:600;color:var(--ink);
+    line-height:1.15;margin-bottom:2px;
+  }
+  .pillar .vision-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+    margin-bottom:18px;
+  }
+  .pillar .vision-tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15.5px;color:var(--blue-deep);
+    margin-bottom:14px;line-height:1.5;
+  }
+  .pillar:nth-child(2) .vision-tagline{color:var(--green-deep);}
+  .pillar:nth-child(3) .vision-tagline{color:var(--orange-deep);}
+  .pillar:nth-child(4) .vision-tagline{color:var(--gold-deep);}
+  .pillar .vision-body{
+    font-size:15px;color:var(--ink);line-height:1.7;
+  }
+  .pillar .vision-body .zh{
+    font-family:'PingFang TC',sans-serif;
+    display:block;margin-top:10px;
+    font-size:14.5px;color:var(--ink-soft);line-height:1.8;
+    padding-top:10px;border-top:1px dashed var(--line);
+  }
+
+  /* ============ Principal ============ */
+  .principal{background:#fff;}
+  .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:3/4;
+    box-shadow:var(--shadow-sm);
+    background:linear-gradient(135deg,var(--blue-soft) 0%,#fff 60%,var(--green-soft) 100%);
+  }
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 25%;
+  }
+  .principal-text .role{
+    color:var(--green-deep);font-size:14px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;font-weight:600;color:var(--blue-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text .since{
+    font-size:14.5px;color:var(--ink-soft);
+    font-style:italic;margin-top:8px;
+  }
+  .principal-text blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:22px;color:var(--ink);
+    line-height:1.55;margin:26px 0 14px;
+    padding-left:22px;
+    border-left:3px solid var(--orange);
+  }
+  .principal-text .zh-quote{
+    font-family:'PingFang TC',sans-serif;
+    font-style:normal;
+    font-size:19px;color:var(--ink);
+    line-height:1.85;
+    padding-left:22px;
+    border-left:3px solid var(--green);
+    margin-top:18px;
+  }
+  .principal-cta{
+    margin-top:24px;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border:1.5px solid var(--blue);
+    border-radius:99px;color:var(--blue-deep);
+    font-weight:600;font-size:15px;letter-spacing:.04em;
+    transition:background .2s,color .2s;
+  }
+  .principal-cta:hover{background:var(--blue);color:#fff;}
+
+  /* ============ Student Life ============ */
+  .life{background:linear-gradient(180deg,var(--blue-soft) 0%,#fff 100%);}
+  .life-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .life-card{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .life-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+  }
+  .life-card__img{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:var(--blue-soft);
+  }
+  .life-card__img img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .life-card__body{padding:24px 26px 28px;}
+  .life-card .tag{
+    display:inline-block;
+    font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:6px;
+  }
+  .life-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:23px;color:var(--blue-deep);
+    line-height:1.25;font-weight:600;margin-bottom:2px;
+  }
+  .life-card h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15.5px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .life-card .en-text{
+    font-size:15.5px;color:var(--ink);margin:12px 0 8px;
+    line-height:1.65;
+  }
+  .life-card .zh-text{
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);line-height:1.75;
+    padding-top:10px;border-top:1px dashed var(--line);
+    margin-top:10px;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--blue-deep);color:#fff;padding:80px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:18.5px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:17.5px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    color:#ffeac4;font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:19px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:#ffeac4;border-color:#ffeac4;}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#0a1c2a;color:rgba(255,255,255,.62);
+    padding:36px 0;font-size:15.5px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:#ffeac4;font-weight:600;}
+  footer .partner a{color:#ffeac4;border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:#ffeac4;}
+
+  /* ============ Mobile ============ */
+  @media (max-width: 880px) {
+    .title{padding:60px 0 50px;}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;aspect-ratio:1/1;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+  @media (max-width: 540px){
+    .pillars{grid-template-columns:1fr;}
+    .anniversary__num{font-size:72px;}
+    .anniversary__num small{font-size:26px;}
+  }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <img src="photos/logo.png" alt="Hu Bei Elementary crest">
+      <div class="topbar-name">
+        Hu Bei Elementary
+        <small>彰化縣溪湖鎮湖北國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=hubei">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- ============ TITLE ============ -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Xihu Township · Changhua · Est. 2005</span>
+    <h1>Hu Bei Elementary School
+      <div class="h1-zh">彰化縣溪湖鎮湖北國民小學</div>
+    </h1>
+
+    <hr class="title__divider">
+
+    <div class="title__edge" aria-label="Four visions: Energy, Diversity, Gratitude, Creativity">
+      <span class="letter e"><span class="big">E</span><span class="word">Energy</span></span>
+      <span class="letter d"><span class="big">D</span><span class="word">Diversity</span></span>
+      <span class="letter g"><span class="big">G</span><span class="word">Gratitude</span></span>
+      <span class="letter c"><span class="big">C</span><span class="word">Creativity</span></span>
+    </div>
+
+    <p class="title__tagline">
+      A school built on four words &mdash; one for each side of childhood.
+      <span class="tagline-zh">一所以四個字立校的小學——每一個字，都是童年的一面。</span>
+    </p>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>A Young School with Old Roots</h2>
+      <div class="h2-zh">一所田園裡的新興小學</div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+        <h3>"A field, a small town, a school" &mdash; the line we were founded on.</h3>
+        <p class="en">In March 2005, after sixteen years of planning, Hu Bei opened its doors in the north fields of Xihu Township &mdash; serving the four villages of <strong>Xiliao, Dongliao, Taiping, and Datu</strong>. The school's founding line was simple: <em>a field, a small town, a school</em> &mdash; a warm place for the children of Xihu to grow up joyful and healthy.</p>
+        <p class="en">Twenty years on, that small school has grown into a campus humming with track teams, table tennis champions, robotics builders, English reciters, and a rooftop full of solar panels. In December 2025, we celebrated our <strong>20th anniversary</strong>. We are no longer new &mdash; but we are still young.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>2005 年 3 月，歷經 16 年的籌備，湖北國小在溪湖鎮北側的田園間正式開學——學區涵蓋<strong>西寮、東寮、太平、大突四個里</strong>。建校時的一句話很簡單：「<em>田園、小鎮、學校</em>」——讓溪湖的孩子，在愛心溫暖的園地裡，歡欣愉悅、健康成長。</p>
+          <p>二十年過去，這所小學長成一座有田徑隊、桌球冠軍、機關王機械人、英語朗誦者，與屋頂上整片太陽光電板的校園。2025 年 12 月，我們剛剛慶祝了<strong>創校 20 週年</strong>。我們不再是新的，但我們依然年輕。</p>
+        </div>
+      </div>
+
+      <aside class="anniversary" aria-label="Hu Bei's 20th anniversary">
+        <img class="anniversary__img" src="photos/anniversary-20th.png" alt="Hu Bei 20th anniversary mark">
+        <div class="anniversary__num">20<small>th</small></div>
+        <div class="anniversary__label">Anniversary · 2005&ndash;2025</div>
+        <p class="anniversary__line">
+          A two-decade story of Energy, Diversity, Gratitude, Creativity.
+          <span class="zh">二十年的活力、多元、感恩、創新。</span>
+        </p>
+        <div class="anniversary__milestones">
+          <div class="anniversary__milestone">
+            <div class="year">2005</div>
+            <div class="label">Founded<br>創校命名</div>
+          </div>
+          <div class="anniversary__milestone">
+            <div class="year">2017</div>
+            <div class="label">Solar roof<br>太陽光電</div>
+          </div>
+          <div class="anniversary__milestone">
+            <div class="year">2022</div>
+            <div class="label">5 cert.s<br>領航認證</div>
+          </div>
+          <div class="anniversary__milestone">
+            <div class="year">2025</div>
+            <div class="label">20th yr<br>20 週年</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ EDGE VISIONS ============ -->
+<section class="visions" id="visions">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="visions__heading-edge" aria-hidden="true">
+        <span class="l e">E</span><span class="l d">D</span><span class="l g">G</span><span class="l c">E</span>
+      </div>
+      <div class="eyebrow">Four Visions, Four Sides</div>
+      <h2>The Words That Run Our Halls</h2>
+      <div class="h2-zh">走廊上的四個字</div>
+      <p class="lede">Energy, Diversity, Gratitude, Creativity &mdash; not slogans on a wall, but the four sides of every Hu Bei day. 活力、多元、感恩、創新——不是牆上的標語，而是湖北每一天的四個面向。</p>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="letter">E</div>
+        <div class="vision-en">Energy</div>
+        <div class="vision-zh">活力 · 健康快樂</div>
+        <div class="vision-tagline">Bodies that run, throw, kick, skate.</div>
+        <p class="vision-body">Track and field, table tennis, football, basketball, skating, taekwondo &mdash; six sports teams under one elementary roof. Our kids represent Changhua at the national level almost every spring.
+          <span class="zh">田徑、桌球、足球、籃球、溜冰、跆拳道——六支運動隊伍同住一個小學屋頂。每年春天，我們的孩子幾乎都站上全國級的賽場。</span>
+        </p>
+      </article>
+
+      <article class="pillar">
+        <div class="letter">D</div>
+        <div class="vision-en">Diversity</div>
+        <div class="vision-zh">多元 · 學習成長</div>
+        <div class="vision-tagline">Many doors, all open.</div>
+        <p class="vision-body">Vietnamese mooncake workshops, Beiguan opera, farm-to-school lessons, world children's art exhibition, Changhua poetry festival, XR cross-school learning. One school year, many windows on the world.
+          <span class="zh">越南冰皮月餅、北管曲牌、食農教育、世界兒童畫展、彰化詩歌節、XR 跨校共學。一個學年，許多面向世界的窗。</span>
+        </p>
+      </article>
+
+      <article class="pillar">
+        <div class="letter">G</div>
+        <div class="vision-en">Gratitude</div>
+        <div class="vision-zh">感恩 · 心情點滴</div>
+        <div class="vision-tagline">A small town that thanks back.</div>
+        <p class="vision-body">Story-Telling Parents, mother's day family walks, community service, intergenerational respect. A school grateful to its village &mdash; and a village that knows the children of the school.
+          <span class="zh">故事爸爸媽媽、母親節親子健走、社區服務、敬老尊賢。一所感謝村庄的學校，一個認得學校孩子的村庄。</span>
+        </p>
+      </article>
+
+      <article class="pillar">
+        <div class="letter">C</div>
+        <div class="vision-en">Creativity</div>
+        <div class="vision-zh">創新 · 卓越新穎</div>
+        <div class="vision-tagline">Hands that build the next thing.</div>
+        <p class="vision-body">Gigo Smart Mechanism King, Changhua Science Fair, Quanta Smart Cup, Scratch competitions, generative AI on canvas tote bags, one-tablet-per-student, 5G smart school. STEM is daily here.
+          <span class="zh">世界機關王大賽、彰化縣科展、廣達遊智盃、Scratch 競賽、生成式 AI 帆布袋、生生用平板、5G 智慧學校。STEM 是我們的日常。</span>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRINCIPAL ============ -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A Word from Our Principal</div>
+      <h2>Five Cultures, One Campus</h2>
+      <div class="h2-zh">五種文化，同一個校園</div>
+    </div>
+
+    <div class="principal-card">
+      <div class="principal-photo">
+        <img src="photos/principal.jpg" alt="Principal Chuang Shih-hsiung 莊世雄校長">
+      </div>
+
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Chuang Shih-hsiung
+          <small>莊世雄 校長</small>
+        </h3>
+        <p class="since">3rd Principal · Reappointed Aug 2025 · 第三任校長 · 2021 年 8 月就任、2025 年 8 月連任</p>
+
+        <blockquote>
+          Teachers are the school's greatest asset; parents are its richest resource; and students' growth &mdash; that is its most important outcome.
+        </blockquote>
+
+        <div class="zh-quote">
+          教師是學校最大的資產；家長是學校最豐富的資源；學生的表現，是學校最重要的教育成果。
+        </div>
+
+        <a class="principal-cta" href="principal/">More from the Principal's Office &middot; 進入校長室 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STUDENT LIFE ============ -->
+<section class="life" id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Student Life</div>
+      <h2>The Year, In Photos</h2>
+      <div class="h2-zh">一年裡，那些真實發生的事</div>
+    </div>
+
+    <div class="life-grid">
+
+      <article class="life-card">
+        <div class="life-card__img"><img src="photos/fet-classroom.jpg" alt="Foreign English teacher with first-graders"></div>
+        <div class="life-card__body">
+          <span class="tag">Bilingual · 雙語</span>
+          <h3>Let's Celebrate
+            <small>外師到校與一年級的英語課</small>
+          </h3>
+          <p class="en-text">The classroom screen reads "LET'S CELEBRATE." Our visiting foreign English teacher works with low-grade homerooms across the year &mdash; less translation, more first contact.</p>
+          <p class="zh-text">教室螢幕寫著「LET'S CELEBRATE」。湖北的外師全年帶低年級——少一些翻譯，多一些「第一次的英文」。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img"><img src="photos/english-recital.jpg" alt="School English recital competition"></div>
+        <div class="life-card__body">
+          <span class="tag">English · 英語朗讀</span>
+          <h3>The October Recital
+            <small>校內英語朗讀比賽</small>
+          </h3>
+          <p class="en-text">Every October, a stage, a microphone, a poem in English. Our students learn early that speaking up is the second half of speaking well.</p>
+          <p class="zh-text">每年十月，一個舞台、一支麥克風、一首英文詩。我們的孩子很早就知道——「敢唸出來」是「唸得好」的另一半。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img"><img src="photos/vietnamese-mooncake.jpg" alt="Vietnamese mooncake workshop"></div>
+        <div class="life-card__body">
+          <span class="tag">Diversity · 多元文化</span>
+          <h3>Vietnamese Snow-Skin Mooncakes
+            <small>越南美食體驗 · 冰皮月餅</small>
+          </h3>
+          <p class="en-text">Mid-December: a Vietnamese mother of one of our students brings rice flour, mung bean paste, and pastel dye, and shows the homeroom how a mooncake is made on the other side of the South China Sea.</p>
+          <p class="zh-text">十二月中，一位湖北學生的越南媽媽帶來糯米粉、綠豆沙、淡彩食用色素，教整班孩子認識「南海另一邊」的中秋。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img"><img src="photos/farm-to-school.jpg" alt="Farm-to-school lesson"></div>
+        <div class="life-card__body">
+          <span class="tag">Farm-to-School · 食農教育</span>
+          <h3>What the Field Teaches
+            <small>10 月的食農教育</small>
+          </h3>
+          <p class="en-text">Xihu is grape country, vegetable country, sheep country. Our students go to the field, see the dirt, eat the season, and bring back questions our textbooks haven't asked yet.</p>
+          <p class="zh-text">溪湖是葡萄之鄉、蔬菜之鄉、羊肉之鄉。湖北的孩子去田裡，看泥土、吃當季、帶回課本還沒問過的問題。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img"><img src="photos/track-national.png" alt="National Elementary Track and Field Championship"></div>
+        <div class="life-card__body">
+          <span class="tag">Champions · 全國級</span>
+          <h3>The National Track Meet
+            <small>全國小學田徑錦標賽</small>
+          </h3>
+          <p class="en-text">May 2026 &mdash; Hu Bei's track team in the National Elementary Track and Field Championship. Six sports teams, hundreds of training hours, one school of two hundred kids on the national startline.</p>
+          <p class="zh-text">2026 年 5 月，湖北田徑隊站上全國小學田徑錦標賽。六支運動隊伍、上百小時訓練、兩百多人的小學，站到了全國起跑線上。</p>
+        </div>
+      </article>
+
+      <article class="life-card">
+        <div class="life-card__img" style="background:linear-gradient(135deg,var(--gold-soft),var(--orange-soft));display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;padding:20px;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:var(--orange-deep);line-height:1;">魚躍<br>龍門</div>
+            <div style="font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:14px;letter-spacing:.08em;">The Carp at the Dragon Gate</div>
+          </div>
+        </div>
+        <div class="life-card__body">
+          <span class="tag">Identity · 校門意象</span>
+          <h3>The Carp at the Dragon Gate
+            <small>校門口的「魚躍龍門」</small>
+          </h3>
+          <p class="en-text">A carved relief at our school gate &mdash; the legendary carp that leaps the Dragon Gate and becomes a dragon. Twenty years later, we are still telling that story to every child who walks under it.</p>
+          <p class="zh-text">校門口的浮雕——傳說中越過龍門的鯉魚化為龍。二十年過去，我們仍然每天和每個從門下走過的孩子，講這個故事。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞校交流</small>
+        </h2>
+        <p>We welcome educators, parents, and friends &mdash; from neighbouring schools in Xihu, from across Changhua, and from anywhere in the world &mdash; to visit, ask questions, and share what works on a campus built around four visions.</p>
+        <p class="zh">歡迎溪湖鄰近學校、彰化縣內各校、以及世界各地的教育工作者、家長與朋友——蒞校交流、提出問題，把彼此校園裡有效的做法相互傳承下去。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 學校地址</dt>
+            <dd>51445 彰化縣溪湖鎮地政路 201 號<br>
+            No. 201, Dizheng Rd., Xihu Twp., Changhua County 51445, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+88648613618">04-8613618</a></dd>
+          </div>
+          <div>
+            <dt>Website · 學校官網</dt>
+            <dd><a href="https://hbps.chc.edu.tw/" target="_blank" rel="noopener">hbps.chc.edu.tw</a></dd>
+          </div>
+          <div>
+            <dt>School Code · 學校代碼</dt>
+            <dd>074777</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣溪湖鎮湖北國民小學 · Hu Bei Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'hubei-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+  Array.from(document.images).forEach(function(img){
+    if (!img.complete) img.addEventListener('load', report);
+  });
+})();
+</script>
+
+</body>
+</html>
