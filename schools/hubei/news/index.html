@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News &amp; Stories · 校園消息 · Hu Bei Elementary School</title>
+<meta name="description" content="The 2025–2026 school year in headlines — track teams at the National Championships, English Kings, Science Fair advancing to nationals, the 20th anniversary, and the day-to-day stories that fill a year at Hu Bei. 湖北國小 2025–2026 學年的新聞與故事。">
+<meta property="og:title" content="News &amp; Stories · 校園消息 · Hu Bei Elementary">
+<meta property="og:description" content="A school year in headlines.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="../photos/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue:#3B95C7;--blue-deep:#1d4d70;--blue-soft:#e3f0f8;
+    --green:#4CAE7E;--green-deep:#1f6e47;--green-soft:#e0f1e8;
+    --orange:#E08B41;--orange-deep:#9c5212;--orange-soft:#fbeada;
+    --gold:#D4A52E;--gold-deep:#8a6a16;--gold-soft:#fbf2d8;
+    --rose:#d6486a;--rose-soft:#fbe1e7;--rose-deep:#a02246;
+    --ink:#1c1810;--ink-soft:#5a534a;--line:#e6dfd1;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(29,77,112,.28);
+    --shadow-sm:0 4px 14px -4px rgba(29,77,112,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--blue-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--orange-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:14px;}
+  .topbar-brand img{width:42px;height:42px;object-fit:contain;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;color:var(--blue-deep);line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);
+    margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--blue);}
+  .topbar-nav a.is-active{color:var(--blue-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* ============ HERO (compact, with same building bg) ============ */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(135deg, rgba(15,42,63,.82) 0%, rgba(29,77,112,.65) 50%, rgba(15,42,63,.82) 100%),
+      url('../photos/campus-hero.jpg') center 60% / cover no-repeat,
+      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%);
+    padding:64px 0 56px;
+    text-align:center;color:#fff;
+    border-bottom:5px solid var(--blue);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"消";
+    position:absolute;top:50%;right:-3%;
+    transform:translateY(-50%) rotate(-6deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(46vw,360px);font-weight:600;
+    color:rgba(255,255,255,.06);
+    line-height:1;pointer-events:none;user-select:none;z-index:0;
+  }
+  .hero__rainbow{
+    position:absolute;bottom:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg, var(--blue) 0%, var(--green) 35%, var(--gold) 60%, var(--orange) 85%, var(--rose) 100%);
+    pointer-events:none;z-index:2;
+  }
+  .hero > .wrap{position:relative;z-index:1;}
+  .hero__eyebrow{
+    display:inline-block;font-size:13px;letter-spacing:.28em;
+    color:rgba(255,236,196,.95);font-weight:700;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(36px,5.6vw,52px);
+    line-height:1.05;font-weight:600;letter-spacing:.005em;
+    color:#fff;margin-bottom:6px;
+    text-shadow:0 2px 16px rgba(0,0,0,.45);
+  }
+  .hero .h1-zh{
+    font-size:clamp(18px,2.2vw,22px);font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.88);margin-top:10px;
+    font-family:'PingFang TC',sans-serif;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .hero__tagline{
+    max-width:620px;margin:18px auto 0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:rgba(255,255,255,.95);line-height:1.55;
+  }
+  .hero__tagline .zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;margin-top:6px;color:rgba(255,255,255,.78);letter-spacing:.06em;
+  }
+
+  /* ============ Filter pills ============ */
+  .filters{
+    background:#fff;border-bottom:1px solid var(--line);
+    padding:22px 0;position:sticky;top:64px;z-index:40;
+    backdrop-filter:blur(8px);
+  }
+  @media (max-width:560px){ .filters{position:static;top:auto;} }
+  .filter-pills{
+    display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  }
+  .filter-pill{
+    border:1.5px solid var(--line);background:#fff;
+    color:var(--ink);font-size:14px;font-weight:600;letter-spacing:.04em;
+    padding:8px 16px;border-radius:99px;cursor:pointer;
+    transition:all .2s;
+    font-family:inherit;
+  }
+  .filter-pill:hover{border-color:var(--blue);color:var(--blue-deep);}
+  .filter-pill.is-active{
+    background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);
+  }
+  .filter-pill .count{
+    display:inline-block;margin-left:6px;
+    font-size:12px;font-weight:700;
+    color:var(--ink-soft);
+  }
+  .filter-pill.is-active .count{color:rgba(255,255,255,.7);}
+
+  /* ============ Timeline ============ */
+  .news{padding:60px 0 80px;background:#fff;}
+  .news-grid{
+    display:grid;gap:22px;
+    grid-template-columns:repeat(2,1fr);
+  }
+  @media (max-width:860px){ .news-grid{grid-template-columns:1fr;} }
+
+  .news-card{
+    background:#fff;border:1px solid var(--line);
+    border-radius:16px;padding:26px 28px 24px;
+    box-shadow:var(--shadow-sm);
+    border-left:5px solid var(--blue);
+    transition:transform .2s,box-shadow .2s;
+    display:flex;flex-direction:column;
+  }
+  .news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .news-card[data-cat="champions"]{border-left-color:var(--blue);}
+  .news-card[data-cat="bilingual"]{border-left-color:var(--green);}
+  .news-card[data-cat="stem"]{border-left-color:var(--gold);}
+  .news-card[data-cat="arts"]{border-left-color:var(--orange);}
+  .news-card[data-cat="milestones"]{border-left-color:var(--rose);}
+
+  .news-card__meta{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    margin-bottom:10px;flex-wrap:wrap;
+  }
+  .news-card__date{
+    font-family:'Cormorant Garamond',serif;font-weight:700;
+    font-size:18px;color:var(--blue-deep);letter-spacing:.04em;
+  }
+  .news-card__tag{
+    font-size:11.5px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:4px 12px;border-radius:99px;
+    background:var(--blue-soft);color:var(--blue-deep);
+  }
+  .news-card[data-cat="bilingual"] .news-card__tag{background:var(--green-soft);color:var(--green-deep);}
+  .news-card[data-cat="stem"] .news-card__tag{background:var(--gold-soft);color:var(--gold-deep);}
+  .news-card[data-cat="arts"] .news-card__tag{background:var(--orange-soft);color:var(--orange-deep);}
+  .news-card[data-cat="milestones"] .news-card__tag{background:var(--rose-soft);color:var(--rose-deep);}
+
+  .news-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:22px;color:var(--ink);font-weight:600;
+    line-height:1.25;margin-bottom:4px;
+  }
+  .news-card h3 .zh{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16px;color:var(--ink-soft);font-weight:500;
+    margin-top:6px;letter-spacing:.04em;
+  }
+  .news-card p{
+    font-size:15px;color:var(--ink-soft);line-height:1.65;
+    margin-top:12px;
+  }
+  .news-card .source-link{
+    margin-top:auto;padding-top:14px;
+    font-size:13px;font-weight:600;color:var(--blue);
+    display:inline-flex;align-items:center;gap:4px;
+  }
+  .news-card .source-link::after{content:"↗";font-size:14px;}
+
+  .empty{
+    grid-column:1/-1;text-align:center;padding:80px 20px;
+    color:var(--ink-soft);font-size:18px;
+  }
+  .empty[hidden]{display:none;}
+
+  /* ============ See More ============ */
+  .seemore{
+    background:linear-gradient(180deg,#fff 0%,var(--blue-soft) 100%);
+    padding:60px 0;text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .seemore h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;color:var(--blue-deep);font-weight:600;
+    margin-bottom:8px;
+  }
+  .seemore h2 .zh{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:var(--ink-soft);font-weight:500;
+    margin-top:6px;
+  }
+  .seemore p{
+    color:var(--ink-soft);font-size:16px;
+    max-width:540px;margin:14px auto 24px;line-height:1.7;
+  }
+  .seemore .cta{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;
+    background:var(--blue-deep);color:#fff;
+    border-radius:99px;font-weight:600;font-size:15.5px;letter-spacing:.04em;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .seemore .cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 26px -10px rgba(29,77,112,.5);
+    color:#fff;
+  }
+
+  /* ============ Footer ============ */
+  footer{
+    background:#0a1c2a;color:rgba(255,255,255,.62);
+    padding:36px 0;font-size:15.5px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:#ffeac4;font-weight:600;}
+  footer .partner a{color:#ffeac4;border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:#ffeac4;}
+  @media (max-width:560px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <img src="../photos/logo.png" alt="Hu Bei Elementary crest">
+      <div class="topbar-name">
+        Hu Bei Elementary
+        <small>彰化縣溪湖鎮湖北國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="" class="is-active">News</a>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=hubei">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero__rainbow"></div>
+  <div class="wrap">
+    <span class="hero__eyebrow">A Year in Headlines · 2025–2026</span>
+    <h1>News &amp; Stories
+      <div class="h1-zh">校園消息</div>
+    </h1>
+    <p class="hero__tagline">
+      The track meets, the recitals, the science fair, the anniversary &mdash; one school year, in headlines.
+      <span class="zh">田徑賽、朗讀比賽、科展、20 週年校慶——一個學年，全部寫在標題裡。</span>
+    </p>
+  </div>
+</header>
+
+
+<!-- ============ FILTERS ============ -->
+<div class="filters">
+  <div class="wrap">
+    <div class="filter-pills" id="filter-pills">
+      <button class="filter-pill is-active" data-cat="all">All <span class="count">15</span></button>
+      <button class="filter-pill" data-cat="champions">Champions · 體育冠軍</button>
+      <button class="filter-pill" data-cat="bilingual">Bilingual · 雙語英語</button>
+      <button class="filter-pill" data-cat="stem">STEM · 科學機關王</button>
+      <button class="filter-pill" data-cat="arts">Arts · 藝文書畫</button>
+      <button class="filter-pill" data-cat="milestones">Milestones · 校史里程</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ NEWS GRID ============ -->
+<section class="news" id="news">
+  <div class="wrap">
+    <div class="news-grid" id="news-grid">
+
+      <article class="news-card" data-cat="champions">
+        <div class="news-card__meta">
+          <span class="news-card__date">May 16, 2026</span>
+          <span class="news-card__tag">Champions · 體育</span>
+        </div>
+        <h3>Hu Bei Track Team at the National Elementary Track and Field Championship
+          <span class="zh">115 年全國小學田徑錦標賽，湖北田徑隊登場</span>
+        </h3>
+        <p>Our six-sport athletic program reached its season high in May, with the school's track team representing Changhua at the national level &mdash; the first national-meet appearance of the 2025–2026 school year.</p>
+        <a class="source-link" href="https://hbps.chc.edu.tw/posts/5/type" target="_blank" rel="noopener">School announcement</a>
+      </article>
+
+      <article class="news-card" data-cat="arts">
+        <div class="news-card__meta">
+          <span class="news-card__date">May 11, 2026</span>
+          <span class="news-card__tag">Arts · 藝文</span>
+        </div>
+        <h3>Young Poets at the Changhua Poetry Festival
+          <span class="zh">2026 彰化詩歌節 · 第七屆小文青新詩比賽</span>
+        </h3>
+        <p>Hu Bei student writers placed at the city's seventh-annual Young Poets New Verse competition, opening a new chapter in the school's writing programme.</p>
+      </article>
+
+      <article class="news-card" data-cat="champions">
+        <div class="news-card__meta">
+          <span class="news-card__date">May 8, 2026</span>
+          <span class="news-card__tag">Champions · 體育</span>
+        </div>
+        <h3>Two Paddles, One Pair of Trophies at the NKNU National Table Tennis Championship
+          <span class="zh">第二屆高師盃全國桌球錦標賽 · 李欣叡、陳劭凱（205 班）獲獎</span>
+        </h3>
+        <p>Fifth-graders Li Xin-rui and Chen Shao-kai brought home awards from the second annual National Kaohsiung Normal University Table Tennis Championship.</p>
+      </article>
+
+      <article class="news-card" data-cat="bilingual">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 29, 2026</span>
+          <span class="news-card__tag">Bilingual · 雙語</span>
+        </div>
+        <h3>Annual School Mandarin Speech Contest &mdash; Honors Announced
+          <span class="zh">114 學年度校內國語演說比賽 · 成績優秀同學名單</span>
+        </h3>
+        <p>The Mandarin half of Hu Bei's bilingual identity gets its own annual stage. The school's Academic Affairs Office released the 2026 honors list on April 29.</p>
+        <a class="source-link" href="https://hbps.chc.edu.tw/posts/4/type" target="_blank" rel="noopener">School announcement</a>
+      </article>
+
+      <article class="news-card" data-cat="arts">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 23, 2026</span>
+          <span class="news-card__tag">Arts · 藝文</span>
+        </div>
+        <h3>Three Hu Bei Students at the 57th World Children's Painting Exhibition
+          <span class="zh">第 57 屆世界兒童畫展 · 陳瑀希、陳以恩、林宥彤</span>
+        </h3>
+        <p>Painters Chen Yu-hsi, Chen Yi-en, and Lin Yu-tong joined the global lineup at the 57th World Children's Painting Exhibition.</p>
+      </article>
+
+      <article class="news-card" data-cat="champions">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 16, 2026</span>
+          <span class="news-card__tag">Champions · 體育</span>
+        </div>
+        <h3>Triple Skating Honors at the 23rd Presidential Cup
+          <span class="zh">第 23 屆總統盃全國溜冰錦標賽 + 教育盃 + 自由盃三連發</span>
+        </h3>
+        <p>One April day, three trophies. Zhang Wan-ting (503), Shi Po-hsuan (501), and Li Xin-ni (502) cleaned up at the Presidential Cup, the Education Cup speed-skating championships, and the Liberty Cup junior table tennis tournament.</p>
+      </article>
+
+      <article class="news-card" data-cat="bilingual">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 13, 2026</span>
+          <span class="news-card__tag">Bilingual · 雙語</span>
+        </div>
+        <h3>Hu Bei in the National Cool English Listening Roll
+          <span class="zh">Cool English 英聽王 · 全國風雲榜入榜</span>
+        </h3>
+        <p>The Ministry of Education's Cool English platform listed Hu Bei in its 2026 national Listening Roll &mdash; a recognition that goes to school cohorts, not individual students.</p>
+      </article>
+
+      <article class="news-card" data-cat="bilingual">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 13, 2026</span>
+          <span class="news-card__tag">Bilingual · 雙語</span>
+        </div>
+        <h3>English Readers Theater &mdash; County Honors
+          <span class="zh">2026 彰化縣英語讀者劇場 · 縣級獎</span>
+        </h3>
+        <p>Our Readers Theater troupe placed at the county-level English drama competition. Students stage short English plays as a way to take the language out of textbooks and into voice.</p>
+      </article>
+
+      <article class="news-card" data-cat="stem">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 13, 2026</span>
+          <span class="news-card__tag">STEM · 科學</span>
+        </div>
+        <h3>World Gigo Smart Mechanism King &mdash; Hu Bei Team Competes
+          <span class="zh">2026 世界機關王大賽 · 師生團隊參賽</span>
+        </h3>
+        <p>Our maker-education students brought their best Gigo builds to the international Smart Mechanism King competition.</p>
+      </article>
+
+      <article class="news-card" data-cat="stem">
+        <div class="news-card__meta">
+          <span class="news-card__date">Apr 9, 2026</span>
+          <span class="news-card__tag">STEM · 科學</span>
+        </div>
+        <h3>Hu Bei Advances to the National Science Fair
+          <span class="zh">彰化縣科展成績優異，進軍全國賽</span>
+        </h3>
+        <p>The school's science fair entry took top honors at the Changhua County round &mdash; sending Hu Bei to the national stage of Taiwan's premier student science competition.</p>
+        <a class="source-link" href="https://hbps.chc.edu.tw/posts/4/type" target="_blank" rel="noopener">School announcement</a>
+      </article>
+
+      <article class="news-card" data-cat="champions">
+        <div class="news-card__meta">
+          <span class="news-card__date">Mar 12, 2026</span>
+          <span class="news-card__tag">Champions · 體育</span>
+        </div>
+        <h3>Han Yi and Wu Yi-zhen at the Youth Cup National Track Open
+          <span class="zh">115 年新北市青年盃全國田徑公開賽 · 韓毅、巫翊甄</span>
+        </h3>
+        <p>Two Hu Bei runners competed at the Youth Cup National Track and Field Open in New Taipei City &mdash; a senior open meet not normally entered by elementary athletes.</p>
+      </article>
+
+      <article class="news-card" data-cat="milestones">
+        <div class="news-card__meta">
+          <span class="news-card__date">Dec 20, 2025</span>
+          <span class="news-card__tag">Milestones · 校史</span>
+        </div>
+        <h3>20th Anniversary Sports Day &amp; Garden Fair
+          <span class="zh">湖北國小第 20 屆校慶運動會 &amp; 園遊會</span>
+        </h3>
+        <p>Twenty years of Hu Bei, all in one Saturday. Sports day, garden fair, alumni reunions &mdash; and a Friday-night anniversary concert the night before. Two decades of Energy, Diversity, Gratitude, Creativity.</p>
+      </article>
+
+      <article class="news-card" data-cat="bilingual">
+        <div class="news-card__meta">
+          <span class="news-card__date">Dec 2, 2025</span>
+          <span class="news-card__tag">Bilingual · 雙語</span>
+        </div>
+        <h3>161 Students Crowned Changhua English Kings
+          <span class="zh">恭喜本校 161 位彰化英語王</span>
+        </h3>
+        <p>The county's English assessment programme named 161 Hu Bei students as "Changhua English Kings" &mdash; one of the largest cohort wins in school history.</p>
+      </article>
+
+      <article class="news-card" data-cat="champions">
+        <div class="news-card__meta">
+          <span class="news-card__date">Nov 15, 2025</span>
+          <span class="news-card__tag">Champions · 體育</span>
+        </div>
+        <h3>Standout Performance at the Magistrate's Cup Track Meet
+          <span class="zh">彰化縣 114 學年度縣長盃田徑錦標賽 · 成績優異</span>
+        </h3>
+        <p>Hu Bei's track athletes returned from the County Magistrate's Cup with a clutch of medals &mdash; the year's first major track win.</p>
+      </article>
+
+      <article class="news-card" data-cat="bilingual">
+        <div class="news-card__meta">
+          <span class="news-card__date">Oct 2025</span>
+          <span class="news-card__tag">Bilingual · 雙語</span>
+        </div>
+        <h3>FET Begins Year-Round Bilingual Engagement
+          <span class="zh">114 學年度外師到校 · 全年雙語陪伴</span>
+        </h3>
+        <p>Our foreign English teacher began the 2025–2026 calendar with low-grade homerooms in October. Through May 2026, the FET works across the year levels &mdash; less translation, more first contact.</p>
+      </article>
+
+      <div class="empty" id="empty" hidden>
+        No stories in this category yet &mdash; check back soon, or click <strong>All</strong> above.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SEE MORE ============ -->
+<section class="seemore">
+  <div class="wrap">
+    <h2>The Full School Bulletin Board
+      <span class="zh">學校官方公告完整版</span>
+    </h2>
+    <p>Every announcement, every honor roll entry, every research opportunity &mdash; the school's full bulletin board lives at the official site.</p>
+    <a class="cta" href="https://hbps.chc.edu.tw/posts" target="_blank" rel="noopener">Visit hbps.chc.edu.tw/posts ↗</a>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣溪湖鎮湖北國民小學 · Hu Bei Elementary School</div>
+    <div class="partner">Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var pills = document.querySelectorAll('.filter-pill');
+  var cards = document.querySelectorAll('.news-card');
+  var empty = document.getElementById('empty');
+
+  function filter(cat){
+    var visible = 0;
+    cards.forEach(function(card){
+      var show = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    empty.hidden = visible > 0;
+  }
+
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      pills.forEach(function(p){ p.classList.remove('is-active'); });
+      pill.classList.add('is-active');
+      filter(pill.getAttribute('data-cat'));
+    });
+  });
+})();
+
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    window.parent.postMessage({type:'hubei-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(report).observe(document.body);
+  }
+})();
+</script>
+
+</body>
+</html>

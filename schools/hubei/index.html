@@ -98,24 +98,41 @@
     .topbar-nav a{font-size:13.5px;}
   }
 
-  /* ============ TITLE (gradient hero with EDGE wordmark) ============ */
+  /* ============ TITLE (campus building hero with EDGE wordmark) ============ */
   .title{
     position:relative;
     background:
-      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%),
-      radial-gradient(ellipse at top right,rgba(76,174,126,.35),transparent 60%);
-    padding:96px 0 88px;
+      linear-gradient(135deg, rgba(15,42,63,.78) 0%, rgba(29,77,112,.62) 50%, rgba(15,42,63,.78) 100%),
+      url('photos/campus-hero.jpg') center 55% / cover no-repeat,
+      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%);
+    padding:104px 0 96px;
     text-align:center;
     color:#fff;
-    border-bottom:4px solid var(--blue);
+    border-bottom:5px solid var(--blue);
     overflow:hidden;
+  }
+  .title::before{
+    /* faint giant glyph echoing the school's identity, like dacheng-jh */
+    content:"湖";
+    position:absolute;top:50%;right:-3%;
+    transform:translateY(-50%) rotate(-6deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(58vw,460px);font-weight:600;
+    color:rgba(255,255,255,.06);
+    line-height:1;pointer-events:none;user-select:none;z-index:0;
   }
   .title::after{
     content:"";position:absolute;
     inset:0;background:
-      radial-gradient(circle at 80% 20%,rgba(224,139,65,.20),transparent 55%),
-      radial-gradient(circle at 18% 78%,rgba(76,174,126,.18),transparent 55%);
-    pointer-events:none;
+      radial-gradient(ellipse at 80% 20%,rgba(224,139,65,.18),transparent 55%),
+      radial-gradient(ellipse at 18% 80%,rgba(76,174,126,.16),transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  /* rainbow stripe at bottom (echoing the school's signature PU track colors) */
+  .title__rainbow{
+    position:absolute;bottom:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg, var(--blue) 0%, var(--green) 35%, var(--gold) 60%, var(--orange) 85%, #d6486a 100%);
+    pointer-events:none;z-index:2;
   }
   .title > .wrap{position:relative;z-index:1;}
   .title__eyebrow{
@@ -604,6 +621,7 @@
     <nav class="topbar-nav">
       <a href="" class="is-active">Home</a>
       <a href="principal/">Principal</a>
+      <a href="news/">News</a>
       <a href="bilingual-campus/">Bilingual Campus</a>
       <a href="https://changhua-bilingual.org/festivals/?from=hubei">Festivals</a>
     </nav>
@@ -613,6 +631,7 @@
 
 <!-- ============ TITLE ============ -->
 <header class="title">
+  <div class="title__rainbow"></div>
   <div class="wrap">
     <span class="title__eyebrow">Xihu Township · Changhua · Est. 2005</span>
     <h1>Hu Bei Elementary School
