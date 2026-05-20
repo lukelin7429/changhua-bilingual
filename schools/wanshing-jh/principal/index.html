@@ -7,10 +7,11 @@
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Principal's Office · 校長室 · Wanshing Junior High School</title>
-<meta name="description" content="A word from Principal Wu Bing-Lien of Wanshing Junior High — leading a rural Erlin campus through the Brilliance Wanshing · Vital SMART curriculum vision. 吳炳連校長帶領萬興國中——一所二林北部鄉村小校——以「卓越萬興・活力 SMART」課程願景串起社區數位、技藝出口、文化舞台三大主軸。">
+<meta name="description" content="A word from Principal Sung Wen-Ching of Wanshing Junior High — a Ph.D. in Special Education from National Changhua University of Education, KDP-internationally-certified in bilingual and curriculum leadership, 2023 MOE Reading Master School and Teaching Excellence award recipient. 宋雯卿校長帶領萬興國中——彰師大特教博士、KDP 國際認證雙語教育、教育部閱讀磐石與教學卓越獎得主。">
 <meta property="og:title" content="Principal's Office · 校長室 · Wanshing Junior High">
-<meta property="og:description" content="Principal Wu Bing-Lien — leading Wanshing under the Brilliance Wanshing · Vital SMART vision.">
+<meta property="og:description" content="Principal Sung Wen-Ching — Ph.D. in Special Education, KDP-internationally-certified in bilingual education and curriculum leadership.">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="https://changhua-bilingual.org/schools/wanshing-jh/photos/principal-portrait.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,30 +46,25 @@
   @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
   .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
 
-  /* Principal hero (logo-centered, no portrait yet) */
-  .po-hero{
-    display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
-    background:linear-gradient(135deg, var(--cream) 0%, var(--gold-soft) 50%, var(--blue-soft) 100%);
-    border-radius:24px;padding:42px 32px;box-shadow:var(--shadow);
+  /* Principal hero */
+  .po-hero{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+  @media (min-width:880px){ .po-hero{ grid-template-columns:1fr 1.1fr;gap:48px; } }
+  .po-hero__photo{
+    position:relative;border-radius:18px;overflow:hidden;
+    background:linear-gradient(135deg,var(--gold-soft) 0%,var(--blue-soft) 100%);
+    box-shadow:var(--shadow);aspect-ratio:4/5;
   }
-  @media (min-width:880px){ .po-hero{ grid-template-columns:1fr 1.4fr;gap:48px;padding:56px 48px; } }
-  .po-hero__crest{
-    aspect-ratio:1/1;width:100%;max-width:340px;margin:0 auto;
-    background:#fff;border-radius:24px;border:8px solid rgba(255,255,255,.7);
-    box-shadow:0 18px 40px -12px rgba(30,74,110,.32);
-    display:flex;align-items:center;justify-content:center;padding:24px;
-    position:relative;
+  .po-hero__photo img{
+    width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;
   }
-  .po-hero__crest img{width:100%;height:100%;object-fit:contain;}
-  .po-hero__crest-badge{
-    position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);
-    background:var(--red);color:#fff;
-    padding:8px 18px;border-radius:99px;
+  .po-hero__badge{
+    position:absolute;top:18px;left:18px;
+    background:var(--gold);color:var(--blue-deep);
+    padding:6px 14px;border-radius:99px;
     font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-    box-shadow:0 6px 16px -4px rgba(200,74,50,.45);
-    white-space:nowrap;
+    box-shadow:0 4px 12px -4px rgba(30,74,110,.3);
   }
-  @media (min-width:720px){ .po-hero__crest-badge{ font-size:15px;padding:9px 22px; } }
+  @media (min-width:720px){ .po-hero__badge{ font-size:15px; } }
   .po-hero__role{color:var(--red);font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
   @media (min-width:720px){ .po-hero__role{ font-size:16px; } }
   .po-hero__intro h3{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--blue-deep);line-height:1.15;letter-spacing:.5px;margin-top:14px;}
@@ -80,7 +76,7 @@
   .po-hero__lead-zh{margin-top:14px;font-size:18px;color:var(--ink-soft);line-height:1.7;}
   @media (min-width:720px){ .po-hero__lead-zh{ font-size:20px; } }
   .po-hero__since{
-    margin-top:18px;padding-top:18px;border-top:1px solid rgba(30,74,110,.18);
+    margin-top:18px;padding-top:18px;border-top:1px solid var(--line);
     font-size:16px;color:var(--ink-soft);font-style:italic;
   }
   @media (min-width:720px){ .po-hero__since{ font-size:18px; } }
@@ -102,65 +98,60 @@
   .quote__attribution{margin-top:8px;font-size:15px;color:var(--ink-soft);}
   @media (min-width:720px){ .quote__attribution{ font-size:17px; } }
 
-  /* SMART big-grid */
-  .smart-big{display:grid;grid-template-columns:1fr;gap:20px;}
-  @media (min-width:720px){ .smart-big{ grid-template-columns:1fr 1fr;gap:24px; } }
-  .smart-tile{
-    background:#fff;border:1px solid var(--line);border-radius:20px;
-    padding:30px 28px;box-shadow:var(--shadow-sm);
-    border-left:8px solid var(--blue);position:relative;
-  }
-  @media (min-width:720px){ .smart-tile{ padding:36px 34px; } }
-  .smart-tile:nth-child(2){border-left-color:var(--gold);}
-  .smart-tile:nth-child(3){border-left-color:var(--red);}
-  .smart-tile:nth-child(4){border-left-color:var(--green);}
-  .smart-tile:nth-child(5){border-left-color:var(--earth);}
-  .smart-tile__letter{
-    position:absolute;top:18px;right:24px;
-    font-family:'Playfair Display',serif;
-    font-size:72px;font-weight:800;line-height:1;color:var(--blue);opacity:.18;
-  }
-  .smart-tile:nth-child(2) .smart-tile__letter{color:var(--gold);}
-  .smart-tile:nth-child(3) .smart-tile__letter{color:var(--red);}
-  .smart-tile:nth-child(4) .smart-tile__letter{color:var(--green);}
-  .smart-tile:nth-child(5) .smart-tile__letter{color:var(--earth);}
-  @media (min-width:720px){ .smart-tile__letter{ font-size:100px;top:20px;right:30px; } }
-  .smart-tile__no{color:var(--red);font-weight:700;font-size:13px;letter-spacing:3px;}
-  @media (min-width:720px){ .smart-tile__no{ font-size:15px; } }
-  .smart-tile__en{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);margin-top:6px;line-height:1.15;}
-  @media (min-width:720px){ .smart-tile__en{ font-size:34px; } }
-  .smart-tile__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.4px;}
-  @media (min-width:720px){ .smart-tile__zh{ font-size:21px; } }
-  .smart-tile__body{margin-top:14px;font-size:17px;color:var(--ink-soft);line-height:1.7;}
-  @media (min-width:720px){ .smart-tile__body{ font-size:19px; } }
+  /* CV grid */
+  .cv-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:720px){ .cv-grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .cv-col{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 28px;box-shadow:var(--shadow-sm);border-top:8px solid var(--blue);}
+  @media (min-width:720px){ .cv-col{ padding:38px 34px; } }
+  .cv-col.is-career{border-top-color:var(--red);}
+  .cv-col__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;}
+  @media (min-width:720px){ .cv-col__title{ font-size:34px; } }
+  .cv-col__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .cv-col__title-zh{ font-size:21px; } }
+  .cv-list{list-style:none;margin-top:22px;}
+  .cv-list li{padding:16px 0;border-bottom:1px dashed var(--line);}
+  .cv-list li:last-child{border-bottom:none;}
+  .cv-list .meta{display:block;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+  @media (min-width:720px){ .cv-list .meta{ font-size:14px; } }
+  .cv-col.is-career .cv-list .meta{color:var(--red);}
+  .cv-list .title-en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.45;}
+  @media (min-width:720px){ .cv-list .title-en{ font-size:20px; } }
+  .cv-list .title-zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:4px;line-height:1.6;}
+  @media (min-width:720px){ .cv-list .title-zh{ font-size:18px; } }
 
-  /* Vision arch */
-  .vision-arch{
-    margin-top:36px;
-    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 60%, var(--green-deep) 100%);
-    color:#fff;border-radius:24px;padding:40px 32px;box-shadow:var(--shadow);
-    text-align:center;
+  /* Honors timeline (2-col) */
+  .honors{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:720px){ .honors{ grid-template-columns:1fr 1fr;gap:18px; } }
+  .honor{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;box-shadow:var(--shadow-sm);
+    border-left:5px solid var(--gold);
   }
-  @media (min-width:720px){ .vision-arch{ padding:56px 48px; } }
-  .vision-arch__eyebrow{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
-  @media (min-width:720px){ .vision-arch__eyebrow{ font-size:15px; } }
-  .vision-arch__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.2;margin-top:14px;letter-spacing:.5px;}
-  @media (min-width:720px){ .vision-arch__title{ font-size:52px; } }
-  .vision-arch__zh{font-family:'PingFang TC',serif;font-size:24px;font-weight:600;margin-top:10px;color:#fdf7e7;letter-spacing:.08em;}
-  @media (min-width:720px){ .vision-arch__zh{ font-size:32px; } }
-  .vision-arch__body{margin-top:18px;font-size:18px;color:rgba(255,255,255,.92);line-height:1.7;max-width:720px;margin-left:auto;margin-right:auto;}
-  @media (min-width:720px){ .vision-arch__body{ font-size:20px; } }
+  .honor.is-kdp{border-left-color:var(--blue);}
+  .honor.is-moe{border-left-color:var(--red);}
+  .honor.is-county{border-left-color:var(--green);}
+  .honor__year{font-family:'Playfair Display',serif;color:var(--gold-deep);font-weight:800;font-size:15px;letter-spacing:2px;}
+  .honor.is-kdp .honor__year{color:var(--blue);}
+  .honor.is-moe .honor__year{color:var(--red);}
+  .honor.is-county .honor__year{color:var(--green-deep);}
+  .honor__title-en{margin-top:5px;font-size:17px;font-weight:700;color:var(--blue-deep);line-height:1.35;}
+  @media (min-width:720px){ .honor__title-en{ font-size:18px; } }
+  .honor__title-zh{margin-top:3px;font-size:14px;color:var(--ink-soft);line-height:1.5;}
+  @media (min-width:720px){ .honor__title-zh{ font-size:15px; } }
 
-  /* Pending note */
-  .pending{
-    margin-top:36px;
-    background:var(--earth-soft);
-    border-left:6px solid var(--earth);
-    padding:24px 28px;border-radius:0 12px 12px 0;
-    font-size:16px;color:var(--ink-soft);line-height:1.65;
+  /* Research card */
+  .research{display:flex;flex-direction:column;gap:16px;}
+  .research-item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 24px;box-shadow:var(--shadow-sm);
+    border-left:5px solid var(--earth);
   }
-  @media (min-width:720px){ .pending{ font-size:18px; } }
-  .pending strong{color:var(--earth);font-weight:700;}
+  .research-item__title{font-size:17px;color:var(--blue-deep);font-weight:700;line-height:1.5;}
+  @media (min-width:720px){ .research-item__title{ font-size:18px; } }
+  .research-item__zh{margin-top:6px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ .research-item__zh{ font-size:16px; } }
+  .research-item__venue{margin-top:8px;font-size:13px;color:var(--ink-soft);font-style:italic;letter-spacing:.5px;}
+  @media (min-width:720px){ .research-item__venue{ font-size:14px; } }
 
   /* Closing */
   .closing{background:linear-gradient(135deg, var(--blue-deep) 0%, #143147 60%, #0f2c20 100%);color:#fff;border-radius:24px;padding:44px 32px;box-shadow:var(--shadow);}
@@ -261,7 +252,7 @@
     <div>
       <span class="wj-hero__eyebrow">Principal's Office</span>
       <h1>Principal's Office</h1>
-      <div class="h1-zh">校長室 · 吳炳連校長</div>
+      <div class="h1-zh">校長室 · 宋雯卿校長</div>
     </div>
   </div>
 </header>
@@ -271,177 +262,306 @@
   <div class="wrap">
     <div class="sec__no">I.</div>
     <h2 class="sec__title">The Principal's Office</h2>
-    <div class="sec__title-zh">校長室 · 帶領萬興走「卓越萬興・活力 SMART」的承諾人</div>
+    <div class="sec__title-zh">校長室 · 一位從特教博士走到萬興校門的學者校長</div>
     <div class="sec__rule"></div>
 
     <div class="po-hero">
-      <div>
-        <div class="po-hero__crest">
-          <img src="/schools/wanshing-jh/photos/logo.png" alt="Wanshing Junior High School crest · 萬興國中校徽">
-          <span class="po-hero__crest-badge">In Office · 在任校長</span>
-        </div>
-      </div>
+      <figure class="po-hero__photo">
+        <img src="../photos/principal-portrait.jpg" alt="Principal Sung Wen-Ching · 宋雯卿校長">
+        <span class="po-hero__badge">Head of Family · 大家長</span>
+      </figure>
 
       <div class="po-hero__intro">
         <div class="po-hero__role">Principal · 校長</div>
-        <h3>Wu Bing-Lien
-          <small>吳炳連 校長</small>
+        <h3>Sung Wen-Ching
+          <small>宋雯卿 校長 · 萬興國中現任大家長</small>
         </h3>
         <p class="po-hero__lead">
-          Principal Wu leads Wanshing Junior High through the curriculum vision the school calls
-          <strong>"Brilliance Wanshing &middot; Vital SMART"</strong> — five letters that organise how a 119-student rural campus delivers a full secondary education across science, multi-arts, active learning, real-world practice, and technology.
+          A Ph.D. in Special Education from National Changhua University of Education, with KDP-international certifications across bilingual education, multi-modal learning, and curriculum leadership — Principal Sung brings to Wanshing a rare combination: <strong>special-education depth, mathematics-curriculum expertise, and an international bilingual qualification</strong> that maps directly onto the work this rural Erlin campus is doing.
         </p>
         <p class="po-hero__lead-zh">
-          吳炳連校長帶領萬興國中——一所 119 位學生的鄉村小校——以「<strong>卓越萬興・活力 SMART</strong>」課程願景，把科學、多元智慧、主動學習、跨領域實踐、與科技創新五條軸線，組織成一所完整的國中教育。
+          <strong>國立彰化師範大學特殊教育學系博士</strong>，並獲 KDP 國際認證之雙語教育、多元學習、課程領導等多項殊榮——宋雯卿校長為萬興國中帶來一個罕見的組合：<strong>特殊教育的深度、數學課程的專業、與國際雙語認證</strong>——三者都與這所二林偏鄉校正在做的事，直接對應。
         </p>
         <div class="po-hero__since">
-          Confirmed in office as Principal of Wanshing Junior High since at least November 2024<br>
-          公開紀錄至遲於 2024 年 11 月確認在任（家長會長連任授證典禮邀請函）<br>
-          <em>Detailed CV and tenure start year to be confirmed with school · 完整學經歷與正式上任年待校方提供</em>
+          Principal of Wanshing Junior High School &middot; In Office<br>
+          現任萬興國中校長<br>
+          <em>Profile drawn from the school's official Principal's Office page · 資料來源：學校官方校長室公告</em>
         </div>
       </div>
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"Education is a journey of believing that every child can shine."</div>
+      <div class="quote__zh">「教育，是一場相信每個孩子都能發光的旅程。」</div>
+      <div class="quote__attribution">&mdash; Principal Sung Wen-Ching &middot; 宋雯卿校長 · 教育理念開場句</div>
     </div>
   </div>
 </section>
 
-<!-- ===== II. Vision narrative ===== -->
+<!-- ===== II. Bio narrative ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">II.</div>
-    <h2 class="sec__title">A Vision for a Small Rural School</h2>
-    <div class="sec__title-zh">小校大願景 · 從一所偏鄉國中可以看見什麼</div>
+    <h2 class="sec__title">An Educator's Philosophy</h2>
+    <div class="sec__title-zh">雯卿的教育理念 · 五段親筆寫下的承諾</div>
     <div class="sec__rule"></div>
 
     <div class="bio__body">
       <p>
-        The first thing Principal Wu's office looks out at is not the city — it is <strong>the rice fields, the peanut rows, the canal water at the end of the Choshui irrigation network</strong>. A principal's job in this part of Changhua is unusual: he is at once the head of a small school, the host of a community digital opportunity centre that serves elders and disadvantaged students, and the gateway through which nine villages' children pass on their way to vocational high school, senior high, and beyond.
+        <strong>I have always believed</strong> that every student is a unique existence. Education should not be a uniform production line — it should be the companionship and guidance that come from teaching each learner according to their nature.
       </p>
       <p class="zh">
-        從吳校長辦公室望出去——不是城市，是<strong>稻田、花生田、濁水溪水利末端的圳溝水</strong>。在彰化縣這個地段擔任校長，職責並不單純：他既是一所小校的校務領導人、也是一座服務鄉里長輩與弱勢學童的數位機會中心的主辦者、更是九個里的孩子升學前的關鍵節點。
+        我始終相信：每個學生都是獨一無二的存在，教育不該是相同的製造，而應是<strong>因材施教的陪伴與引導</strong>。
       </p>
 
       <p>
-        Under his stewardship, the campus continues three commitments that were already in place when he took the principal's chair, and adds a fourth that is uniquely his: <strong>holding the school steady</strong>. In a rural school system that often experiences principal turnover every few years, the operating value of "the principal stays" is incalculable. It is what allows the Erlin DOC to keep planning a multi-year curriculum. It is what allows the Taiwanese drum troupe and the school baseball team — both founded in 2016 under his predecessor — to keep being possible.
+        <strong>In curriculum design</strong>, I emphasise multi-modal learning and adaptive development, so that every student finds achievement and self-confidence at their own pace. In classroom practice, I value the power of co-teaching and professional learning communities, so that teachers no longer fight alone — they become each other's support and growth engine.
       </p>
       <p class="zh">
-        在吳校長任內，萬興繼續實踐三條他接任前就在進行的承諾，並加上一條他獨有的：<strong>把學校穩定地撐住</strong>。在台灣偏鄉學校體系裡，「校長 3-4 年一換」是常態——而「校長留得住」這件事的營運價值無法用數字衡量。這是二林 DOC 可以規劃多年期課程的原因；這是 2016 年由前任校長奠基的太鼓隊、青少棒隊，可以繼續存在的原因。
+        在課程設計中，我強調<strong>多元學習與適性發展</strong>，讓每位學生都能在自己的節奏中找到成就與自信；在教學實踐中，我重視<strong>共備、專業共群</strong>的力量，讓教師不再孤單奮鬥，而是成為彼此的支撐與成長動能。
       </p>
 
       <p>
-        He inherited a school with a clear identity — and he keeps that identity working in the daily routine. The <strong>Erlin Digital Opportunity Centre</strong> runs on campus. The <strong>Bai-Sha · Co-Prosperity</strong> partnership with the Teacher Education Centre at National Changhua University of Education brings university-grade pedagogy in. The <strong>vocational arts pipeline</strong> to National Erlin Industrial &amp; Commercial Vocational High School has just produced a <strong>national-gold-medal alumna</strong> in painting and decoration. Each of these is a quiet vote of confidence in the work happening here.
+        <strong>I know deeply</strong> that the core of education lies in the building of relationships. Only when teachers and students trust each other can teaching reach the heart; only when administration and partners work in concert can a school march toward its vision.
       </p>
       <p class="zh">
-        他接手了一所身分清晰的學校，並讓這份身分在每日校務中持續運作：<strong>二林數位機會中心</strong>駐校如常；與彰化師大師培中心的「<strong>白沙×共好</strong>」合作把大學級教學專業帶進校園；通往國立二林工商的<strong>技藝教育出口</strong>，剛剛在 2025 年產出了一位<strong>全國技能競賽金牌校友</strong>。每一件，都是對「萬興正在做的事」的安靜投票。
+        我深知教育的核心在於<strong>關係的建立</strong>。唯有師生之間彼此信任，教學才能深入人心；唯有行政與夥伴齊心協力，學校才能朝向願景前行。
+      </p>
+
+      <p>
+        <strong>On the road of education</strong> — whether in classroom teaching, in administrative leadership, or in dialogue among educators — I hold a humble but steadfast heart, believing that education can change destiny. May I also become a light in the lives of children.
+      </p>
+      <p class="zh">
+        教育的路上，無論是教室裡的教學、行政崗位的領導、教學者間的對話，我都抱持著<strong>一顆謙卑而堅定的心</strong>，相信教育可以改變命運。也願成為孩子們生命中的一道光。
       </p>
     </div>
 
     <div class="quote">
-      <div class="quote__text">"Brilliance Wanshing · Vital SMART."</div>
-      <div class="quote__zh">「卓越萬興・活力 SMART」——萬興國中課程願景，校長辦公室與每間教室的共同方向。</div>
-      <div class="quote__attribution">&mdash; Wanshing Junior High School curriculum vision · 學校官方公告之課程願景</div>
+      <div class="quote__text">"May I also become a light in the lives of children."</div>
+      <div class="quote__zh">「也願成為孩子們生命中的一道光。」</div>
+      <div class="quote__attribution">&mdash; 雯卿的教育理念 · 結句</div>
     </div>
   </div>
 </section>
 
-<!-- ===== III. SMART unpacked ===== -->
+<!-- ===== III. Education + Career CV ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">III.</div>
-    <h2 class="sec__title">SMART, Unpacked</h2>
-    <div class="sec__title-zh">SMART 五個字母 · 一條一條打開</div>
+    <h2 class="sec__title">Education &amp; Career</h2>
+    <div class="sec__title-zh">學歷與經歷 · 從統計到特教博士，再到萬興校門</div>
+    <div class="sec__rule"></div>
+
+    <div class="cv-grid">
+
+      <div class="cv-col is-edu">
+        <div class="cv-col__title">Education</div>
+        <div class="cv-col__title-zh">學歷</div>
+        <ul class="cv-list">
+          <li>
+            <span class="meta">Ph.D.</span>
+            <span class="title-en">Doctorate, Special Education</span>
+            <span class="title-zh">國立彰化師範大學 特殊教育學系 博士</span>
+          </li>
+          <li>
+            <span class="meta">M.A.</span>
+            <span class="title-en">Master's, Mathematics Education (Science Education Institute)</span>
+            <span class="title-zh">國立彰化師範大學 科學教育研究所 數學組 碩士</span>
+          </li>
+          <li>
+            <span class="meta">B.A.</span>
+            <span class="title-en">Bachelor's, Department of Statistics</span>
+            <span class="title-zh">淡江大學 統計學系</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cv-col is-career">
+        <div class="cv-col__title">Career</div>
+        <div class="cv-col__title-zh">經歷</div>
+        <ul class="cv-list">
+          <li>
+            <span class="meta">Current</span>
+            <span class="title-en">Principal, Wanshing Junior High School</span>
+            <span class="title-zh">現任 彰化縣立萬興國民中學 校長</span>
+          </li>
+          <li>
+            <span class="meta">prior</span>
+            <span class="title-en">Curriculum Inspector, Changhua County Education Bureau</span>
+            <span class="title-zh">彰化縣政府教育處 課程督學</span>
+          </li>
+          <li>
+            <span class="meta">prior</span>
+            <span class="title-en">Director of Academic Affairs &amp; Counselling, Changtai Junior High</span>
+            <span class="title-zh">彰泰國中 教務主任、輔導主任</span>
+          </li>
+          <li>
+            <span class="meta">4 years</span>
+            <span class="title-en">Special Education Section Head, Changtai Junior High</span>
+            <span class="title-zh">彰泰國中 特教組長 4 年</span>
+          </li>
+          <li>
+            <span class="meta">prior</span>
+            <span class="title-en">Homeroom Teacher, Gifted &amp; General Classes, Changtai Junior High</span>
+            <span class="title-zh">彰泰國中 資優班、普通班 導師</span>
+          </li>
+          <li>
+            <span class="meta">6 years</span>
+            <span class="title-en">Homeroom Teacher, Hemei Junior High School</span>
+            <span class="title-zh">和美國中 導師 6 年</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Honors ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Honors &amp; Recognitions</h2>
+    <div class="sec__title-zh">獲獎紀錄 · 從彰化縣到 KDP 國際認證的十年軌跡</div>
     <div class="sec__rule"></div>
 
     <div class="bio__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
       <p>
-        The Wanshing curriculum vision uses an acronym that is also a value statement. Each letter names a commitment the school makes to every child who walks through the front gate — not as a slogan on a banner, but as a checklist for the school year.
+        Across a decade Principal Sung's recognitions have moved upward through three tiers: <strong>county-level</strong> (Changhua Outstanding Special Education Teacher), <strong>national-level</strong> (Ministry of Education Reading Master, Teaching Excellence Award, Apricot Forest Fragrance Award), and <strong>international-level</strong> (KDP International — multiple certifications including <em>Bilingual Education</em>, <em>English-Bilingual</em>, <em>Curriculum Leadership</em>, and <em>Multi-modal Learning</em>).
       </p>
       <p class="zh">
-        萬興的課程願景是一個首字母縮寫，也是一份價值清單。五個字母，五條我們對每一位走進校門的孩子做出的承諾——不是橫幅口號，而是每學年的檢核清單。
+        宋校長的獲獎紀錄沿著三個層級往上推進：<strong>縣級</strong>（彰化縣特殊優良教師）→ <strong>國家級</strong>（教育部閱讀磐石、教學卓越獎、杏壇芬芳獎）→ <strong>國際級</strong>（KDP 國際認證多項獎項，含<strong>雙語教育</strong>、<strong>英語雙語</strong>、<strong>課程領導</strong>、<strong>多元學習效能</strong>）。
       </p>
     </div>
 
-    <div class="smart-big">
-
-      <article class="smart-tile">
-        <div class="smart-tile__letter">S</div>
-        <div class="smart-tile__no">01</div>
-        <div class="smart-tile__en">Science</div>
-        <div class="smart-tile__zh">科學與探究</div>
-        <p class="smart-tile__body">From the chemistry classroom to the school's STEM equipment grants, Wanshing positions science not as a single subject but as <strong>a habit of asking questions</strong>. Rural classrooms get the same lab time as the city campus next door — that is the equity floor we refuse to drop below.</p>
-      </article>
-
-      <article class="smart-tile">
-        <div class="smart-tile__letter">M</div>
-        <div class="smart-tile__no">02</div>
-        <div class="smart-tile__en">Multi-Arts</div>
-        <div class="smart-tile__zh">多元智慧與技藝</div>
-        <p class="smart-tile__body">A child who learns through hands, through rhythm, through movement deserves a stage. Wanshing's <strong>Taiwanese drum troupe</strong>, <strong>vocational arts pipeline</strong>, and <strong>fine-arts entries</strong> in county competitions make multi-arts a practical promise, not a Sunday hobby.</p>
-      </article>
-
-      <article class="smart-tile">
-        <div class="smart-tile__letter">A</div>
-        <div class="smart-tile__no">03</div>
-        <div class="smart-tile__en">Active Learning</div>
-        <div class="smart-tile__zh">主動學習</div>
-        <p class="smart-tile__body">"Active" is not extra-curricular — it is how the curriculum itself is delivered. Through the <strong>Bai-Sha · Co-Prosperity</strong> programme with NCUE, in-class teaching consciously moves towards inquiry, peer dialogue, and student-led projects across all three grade levels.</p>
-      </article>
-
-      <article class="smart-tile">
-        <div class="smart-tile__letter">R</div>
-        <div class="smart-tile__no">04</div>
-        <div class="smart-tile__en">Real-World</div>
-        <div class="smart-tile__zh">跨領域實踐</div>
-        <p class="smart-tile__body">A Wanshing student's nine villages, two feeder elementary schools, one community digital centre, and the rice fields outside the gate <strong>are the curriculum.</strong> We do not pretend students are anywhere else. We teach the real Erlin they live inside — and let it be their first laboratory.</p>
-      </article>
-
-      <article class="smart-tile">
-        <div class="smart-tile__letter">T</div>
-        <div class="smart-tile__no">05</div>
-        <div class="smart-tile__en">Technology</div>
-        <div class="smart-tile__zh">科技與創新</div>
-        <p class="smart-tile__body">The same campus that hosts the <strong>Erlin Digital Opportunity Centre</strong> for community elders is, by definition, a campus that takes technology seriously for its students. The same building, the same Wi-Fi, the same teachers — pass-through every day from senior visitors to seventh graders.</p>
-      </article>
-
-    </div>
-
-    <div class="vision-arch">
-      <div class="vision-arch__eyebrow">Curriculum Vision · 課程願景</div>
-      <h3 class="vision-arch__title">Brilliance Wanshing &middot; Vital SMART</h3>
-      <div class="vision-arch__zh">卓越萬興 · 活力 SMART</div>
-      <p class="vision-arch__body">
-        Five letters, five promises, one rural campus — held in place by a principal whose job is, above all, to make sure the school keeps showing up for nine villages of children.
-        <br><br>
-        五個字母，五條承諾，一所偏鄉校——由一位校長持續守護：他最重要的工作，是讓這所學校，繼續為九個里的孩子，每天準時在這裡。
-      </p>
-    </div>
-
-    <div class="pending">
-      <strong>📝 Note on this page · 關於這頁的說明：</strong>
-      Detailed biographical information for Principal Wu — including formal start of tenure, prior career, and a portrait photograph — will be added in a forthcoming revision, after a working session with the principal's office. This page is published in a first-draft form so that the school's official curriculum vision is publicly visible and bilingually documented from day one.
-      <br><br>
-      <strong>關於本頁：</strong>校長詳細學經歷、正式上任年、肖像照等資訊，將在與校長室對焦後的修訂版補入。本頁先以草稿形式上線，是為了讓萬興國中的正式課程願景，從第一天就有雙語、對外、可分享的版本。
+    <div class="honors">
+      <div class="honor is-kdp">
+        <div class="honor__year">2024 · KDP International</div>
+        <div class="honor__title-en">Excellent · Curriculum Leadership Exemplar</div>
+        <div class="honor__title-zh">KDP 國際認證 · 課程領導楷模</div>
+      </div>
+      <div class="honor is-kdp">
+        <div class="honor__year">2024 · KDP International</div>
+        <div class="honor__title-en">Excellent · Multi-modal Learning Efficacy</div>
+        <div class="honor__title-zh">KDP 國際認證 · 多元學習效能優等</div>
+      </div>
+      <div class="honor">
+        <div class="honor__year">2023 · Global Views</div>
+        <div class="honor__title-en">Future Education 100</div>
+        <div class="honor__title-zh">遠見 · 未來教育 100</div>
+      </div>
+      <div class="honor is-moe">
+        <div class="honor__year">2023 · Ministry of Education</div>
+        <div class="honor__title-en">Teaching Excellence Award</div>
+        <div class="honor__title-zh">教育部 · 教學卓越獎</div>
+      </div>
+      <div class="honor is-moe">
+        <div class="honor__year">2023 · Ministry of Education</div>
+        <div class="honor__title-en">Reading Master School Award</div>
+        <div class="honor__title-zh">教育部 · 閱讀磐石學校獎</div>
+      </div>
+      <div class="honor is-moe">
+        <div class="honor__year">2023 · Ministry of Education</div>
+        <div class="honor__title-en">Reading Group · Excellent</div>
+        <div class="honor__title-zh">教育部 · 閱讀團體優等獎</div>
+      </div>
+      <div class="honor is-kdp">
+        <div class="honor__year">2022 · KDP International</div>
+        <div class="honor__title-en">Excellent · Subject-Area Curriculum</div>
+        <div class="honor__title-zh">KDP 國際認證 · 學科領域優等</div>
+      </div>
+      <div class="honor is-kdp">
+        <div class="honor__year">2022 · KDP International</div>
+        <div class="honor__title-en">Excellent · Bilingual Education</div>
+        <div class="honor__title-zh">KDP 國際認證 · 雙語教育優等</div>
+      </div>
+      <div class="honor is-kdp">
+        <div class="honor__year">2021 · KDP International</div>
+        <div class="honor__title-en">Excellent · English-Bilingual</div>
+        <div class="honor__title-zh">KDP 國際認證 · 英語雙語優等</div>
+      </div>
+      <div class="honor is-moe">
+        <div class="honor__year">2020 · Ministry of Education</div>
+        <div class="honor__title-en">Outstanding Teaching Practicum Cohort Award</div>
+        <div class="honor__title-zh">教育部 · 實習績優合作圈 同心圓獎</div>
+      </div>
+      <div class="honor is-moe">
+        <div class="honor__year">2019 · Ministry of Education</div>
+        <div class="honor__title-en">Apricot Forest Fragrance Award</div>
+        <div class="honor__title-zh">教育部 · 杏壇芬芳獎</div>
+      </div>
+      <div class="honor is-county">
+        <div class="honor__year">2018 · Changhua County</div>
+        <div class="honor__title-en">Outstanding Special Education Teacher</div>
+        <div class="honor__title-zh">彰化縣 · 特殊優良教師獎</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== IV. Closing & Visit ===== -->
+<!-- ===== V. Research ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">IV.</div>
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Research &amp; Publications</h2>
+    <div class="sec__title-zh">研究與發表 · 國際學術研討會論文選錄</div>
+    <div class="sec__rule"></div>
+
+    <div class="bio__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
+      <p>
+        Principal Sung's published research focuses on the intersection of <strong>gifted education, special education, and the 12-Year Curriculum Guidelines for compulsory schooling</strong> — with particular attention to mathematical problem-solving and new-immigrant students. Selected presentations at international academic conferences:
+      </p>
+      <p class="zh">
+        宋校長的學術發表集中於<strong>資優教育、特殊教育、與十二年國教課綱</strong>的交集——特別聚焦於數學解題歷程與新住民學生。以下為國際學術研討會選錄：
+      </p>
+    </div>
+
+    <div class="research">
+      <article class="research-item">
+        <div class="research-item__title">A Study on Mathematical Problem-Solving Process of Junior High School Gifted Students by Thinking-Aloud Method</div>
+        <div class="research-item__zh">運用放聲思考法探討國中資優生數學解題歷程</div>
+        <div class="research-item__venue">5<sup>th</sup> Asia-Pacific Conference on the Gifted (APCG 2018) &middot; 第五屆亞太地區資優論壇</div>
+      </article>
+
+      <article class="research-item">
+        <div class="research-item__title">Linking Core Competencies and Learning Expectations under the 12-Year Curriculum Guidelines: A Case Study of Independent Research Curriculum for Gifted Junior-High Students</div>
+        <div class="research-item__zh">十二年國教核心素養與學習表現連結之探討——以國中資優生獨立研究課程為例（2019）</div>
+        <div class="research-item__venue">2019 International Conference on Special Education &middot; 國立嘉義大學</div>
+      </article>
+
+      <article class="research-item">
+        <div class="research-item__title">Connecting Core-Competency Teaching Materials with Learning Expectations: A Case Study of Three-View Geometry in the Gifted Mathematics Curriculum</div>
+        <div class="research-item__zh">十二年國教核心素養教材與學習表現連結之探討——以國中資優生數學課程「三視圖」為例（2019）</div>
+        <div class="research-item__venue">7<sup>th</sup> ICTE International Conference on Teacher Education &middot; 第七屆師資培育國際學術研討會</div>
+      </article>
+
+      <article class="research-item">
+        <div class="research-item__title">An Analysis of New-Immigrant Junior-High Students Applying Think-Aloud Strategies to Mathematical Problem-Solving</div>
+        <div class="research-item__zh">探討國中新住民學生運用放聲思考在數學解題之歷程分析</div>
+        <div class="research-item__venue">International Conference on "Asian Education Reform: Reflections and Outlook" &middot; 亞洲教育改革的反思與展望國際學術研討會</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Closing & Visit ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
     <h2 class="sec__title">Visit Us</h2>
-    <div class="sec__title-zh">校長室聯絡方式</div>
+    <div class="sec__title-zh">校長的話與聯絡方式</div>
     <div class="sec__rule"></div>
 
     <div class="closing">
-      <div class="closing__eyebrow">Wanshing Principal's Office &middot; 萬興校長室</div>
-      <h3 class="closing__title">"Five letters. Nine villages. One campus that shows up."
-        <small>五個字母，九個里，一所每天準時出現的學校。</small>
+      <div class="closing__eyebrow">A Word from Principal Sung &middot; 校長的話</div>
+      <h3 class="closing__title">"May I become a light in the lives of children."
+        <small>願成為孩子們生命中的一道光。</small>
       </h3>
       <p class="closing__body">
-        Wanshing Junior High School welcomes visiting educators, university partners, township civic groups, and prospective parents from across the nine-village catchment. The principal's office is the door — and the door is open.
+        That is the closing sentence of the philosophy Principal Sung wrote in her own hand for the school's Principal's Office page. It is also the most honest one-line answer to the question "<em>Why this principal, at this school, at this time?</em>" — and the lens through which every other line on this site is meant to be read.
       </p>
       <p class="closing__zh">
-        萬興國中歡迎來訪的同業教師、大學合作夥伴、鄉里社團、與學區內家長。校長室是那扇門——而那扇門是打開的。
+        這是宋校長親筆寫在學校官方校長室頁面的教育理念結句，也是對「為什麼是這位校長、在這所學校、在這個時間點」最誠實的一行回答——也是本網站其他每一行內容應該被閱讀的角度。
       </p>
 
       <div class="closing__contact">
@@ -454,12 +574,12 @@
           <div class="closing__value"><a href="tel:+88648682978">04-8682978</a> #1101</div>
         </div>
         <div class="closing__row">
-          <div class="closing__label">Official Website &middot; 學校官網</div>
-          <div class="closing__value"><a href="https://whjh.chc.edu.tw/" target="_blank" rel="noopener">whjh.chc.edu.tw</a></div>
+          <div class="closing__label">Official Principal's Office Page &middot; 校長室公告</div>
+          <div class="closing__value"><a href="https://whjh.chc.edu.tw/departments/3/show" target="_blank" rel="noopener">whjh.chc.edu.tw/departments/3/show</a></div>
         </div>
         <div class="closing__row">
-          <div class="closing__label">Facebook · 校方專頁</div>
-          <div class="closing__value"><a href="https://www.facebook.com/WANSHING1969/" target="_blank" rel="noopener">@WANSHING1969</a></div>
+          <div class="closing__label">School Website · 學校官網</div>
+          <div class="closing__value"><a href="https://whjh.chc.edu.tw/" target="_blank" rel="noopener">whjh.chc.edu.tw</a></div>
         </div>
       </div>
     </div>
@@ -485,7 +605,7 @@
       <ul>
         <li><a href="https://whjh.chc.edu.tw/" target="_blank" rel="noopener">Official site · 官網</a></li>
         <li><a href="https://www.facebook.com/WANSHING1969/" target="_blank" rel="noopener">Facebook · 粉絲頁</a></li>
-        <li><a href="https://itaiwan.moe.gov.tw/doc/about.php?doc=497&id=1" target="_blank" rel="noopener">Erlin DOC · 二林數位機會中心</a></li>
+        <li><a href="https://whjh.chc.edu.tw/departments/3/show" target="_blank" rel="noopener">Principal's Office · 校長室</a></li>
       </ul>
     </div>
     <div class="wj-footer__col">
