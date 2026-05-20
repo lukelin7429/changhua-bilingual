@@ -78,6 +78,15 @@
     min-height:0;
     object-position:center top;
   }
+  .portrait__placeholder{
+    flex:1;
+    border-radius:12px;
+    background:linear-gradient(135deg, var(--ink-soft) 0%, var(--purple-soft) 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:96px;color:var(--ink-deep);
+    min-height:280px;
+  }
+  @media (min-width:720px){ .portrait__placeholder{ font-size:120px; } }
   .portrait__photo::after{
     content:'';position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(ellipse at 30% 0%, rgba(255,255,255,.15) 0%, transparent 45%),
@@ -182,8 +191,8 @@
 
     <div class="portrait">
       <figure class="portrait__photo">
-        <img src="../photos/principal-hsu.jpg" alt="Portrait of Principal Hsu Hsiao-lin · 許孝麟校長肖像">
-        <figcaption class="portrait__caption">許孝麟校長 · Principal Hsu Hsiao-lin</figcaption>
+        <div class="portrait__placeholder">🎓</div>
+        <figcaption class="portrait__caption">許孝麟校長 · Principal Hsu Hsiao-lin<br><span style="opacity:.7;">Official portrait coming from the school</span></figcaption>
       </figure>
       <div class="portrait__body">
         <h3>Hsu Hsiao-lin</h3>
