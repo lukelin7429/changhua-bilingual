@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bilingual Campus · 雙語校園 · Luoqing Elementary</title>
+<meta name="description" content="At Luoqing, bilingual is the air — classroom English for teachers, daily bilingual announcements for students. Both produced with My Culture Connect 人師教育協會. 螺青的雙語不是一堂課，而是一座校園——課室英語給老師，雙語廣播給學生。">
+<meta property="og:title" content="Bilingual Campus · 雙語校園 · Luoqing Elementary">
+<meta property="og:description" content="Bilingual is the air, not the syllabus. Classroom English + Bilingual Announcements.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink-deep:#1d3a5f;--ink-blue:#2b5687;--ink-soft:#e6edf5;
+    --green:#4a8a4a;--green-deep:#2f5e2f;--green-soft:#e2efe2;
+    --orange:#e88a3c;--orange-deep:#b86515;--orange-soft:#fce5d0;
+    --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
+    --pink:#d96b9a;--pink-soft:#fbe2ec;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft-text:#5a606e;
+    --shadow:0 14px 38px -16px rgba(29,58,95,.30);--shadow-sm:0 6px 16px -6px rgba(29,58,95,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--orange);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--ink-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft-text);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--orange);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--ink-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--ink-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--orange-deep);}
+  .subnav a.is-active{background:var(--orange);color:#fff;}
+  .subnav__sep{color:var(--ink-soft-text);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* Lead */
+  .lead{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--ink-deep);line-height:1.35;letter-spacing:.3px;}
+  @media (min-width:720px){ .lead{ font-size:38px; } }
+  .lead-zh{font-size:21px;color:var(--ink-soft-text);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .lead-zh{ font-size:25px; } }
+  .body{margin-top:28px;font-size:20px;color:var(--ink);line-height:1.75;max-width:780px;}
+  @media (min-width:720px){ .body{ font-size:22px; } }
+  .body p{margin-top:16px;}
+  .body p:first-child{margin-top:0;}
+  .body .zh{color:var(--ink-soft-text);font-size:18px;margin-top:8px;line-height:1.65;}
+  .body strong{color:var(--ink-deep);font-weight:700;}
+
+  /* Credits ribbon */
+  .credits{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 28px;padding:18px 24px;border-radius:12px;background:var(--green-soft);border-left:6px solid var(--green);max-width:820px;}
+  .credits.is-broadcast{background:var(--orange-soft);border-left-color:var(--orange);}
+  .credits__cell{display:flex;flex-direction:column;}
+  .credits__label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green-deep);}
+  @media (min-width:720px){ .credits__label{ font-size:13px; } }
+  .credits.is-broadcast .credits__label{color:var(--orange-deep);}
+  .credits__value{font-size:18px;color:var(--ink);font-weight:600;margin-top:2px;}
+  @media (min-width:720px){ .credits__value{ font-size:20px; } }
+
+  /* Video frame */
+  .video-frame{margin-top:30px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+  /* Episode counter callout */
+  .ep-callout{display:inline-block;background:var(--ink-deep);color:#fff;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:1.5px;padding:6px 16px;border-radius:99px;margin-top:18px;}
+  @media (min-width:720px){ .ep-callout{ font-size:19px; } }
+
+  /* Two-column bilingual quote */
+  .why-bilingual{background:linear-gradient(135deg, var(--ink-soft) 0%, var(--green-soft) 100%);border-radius:24px;padding:40px 30px;border:2px solid var(--ink-blue);box-shadow:var(--shadow);}
+  @media (min-width:720px){ .why-bilingual{ padding:56px 48px; } }
+  .why-bilingual__title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--ink-deep);line-height:1.3;text-align:center;}
+  @media (min-width:720px){ .why-bilingual__title{ font-size:42px; } }
+  .why-bilingual__zh{font-size:20px;color:var(--ink-soft-text);text-align:center;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .why-bilingual__zh{ font-size:23px; } }
+  .why-bilingual__body{font-size:19px;color:var(--ink);line-height:1.7;margin-top:28px;max-width:760px;margin-left:auto;margin-right:auto;text-align:center;}
+  @media (min-width:720px){ .why-bilingual__body{ font-size:21px; } }
+  .why-bilingual__body .zh{display:block;font-size:18px;color:var(--ink-soft-text);margin-top:12px;line-height:1.6;}
+  @media (min-width:720px){ .why-bilingual__body .zh{ font-size:20px; } }
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--ink-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=luoqing">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Why a Bilingual Campus ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Bilingual Campus</h2>
+    <div class="sec__title-zh">雙語校園 · 把英語從一堂課變成一座校園</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">At Luoqing, English isn't a subject scheduled between math and science — it's the air the campus breathes.</div>
+    <div class="lead-zh">在螺青，英語不是被排在數學和自然之間的一堂課——它是這座校園呼吸的空氣。</div>
+
+    <div class="body">
+      <p>
+        We've come to believe two things make a primary school's English program durable. <strong>Teachers</strong> need ready-made classroom English so they don't have to invent it sentence by sentence. <strong>Students</strong> need to hear English in moments that are not lessons — morning broadcasts, lunch announcements, the everyday administrative voice of the school.
+      </p>
+      <p class="zh">
+        我們相信，要讓一所國小的英語計畫站得久，兩件事缺一不可——<strong>老師</strong>要有現成的「課室英語」可以用，不需要每堂課自己造句；<strong>學生</strong>要在「不是英語課」的時刻聽見英語，例如早晨廣播、午餐通知、學校的日常行政聲音。
+      </p>
+      <p>
+        Both halves of this page are produced by <strong>My Culture Connect 人師教育協會</strong> and used by every partner school in the Changhua Bilingual Hub. They are not Luoqing-only resources — they're the shared infrastructure that frees us up to focus on what's uniquely Luoqing.
+      </p>
+      <p class="zh">
+        本頁兩段內容都由<strong>人師教育協會（My Culture Connect）</strong>製作，所有彰化雙語資源網的合作學校共用——不是螺青獨享，而是讓我們可以把時間留給「只有螺青在做的事」的共用基礎建設。
+      </p>
+    </div>
+
+    <div class="why-bilingual" style="margin-top:48px;">
+      <div class="why-bilingual__title">Two halves of one campus.</div>
+      <div class="why-bilingual__zh">一座校園的兩個半邊。</div>
+      <div class="why-bilingual__body">
+        Teachers run on <em>Classroom English</em>. Students grow up with <em>Bilingual Announcements</em>. Together they make English part of the day, not part of the test.
+        <span class="zh">老師用「課室英語」運作教學，學生在「雙語廣播」中長大——英語成為「日常的一部分」，而不是「考試的一部分」。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Classroom English ===== -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · 給螺青老師的十大情境語句庫</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">A video library of ready-to-use classroom phrases — produced for the teacher who wants to add English to math, not invent it.</div>
+    <div class="lead-zh">一個現成的課堂英語影片庫——獻給「想在數學課加一點英語、不想自己造句」的老師。</div>
+
+    <div class="body">
+      <p>
+        <strong>Sarah Thomas</strong> walks through <strong>10 classroom situations</strong> — greetings, prep, instruction, warm-up activities, feedback &amp; praise, classroom management, in-class activities, assigning homework, wrapping up, exams. Each video is short, practical, and lifted straight from things Luoqing teachers already say in Chinese.
+      </p>
+      <p class="zh">
+        Sarah Thomas 老師走過<strong>十大課堂情境</strong>——問候點名、課前準備、講解、課前活動、回饋讚美糾正、教室管理、課堂活動、分派作業、課堂收尾、考試。每支影片簡短、實用，直接對應螺青老師原本就會用中文說的話。
+      </p>
+    </div>
+
+    <div class="credits">
+      <div class="credits__cell">
+        <div class="credits__label">Host · 主講</div>
+        <div class="credits__value">Sarah Thomas</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Producer · 製作</div>
+        <div class="credits__value">My Culture Connect · 人師</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Audience · 對象</div>
+        <div class="credits__value">In-service teachers · 在職教師</div>
+      </div>
+    </div>
+
+    <div class="ep-callout">10 situations · classroom-ready</div>
+
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+        title="Classroom English Playlist · Sarah Thomas · My Culture Connect"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Bilingual Announcements ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">雙語廣播 · 校園早晨的英語聲音</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">Thirteen episodes of bilingual school broadcasts — the kind of English students hear without sitting down for a lesson.</div>
+    <div class="lead-zh">十三集校園雙語廣播——學生不必坐下來上課，就能聽見的那種英語。</div>
+
+    <div class="body">
+      <p>
+        Hosted by <strong>Sarah Thomas</strong> and <strong>Susan Rose</strong>, the series introduces the four major offices of a Taiwanese elementary school — Academic Affairs (5 eps), Student Affairs (3 eps), General Affairs, and Counseling — in pairs of English and Chinese. Use them as actual morning broadcast material, or as a listening exercise during class.
+      </p>
+      <p class="zh">
+        由 <strong>Sarah Thomas</strong> 與 <strong>Susan Rose</strong> 主持，十三集涵蓋國小四大處室——教務處 5 集、學務處 3 集、總務處、輔導室，每集中英雙語。可以直接當作早晨廣播稿播放，也可以拿來當英聽教材使用。
+      </p>
+    </div>
+
+    <div class="credits is-broadcast">
+      <div class="credits__cell">
+        <div class="credits__label">Hosts · 主講</div>
+        <div class="credits__value">Sarah Thomas · Susan Rose</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Producer · 製作</div>
+        <div class="credits__value">My Culture Connect · 人師</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Audience · 對象</div>
+        <div class="credits__value">All students · 全校學生</div>
+      </div>
+    </div>
+
+    <div class="ep-callout">13 episodes · ready for the intercom</div>
+
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+        title="Bilingual Announcements Playlist · Sarah Thomas &amp; Susan Rose · My Culture Connect"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 螺青國小 Luoqing Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--ink-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>

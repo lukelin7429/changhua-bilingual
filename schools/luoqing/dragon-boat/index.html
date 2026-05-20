@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dragon Boat Festival · 端午節雙語單元 · Luoqing Elementary</title>
+<meta name="description" content="Luoqing's Dragon Boat Festival bilingual unit — Qu Yuan's story, six traditions, vocabulary flashcards, and a 10-question quiz. 螺青國小端午節雙語單元——屈原故事、六大傳統、單字小卡、十題小測驗。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-deep:#1d3a5f;--ink-blue:#2b5687;--ink-soft:#e6edf5;
+    --green:#4a8a4a;--green-deep:#2f5e2f;--green-soft:#e2efe2;
+    --orange:#e88a3c;--orange-deep:#b86515;--orange-soft:#fce5d0;
+    --red:#d94e3c;--red-deep:#a8281a;--red-soft:#fbe2dd;
+    --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
+    --gold:#d4a73b;--gold-soft:#fbf2d3;--gold-deep:#9c7c1f;
+    --bg-soft:#f5f8fb;--cream:#fbf7e8;--line:#dde6ee;--ink:#1f2530;--ink-soft-text:#5a606e;
+    --shadow:0 14px 38px -16px rgba(29,58,95,.30);--shadow-sm:0 6px 16px -6px rgba(29,58,95,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:21px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:24px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  .subnav{background:var(--ink-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--ink-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--orange-deep);}
+  .subnav a.is-active{background:var(--orange);color:#fff;}
+  .subnav__sep{color:var(--ink-soft-text);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* Festival header strip */
+  .strip{background:var(--red-deep);color:#fff;padding:24px 24px 30px;text-align:center;border-bottom:6px solid var(--gold);position:relative;overflow:hidden;}
+  @media (min-width:720px){ .strip{ padding:36px 24px 44px; } }
+  .strip::before{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:radial-gradient(circle, var(--gold) 0%, transparent 70%);opacity:.30;border-radius:50%;}
+  .strip::after{content:'';position:absolute;bottom:-30px;left:-30px;width:140px;height:140px;background:radial-gradient(circle, var(--orange) 0%, transparent 70%);opacity:.35;border-radius:50%;}
+  .strip__inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
+  .strip__no{font-family:'Cormorant Garamond',serif;font-size:14.5px;letter-spacing:4px;color:var(--gold-soft);font-weight:700;text-transform:uppercase;}
+  @media (min-width:720px){ .strip__no{ font-size:16.5px; } }
+  .strip h1{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;margin-top:6px;letter-spacing:.5px;line-height:1.1;}
+  @media (min-width:720px){ .strip h1{ font-size:60px; } }
+  .strip__zh{font-size:20px;color:#fde2dd;font-weight:600;margin-top:6px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .strip__zh{ font-size:26px; } }
+  .strip__sub{color:#ffe1c2;font-size:16px;font-style:italic;margin-top:12px;line-height:1.5;}
+  @media (min-width:720px){ .strip__sub{ font-size:19px; } }
+
+  /* Sections */
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:64px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--ink-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:48px; } }
+  .sec__title-zh{font-size:19px;color:var(--ink-soft-text);font-weight:500;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:22px; } }
+  .sec__rule{width:88px;height:5px;background:var(--gold);border-radius:3px;margin:18px 0 32px;}
+
+  /* Story panel */
+  .story{background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--red);border-radius:14px;padding:28px 30px;box-shadow:var(--shadow-sm);max-width:820px;}
+  @media (min-width:720px){ .story{ padding:36px 40px; } }
+  .story h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--ink-deep);line-height:1.25;}
+  @media (min-width:720px){ .story h3{ font-size:32px; } }
+  .story h3 .zh{display:block;font-size:18px;color:var(--ink-soft-text);font-weight:500;margin-top:4px;letter-spacing:1px;}
+  @media (min-width:720px){ .story h3 .zh{ font-size:20px; } }
+  .story p{font-size:18px;color:var(--ink);line-height:1.75;margin-top:16px;}
+  @media (min-width:720px){ .story p{ font-size:20px; } }
+  .story p:first-of-type{margin-top:18px;}
+  .story p.zh{color:var(--ink-soft-text);font-size:16px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .story p.zh{ font-size:18px; } }
+
+  /* Flashcard grid */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px;}
+  @media (min-width:600px){ .cards{ grid-template-columns:repeat(3,1fr);gap:18px; } }
+  @media (min-width:900px){ .cards{ grid-template-columns:repeat(4,1fr); } }
+  .card{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);overflow:hidden;
+    aspect-ratio:3/4;
+    position:relative;perspective:1000px;cursor:pointer;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card__inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+  .card.is-flipped .card__inner{transform:rotateY(180deg);}
+  .card__face{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 14px;text-align:center;}
+  .card__face--back{transform:rotateY(180deg);background:var(--gold-soft);}
+  .card__emoji{font-size:64px;line-height:1;}
+  @media (min-width:720px){ .card__emoji{ font-size:80px; } }
+  .card__en{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--ink-deep);margin-top:10px;line-height:1.2;letter-spacing:.5px;}
+  @media (min-width:720px){ .card__en{ font-size:25px; } }
+  .card__hint{font-size:12px;color:var(--ink-soft-text);margin-top:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;}
+  @media (min-width:720px){ .card__hint{ font-size:13px; } }
+  .card__zh{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--red-deep);line-height:1.2;}
+  @media (min-width:720px){ .card__zh{ font-size:30px; } }
+  .card__pinyin{font-size:14px;color:var(--ink-soft-text);font-style:italic;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .card__pinyin{ font-size:16px; } }
+  .card__sentence{font-size:13px;color:var(--ink);margin-top:12px;line-height:1.5;padding:0 4px;}
+  @media (min-width:720px){ .card__sentence{ font-size:15px; } }
+  .card__sentence em{color:var(--red-deep);font-style:normal;font-weight:700;}
+
+  .cards-hint{text-align:center;font-size:16px;color:var(--ink-soft-text);font-style:italic;margin-top:18px;letter-spacing:.5px;}
+  @media (min-width:720px){ .cards-hint{ font-size:18px; } }
+
+  /* Traditions grid */
+  .traditions{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:720px){ .traditions{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .trad{background:#fff;border-radius:16px;border:1px solid var(--line);padding:24px 26px;box-shadow:var(--shadow-sm);border-top:8px solid var(--red);display:flex;gap:18px;align-items:flex-start;}
+  .trad:nth-child(2){border-top-color:var(--gold);}
+  .trad:nth-child(3){border-top-color:var(--green);}
+  .trad:nth-child(4){border-top-color:var(--orange);}
+  .trad:nth-child(5){border-top-color:var(--purple);}
+  .trad:nth-child(6){border-top-color:var(--ink-blue);}
+  .trad__emoji{font-size:42px;line-height:1;flex-shrink:0;}
+  @media (min-width:720px){ .trad__emoji{ font-size:54px; } }
+  .trad__body h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink-deep);line-height:1.25;}
+  @media (min-width:720px){ .trad__body h3{ font-size:28px; } }
+  .trad__body h3 .zh{display:block;font-size:14px;color:var(--ink-soft-text);font-weight:500;margin-top:2px;letter-spacing:.5px;}
+  @media (min-width:720px){ .trad__body h3 .zh{ font-size:17px; } }
+  .trad__body p{font-size:16px;color:var(--ink-soft-text);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .trad__body p{ font-size:18px; } }
+
+  /* CTA box */
+  .cta-box{background:linear-gradient(135deg, var(--ink-deep) 0%, var(--red-deep) 100%);color:#fff;border-radius:22px;padding:36px 28px;text-align:center;box-shadow:var(--shadow);}
+  @media (min-width:720px){ .cta-box{ padding:52px 40px; } }
+  .cta-box h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;line-height:1.2;}
+  @media (min-width:720px){ .cta-box h3{ font-size:42px; } }
+  .cta-box__zh{font-size:19px;color:#ffe1c2;margin-top:6px;}
+  @media (min-width:720px){ .cta-box__zh{ font-size:22px; } }
+  .cta-box p{font-size:17px;color:#f0d6c2;margin-top:14px;line-height:1.55;max-width:580px;margin-left:auto;margin-right:auto;}
+  @media (min-width:720px){ .cta-box p{ font-size:19px; } }
+  .cta-box__btns{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+  .cta-btn{background:var(--gold);color:var(--ink-deep);padding:16px 28px;border-radius:14px;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.5px;transition:transform .15s, background .15s;}
+  @media (min-width:720px){ .cta-btn{ font-size:20px;padding:18px 32px; } }
+  .cta-btn:hover{background:#fff;transform:translateY(-2px);}
+  .cta-btn--ghost{background:transparent;border:2px solid var(--gold);color:#fff;}
+  .cta-btn--ghost:hover{background:var(--gold);color:var(--ink-deep);}
+
+  footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:18px; } }
+  footer .org{font-weight:600;color:var(--ink-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=luoqing" class="is-active">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<header class="strip">
+  <div class="strip__inner">
+    <div class="strip__no">Festival Unit · 端午節雙語單元</div>
+    <h1>Dragon Boat Festival</h1>
+    <div class="strip__zh">端午節 · 5th day of the 5th lunar month</div>
+    <div class="strip__sub">A story, six traditions, eight flashcards, and a quiz — Luoqing's bilingual lesson for the current festival season.</div>
+  </div>
+</header>
+
+<!-- ===== I. Qu Yuan's Story ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">The Story Behind the Festival</h2>
+    <div class="sec__title-zh">節慶背後的故事 · 屈原與汨羅江</div>
+    <div class="sec__rule"></div>
+
+    <article class="story">
+      <h3>Qu Yuan and the Miluo River <span class="zh">屈原與汨羅江</span></h3>
+      <p>
+        Long ago in ancient China, there lived a poet and a minister named <em>Qu Yuan</em>. He served the king of the state of Chu and loved his country deeply. When the king turned away from his advice and Chu was about to fall, Qu Yuan was filled with sorrow. On the <strong>5th day of the 5th lunar month</strong>, he walked into the Miluo River and never came back.
+      </p>
+      <p class="zh">
+        很久以前，中國古代有一位詩人與大臣，名字叫做<strong>屈原</strong>。他在楚國當官，深愛自己的國家。當國王不再聽他的建議、楚國即將滅亡時，屈原非常難過。在<strong>農曆五月初五</strong>那天，他走入汨羅江，再也沒有回來。
+      </p>
+      <p>
+        The villagers loved Qu Yuan. They rowed boats out into the river to search for him, beating drums and splashing water to scare the fish away from his body. They threw <em>zongzi</em> — rice wrapped in bamboo leaves — into the river so the fish would eat the rice instead.
+      </p>
+      <p class="zh">
+        村民深愛屈原。他們划船去江上尋找他，敲鼓潑水把魚趕走，並把<strong>用竹葉包的粽子</strong>丟進江裡，讓魚吃米飯而不要傷害屈原。
+      </p>
+      <p>
+        Year after year, on the same day, people remembered him by racing dragon boats and eating zongzi. That is how the <strong>Dragon Boat Festival</strong> was born — out of love, grief, and the wish to remember someone good.
+      </p>
+      <p class="zh">
+        年復一年，在同一天，人們以划龍舟和吃粽子的方式紀念屈原。這就是<strong>端午節</strong>的由來——出自於愛、哀悼，以及想要記住一個好人的心意。
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== II. Vocabulary Flashcards ===== -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Vocabulary Flashcards</h2>
+    <div class="sec__title-zh">單字小卡 · 點一下卡片，翻面看中文</div>
+    <div class="sec__rule"></div>
+
+    <div class="cards" id="cards">
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🐉</div>
+            <div class="card__en">Dragon Boat</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">龍舟</div>
+            <div class="card__pinyin">lóng zhōu</div>
+            <div class="card__sentence">We race the <em>dragon boats</em> on the river.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🍙</div>
+            <div class="card__en">Zongzi</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">粽子</div>
+            <div class="card__pinyin">zòng zi</div>
+            <div class="card__sentence">My grandma makes the best <em>zongzi</em>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🌿</div>
+            <div class="card__en">Bamboo Leaves</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">竹葉</div>
+            <div class="card__pinyin">zhú yè</div>
+            <div class="card__sentence">Zongzi is wrapped in <em>bamboo leaves</em>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">📜</div>
+            <div class="card__en">Qu Yuan</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">屈原</div>
+            <div class="card__pinyin">Qū Yuán</div>
+            <div class="card__sentence">We remember <em>Qu Yuan</em> on this day.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🌊</div>
+            <div class="card__en">Miluo River</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">汨羅江</div>
+            <div class="card__pinyin">Mì Luó Jiāng</div>
+            <div class="card__sentence">Qu Yuan walked into the <em>Miluo River</em>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🥚</div>
+            <div class="card__en">Stand an Egg</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">立蛋</div>
+            <div class="card__pinyin">lì dàn</div>
+            <div class="card__sentence">At noon, can you <em>stand an egg</em>?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">🌱</div>
+            <div class="card__en">Mugwort</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">艾草</div>
+            <div class="card__pinyin">ài cǎo</div>
+            <div class="card__sentence">We hang <em>mugwort</em> on the door.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <div class="card__inner">
+          <div class="card__face">
+            <div class="card__emoji">👜</div>
+            <div class="card__en">Scented Sachet</div>
+            <div class="card__hint">Tap to flip</div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="card__zh">香包</div>
+            <div class="card__pinyin">xiāng bāo</div>
+            <div class="card__sentence">My mom made me a <em>scented sachet</em>.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="cards-hint">Tap any card to flip · Press space or enter when focused · 點一下卡片翻到背面</p>
+  </div>
+</section>
+
+<!-- ===== III. Six Traditions ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Six Dragon Boat Traditions</h2>
+    <div class="sec__title-zh">六大傳統 · 端午節 Taiwanese families still keep</div>
+    <div class="sec__rule"></div>
+
+    <div class="traditions">
+
+      <article class="trad">
+        <div class="trad__emoji">🐉</div>
+        <div class="trad__body">
+          <h3>Dragon Boat Racing <span class="zh">划龍舟</span></h3>
+          <p>Teams paddle in long, narrow boats decorated as dragons. Drums set the pace. The villagers who once searched for Qu Yuan still race every year.</p>
+        </div>
+      </article>
+
+      <article class="trad">
+        <div class="trad__emoji">🍙</div>
+        <div class="trad__body">
+          <h3>Eating Zongzi <span class="zh">吃粽子</span></h3>
+          <p>Sticky rice with pork, mushroom, salted egg yolk, peanuts — wrapped in bamboo leaves, steamed for hours. Every family has its own recipe.</p>
+        </div>
+      </article>
+
+      <article class="trad">
+        <div class="trad__emoji">🥚</div>
+        <div class="trad__body">
+          <h3>Standing Eggs at Noon <span class="zh">中午立蛋</span></h3>
+          <p>At exactly noon on the 5th day of the 5th lunar month, children try to stand an egg upright. Tradition says it brings good luck for the year.</p>
+        </div>
+      </article>
+
+      <article class="trad">
+        <div class="trad__emoji">🌱</div>
+        <div class="trad__body">
+          <h3>Hanging Mugwort <span class="zh">掛艾草</span></h3>
+          <p>Families hang bunches of mugwort and calamus above the door — said to drive away mosquitoes, illness, and bad spirits during summer's hottest days.</p>
+        </div>
+      </article>
+
+      <article class="trad">
+        <div class="trad__emoji">👜</div>
+        <div class="trad__body">
+          <h3>Wearing Scented Sachets <span class="zh">戴香包</span></h3>
+          <p>Small embroidered bags filled with fragrant herbs. Children wear them around their necks — pretty, fragrant, and a tiny piece of protection.</p>
+        </div>
+      </article>
+
+      <article class="trad">
+        <div class="trad__emoji">🍷</div>
+        <div class="trad__body">
+          <h3>Realgar Wine <span class="zh">雄黃酒</span></h3>
+          <p>A traditional yellow wine drunk (or dabbed on the forehead) on Dragon Boat Day to ward off insects and evil — from the tale of the White Snake.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Take the Quiz ===== -->
+<section>
+  <div class="wrap">
+    <div class="cta-box">
+      <h3>Ready to test what you remember?</h3>
+      <div class="cta-box__zh">準備好測試你記得多少嗎？</div>
+      <p>Ten quick English questions on the Dragon Boat Festival — Qu Yuan's story, vocabulary, and traditions. Built for partner schools across the Changhua Bilingual Hub, ready to use in Luoqing classrooms.</p>
+      <div class="cta-box__btns">
+        <a class="cta-btn" href="https://changhua-bilingual.org/festivals/dragon-boat-festival/quiz/?from=luoqing">
+          Take the Quiz · 開始小測驗 →
+        </a>
+        <a class="cta-btn cta-btn--ghost" href="https://changhua-bilingual.org/festivals/dragon-boat-festival/?from=luoqing">
+          Open full handout · 看完整講義
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 螺青國小 Luoqing Elementary School &nbsp;·&nbsp;
+  Festival lesson by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua-bilingual.org/festivals/?from=luoqing" style="color:var(--ink-deep);">Festival English Series</a>
+</footer>
+
+<script>
+(function(){
+  const cards = document.querySelectorAll('#cards .card');
+  cards.forEach(c => {
+    c.addEventListener('click', () => c.classList.toggle('is-flipped'));
+    c.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); c.classList.toggle('is-flipped'); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

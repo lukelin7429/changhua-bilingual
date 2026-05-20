@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News · 校園新聞 · Luoqing Elementary</title>
+<meta name="description" content="School news from Luoqing Elementary — the latest from a fairytale campus in Beidou Township, Changhua County. 螺青國小校園新聞——彰化縣北斗鎮童話王國校園的最新動態。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-deep:#1d3a5f;--ink-blue:#2b5687;--ink-soft:#e6edf5;
+    --green:#4a8a4a;--green-deep:#2f5e2f;--green-soft:#e2efe2;
+    --orange:#e88a3c;--orange-deep:#b86515;--orange-soft:#fce5d0;
+    --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
+    --pink:#d96b9a;--pink-soft:#fbe2ec;
+    --red:#d94e3c;--red-soft:#fbe2dd;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft-text:#5a606e;
+    --shadow:0 14px 38px -16px rgba(29,58,95,.30);--shadow-sm:0 6px 16px -6px rgba(29,58,95,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:72px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--orange);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--ink-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft-text);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--orange);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--ink-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--ink-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--orange-deep);}
+  .subnav a.is-active{background:var(--orange);color:#fff;}
+  .subnav__sep{color:var(--ink-soft-text);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .source-banner{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:center;font-size:17px;color:var(--ink-soft-text);}
+  @media (min-width:720px){ .source-banner{ font-size:19px; } }
+  .source-banner b{color:var(--ink-deep);}
+  .source-banner .icon{font-size:24px;flex-shrink:0;}
+  .source-banner a{color:var(--orange-deep);font-weight:600;text-decoration:none;border-bottom:1.5px dashed var(--orange);}
+
+  .news-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:30px;}
+  @media (min-width:760px){ .news-grid{ grid-template-columns:repeat(2,1fr);gap:26px; } }
+  @media (min-width:1000px){ .news-grid{ grid-template-columns:repeat(3,1fr); } }
+  .nc{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s, box-shadow .2s;border-left:5px solid var(--ink-blue);}
+  .nc:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .nc.cat--pd{border-left-color:var(--purple);}
+  .nc.cat--external{border-left-color:var(--orange);}
+  .nc.cat--admin{border-left-color:var(--ink-blue);}
+  .nc.cat--research{border-left-color:var(--green);}
+  .nc.cat--family{border-left-color:var(--pink);}
+  .nc.cat--counseling{border-left-color:var(--red);}
+  .nc__body{padding:24px 24px 24px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .nc__body{ padding:28px 28px 28px; } }
+  .nc__date{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:var(--orange-deep);font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+  @media (min-width:720px){ .nc__date{ font-size:16px; } }
+  .nc__title{font-size:19px;color:var(--ink-deep);font-weight:700;margin-top:8px;line-height:1.35;flex:1;}
+  @media (min-width:720px){ .nc__title{ font-size:22px; } }
+  .nc__title-zh{font-size:15.5px;color:var(--ink-soft-text);font-weight:500;margin-top:8px;line-height:1.5;}
+  @media (min-width:720px){ .nc__title-zh{ font-size:17.5px; } }
+  .nc__cat{margin-top:16px;align-self:flex-start;font-size:13.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-blue);background:var(--ink-soft);padding:4px 12px;border-radius:6px;}
+  @media (min-width:720px){ .nc__cat{ font-size:14.5px; } }
+  .nc.cat--pd .nc__cat{color:var(--purple-deep);background:var(--purple-soft);}
+  .nc.cat--external .nc__cat{color:var(--orange-deep);background:var(--orange-soft);}
+  .nc.cat--research .nc__cat{color:var(--green-deep);background:var(--green-soft);}
+  .nc.cat--family .nc__cat{color:#a64475;background:var(--pink-soft);}
+  .nc.cat--counseling .nc__cat{color:var(--red);background:var(--red-soft);}
+
+  .empty-zone{margin-top:36px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:14px;padding:32px 28px;text-align:center;color:var(--ink-soft-text);font-size:17px;line-height:1.6;}
+  @media (min-width:720px){ .empty-zone{ font-size:19px;padding:40px 36px; } }
+  .empty-zone strong{color:var(--ink-deep);}
+
+  footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:18px; } }
+  footer .org{font-weight:600;color:var(--ink-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=luoqing">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">School News</h2>
+    <div class="sec__title-zh">校園新聞 · 螺青國小最近動態</div>
+    <div class="sec__rule"></div>
+
+    <div class="source-banner">
+      <div class="icon">📢</div>
+      <div>
+        <b>About this page</b> · A bilingual digest of the most recent announcements from <a href="https://rces.chc.edu.tw/posts" target="_blank" rel="noopener">rces.chc.edu.tw/posts</a>. For the full archive in Chinese, visit the school's official announcement system.
+      </div>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="nc cat--external">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 20</div>
+          <div class="nc__title">2026 International Sea-Cow Festival — Art &amp; Sketching Contest</div>
+          <div class="nc__title-zh">2026 國際海牛文化節創藝著色寫生比賽</div>
+          <div class="nc__cat">External Event · 校外活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--pd">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 20</div>
+          <div class="nc__title">Teacher PD Credit Class: Social-Emotional Learning (SEL)</div>
+          <div class="nc__title-zh">教師專長增能學分班——社會情緒學習（SEL）開課招生</div>
+          <div class="nc__cat">Professional Dev · 教師專業</div>
+        </div>
+      </article>
+
+      <article class="nc cat--counseling">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 20</div>
+          <div class="nc__title">Special Education Software Promotion</div>
+          <div class="nc__title-zh">特殊教育軟體推廣資訊</div>
+          <div class="nc__cat">Counseling · 輔導</div>
+        </div>
+      </article>
+
+      <article class="nc cat--family">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 19</div>
+          <div class="nc__title">Changhua Career-Experience Parent-Child Trip</div>
+          <div class="nc__title-zh">彰化縣職業體驗親子探遊活動</div>
+          <div class="nc__cat">Family Event · 親子活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--external">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 19</div>
+          <div class="nc__title">Online Career-Path Counseling Workshop</div>
+          <div class="nc__title-zh">技職升學輔導線上研習計畫</div>
+          <div class="nc__cat">External Event · 校外活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--external">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 19</div>
+          <div class="nc__title">Xizhou Township Adult Basic-Education Workshop</div>
+          <div class="nc__title-zh">溪州鄉成人基本教育研習班</div>
+          <div class="nc__cat">External Event · 校外活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--admin">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 18</div>
+          <div class="nc__title">Retirement-Intent Survey for Educators</div>
+          <div class="nc__title-zh">教育人員退休意願調查作業通知</div>
+          <div class="nc__cat">Admin · 行政</div>
+        </div>
+      </article>
+
+      <article class="nc cat--research">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 15</div>
+          <div class="nc__title">2026 Special-Education Research Conference — Call for Papers</div>
+          <div class="nc__title-zh">2026 特殊教育學術與實務研討會徵稿</div>
+          <div class="nc__cat">Research · 學術</div>
+        </div>
+      </article>
+
+      <article class="nc cat--pd">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 15</div>
+          <div class="nc__title">Premium MOOCs: Counseling Series Now Recruiting</div>
+          <div class="nc__title-zh">精緻 MOOCs 輔導諮商系列課程招生</div>
+          <div class="nc__cat">Professional Dev · 教師專業</div>
+        </div>
+      </article>
+
+      <article class="nc cat--external">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 15</div>
+          <div class="nc__title">7th "Dream Plus" Program Opens</div>
+          <div class="nc__title-zh">第七屆「夢想+」計畫</div>
+          <div class="nc__cat">External Event · 校外活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--pd">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 13</div>
+          <div class="nc__title">Free Webinar: Essential SEL for Teachers</div>
+          <div class="nc__title-zh">「給教師的 SEL 必修課」免費線上講座</div>
+          <div class="nc__cat">Professional Dev · 教師專業</div>
+        </div>
+      </article>
+
+      <article class="nc cat--admin">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 08</div>
+          <div class="nc__title">Character-in-Practice Family Camp</div>
+          <div class="nc__title-zh">品格實踐家庭營</div>
+          <div class="nc__cat">Family Event · 親子活動</div>
+        </div>
+      </article>
+
+      <article class="nc cat--admin">
+        <div class="nc__body">
+          <div class="nc__date">2026 · 05 · 04</div>
+          <div class="nc__title">May 2026 Learning Support Screening Test (starting 5/6)</div>
+          <div class="nc__title-zh">202605 學習扶助篩選測驗（5/6 起施測）</div>
+          <div class="nc__cat">Admin · 行政</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty-zone">
+      <strong>Looking for more?</strong> The full announcement archive, including older items and internal posts, lives on the school's official site.<br>
+      <a href="https://rces.chc.edu.tw/posts" target="_blank" rel="noopener" style="color:var(--orange-deep);font-weight:700;text-decoration:none;border-bottom:1.5px dashed var(--orange);">View on rces.chc.edu.tw →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 螺青國小 Luoqing Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--ink-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
