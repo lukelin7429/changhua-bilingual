@@ -61,9 +61,35 @@
 
   /* Portrait card */
   .portrait{display:grid;grid-template-columns:1fr;gap:30px;align-items:start;}
-  @media (min-width:720px){ .portrait{ grid-template-columns:240px 1fr;gap:48px; } }
-  .portrait__photo{background:linear-gradient(135deg, var(--ink-soft) 0%, var(--purple-soft) 100%);border-radius:18px;border:1px solid var(--line);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:90px;color:var(--ink-deep);box-shadow:var(--shadow-sm);}
-  @media (min-width:720px){ .portrait__photo{ font-size:110px; } }
+  @media (min-width:720px){ .portrait{ grid-template-columns:260px 1fr;gap:48px; } }
+  .portrait__photo{
+    position:relative;
+    background:linear-gradient(135deg, var(--ink-soft) 0%, var(--purple-soft) 100%);
+    border-radius:18px;border:1px solid var(--line);aspect-ratio:3/4;overflow:hidden;
+    box-shadow:var(--shadow);
+    padding:14px 14px 0;
+    display:flex;flex-direction:column;
+  }
+  .portrait__photo img{
+    width:100%;height:auto;display:block;
+    border-radius:12px;
+    object-fit:cover;
+    flex:1;
+    min-height:0;
+    object-position:center top;
+  }
+  .portrait__photo::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 30% 0%, rgba(255,255,255,.15) 0%, transparent 45%),
+               linear-gradient(180deg, transparent 70%, rgba(29,58,95,.10) 100%);
+    border-radius:18px;
+  }
+  .portrait__caption{
+    font-size:12px;color:var(--ink-soft-text);text-align:center;
+    line-height:1.45;padding:10px 6px 12px;font-style:italic;
+    background:#fff;border-radius:0 0 12px 12px;
+  }
+  @media (min-width:720px){ .portrait__caption{ font-size:13px; } }
   .portrait__body h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--ink-deep);line-height:1.2;}
   @media (min-width:720px){ .portrait__body h3{ font-size:42px; } }
   .portrait__body .role-zh{font-size:19px;color:var(--ink-soft-text);margin-top:4px;}
@@ -155,7 +181,10 @@
     <div class="sec__rule"></div>
 
     <div class="portrait">
-      <div class="portrait__photo" aria-label="Portrait placeholder · 校長照片占位">🎓</div>
+      <figure class="portrait__photo">
+        <img src="../photos/principal-hsu.jpg" alt="Portrait of Principal Hsu Hsiao-lin · 許孝麟校長肖像">
+        <figcaption class="portrait__caption">許孝麟校長 · Principal Hsu Hsiao-lin</figcaption>
+      </figure>
       <div class="portrait__body">
         <h3>Hsu Hsiao-lin</h3>
         <div class="role-zh">許孝麟 · 螺青國小第 13 任校長</div>
