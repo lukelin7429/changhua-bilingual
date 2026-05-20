@@ -183,43 +183,36 @@
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--ink-deep);}
 
-  /* === Hero Banner — fairytale gradient on academy-blue base === */
+  /* === Hero Banner — campus photo with academy-tone overlay === */
   .banner{
     position:relative;
-    background:
-      radial-gradient(ellipse at 12% 18%, rgba(232,138,60,.55) 0%, transparent 50%),
-      radial-gradient(ellipse at 88% 28%, rgba(126,95,163,.55) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 95%, rgba(74,138,74,.65) 0%, transparent 60%),
-      linear-gradient(135deg, #0f2542 0%, #1d3a5f 50%, #2b5687 100%);
-    min-height:280px;
+    background:#0f2542 url('photos/campus-banner.jpg') center/cover no-repeat;
+    min-height:300px;
     display:flex;align-items:flex-end;
     overflow:hidden;
   }
-  @media (min-width:720px){ .banner{ min-height:380px; } }
-  @media (min-width:1080px){ .banner{ min-height:440px; } }
-  .banner__deco{position:absolute;inset:0;pointer-events:none;}
-  .banner__deco::before,
-  .banner__deco::after{
-    content:'';position:absolute;border-radius:50%;
+  @media (min-width:720px){ .banner{ min-height:400px; } }
+  @media (min-width:1080px){ .banner{ min-height:460px; } }
+  /* Photo-readability + fairytale-tone color overlay */
+  .banner::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse at 12% 22%, rgba(232,138,60,.32) 0%, transparent 55%),
+      radial-gradient(ellipse at 88% 25%, rgba(126,95,163,.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(74,138,74,.45) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(15,37,66,.38) 0%, rgba(15,37,66,.78) 100%);
   }
-  .banner__deco::before{
-    top:18%;left:8%;width:140px;height:140px;
-    background:radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 70%);
-  }
-  .banner__deco::after{
-    bottom:14%;right:10%;width:200px;height:200px;
-    background:radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
-  }
+  .banner__deco{display:none;}
   .banner__inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:36px 24px 30px;color:#fff;}
-  @media (min-width:720px){ .banner__inner{ padding:48px 36px 44px; } }
-  .banner__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#ffd9b0;font-weight:600;margin-bottom:12px;}
+  @media (min-width:720px){ .banner__inner{ padding:52px 36px 44px; } }
+  .banner__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#ffd9b0;font-weight:600;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,.5);}
   @media (min-width:720px){ .banner__brand{ font-size:16px; } }
-  .banner h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.0;letter-spacing:.5px;text-shadow:0 4px 20px rgba(0,0,0,.45);}
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.0;letter-spacing:.5px;text-shadow:0 4px 22px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.5);}
   @media (min-width:720px){ .banner h1{ font-size:78px; } }
   @media (min-width:1080px){ .banner h1{ font-size:96px; } }
-  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 12px rgba(0,0,0,.45);}
+  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
   @media (min-width:720px){ .banner__zh{ font-size:28px; } }
-  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.45;max-width:720px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.45;max-width:720px;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,.5);}
   @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
 
   /* News teaser cards */
