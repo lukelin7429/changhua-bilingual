@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sijhou Elementary · 彰化縣溪州鄉溪州國民小學</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/sijhou/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/sijhou/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/sijhou/favicon-180.png">
+<link rel="shortcut icon" href="/schools/sijhou/favicon.ico">
+<meta name="description" content="Sijhou Elementary — a 120-year-old rural campus in Changhua County, home of the Teacher-Student Tree (a 200-year camphor and its companion juniper), the L.I.F.E. four-pillar curriculum, and a sister-school partnership with Trinidad Union School (USA). 彰化縣溪州鄉溪州國民小學 · 百年師生樹 · L.I.F.E. 四大支柱 · 喜揚羊吉祥物 · 美國 Trinidad Union 姊妹校。">
+<meta property="og:title" content="Sijhou Elementary · 彰化縣溪州鄉溪州國民小學">
+<meta property="og:description" content="Sijhou LIFE — Happy and Kind Sheep · 溪州 LIFE · 喜揚羊">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --tree-deep:#2f4e2c;   /* 老樟 deep */
+    --tree:#4a7048;         /* 樟綠 main */
+    --tree-soft:#dfe9d8;    /* 嫩芽 */
+    --gold:#c9a04a;         /* 土黃 */
+    --gold-deep:#8c6c20;
+    --gold-soft:#f4e9c8;
+    --terra:#b85738;        /* 紅磚 */
+    --terra-deep:#8a3a22;
+    --terra-soft:#f8dccf;
+    --wool:#f8f4eb;         /* 羊毛奶白 */
+    --bg-soft:#fbf8f0;
+    --line:#e7e1d3;
+    --ink:#1f2530;
+    --ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(47,78,44,.30);
+    --shadow-sm:0 6px 16px -6px rgba(47,78,44,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#fff;color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:'Playfair Display','PingFang TC',serif;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--terra);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--tree-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  /* === Sub-nav === */
+  .subnav{
+    background:var(--tree-soft);padding:18px 0;border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;
+    font-family:'Playfair Display','PingFang TC',serif;font-size:19px;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{
+    color:var(--tree-deep);text-decoration:none;font-weight:600;
+    padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;
+  }
+  .subnav a:hover{background:#fff;color:var(--terra-deep);}
+  .subnav a.is-active{background:var(--terra);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Hero Banner — gradient with tree silhouette === */
+  .banner{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 18% 28%, rgba(201,160,74,.55) 0%, transparent 50%),
+      radial-gradient(ellipse at 82% 32%, rgba(74,112,72,.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 95%, rgba(184,87,56,.50) 0%, transparent 60%),
+      linear-gradient(180deg, #2f4e2c 0%, #1a2d18 100%);
+    min-height:300px;display:flex;align-items:flex-end;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ min-height:400px; } }
+  @media (min-width:1080px){ .banner{ min-height:460px; } }
+  .banner__inner{
+    position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
+    padding:36px 24px 32px;color:#fff;
+  }
+  @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
+  .banner__brand{
+    font-family:'Playfair Display',serif;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:#f4e9c8;font-weight:600;margin-bottom:12px;
+  }
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{
+    font-family:'Playfair Display',serif;
+    font-size:44px;font-weight:800;line-height:1.0;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .banner h1{ font-size:76px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:94px; } }
+  .banner__zh{
+    font-size:20px;color:#eee6cf;margin-top:8px;font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
+  .banner__tagline{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:18px;color:#f8e8c4;margin-top:16px;line-height:1.45;
+    max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);
+  }
+  @media (min-width:720px){ .banner__tagline{ font-size:22px;margin-top:20px; } }
+
+  /* === About === */
+  .about__lead{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:700;color:var(--tree-deep);line-height:1.35;letter-spacing:.3px;
+  }
+  @media (min-width:720px){ .about__lead{ font-size:38px; } }
+  .about__lead-zh{font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .about__lead-zh{ font-size:25px; } }
+  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
+  @media (min-width:720px){ .about__body{ font-size:22px; } }
+  .about__body p{margin-top:16px;}
+  .about__body p:first-child{margin-top:0;}
+  .about__body .zh{color:var(--ink-soft);font-size:19px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .about__body .zh{ font-size:21px; } }
+  .about__body strong{color:var(--tree-deep);font-weight:700;}
+
+  /* === Quote === */
+  .quote{
+    margin-top:36px;background:var(--gold-soft);border-left:6px solid var(--gold);
+    padding:24px 28px;border-radius:0 12px 12px 0;
+  }
+  .quote__text{
+    font-family:'Playfair Display',serif;
+    font-size:26px;font-weight:700;color:var(--tree-deep);line-height:1.4;font-style:italic;
+  }
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+  .quote--terra{background:var(--terra-soft);border-left-color:var(--terra);}
+  .quote--terra .quote__text{color:var(--terra-deep);}
+  .quote--wool{background:var(--wool);border-left-color:var(--tree);}
+
+  /* === Tree spotlight (師生樹 — Hero feature) === */
+  .tree-spot{
+    background:linear-gradient(135deg, var(--tree-soft) 0%, var(--gold-soft) 100%);
+    border-radius:24px;padding:40px 30px;border:2px solid var(--tree);box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .tree-spot{ padding:56px 48px; } }
+  .tree-spot__badge{
+    display:inline-block;background:var(--terra);color:#fff;
+    font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .tree-spot__badge{ font-size:16px; } }
+  .tree-spot__title{
+    font-family:'Playfair Display',serif;
+    font-size:36px;font-weight:800;color:var(--tree-deep);line-height:1.15;
+    margin-top:14px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .tree-spot__title{ font-size:52px; } }
+  .tree-spot__zh{font-size:21px;color:var(--ink-soft);font-weight:600;margin-top:8px;}
+  @media (min-width:720px){ .tree-spot__zh{ font-size:25px; } }
+  .tree-spot__body{font-size:19px;color:var(--ink);margin-top:22px;line-height:1.75;}
+  @media (min-width:720px){ .tree-spot__body{ font-size:21px; } }
+  .tree-spot__body p{margin-top:14px;}
+  .tree-spot__body p:first-child{margin-top:0;}
+  .tree-spot__body strong{color:var(--tree-deep);font-weight:700;}
+  .tree-spot__body .zh{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .tree-spot__body .zh{ font-size:20px; } }
+  .tree-spot__art{
+    text-align:center;font-size:80px;line-height:1;margin:18px 0 0;
+  }
+  @media (min-width:720px){ .tree-spot__art{ font-size:110px; } }
+
+  /* === L.I.F.E. four pillars === */
+  .life-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:720px){ .life-grid{ grid-template-columns:1fr 1fr;gap:22px; } }
+  @media (min-width:1080px){ .life-grid{ grid-template-columns:repeat(4, 1fr);gap:20px; } }
+  .life-card{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:28px 24px;box-shadow:var(--shadow-sm);
+    border-top:6px solid var(--tree);transition:transform .2s, box-shadow .2s;
+    text-align:center;
+  }
+  .life-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .life-card:nth-child(2){border-top-color:var(--gold);}
+  .life-card:nth-child(3){border-top-color:var(--terra);}
+  .life-card:nth-child(4){border-top-color:#5b9d5b;}
+  .life-card__letter{
+    font-family:'Playfair Display',serif;
+    font-size:74px;font-weight:800;color:var(--tree-deep);line-height:1;letter-spacing:1px;
+  }
+  @media (min-width:720px){ .life-card__letter{ font-size:88px; } }
+  .life-card:nth-child(2) .life-card__letter{color:var(--gold-deep);}
+  .life-card:nth-child(3) .life-card__letter{color:var(--terra-deep);}
+  .life-card:nth-child(4) .life-card__letter{color:#3d6c3d;}
+  .life-card__title{
+    font-family:'Playfair Display',serif;
+    font-size:22px;font-weight:700;color:var(--tree-deep);margin-top:8px;line-height:1.25;
+  }
+  @media (min-width:720px){ .life-card__title{ font-size:24px; } }
+  .life-card__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .life-card__zh{ font-size:20px; } }
+  .life-card__body{font-size:16px;color:var(--ink-soft);margin-top:14px;line-height:1.6;text-align:left;}
+  @media (min-width:720px){ .life-card__body{ font-size:18px; } }
+
+  /* === Sister school === */
+  .sister{
+    background:linear-gradient(135deg, var(--wool) 0%, var(--gold-soft) 100%);
+    border-radius:20px;padding:36px 28px;border:1.5px solid var(--gold);box-shadow:var(--shadow-sm);
+  }
+  @media (min-width:720px){ .sister{ padding:48px 40px; } }
+  .sister__head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .sister__flag{font-size:54px;line-height:1;}
+  @media (min-width:720px){ .sister__flag{ font-size:72px; } }
+  .sister__title{
+    font-family:'Playfair Display',serif;
+    font-size:28px;font-weight:800;color:var(--tree-deep);line-height:1.2;
+  }
+  @media (min-width:720px){ .sister__title{ font-size:38px; } }
+  .sister__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+  @media (min-width:720px){ .sister__zh{ font-size:21px; } }
+  .sister__body{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .sister__body{ font-size:21px; } }
+  .sister__body strong{color:var(--tree-deep);}
+  .sister__body .zh{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .sister__body .zh{ font-size:20px; } }
+
+  /* === Programs === */
+  .programs{display:flex;flex-direction:column;gap:22px;}
+  .program{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:30px 26px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:80px 1fr;gap:22px;align-items:start;
+  }
+  @media (min-width:720px){ .program{ grid-template-columns:120px 1fr;gap:36px;padding:38px 36px; } }
+  .program__icon{
+    font-size:56px;line-height:1;text-align:center;
+    background:var(--tree-soft);border-radius:14px;padding:14px 0;color:var(--tree-deep);
+  }
+  @media (min-width:720px){ .program__icon{ font-size:78px;padding:20px 0; } }
+  .program:nth-child(2) .program__icon{background:var(--gold-soft);color:var(--gold-deep);}
+  .program:nth-child(3) .program__icon{background:var(--terra-soft);color:var(--terra-deep);}
+  .program:nth-child(4) .program__icon{background:var(--wool);color:var(--tree-deep);border:1px solid var(--gold);}
+  .program:nth-child(5) .program__icon{background:var(--tree-soft);color:var(--tree-deep);}
+  .program__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--tree-deep);line-height:1.22;}
+  @media (min-width:720px){ .program__title{ font-size:34px; } }
+  .program__title-zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .program__title-zh{ font-size:22px; } }
+  .program__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .program__body{ font-size:21px; } }
+  .program__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .program__zh{ font-size:19px; } }
+  .program__body strong{color:var(--tree-deep);}
+  .program__honor{
+    margin-top:12px;display:inline-block;background:var(--terra-soft);color:var(--terra-deep);
+    font-size:15px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .program__honor{ font-size:17px; } }
+
+  /* === Timeline === */
+  .timeline{position:relative;padding-left:42px;}
+  .timeline::before{
+    content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;
+    background:linear-gradient(180deg, var(--gold) 0%, var(--terra) 100%);border-radius:2px;
+  }
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:8px;
+    width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--terra);box-shadow:0 0 0 4px var(--bg-soft);
+  }
+  .tl-year{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--terra-deep);line-height:1;letter-spacing:.5px;}
+  @media (min-width:720px){ .tl-year{ font-size:38px; } }
+  .tl-event{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .tl-event{ font-size:23px; } }
+  .tl-detail{font-size:18px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .tl-detail{ font-size:20px; } }
+
+  /* === Contact === */
+  .contact{
+    background:linear-gradient(135deg, var(--tree-deep) 0%, var(--tree) 100%);
+    color:#fff;border-radius:24px;padding:48px 32px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .contact{ padding:64px 56px; } }
+  .contact__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;letter-spacing:.5px;}
+  @media (min-width:720px){ .contact__title{ font-size:50px; } }
+  .contact__zh{font-size:21px;color:#d2dac9;margin-top:8px;}
+  @media (min-width:720px){ .contact__zh{ font-size:23px; } }
+  .contact__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:20px 0 28px;}
+  .contact__grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
+  @media (min-width:720px){ .contact__grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .contact__row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);}
+  .contact__icon{font-size:24px;flex-shrink:0;margin-top:2px;color:var(--gold);}
+  @media (min-width:720px){ .contact__icon{ font-size:28px; } }
+  .contact__label{font-size:15px;color:#d2dac9;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+  @media (min-width:720px){ .contact__label{ font-size:17px; } }
+  .contact__value{font-size:20px;color:#fff;font-weight:600;margin-top:2px;line-height:1.45;}
+  @media (min-width:720px){ .contact__value{ font-size:22px; } }
+  .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--gold);}
+  .contact__value a:hover{color:var(--gold);}
+  .contact__ctas{margin-top:32px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:720px){ .contact__ctas{ grid-template-columns:1fr 1fr;gap:16px; } }
+  .official-cta{
+    background:var(--gold);color:#3a2c08;border-radius:14px;padding:22px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    text-decoration:none;transition:transform .15s, background .15s;
+    box-shadow:0 8px 22px -8px rgba(201,160,74,.5);
+  }
+  @media (min-width:720px){ .official-cta{ padding:24px 30px; } }
+  .official-cta:hover{background:#fff;transform:translateY(-3px);}
+  .official-cta--fb{background:#1877f2;color:#fff;box-shadow:0 8px 22px -8px rgba(24,119,242,.5);}
+  .official-cta--fb:hover{background:#fff;color:#0c63d4;}
+  .official-cta__title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1.2;}
+  @media (min-width:720px){ .official-cta__title{ font-size:24px; } }
+  .official-cta__zh{font-size:16px;margin-top:4px;font-weight:600;opacity:.92;}
+  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
+  .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
+  @media (min-width:720px){ .official-cta__arrow{ font-size:36px; } }
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--tree-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ===== Sub-nav ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="./" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=sijhou">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__brand">A Centennial Rural Campus · Established 1907</div>
+    <h1>Sijhou Elementary</h1>
+    <div class="banner__zh">彰化縣溪州鄉溪州國民小學</div>
+    <p class="banner__tagline">Sijhou L.I.F.E. — Happy and Kind Sheep · 溪州 LIFE — 喜揚羊</p>
+  </div>
+</header>
+
+<!-- ===== I. About ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">About Sijhou</h2>
+    <div class="sec__title-zh">關於溪州 · 一所百二十年的鄉中心校</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__lead">A rural school in the south of Changhua, where the Choshui River sets the rhythm — and where two old trees have watched over teachers and students for more than a century.</div>
+    <div class="about__lead-zh">位於彰化縣南端、濁水溪畔的鄉中心校——一所有兩棵百年老樹、為師為生靜靜守望了一個多世紀的偏鄉小學。</div>
+
+    <div class="about__body">
+      <p>
+        <strong>Sijhou Elementary</strong> sits in Sijhou Township at the southern edge of Changhua County, on the alluvial plain just north of the Choshui River. Founded in <strong>June 1907</strong> as a branch of Beidou Public School, the school became independent in 1917 and today serves the villages of Weicuo, Dongzhou, Jiumei, and parts of Sijhou and Wacuo — about 370 students across 16 main-stream and special-education classes.
+      </p>
+      <p class="zh">
+        溪州國小位於彰化縣南端的溪州鄉，在濁水溪沖積平原上。1907 年 6 月創校為「北斗公學校舊眉分校」，1917 年獨立設校。如今學區涵蓋尾厝村、東州村、舊眉村，以及溪州村、瓦厝村部分鄰里——全校約 370 位學生，普通班、特教班、資源班與巡迴班合計 16 班。
+      </p>
+
+      <p>
+        Our school is anchored by four interlocking values — <strong>Learning, International, Fancy, Ecology</strong> — and a small woolly mascot named <strong>Sijhou Sheep</strong>. In Sijhou's local culture, the sheep stands for gentleness and filial gratitude (<em>"羊有跪乳之恩"</em>). Joy, kindness, and quiet learning are the same single rhythm here.
+      </p>
+      <p class="zh">
+        我們以「<strong>L.I.F.E. 四大支柱</strong>」（希望閱讀、國際展望、想像創新、生態關懷）為校本軸線，並讓「<strong>喜揚羊</strong>」做我們的吉祥物。羊在溪州象徵溫馴與孝順（「羊有跪乳之恩」），把快樂、善良與安靜學習收在同一個節奏裡。
+      </p>
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"Sijhou L.I.F.E. — Happy and Kind Sheep."</div>
+      <div class="quote__zh">「溪州 LIFE，喜揚羊。」<br>—— 溪州國小校本精神</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. The Teacher-Student Tree ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">The Tree That Watches</h2>
+    <div class="sec__title-zh">師生樹 · 兩百年老樟與小羅漢松的共生</div>
+    <div class="sec__rule"></div>
+
+    <div class="tree-spot">
+      <div style="text-align:center;"><div class="tree-spot__badge">🏆 Futien Foundation · National Most Beautiful Campus Tree · Distinguished · 2021</div></div>
+      <div class="tree-spot__title" style="text-align:center;">The Camphor and Her Junior</div>
+      <div class="tree-spot__zh" style="text-align:center;">「師生樹」—— 一棵 200 歲老樟、一棵小羅漢松，根脈相依，樹幹合成 V 字</div>
+
+      <div class="tree-spot__art">🌳 🌿</div>
+
+      <div class="tree-spot__body">
+        <p>
+          On the Sijhou campus, a <strong>200-year-old camphor tree</strong> stands close beside a smaller juniper. Over the decades the two grew into one another — their trunks now meet at the base in a quiet V-shape, the older tree's crown sheltering the younger one. We call them the <strong>Teacher-Student Tree</strong> — the way a teacher stays close, casts shade, and lets the student grow toward the light.
+          <span class="zh">校園裡有一棵 200 年的老樟樹，旁邊緊靠著一棵小羅漢松。多年來兩棵樹的樹幹底部慢慢相依，呈現 V 字共生——老樟為小羅漢松遮蔭護身，正像老師守護學生長大。我們把它命名為「師生樹」。</span>
+        </p>
+        <p>
+          The two trees have stood through the <strong>1959 August 7 Flood</strong>, <strong>Typhoon Wayne (1986)</strong>, and every drought and storm Changhua has thrown at them. In <strong>2021</strong>, the Futien Tree Conservation Foundation named our Teacher-Student Tree a national <em>Most Beautiful Campus Tree (Distinguished)</em>, granting NT$50,000 for old-tree care.
+          <span class="zh">這兩棵樹一起挺過 1959 年八七水災、1986 年韋恩颱風，以及彰化丟給它們的每一場乾旱與風雨。2021 年榮獲<strong>福田樹木保育基金會「全國最美校樹特優獎」</strong>，獲得 5 萬元老樹養護金。</span>
+        </p>
+        <p>
+          Around the tree, our teachers and students wrote, rehearsed and staged a community play — <strong>"Thank You, Old Tree — All Those Years"</strong> — a quiet drama about why a hometown that grows trees also grows people.
+          <span class="zh">圍繞著這兩棵樹，師生們自編自導自演了一齣社區舞台劇——<strong>《感謝那些年，大樹陪我們的日子》</strong>——讓守護老樹與善待社區成為一堂安靜的環境教育課。</span>
+        </p>
+      </div>
+
+      <div style="margin-top:28px;text-align:center;">
+        <a href="lessons/" style="display:inline-block;background:var(--tree-deep);color:#fff;padding:16px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:.5px;">
+          See our picture-book lessons · 看師生繪本與校本課程 →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. L.I.F.E. Four Pillars ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Sijhou L.I.F.E.</h2>
+    <div class="sec__title-zh">L.I.F.E. 四大支柱 · 溪州孩子的校本軸線</div>
+    <div class="sec__rule"></div>
+
+    <p style="font-size:20px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:30px;">
+      A Sijhou education is built on four interlocking verbs: <strong>read, look outward, imagine, care for the earth</strong>.<br>
+      <span style="color:var(--ink-soft);font-size:20px;">溪州的校本課程由四個動詞組成：閱讀、放眼世界、發揮想像、守護土地。</span>
+    </p>
+
+    <div class="life-grid">
+      <article class="life-card">
+        <div class="life-card__letter">L</div>
+        <div class="life-card__title">Learning</div>
+        <div class="life-card__zh">希望閱讀</div>
+        <div class="life-card__body">Learning for Hopeful Reading — daily reading rituals from grade one, picture books in kindergarten, the school-wide LIFE Reading initiative, and the MOE Reading Foundation Award (2015).</div>
+      </article>
+      <article class="life-card">
+        <div class="life-card__letter">I</div>
+        <div class="life-card__title">International</div>
+        <div class="life-card__zh">國際展望</div>
+        <div class="life-card__body">International Education for Global Outlook — sister school with Trinidad Union School (USA), online exchanges with St. Mary's School (Philippines), and themed units on Kenya, Argentina, and Earth Day.</div>
+      </article>
+      <article class="life-card">
+        <div class="life-card__letter">F</div>
+        <div class="life-card__title">Fancy</div>
+        <div class="life-card__zh">想像創新</div>
+        <div class="life-card__body">Fancy for Imaginative Creativity — clay workshops, VR campus tours, the Student Image Co-Creation Team, and bilingual picture books written and illustrated by our own children.</div>
+      </article>
+      <article class="life-card">
+        <div class="life-card__letter">E</div>
+        <div class="life-card__title">Ecology</div>
+        <div class="life-card__zh">生態關懷</div>
+        <div class="life-card__body">Ecology for Ecological Care — the Teacher-Student Tree curriculum, the Waterway Dreamers irrigation project, food education plots, and class-wide tree-protection theatre.</div>
+      </article>
+    </div>
+
+    <div class="quote quote--terra">
+      <div class="quote__text">"Read, look up, imagine, and protect — in that order, every day."</div>
+      <div class="quote__zh">「閱讀、抬頭、想像、守護——每一天，依這個順序走過。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Sister School ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Sister Across the Pacific</h2>
+    <div class="sec__title-zh">國際姊妹校 · 美國 Trinidad Union School</div>
+    <div class="sec__rule"></div>
+
+    <div class="sister">
+      <div class="sister__head">
+        <div class="sister__flag">🇺🇸</div>
+        <div>
+          <div class="sister__title">Trinidad Union School · California, USA</div>
+          <div class="sister__zh">美國加州 Trinidad Union School · 溪州的太平洋彼端</div>
+        </div>
+      </div>
+      <div class="sister__body">
+        <p>
+          Across the Pacific in <strong>Trinidad, California</strong>, our partner school's students sit in different classrooms, study in a different language, and walk under different trees — and yet, with us, they have built one shared picture book: <strong>"The Sheep and the Dragon."</strong>
+          <span class="zh">在太平洋的另一端、美國加州的 Trinidad，姊妹校的孩子們在不一樣的教室、講不一樣的語言、走在不一樣的樹下——卻和我們一起做出了同一本繪本：<strong>《羊與龍的生活》</strong>。</span>
+        </p>
+        <p>
+          The bilingual e-book — sheep on one side, dragon on the other, both written and drawn by elementary children — is a shared classroom, a shared joke, a shared rehearsal of what it feels like to <strong>read the world in two languages</strong>. Plus regular video exchanges with <strong>St. Mary's School (Philippines)</strong> on Filipino games, traditions, and SDGs.
+          <span class="zh">這本雙語繪本，一邊是溪州孩子畫的羊，一邊是美國孩子畫的龍——是一間共享的教室、一場共享的玩笑、一次共同練習：用兩種語言讀世界是什麼感覺。我們也定期與<strong>菲律賓 St. Mary's School</strong>進行視訊交流，分享菲律賓遊戲、文化與 SDGs 議題。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Featured Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Featured Programs</h2>
+    <div class="sec__title-zh">校本特色課程</div>
+    <div class="sec__rule"></div>
+
+    <div class="programs">
+
+      <article class="program">
+        <div class="program__icon">📖</div>
+        <div>
+          <div class="program__title">LIFE Reading Navigator</div>
+          <div class="program__title-zh">LIFE 閱讀領航 · 從繪本到社論的閱讀計畫</div>
+          <div class="program__body">A school-wide reading programme from kindergarten picture books to grade-six newspaper editorials. The "Little Storytellers" contest and the homegrown "<strong>123 Wooden Bird</strong>" bilingual picture book are part of the same single arc.</div>
+          <div class="program__zh">校內貫穿幼兒園到六年級的閱讀計畫，從繪本一路走到社論。「小小說書人」比賽與師生自製雙語繪本《<strong>123 木頭鳥</strong>》都在這條軸線上。</div>
+          <span class="program__honor">🏆 MOE Reading Foundation Award · 2015</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🐑</div>
+        <div>
+          <div class="program__title">Character Star · Happy Sheep Stories</div>
+          <div class="program__title-zh">品德之星 · 喜揚羊的品格課</div>
+          <div class="program__body">In Sijhou, the sheep is a teacher. Our "Character Star" curriculum tells short bilingual stories from the life of the Happy Sheep — gentleness, gratitude, helping someone smaller — and pairs them with a weekly classroom practice.</div>
+          <div class="program__zh">在溪州，羊就是老師。「品德之星」課程把喜揚羊的小故事用雙語呈現——溫柔、感恩、扶助比自己弱小的人——再配上每週一個班級實踐活動。</div>
+          <span class="program__honor">🏆 MOE Distinctive Character Education School · 2017</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">💧</div>
+        <div>
+          <div class="program__title">Waterway Dreamers</div>
+          <div class="program__title-zh">水圳夢想家 · 在地水文與環境教育</div>
+          <div class="program__body">Sijhou's irrigation canals fed two centuries of rice paddies. Our Waterway Dreamers programme takes students out to walk them — mapping flow, drawing the canal life, and discovering why a place where you can hear water becomes a place where you can plant.</div>
+          <div class="program__zh">溪州的水圳餵養了兩百年的稻田。水圳夢想家課程帶孩子親自走過水圳，畫水圳生活、繪製水流、了解「有水聲的地方為什麼也能種出田」。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🏺</div>
+        <div>
+          <div class="program__title">Clay Culture &amp; the Maker Track</div>
+          <div class="program__title-zh">陶藝文化體驗 × 校園影像共創隊</div>
+          <div class="program__body">Fifth-grade students take a full clay workshop — shaping, firing, glazing — paired with our Student Image Co-Creation Team filming each step. The result: an annual exhibition with the children's own bilingual captions.</div>
+          <div class="program__zh">五年級學生整個學期投入陶藝課程——塑形、燒製、上釉，並由校園影像共創隊全程紀錄。年底舉辦展覽，全部展品由孩子們親自寫雙語說明。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🌳</div>
+        <div>
+          <div class="program__title">Thank You, Old Tree</div>
+          <div class="program__title-zh">感謝那些年，大樹陪我們的日子 · 師生劇場</div>
+          <div class="program__body">A teacher- and student-written stage play about the Teacher-Student Tree — performed for parents, neighbours, and visiting schools. The Old Tree is not a stage prop; she's the audience.</div>
+          <div class="program__zh">由師生共同創作的舞台劇，把「師生樹」搬上舞台——演給家長、社區與來訪學校看。老樹不是舞台上的道具，她是這齣戲的觀眾。</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="quote quote--wool">
+      <div class="quote__text">"In Sijhou, a child reads, looks up, draws, and walks a canal — in one school day."</div>
+      <div class="quote__zh">「在溪州，一個孩子一天裡會閱讀、抬頭、畫畫、走過一條水圳——這就是校本課程。」</div>
+    </div>
+
+    <div style="margin-top:36px;text-align:center;">
+      <a href="lessons/" style="display:inline-block;background:var(--tree-deep);color:#fff;padding:16px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:.5px;">
+        📖 See picture-book lessons &amp; videos · 看繪本與課程影片 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Timeline ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
+    <h2 class="sec__title">Our Story</h2>
+    <div class="sec__title-zh">校史時間軸 · 從舊眉分校到百二十年</div>
+    <div class="sec__rule"></div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1907</div>
+        <div class="tl-event">Founded as a branch of Beidou Public School</div>
+        <div class="tl-detail">明治 40 年 6 月 22 日，創校為「北斗公學校舊眉分校」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1917</div>
+        <div class="tl-event">Established as an independent school: <em>Sijhou Public School</em></div>
+        <div class="tl-detail">大正 6 年 4 月 2 日獨立設校，改名「溪洲公學校」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1921</div>
+        <div class="tl-event">Renamed <em>Sijhou Public School (溪州)</em></div>
+        <div class="tl-detail">大正 10 年 6 月 6 日，「溪洲」改為「溪州」，沿用至今。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1945</div>
+        <div class="tl-event">Renamed <em>Sijhou National School</em> after WWII</div>
+        <div class="tl-detail">民國 34 年戰後改名「溪州國民學校」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1968</div>
+        <div class="tl-event">Renamed <em>Sijhou Elementary School</em> with the 9-year compulsory education reform</div>
+        <div class="tl-detail">民國 57 年 8 月配合九年國教，改名「溪州國民小學」，沿用至今。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1986</div>
+        <div class="tl-event">Affiliated kindergarten opens</div>
+        <div class="tl-detail">民國 75 年開辦附設幼稚園。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1994</div>
+        <div class="tl-event">Special-education class established</div>
+        <div class="tl-detail">民國 83 年成立啟智班（特殊教育）。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015</div>
+        <div class="tl-event">MOE National Reading Foundation Award</div>
+        <div class="tl-detail">民國 104 年榮獲教育部全國閱讀磐石績優學校。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017</div>
+        <div class="tl-event">MOE Distinctive Character Education School · NEA Yintan Fragrance Award</div>
+        <div class="tl-detail">民國 106 年榮獲教育部品德教育特色學校，並獲國教署杏壇芬芳獎（團體績優）。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2018</div>
+        <div class="tl-event">Changhua County Excellent Teaching Award · Health Promoting School (Bronze)</div>
+        <div class="tl-detail">民國 107 年榮獲彰化縣教學卓越獎、健康促進國際認證銅質獎。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2019</div>
+        <div class="tl-event">Principal Cheng Li-Ya takes office (Aug)</div>
+        <div class="tl-detail">民國 108 年 8 月，鄭麗雅校長上任。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-event">Teacher-Student Tree wins national Most Beautiful Campus Tree (Distinguished)</div>
+        <div class="tl-detail">民國 110 年「師生樹」（200 歲老樟 × 羅漢松）榮獲福田樹木保育基金會「全國最美校樹特優獎」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-event">Sister-school programme with Trinidad Union School (USA) · "The Sheep and the Dragon" bilingual picture book</div>
+        <div class="tl-detail">與美國加州 Trinidad Union School 締結姊妹校，師生共同創作雙語繪本《羊與龍的生活》。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VII. Contact ===== -->
+<section>
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__title">Visit Us · 聯絡溪州</div>
+      <div class="contact__zh">A 120-year-old rural school on the Choshui plain — always glad to welcome you.</div>
+      <div class="contact__rule"></div>
+
+      <div class="contact__grid">
+        <div class="contact__row">
+          <div class="contact__icon">📍</div>
+          <div>
+            <div class="contact__label">Address · 地址</div>
+            <div class="contact__value">524 彰化縣溪州鄉尾厝村中山路三段 451 號<br><span style="font-size:.85em;color:#d2dac9;font-weight:500;">No. 451, Sec. 3, Zhongshan Rd., Sijhou Township, Changhua County 524, Taiwan</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📞</div>
+          <div>
+            <div class="contact__label">Phone · 電話</div>
+            <div class="contact__value"><a href="tel:+88648895013">04-8895013</a></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">🎓</div>
+          <div>
+            <div class="contact__label">School type · 校別</div>
+            <div class="contact__value">Public 6-year Elementary School<br><span style="font-size:.85em;color:#d2dac9;font-weight:500;">公立六年制國民小學 · 附設幼兒園 · 特教班</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📅</div>
+          <div>
+            <div class="contact__label">Founded · 創校</div>
+            <div class="contact__value">1907 · 明治 40 年</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__ctas">
+        <a class="official-cta" href="https://sjps.chc.edu.tw/" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Official Website</div>
+            <div class="official-cta__zh">溪州國小全球資訊網 · sjps.chc.edu.tw</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+        <a class="official-cta official-cta--fb" href="https://www.facebook.com/sjps2020/" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Facebook · 溪州國小</div>
+            <div class="official-cta__zh">溪州國小臉書粉絲專頁 · 最新校園動態</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 溪州國小 Sijhou Elementary &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--tree-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
