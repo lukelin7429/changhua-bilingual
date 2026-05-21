@@ -94,19 +94,29 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Hero Banner — clean type-led deep forest, no photo until the school provides high-res files === */
+  /* === Hero Banner — real campus gate photo + dark scrim for legibility === */
   .banner{
     position:relative;overflow:hidden;
-    background:linear-gradient(180deg, #15392b 0%, #1f4a3a 100%);
+    background:#15392b url('photos/campus-gate.jpg') center 55%/cover;
     color:#fff;
     border-bottom:4px solid var(--honey);
+    min-height:440px;
+  }
+  @media (min-width:720px){ .banner{ min-height:560px; } }
+  @media (min-width:1080px){ .banner{ min-height:640px; } }
+  .banner::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(21,57,43,.20) 0%, rgba(21,57,43,.55) 55%, rgba(15,40,28,.92) 100%),
+      linear-gradient(90deg, rgba(21,57,43,.55) 0%, rgba(21,57,43,0) 50%);
+    pointer-events:none;
   }
   .banner__inner{
     position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
-    padding:80px 24px 72px;
+    padding:96px 24px 56px;display:flex;flex-direction:column;justify-content:flex-end;min-height:inherit;
   }
-  @media (min-width:720px){ .banner__inner{ padding:120px 36px 96px; } }
-  @media (min-width:1080px){ .banner__inner{ padding:150px 36px 120px; } }
+  @media (min-width:720px){ .banner__inner{ padding:140px 36px 72px; } }
+  @media (min-width:1080px){ .banner__inner{ padding:180px 36px 88px; } }
   .banner__brand{
     font-family:'Playfair Display',serif;
     font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
