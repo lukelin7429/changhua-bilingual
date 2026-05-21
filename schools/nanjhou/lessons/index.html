@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lessons · 課程 · Nan-Jhou Elementary</title>
+<meta name="description" content="Nan-Jhou Elementary's curriculum: a plain-forest STEM track, daily Morning English with our FET, Cool English / PaGamO / Scratch / AI tools, taiko-drum ensemble, school-wide jump rope, and the HERO Talks public-action programme. 南州國小的課程地圖——平地森林 STEM、晨間美語、Cool English 與 AI 工具、太鼓、跳繩、HERO Talks 公益行動。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --banyan-deep:#1f4631;--banyan:#3a6549;--banyan-soft:#dce6d8;
+    --sugar:#c08a3f;--sugar-deep:#8c5d24;--sugar-soft:#f4e3c4;
+    --owl:#a8703a;--owl-deep:#6e4924;
+    --mist:#f7f3ea;--bg-soft:#fbf8f1;--line:#e6dfcc;
+    --ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(31,70,49,.30);--shadow-sm:0 6px 16px -6px rgba(31,70,49,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--sugar-deep);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--banyan-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--sugar);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--banyan-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:20px;gap:8px 22px; } }
+  .subnav a{color:var(--banyan-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--sugar-deep);}
+  .subnav a.is-active{background:var(--banyan-deep);color:#fff;}
+  .subnav a.is-ext::after{content:" ↗";font-size:.85em;opacity:.7;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .lede-box{background:linear-gradient(135deg, var(--banyan-soft) 0%, var(--sugar-soft) 100%);border-radius:24px;padding:40px 30px;}
+  @media (min-width:720px){ .lede-box{ padding:56px 48px; } }
+  .lede-box h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--banyan-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:44px; } }
+  .lede-box .zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
+  .lede-box p{font-size:21px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  .lede-box p strong{color:var(--banyan-deep);}
+  .lede-box p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;}
+
+  /* === Track tabs (4 thematic tracks) === */
+  .tracks{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
+  @media (min-width:720px){ .tracks{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .track{
+    background:#fff;border-radius:18px;border:1px solid var(--line);padding:28px 24px;
+    box-shadow:var(--shadow-sm);border-top:6px solid var(--banyan);
+    display:flex;flex-direction:column;
+  }
+  .track:nth-child(2){border-top-color:var(--sugar);}
+  .track:nth-child(3){border-top-color:var(--owl);}
+  .track:nth-child(4){border-top-color:#5b9d5b;}
+  .track__icon{font-size:46px;line-height:1;}
+  .track__name{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--banyan-deep);margin-top:10px;line-height:1.2;}
+  @media (min-width:720px){ .track__name{ font-size:28px; } }
+  .track__name-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  .track__body{font-size:17px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  .track__body .zh{color:var(--ink-soft);font-size:15.5px;margin-top:6px;display:block;line-height:1.55;}
+
+  /* === Course list === */
+  .courses{display:flex;flex-direction:column;gap:20px;}
+  .course{
+    background:#fff;border-radius:16px;border:1px solid var(--line);
+    padding:26px 24px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;
+  }
+  @media (min-width:720px){ .course{ grid-template-columns:96px 1fr;gap:28px;padding:32px 30px; } }
+  .course__icon{font-size:42px;line-height:1;text-align:center;background:var(--banyan-soft);border-radius:12px;padding:12px 0;color:var(--banyan-deep);}
+  @media (min-width:720px){ .course__icon{ font-size:60px;padding:18px 0; } }
+  .course--sugar .course__icon{background:var(--sugar-soft);color:var(--sugar-deep);}
+  .course--owl .course__icon{background:var(--mist);color:var(--owl-deep);border:1px solid var(--line);}
+  .course--banyan .course__icon{background:var(--banyan-soft);color:var(--banyan-deep);}
+  .course__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--banyan-deep);line-height:1.25;}
+  @media (min-width:720px){ .course__title{ font-size:28px; } }
+  .course__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .course__title-zh{ font-size:19px; } }
+  .course__meta{margin-top:10px;font-size:14px;color:var(--ink-soft);font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+  .course__body{font-size:17px;color:var(--ink);margin-top:12px;line-height:1.65;}
+  @media (min-width:720px){ .course__body{ font-size:19px; } }
+  .course__body .zh{color:var(--ink-soft);font-size:15.5px;margin-top:6px;display:block;line-height:1.55;}
+  .course__body strong{color:var(--banyan-deep);}
+
+  /* === WOTD videos === */
+  .wotd-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:30px;}
+  @media (min-width:720px){ .wotd-grid{ grid-template-columns:1fr 1fr;gap:24px; } }
+  .wotd-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-sm);}
+  .wotd-card__ratio{position:relative;padding-bottom:56.25%;height:0;border-radius:10px;overflow:hidden;background:#000;}
+  .wotd-card__ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .wotd-card__title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--banyan-deep);margin-top:14px;}
+  .wotd-card__zh{font-size:15px;color:var(--ink-soft);margin-top:4px;font-weight:500;}
+
+  .quote{margin-top:36px;background:var(--sugar-soft);border-left:6px solid var(--sugar);padding:24px 28px;border-radius:0 12px 12px 0;}
+  .quote__text{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--banyan-deep);line-height:1.4;font-style:italic;}
+  @media (min-width:720px){ .quote__text{ font-size:28px; } }
+  .quote__zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+
+  .back-cta{margin-top:32px;text-align:center;}
+  .back-cta a{display:inline-block;background:var(--banyan-deep);color:#fff;padding:14px 26px;border-radius:14px;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.3px;transition:transform .15s,background .15s;}
+  .back-cta a:hover{background:var(--sugar-deep);transform:translateY(-2px);}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--banyan-deep);}
+  footer a{color:var(--banyan-deep);text-decoration:underline;}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://sites.google.com/twrses.org/english-corner/about" target="_blank" rel="noopener" class="is-ext">The HootHub</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=nanjhou">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== I. Lead ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Lessons at Nan-Jhou</h2>
+    <div class="sec__title-zh">課程地圖 · 在百棵樹下的學習</div>
+    <div class="sec__rule"></div>
+
+    <div class="lede-box">
+      <h2>A small school, a big classroom — the forest is part of the syllabus.</h2>
+      <div class="zh">一所小學校，一個大教室——森林本身就是課表的一部分。</div>
+      <p>
+        At Nan-Jhou, learning happens in four overlapping tracks: <strong>English &amp; Bilingual</strong>, <strong>Science &amp; Plain-Forest</strong>, <strong>Body &amp; Rhythm</strong>, and <strong>Digital &amp; AI</strong>. Each track passes through the same gate — past Kuanrong, the old banyan — and each one feeds back into the others.
+        <span class="zh-inline">南州的學習由四條彼此交織的軸線組成：<strong>英語雙語、科學平地森林、身體節奏、數位 AI</strong>。每一條軸線都會走過同一道校門——經過寬榕老榕——再回頭餵養其他三條。</span>
+      </p>
+    </div>
+
+    <div class="tracks">
+      <article class="track">
+        <div class="track__icon">🦉</div>
+        <div class="track__name">English &amp; Bilingual</div>
+        <div class="track__name-zh">英語與雙語</div>
+        <div class="track__body">
+          Morning English, English Club, bilingual announcements, Cool English platform, and a resident FET running <em>The HootHub</em>.
+          <span class="zh">晨間美語、英語社團、雙語廣播、Cool English 平台，以及駐校外師經營的「The HootHub」。</span>
+        </div>
+      </article>
+      <article class="track">
+        <div class="track__icon">🌳</div>
+        <div class="track__name">Science &amp; Plain-Forest</div>
+        <div class="track__name-zh">科學與平地森林</div>
+        <div class="track__body">
+          Seed-collecting, leaf-mapping, outdoor education, animal-protection talks, and a campus tour led by a hundred-year banyan.
+          <span class="zh">收集種子、繪製葉子地圖、戶外教育、動物保護巡迴講座，以及由百年老榕領銜的校園導覽。</span>
+        </div>
+      </article>
+      <article class="track">
+        <div class="track__icon">🥁</div>
+        <div class="track__name">Body &amp; Rhythm</div>
+        <div class="track__name-zh">身體與節奏</div>
+        <div class="track__body">
+          Taiko-drum ensemble, school-wide jump rope, swimming at the Changnan Pool, plus drama and music ensembles.
+          <span class="zh">太鼓鼓陣、全校跳繩、彰南泳訓中心游泳課，與戲劇音樂團體活動。</span>
+        </div>
+      </article>
+      <article class="track">
+        <div class="track__icon">💻</div>
+        <div class="track__name">Digital &amp; AI</div>
+        <div class="track__name-zh">數位與人工智慧</div>
+        <div class="track__body">
+          PaGamO, Scratch, QWERTY typing drills, ICRT radio, daily AI toolkits for both teachers and parents.
+          <span class="zh">PaGamO、Scratch、英打、ICRT 廣播，與每日提供給師長和家長的 AI 工具包。</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Signature Courses ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Signature Courses</h2>
+    <div class="sec__title-zh">代表性課程 · 從晨間美語到 HERO Talks</div>
+    <div class="sec__rule"></div>
+
+    <div class="courses">
+
+      <article class="course">
+        <div class="course__icon">🌅</div>
+        <div>
+          <div class="course__title">Morning English with our FET</div>
+          <div class="course__title-zh">晨間美語 · 由駐校外師主導</div>
+          <div class="course__meta">Daily · Grades 1–6 · Live with Anabelle</div>
+          <div class="course__body">
+            Every weekday morning, Anabelle opens The HootHub. Lower-grade and upper-grade students follow two different rhythms — playful for grades 1–3, content-rich for grades 4–6 — but both end with one word every student will use that day. <strong>"Every word is a win."</strong>
+            <span class="zh">每個上學日的清晨，Anabelle 老師開啟 HootHub。低中年級走「玩中學」的節奏，中高年級走「內容驅動」的節奏，但兩條動線最後都會收斂到一個「今天就能用得到的字」。<strong>「每一個字都是一場小勝利。」</strong></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course course--sugar">
+        <div class="course__icon">🥁</div>
+        <div>
+          <div class="course__title">Taiko-Drum Ensemble</div>
+          <div class="course__title-zh">太鼓鼓陣</div>
+          <div class="course__meta">Weekly · Whole-school cohort · Words-of-the-Day video featured</div>
+          <div class="course__body">
+            A quiet nod to Nan-Jhou's Japanese-era roots. Children learn the basic <em>kata</em>, the breathing, and the bow at the end of each piece — and have recorded a bilingual <strong>"Word of the Day: Taiko drum"</strong> video that lives in the Changhua Bilingual Hub.
+            <span class="zh">低調呼應南州的日治根源。孩子學基本鼓法、呼吸、與每首曲子收束時的一個鞠躬——並錄製了雙語影片「<strong>Word of the Day: Taiko drum 太鼓</strong>」，已上架彰化雙語資源網的共用素材。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course course--owl">
+        <div class="course__icon">🪢</div>
+        <div>
+          <div class="course__title">School-wide Jump Rope</div>
+          <div class="course__title-zh">全校跳繩活動</div>
+          <div class="course__meta">Daily · Whole-school cohort · Words-of-the-Day video featured</div>
+          <div class="course__body">
+            One rope, seventy-six bodies, twenty minutes a day. The school-wide jump-rope routine has also become one of our Word-of-the-Day vocabulary videos — <strong>"Word of the Day: Jump rope"</strong>.
+            <span class="zh">一條繩、七十六個身體、每天二十分鐘。全校跳繩活動同時也是 Word of the Day 字彙影片之一——「<strong>Word of the Day: Jump rope 跳繩</strong>」。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course">
+        <div class="course__icon">🌱</div>
+        <div>
+          <div class="course__title">Plant-Seed Studio &amp; Outdoor Education</div>
+          <div class="course__title-zh">植物種子創作 × 戶外教育</div>
+          <div class="course__meta">Term project · Grades 3–6 · Cross-disciplinary</div>
+          <div class="course__body">
+            Children collect seeds, pods, and dried leaves from the campus's hundred-plus trees, then build small creatures, mobiles, and bookmarks. The teacher's role is to ask <em>"what does it remember?"</em> not <em>"what does it look like?"</em>
+            <span class="zh">孩子們從校園百餘棵樹蒐集種子、果莢、枯葉，做小動物、吊飾、書籤。老師的角色不是問「它像什麼」，而是問「<strong>它記得什麼</strong>」。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course course--sugar">
+        <div class="course__icon">📱</div>
+        <div>
+          <div class="course__title">Cool English · PaGamO · Scratch · AI Toolkits</div>
+          <div class="course__title-zh">Cool English × PaGamO × Scratch × 親子 AI 工具包</div>
+          <div class="course__meta">Daily / Weekly · Grades 1–6 · Multi-year award winners</div>
+          <div class="course__body">
+            Nan-Jhou students consistently win on the <strong>Cool English Listening King</strong>, <strong>Speaking King</strong>, and <strong>Self-Learning Initiate</strong> tracks — three consecutive recognitions across 2025–2026. Parents receive a regular <strong>"Family AI Toolkit"</strong> so home and school stay on the same digital footing.
+            <span class="zh">南州學生在 Cool English 平台上連續拿下「英聽王」「口說王」「自學初心者」三項獎——2025–2026 三連發。家長端則收到定期更新的「<strong>親子 AI 工具包</strong>」，讓家裡和學校的數位節奏對齊。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course course--banyan">
+        <div class="course__icon">🦸</div>
+        <div>
+          <div class="course__title">HERO Talks · Children's Public Action</div>
+          <div class="course__title-zh">HERO Talks 小學生公益行動</div>
+          <div class="course__meta">Annual · Grade-6 team project · National Top 10 (2026)</div>
+          <div class="course__body">
+            Grade-6 students choose a real social issue, build a proposal, rehearse it in front of younger students, then take it to the national stage. In 2026 our team made the <strong>National Top 10</strong> and won the <strong>Best Interaction Award</strong>.
+            <span class="zh">六年級學生選一個真實社會議題、做提案、向低年級先試講，再帶上全國舞台。2026 年六年甲入圍<strong>全國前十強</strong>，並抱回<strong>「最佳互動獎」</strong>。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course course--owl">
+        <div class="course__icon">🎨</div>
+        <div>
+          <div class="course__title">Reading, Newspapers, &amp; Drawing</div>
+          <div class="course__title-zh">讀報、寫生、台語說故事</div>
+          <div class="course__meta">Weekly · Cross-grade · Local-language friendly</div>
+          <div class="course__body">
+            Newspaper-Reading Creativity (高年級組入選), digital-reading challenge (寒假閱讀小奇兵佳績), Taiwanese-language storytelling (溪州鄉公所「咱大家作伙來講」), and sketching competitions (印象永康寫生比賽高年級組第二名) — small school, broad shelf.
+            <span class="zh">讀報創意達人（高年級組入選）、寒假數位閱讀小奇兵（佳績）、溪州鄉公所「咱大家作伙來講」台語說故事（佳績）、印象永康寫生比賽（高年級組第二名）——學校小，書架很寬。</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"In Nan-Jhou, a school day is two languages, four tracks, and one long walk past Kuanrong."</div>
+      <div class="quote__zh">「在南州，一天的學習是兩種語言、四條軸線，加上一段從寬榕底下走過的長路。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Word-of-the-Day videos (school's own contributions) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Our Word-of-the-Day Videos</h2>
+    <div class="sec__title-zh">南州自製的 Word of the Day 影片 · 已收錄於人師雙語資源網</div>
+    <div class="sec__rule"></div>
+
+    <p style="font-size:19px;color:var(--ink);max-width:780px;line-height:1.7;">
+      Two short bilingual vocabulary videos produced at Nan-Jhou — both shared on the <strong>My Culture Connect</strong> YouTube channel and reused across the Changhua Bilingual Hub. Watch, repeat, and use the word the same day.
+      <span style="display:block;color:var(--ink-soft);font-size:17px;margin-top:6px;">兩支由南州參與錄製的雙語字彙影片，掛在人師教育協會 YouTube 頻道，並由彰化雙語資源網跨校共用。看完、跟著唸、當天就用。</span>
+    </p>
+
+    <div class="wotd-grid">
+      <div class="wotd-card">
+        <div class="wotd-card__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/?listType=search&list=Word+of+the+Day+Taiko+drum+%E5%A4%AA%E9%BC%93+My+Culture+Connect" title="Word of the Day: Taiko drum 太鼓 — Nan-Jhou Elementary" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="wotd-card__title">Word of the Day: Taiko drum 太鼓</div>
+        <div class="wotd-card__zh">南州的孩子學日治根源的鼓陣</div>
+      </div>
+      <div class="wotd-card">
+        <div class="wotd-card__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/?listType=search&list=Word+of+the+Day+jump+rope+%E8%B7%B3%E7%B9%A9+%E5%8D%97%E5%B7%9E%E5%9C%8B%E5%B0%8F+My+Culture+Connect" title="Word of the Day: Jump rope 跳繩 — Nan-Jhou Elementary" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="wotd-card__title">Word of the Day: Jump rope 跳繩</div>
+        <div class="wotd-card__zh">全校跳繩——一條繩、76 個身體、20 分鐘</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;text-align:center;font-size:17px;color:var(--ink-soft);">
+      Browse the full library: <a href="https://changhua-bilingual.org/word-of-the-day/" style="color:var(--banyan-deep);font-weight:600;">Changhua Bilingual Hub · Word of the Day ↗</a>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 南州國小 Nan-Jhou Elementary &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>

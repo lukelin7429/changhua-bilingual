@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nan-Jhou Elementary · 彰化縣溪州鄉南州國民小學</title>
+<meta name="description" content="Nan-Jhou Elementary — a small rural school in Xizhou Township, Changhua, founded in 1955 by Taiwan Sugar Corporation. Home of the century-old Kuanrong banyan, a 'plain-forest school' with 100+ trees, and a National HERO Talks Top-10 public-action team. 彰化縣溪州鄉南州國民小學 · 1955 台糖附小 · 平地森林小學 · 寬榕百年老榕 · HERO Talks 全國前十。">
+<meta property="og:title" content="Nan-Jhou Elementary · 彰化縣溪州鄉南州國民小學">
+<meta property="og:description" content="A 70-year sugar-heritage school under a 100-year banyan · 七十年糖廠血統，一棵百年寬榕守望">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --banyan-deep:#1f4631;    /* 寬榕 deep green */
+    --banyan:#3a6549;         /* banyan main */
+    --banyan-soft:#dce6d8;    /* sage */
+    --sugar:#c08a3f;          /* caramel sugar amber */
+    --sugar-deep:#8c5d24;
+    --sugar-soft:#f4e3c4;
+    --owl:#a8703a;            /* owl brown — wisdom */
+    --owl-deep:#6e4924;
+    --mist:#f7f3ea;           /* cream wool */
+    --bg-soft:#fbf8f1;
+    --line:#e6dfcc;
+    --ink:#1f2530;
+    --ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(31,70,49,.30);
+    --shadow-sm:0 6px 16px -6px rgba(31,70,49,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#fff;color:var(--ink);
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:'Playfair Display','PingFang TC',serif;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+
+  .sec__no{font-family:'Playfair Display',serif;color:var(--sugar-deep);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--banyan-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--sugar);border-radius:3px;margin:22px 0 36px;}
+
+  /* === Sub-nav (7 links: Home · Principal · Lessons · News · Bilingual Campus · FET · Festivals) === */
+  .subnav{
+    background:var(--banyan-soft);padding:18px 0;border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;
+    font-family:'Playfair Display','PingFang TC',serif;font-size:18px;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:20px;gap:8px 22px; } }
+  .subnav a{
+    color:var(--banyan-deep);text-decoration:none;font-weight:600;
+    padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;
+  }
+  .subnav a:hover{background:#fff;color:var(--sugar-deep);}
+  .subnav a.is-active{background:var(--banyan-deep);color:#fff;}
+  .subnav a.is-ext::after{content:" ↗";font-size:.85em;opacity:.7;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* === Hero Banner — deep forest with banyan canopy === */
+  .banner{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 20% 32%, rgba(192,138,63,.42) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 28%, rgba(58,101,73,.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(168,112,58,.45) 0%, transparent 60%),
+      linear-gradient(180deg, #1f4631 0%, #102619 100%);
+    min-height:300px;display:flex;align-items:flex-end;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ min-height:400px; } }
+  @media (min-width:1080px){ .banner{ min-height:460px; } }
+  .banner__inner{
+    position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
+    padding:36px 24px 32px;color:#fff;
+  }
+  @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
+  .banner__brand{
+    font-family:'Playfair Display',serif;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:#f4e3c4;font-weight:600;margin-bottom:12px;
+  }
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{
+    font-family:'Playfair Display',serif;
+    font-size:44px;font-weight:800;line-height:1.0;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .banner h1{ font-size:76px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:94px; } }
+  .banner__zh{
+    font-size:20px;color:#eee6cf;margin-top:8px;font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
+  .banner__tagline{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:18px;color:#f8e8c4;margin-top:16px;line-height:1.45;
+    max-width:720px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);
+  }
+  @media (min-width:720px){ .banner__tagline{ font-size:22px;margin-top:20px; } }
+
+  /* === About === */
+  .about__lead{
+    font-family:'Playfair Display',serif;
+    font-size:30px;font-weight:700;color:var(--banyan-deep);line-height:1.35;letter-spacing:.3px;
+  }
+  @media (min-width:720px){ .about__lead{ font-size:38px; } }
+  .about__lead-zh{font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .about__lead-zh{ font-size:25px; } }
+  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
+  @media (min-width:720px){ .about__body{ font-size:22px; } }
+  .about__body p{margin-top:16px;}
+  .about__body p:first-child{margin-top:0;}
+  .about__body .zh{color:var(--ink-soft);font-size:19px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .about__body .zh{ font-size:21px; } }
+  .about__body strong{color:var(--banyan-deep);font-weight:700;}
+
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;}
+  @media (min-width:720px){ .stats{ grid-template-columns:repeat(4, 1fr);gap:18px; } }
+  .stat{background:var(--mist);border-radius:14px;padding:18px 14px;text-align:center;border:1px solid var(--line);}
+  .stat__big{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--banyan-deep);line-height:1;letter-spacing:.5px;}
+  @media (min-width:720px){ .stat__big{ font-size:34px; } }
+  .stat__label{font-size:13px;color:var(--ink-soft);font-weight:600;letter-spacing:1.5px;margin-top:6px;text-transform:uppercase;}
+  @media (min-width:720px){ .stat__label{ font-size:14px; } }
+  .stat__zh{font-size:15px;color:var(--ink);margin-top:4px;font-weight:500;}
+  @media (min-width:720px){ .stat__zh{ font-size:17px; } }
+
+  /* === Quote === */
+  .quote{
+    margin-top:36px;background:var(--sugar-soft);border-left:6px solid var(--sugar);
+    padding:24px 28px;border-radius:0 12px 12px 0;
+  }
+  .quote__text{
+    font-family:'Playfair Display',serif;
+    font-size:26px;font-weight:700;color:var(--banyan-deep);line-height:1.4;font-style:italic;
+  }
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+  .quote--banyan{background:var(--banyan-soft);border-left-color:var(--banyan);}
+  .quote--banyan .quote__text{color:var(--banyan-deep);}
+  .quote--mist{background:var(--mist);border-left-color:var(--owl);}
+  .quote--mist .quote__text{color:var(--owl-deep);}
+
+  /* === Banyan spotlight === */
+  .banyan-spot{
+    background:linear-gradient(135deg, var(--banyan-soft) 0%, var(--sugar-soft) 100%);
+    border-radius:24px;padding:40px 30px;border:2px solid var(--banyan);box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .banyan-spot{ padding:56px 48px; } }
+  .banyan-spot__badge{
+    display:inline-block;background:var(--owl);color:#fff;
+    font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .banyan-spot__badge{ font-size:16px; } }
+  .banyan-spot__title{
+    font-family:'Playfair Display',serif;
+    font-size:36px;font-weight:800;color:var(--banyan-deep);line-height:1.15;
+    margin-top:14px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .banyan-spot__title{ font-size:52px; } }
+  .banyan-spot__zh{font-size:21px;color:var(--ink);font-weight:600;margin-top:8px;}
+  @media (min-width:720px){ .banyan-spot__zh{ font-size:25px; } }
+  .banyan-spot__body{font-size:19px;color:var(--ink);margin-top:22px;line-height:1.75;}
+  @media (min-width:720px){ .banyan-spot__body{ font-size:21px; } }
+  .banyan-spot__body p{margin-top:14px;}
+  .banyan-spot__body p:first-child{margin-top:0;}
+  .banyan-spot__body strong{color:var(--banyan-deep);font-weight:700;}
+  .banyan-spot__body .zh{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.65;}
+  @media (min-width:720px){ .banyan-spot__body .zh{ font-size:20px; } }
+  .banyan-spot__art{
+    text-align:center;font-size:80px;line-height:1;margin:18px 0 0;
+  }
+  @media (min-width:720px){ .banyan-spot__art{ font-size:110px; } }
+
+  /* === Three trees timeline (校樹三巨榕) === */
+  .trees{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
+  @media (min-width:720px){ .trees{ grid-template-columns:repeat(3, 1fr);gap:22px; } }
+  .tree-card{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:24px 22px;box-shadow:var(--shadow-sm);
+    border-top:6px solid var(--banyan);
+    display:flex;flex-direction:column;
+  }
+  .tree-card--gone{opacity:.78;border-top-color:var(--owl);}
+  .tree-card__name{
+    font-family:'Playfair Display',serif;font-size:30px;font-weight:800;
+    color:var(--banyan-deep);line-height:1.1;letter-spacing:.3px;
+  }
+  .tree-card--gone .tree-card__name{color:var(--owl-deep);}
+  .tree-card__romaji{font-size:14px;color:var(--ink-soft);font-weight:600;letter-spacing:1.5px;margin-top:4px;text-transform:uppercase;}
+  .tree-card__era{font-family:'Playfair Display',serif;font-size:16px;color:var(--sugar-deep);font-weight:700;margin-top:14px;letter-spacing:1px;text-transform:uppercase;}
+  .tree-card__era-zh{font-size:15px;color:var(--ink);font-weight:600;margin-top:2px;}
+  .tree-card__status{
+    display:inline-block;font-size:13px;font-weight:700;padding:4px 10px;border-radius:99px;
+    margin-top:14px;letter-spacing:.5px;text-transform:uppercase;
+  }
+  .tree-card__status--alive{background:var(--banyan-soft);color:var(--banyan-deep);}
+  .tree-card__status--gone{background:var(--mist);color:var(--owl-deep);border:1px solid var(--line);}
+  .tree-card__body{font-size:17px;color:var(--ink);margin-top:14px;line-height:1.6;}
+  @media (min-width:720px){ .tree-card__body{ font-size:18px; } }
+  .tree-card__body .zh{color:var(--ink-soft);font-size:15.5px;margin-top:6px;line-height:1.55;display:block;}
+
+  /* === Programs === */
+  .programs{display:flex;flex-direction:column;gap:22px;}
+  .program{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    padding:30px 26px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:80px 1fr;gap:22px;align-items:start;
+  }
+  @media (min-width:720px){ .program{ grid-template-columns:120px 1fr;gap:36px;padding:38px 36px; } }
+  .program__icon{
+    font-size:56px;line-height:1;text-align:center;
+    background:var(--banyan-soft);border-radius:14px;padding:14px 0;color:var(--banyan-deep);
+  }
+  @media (min-width:720px){ .program__icon{ font-size:78px;padding:20px 0; } }
+  .program:nth-child(2) .program__icon{background:var(--sugar-soft);color:var(--sugar-deep);}
+  .program:nth-child(3) .program__icon{background:var(--mist);color:var(--owl-deep);border:1px solid var(--line);}
+  .program:nth-child(4) .program__icon{background:var(--banyan-soft);color:var(--banyan-deep);}
+  .program:nth-child(5) .program__icon{background:var(--sugar-soft);color:var(--sugar-deep);}
+  .program__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--banyan-deep);line-height:1.22;}
+  @media (min-width:720px){ .program__title{ font-size:34px; } }
+  .program__title-zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .program__title-zh{ font-size:22px; } }
+  .program__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .program__body{ font-size:21px; } }
+  .program__zh{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .program__zh{ font-size:19px; } }
+  .program__body strong{color:var(--banyan-deep);}
+  .program__honor{
+    margin-top:12px;display:inline-block;background:var(--sugar-soft);color:var(--sugar-deep);
+    font-size:15px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px;
+  }
+  @media (min-width:720px){ .program__honor{ font-size:17px; } }
+
+  /* === FET feature card === */
+  .fet-feature{
+    background:linear-gradient(135deg, var(--mist) 0%, var(--banyan-soft) 100%);
+    border:1.5px solid var(--banyan);border-radius:22px;padding:36px 28px;
+    margin-top:40px;display:grid;grid-template-columns:1fr;gap:24px;align-items:center;
+    box-shadow:var(--shadow-sm);
+  }
+  @media (min-width:720px){ .fet-feature{ grid-template-columns:160px 1fr;gap:36px;padding:44px 40px; } }
+  .fet-feature__owl{
+    text-align:center;font-size:120px;line-height:1;background:#fff;
+    border-radius:50%;width:160px;height:160px;display:flex;align-items:center;justify-content:center;
+    margin:0 auto;box-shadow:var(--shadow-sm);border:3px solid var(--banyan);
+  }
+  @media (min-width:720px){ .fet-feature__owl{ font-size:96px; } }
+  .fet-feature__label{font-family:'Playfair Display',serif;font-size:14px;color:var(--owl-deep);letter-spacing:3px;font-weight:700;text-transform:uppercase;}
+  .fet-feature__title{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--banyan-deep);line-height:1.2;margin-top:6px;}
+  @media (min-width:720px){ .fet-feature__title{ font-size:40px; } }
+  .fet-feature__sub{font-size:19px;color:var(--ink);margin-top:8px;font-weight:600;}
+  .fet-feature__body{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  .fet-feature__body .zh{color:var(--ink-soft);font-size:16px;margin-top:6px;display:block;line-height:1.55;}
+  .fet-feature__cta{
+    margin-top:20px;display:inline-flex;align-items:center;gap:10px;
+    background:var(--banyan-deep);color:#fff;padding:14px 26px;border-radius:14px;
+    text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.3px;
+    transition:transform .15s,background .15s;
+  }
+  .fet-feature__cta:hover{background:var(--sugar-deep);transform:translateY(-2px);}
+
+  /* === Timeline === */
+  .timeline{position:relative;padding-left:42px;}
+  .timeline::before{
+    content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;
+    background:linear-gradient(180deg, var(--sugar) 0%, var(--owl) 100%);border-radius:2px;
+  }
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:8px;
+    width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--owl);box-shadow:0 0 0 4px var(--bg-soft);
+  }
+  .tl-item.is-pivotal::before{border-color:var(--banyan-deep);background:var(--sugar);}
+  .tl-year{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--owl-deep);line-height:1;letter-spacing:.5px;}
+  @media (min-width:720px){ .tl-year{ font-size:38px; } }
+  .tl-event{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .tl-event{ font-size:23px; } }
+  .tl-detail{font-size:18px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .tl-detail{ font-size:20px; } }
+
+  /* === Contact === */
+  .contact{
+    background:linear-gradient(135deg, var(--banyan-deep) 0%, var(--banyan) 100%);
+    color:#fff;border-radius:24px;padding:48px 32px;box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){ .contact{ padding:64px 56px; } }
+  .contact__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;letter-spacing:.5px;}
+  @media (min-width:720px){ .contact__title{ font-size:50px; } }
+  .contact__zh{font-size:21px;color:#d0d8c9;margin-top:8px;}
+  @media (min-width:720px){ .contact__zh{ font-size:23px; } }
+  .contact__rule{width:80px;height:5px;background:var(--sugar);border-radius:3px;margin:20px 0 28px;}
+  .contact__grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
+  @media (min-width:720px){ .contact__grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .contact__row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);}
+  .contact__icon{font-size:24px;flex-shrink:0;margin-top:2px;color:var(--sugar);}
+  @media (min-width:720px){ .contact__icon{ font-size:28px; } }
+  .contact__label{font-size:15px;color:#d0d8c9;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+  @media (min-width:720px){ .contact__label{ font-size:17px; } }
+  .contact__value{font-size:20px;color:#fff;font-weight:600;margin-top:2px;line-height:1.45;}
+  @media (min-width:720px){ .contact__value{ font-size:22px; } }
+  .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--sugar);}
+  .contact__value a:hover{color:var(--sugar);}
+  .contact__ctas{margin-top:32px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:720px){ .contact__ctas{ grid-template-columns:1fr 1fr;gap:16px; } }
+  .official-cta{
+    background:var(--sugar);color:#3a2c08;border-radius:14px;padding:22px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    text-decoration:none;transition:transform .15s, background .15s;
+    box-shadow:0 8px 22px -8px rgba(192,138,63,.5);
+  }
+  @media (min-width:720px){ .official-cta{ padding:24px 30px; } }
+  .official-cta:hover{background:#fff;transform:translateY(-3px);}
+  .official-cta--fb{background:#1877f2;color:#fff;box-shadow:0 8px 22px -8px rgba(24,119,242,.5);}
+  .official-cta--fb:hover{background:#fff;color:#0c63d4;}
+  .official-cta__title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1.2;}
+  @media (min-width:720px){ .official-cta__title{ font-size:24px; } }
+  .official-cta__zh{font-size:16px;margin-top:4px;font-weight:600;opacity:.92;}
+  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
+  .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
+  @media (min-width:720px){ .official-cta__arrow{ font-size:36px; } }
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--banyan-deep);}
+  footer a{color:var(--banyan-deep);text-decoration:underline;}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ===== Sub-nav (7 links: Home · Principal · Lessons · News · Bilingual Campus · FET · Festivals) ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="./" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://sites.google.com/twrses.org/english-corner/about" target="_blank" rel="noopener" class="is-ext">The HootHub</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=nanjhou">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__brand">A Sugar-Era Rural Campus · Established 1955</div>
+    <h1>Nan-Jhou Elementary</h1>
+    <div class="banner__zh">彰化縣溪州鄉南州國民小學</div>
+    <p class="banner__tagline">A plain-forest school of 100+ trees — where a hundred-year banyan still watches over a hundred-year story.</p>
+  </div>
+</header>
+
+<!-- ===== I. About ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">About Nan-Jhou</h2>
+    <div class="sec__title-zh">關於南州 · 從糖廠子弟校到平地森林小學</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__lead">A small rural school inside the old Xizhou Sugar Factory grounds — where Japanese settlers, sugar workers, and county children have each, in their turn, taken their first lessons under the same trees.</div>
+    <div class="about__lead-zh">座落在舊溪州糖廠園區內的偏鄉小學——日治時期的糖廠日籍子弟、戰後台糖員工子弟，到今日的溪州孩子，三個世代在同一片樹蔭下上同一堂第一課。</div>
+
+    <div class="about__body">
+      <p>
+        <strong>Nan-Jhou Elementary</strong> sits in Xizhou Village, in the southern flatlands of Changhua County, on land that once belonged to the Xizhou Sugar Factory of Taiwan Sugar Corporation. Founded in <strong>September 1955</strong> as the Taiwan Sugar Corporation Affiliated Elementary School, the school grew out of an even older Japanese-era institution — <em>Sijhou Jinjō Shōgakkō</em> (溪州尋常小學校), which once served the children of Japanese sugar staff. In <strong>August 1968</strong>, the campus and its grounds were handed over to Changhua County and the school took its present name.
+      </p>
+      <p class="zh">
+        南州國小座落在彰化縣溪州鄉溪州村，原為台糖溪州糖廠園區的一部分。1955 年 9 月由台灣糖業公司正式成立為「附設小學」，前身可追溯至日治時期的「溪州尋常小學校」，當時主要服務糖廠日籍員工子弟。1968 年 8 月台糖總公司北遷台北，校地校產移交彰化縣政府，學校更名為現在的「南州國民小學」。
+      </p>
+
+      <p>
+        Today Nan-Jhou is a small school by every measure — under a hundred children, just over a dozen staff, one and three-quarter hectares of campus. And every measure that matters: a century-old banyan at the gate, more than a hundred trees rooted around the buildings, and a <strong>"plain-forest school"</strong> philosophy that lets a rural childhood begin at eye-level with the leaves.
+      </p>
+      <p class="zh">
+        南州今天是一所每個量化指標都「不大」的學校——學生未滿百人、教職員十餘位、校地 1.74 公頃。但凡是「真正重要的指標」她都不小：校門口一棵百年老榕、校園內百餘棵樹、以及「<strong>平地森林小學</strong>」的辦學定位——讓鄉下孩子的童年，從跟葉子同高的視角開始。
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat__big">1955</div><div class="stat__label">Established</div><div class="stat__zh">創校於民國 44 年</div></div>
+      <div class="stat"><div class="stat__big">70</div><div class="stat__label">Years Young</div><div class="stat__zh">2025 年滿七十週年</div></div>
+      <div class="stat"><div class="stat__big">100+</div><div class="stat__label">Trees on Campus</div><div class="stat__zh">校園百餘棵樹</div></div>
+      <div class="stat"><div class="stat__big">1.74</div><div class="stat__label">Hectares</div><div class="stat__zh">校地 1.74 公頃</div></div>
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"A plain-forest school — every classroom looks out at a tree."</div>
+      <div class="quote__zh">「平地森林小學——每一間教室向外看，都看得到一棵樹。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. The Banyan that Remembers ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">The Banyan that Remembers</h2>
+    <div class="sec__title-zh">寬榕 · 一棵跨越三個時代的百年老榕</div>
+    <div class="sec__rule"></div>
+
+    <div class="banyan-spot">
+      <div style="text-align:center;"><div class="banyan-spot__badge">🌳 A Living Witness · Three Eras · One Tree</div></div>
+      <div class="banyan-spot__title" style="text-align:center;">Kuanrong · 寬榕</div>
+      <div class="banyan-spot__zh" style="text-align:center;">「寬」字取「兩國寬容、和諧」之意——日治時期種下的百年老榕，至今仍守在校門口</div>
+
+      <div class="banyan-spot__art">🌳</div>
+
+      <div class="banyan-spot__body">
+        <p>
+          At the gate of Nan-Jhou Elementary stand the roots of <strong>Kuanrong</strong> (寬榕) — a banyan tree planted in the Japanese era, the oldest of three centennial banyans that once formed a canopy our students used to call <em>"the green dome."</em> Kuanrong's name means <em>"to be wide, to hold gently"</em> — a quiet hope that two nations, two eras, two languages could grow into the same root system.
+          <span class="zh">校門口守著一棵叫「寬榕」的百年老榕——日治時期種下的，是三棵百年榕樹中最年長的一棵。三棵樹原本撐起一片橫幅 50+ 公尺的「綠色巨蛋」，孩子們在樹下上體育課，「不怕炙熱的驕陽」。「寬」字取「兩國寬容、和諧」之意，期盼日台兩個國家、兩個時代、兩種語言，能扎在同一條根脈上。</span>
+        </p>
+        <p>
+          Of the three trees, two are gone. <strong>Tangrong</strong> (糖榕), named for the sugar-factory era, was torn out by Typhoon Megi in September 2016 — 70 years old, ten metres tall. In December, our partners from Mingdao University's Department of Japanese helped the children make 80 <em>teru teru bōzu</em> (晴天娃娃) and hang them around the transplanted trunk. Students sang the Japanese folk song <em>"Itomakimaki"</em> (捲線歌) under the canopy. The then-principal called it "the best life-education class we ever taught."
+          <span class="zh">三棵樹中，已經有兩棵不在了。<strong>糖榕</strong>——以台糖時代命名——在 2016 年 9 月的梅姬颱風中連根拔起，70 歲、十公尺高。同年 12 月，明道大學日文系師生帶著孩子做了 80 隻晴天娃娃，繫在移植後的樹幹周圍；學生們在樹下唱日文童謠《捲線歌》。當時的校長形容那是「生命教育最好的一堂課」。</span>
+        </p>
+        <p>
+          Tangrong and her sister <strong>Nanrong</strong> (南榕) eventually succumbed to brown-root disease. Only Kuanrong remains — older than her two sisters, and now alone. We teach our children to walk past her gently, to know what she has lived through, and to remember the other two.
+          <span class="zh">糖榕與她的姊妹樹<strong>南榕</strong>後來都因為褐根病相繼凋零。今天只剩寬榕一棵獨自守著校門——她比兩位姊妹都年長，現在也最孤單。我們教孩子們走過她身邊時放輕腳步，記得她經歷過的時代，也記得另外兩棵樹。</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="trees">
+      <article class="tree-card">
+        <div class="tree-card__name">寬榕</div>
+        <div class="tree-card__romaji">Kuanrong</div>
+        <div class="tree-card__era">Japanese Era</div>
+        <div class="tree-card__era-zh">日治時期</div>
+        <span class="tree-card__status tree-card__status--alive">🌿 Still standing · 仍守在校門</span>
+        <div class="tree-card__body">
+          The eldest of the three — planted by Japanese hands, named for the hope of <em>wide-hearted tolerance</em>.
+          <span class="zh">三棵中最年長者——日本人手植，命名取「寬容」之意。</span>
+        </div>
+      </article>
+      <article class="tree-card tree-card--gone">
+        <div class="tree-card__name">糖榕</div>
+        <div class="tree-card__romaji">Tangrong</div>
+        <div class="tree-card__era">Sugar Era · 1955</div>
+        <div class="tree-card__era-zh">台糖時代</div>
+        <span class="tree-card__status tree-card__status--gone">🕯️ 2016 Megi · then brown-root disease</span>
+        <div class="tree-card__body">
+          Named for the sugar-factory years. Toppled by Typhoon Megi at 70 years old; later lost to disease after transplant.
+          <span class="zh">為台糖時代命名。70 歲時被梅姬颱風吹倒，移植後仍因褐根病凋零。</span>
+        </div>
+      </article>
+      <article class="tree-card tree-card--gone">
+        <div class="tree-card__name">南榕</div>
+        <div class="tree-card__romaji">Nanrong</div>
+        <div class="tree-card__era">County Era · 1963</div>
+        <div class="tree-card__era-zh">縣府時代</div>
+        <span class="tree-card__status tree-card__status--gone">🕯️ Lost to brown-root disease</span>
+        <div class="tree-card__body">
+          Named for the county-era opening of the school to the village beyond the sugar fence. Lost to the same disease as her sister.
+          <span class="zh">為縣府接收後校門向村庄打開的時代命名，與糖榕一同凋零。</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="quote quote--banyan">
+      <div class="quote__text">"A school that names her trees teaches her children to name what they will one day lose."</div>
+      <div class="quote__zh">「會替自己的樹取名字的學校，也在教孩子替自己有一天會失去的事物取名字。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Featured Programs ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Featured Programs</h2>
+    <div class="sec__title-zh">校本特色課程 · 從晨間美語到太鼓</div>
+    <div class="sec__rule"></div>
+
+    <div class="programs">
+
+      <article class="program">
+        <div class="program__icon">🦉</div>
+        <div>
+          <div class="program__title">Morning English &amp; The HootHub</div>
+          <div class="program__title-zh">晨間美語 × HootHub 雙語浸潤</div>
+          <div class="program__body">A resident foreign teacher, daily morning-English routines, an English Club, and bilingual school announcements — all anchored at <strong>The HootHub</strong>, our FET's own teaching site. Wisdom (owl), cheerful (every word is a win), and joy (a cozy home for confidence) are the three notes our bilingual day rings out.</div>
+          <div class="program__zh">由駐校外師主導，每日晨間美語、英語社團、雙語校園廣播——全都以外師親自經營的「<strong>The HootHub</strong>」為中心。Wisdom（智慧）、Cheerful（每個英文字都是一場小勝利）、Joy（讓孩子安心成長的家），是南州雙語日常的三個和音。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🥁</div>
+        <div>
+          <div class="program__title">Taiko Drums &amp; Jump Rope</div>
+          <div class="program__title-zh">太鼓鼓陣 × 全校跳繩</div>
+          <div class="program__body">A small school, two big rhythms. Our taiko-drum ensemble — a quiet nod to Nan-Jhou's Japanese-era roots — and a school-wide jump-rope routine have both become Word-of-the-Day vocabulary videos shared across the Changhua Bilingual Hub.</div>
+          <div class="program__zh">小學校、兩種大節奏。一是太鼓鼓陣（低調呼應南州的日治根源），二是全校跳繩——兩者都已拍成 Word of the Day 雙語字彙影片，加入彰化雙語資源網的共用教材。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🌿</div>
+        <div>
+          <div class="program__title">Plant Seed Studio &amp; Outdoor Education</div>
+          <div class="program__title-zh">植物種子創作 × 戶外教育</div>
+          <div class="program__body">In a school with more than a hundred trees, science class often happens outside. Children collect seeds, build small creatures from leaves and pods, and walk the campus mapping what grows where. The plain-forest school is, before anything else, a real forest.</div>
+          <div class="program__zh">在一所有百棵樹的學校，自然課常常在教室外面上。孩子們收集種子、用葉子與果莢做小生物、繞著校園畫「哪裡種了什麼樹」的地圖。「平地森林小學」首先是一片真實的森林。</div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">💻</div>
+        <div>
+          <div class="program__title">Cool English · PaGamO · AI Tools</div>
+          <div class="program__title-zh">Cool English × PaGamO × AI 工具包</div>
+          <div class="program__body">For a 70-student rural school, digital learning multiplies what one teacher can do. Our students use Cool English, PaGamO, Scratch and AI tools daily — and we share parent-friendly AI toolkits to keep families on the same learning curve.</div>
+          <div class="program__zh">對一所七十人的偏鄉小校來說，數位學習能把一位老師的能量乘上好幾倍。學生每天使用 Cool English、PaGamO、Scratch 與 AI 工具；我們也分送「親子 AI 工具包」，讓家長和孩子在同一條學習曲線上。</div>
+          <span class="program__honor">🏆 Cool English · Listening / Speaking / Self-learning · multi-year awards</span>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program__icon">🦸</div>
+        <div>
+          <div class="program__title">HERO Talks · Children Speaking for Good</div>
+          <div class="program__title-zh">HERO Talks 兒童公益行動 · 全國前十</div>
+          <div class="program__body">In 2026 our Grade-6 team made the <strong>National Top 10</strong> of the 19th Children's HERO Talks competition, taking home the <strong>Best Interaction Award</strong> — a 76-student school standing on a national stage and being heard.</div>
+          <div class="program__zh">2026 年六年甲班的孩子們入圍第 19 屆小學生公益行動 HERO Talks <strong>全國前十強</strong>，並抱回<strong>「最佳互動獎」</strong>——一所七十六人的小校站上全國舞台，並被聽見。</div>
+          <span class="program__honor">🏆 National HERO Talks · Top 10 · Best Interaction · 2026</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- FET feature card (Meet our FET) -->
+    <div class="fet-feature">
+      <div>
+        <div class="fet-feature__owl">🦉</div>
+      </div>
+      <div>
+        <div class="fet-feature__label">Meet our Foreign English Teacher</div>
+        <div class="fet-feature__title">Anabelle San Lorenzo Geronimo</div>
+        <div class="fet-feature__sub">Resident FET · Philippines PRC Licensed Teacher</div>
+        <p class="fet-feature__body">
+          Anabelle keeps her own teaching site — <strong>The HootHub</strong> — for the families and teachers she serves: certifications, classroom resources, morning-English plans, and a Word-of-the-Day calendar. <em>"Language without borders, learning without limits."</em>
+          <span class="zh">Anabelle 老師有自己的教學網站「The HootHub」——給家長、教師完整的證書資歷、教學資源、晨間美語計畫，與每日英文小語日曆。她的座右銘是：<em>「Language without borders, learning without limits.」</em></span>
+        </p>
+        <a class="fet-feature__cta" href="https://sites.google.com/twrses.org/english-corner/about" target="_blank" rel="noopener">
+          🦉 Visit The HootHub · 拜訪外師的網站 ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="quote quote--mist">
+      <div class="quote__text">"A small school does not mean a small story."</div>
+      <div class="quote__zh">「學校小，故事不會跟著小。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Our Story ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Our Story</h2>
+    <div class="sec__title-zh">校史時間軸 · 從日治糖廠到平地森林小學</div>
+    <div class="sec__rule"></div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1909</div>
+        <div class="tl-event">Founded as <em>Sijhou Jinjō Shōgakkō</em> for Japanese sugar-factory children</div>
+        <div class="tl-detail">日治時期設立「溪州尋常小學校」，專收溪州糖廠日籍員工子弟。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1945</div>
+        <div class="tl-event">Taiwan Sugar Corporation takes over after the war</div>
+        <div class="tl-detail">民國 34 年戰後，台糖公司接收，校務由糖廠續辦。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1949</div>
+        <div class="tl-event">Summer enrichment camp for sugar-staff children begins</div>
+        <div class="tl-detail">民國 38 年開辦員工子弟夏令營，是全台最早辦理暑期輔導的小學之一。</div>
+      </div>
+      <div class="tl-item is-pivotal">
+        <div class="tl-year">1955</div>
+        <div class="tl-event">Officially established as <em>Taiwan Sugar Corporation Affiliated Elementary School</em></div>
+        <div class="tl-detail">民國 44 年 9 月，正式成立「台灣糖業公司附設小學」——南州的「現代起算年」。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1963</div>
+        <div class="tl-event">Renamed <em>Nan-Jhou Substitute National Elementary School</em>; sugar factory funds the first kitchen and school-lunch programme</div>
+        <div class="tl-detail">民國 52 年 12 月更名「南州代用國民小學」，糖廠出資興建廚房、籌設營養午餐——領先全國推行。</div>
+      </div>
+      <div class="tl-item is-pivotal">
+        <div class="tl-year">1968</div>
+        <div class="tl-event">Changhua County takes over; renamed <em>Nan-Jhou Elementary School</em></div>
+        <div class="tl-detail">民國 57 年 8 月，台糖總公司北遷台北，校產移交彰化縣，學校更名「彰化縣溪州鄉南州國民小學」，沿用至今。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2010</div>
+        <div class="tl-event">Centennial: students vote to name the three banyans <em>Kuanrong, Tangrong, Nanrong</em></div>
+        <div class="tl-detail">百年校慶，全校投票替三棵榕樹命名：寬榕（日治）、糖榕（台糖）、南榕（縣府）——三個時代各一棵樹。</div>
+      </div>
+      <div class="tl-item is-pivotal">
+        <div class="tl-year">2016</div>
+        <div class="tl-event">Typhoon Megi topples Tangrong · Sunny-Doll Life Education ceremony with Mingdao University</div>
+        <div class="tl-detail">梅姬颱風吹倒糖榕，明道大學日文系師生與全校共製 80 隻晴天娃娃祈福、唱日文童謠《捲線歌》，被當時校長林銘科形容為「生命教育最好的一堂課」。</div>
+      </div>
+      <div class="tl-item is-pivotal">
+        <div class="tl-year">2022</div>
+        <div class="tl-event">Principal Yang Xun-Fei takes office (Aug)</div>
+        <div class="tl-detail">民國 111 年 8 月，<strong>楊巽斐校長</strong>上任——彰師大科教博士、第四任校長職涯，是少數任教與校長時期都在彰化雙語合作校體系中歷練的校長。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-event">Nan-Jhou turns 70 since the 1955 founding</div>
+        <div class="tl-detail">民國 114 年 9 月，南州自 1955 年正式成立起，滿 70 週年。</div>
+      </div>
+      <div class="tl-item is-pivotal">
+        <div class="tl-year">2026</div>
+        <div class="tl-event">National HERO Talks Top-10 · Best Interaction Award</div>
+        <div class="tl-detail">六年甲班入圍第 19 屆小學生公益行動 HERO Talks 全國前十強，並獲「最佳互動獎」。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Contact ===== -->
+<section>
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__title">Visit Us · 聯絡南州</div>
+      <div class="contact__zh">A 70-year sugar-heritage school in Xizhou Township — always glad to welcome you.</div>
+      <div class="contact__rule"></div>
+
+      <div class="contact__grid">
+        <div class="contact__row">
+          <div class="contact__icon">📍</div>
+          <div>
+            <div class="contact__label">Address · 地址</div>
+            <div class="contact__value">524 彰化縣溪州鄉溪州村公園路 95 號<br><span style="font-size:.85em;color:#d0d8c9;font-weight:500;">No. 95, Gongyuan Rd., Xizhou Village, Xizhou Township, Changhua County 524, Taiwan</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📞</div>
+          <div>
+            <div class="contact__label">Phone · 電話</div>
+            <div class="contact__value"><a href="tel:+88648892224">04-8892224</a><br><span style="font-size:.7em;color:#d0d8c9;font-weight:500;">Fax · 傳真 04-8893224</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">🎓</div>
+          <div>
+            <div class="contact__label">School type · 校別</div>
+            <div class="contact__value">Public 6-year Elementary School<br><span style="font-size:.85em;color:#d0d8c9;font-weight:500;">公立六年制國民小學</span></div>
+          </div>
+        </div>
+        <div class="contact__row">
+          <div class="contact__icon">📅</div>
+          <div>
+            <div class="contact__label">Founded · 創校</div>
+            <div class="contact__value">1955 · 民國 44 年<br><span style="font-size:.85em;color:#d0d8c9;font-weight:500;">(roots in Japanese-era Sijhou Jinjō Shōgakkō)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__ctas">
+        <a class="official-cta" href="https://njps.chc.edu.tw/" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Official Website</div>
+            <div class="official-cta__zh">南州國小全球資訊網 · njps.chc.edu.tw</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+        <a class="official-cta official-cta--fb" href="https://www.facebook.com/njses/" target="_blank" rel="noopener">
+          <div>
+            <div class="official-cta__title">Facebook · 南州國小</div>
+            <div class="official-cta__zh">南州國小臉書粉絲專頁 · 最新校園動態</div>
+          </div>
+          <div class="official-cta__arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 南州國小 Nan-Jhou Elementary &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
