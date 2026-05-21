@@ -94,26 +94,42 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Hero Banner — real campus photo + dark forest scrim === */
+  /* === Hero Banner — deep-forest hero + campus panorama strip at the bottom === */
   .banner{
-    position:relative;
-    background:#1a2d20 url('photos/campus.jpg') center 36%/cover;
-    min-height:340px;display:flex;align-items:flex-end;overflow:hidden;
-  }
-  @media (min-width:720px){ .banner{ min-height:460px; } }
-  @media (min-width:1080px){ .banner{ min-height:520px; } }
-  .banner::before{
-    content:'';position:absolute;inset:0;
+    position:relative;overflow:hidden;
     background:
-      linear-gradient(180deg, rgba(26,45,32,.12) 0%, rgba(26,45,32,.55) 60%, rgba(26,45,32,.88) 100%),
-      linear-gradient(90deg, rgba(31,74,58,.55) 0%, rgba(31,74,58,.0) 50%);
-    pointer-events:none;
+      radial-gradient(ellipse at 18% 28%, rgba(212,149,58,.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 82% 22%, rgba(91,157,117,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #15392b 0%, #1f4a3a 70%, #1a3d2d 100%);
+    color:#fff;
   }
   .banner__inner{
     position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
-    padding:36px 24px 32px;color:#fff;
+    padding:64px 24px 40px;
   }
-  @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
+  @media (min-width:720px){ .banner__inner{ padding:96px 36px 56px; } }
+  @media (min-width:1080px){ .banner__inner{ padding:120px 36px 64px; } }
+  .banner__vista{
+    display:block;width:100%;
+    height:90px;
+    background:#0d1f17 url('photos/campus-panorama.jpg') center/cover;
+    border-top:2px solid rgba(212,149,58,.35);
+    position:relative;
+  }
+  @media (min-width:720px){ .banner__vista{ height:130px; } }
+  @media (min-width:1080px){ .banner__vista{ height:160px; } }
+  .banner__vista::after{
+    content:'';position:absolute;inset:0 0 0 0;
+    background:linear-gradient(180deg, rgba(21,57,43,.45) 0%, rgba(21,57,43,0) 35%, rgba(0,0,0,0) 80%, rgba(0,0,0,.20) 100%);
+    pointer-events:none;
+  }
+  .banner__caption{
+    position:absolute;bottom:8px;right:14px;z-index:2;
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:12px;letter-spacing:1.5px;color:rgba(255,255,255,.7);
+    text-shadow:0 1px 4px rgba(0,0,0,.6);
+  }
+  @media (min-width:720px){ .banner__caption{ font-size:14px;bottom:10px;right:20px; } }
   .banner__brand{
     font-family:'Playfair Display',serif;
     font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
@@ -384,6 +400,9 @@
     <h1>Sijhou Elementary</h1>
     <div class="banner__zh">彰化縣溪州鄉溪州國民小學</div>
     <p class="banner__tagline">Sijhou L.I.F.E. — Happy and Kind Sheep · 溪州 LIFE — 喜揚羊</p>
+  </div>
+  <div class="banner__vista" role="img" aria-label="Sijhou Elementary campus panorama — gate, running track, classrooms, playground">
+    <span class="banner__caption">Sijhou campus vista · 校園全景</span>
   </div>
 </header>
 
