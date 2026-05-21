@@ -177,6 +177,49 @@
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--tree-deep);}
+
+  /* === News search box === */
+  .news-search{
+    position:sticky;top:60px;z-index:40;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:18px 24px;box-shadow:0 6px 18px -10px rgba(31,74,58,.18);
+  }
+  @media (min-width:720px){ .news-search{ top:62px;padding:22px 24px; } }
+  .news-search__inner{max-width:760px;margin:0 auto;position:relative;}
+  .news-search__icon{
+    position:absolute;left:18px;top:50%;transform:translateY(-50%);
+    width:22px;height:22px;color:var(--forest-mid);pointer-events:none;
+  }
+  .news-search__input{
+    width:100%;padding:14px 56px 14px 50px;
+    border:2px solid var(--line);border-radius:12px;
+    font-family:inherit;font-size:17px;color:var(--ink);
+    background:#fff;transition:all .15s;outline:none;
+  }
+  @media (min-width:720px){ .news-search__input{ font-size:19px;padding:16px 60px 16px 56px; } }
+  .news-search__input:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(31,74,58,.10);}
+  .news-search__input::placeholder{color:var(--ink-soft);}
+  .news-search__clear{
+    position:absolute;right:14px;top:50%;transform:translateY(-50%);
+    width:32px;height:32px;border-radius:50%;background:var(--forest-soft);color:var(--forest);
+    border:0;cursor:pointer;font-size:18px;line-height:1;display:none;align-items:center;justify-content:center;
+  }
+  .news-search__clear.is-visible{display:flex;}
+  .news-search__clear:hover{background:var(--honey-soft);color:var(--honey-deep);}
+  .news-search__meta{
+    max-width:760px;margin:8px auto 0;font-size:14px;color:var(--ink-soft);
+    text-align:center;letter-spacing:.3px;
+  }
+  .news-search__meta strong{color:var(--forest);}
+  .news-empty{
+    display:none;text-align:center;padding:60px 24px;color:var(--ink-soft);
+    font-style:italic;font-size:18px;
+  }
+  .news-empty.is-visible{display:block;}
+  /* hidden by search */
+  .is-hidden-by-search{display:none !important;}
+  /* When a whole section has no visible items, hide the section too */
+  section.is-empty-by-search{display:none;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -199,6 +242,21 @@
     </div>
   </div>
 </nav>
+
+<!-- ===== News Search Box ===== -->
+<div class="news-search" role="search">
+  <div class="news-search__inner">
+    <svg class="news-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input class="news-search__input" id="newsSearch" type="search" placeholder="輸入關鍵字搜尋新聞 · Search news by keyword…" autocomplete="off" aria-label="Search news">
+    <button class="news-search__clear" id="newsSearchClear" type="button" aria-label="Clear search">✕</button>
+  </div>
+  <div class="news-search__meta" id="newsSearchMeta">輸入關鍵字（中英皆可），所有新聞會即時過濾。Type in any keyword — news filter as you type.</div>
+</div>
+
+<div class="news-empty" id="newsEmpty">沒有符合「<span id="newsEmptyTerm"></span>」的新聞，請試試其他關鍵字。<br>No news matched that keyword — try another term.</div>
 
 <!-- ===== I. Lede ===== -->
 <section>
@@ -492,6 +550,84 @@
   Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
   Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--tree-deep);">Changhua Bilingual Hub</a>
 </footer>
+
+<script>
+(function(){
+  var input = document.getElementById('newsSearch');
+  var clearBtn = document.getElementById('newsSearchClear');
+  var meta = document.getElementById('newsSearchMeta');
+  var emptyEl = document.getElementById('newsEmpty');
+  var emptyTerm = document.getElementById('newsEmptyTerm');
+  if (!input) return;
+
+  // Articles to filter: featured stories, story-notebook cards, honour-roll items
+  var articles = Array.prototype.slice.call(document.querySelectorAll('.feature, .story, .item'));
+  // Sections that contain articles (so we can hide an entire section when empty)
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section')).filter(function(s){
+    return s.querySelector('.feature, .story, .item');
+  });
+
+  // Pre-compute lowercase text for each article (faster than re-reading on every keystroke)
+  var index = articles.map(function(art){
+    return { el: art, text: (art.textContent || '').toLowerCase() };
+  });
+
+  function normalise(s){
+    return (s || '').toLowerCase().trim().replace(/\s+/g, ' ');
+  }
+
+  function filter(q){
+    q = normalise(q);
+    var visibleCount = 0;
+    if (!q) {
+      // Reset: show everything
+      index.forEach(function(rec){ rec.el.classList.remove('is-hidden-by-search'); });
+      sections.forEach(function(s){ s.classList.remove('is-empty-by-search'); });
+      emptyEl.classList.remove('is-visible');
+      clearBtn.classList.remove('is-visible');
+      meta.innerHTML = '輸入關鍵字（中英皆可），所有新聞會即時過濾。Type in any keyword — news filter as you type.';
+      return;
+    }
+    clearBtn.classList.add('is-visible');
+    // Token-based AND match: every space-separated token must appear
+    var tokens = q.split(' ').filter(Boolean);
+    index.forEach(function(rec){
+      var matchAll = tokens.every(function(tok){ return rec.text.indexOf(tok) !== -1; });
+      if (matchAll) {
+        rec.el.classList.remove('is-hidden-by-search');
+        visibleCount++;
+      } else {
+        rec.el.classList.add('is-hidden-by-search');
+      }
+    });
+    // Hide sections that have zero visible articles
+    sections.forEach(function(s){
+      var visible = s.querySelectorAll('.feature:not(.is-hidden-by-search), .story:not(.is-hidden-by-search), .item:not(.is-hidden-by-search)');
+      if (visible.length === 0) s.classList.add('is-empty-by-search');
+      else s.classList.remove('is-empty-by-search');
+    });
+    if (visibleCount === 0) {
+      emptyEl.classList.add('is-visible');
+      emptyTerm.textContent = q;
+      meta.innerHTML = '找到 <strong>0</strong> 則新聞 · 0 results';
+    } else {
+      emptyEl.classList.remove('is-visible');
+      meta.innerHTML = '找到 <strong>' + visibleCount + '</strong> 則新聞符合「<strong>' + q.replace(/[<>&]/g,'') + '</strong>」· ' + visibleCount + ' result' + (visibleCount === 1 ? '' : 's');
+    }
+  }
+
+  input.addEventListener('input', function(){ filter(input.value); });
+  clearBtn.addEventListener('click', function(){
+    input.value = '';
+    filter('');
+    input.focus();
+  });
+  // Escape key clears
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { input.value = ''; filter(''); }
+  });
+})();
+</script>
 
 </body>
 </html>
