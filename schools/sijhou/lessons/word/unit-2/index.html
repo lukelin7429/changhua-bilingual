@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Unit 2 · Reading & Learning · Sijhou Word of the Day</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/sijhou/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/sijhou/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/sijhou/favicon-180.png">
+<link rel="shortcut icon" href="/schools/sijhou/favicon.ico">
+<meta name="description" content="Unit 2 of Sijhou's Word of the Day: 15 vocabulary videos on reading & learning. 閱讀、學習與考試 15 個英文單字 + 15 部影片。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tree-deep:#2f4e2c;--tree:#4a7048;--tree-soft:#dfe9d8;
+    --gold:#c9a04a;--gold-deep:#8c6c20;--gold-soft:#f4e9c8;
+    --terra:#b85738;--terra-deep:#8a3a22;--terra-soft:#f8dccf;
+    --wool:#f8f4eb;--bg-soft:#fbf8f0;--line:#e7e1d3;
+    --ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(47,78,44,.30);--shadow-sm:0 6px 16px -6px rgba(47,78,44,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  .subnav{background:var(--tree-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:19px; } }
+  .subnav a{color:var(--tree-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--terra-deep);}
+  .subnav a.is-active{background:var(--terra);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* Unit hero */
+  .unit-hero{background:linear-gradient(135deg, var(--tree-deep) 0%, var(--tree) 100%);color:#fff;padding:48px 24px 60px;text-align:center;}
+  @media (min-width:720px){ .unit-hero{ padding:72px 24px 88px; } }
+  .unit-hero__eyebrow{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:5px;color:var(--gold-soft);text-transform:uppercase;font-weight:600;}
+  @media (min-width:720px){ .unit-hero__eyebrow{ font-size:16px; } }
+  .unit-hero h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;line-height:1.1;letter-spacing:.5px;margin-top:10px;}
+  @media (min-width:720px){ .unit-hero h1{ font-size:64px; } }
+  .unit-hero__zh{font-size:20px;color:#e7eee2;margin-top:10px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .unit-hero__zh{ font-size:26px; } }
+  .unit-hero__meta{display:inline-flex;gap:24px;margin-top:24px;padding:12px 24px;background:rgba(255,255,255,.1);border-radius:99px;font-size:15px;color:#fff;font-weight:600;letter-spacing:1px;}
+  @media (min-width:720px){ .unit-hero__meta{ font-size:17px;gap:32px; } }
+
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:24px 0 12px;flex-wrap:wrap;}
+  .unit-nav a{color:var(--tree-deep);text-decoration:none;font-weight:700;font-size:16px;padding:10px 20px;border-radius:10px;border:2px solid var(--line);background:#fff;transition:all .15s;}
+  @media (min-width:720px){ .unit-nav a{ font-size:18px; } }
+  .unit-nav a:hover{background:var(--terra-soft);border-color:var(--terra);color:var(--terra-deep);}
+  .unit-nav a.center{background:var(--tree-deep);color:#fff;border-color:var(--tree-deep);}
+  .unit-nav a.center:hover{background:var(--terra);border-color:var(--terra);color:#fff;}
+  .unit-nav a.disabled{color:var(--ink-soft);background:var(--bg-soft);pointer-events:none;border-color:var(--line);}
+
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media (min-width:880px){ .vocabs{ grid-template-columns:repeat(2,1fr);gap:36px; } }
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--tree);}
+  .vc:nth-child(4n+2){border-top-color:var(--gold);}
+  .vc:nth-child(4n+3){border-top-color:var(--terra);}
+  .vc:nth-child(4n+4){border-top-color:#5b9d5b;}
+  .vc__head{padding:24px 26px 18px;min-height:130px;}
+  @media (min-width:720px){ .vc__head{ padding:30px 32px 20px;min-height:160px; } }
+  .vc__num{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra-deep);text-transform:uppercase;}
+  @media (min-width:720px){ .vc__num{ font-size:15px; } }
+  .vc__term{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--tree-deep);line-height:1.15;margin-top:6px;}
+  @media (min-width:720px){ .vc__term{ font-size:42px; } }
+  .vc__pos{font-family:'Playfair Display',serif;font-size:.55em;color:var(--terra-deep);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .vc__zh{ font-size:28px; } }
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media (min-width:720px){ .vc__body{ padding:26px 32px 32px; } }
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--tree);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media (min-width:720px){ .vc__ex .en{ font-size:21px; } }
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media (min-width:720px){ .vc__ex .zh{ font-size:18px; } }
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--tree-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../../../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../../../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../../" class="is-active">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../../../news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="../../../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=sijhou">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="unit-hero__eyebrow">Word of the Day · Unit 02</div>
+  <h1>Reading & Learning</h1>
+  <div class="unit-hero__zh">閱讀、學習與考試</div>
+  <div class="unit-hero__meta">📺 15 videos · 15 個影片 · 📚 閱讀、學習與考試</div>
+</header>
+
+<div class="wrap">
+  <div class="unit-nav">
+    <a href="../../" class="center">← All Units · 回 Lessons</a>
+    <a href="../unit-1/">← Unit 1: 校園日常與作息</a>
+    <a href="../unit-3/">Unit 3: 下課與遊戲 →</a>
+  </div>
+
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">reading <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">閱讀</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/zf2txknP5gY?rel=0" title="reading · 閱讀" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Sijhou students do silent <b>reading</b> every morning.</div>
+            <div class="zh">溪州學生每天早上靜默閱讀。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Reading</b> is the L in our Sijhou L.I.F.E. curriculum.</div>
+            <div class="zh">閱讀就是溪州 L.I.F.E. 的 L。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">storytelling <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">講故事</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/9vgrjo_itPg?rel=0" title="storytelling · 講故事" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We practice <b>storytelling</b> in English class.</div>
+            <div class="zh">我們在英文課練習講故事。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Good <b>storytelling</b> uses voice, hands, and eyes.</div>
+            <div class="zh">好的講故事要用聲音、手與眼神。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">storytelling contest <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">說故事比賽</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/YbDsQti6qZc?rel=0" title="storytelling contest · 說故事比賽" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Sijhou holds a school <b>storytelling contest</b> every year.</div>
+            <div class="zh">溪州每年都舉辦校內說故事比賽。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">I won second place in the <b>storytelling contest</b>.</div>
+            <div class="zh">我在說故事比賽得了第二名。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">read aloud competition <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">朗讀比賽</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/pmSwUJIeDdw?rel=0" title="read aloud competition · 朗讀比賽" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">I practiced for the English <b>read aloud competition</b> for a month.</div>
+            <div class="zh">我為英文朗讀比賽練習了一個月。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">In a <b>read aloud competition</b>, clear pronunciation matters.</div>
+            <div class="zh">朗讀比賽中，清楚的發音很重要。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">journalism <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">新聞工作</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/suhPfSyh7NQ?rel=0" title="journalism · 新聞工作" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en"><b>Journalism</b> is the work of reporting the news.</div>
+            <div class="zh">新聞工作就是把新聞報導出來。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Students wrote a school newspaper in their <b>journalism</b> club.</div>
+            <div class="zh">學生在新聞社團寫了一份校刊。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 06</div>
+        <div class="vc__term">hardcover book <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">精裝書</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/FxOOgme4DO8?rel=0" title="hardcover book · 精裝書" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The library has many beautiful <b>hardcover books</b>.</div>
+            <div class="zh">圖書館有很多漂亮的精裝書。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">A <b>hardcover book</b> lasts longer than a paperback.</div>
+            <div class="zh">精裝書比平裝書更耐用。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 07</div>
+        <div class="vc__term">audience <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">觀眾</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/9qheFWIXVDo?rel=0" title="audience · 觀眾" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The <b>audience</b> clapped at the end of the show.</div>
+            <div class="zh">表演結束時，觀眾鼓掌。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Speak loudly so the <b>audience</b> at the back can hear you.</div>
+            <div class="zh">說大聲一點，讓後排觀眾聽得到。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 08</div>
+        <div class="vc__term">self assessment <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">自我評量</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/JNPfXaEaWm4?rel=0" title="self assessment · 自我評量" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">After each unit, we do a <b>self assessment</b>.</div>
+            <div class="zh">每個單元結束後，我們做自我評量。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Self assessment</b> helps you know what to study next.</div>
+            <div class="zh">自我評量幫你知道下一步要學什麼。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 09</div>
+        <div class="vc__term">online test <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">線上測驗</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/YBv_4ZRMWS0?rel=0" title="online test · 線上測驗" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We took an English <b>online test</b> on the tablet today.</div>
+            <div class="zh">我們今天用平板做了英語線上測驗。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The <b>online test</b> shows your score right away.</div>
+            <div class="zh">線上測驗會立刻顯示分數。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 10</div>
+        <div class="vc__term">midterm exams <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">期中考</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/9Kat49fv5rQ?rel=0" title="midterm exams · 期中考" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We have <b>midterm exams</b> in November.</div>
+            <div class="zh">我們的期中考在十一月。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Study a little each day before the <b>midterm exams</b>.</div>
+            <div class="zh">期中考前每天讀一點書。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 11</div>
+        <div class="vc__term">observe <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">觀察</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/RWoOKVhD-1w?rel=0" title="observe · 觀察" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Scientists <b>observe</b> carefully before they draw a conclusion.</div>
+            <div class="zh">科學家會先仔細觀察，再下結論。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Observe</b> the bean plant and write what changes.</div>
+            <div class="zh">觀察豆子植物，把變化寫下來。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 12</div>
+        <div class="vc__term">height <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">身高</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/6TotMLpSvCc?rel=0" title="height · 身高" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We measured our <b>height</b> at the nurse's office.</div>
+            <div class="zh">我們在保健室量身高。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">She has grown 5 cm in <b>height</b> this year.</div>
+            <div class="zh">她今年身高長高了 5 公分。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 13</div>
+        <div class="vc__term">PaGamo <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">打Game學</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/BFKCgKTwJTE?rel=0" title="PaGamo · 打Game學" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students play <b>PaGamo</b> to review math.</div>
+            <div class="zh">學生用 PaGamo 複習數學。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>PaGamo</b> turns review into a game.</div>
+            <div class="zh">PaGamo 把複習變成遊戲。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 14</div>
+        <div class="vc__term">SEL <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">社會情緒學習</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/mrP7OW0BaYk?rel=0" title="SEL · 社會情緒學習" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en"><b>SEL</b> stands for Social Emotional Learning.</div>
+            <div class="zh">SEL 是「社會情緒學習」的縮寫。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Sijhou teachers learn <b>SEL</b> together every term.</div>
+            <div class="zh">溪州老師每學期一起進修 SEL。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 15</div>
+        <div class="vc__term">professional development <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">專業進修</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/N5h0cW3wWdY?rel=0" title="professional development · 專業進修" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Teachers attend <b>professional development</b> workshops.</div>
+            <div class="zh">老師參加專業進修工作坊。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Professional development</b> helps teachers grow.</div>
+            <div class="zh">專業進修幫助老師成長。</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="unit-nav">
+    <a href="../../" class="center">← All Units · 回 Lessons</a>
+    <a href="../unit-1/">← Unit 1: 校園日常與作息</a>
+    <a href="../unit-3/">Unit 3: 下課與遊戲 →</a>
+  </div>
+</div>
+
+<footer>
+  © 溪州國小 Sijhou Elementary &nbsp;·&nbsp;
+  Word of the Day series by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--tree-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
