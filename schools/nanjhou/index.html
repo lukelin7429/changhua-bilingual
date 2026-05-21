@@ -11,6 +11,10 @@
 <meta property="og:title" content="Nan-Jhou Elementary · 彰化縣溪州鄉南州國民小學">
 <meta property="og:description" content="A 70-year sugar-heritage school under a 100-year banyan · 七十年糖廠血統，一棵百年寬榕守望">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://changhua-bilingual.org/schools/nanjhou/photos/kuanrong-hero.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="photos/crest-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="photos/crest-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="photos/crest-180.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,24 +81,33 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Hero Banner — Kuanrong banyan canopy at golden hour (SVG, no people) === */
+  /* === Hero Banner — the real Kuanrong banyan (green dome) === */
   .banner{
     position:relative;
     background-color:#143226;
     background-image:
-      linear-gradient(90deg, rgba(20,50,38,.62) 0%, rgba(20,50,38,.28) 50%, rgba(20,50,38,0) 100%),
-      url('photos/banyan-hero.svg');
+      linear-gradient(180deg, rgba(20,50,38,.10) 0%, rgba(20,50,38,.20) 45%, rgba(10,29,18,.78) 100%),
+      url('photos/kuanrong-hero.jpg');
     background-size:cover;
-    background-position:center center;
+    background-position:center 55%;
     background-repeat:no-repeat;
-    min-height:340px;display:flex;align-items:flex-end;overflow:hidden;
+    min-height:360px;display:flex;align-items:flex-end;overflow:hidden;
   }
-  @media (min-width:720px){ .banner{ min-height:440px; } }
-  @media (min-width:1080px){ .banner{ min-height:500px; } }
+  @media (min-width:720px){ .banner{ min-height:480px; } }
+  @media (min-width:1080px){ .banner{ min-height:560px; } }
   .banner__inner{
     position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
     padding:36px 24px 36px;color:#fff;
+    display:grid;grid-template-columns:1fr;gap:18px;align-items:end;
   }
+  @media (min-width:720px){ .banner__inner{ grid-template-columns:1fr 120px;gap:28px;padding:56px 36px 48px; } }
+  @media (min-width:1080px){ .banner__inner{ grid-template-columns:1fr 150px;gap:36px; } }
+  .banner__crest{
+    width:96px;height:auto;display:block;justify-self:start;
+    filter:drop-shadow(0 4px 14px rgba(0,0,0,.5));
+  }
+  @media (min-width:720px){ .banner__crest{ width:120px;justify-self:end; } }
+  @media (min-width:1080px){ .banner__crest{ width:150px; } }
   @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
   .banner__brand{
     font-family:'Playfair Display',serif;
@@ -120,6 +133,21 @@
     max-width:720px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);
   }
   @media (min-width:720px){ .banner__tagline{ font-size:22px;margin-top:20px; } }
+
+  /* === Figure / photo === */
+  .figure{margin-top:30px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;}
+  .figure img{display:block;width:100%;height:auto;}
+  .figure__cap{padding:14px 18px;font-size:15px;color:var(--ink-soft);text-align:center;line-height:1.55;font-style:italic;}
+  @media (min-width:720px){ .figure__cap{ font-size:16px; } }
+  .figure__cap b{color:var(--banyan-deep);font-style:normal;font-family:'Playfair Display',serif;}
+
+  .photo-pair{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
+  @media (min-width:720px){ .photo-pair{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .photo-pair .figure{margin-top:0;}
+
+  .banyan-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:30px;align-items:start;}
+  @media (min-width:880px){ .banyan-grid{ grid-template-columns:1.1fr 1fr;gap:32px; } }
+  .banyan-grid .figure{margin-top:0;}
 
   /* === About === */
   .about__lead{
@@ -377,10 +405,13 @@
 <!-- ===== Hero Banner ===== -->
 <header class="banner">
   <div class="banner__inner">
-    <div class="banner__brand">A Sugar-Era Rural Campus · Established 1955</div>
-    <h1>Nan-Jhou Elementary</h1>
-    <div class="banner__zh">彰化縣溪州鄉南州國民小學</div>
-    <p class="banner__tagline">A plain-forest school of 100+ trees — where a hundred-year banyan still watches over a hundred-year story.</p>
+    <div>
+      <div class="banner__brand">A Sugar-Era Rural Campus · Established 1955</div>
+      <h1>Nan-Jhou Elementary</h1>
+      <div class="banner__zh">彰化縣溪州鄉南州國民小學</div>
+      <p class="banner__tagline">A plain-forest school of 100+ trees — where a hundred-year banyan still watches over a hundred-year story.</p>
+    </div>
+    <img class="banner__crest" src="photos/crest.png" alt="南州國小校徽 · Nan-Jhou Elementary crest">
   </div>
 </header>
 
@@ -422,6 +453,11 @@
       <div class="quote__text">"A plain-forest school — every classroom looks out at a tree."</div>
       <div class="quote__zh">「平地森林小學——每一間教室向外看，都看得到一棵樹。」</div>
     </div>
+
+    <figure class="figure">
+      <img src="photos/courtyard.jpg" alt="南州國小校園廣場——綠地、樹蔭、綠瓦教室建築" loading="lazy">
+      <figcaption class="figure__cap"><b>Campus courtyard</b> · 校園廣場——綠地、老樹、與一整面綠瓦教室。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -438,7 +474,10 @@
       <div class="banyan-spot__title" style="text-align:center;">Kuanrong · 寬榕</div>
       <div class="banyan-spot__zh" style="text-align:center;">「寬」字取「兩國寬容、和諧」之意——日治時期種下的百年老榕，至今仍守在校門口</div>
 
-      <div class="banyan-spot__art">🌳</div>
+      <figure class="figure" style="margin:24px auto 0;max-width:560px;background:#fff;">
+        <img src="photos/banyan-trunk.jpg" alt="寬榕老榕樹的樹幹特寫——粗壯的氣根與盤根交錯，後方是綠瓦教室建築" loading="lazy">
+        <figcaption class="figure__cap"><b>Kuanrong · in person</b> · 寬榕本人——盤根錯節的百年樹幹，後方是南州的綠瓦教室。</figcaption>
+      </figure>
 
       <div class="banyan-spot__body">
         <p>
@@ -540,6 +579,16 @@
       </article>
 
       <article class="program">
+        <div class="program__icon">🌍</div>
+        <div>
+          <div class="program__title">A Campus of Many Flags</div>
+          <div class="program__title-zh">國際視野——校園裡的國旗牆</div>
+          <div class="program__body">Painted along the courtyard hedge: flags of countries the school has touched through pen-pal exchanges, holiday lessons, and visiting teachers. A small Changhua school whose children grow up knowing the world has a lot of front doors.</div>
+          <div class="program__zh">校園矮牆上一字排開的，是孩子們透過筆友交流、節慶教學與來訪老師曾經接觸過的國家國旗。一所彰化小校，讓孩子從小知道「世界有很多扇門」。</div>
+        </div>
+      </article>
+
+      <article class="program">
         <div class="program__icon">💻</div>
         <div>
           <div class="program__title">Cool English · PaGamO · AI Tools</div>
@@ -580,6 +629,17 @@
           🦉 Visit The HootHub · 拜訪外師的網站 ↗
         </a>
       </div>
+    </div>
+
+    <div class="photo-pair">
+      <figure class="figure">
+        <img src="photos/flag-grove.jpg" alt="校園樹蔭下整排國旗牆，象徵國際視野" loading="lazy">
+        <figcaption class="figure__cap"><b>The flag wall</b> · 國際視野——樹蔭下整排國旗牆。</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="photos/playground.jpg" alt="校園草地遊樂場——藍色鞦韆與彩色滑梯" loading="lazy">
+        <figcaption class="figure__cap"><b>The play area</b> · 七十六個孩子共用的遊樂空間。</figcaption>
+      </figure>
     </div>
 
     <div class="quote quote--mist">
