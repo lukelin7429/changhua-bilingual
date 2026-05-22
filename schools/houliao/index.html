@@ -87,71 +87,91 @@
     .topbar-nav a{font-size:13.5px;}
   }
 
-  /* ============ TITLE (clean, no banner) ============ */
+  /* ============ TITLE (photo hero banner) ============ */
   .title{
-    background:#fff;
-    padding:56px 0 36px;
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(14,58,69,.78) 0%, rgba(14,58,69,.62) 45%, rgba(14,58,69,.88) 100%),
+      url('photos/croquet-team-fields.jpg') center 35% / cover no-repeat;
+    padding:84px 0 64px;
     text-align:center;
-    border-bottom:1px solid var(--line);
+    color:#fff;
+    border-bottom:5px solid var(--gold);
   }
   .title__eyebrow{
     display:inline-block;
-    font-size:14.5px;letter-spacing:.22em;
-    color:var(--paddy);font-weight:700;
+    font-size:14px;letter-spacing:.28em;
+    color:var(--gold-soft);font-weight:700;
     text-transform:uppercase;
-    margin-bottom:18px;
+    margin-bottom:20px;
+    text-shadow:0 1px 6px rgba(0,0,0,.4);
   }
   .title h1{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:clamp(46px,7.5vw,76px);
-    line-height:1.1;font-weight:600;letter-spacing:.01em;
-    color:var(--teal-deep);
-    margin-bottom:10px;
+    font-size:clamp(44px,7vw,72px);
+    line-height:1.08;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:8px;
+    text-shadow:0 2px 14px rgba(0,0,0,.45);
   }
   .title .h1-zh{
-    font-size:clamp(21px,2.7vw,28px);
+    font-size:clamp(20px,2.6vw,26px);
     font-weight:500;letter-spacing:.06em;
-    color:var(--ink-soft);
-    margin-top:6px;
+    color:rgba(255,255,255,.92);
+    margin-top:12px;
     font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 8px rgba(0,0,0,.4);
+  }
+  .title__divider{
+    width:60px;height:2px;background:var(--gold);
+    margin:24px auto 18px;border:0;
   }
   .title__tagline{
-    max-width:600px;margin:18px auto 0;
+    max-width:600px;margin:0 auto;
     font-family:'Cormorant Garamond',serif;
     font-style:italic;
     font-size:21px;
-    color:var(--ink);
+    color:rgba(255,255,255,.96);
     line-height:1.55;
+    text-shadow:0 1px 8px rgba(0,0,0,.42);
   }
   .title__tagline .tagline-zh{
     display:block;
     font-style:normal;
     font-family:'PingFang TC',sans-serif;
-    font-size:17.5px;
-    margin-top:6px;
-    color:var(--ink-soft);
+    font-size:17px;
+    margin-top:8px;
+    color:rgba(255,255,255,.82);
     letter-spacing:.05em;
   }
 
-  /* Stats strip (cream version) */
+  /* Stats strip (on-banner translucent version) */
   .stats{
     display:grid;grid-template-columns:repeat(4,1fr);
     gap:0;
-    max-width:780px;margin:34px auto 0;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+    max-width:780px;margin:38px auto 0;
+    background:rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.18);
+    border-bottom:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
   }
   .stat{
     padding:22px 12px;text-align:center;
-    border-right:1px solid var(--line);
+    border-right:1px solid rgba(255,255,255,.16);
   }
   .stat:last-child{border-right:none;}
   .stat__label-en{
     font-family:'Cormorant Garamond',serif;
-    font-size:21px;font-weight:600;letter-spacing:.02em;
-    color:var(--teal-deep);line-height:1.2;
+    font-size:20px;font-weight:600;letter-spacing:.02em;
+    color:#fff;line-height:1.2;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
   }
-  .stat__label-zh{font-size:15px;margin-top:8px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  .stat__label-zh{font-size:14.5px;margin-top:8px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  @media (max-width:880px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .stat:nth-child(2){border-right:none;}
+    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16);}
+  }
 
   /* ============ Section base ============ */
   section{padding:90px 0;}
@@ -532,6 +552,8 @@
     <h1>Houliao Elementary School
       <div class="h1-zh">彰化縣芳苑鄉後寮國民小學</div>
     </h1>
+
+    <hr class="title__divider">
 
     <p class="title__tagline">
       A small school by the rice fields, raising big-hearted children
