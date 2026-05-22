@@ -875,15 +875,15 @@ def build_resources():
       <p>1,074 km² · 1.2 million people · founded 1723 — Taiwan's name-sake of education. Geography, history, and the bilingual ecosystem at a glance.</p>
       <div class="hub-card-meta">Geography · History · Education</div>
     </a>
-    <a class="hub-card" href="/resources/books-for-taiwan/">
-      <h3>Books for Taiwan</h3>
-      <p>An American-volunteer project (since 2012) collecting English-language books for Taiwanese schools and libraries.</p>
-      <div class="hub-card-meta">Amy Lin · since 2012</div>
+    <a class="hub-card" href="/resources/dom-jones/">
+      <h3>Dom Jones 校園巡迴</h3>
+      <p>From Compton to Changhua — UN SDG ambassador and MCC Advocacy Board Chairwoman, on her ongoing school assembly tour across the county.</p>
+      <div class="hub-card-meta">School visits · SDGs</div>
     </a>
-    <a class="hub-card" href="/resources/eric-berman/">
-      <h3>Eric Berman 故事集</h3>
-      <p>Four short bilingual classroom stories — kite-making, attendance, a law lecture, and a first-grade opening ceremony.</p>
-      <div class="hub-card-meta">4 stories · EN + 中文</div>
+    <a class="hub-card" href="/resources/edward-huang/">
+      <h3>Edward Huang 認識</h3>
+      <p>A UN voice for Taiwan's youth — UNFCCC YOUNGO member and LCOY Taiwan International Ambassador bringing climate diplomacy into Changhua classrooms.</p>
+      <div class="hub-card-meta">UN climate · SDGs</div>
     </a>
   </div>
 </section>
