@@ -1568,9 +1568,8 @@ def build_english_reading_corner():
         ],
         companion_h2_en="Companion Hub resources", companion_h2_zh="搭配 Hub 其他資源",
         companion_cards=[
-            {"href": "/resources/books-for-taiwan/", "title": "Books for Taiwan", "desc": "Long-running donation initiative — apply for English book bundles for your reading corner.", "meta": "Book source"},
             {"href": "/word-of-the-day/", "title": "Word of the Day", "desc": "Pull a 'reading-related' word from the Hub for daily warm-ups before silent reading.", "meta": "Warm-up vocab"},
-            {"href": "/resources/eric-berman/", "title": "Eric Berman", "desc": "Storytelling teacher — his style is a model for FET-led book talks.", "meta": "Storytelling model"},
+            {"href": "/resources/bilingual-campus/english-practice-corner/", "title": "English Practice Corner", "desc": "A sister-corner concept — talking practice instead of silent reading, same low-stakes design.", "meta": "Speaking complement"},
         ],
     )
 
@@ -2675,47 +2674,6 @@ def build_announcements():
     return page_shell("Bilingual Announcements", content, "/resources/", extra)
 
 
-def build_books_for_taiwan():
-    content = """
-<section class="hub-section hub-section--narrow">
-  <p class="hub-eyebrow">Resources · Books for Taiwan</p>
-  <h1 class="hub-h1">Books for Taiwan</h1>
-  <p style="font-size:1.15rem;color:var(--hub-ink-soft);line-height:1.65;margin-top:24px">
-    A volunteer-run program started in <strong>April 2012</strong> by <strong>Amy Lin</strong>. American volunteers — predominantly young professionals and students — collect and donate English-language books and audiovisual materials to schools, libraries, and correctional facilities throughout Taiwan.
-  </p>
-  <p class="hub-zh" style="font-size:1.05rem;color:var(--hub-ink-soft);line-height:1.7;margin-top:18px">
-    由 Amy Lin 於 2012 年 4 月發起的志工計畫。美國志工——以年輕專業人士與學生為主——募集並捐贈英文書籍與視聽教材給台灣的學校、圖書館與矯正機構。
-  </p>
-
-  <h2 class="hub-h2" style="margin-top:56px">What's collected <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">收集項目</span></h2>
-  <ul class="about-list">
-    <li>Children's literature 童書</li>
-    <li>Young adult books 青少年讀物</li>
-    <li>Hardcover general-interest volumes 精裝叢書</li>
-    <li>Cookbooks 食譜</li>
-    <li>Audiovisual media (CDs, DVDs) 視聽教材</li>
-  </ul>
-  <p>Materials are sourced primarily from American libraries that are deaccessioning their collections.</p>
-
-  <h2 class="hub-h2" style="margin-top:56px">Where books go <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">捐贈對象</span></h2>
-  <p>Books arrive at schools, public libraries, and correctional facilities across Taiwan. Recipients have included rural elementary schools (in Changhua and beyond), prison libraries, and culinary programs that benefit from authentic Western cookbooks.</p>
-
-  <h2 class="hub-h2" style="margin-top:56px">Why it matters <span class="hub-zh" style="font-size:.6em;color:var(--hub-ink-faint);font-weight:400">計畫的意義</span></h2>
-  <p>Three stated goals:</p>
-  <ol class="about-list">
-    <li><strong>Build comfort and curiosity with English</strong> — Taiwanese students see English as living, not just academic.</li>
-    <li><strong>Support culinary &amp; vocational learning</strong> — culinary students prepare authentic Western cuisine from primary-source recipes.</li>
-    <li><strong>Carry warmth across the Pacific</strong> — American donors send not just books but a gesture of optimism and connection.</li>
-  </ol>
-
-  <p style="margin-top:56px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
-</section>
-""".strip()
-    return page_shell("Books for Taiwan", content, "/resources/")
-
-
 SDGS = [
     # (n, icon, en, zh, group_en, group_zh, color, en_summary, zh_summary, [prompts])
     (1,  "💰", "No Poverty",                            "終結貧窮",           "People",      "人類",       "#E5243B",
@@ -3103,56 +3061,6 @@ def build_sdg_quiz(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum):
     return page_shell(f"SDG {n:02d} Quiz · {en}", page, "/resources/", extra)
 
 
-def build_eric_berman():
-    stories = [
-        ("Kite-Making at Siling Elementary", "西陵國小放風箏",
-         "Siling Elementary has a long tradition of crafting kites. When students from New York visited, they joined the workshop — making kites by hand, decorating them with markers, and then taking them out to the school track to fly.",
-         "西陵國小有悠久的風箏製作傳統。當紐約來的學生來訪時，他們加入了風箏工作坊——親手做風箏、用麥克筆裝飾，然後把風箏帶到學校跑道上放飛。"),
-        ("Taking Attendance", "課堂點名",
-         "Taking attendance is an important part of every class. The teacher calls each student's name and records whether they are present or absent. It teaches students to listen for their names and to respond clearly — a small daily ritual that builds language confidence.",
-         "點名是每堂課的重要環節。老師叫出每個學生的名字，記錄他們是否到課。這教學生聽自己的名字並清楚回應——這個微小的日常儀式，建立了語言的自信。"),
-        ("A Lecture on Law at Datong Elementary", "大同國小法律講座",
-         "A visiting teacher gave a presentation about law at Datong Elementary. He explained why laws matter in society and described career paths that work with the law — including judges, prosecutors, and legal practitioners. Students asked thoughtful questions about fairness and rules.",
-         "一位訪問老師到大同國小演講法律。他說明法律在社會中的重要性，介紹了與法律相關的職涯選項——包括法官、檢察官與律師。學生們提出關於公平與規則的深度問題。"),
-        ("First Grade Orientation at Datong", "大同國小一年級開學典禮",
-         "Datong Elementary holds an opening ceremony for new first graders. Parents accompany their children through symbolic gates representing politeness, intelligence, and diligent study. It marks the start of six years of elementary education — and the families' shared commitment to learning.",
-         "大同國小為新生一年級舉辦開學典禮。家長陪伴孩子穿越象徵「禮貌、聰明、勤學」三道門。這標誌著六年小學教育的起點——以及家庭對學習的共同承諾。"),
-    ]
-    cards = []
-    for i, (en_title, zh_title, en_body, zh_body) in enumerate(stories, 1):
-        cards.append(f"""
-<article class="story-card">
-  <p class="story-num">Story {i:02d}</p>
-  <h2 class="story-title">{en_title}</h2>
-  <p class="story-title-zh">{zh_title}</p>
-  <div class="story-body">
-    <p class="story-en">{en_body}</p>
-    <p class="story-zh">{zh_body}</p>
-  </div>
-</article>
-""".strip())
-    content = f"""
-<section class="hub-section hub-section--narrow">
-  <p class="hub-eyebrow">Resources · Eric Berman 故事集</p>
-  <h1 class="hub-h1">Four classroom stories.</h1>
-  <p style="font-size:1.08rem;color:var(--hub-ink-soft);max-width:60ch">
-    Four short bilingual stories about everyday classroom life in Changhua — produced by Eric Berman for the legacy Bilingual Hub.
-  </p>
-  <p class="hub-zh" style="color:var(--hub-ink-soft)">由 Eric Berman 為舊版彰化雙語資源網製作的四則雙語故事，記錄彰化校園的日常。</p>
-
-  <div class="story-list">
-    {''.join(cards)}
-  </div>
-
-  <p style="margin-top:48px;color:var(--hub-ink-faint);font-size:.92rem">
-    <a href="/resources/">← Back to Resources</a>
-  </p>
-</section>
-""".strip()
-    extra = '<link rel="stylesheet" href="/assets/css/resources.css">'
-    return page_shell("Eric Berman 故事集", content, "/resources/", extra)
-
-
 def write(path, html):
     p = ROOT / path.lstrip("/")
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -3175,8 +3083,6 @@ def main():
     write("resources/index.html", build_resources())
     write("resources/about-changhua/index.html", build_about_changhua())
     write("resources/classroom-english/index.html", build_classroom_english())
-    write("resources/books-for-taiwan/index.html", build_books_for_taiwan())
-    write("resources/eric-berman/index.html", build_eric_berman())
     write("resources/sdgs/index.html", build_sdgs())
     # 17 SDG handout + quiz pages
     for sdg in SDGS:
