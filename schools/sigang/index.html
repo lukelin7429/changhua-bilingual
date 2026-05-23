@@ -351,40 +351,51 @@
   @media (min-width:720px){ .song__stanza{ font-size:23px; } }
   .song__stanza--accent{border-left-color:var(--red);}
 
-  /* ===== Connect Buttons (calm, single-tone) ===== */
+  /* ===== Connect Buttons (contrast against the dark-green Contact panel) ===== */
   .connect{margin-top:36px;display:grid;grid-template-columns:1fr;gap:16px;}
   @media (min-width:680px){ .connect{ grid-template-columns:1fr 1fr;gap:20px; } }
   .cbtn{
     display:flex;align-items:center;gap:18px;
-    padding:22px 26px;border-radius:14px;text-decoration:none;color:#fff;
-    background:var(--green-deep);
-    box-shadow:0 10px 24px -12px rgba(21,80,40,.55);
-    transition:background .2s, transform .2s, box-shadow .2s;
+    padding:22px 26px;border-radius:14px;text-decoration:none;
+    transition:background .2s, transform .2s, box-shadow .2s, color .2s;
   }
   @media (min-width:720px){ .cbtn{ padding:26px 30px; } }
-  .cbtn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(21,80,40,.6);}
-  .cbtn--fb{background:#1877f2;box-shadow:0 10px 24px -12px rgba(24,119,242,.55);}
-  .cbtn--fb:hover{background:#0f5fc9;box-shadow:0 14px 30px -12px rgba(24,119,242,.6);}
+  .cbtn:hover{transform:translateY(-2px);}
+  /* Official Site — yellow on dark-green background */
+  .cbtn--official{
+    background:var(--yellow);color:var(--green-deep);
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.45);
+  }
+  .cbtn--official:hover{background:#ffe14b;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);}
+  .cbtn--official .cbtn__icon{background:rgba(21,80,40,.16);color:var(--green-deep);}
+  .cbtn--official .cbtn__label{color:rgba(21,80,40,.72);}
+  .cbtn--official .cbtn__title{color:var(--green-deep);}
+  .cbtn--official .cbtn__zh{color:rgba(21,80,40,.85);}
+  .cbtn--official .cbtn__arrow{color:var(--green-deep);}
+  /* Facebook — Meta blue on dark-green background */
+  .cbtn--fb{
+    background:#1877f2;color:#fff;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.45);
+  }
+  .cbtn--fb:hover{background:#0f5fc9;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);}
+  .cbtn--fb .cbtn__icon{background:rgba(255,255,255,.20);color:#fff;}
+  .cbtn--fb .cbtn__label{color:rgba(255,255,255,.85);}
+  .cbtn--fb .cbtn__title{color:#fff;}
+  .cbtn--fb .cbtn__zh{color:rgba(255,255,255,.92);}
+  .cbtn--fb .cbtn__arrow{color:#fff;}
+  /* Shared bits */
   .cbtn__icon{
     flex-shrink:0;width:48px;height:48px;border-radius:50%;
-    background:rgba(255,255,255,.18);color:#fff;
     display:flex;align-items:center;justify-content:center;
     font-family:'Playfair Display',serif;font-weight:800;font-size:24px;
   }
   .cbtn__main{flex:1;min-width:0;}
-  .cbtn__label{
-    font-family:'Playfair Display',serif;
-    font-size:13px;letter-spacing:3px;text-transform:uppercase;
-    color:rgba(255,255,255,.85);font-weight:600;
-  }
-  .cbtn__title{
-    font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.2;
-    color:#fff;margin-top:4px;
-  }
+  .cbtn__label{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;}
+  .cbtn__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.2;margin-top:4px;}
   @media (min-width:720px){ .cbtn__title{ font-size:25px; } }
-  .cbtn__zh{font-size:15.5px;color:rgba(255,255,255,.92);margin-top:4px;font-weight:500;line-height:1.4;}
+  .cbtn__zh{font-size:15.5px;margin-top:4px;font-weight:500;line-height:1.4;}
   @media (min-width:720px){ .cbtn__zh{ font-size:16.5px; } }
-  .cbtn__arrow{font-size:26px;font-weight:600;color:#fff;flex-shrink:0;line-height:1;transition:transform .2s;}
+  .cbtn__arrow{font-size:26px;font-weight:600;flex-shrink:0;line-height:1;transition:transform .2s;}
   .cbtn:hover .cbtn__arrow{transform:translateX(4px);}
 
   /* ===== Figure (inline campus photo) ===== */
