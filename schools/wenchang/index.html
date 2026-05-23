@@ -333,30 +333,18 @@
     box-shadow:var(--shadow);
     max-width:1000px;margin:0 auto;
   }
-  .principal-photo-placeholder{
+  .principal-photo{
     position:relative;
     aspect-ratio:1/1;
     border-radius:18px;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(255,255,255,.4) 0%, transparent 50%),
-      linear-gradient(160deg, var(--melon-soft) 0%, var(--leaf-soft) 100%);
-    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
     box-shadow:var(--shadow-sm);
     border:1px solid var(--line);
+    background:var(--melon-soft);
   }
-  .principal-photo-placeholder__mark{
-    font-family:'Cormorant Garamond',serif;
-    font-size:96px;font-weight:600;
-    color:var(--melon-deep);
-    line-height:1;
-  }
-  .principal-photo-placeholder__zh{
-    position:absolute;
-    bottom:16px;left:0;right:0;text-align:center;
-    font-family:'PingFang TC',sans-serif;
-    font-size:13px;
-    color:var(--ink-soft);
-    letter-spacing:.2em;
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 25%;
   }
   .principal-text .role{
     color:var(--leaf);font-size:14px;font-weight:700;
@@ -630,10 +618,9 @@
     </div>
 
     <div class="principal-teaser-card">
-      <div class="principal-photo-placeholder">
-        <span class="principal-photo-placeholder__mark">陳</span>
-        <span class="principal-photo-placeholder__zh">Photo · 照片待補</span>
-      </div>
+      <figure class="principal-photo">
+        <img src="photos/principal-portrait.jpg" alt="Principal Chen Yu-shan of Wenchang Elementary School" loading="lazy">
+      </figure>
 
       <div class="principal-text">
         <div class="role">Principal · 校長</div>
