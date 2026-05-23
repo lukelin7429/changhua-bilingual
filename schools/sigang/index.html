@@ -9,6 +9,11 @@
 <meta property="og:description" content="The Lighthouse School at the Windy Head & Water End · 風頭水尾的燈塔小校">
 <meta property="og:type" content="website">
 
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/sigang/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/sigang/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/sigang/favicon-180.png">
+<link rel="shortcut icon" href="/schools/sigang/favicon.ico">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -315,28 +320,130 @@
   .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--yellow);}
   .contact__value a:hover{color:var(--yellow);}
 
-  .official-cta{
-    margin-top:32px;background:var(--yellow);color:var(--green-deep);
-    border-radius:14px;padding:22px 28px;
-    display:flex;align-items:center;justify-content:space-between;gap:18px;
-    text-decoration:none;
-    transition:transform .15s, box-shadow .15s, background .15s;
-    box-shadow:0 8px 22px -8px rgba(244,213,33,.4);
+  /* ===== School Song ===== */
+  .song{
+    background:linear-gradient(160deg, var(--green-deep) 0%, var(--green) 60%, #214a30 100%);
+    color:#fff;border-radius:24px;padding:48px 32px;position:relative;overflow:hidden;
+    box-shadow:var(--shadow);
   }
-  @media (min-width:720px){ .official-cta{ padding:26px 36px; } }
-  .official-cta:hover{background:#fff;transform:translateY(-3px);}
-  .official-cta__main{flex:1;}
-  .official-cta__title{
+  @media (min-width:720px){ .song{ padding:72px 64px; } }
+  .song::before{
+    content:'';position:absolute;top:-40px;right:-40px;width:240px;height:240px;
+    background:radial-gradient(circle at center, rgba(244,213,33,.30) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .song::after{
+    content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;
+    background:radial-gradient(circle at center, rgba(230,59,44,.22) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .song__title{
+    font-family:'Playfair Display',serif;font-size:36px;font-weight:800;line-height:1.15;
+    color:#fff;letter-spacing:.5px;position:relative;
+  }
+  @media (min-width:720px){ .song__title{ font-size:52px; } }
+  .song__zh{font-size:20px;color:#fff5b8;margin-top:8px;font-weight:600;letter-spacing:1.5px;position:relative;}
+  @media (min-width:720px){ .song__zh{ font-size:24px; } }
+  .song__rule{width:80px;height:5px;background:var(--yellow);border-radius:3px;margin:18px 0 28px;position:relative;}
+  .song__credit{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#cfe7d3;margin-bottom:22px;position:relative;}
+  @media (min-width:720px){ .song__credit{ font-size:20px; } }
+  .song__lyrics{
+    display:grid;grid-template-columns:1fr;gap:18px;position:relative;
+  }
+  @media (min-width:760px){ .song__lyrics{ grid-template-columns:1fr 1fr;gap:24px 36px; } }
+  .song__stanza{
+    font-family:'Playfair Display','PingFang TC',serif;
+    font-size:21px;line-height:1.9;color:#fff;letter-spacing:1.5px;
+    padding:6px 0 6px 16px;border-left:3px solid var(--yellow);
+  }
+  @media (min-width:720px){ .song__stanza{ font-size:23px; } }
+  .song__stanza--accent{border-left-color:var(--red);}
+
+  /* ===== Animated Connect Buttons ===== */
+  @keyframes shimmer-official{
+    0%   {background-position:0% 50%;}
+    50%  {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+  @keyframes shimmer-fb{
+    0%   {background-position:0% 50%;}
+    50%  {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+  @keyframes wobble-arrow{
+    0%,100%{transform:translateX(0);}
+    50%    {transform:translateX(6px);}
+  }
+  .connect{
+    margin-top:36px;display:grid;grid-template-columns:1fr;gap:18px;position:relative;z-index:2;
+  }
+  @media (min-width:680px){ .connect{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .cbtn{
+    position:relative;display:flex;align-items:center;gap:18px;
+    padding:24px 28px;border-radius:18px;text-decoration:none;color:#fff;
+    background-size:300% 300%;
+    box-shadow:0 14px 38px -14px rgba(0,0,0,.45);
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+    overflow:hidden;isolation:isolate;
+  }
+  @media (min-width:720px){ .cbtn{ padding:28px 34px; } }
+  .cbtn::before{
+    content:'';position:absolute;inset:0;border-radius:18px;padding:2px;
+    background:linear-gradient(135deg, rgba(255,255,255,.6), rgba(255,255,255,0) 40%, rgba(255,255,255,.45));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    opacity:.7;pointer-events:none;
+  }
+  .cbtn::after{
+    content:'';position:absolute;inset:0;border-radius:18px;
+    background:radial-gradient(circle at 30% 0%, rgba(255,255,255,.25), transparent 55%);
+    opacity:.7;pointer-events:none;transition:opacity .3s;
+  }
+  .cbtn:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 26px 60px -18px rgba(0,0,0,.55);}
+  .cbtn:hover::after{opacity:1;}
+  .cbtn:hover .cbtn__arrow{animation:wobble-arrow 0.9s ease-in-out infinite;}
+  .cbtn--official{
+    background-image:linear-gradient(125deg, #f4d521 0%, #f58220 25%, #e63b2c 50%, #c79b00 75%, #f4d521 100%);
+    animation:shimmer-official 8s ease-in-out infinite;
+  }
+  .cbtn--official:hover{animation-duration:3s;}
+  .cbtn--fb{
+    background-image:linear-gradient(125deg, #1d6f3a 0%, #3a8db5 25%, #5b3eb7 50%, #155028 75%, #1d6f3a 100%);
+    animation:shimmer-fb 8s ease-in-out infinite;
+  }
+  .cbtn--fb:hover{animation-duration:3s;}
+  .cbtn__icon{
+    flex-shrink:0;width:56px;height:56px;border-radius:50%;
+    background:rgba(255,255,255,.92);color:var(--green-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-weight:800;font-size:28px;
+    box-shadow:0 6px 14px -4px rgba(0,0,0,.3);
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  .cbtn:hover .cbtn__icon{transform:rotate(360deg) scale(1.08);}
+  .cbtn--fb .cbtn__icon{color:#1877f2;}
+  .cbtn__main{flex:1;min-width:0;}
+  .cbtn__label{
     font-family:'Playfair Display',serif;
-    font-size:22px;font-weight:700;line-height:1.25;
+    font-size:13px;letter-spacing:3px;text-transform:uppercase;
+    color:rgba(255,255,255,.85);font-weight:600;
   }
-  @media (min-width:720px){ .official-cta__title{ font-size:28px; } }
-  .official-cta__zh{font-size:16px;color:#5a4a08;margin-top:4px;font-weight:600;}
-  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
-  .official-cta__arrow{
-    font-size:32px;font-weight:700;color:var(--green-deep);flex-shrink:0;
+  .cbtn__title{
+    font-family:'Playfair Display',serif;font-size:24px;font-weight:800;line-height:1.2;
+    color:#fff;margin-top:4px;text-shadow:0 2px 14px rgba(0,0,0,.35);
   }
-  @media (min-width:720px){ .official-cta__arrow{ font-size:42px; } }
+  @media (min-width:720px){ .cbtn__title{ font-size:28px; } }
+  .cbtn__zh{font-size:14.5px;color:rgba(255,255,255,.92);margin-top:4px;font-weight:500;line-height:1.4;}
+  @media (min-width:720px){ .cbtn__zh{ font-size:15.5px; } }
+  .cbtn__arrow{
+    font-size:30px;font-weight:700;color:#fff;flex-shrink:0;line-height:1;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cbtn--official, .cbtn--fb{ animation:none; }
+    .cbtn:hover .cbtn__arrow{ animation:none; }
+  }
 
   /* ===== Figure (inline campus photo) ===== */
   .figure{margin-top:32px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
@@ -605,7 +712,51 @@
   </div>
 </section>
 
-<!-- ===== V. Contact ===== -->
+<!-- ===== V. School Song ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">School Song</h2>
+    <div class="sec__title-zh">西港校歌 · 六段詩篇</div>
+    <div class="sec__rule"></div>
+
+    <div class="song">
+      <div class="song__title">Sigang's Anthem</div>
+      <div class="song__zh">西港校歌</div>
+      <div class="song__rule"></div>
+      <div class="song__credit">Lyrics by <strong style="color:#fff;">Wu Sheng-wei</strong> · 吳聖威 作詞</div>
+
+      <div class="song__lyrics">
+        <div class="song__stanza">
+          濁水溪畔，台海之濱。<br>
+          豪情海岸，鷺鷥之林。
+        </div>
+        <div class="song__stanza song__stanza--accent">
+          卓越飛揚，西港為舞。<br>
+          花樣童年，西港為伴。
+        </div>
+        <div class="song__stanza">
+          風頭水尾，希望生輝。<br>
+          藝文深耕，勇敢追夢。
+        </div>
+        <div class="song__stanza song__stanza--accent">
+          人文生態，多元教育。<br>
+          真誠好學，快樂兒童。
+        </div>
+        <div class="song__stanza">
+          天海輝映，人傑地靈。<br>
+          樂音繚繞，西港飛躍。
+        </div>
+        <div class="song__stanza song__stanza--accent">
+          閱讀悅讀，感恩惜福。<br>
+          綻放光芒，榮耀西港。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Contact ===== -->
 <section>
   <div class="wrap">
     <div class="contact">
@@ -636,21 +787,34 @@
           </div>
         </div>
         <div class="contact__row">
-          <div class="contact__icon">📘</div>
+          <div class="contact__icon">🎓</div>
           <div>
-            <div class="contact__label">Facebook</div>
-            <div class="contact__value"><a href="https://www.facebook.com/siganges" target="_blank" rel="noopener">facebook.com/siganges</a></div>
+            <div class="contact__label">Principal's Office · 校長室</div>
+            <div class="contact__value">(04) 8941029 #10</div>
           </div>
         </div>
       </div>
 
-      <a class="official-cta" href="https://sges.chc.edu.tw/" target="_blank" rel="noopener">
-        <div class="official-cta__main">
-          <div class="official-cta__title">Visit Our Official School Website</div>
-          <div class="official-cta__zh">前往西港國小官方網站 · sges.chc.edu.tw</div>
-        </div>
-        <div class="official-cta__arrow">↗</div>
-      </a>
+      <div class="connect">
+        <a class="cbtn cbtn--official" href="https://sges.chc.edu.tw/" target="_blank" rel="noopener">
+          <span class="cbtn__icon">🏫</span>
+          <span class="cbtn__main">
+            <span class="cbtn__label">Official Site</span>
+            <span class="cbtn__title">sges.chc.edu.tw</span>
+            <span class="cbtn__zh">前往西港國小官方網站</span>
+          </span>
+          <span class="cbtn__arrow">→</span>
+        </a>
+        <a class="cbtn cbtn--fb" href="https://www.facebook.com/siganges" target="_blank" rel="noopener">
+          <span class="cbtn__icon">f</span>
+          <span class="cbtn__main">
+            <span class="cbtn__label">Follow Us</span>
+            <span class="cbtn__title">facebook.com/siganges</span>
+            <span class="cbtn__zh">追蹤西港粉絲團 · 每週動態</span>
+          </span>
+          <span class="cbtn__arrow">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
