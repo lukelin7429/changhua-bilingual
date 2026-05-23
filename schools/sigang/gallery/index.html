@@ -48,17 +48,51 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  .lede-box{
-    background:linear-gradient(135deg, var(--green-soft) 0%, var(--yellow-soft) 100%);
-    border-radius:24px;padding:36px 28px;
+  /* === Hero Banner === */
+  .banner{
+    position:relative;
+    background:#000 url('../photos/campus-02.jpg') center 50%/cover;
+    min-height:280px;display:flex;align-items:flex-end;overflow:hidden;
   }
-  @media (min-width:720px){ .lede-box{ padding:52px 44px; } }
-  .lede-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.25;}
-  @media (min-width:720px){ .lede-box h2{ font-size:40px; } }
-  .lede-box .zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
-  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
-  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
-  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+  @media (min-width:720px){ .banner{ min-height:340px; } }
+  @media (min-width:1080px){ .banner{ min-height:400px; } }
+  .banner::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 12% 22%, rgba(244,213,33,.42) 0%, transparent 52%),
+      radial-gradient(ellipse at 88% 28%, rgba(106,191,127,.42) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 96%, rgba(230,59,44,.45) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(21,80,40,.30) 0%, rgba(21,80,40,.78) 100%);
+    pointer-events:none;
+  }
+  .banner__inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:32px 24px 28px;color:#fff;display:flex;align-items:flex-end;gap:18px;}
+  @media (min-width:720px){ .banner__inner{ padding:44px 36px 36px;gap:24px; } }
+  .banner__text{flex:1;min-width:0;}
+  .banner__brand{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#ffe89a;font-weight:600;margin-bottom:10px;}
+  @media (min-width:720px){ .banner__brand{ font-size:15px; } }
+  .banner h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;line-height:1.05;letter-spacing:.5px;text-shadow:0 4px 20px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner h1{ font-size:64px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:80px; } }
+  .banner__zh{font-size:19px;color:#f0f6f0;margin-top:6px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 12px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner__zh{ font-size:25px; } }
+  .banner__tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#fff5b8;margin-top:12px;line-height:1.45;max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner__tagline{ font-size:19px;margin-top:16px; } }
+  .banner__logo{flex-shrink:0;align-self:flex-end;width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;box-shadow:0 8px 22px -6px rgba(0,0,0,.5);}
+  @media (min-width:720px){ .banner__logo{ width:66px;height:66px;padding:4px; } }
+  .banner__logo img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;}
+
+  /* === Intro (white, editorial) === */
+  .intro{padding:48px 0 8px;}
+  @media (min-width:720px){ .intro{ padding:64px 0 12px; } }
+  .intro h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.25;}
+  @media (min-width:720px){ .intro h2{ font-size:38px; } }
+  .intro__zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .intro__zh{ font-size:20px; } }
+  .intro__rule{width:80px;height:5px;background:var(--yellow);border-radius:3px;margin:18px 0 24px;}
+  .intro p{font-size:20px;color:var(--ink);line-height:1.75;max-width:820px;}
+  @media (min-width:720px){ .intro p{ font-size:22px; } }
+  .intro p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .intro p .zh-inline{ font-size:20px; } }
 
   /* === Gallery grid === */
   .gal-grid{display:grid;grid-template-columns:1fr;gap:18px;}
@@ -118,17 +152,31 @@
   </div>
 </nav>
 
-<!-- ===== I. Lede ===== -->
-<section>
-  <div class="wrap">
-    <div class="lede-box">
-      <h2>A walk through Sigang.</h2>
-      <div class="zh">校園剪影 · 一所沿海小校的日常面貌</div>
-      <p>
-        From the coastal campus to the classroom touch-screens, the VR conversation practice and the bookmobile that finds us at the end of every road — this is what 96 years of small-school life looks like in the Windy Head &amp; Water End.
-        <span class="zh" style="display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;">從沿海校園、課堂上的觸控大電視、VR 對話練習，到一路找到我們的書車——這是「風頭水尾」一所 96 年小校的日常。</span>
-      </p>
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <div class="banner__brand">Photo Gallery</div>
+      <h1>A Walk Through Sigang</h1>
+      <div class="banner__zh">校園剪影 · 一所沿海小校的日常</div>
+      <p class="banner__tagline">Coastal campus, classroom touch-screens, VR practice, the Hope Reading bookmobile, and one summer day in July.</p>
     </div>
+    <div class="banner__logo">
+      <img src="/schools/sigang/favicon-512.png" alt="Sigang Elementary School emblem · 西港國小校徽">
+    </div>
+  </div>
+</header>
+
+<!-- ===== Intro ===== -->
+<section class="intro">
+  <div class="wrap">
+    <h2>96 years of small-school life at the Windy Head &amp; Water End.</h2>
+    <div class="intro__zh">風頭水尾 · 一所 96 年沿海小校的日常面貌</div>
+    <div class="intro__rule"></div>
+    <p>
+      From the coastal campus to the classroom touch-screens, the VR conversation practice and the bookmobile that finds us at the end of every road — this is what daily life at Sigang actually looks like.
+      <span class="zh-inline">從沿海校園、課堂上的觸控大電視、VR 對話練習，到一路找到我們的書車——這是西港日常的真實樣貌。</span>
+    </p>
   </div>
 </section>
 
