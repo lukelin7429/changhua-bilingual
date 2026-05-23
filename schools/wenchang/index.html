@@ -68,109 +68,72 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* ============ HERO BANNER (full-width building, dark overlay, big text) ============ */
+  /* ============ HERO BANNER (Dajuang pattern verbatim, with courtyard-fountain.jpg) ============ */
   .hero-banner{
     position:relative;
-    min-height:560px;
-    background:#1a0f0a;
+    background:#000 url('photos/courtyard-fountain.jpg') center/cover;
+    min-height:300px;
+    display:flex;align-items:flex-end;
     overflow:hidden;
-    border-bottom:6px solid var(--melon-deep);
   }
-  @media (min-width:880px){ .hero-banner{ min-height:680px; } }
-  @media (min-width:1200px){ .hero-banner{ min-height:760px; } }
-
-  .hero-banner__bg{position:absolute;inset:0;z-index:0;}
-  .hero-banner__bg img{
-    width:100%;height:100%;object-fit:cover;object-position:center 55%;
-    filter:contrast(1.08) saturate(1.08);
-  }
-
-  .hero-banner__overlay{
-    position:absolute;inset:0;z-index:1;
+  @media (min-width:720px){ .hero-banner{ min-height:420px; } }
+  @media (min-width:1080px){ .hero-banner{ min-height:500px; } }
+  .hero-banner::before{
+    content:'';position:absolute;inset:0;
     background:
-      linear-gradient(110deg, rgba(31,15,8,.88) 0%, rgba(31,15,8,.62) 48%, rgba(31,15,8,.25) 100%),
-      linear-gradient(180deg, rgba(31,15,8,.35) 0%, rgba(31,15,8,.45) 70%, rgba(31,15,8,.85) 100%);
+      radial-gradient(ellipse at 12% 20%, rgba(212,74,74,.55) 0%, transparent 50%),
+      radial-gradient(ellipse at 88% 30%, rgba(74,124,42,.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 95%, rgba(201,166,72,.55) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(31,15,8,.35) 0%, rgba(31,15,8,.75) 100%);
+    pointer-events:none;
   }
-
-  .hero-banner__content{
-    position:relative;z-index:2;
-    min-height:560px;
-    display:flex;flex-direction:column;justify-content:center;
-    padding:96px 0 80px;color:#fff;
+  .hero-banner__inner{
+    position:relative;z-index:1;width:100%;
+    max-width:1100px;margin:0 auto;
+    padding:32px 24px 28px;color:#fff;
+    display:flex;align-items:flex-end;gap:18px;
   }
-  @media (min-width:880px){
-    .hero-banner__content{ min-height:680px;padding:120px 0 96px; }
-  }
-  @media (min-width:1200px){
-    .hero-banner__content{ min-height:760px; }
-  }
-
-  .hero-banner__eyebrow{
-    display:inline-block;
+  @media (min-width:720px){ .hero-banner__inner{ padding:56px 36px 44px;gap:24px; } }
+  .hero-banner__text{flex:1;min-width:0;}
+  .hero-banner__brand{
     font-family:'Cormorant Garamond',serif;
-    font-size:17px;letter-spacing:.34em;font-weight:700;text-transform:uppercase;
-    color:var(--sail-soft);
-    margin-bottom:32px;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:#ffe8b3;font-weight:600;margin-bottom:14px;
   }
-  @media (min-width:880px){ .hero-banner__eyebrow{ font-size:19px; } }
-
+  @media (min-width:720px){ .hero-banner__brand{ font-size:16px; } }
   .hero-banner h1{
-    font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:clamp(54px, 8vw, 108px);
-    line-height:1.02;font-weight:600;letter-spacing:.005em;
-    color:#fff;text-shadow:0 4px 28px rgba(0,0,0,.45);
-    max-width:920px;
-    margin-bottom:18px;
-  }
-  .hero-banner h1 .h1-zh{
-    display:block;
-    font-family:'PingFang TC',sans-serif;
-    font-size:clamp(22px, 2.6vw, 32px);
-    font-weight:500;letter-spacing:.08em;
-    color:rgba(255,255,255,.92);
-    margin-top:22px;
-    text-shadow:0 2px 12px rgba(0,0,0,.4);
-  }
-
-  .hero-banner__tagline{
-    margin-top:34px;max-width:680px;
     font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:clamp(24px, 3vw, 34px);
-    line-height:1.45;color:#fff;
-    padding-left:24px;border-left:5px solid var(--sail);
-    text-shadow:0 2px 14px rgba(0,0,0,.35);
+    font-size:46px;font-weight:700;line-height:1.0;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.45);
   }
+  @media (min-width:720px){ .hero-banner h1{ font-size:74px; } }
+  @media (min-width:1080px){ .hero-banner h1{ font-size:92px; } }
+  .hero-banner__zh{
+    font-size:21px;color:#f5f0e8;margin-top:8px;
+    font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  @media (min-width:720px){ .hero-banner__zh{ font-size:28px; } }
+  .hero-banner__tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:#ffe1c2;margin-top:16px;line-height:1.45;
+    max-width:680px;font-weight:500;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);
+  }
+  @media (min-width:720px){ .hero-banner__tagline{ font-size:22px;margin-top:20px; } }
   .hero-banner__tagline .zh{
-    display:block;font-style:normal;
-    font-family:'PingFang TC',sans-serif;
-    font-size:clamp(18px, 2vw, 22px);
-    margin-top:12px;
-    color:rgba(255,255,255,.88);letter-spacing:.06em;
+    display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
+    font-size:16px;margin-top:8px;color:#f5e8d0;letter-spacing:.04em;
   }
-
-  .hero-banner__cta{
-    margin-top:44px;
-    display:flex;flex-wrap:wrap;gap:16px;
+  @media (min-width:720px){ .hero-banner__tagline .zh{ font-size:19px; } }
+  .hero-banner__logo{
+    flex-shrink:0;align-self:flex-end;
+    width:60px;height:60px;border-radius:50%;
+    background:#fff;padding:3px;
+    box-shadow:0 8px 22px -6px rgba(0,0,0,.5);
   }
-  .hero-banner__cta a{
-    display:inline-flex;align-items:center;gap:12px;
-    padding:18px 32px;font-size:18px;font-weight:600;letter-spacing:.06em;
-    font-family:'Inter','PingFang TC',sans-serif;
-    text-transform:uppercase;
-    transition:all .2s;
-  }
-  .hero-banner__cta .btn-solid{
-    background:var(--melon);color:#fff;border:2px solid var(--melon);
-    box-shadow:0 8px 24px rgba(212,74,74,.4);
-  }
-  .hero-banner__cta .btn-solid:hover{background:var(--melon-deep);border-color:var(--melon-deep);transform:translateY(-2px);}
-  .hero-banner__cta .btn-outline{
-    background:rgba(255,255,255,.1);color:#fff;
-    border:2px solid rgba(255,255,255,.75);
-    backdrop-filter:blur(8px);
-  }
-  .hero-banner__cta .btn-outline:hover{background:#fff;color:var(--ink);transform:translateY(-2px);}
+  @media (min-width:720px){ .hero-banner__logo{ width:78px;height:78px;padding:4px; } }
+  .hero-banner__logo img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;}
 
   /* ============ MOTTO BAND (品格 慧心 合群 創新) ============ */
   .motto-band{
@@ -217,8 +180,7 @@
   .photo-strip__grid{
     display:grid;grid-template-columns:1fr;gap:18px;
   }
-  @media (min-width:720px){ .photo-strip__grid{ grid-template-columns:repeat(2,1fr);gap:24px; } }
-  @media (min-width:1100px){ .photo-strip__grid{ grid-template-columns:repeat(4,1fr); } }
+  @media (min-width:720px){ .photo-strip__grid{ grid-template-columns:repeat(3,1fr);gap:24px; } }
   .photo-strip__item{
     position:relative;border-radius:18px;overflow:hidden;
     box-shadow:var(--shadow-sm);
@@ -643,26 +605,20 @@
 </nav>
 
 
-<!-- ============ HERO BANNER (full-width building) ============ -->
+<!-- ============ HERO BANNER (Dajuang pattern) ============ -->
 <header class="hero-banner">
-  <div class="hero-banner__bg">
-    <img src="photos/school-gate.jpg" alt="Wenchang Elementary School main entrance with engraved school name" loading="eager">
-  </div>
-  <div class="hero-banner__overlay"></div>
-  <div class="hero-banner__content">
-    <div class="wrap">
-      <span class="hero-banner__eyebrow">Est. 1959 · Changhua County · Taiwan</span>
-      <h1>Wenchang Elementary School
-        <span class="h1-zh">彰化縣福興鄉文昌國民小學</span>
-      </h1>
-      <p class="hero-banner__tagline">
-        Where the watermelon fields meet the world.
-        <span class="zh">鎮平的西瓜田裡，揚帆向世界。</span>
-      </p>
-      <div class="hero-banner__cta">
-        <a class="btn-solid" href="principal/">Meet the Principal →</a>
-        <a class="btn-outline" href="bilingual-campus/">Bilingual Campus</a>
+  <div class="hero-banner__inner">
+    <div class="hero-banner__text">
+      <div class="hero-banner__brand">Est. 1959 · A village school in Fuxing, Changhua</div>
+      <h1>Wenchang Elementary</h1>
+      <div class="hero-banner__zh">彰化縣福興鄉文昌國民小學</div>
+      <div class="hero-banner__tagline">
+        A small school. A wide horizon. Where the watermelon fields meet the world.
+        <span class="zh">小校園・大視野・鎮平的西瓜田裡，揚帆向世界。</span>
       </div>
+    </div>
+    <div class="hero-banner__logo">
+      <img src="photos/logo.jpg" alt="Wenchang Elementary School logo">
     </div>
   </div>
 </header>
@@ -687,14 +643,6 @@
 <section class="photo-strip" aria-label="Around the campus">
   <div class="wrap">
     <div class="photo-strip__grid">
-
-      <figure class="photo-strip__item">
-        <img src="photos/school-gate.jpg" alt="Wenchang Elementary School main entrance with engraved &lsquo;Wun Chang Elementary School&rsquo; signage" loading="lazy">
-        <figcaption class="photo-strip__caption">
-          <div class="en">Welcome at the school gate.</div>
-          <div class="zh">校門口 · 「超越」石碑</div>
-        </figcaption>
-      </figure>
 
       <figure class="photo-strip__item">
         <img src="photos/courtyard-fountain.jpg" alt="Wenchang Elementary School courtyard with mosaic blue fountain in the centre" loading="lazy">
