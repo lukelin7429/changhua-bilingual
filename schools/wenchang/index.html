@@ -418,67 +418,91 @@
     display:grid;grid-template-columns:repeat(3,1fr);
     gap:26px;
   }
+  /* === Tri-color pillar blocks (saturated full-color cards) === */
   .pillar{
-    background:#fff;border-radius:18px;
-    padding:38px 32px 34px;
-    border:1px solid var(--line);
-    border-top:8px solid var(--melon-deep);
-    box-shadow:var(--shadow-sm);
-    transition:transform .25s,box-shadow .25s,border-color .25s;
-    position:relative;
-  }
-  .pillar:nth-child(2){border-top-color:var(--leaf-deep);}
-  .pillar:nth-child(3){border-top-color:var(--sail-deep);}
-  .pillar:hover{
-    transform:translateY(-6px);
+    background:var(--melon-deep);color:#fff;
+    border-radius:20px;
+    padding:44px 36px 40px;
+    border:none;
     box-shadow:var(--shadow);
+    transition:transform .25s,box-shadow .25s;
+    position:relative;overflow:hidden;
   }
+  .pillar:nth-child(2){background:var(--leaf-deep);}
+  .pillar:nth-child(3){background:var(--sail);color:var(--ink);}
+  .pillar:hover{
+    transform:translateY(-8px);
+    box-shadow:0 26px 60px -22px rgba(0,0,0,.45);
+  }
+  /* big watermark number (low opacity inside the card) */
   .pillar .number{
     font-family:'Cormorant Garamond',serif;
     font-style:italic;
-    font-size:80px;font-weight:700;
-    color:var(--melon-deep);
+    font-size:140px;font-weight:700;
+    color:rgba(255,255,255,.22);
     line-height:1;letter-spacing:-.02em;
-    margin-bottom:18px;
+    margin-bottom:0;
     display:block;
+    position:absolute;
+    top:18px;right:24px;
+    pointer-events:none;
   }
-  .pillar:nth-child(2) .number{color:var(--leaf-deep);}
-  .pillar:nth-child(3) .number{color:var(--sail-deep);}
+  .pillar:nth-child(3) .number{color:rgba(31,26,22,.22);}
+
+  /* small character chip — inverse glass on filled card */
   .pillar .icon-char{
-    display:inline-block;
-    background:var(--melon-soft);color:var(--melon-deep);
-    width:54px;height:54px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.18);color:#fff;
+    width:64px;height:64px;border-radius:50%;
     font-family:'PingFang TC',serif;
-    font-size:26px;font-weight:700;
-    text-align:center;line-height:54px;
-    margin-left:16px;vertical-align:middle;
-    transform:translateY(-16px);
+    font-size:32px;font-weight:700;
+    margin-bottom:22px;
+    backdrop-filter:blur(4px);
+    border:1.5px solid rgba(255,255,255,.32);
   }
-  .pillar:nth-child(2) .icon-char{background:var(--leaf-soft);color:var(--leaf-deep);}
-  .pillar:nth-child(3) .icon-char{background:var(--sail-soft);color:var(--sail-deep);}
+  .pillar:nth-child(3) .icon-char{
+    background:rgba(31,26,22,.12);color:var(--ink);
+    border-color:rgba(31,26,22,.22);
+  }
+
   .pillar h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:36px;color:var(--ink);
+    font-size:38px;color:#fff;
     line-height:1.2;font-weight:600;margin-bottom:8px;
+    position:relative;z-index:1;
   }
+  .pillar:nth-child(3) h3{color:var(--ink);}
   .pillar h3 small{
     display:block;
     font-family:'PingFang TC',sans-serif;
-    font-size:22px;color:var(--ink-soft);
+    font-size:22px;color:rgba(255,255,255,.86);
     font-weight:500;margin-top:8px;letter-spacing:.04em;
   }
+  .pillar:nth-child(3) h3 small{color:var(--ink-soft);}
+
   .pillar .en-body{
-    font-size:22px;color:var(--ink);
+    font-size:21px;color:rgba(255,255,255,.96);
     margin:22px 0;line-height:1.65;
+    position:relative;z-index:1;
   }
+  .pillar:nth-child(3) .en-body{color:var(--ink);}
+  .pillar .en-body strong{color:#fff;font-weight:700;}
+  .pillar:nth-child(3) .en-body strong{color:var(--melon-deep);}
+
   .pillar .divider-tiny{
-    height:1px;background:var(--line);
-    margin:18px 0;
+    height:1px;background:rgba(255,255,255,.3);
+    margin:20px 0;
   }
+  .pillar:nth-child(3) .divider-tiny{background:rgba(31,26,22,.22);}
+
   .pillar .zh-body{
     font-family:'PingFang TC',sans-serif;
-    font-size:21px;color:var(--ink-soft);line-height:1.85;
+    font-size:20px;color:rgba(255,255,255,.92);line-height:1.85;
+    position:relative;z-index:1;
   }
+  .pillar:nth-child(3) .zh-body{color:var(--ink-soft);}
+  .pillar .zh-body strong{color:#fff;font-weight:700;}
+  .pillar:nth-child(3) .zh-body strong{color:var(--melon-deep);}
 
   /* ============ Principal Teaser ============ */
   .principal-teaser{background:#fff;}
@@ -808,7 +832,8 @@
     <div class="pillars">
 
       <article class="pillar">
-        <span class="number">01</span><span class="icon-char">瓜</span>
+        <span class="number">01</span>
+        <span class="icon-char">瓜</span>
         <h3>Children of the Watermelon Fields
           <small>西瓜田裡的孩子</small>
         </h3>
@@ -818,7 +843,8 @@
       </article>
 
       <article class="pillar">
-        <span class="number">02</span><span class="icon-char">帆</span>
+        <span class="number">02</span>
+        <span class="icon-char">帆</span>
         <h3>A Small School Setting Sail
           <small>小校揚帆，走向國際</small>
         </h3>
@@ -828,7 +854,8 @@
       </article>
 
       <article class="pillar">
-        <span class="number">03</span><span class="icon-char">機</span>
+        <span class="number">03</span>
+        <span class="icon-char">機</span>
         <h3>Hands That Make Robots
           <small>動手做機器人的孩子</small>
         </h3>
