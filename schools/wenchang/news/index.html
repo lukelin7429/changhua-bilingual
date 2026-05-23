@@ -54,35 +54,55 @@ a:hover{color:var(--melon-deep);}
 .subnav__sep{color:var(--ink-soft);opacity:.4;}
 @media (max-width:600px){ .subnav__sep{display:none;} }
 
-/* === Hero === */
-.news-hero{padding:64px 0 48px;background:#fff;border-bottom:1px solid var(--line);}
-.news-hero__eyebrow{
-  display:block;font-family:'Cormorant Garamond',serif;
-  font-size:14px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--melon-deep);margin-bottom:18px;
+/* === Page banner (building photo + dark overlay) === */
+.page-banner{
+  position:relative;min-height:380px;background:#1a0f0a;overflow:hidden;
+  border-bottom:6px solid var(--melon-deep);
 }
-.news-hero h1{
+@media (min-width:880px){ .page-banner{ min-height:460px; } }
+.page-banner__bg{position:absolute;inset:0;z-index:0;}
+.page-banner__bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%;filter:contrast(1.08) saturate(1.08);}
+.page-banner__overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(110deg, rgba(31,15,8,.88) 0%, rgba(31,15,8,.6) 50%, rgba(31,15,8,.22) 100%),
+    linear-gradient(180deg, rgba(31,15,8,.32) 0%, rgba(31,15,8,.45) 70%, rgba(31,15,8,.82) 100%);
+}
+.page-banner__content{
+  position:relative;z-index:2;min-height:380px;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:72px 0;color:#fff;
+}
+@media (min-width:880px){ .page-banner__content{ min-height:460px;padding:96px 0; } }
+.page-banner__eyebrow{
+  display:inline-block;font-family:'Cormorant Garamond',serif;
+  font-size:17px;letter-spacing:.34em;font-weight:700;text-transform:uppercase;
+  color:var(--sail-soft);margin-bottom:24px;
+}
+@media (min-width:880px){ .page-banner__eyebrow{ font-size:19px; } }
+.page-banner h1{
   font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:clamp(42px,6vw,68px);line-height:1.05;font-weight:600;
-  color:var(--ink);letter-spacing:.005em;
+  font-size:clamp(50px, 7.5vw, 96px);
+  line-height:1.04;font-weight:600;letter-spacing:.005em;
+  color:#fff;text-shadow:0 4px 28px rgba(0,0,0,.45);
 }
-.news-hero h1 .zh{
+.page-banner h1 .h1-zh{
   display:block;font-family:'PingFang TC',sans-serif;
-  font-size:clamp(20px,2.4vw,26px);font-weight:500;
-  color:var(--ink-soft);margin-top:14px;letter-spacing:.06em;
+  font-size:clamp(22px, 2.6vw, 32px);font-weight:500;letter-spacing:.08em;
+  color:rgba(255,255,255,.92);margin-top:20px;text-shadow:0 2px 12px rgba(0,0,0,.4);
 }
-.news-hero__lede{
-  margin-top:26px;max-width:680px;
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:22px;line-height:1.55;color:var(--ink);
+.page-banner__lede{
+  margin-top:28px;max-width:720px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(20px, 2.5vw, 26px);line-height:1.5;color:#fff;
   padding-left:22px;border-left:4px solid var(--sail);
+  text-shadow:0 2px 14px rgba(0,0,0,.35);
 }
-@media (min-width:880px){ .news-hero__lede{ font-size:25px; } }
-.news-hero__lede .zh{
+.page-banner__lede .zh{
   display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
-  font-size:18px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;
+  font-size:clamp(17px, 1.9vw, 20px);margin-top:12px;
+  color:rgba(255,255,255,.88);letter-spacing:.06em;
 }
-@media (min-width:880px){ .news-hero__lede .zh{ font-size:20px; } }
 
 /* === Section divider === */
 .section-divider{
@@ -187,17 +207,23 @@ footer a{color:var(--sail-soft);}
   </div>
 </nav>
 
-<!-- Hero -->
-<header class="news-hero">
-  <div class="wrap-narrow">
-    <span class="news-hero__eyebrow">What's Happening · 校園動態</span>
-    <h1>News &amp; Stories
-      <span class="zh">公告新聞 · 校園故事</span>
-    </h1>
-    <p class="news-hero__lede">
-      Wenchang's daily life — the announcements, the events, the small moments worth saving — collected here.
-      <span class="zh">文昌的日常——校園公告、活動、值得記下的小時刻，都在這裡。</span>
-    </p>
+<!-- PAGE BANNER -->
+<header class="page-banner">
+  <div class="page-banner__bg">
+    <img src="../photos/school-gate.jpg" alt="Wenchang Elementary School main entrance" loading="eager">
+  </div>
+  <div class="page-banner__overlay"></div>
+  <div class="page-banner__content">
+    <div class="wrap">
+      <span class="page-banner__eyebrow">What's Happening · 校園動態</span>
+      <h1>News &amp; Stories
+        <span class="h1-zh">公告新聞 · 校園故事</span>
+      </h1>
+      <p class="page-banner__lede">
+        Wenchang's daily life &mdash; announcements, events, and the small moments worth saving.
+        <span class="zh">文昌的日常——校園公告、活動、值得記下的小時刻，都在這裡。</span>
+      </p>
+    </div>
   </div>
 </header>
 
