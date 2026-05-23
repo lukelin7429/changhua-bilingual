@@ -63,7 +63,7 @@
     width:100%;height:auto;display:block;border-radius:12px;
     aspect-ratio:1/1;object-fit:cover;
   }
-  .prin-photo__caption{margin-top:12px;font-size:15px;color:var(--ink-soft);line-height:1.45;}
+  .prin-photo__caption{margin-top:12px;font-size:17px;color:var(--ink-soft);line-height:1.5;}
   .prin-photo__caption b{color:var(--green-deep);}
   .role{font-family:'Playfair Display',serif;color:var(--red);font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;}
   .prin-hero h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:var(--green-deep);line-height:1.1;margin-top:8px;letter-spacing:.5px;}
@@ -81,7 +81,8 @@
   .fact__cell{padding:10px 14px;border-left:4px solid var(--yellow);}
   .fact__label{font-family:'Playfair Display',serif;color:var(--red-deep);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
   .fact__value{font-family:'Playfair Display',serif;font-size:24px;color:var(--green-deep);font-weight:700;margin-top:4px;line-height:1.2;}
-  .fact__sub{font-size:15px;color:var(--ink-soft);margin-top:4px;}
+  .fact__sub{font-size:17px;color:var(--ink-soft);margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .fact__sub{ font-size:18px; } }
 
   .quote{margin-top:36px;background:var(--yellow-soft);border-left:6px solid var(--yellow);padding:24px 28px;border-radius:0 12px 12px 0;}
   .quote__text{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--green-deep);line-height:1.4;font-style:italic;}
@@ -97,7 +98,14 @@
   .story .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;display:block;}
   @media (min-width:720px){ .story .zh{ font-size:20px; } }
   .story strong{color:var(--green-deep);font-weight:700;}
-  .story ul li .zh{display:block;color:var(--ink-soft);font-size:15px;margin-top:4px;line-height:1.5;}
+  /* Education list — match body size, never shrink */
+  .story-list{list-style:none;padding:0;}
+  .story-list li{padding:18px 0;border-bottom:1px solid var(--line);font-size:21px;line-height:1.7;color:var(--ink);}
+  @media (min-width:720px){ .story-list li{ font-size:23px; padding:20px 0; } }
+  .story-list li:last-child{border-bottom:0;}
+  .story-list li strong{color:var(--green-deep);font-weight:700;}
+  .story-list li .zh{display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;line-height:1.55;}
+  @media (min-width:720px){ .story-list li .zh{ font-size:19px; } }
 
   /* === Beams (vision points) === */
   .beams{display:grid;grid-template-columns:1fr;gap:22px;margin-top:6px;}
@@ -111,9 +119,10 @@
   @media (min-width:720px){ .beam__title{ font-size:28px; } }
   .beam__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.5px;}
   @media (min-width:720px){ .beam__title-zh{ font-size:19px; } }
-  .beam__body{font-size:17px;color:var(--ink);margin-top:12px;line-height:1.65;}
-  @media (min-width:720px){ .beam__body{ font-size:19px; } }
-  .beam__zh{font-size:15px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  .beam__body{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .beam__body{ font-size:21px; } }
+  .beam__zh{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.6;}
+  @media (min-width:720px){ .beam__zh{ font-size:19px; } }
 
   /* === Timeline === */
   .timeline{position:relative;padding-left:42px;margin-top:6px;}
@@ -121,9 +130,12 @@
   .tl-item{position:relative;padding-bottom:26px;}
   .tl-item:last-child{padding-bottom:0;}
   .tl-item::before{content:'';position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--red);box-shadow:0 0 0 4px #fff;}
-  .tl-year{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--red);letter-spacing:.5px;}
-  .tl-event{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;line-height:1.45;}
-  .tl-detail{font-size:15px;color:var(--ink-soft);margin-top:2px;line-height:1.5;}
+  .tl-year{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--red);letter-spacing:.5px;line-height:1.15;}
+  @media (min-width:720px){ .tl-year{ font-size:34px; } }
+  .tl-event{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.5;}
+  @media (min-width:720px){ .tl-event{ font-size:22px; } }
+  .tl-detail{font-size:17px;color:var(--ink-soft);margin-top:4px;line-height:1.6;}
+  @media (min-width:720px){ .tl-detail{ font-size:19px; } }
 
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:17px; } }
@@ -217,27 +229,28 @@
     <div class="sec__title-zh">學歷</div>
     <div class="sec__rule"></div>
 
-    <div class="story">
-      <ul style="list-style:none;padding:0;font-size:19px;line-height:1.8;">
-        <li style="padding:14px 0;border-bottom:1px solid var(--line);">
-          <strong>M.A., Adult &amp; Continuing Education</strong> · National Chung Cheng University
-          <span class="zh">國立中正大學成人及繼續教育學系碩士班</span>
-        </li>
-        <li style="padding:14px 0;border-bottom:1px solid var(--line);">
-          <strong>B.Ed., Social Studies Education</strong> · National Taipei Teachers College
-          <span class="zh">國立臺北師範學院社會科教育學系</span>
-        </li>
-        <li style="padding:14px 0;border-bottom:1px solid var(--line);">
-          National Changhua Senior High School <span class="zh">國立彰化高級中學</span>
-        </li>
-        <li style="padding:14px 0;border-bottom:1px solid var(--line);">
-          Lukang Junior High School <span class="zh">彰化縣立鹿港國民中學</span>
-        </li>
-        <li style="padding:14px 0;">
-          Wenkai Elementary School, Lukang <span class="zh">彰化縣鹿港鎮文開國民小學</span>
-        </li>
-      </ul>
-    </div>
+    <ul class="story-list">
+      <li>
+        <strong>M.A., Adult &amp; Continuing Education</strong> · National Chung Cheng University
+        <span class="zh">國立中正大學成人及繼續教育學系碩士班</span>
+      </li>
+      <li>
+        <strong>B.Ed., Social Studies Education</strong> · National Taipei Teachers College
+        <span class="zh">國立臺北師範學院社會科教育學系</span>
+      </li>
+      <li>
+        National Changhua Senior High School
+        <span class="zh">國立彰化高級中學</span>
+      </li>
+      <li>
+        Lukang Junior High School
+        <span class="zh">彰化縣立鹿港國民中學</span>
+      </li>
+      <li>
+        Wenkai Elementary School, Lukang
+        <span class="zh">彰化縣鹿港鎮文開國民小學</span>
+      </li>
+    </ul>
   </div>
 </section>
 
