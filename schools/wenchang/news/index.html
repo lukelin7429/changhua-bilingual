@@ -105,31 +105,33 @@ a:hover{color:var(--melon-deep);}
 .news-section{padding:24px 0 72px;}
 .news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
 .news-item{
-  display:grid;grid-template-columns:1fr;gap:10px;
-  padding:32px 0;border-bottom:1px solid var(--line);
+  padding:28px 0;border-bottom:1px solid var(--line);
 }
-@media (min-width:720px){ .news-item{ grid-template-columns:180px 140px 1fr;gap:28px;align-items:baseline; } }
+.news-item__meta{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  margin-bottom:14px;
+}
 .news-item__date{
   font-family:'Cormorant Garamond',serif;font-style:italic;
   font-size:22px;color:var(--melon-deep);font-weight:700;letter-spacing:.06em;
 }
 .news-item__tag{
-  display:inline-block;align-self:start;
+  display:inline-block;
   font-family:'Inter',sans-serif;
-  font-size:16px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--leaf-deep);background:var(--leaf-soft);
-  padding:7px 16px;border-radius:99px;width:max-content;
+  padding:7px 16px;border-radius:99px;
 }
 .news-item__tag.is-hiring{color:var(--melon-deep);background:var(--melon-soft);}
 .news-item__tag.is-safety{color:var(--sail-deep);background:var(--sail-soft);}
 .news-item__body{
   font-family:'PingFang TC',sans-serif;
-  font-size:23px;color:var(--ink);line-height:1.6;
+  font-size:24px;color:var(--ink);line-height:1.55;
 }
 .news-item__body .en{
   display:block;font-family:'Cormorant Garamond',serif;
   font-style:italic;font-size:20px;color:var(--ink-soft);
-  margin-top:6px;line-height:1.5;
+  margin-top:8px;line-height:1.5;
 }
 
 /* === Coming soon block === */
@@ -211,12 +213,14 @@ footer a{color:var(--sail-soft);}
 
 <!-- Announcements list -->
 <section class="news-section">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="news-list">
 
       <article class="news-item">
-        <div class="news-item__date">11 May 2026</div>
-        <span class="news-item__tag">Activity · 活動</span>
+        <div class="news-item__meta">
+          <div class="news-item__date">11 May 2026</div>
+          <span class="news-item__tag">Activity · 活動</span>
+        </div>
         <div class="news-item__body">
           「2026 小小永續工程師營隊」活動
           <span class="en">The 2026 Little Sustainability Engineers Camp.</span>
@@ -224,8 +228,10 @@ footer a{color:var(--sail-soft);}
       </article>
 
       <article class="news-item">
-        <div class="news-item__date">11 May 2026</div>
-        <span class="news-item__tag is-hiring">Hiring · 人事</span>
+        <div class="news-item__meta">
+          <div class="news-item__date">11 May 2026</div>
+          <span class="news-item__tag is-hiring">Hiring · 人事</span>
+        </div>
         <div class="news-item__body">
           115 學年度第 1 次代理、兼任代課教師甄選
           <span class="en">2026 school-year substitute and part-time teacher selection (Round 1).</span>
@@ -233,8 +239,10 @@ footer a{color:var(--sail-soft);}
       </article>
 
       <article class="news-item">
-        <div class="news-item__date">6 May 2026</div>
-        <span class="news-item__tag">Contest · 競賽</span>
+        <div class="news-item__meta">
+          <div class="news-item__date">6 May 2026</div>
+          <span class="news-item__tag">Contest · 競賽</span>
+        </div>
         <div class="news-item__body">
           「115 年環境知識競賽」
           <span class="en">2026 Environmental Knowledge Competition.</span>
@@ -242,8 +250,10 @@ footer a{color:var(--sail-soft);}
       </article>
 
       <article class="news-item">
-        <div class="news-item__date">29 Apr 2026</div>
-        <span class="news-item__tag">Contest · 競賽</span>
+        <div class="news-item__meta">
+          <div class="news-item__date">29 Apr 2026</div>
+          <span class="news-item__tag">Contest · 競賽</span>
+        </div>
         <div class="news-item__body">
           「三百風華・藝繪孔子廟」寫生徵件比賽
           <span class="en">"Three Centuries of Splendour · Painting the Confucius Temple" sketching contest.</span>
@@ -251,8 +261,10 @@ footer a{color:var(--sail-soft);}
       </article>
 
       <article class="news-item">
-        <div class="news-item__date">27 Apr 2026</div>
-        <span class="news-item__tag is-safety">Safety · 交安</span>
+        <div class="news-item__meta">
+          <div class="news-item__date">27 Apr 2026</div>
+          <span class="news-item__tag is-safety">Safety · 交安</span>
+        </div>
         <div class="news-item__body">
           「115 年 1 月彰化縣事故肇因排行」交通安全宣導
           <span class="en">January 2026 Changhua County traffic-accident causes — road-safety awareness.</span>
@@ -274,7 +286,7 @@ footer a{color:var(--sail-soft);}
 
 <!-- Coming soon (FB stories) -->
 <section class="news-section">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="coming-soon">
       <div class="coming-soon__icon">— soon —</div>
       <h3>Campus stories from Facebook coming soon.
