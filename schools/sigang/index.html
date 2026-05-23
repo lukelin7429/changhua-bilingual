@@ -65,11 +65,7 @@
   @media (min-width:1080px){ .banner{ min-height:440px; } }
   .banner::before{
     content:'';position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse at 12% 22%, rgba(244,213,33,.45) 0%, transparent 52%),
-      radial-gradient(ellipse at 88% 28%, rgba(106,191,127,.45) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 96%, rgba(230,59,44,.55) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(21,80,40,.32) 0%, rgba(21,80,40,.80) 100%);
+    background:linear-gradient(180deg, rgba(21,80,40,.28) 0%, rgba(21,80,40,.72) 100%);
     pointer-events:none;
   }
   .banner__inner{
@@ -99,11 +95,11 @@
   @media (min-width:720px){ .banner__zh{ font-size:28px; } }
   .banner__tagline{
     font-family:'Playfair Display',serif;font-style:italic;
-    font-size:17px;color:#fff5b8;margin-top:14px;line-height:1.45;
-    max-width:680px;font-weight:500;
+    font-size:19px;color:#fff5b8;margin-top:14px;line-height:1.5;
+    max-width:720px;font-weight:500;
     text-shadow:0 2px 10px rgba(0,0,0,.4);
   }
-  @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
+  @media (min-width:720px){ .banner__tagline{ font-size:24px;margin-top:18px; } }
   .banner__logo{
     flex-shrink:0;align-self:flex-end;
     width:54px;height:54px;border-radius:50%;
@@ -355,70 +351,26 @@
   @media (min-width:720px){ .song__stanza{ font-size:23px; } }
   .song__stanza--accent{border-left-color:var(--red);}
 
-  /* ===== Animated Connect Buttons ===== */
-  @keyframes shimmer-official{
-    0%   {background-position:0% 50%;}
-    50%  {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
-  @keyframes shimmer-fb{
-    0%   {background-position:0% 50%;}
-    50%  {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
-  @keyframes wobble-arrow{
-    0%,100%{transform:translateX(0);}
-    50%    {transform:translateX(6px);}
-  }
-  .connect{
-    margin-top:36px;display:grid;grid-template-columns:1fr;gap:18px;position:relative;z-index:2;
-  }
-  @media (min-width:680px){ .connect{ grid-template-columns:1fr 1fr;gap:22px; } }
+  /* ===== Connect Buttons (calm, single-tone) ===== */
+  .connect{margin-top:36px;display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:680px){ .connect{ grid-template-columns:1fr 1fr;gap:20px; } }
   .cbtn{
-    position:relative;display:flex;align-items:center;gap:18px;
-    padding:24px 28px;border-radius:18px;text-decoration:none;color:#fff;
-    background-size:300% 300%;
-    box-shadow:0 14px 38px -14px rgba(0,0,0,.45);
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
-    overflow:hidden;isolation:isolate;
+    display:flex;align-items:center;gap:18px;
+    padding:22px 26px;border-radius:14px;text-decoration:none;color:#fff;
+    background:var(--green-deep);
+    box-shadow:0 10px 24px -12px rgba(21,80,40,.55);
+    transition:background .2s, transform .2s, box-shadow .2s;
   }
-  @media (min-width:720px){ .cbtn{ padding:28px 34px; } }
-  .cbtn::before{
-    content:'';position:absolute;inset:0;border-radius:18px;padding:2px;
-    background:linear-gradient(135deg, rgba(255,255,255,.6), rgba(255,255,255,0) 40%, rgba(255,255,255,.45));
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-            mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor; mask-composite:exclude;
-    opacity:.7;pointer-events:none;
-  }
-  .cbtn::after{
-    content:'';position:absolute;inset:0;border-radius:18px;
-    background:radial-gradient(circle at 30% 0%, rgba(255,255,255,.25), transparent 55%);
-    opacity:.7;pointer-events:none;transition:opacity .3s;
-  }
-  .cbtn:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 26px 60px -18px rgba(0,0,0,.55);}
-  .cbtn:hover::after{opacity:1;}
-  .cbtn:hover .cbtn__arrow{animation:wobble-arrow 0.9s ease-in-out infinite;}
-  .cbtn--official{
-    background-image:linear-gradient(125deg, #f4d521 0%, #f58220 25%, #e63b2c 50%, #c79b00 75%, #f4d521 100%);
-    animation:shimmer-official 8s ease-in-out infinite;
-  }
-  .cbtn--official:hover{animation-duration:3s;}
-  .cbtn--fb{
-    background-image:linear-gradient(125deg, #1d6f3a 0%, #3a8db5 25%, #5b3eb7 50%, #155028 75%, #1d6f3a 100%);
-    animation:shimmer-fb 8s ease-in-out infinite;
-  }
-  .cbtn--fb:hover{animation-duration:3s;}
+  @media (min-width:720px){ .cbtn{ padding:26px 30px; } }
+  .cbtn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(21,80,40,.6);}
+  .cbtn--fb{background:#1877f2;box-shadow:0 10px 24px -12px rgba(24,119,242,.55);}
+  .cbtn--fb:hover{background:#0f5fc9;box-shadow:0 14px 30px -12px rgba(24,119,242,.6);}
   .cbtn__icon{
-    flex-shrink:0;width:56px;height:56px;border-radius:50%;
-    background:rgba(255,255,255,.92);color:var(--green-deep);
+    flex-shrink:0;width:48px;height:48px;border-radius:50%;
+    background:rgba(255,255,255,.18);color:#fff;
     display:flex;align-items:center;justify-content:center;
-    font-family:'Playfair Display',serif;font-weight:800;font-size:28px;
-    box-shadow:0 6px 14px -4px rgba(0,0,0,.3);
-    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    font-family:'Playfair Display',serif;font-weight:800;font-size:24px;
   }
-  .cbtn:hover .cbtn__icon{transform:rotate(360deg) scale(1.08);}
-  .cbtn--fb .cbtn__icon{color:#1877f2;}
   .cbtn__main{flex:1;min-width:0;}
   .cbtn__label{
     font-family:'Playfair Display',serif;
@@ -426,20 +378,14 @@
     color:rgba(255,255,255,.85);font-weight:600;
   }
   .cbtn__title{
-    font-family:'Playfair Display',serif;font-size:24px;font-weight:800;line-height:1.2;
-    color:#fff;margin-top:4px;text-shadow:0 2px 14px rgba(0,0,0,.35);
+    font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.2;
+    color:#fff;margin-top:4px;
   }
-  @media (min-width:720px){ .cbtn__title{ font-size:28px; } }
-  .cbtn__zh{font-size:14.5px;color:rgba(255,255,255,.92);margin-top:4px;font-weight:500;line-height:1.4;}
-  @media (min-width:720px){ .cbtn__zh{ font-size:15.5px; } }
-  .cbtn__arrow{
-    font-size:30px;font-weight:700;color:#fff;flex-shrink:0;line-height:1;
-    text-shadow:0 2px 10px rgba(0,0,0,.4);
-  }
-  @media (prefers-reduced-motion: reduce){
-    .cbtn--official, .cbtn--fb{ animation:none; }
-    .cbtn:hover .cbtn__arrow{ animation:none; }
-  }
+  @media (min-width:720px){ .cbtn__title{ font-size:25px; } }
+  .cbtn__zh{font-size:15.5px;color:rgba(255,255,255,.92);margin-top:4px;font-weight:500;line-height:1.4;}
+  @media (min-width:720px){ .cbtn__zh{ font-size:16.5px; } }
+  .cbtn__arrow{font-size:26px;font-weight:600;color:#fff;flex-shrink:0;line-height:1;transition:transform .2s;}
+  .cbtn:hover .cbtn__arrow{transform:translateX(4px);}
 
   /* ===== Figure (inline campus photo) ===== */
   .figure{margin-top:32px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
@@ -471,22 +417,7 @@
   Logo: 西港校徽（燈塔四道光意象）.
 -->
 
-<!-- ===== Hero Banner ===== -->
-<header class="banner">
-  <div class="banner__inner">
-    <div class="banner__text">
-      <div class="banner__brand">A Lighthouse School · Established 1930</div>
-      <h1>Sigang Elementary</h1>
-      <div class="banner__zh">彰化縣大城鄉西港國民小學</div>
-      <p class="banner__tagline">A small coastal school at the Windy Head &amp; Water End. 風頭水尾的燈塔小校 · 96 年而行。</p>
-    </div>
-    <div class="banner__logo">
-      <img src="photos/logo.jpg" alt="Sigang Elementary School emblem · 西港國小校徽">
-    </div>
-  </div>
-</header>
-
-<!-- ===== Sub-nav ===== -->
+<!-- ===== Sub-nav (always above banner so it sticks consistently with sub-pages) ===== -->
 <nav class="subnav">
   <div class="wrap">
     <div class="subnav__inner">
@@ -506,6 +437,21 @@
     </div>
   </div>
 </nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <div class="banner__brand">A Lighthouse School · Established 1930</div>
+      <h1>Sigang Elementary</h1>
+      <div class="banner__zh">彰化縣大城鄉西港國民小學</div>
+      <p class="banner__tagline">A small coastal school at the Windy Head &amp; Water End. 風頭水尾的燈塔小校 · 96 年而行。</p>
+    </div>
+    <div class="banner__logo">
+      <img src="photos/logo.jpg" alt="Sigang Elementary School emblem · 西港國小校徽">
+    </div>
+  </div>
+</header>
 
 <!-- ===== I. About ===== -->
 <section>
