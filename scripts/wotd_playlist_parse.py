@@ -303,14 +303,30 @@ def parse_sentences(desc, school_raw):
 
     s1_en = s1_zh = s2_en = s2_zh = ""
 
-    # Pattern: 4 lines = EN, ZH, EN, ZH
+    # Strip leading CJK punctuation from a line that's mostly Chinese
+    CJK_PUNCT_LEAD_RE = re.compile(r"^[、，。；：！？「」『』（）()\s]+")
+
     def split_en_zh(line):
-        """If a line contains both EN and ZH, split into (en, zh)."""
+        """If a line contains both EN and ZH, split into (en, zh).
+
+        Tricky cases:
+        - Line starts with CJK punctuation: '、學生們...' → treat as pure ZH.
+        - Embedded English acronym in a Chinese sentence: 'SH150 的目標...' or
+          'Lily跌倒後...' → en is short, zh is long → treat as pure ZH.
+        """
         m = CN_CHAR_RE.search(line)
         if not m:
             return line.strip(), ""
         en = line[: m.start()].strip()
         zh = line[m.start():].strip()
+        # No letters in "en" → pure ZH (leading punctuation only).
+        if en and not re.search(r"[A-Za-z]", en):
+            return "", CJK_PUNCT_LEAD_RE.sub("", line.strip())
+        # Short "en" + much longer ZH → embedded acronym, treat whole as ZH.
+        alpha_chars = len(re.findall(r"[A-Za-z]", en))
+        zh_chars = len(re.findall(r"[一-鿿]", zh))
+        if alpha_chars <= 6 and zh_chars >= 2 * max(alpha_chars, 1):
+            return "", CJK_PUNCT_LEAD_RE.sub("", line.strip())
         return en, zh
 
     # Normalize: split mixed lines first
