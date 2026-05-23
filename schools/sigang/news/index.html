@@ -92,6 +92,20 @@
   }
   .pending-note strong{color:var(--green-deep);}
 
+  /* === Photo stream === */
+  .stream{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (min-width:720px){ .stream{ grid-template-columns:repeat(4,1fr);gap:18px; } }
+  .stream__cell{
+    background:#fff;border-radius:12px;overflow:hidden;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  }
+  .stream__cell img{width:100%;height:180px;object-fit:cover;display:block;}
+  @media (min-width:720px){ .stream__cell img{ height:200px; } }
+  .stream__cell figcaption{padding:10px 14px;font-size:13px;color:var(--ink);line-height:1.5;}
+  @media (min-width:720px){ .stream__cell figcaption{ font-size:14px; } }
+  .stream__cell figcaption b{color:var(--green-deep);}
+  .stream__cell figcaption .zh{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:17px; } }
   footer .org{font-weight:600;color:var(--green-deep);}
@@ -194,9 +208,54 @@
 
     <div class="pending-note">
       <strong>📰 More stories coming soon</strong><br>
-      The school's Facebook page publishes weekly updates of classroom moments, field trips, and student honours. As photos and details arrive from <strong>Principal Chuang</strong> and the teaching team, each story will be expanded here with full English &amp; Chinese write-ups, dates, and image galleries.
+      The school's Facebook page publishes weekly updates of classroom moments, field trips, and student honours. As detailed write-ups arrive, each story will be expanded here with full English &amp; Chinese narration, dates, and image galleries.
       <br><br>
-      <span style="color:var(--ink-soft);">更多故事將陸續上線——隨著校方提供照片與細節，每則動態都會在此補上完整中英文圖文紀錄。</span>
+      <span style="color:var(--ink-soft);">更多故事將陸續上線——隨著校方提供細節，每則動態都會在此補上完整中英文圖文紀錄。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Photo Stream ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Photo Stream</h2>
+    <div class="sec__title-zh">近期影像串流 · 校園、教學與活動</div>
+    <div class="sec__rule"></div>
+
+    <div class="stream">
+      <figure class="stream__cell">
+        <img src="../photos/featured-eta.jpg" alt="ETA foreign teacher with touch-screen English lesson · ETA 巡迴外師英語教學">
+        <figcaption><b>ETA Foreign-Teacher</b><span class="zh">巡迴外師到校英語教學</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/featured-vr.jpg" alt="VR headset English dialogue practice · VR 對話練習">
+        <figcaption><b>VR Conversation</b><span class="zh">VR 虛擬互動頭盔對話</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/featured-bookmobile.jpg" alt="Hope Reading bookmobile visit · 希望閱讀書車到校">
+        <figcaption><b>Hope Reading Bookmobile</b><span class="zh">天下希望閱讀書車到校</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/activity-2025-07-12-a.jpg" alt="Sigang school activity on 12 July 2025 · 西港 2025-07-12 活動">
+        <figcaption><b>Summer Event · 2025-07-12</b><span class="zh">2025-07-12 校園活動</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/activity-2025-07-12-b.jpg" alt="Sigang school activity on 12 July 2025 · 西港 2025-07-12 活動">
+        <figcaption><b>Summer Event · 2025-07-12</b><span class="zh">2025-07-12 校園活動</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/activity-2025-07-12-c.jpg" alt="Sigang school activity on 12 July 2025 · 西港 2025-07-12 活動">
+        <figcaption><b>Summer Event · 2025-07-12</b><span class="zh">2025-07-12 校園活動</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/activity-2025-07-12-d.jpg" alt="Sigang school activity on 12 July 2025 · 西港 2025-07-12 活動">
+        <figcaption><b>Summer Event · 2025-07-12</b><span class="zh">2025-07-12 校園活動</span></figcaption>
+      </figure>
+      <figure class="stream__cell">
+        <img src="../photos/featured-2025-06-19.jpg" alt="Sigang school activity on 19 June 2025 · 西港 2025-06-19 活動">
+        <figcaption><b>Field Day · 2025-06-19</b><span class="zh">2025-06-19 校園紀錄</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>

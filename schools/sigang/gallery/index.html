@@ -44,21 +44,33 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  .coming-soon{
+  .lede-box{
     background:linear-gradient(135deg, var(--green-soft) 0%, var(--yellow-soft) 100%);
-    border-radius:24px;padding:48px 32px;text-align:center;
+    border-radius:24px;padding:36px 28px;
   }
-  @media (min-width:720px){ .coming-soon{ padding:80px 64px; } }
-  .coming-soon__icon{font-size:80px;line-height:1;}
-  @media (min-width:720px){ .coming-soon__icon{ font-size:110px; } }
-  .coming-soon__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--green-deep);line-height:1.15;margin-top:18px;}
-  @media (min-width:720px){ .coming-soon__title{ font-size:54px; } }
-  .coming-soon__zh{font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;}
-  @media (min-width:720px){ .coming-soon__zh{ font-size:26px; } }
-  .coming-soon__body{font-size:19px;color:var(--ink);max-width:640px;margin:22px auto 0;line-height:1.7;}
-  @media (min-width:720px){ .coming-soon__body{ font-size:21px; } }
-  .coming-soon__body .zh{display:block;color:var(--ink-soft);font-size:17px;margin-top:8px;line-height:1.6;}
-  @media (min-width:720px){ .coming-soon__body .zh{ font-size:19px; } }
+  @media (min-width:720px){ .lede-box{ padding:52px 44px; } }
+  .lede-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-box h2{ font-size:40px; } }
+  .lede-box .zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .lede-box .zh{ font-size:20px; } }
+  .lede-box p{font-size:19px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-box p{ font-size:21px; } }
+
+  /* === Gallery grid === */
+  .gal-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:640px){ .gal-grid{ grid-template-columns:1fr 1fr;gap:22px; } }
+  @media (min-width:960px){ .gal-grid{ grid-template-columns:1fr 1fr 1fr;gap:24px; } }
+  .gal-cell{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .gal-cell img{width:100%;height:220px;object-fit:cover;display:block;}
+  @media (min-width:720px){ .gal-cell img{ height:240px; } }
+  .gal-cell figcaption{padding:14px 18px;font-size:15px;color:var(--ink);line-height:1.55;}
+  @media (min-width:720px){ .gal-cell figcaption{ font-size:16px;padding:16px 20px; } }
+  .gal-cell figcaption b{color:var(--green-deep);}
+  .gal-cell figcaption .zh{display:block;color:var(--ink-soft);font-size:14px;margin-top:3px;line-height:1.5;}
 
   .fb-cta{
     display:inline-flex;align-items:center;gap:14px;
@@ -72,23 +84,6 @@
   .fb-cta__text strong{display:block;font-family:'Playfair Display',serif;font-size:19px;color:var(--green-deep);text-align:left;}
   .fb-cta__text span{display:block;font-size:15px;color:var(--ink-soft);margin-top:2px;text-align:left;}
   .fb-cta__arrow{font-size:22px;color:var(--green-deep);}
-
-  /* Themes preview grid */
-  .themes{display:grid;grid-template-columns:1fr;gap:20px;margin-top:6px;}
-  @media (min-width:560px){ .themes{ grid-template-columns:1fr 1fr;gap:24px; } }
-  @media (min-width:880px){ .themes{ grid-template-columns:repeat(4,1fr); } }
-  .theme{
-    background:#fff;border:1px solid var(--line);border-radius:16px;
-    padding:24px 22px;box-shadow:var(--shadow-sm);
-    border-top:6px solid var(--yellow);
-  }
-  .theme:nth-child(2){border-top-color:var(--ocean);}
-  .theme:nth-child(3){border-top-color:var(--red);}
-  .theme:nth-child(4){border-top-color:var(--green-light);}
-  .theme__icon{font-size:42px;line-height:1;}
-  .theme__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-deep);margin-top:10px;line-height:1.25;}
-  .theme__zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:4px;}
-  .theme__body{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
 
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:17px; } }
@@ -119,19 +114,123 @@
   </div>
 </nav>
 
-<!-- ===== I. Coming Soon ===== -->
+<!-- ===== I. Lede ===== -->
 <section>
   <div class="wrap">
-    <div class="coming-soon">
-      <div class="coming-soon__icon">📷</div>
-      <div class="coming-soon__title">Gallery Coming Soon</div>
-      <div class="coming-soon__zh">校園剪影 · 整理中</div>
-      <div class="coming-soon__body">
-        Photographs of Sigang's coastal campus, food &amp; ocean curriculum, resident artist studio, and the daily rhythm of a 75-student rural school are being gathered with Principal Chuang and the teaching team.
-        <span class="zh">校方提供的校園、課程、駐校藝術家、與孩子日常照片正在彙整中——完整圖文剪影將於後續上線。</span>
-      </div>
+    <div class="lede-box">
+      <h2>A walk through Sigang.</h2>
+      <div class="zh">校園剪影 · 一所沿海小校的日常面貌</div>
+      <p>
+        From the coastal campus to the classroom touch-screens, the VR conversation practice and the bookmobile that finds us at the end of every road — this is what 96 years of small-school life looks like in the Windy Head &amp; Water End.
+        <span class="zh" style="display:block;color:var(--ink-soft);font-size:18px;margin-top:6px;">從沿海校園、課堂上的觸控大電視、VR 對話練習，到一路找到我們的書車——這是「風頭水尾」一所 96 年小校的日常。</span>
+      </p>
+    </div>
+  </div>
+</section>
 
-      <a class="fb-cta" href="https://www.facebook.com/siganges" target="_blank" rel="noopener">
+<!-- ===== II. Campus ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">The Coastal Campus</h2>
+    <div class="sec__title-zh">校園與校景 · 六張剪影</div>
+    <div class="sec__rule"></div>
+
+    <div class="gal-grid">
+      <figure class="gal-cell">
+        <img src="../photos/campus-01.jpg" alt="Sigang Elementary campus view · 西港國小校景 01">
+        <figcaption><b>Campus view #1</b><span class="zh">西港國小校景之一</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/campus-02.jpg" alt="Sigang Elementary campus view · 西港國小校景 02">
+        <figcaption><b>Campus view #2</b><span class="zh">西港國小校景之二</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/campus-03.jpg" alt="Sigang Elementary campus view · 西港國小校景 03">
+        <figcaption><b>Campus view #3</b><span class="zh">西港國小校景之三</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/campus-04.jpg" alt="Sigang Elementary campus view · 西港國小校景 04">
+        <figcaption><b>Campus view #4</b><span class="zh">西港國小校景之四</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/campus-05.jpg" alt="Sigang Elementary campus view · 西港國小校景 05">
+        <figcaption><b>Campus view #5</b><span class="zh">西港國小校景之五</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/campus-06.jpg" alt="Sigang Elementary campus view · 西港國小校景 06">
+        <figcaption><b>Campus view #6</b><span class="zh">西港國小校景之六</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Teaching & Learning ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Teaching &amp; Learning</h2>
+    <div class="sec__title-zh">教學現場 · 課堂內外</div>
+    <div class="sec__rule"></div>
+
+    <div class="gal-grid">
+      <figure class="gal-cell">
+        <img src="../photos/featured-eta.jpg" alt="ETA foreign teacher using campus touch-screen · ETA 巡迴外師使用觸控大電視教學">
+        <figcaption><b>ETA Foreign-Teacher Visits</b><span class="zh">巡迴外師到校 · 使用觸控大電視帶英語</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/featured-vr.jpg" alt="Teacher guiding student VR headset dialogue practice · VR 對話練習">
+        <figcaption><b>VR Conversation Practice</b><span class="zh">VR 虛擬互動頭盔英語對話練習</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/featured-bookmobile.jpg" alt="CommonWealth Hope Reading bookmobile · 天下希望閱讀書車">
+        <figcaption><b>Hope Reading Bookmobile</b><span class="zh">天下雜誌教育基金會「希望閱讀」書車到校</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/featured-misc-a.jpg" alt="Sigang feature highlight · 西港特色教學紀錄">
+        <figcaption><b>Featured Moment</b><span class="zh">校園特色教學紀錄</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/featured-misc-b.jpg" alt="Sigang feature highlight · 西港特色活動紀錄">
+        <figcaption><b>Featured Moment</b><span class="zh">校園特色活動紀錄</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/featured-2025-06-19.jpg" alt="Sigang school activity · 2025-06-19 活動">
+        <figcaption><b>School Activity · 2025-06-19</b><span class="zh">2025-06-19 校園活動紀錄</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Summer Day ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">A Summer Day at Sigang</h2>
+    <div class="sec__title-zh">夏日紀錄 · 2025-07-12 校園活動</div>
+    <div class="sec__rule"></div>
+
+    <div class="gal-grid">
+      <figure class="gal-cell">
+        <img src="../photos/activity-2025-07-12-a.jpg" alt="Sigang summer event A · 2025-07-12 校園活動">
+        <figcaption><b>Summer Event · A</b><span class="zh">2025-07-12 校園活動紀錄</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/activity-2025-07-12-b.jpg" alt="Sigang summer event B · 2025-07-12 校園活動">
+        <figcaption><b>Summer Event · B</b><span class="zh">2025-07-12 校園活動紀錄</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/activity-2025-07-12-c.jpg" alt="Sigang summer event C · 2025-07-12 校園活動">
+        <figcaption><b>Summer Event · C</b><span class="zh">2025-07-12 校園活動紀錄</span></figcaption>
+      </figure>
+      <figure class="gal-cell">
+        <img src="../photos/activity-2025-07-12-d.jpg" alt="Sigang summer event D · 2025-07-12 校園活動">
+        <figcaption><b>Summer Event · D</b><span class="zh">2025-07-12 校園活動紀錄</span></figcaption>
+      </figure>
+    </div>
+
+    <div style="margin-top:36px;text-align:center;">
+      <a class="fb-cta" href="https://www.facebook.com/siganges" target="_blank" rel="noopener" style="display:inline-flex;">
         <span class="fb-cta__icon">f</span>
         <span class="fb-cta__text">
           <strong>See us in motion · 看現在的西港</strong>
@@ -139,43 +238,6 @@
         </span>
         <span class="fb-cta__arrow">↗</span>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== II. Themes preview ===== -->
-<section>
-  <div class="wrap">
-    <div class="sec__no">I.</div>
-    <h2 class="sec__title">What You'll See</h2>
-    <div class="sec__title-zh">剪影主題預告 · 四個切面</div>
-    <div class="sec__rule"></div>
-
-    <div class="themes">
-      <article class="theme">
-        <div class="theme__icon">🏫</div>
-        <div class="theme__title">The Coastal Campus</div>
-        <div class="theme__zh">校園與校門口</div>
-        <div class="theme__body">The school gate at 中央路 2 號, the courtyard, the affiliated preschool, the lighthouse-inspired campus identity.</div>
-      </article>
-      <article class="theme">
-        <div class="theme__icon">🌾</div>
-        <div class="theme__title">Food &amp; Ocean Days</div>
-        <div class="theme__zh">食農與海洋課程</div>
-        <div class="theme__body">Children planting, harvesting, cooking — and walking the western coastline as classroom.</div>
-      </article>
-      <article class="theme">
-        <div class="theme__icon">🎨</div>
-        <div class="theme__title">Resident Artist Studio</div>
-        <div class="theme__zh">駐校藝術家王莉</div>
-        <div class="theme__body">Wang Li teaching, student-made art, the art corner that lives inside the school year-round.</div>
-      </article>
-      <article class="theme">
-        <div class="theme__icon">👧</div>
-        <div class="theme__title">Daily Life</div>
-        <div class="theme__zh">小校的日常</div>
-        <div class="theme__body">75 students, 6 grades, 13 teachers — and what it actually looks like when every child is known by name.</div>
-      </article>
     </div>
   </div>
 </section>
