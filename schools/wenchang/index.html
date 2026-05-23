@@ -11,12 +11,12 @@
 <meta property="og:title" content="Wenchang Elementary School · 彰化縣文昌國民小學">
 <meta property="og:description" content="A small village school on Fuxing's watermelon fields — and a 'Setting Sail' school for international education. 鎮平西瓜田裡的揚帆學校。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="photos/mascots.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
+<link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
 
-<link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png">
-<link rel="shortcut icon" href="/schools/wenchang/favicon.ico">
+<meta property="og:image" content="photos/mascots.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,12 +105,61 @@
     margin-top:3px;
   }
   .hero-modern__eyebrow{
-    display:inline-block;
-    font-size:15px;letter-spacing:.26em;
-    color:var(--leaf-deep);font-weight:700;text-transform:uppercase;
-    background:var(--leaf-soft);
-    padding:8px 18px;border-radius:99px;
-    margin-bottom:22px;
+    display:block;
+    font-size:14px;letter-spacing:.32em;
+    color:var(--melon-deep);font-weight:700;text-transform:uppercase;
+    margin-bottom:24px;
+    font-family:'Cormorant Garamond',serif;
+  }
+  .hero-modern__cta{
+    margin-top:34px;
+    display:flex;flex-wrap:wrap;gap:14px;
+  }
+  .hero-modern__cta a{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;font-size:16px;font-weight:600;letter-spacing:.06em;
+    font-family:'Inter','PingFang TC',sans-serif;
+    text-transform:uppercase;
+    transition:background .2s, color .2s, transform .2s;
+  }
+  .hero-modern__cta .btn-solid{
+    background:var(--melon-deep);color:#fff;border:2px solid var(--melon-deep);
+  }
+  .hero-modern__cta .btn-solid:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-1px);}
+  .hero-modern__cta .btn-outline{
+    background:transparent;color:var(--ink);border:2px solid var(--ink);
+  }
+  .hero-modern__cta .btn-outline:hover{background:var(--ink);color:#fff;transform:translateY(-1px);}
+
+  /* italic quote overlay on hero photo */
+  .hero-modern__photo-quote{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(0deg, rgba(31,15,8,.85) 0%, rgba(31,15,8,.3) 70%, transparent 100%);
+    color:#fff;padding:36px 28px 24px;
+  }
+  .hero-modern__photo-quote .q{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:20px;line-height:1.4;color:#fff;
+  }
+  @media (min-width:880px){ .hero-modern__photo-quote .q{ font-size:22px; } }
+  .hero-modern__photo-quote .attribution{
+    display:block;margin-top:10px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--sail-soft);font-weight:600;
+  }
+
+  /* ===== Editorial section divider ===== */
+  .section-divider{
+    display:flex;align-items:center;justify-content:center;gap:24px;
+    padding:14px 24px;
+    color:var(--melon-deep);
+    font-family:'Cormorant Garamond',serif;
+    font-size:14px;letter-spacing:.32em;font-weight:700;
+    text-transform:uppercase;
+  }
+  .section-divider::before, .section-divider::after{
+    content:"";flex:1;height:1px;background:var(--line);max-width:380px;
   }
   .hero-modern h1{
     font-family:'Cormorant Garamond','PingFang TC',serif;
@@ -222,9 +271,10 @@
   .section-head{text-align:center;margin-bottom:62px;}
   .section-head .eyebrow{
     display:inline-block;
-    color:var(--leaf);font-size:17px;font-weight:700;
-    letter-spacing:.22em;text-transform:uppercase;
-    margin-bottom:16px;
+    color:var(--melon-deep);font-size:14px;font-weight:700;
+    letter-spacing:.32em;text-transform:uppercase;
+    margin-bottom:18px;
+    font-family:'Cormorant Garamond',serif;
   }
   .section-head h2{
     font-family:'Cormorant Garamond','PingFang TC',serif;
@@ -366,41 +416,56 @@
   }
   .pillar{
     background:#fff;border-radius:18px;
-    padding:36px 30px 32px;
+    padding:38px 32px 34px;
     border:1px solid var(--line);
+    border-top:8px solid var(--melon-deep);
     box-shadow:var(--shadow-sm);
     transition:transform .25s,box-shadow .25s,border-color .25s;
     position:relative;
   }
+  .pillar:nth-child(2){border-top-color:var(--leaf-deep);}
+  .pillar:nth-child(3){border-top-color:var(--sail-deep);}
   .pillar:hover{
-    transform:translateY(-4px);
+    transform:translateY(-6px);
     box-shadow:var(--shadow);
-    border-color:var(--leaf);
   }
-  .pillar .icon{
-    width:66px;height:66px;border-radius:16px;
-    background:var(--melon-soft);color:var(--melon-deep);
-    display:flex;align-items:center;justify-content:center;
-    font-size:36px;font-weight:700;
+  .pillar .number{
     font-family:'Cormorant Garamond',serif;
-    margin-bottom:24px;
+    font-style:italic;
+    font-size:64px;font-weight:700;
+    color:var(--melon-deep);
+    line-height:1;letter-spacing:-.02em;
+    margin-bottom:16px;
+    display:block;
   }
-  .pillar:nth-child(2) .icon{background:var(--leaf-soft);color:var(--leaf-deep);}
-  .pillar:nth-child(3) .icon{background:var(--sail-soft);color:var(--sail-deep);}
+  .pillar:nth-child(2) .number{color:var(--leaf-deep);}
+  .pillar:nth-child(3) .number{color:var(--sail-deep);}
+  .pillar .icon-char{
+    display:inline-block;
+    background:var(--melon-soft);color:var(--melon-deep);
+    width:44px;height:44px;border-radius:50%;
+    font-family:'PingFang TC',serif;
+    font-size:22px;font-weight:700;
+    text-align:center;line-height:44px;
+    margin-left:14px;vertical-align:middle;
+    transform:translateY(-12px);
+  }
+  .pillar:nth-child(2) .icon-char{background:var(--leaf-soft);color:var(--leaf-deep);}
+  .pillar:nth-child(3) .icon-char{background:var(--sail-soft);color:var(--sail-deep);}
   .pillar h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:32px;color:var(--melon-deep);
-    line-height:1.25;font-weight:600;margin-bottom:6px;
+    font-size:30px;color:var(--ink);
+    line-height:1.2;font-weight:600;margin-bottom:6px;
   }
   .pillar h3 small{
     display:block;
     font-family:'PingFang TC',sans-serif;
-    font-size:19px;color:var(--ink-soft);
+    font-size:18px;color:var(--ink-soft);
     font-weight:500;margin-top:6px;letter-spacing:.04em;
   }
   .pillar .en-body{
-    font-size:19px;color:var(--ink);
-    margin:20px 0;line-height:1.7;
+    font-size:18px;color:var(--ink);
+    margin:18px 0;line-height:1.7;
   }
   .pillar .divider-tiny{
     height:1px;background:var(--line);
@@ -408,7 +473,7 @@
   }
   .pillar .zh-body{
     font-family:'PingFang TC',sans-serif;
-    font-size:18.5px;color:var(--ink);line-height:1.85;
+    font-size:17.5px;color:var(--ink-soft);line-height:1.85;
   }
 
   /* ============ Principal Teaser ============ */
@@ -565,6 +630,8 @@
       <span class="subnav__sep">·</span>
       <a href="bilingual-campus/">Bilingual Campus</a>
       <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
       <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
     </div>
   </div>
@@ -577,16 +644,9 @@
     <div class="hero-modern__grid">
 
       <div class="hero-modern__text">
-        <div class="hero-modern__logo">
-          <img src="photos/logo.jpg" alt="Wenchang Elementary School logo">
-          <div class="hero-modern__logo-text">Wenchang Elementary
-            <small>彰化縣福興鄉文昌國民小學</small>
-          </div>
-        </div>
+        <span class="hero-modern__eyebrow">Est. 1959 · Changhua County · Taiwan</span>
 
-        <span class="hero-modern__eyebrow">Changhua County · Taiwan · Est. 1959</span>
-
-        <h1>Wenchang Elementary School
+        <h1>Wenchang Elementary
           <span class="h1-zh">彰化縣福興鄉文昌國民小學</span>
         </h1>
 
@@ -601,11 +661,20 @@
           <div class="hero-modern__motto-cell"><span class="zh">合群</span>Cooperation</div>
           <div class="hero-modern__motto-cell"><span class="zh">創新</span>Innovation</div>
         </div>
+
+        <div class="hero-modern__cta">
+          <a class="btn-solid" href="principal/">Meet the Principal →</a>
+          <a class="btn-outline" href="bilingual-campus/">Bilingual Campus</a>
+        </div>
       </div>
 
       <figure class="hero-modern__photo">
         <img src="photos/mascots.jpg" alt="Wenchang Elementary school mascots in front of the campus fountain" loading="eager">
         <span class="hero-modern__photo-badge">文昌 · Wenchang</span>
+        <div class="hero-modern__photo-quote">
+          <div class="q">"From a village schoolhouse on the watermelon fields&mdash;to a classroom that looks the world in the eye."</div>
+          <span class="attribution">— A "Setting Sail" School · 揚帆學校</span>
+        </div>
       </figure>
 
     </div>
@@ -654,6 +723,9 @@
   </div>
 </section>
 
+
+<!-- ============ DIVIDER ============ -->
+<div class="wrap"><div class="section-divider">The Story · 校史</div></div>
 
 <!-- ============ ABOUT ============ -->
 <section class="about" id="about">
@@ -717,6 +789,9 @@
 </section>
 
 
+<!-- ============ DIVIDER ============ -->
+<div class="wrap"><div class="section-divider">Our Identity · 學校特色</div></div>
+
 <!-- ============ IDENTITY (3 pillars) ============ -->
 <section class="identity" id="identity">
   <div class="wrap">
@@ -729,7 +804,7 @@
     <div class="pillars">
 
       <article class="pillar">
-        <div class="icon">瓜</div>
+        <span class="number">01</span><span class="icon-char">瓜</span>
         <h3>Children of the Watermelon Fields
           <small>西瓜田裡的孩子</small>
         </h3>
@@ -739,7 +814,7 @@
       </article>
 
       <article class="pillar">
-        <div class="icon">帆</div>
+        <span class="number">02</span><span class="icon-char">帆</span>
         <h3>A Small School Setting Sail
           <small>小校揚帆，走向國際</small>
         </h3>
@@ -749,7 +824,7 @@
       </article>
 
       <article class="pillar">
-        <div class="icon">機</div>
+        <span class="number">03</span><span class="icon-char">機</span>
         <h3>Hands That Make Robots
           <small>動手做機器人的孩子</small>
         </h3>
@@ -762,6 +837,9 @@
   </div>
 </section>
 
+
+<!-- ============ DIVIDER ============ -->
+<div class="wrap"><div class="section-divider">From the Principal · 校長室</div></div>
 
 <!-- ============ PRINCIPAL TEASER ============ -->
 <section class="principal-teaser" id="principal-teaser">

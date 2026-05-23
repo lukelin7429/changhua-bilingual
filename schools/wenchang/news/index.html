@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
+<link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
+
+<title>News &amp; Stories · 公告新聞 · Wenchang Elementary</title>
+<meta name="description" content="Recent announcements and stories from Wenchang Elementary School. 文昌國小近期公告與校園故事。">
+<meta property="og:title" content="News &amp; Stories · 公告新聞 · Wenchang Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --melon:#d44a4a;--melon-deep:#8a2828;--melon-soft:#fceeee;
+  --leaf:#4a7c2a;--leaf-deep:#2e5219;--leaf-soft:#e6efd9;
+  --sail:#c9a648;--sail-deep:#8b6a17;--sail-soft:#f7eed9;
+  --ink:#1f1a16;--ink-soft:#5e5750;--line:#e8e2d6;
+  --shadow:0 14px 40px -16px rgba(138,40,40,.28);
+  --shadow-sm:0 4px 14px -4px rgba(138,40,40,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--ink);background:#fff;
+  font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+@media (min-width:720px){ body{ font-size:20px; } }
+@media (min-width:1100px){ body{ font-size:21px; } }
+a{color:var(--melon);text-decoration:none;transition:color .15s;}
+a:hover{color:var(--melon-deep);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+.wrap-narrow{max-width:780px;margin:0 auto;padding:0 24px;}
+
+/* === Subnav === */
+.subnav{background:var(--leaf-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+.subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+@media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+.subnav a{color:var(--leaf-deep);text-decoration:none;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+.subnav a:hover{background:#fff;color:var(--melon-deep);}
+.subnav a.is-active{background:var(--melon);color:#fff;}
+.subnav__sep{color:var(--ink-soft);opacity:.4;}
+@media (max-width:600px){ .subnav__sep{display:none;} }
+
+/* === Hero === */
+.news-hero{padding:64px 0 48px;background:#fff;border-bottom:1px solid var(--line);}
+.news-hero__eyebrow{
+  display:block;font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--melon-deep);margin-bottom:18px;
+}
+.news-hero h1{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:clamp(42px,6vw,68px);line-height:1.05;font-weight:600;
+  color:var(--ink);letter-spacing:.005em;
+}
+.news-hero h1 .zh{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:clamp(20px,2.4vw,26px);font-weight:500;
+  color:var(--ink-soft);margin-top:14px;letter-spacing:.06em;
+}
+.news-hero__lede{
+  margin-top:26px;max-width:680px;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:22px;line-height:1.55;color:var(--ink);
+  padding-left:22px;border-left:4px solid var(--sail);
+}
+@media (min-width:880px){ .news-hero__lede{ font-size:25px; } }
+.news-hero__lede .zh{
+  display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
+  font-size:18px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;
+}
+@media (min-width:880px){ .news-hero__lede .zh{ font-size:20px; } }
+
+/* === Section divider === */
+.section-divider{
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  padding:48px 24px 32px;color:var(--melon-deep);
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;
+}
+.section-divider::before,.section-divider::after{
+  content:"";flex:1;height:1px;background:var(--line);max-width:340px;
+}
+
+/* === Announcements list === */
+.news-section{padding:24px 0 72px;}
+.news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+.news-item{
+  display:grid;grid-template-columns:1fr;gap:6px;
+  padding:24px 0;border-bottom:1px solid var(--line);
+}
+@media (min-width:720px){ .news-item{ grid-template-columns:160px 110px 1fr;gap:24px;align-items:baseline; } }
+.news-item__date{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;color:var(--melon-deep);font-weight:700;letter-spacing:.06em;
+}
+.news-item__tag{
+  display:inline-block;align-self:start;
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--leaf-deep);background:var(--leaf-soft);
+  padding:4px 12px;border-radius:99px;width:max-content;
+}
+.news-item__tag.is-hiring{color:var(--melon-deep);background:var(--melon-soft);}
+.news-item__tag.is-safety{color:var(--sail-deep);background:var(--sail-soft);}
+.news-item__body{
+  font-family:'PingFang TC',sans-serif;
+  font-size:18px;color:var(--ink);line-height:1.6;
+}
+.news-item__body .en{
+  display:block;font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:16.5px;color:var(--ink-soft);
+  margin-top:4px;line-height:1.5;
+}
+
+/* === Coming soon block === */
+.coming-soon{
+  margin-top:18px;padding:40px 32px;
+  border:2px dashed var(--line);border-radius:18px;
+  text-align:center;background:#fff;
+}
+.coming-soon__icon{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:56px;color:var(--melon-deep);line-height:1;
+}
+.coming-soon h3{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:28px;font-weight:600;color:var(--ink);
+  margin-top:16px;line-height:1.25;
+}
+.coming-soon .zh-h{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:18px;color:var(--ink-soft);font-weight:500;
+  margin-top:6px;letter-spacing:.04em;
+}
+.coming-soon p{
+  margin-top:18px;max-width:560px;margin-left:auto;margin-right:auto;
+  font-size:17px;color:var(--ink-soft);line-height:1.7;
+}
+.coming-soon p .zh{
+  display:block;font-family:'PingFang TC',sans-serif;
+  margin-top:6px;font-size:16px;color:var(--ink-soft);
+}
+.coming-soon a.fb{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  padding:12px 22px;border:2px solid var(--ink);border-radius:99px;
+  color:var(--ink);font-size:15px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;transition:all .2s;
+}
+.coming-soon a.fb:hover{background:var(--ink);color:#fff;transform:translateY(-1px);}
+
+/* === Footer === */
+footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft);background:#1a0f0a;}
+footer .org{color:var(--sail-soft);font-weight:600;}
+footer a{color:var(--sail-soft);}
+</style>
+</head>
+<body>
+
+<!-- Subnav -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="news-hero">
+  <div class="wrap-narrow">
+    <span class="news-hero__eyebrow">What's Happening · 校園動態</span>
+    <h1>News &amp; Stories
+      <span class="zh">公告新聞 · 校園故事</span>
+    </h1>
+    <p class="news-hero__lede">
+      Wenchang's daily life — the announcements, the events, the small moments worth saving — collected here.
+      <span class="zh">文昌的日常——校園公告、活動、值得記下的小時刻，都在這裡。</span>
+    </p>
+  </div>
+</header>
+
+<!-- Divider -->
+<div class="wrap">
+  <div class="section-divider">Official Announcements · 學校公告</div>
+</div>
+
+<!-- Announcements list -->
+<section class="news-section">
+  <div class="wrap-narrow">
+    <div class="news-list">
+
+      <article class="news-item">
+        <div class="news-item__date">11 May 2026</div>
+        <span class="news-item__tag">Activity · 活動</span>
+        <div class="news-item__body">
+          「2026 小小永續工程師營隊」活動
+          <span class="en">The 2026 Little Sustainability Engineers Camp.</span>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-item__date">11 May 2026</div>
+        <span class="news-item__tag is-hiring">Hiring · 人事</span>
+        <div class="news-item__body">
+          115 學年度第 1 次代理、兼任代課教師甄選
+          <span class="en">2026 school-year substitute and part-time teacher selection (Round 1).</span>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-item__date">6 May 2026</div>
+        <span class="news-item__tag">Contest · 競賽</span>
+        <div class="news-item__body">
+          「115 年環境知識競賽」
+          <span class="en">2026 Environmental Knowledge Competition.</span>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-item__date">29 Apr 2026</div>
+        <span class="news-item__tag">Contest · 競賽</span>
+        <div class="news-item__body">
+          「三百風華・藝繪孔子廟」寫生徵件比賽
+          <span class="en">"Three Centuries of Splendour · Painting the Confucius Temple" sketching contest.</span>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-item__date">27 Apr 2026</div>
+        <span class="news-item__tag is-safety">Safety · 交安</span>
+        <div class="news-item__body">
+          「115 年 1 月彰化縣事故肇因排行」交通安全宣導
+          <span class="en">January 2026 Changhua County traffic-accident causes — road-safety awareness.</span>
+        </div>
+      </article>
+
+    </div>
+
+    <p style="margin-top:24px;font-size:15px;color:var(--ink-soft);font-style:italic;">
+      Source: <a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a> · 學校官網公告區
+    </p>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="wrap">
+  <div class="section-divider">Campus Stories · 校園故事</div>
+</div>
+
+<!-- Coming soon (FB stories) -->
+<section class="news-section">
+  <div class="wrap-narrow">
+    <div class="coming-soon">
+      <div class="coming-soon__icon">— soon —</div>
+      <h3>Campus stories from Facebook coming soon.
+        <span class="zh-h">Facebook 校園故事整理中</span>
+      </h3>
+      <p>
+        We are curating Wenchang's recent campus moments &mdash; events, learning, life on the watermelon fields &mdash; from the school's Facebook page into bilingual stories. Check back shortly.
+        <span class="zh">我們正將文昌國小臉書粉專上的近期校園動態——活動、學習、西瓜田畔的日常——整理成中英對照的校園故事。請稍後再回來看。</span>
+      </p>
+      <a class="fb" href="https://www.facebook.com/100063792111873" target="_blank" rel="noopener">
+        Visit Wenchang FB →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    © 2026 <span class="org">彰化縣福興鄉文昌國民小學 · Wenchang Elementary School</span><br>
+    Bilingual page by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+  </div>
+</footer>
+
+</body>
+</html>
