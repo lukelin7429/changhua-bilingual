@@ -68,86 +68,132 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* ============ MODERN HERO (split layout, photo right) ============ */
-  .hero-modern{
-    background:#fff;
-    border-bottom:1px solid var(--line);
-    padding:56px 0 64px;
+  /* ============ HERO BANNER (full-width building, dark overlay, big text) ============ */
+  .hero-banner{
+    position:relative;
+    min-height:560px;
+    background:#1a0f0a;
     overflow:hidden;
+    border-bottom:6px solid var(--melon-deep);
   }
-  @media (min-width:880px){ .hero-modern{ padding:72px 0; } }
-  .hero-modern__grid{
-    display:grid;grid-template-columns:1fr;gap:36px;align-items:center;
+  @media (min-width:880px){ .hero-banner{ min-height:680px; } }
+  @media (min-width:1200px){ .hero-banner{ min-height:760px; } }
+
+  .hero-banner__bg{position:absolute;inset:0;z-index:0;}
+  .hero-banner__bg img{
+    width:100%;height:100%;object-fit:cover;object-position:center 55%;
+    filter:contrast(1.08) saturate(1.08);
+  }
+
+  .hero-banner__overlay{
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(110deg, rgba(31,15,8,.88) 0%, rgba(31,15,8,.62) 48%, rgba(31,15,8,.25) 100%),
+      linear-gradient(180deg, rgba(31,15,8,.35) 0%, rgba(31,15,8,.45) 70%, rgba(31,15,8,.85) 100%);
+  }
+
+  .hero-banner__content{
+    position:relative;z-index:2;
+    min-height:560px;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:96px 0 80px;color:#fff;
   }
   @media (min-width:880px){
-    .hero-modern__grid{ grid-template-columns:1.1fr 1fr;gap:64px; }
+    .hero-banner__content{ min-height:680px;padding:120px 0 96px; }
   }
-  .hero-modern__logo{
-    display:inline-flex;align-items:center;gap:14px;
-    margin-bottom:22px;
+  @media (min-width:1200px){
+    .hero-banner__content{ min-height:760px; }
   }
-  .hero-modern__logo img{
-    width:64px;height:64px;border-radius:50%;
-    background:#fff;border:3px solid #fff;
-    box-shadow:0 6px 20px rgba(138,40,40,.18);
-    object-fit:cover;
-  }
-  .hero-modern__logo-text{
+
+  .hero-banner__eyebrow{
+    display:inline-block;
     font-family:'Cormorant Garamond',serif;
-    font-size:18px;font-weight:700;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--melon-deep);
-    line-height:1.4;
+    font-size:17px;letter-spacing:.34em;font-weight:700;text-transform:uppercase;
+    color:var(--sail-soft);
+    margin-bottom:32px;
   }
-  .hero-modern__logo-text small{
-    display:block;font-family:'PingFang TC',sans-serif;
-    font-size:14.5px;font-weight:500;letter-spacing:.08em;
-    color:var(--ink-soft);text-transform:none;
-    margin-top:3px;
+  @media (min-width:880px){ .hero-banner__eyebrow{ font-size:19px; } }
+
+  .hero-banner h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(54px, 8vw, 108px);
+    line-height:1.02;font-weight:600;letter-spacing:.005em;
+    color:#fff;text-shadow:0 4px 28px rgba(0,0,0,.45);
+    max-width:920px;
+    margin-bottom:18px;
   }
-  .hero-modern__eyebrow{
+  .hero-banner h1 .h1-zh{
     display:block;
-    font-size:18px;letter-spacing:.32em;
-    color:var(--melon-deep);font-weight:700;text-transform:uppercase;
-    margin-bottom:26px;
+    font-family:'PingFang TC',sans-serif;
+    font-size:clamp(22px, 2.6vw, 32px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.92);
+    margin-top:22px;
+    text-shadow:0 2px 12px rgba(0,0,0,.4);
+  }
+
+  .hero-banner__tagline{
+    margin-top:34px;max-width:680px;
     font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(24px, 3vw, 34px);
+    line-height:1.45;color:#fff;
+    padding-left:24px;border-left:5px solid var(--sail);
+    text-shadow:0 2px 14px rgba(0,0,0,.35);
   }
-  .hero-modern__cta{
-    margin-top:34px;
-    display:flex;flex-wrap:wrap;gap:14px;
+  .hero-banner__tagline .zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:clamp(18px, 2vw, 22px);
+    margin-top:12px;
+    color:rgba(255,255,255,.88);letter-spacing:.06em;
   }
-  .hero-modern__cta a{
+
+  .hero-banner__cta{
+    margin-top:44px;
+    display:flex;flex-wrap:wrap;gap:16px;
+  }
+  .hero-banner__cta a{
     display:inline-flex;align-items:center;gap:12px;
-    padding:16px 30px;font-size:19px;font-weight:600;letter-spacing:.06em;
+    padding:18px 32px;font-size:18px;font-weight:600;letter-spacing:.06em;
     font-family:'Inter','PingFang TC',sans-serif;
     text-transform:uppercase;
-    transition:background .2s, color .2s, transform .2s;
+    transition:all .2s;
   }
-  .hero-modern__cta .btn-solid{
-    background:var(--melon-deep);color:#fff;border:2px solid var(--melon-deep);
+  .hero-banner__cta .btn-solid{
+    background:var(--melon);color:#fff;border:2px solid var(--melon);
+    box-shadow:0 8px 24px rgba(212,74,74,.4);
   }
-  .hero-modern__cta .btn-solid:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-1px);}
-  .hero-modern__cta .btn-outline{
-    background:transparent;color:var(--ink);border:2px solid var(--ink);
+  .hero-banner__cta .btn-solid:hover{background:var(--melon-deep);border-color:var(--melon-deep);transform:translateY(-2px);}
+  .hero-banner__cta .btn-outline{
+    background:rgba(255,255,255,.1);color:#fff;
+    border:2px solid rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
   }
-  .hero-modern__cta .btn-outline:hover{background:var(--ink);color:#fff;transform:translateY(-1px);}
+  .hero-banner__cta .btn-outline:hover{background:#fff;color:var(--ink);transform:translateY(-2px);}
 
-  /* italic quote overlay on hero photo */
-  .hero-modern__photo-quote{
-    position:absolute;bottom:0;left:0;right:0;
-    background:linear-gradient(0deg, rgba(31,15,8,.85) 0%, rgba(31,15,8,.3) 70%, transparent 100%);
-    color:#fff;padding:36px 28px 24px;
+  /* ============ MOTTO BAND (品格 慧心 合群 創新) ============ */
+  .motto-band{
+    background:#fff;padding:38px 0;
+    border-bottom:1px solid var(--line);
   }
-  .hero-modern__photo-quote .q{
+  .motto-band__inner{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    gap:18px 40px;
+  }
+  .motto-band__cell{
+    display:flex;align-items:baseline;gap:14px;
+  }
+  .motto-band__cell .zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:30px;font-weight:700;color:var(--melon-deep);letter-spacing:.04em;
+  }
+  .motto-band__cell .en{
     font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-size:23px;line-height:1.45;color:#fff;
+    font-size:21px;font-weight:600;color:var(--ink);letter-spacing:.04em;
   }
-  @media (min-width:880px){ .hero-modern__photo-quote .q{ font-size:26px; } }
-  .hero-modern__photo-quote .attribution{
-    display:block;margin-top:12px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:16px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--sail-soft);font-weight:600;
-  }
+  .motto-band__sep{color:var(--line);font-size:22px;display:none;}
+  @media (min-width:720px){ .motto-band__sep{display:inline;} }
 
   /* ===== Editorial section divider ===== */
   .section-divider{
@@ -160,75 +206,6 @@
   }
   .section-divider::before, .section-divider::after{
     content:"";flex:1;height:1px;background:var(--line);max-width:380px;
-  }
-  .hero-modern h1{
-    font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:clamp(42px,6.4vw,72px);
-    line-height:1.04;font-weight:600;letter-spacing:.005em;
-    color:var(--melon-deep);
-    margin-bottom:8px;
-  }
-  .hero-modern h1 .h1-zh{
-    display:block;
-    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
-    font-size:clamp(19px,2.4vw,26px);
-    font-weight:500;letter-spacing:.06em;
-    color:var(--ink-soft);
-    margin-top:14px;
-  }
-  .hero-modern__tagline{
-    margin-top:28px;
-    max-width:560px;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:25px;color:var(--ink);
-    line-height:1.5;
-    padding-left:22px;border-left:4px solid var(--sail);
-  }
-  @media (min-width:880px){ .hero-modern__tagline{ font-size:30px; } }
-  .hero-modern__tagline .zh{
-    display:block;font-style:normal;
-    font-family:'PingFang TC',sans-serif;
-    font-size:19px;margin-top:10px;
-    color:var(--ink-soft);letter-spacing:.04em;
-  }
-  @media (min-width:880px){ .hero-modern__tagline .zh{ font-size:22px; } }
-  .hero-modern__motto{
-    margin-top:32px;
-    display:flex;flex-wrap:wrap;gap:12px;
-  }
-  .hero-modern__motto-cell{
-    background:#fff;border:2px solid var(--line);
-    border-radius:99px;padding:12px 24px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:21px;color:var(--melon-deep);font-weight:600;
-    transition:border-color .2s, transform .2s;
-  }
-  .hero-modern__motto-cell:hover{border-color:var(--melon);transform:translateY(-1px);}
-  .hero-modern__motto-cell .zh{
-    font-family:'PingFang TC',sans-serif;
-    font-size:24px;font-weight:700;
-    color:var(--leaf-deep);margin-right:12px;
-  }
-  .hero-modern__photo{
-    position:relative;border-radius:24px;overflow:hidden;
-    aspect-ratio:5/4;
-    box-shadow:0 24px 64px -24px rgba(138,40,40,.45);
-    border:1px solid var(--line);
-  }
-  .hero-modern__photo img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform 6s ease-out;
-  }
-  .hero-modern__photo:hover img{transform:scale(1.05);}
-  .hero-modern__photo-badge{
-    position:absolute;top:20px;left:20px;
-    background:#fff;color:var(--melon-deep);
-    padding:10px 18px;border-radius:99px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:15px;font-weight:700;letter-spacing:.18em;
-    text-transform:uppercase;
-    box-shadow:0 4px 12px rgba(0,0,0,.18);
   }
 
   /* ============ PHOTO STRIP (3 detail photos under hero) ============ */
@@ -666,48 +643,44 @@
 </nav>
 
 
-<!-- ============ MODERN HERO ============ -->
-<header class="hero-modern">
-  <div class="wrap">
-    <div class="hero-modern__grid">
-
-      <div class="hero-modern__text">
-        <span class="hero-modern__eyebrow">Est. 1959 · Changhua County · Taiwan</span>
-
-        <h1>Wenchang Elementary
-          <span class="h1-zh">彰化縣福興鄉文昌國民小學</span>
-        </h1>
-
-        <p class="hero-modern__tagline">
-          Where the watermelon fields meet the world.
-          <span class="zh">鎮平的西瓜田裡，揚帆向世界。</span>
-        </p>
-
-        <div class="hero-modern__motto">
-          <div class="hero-modern__motto-cell"><span class="zh">品格</span>Character</div>
-          <div class="hero-modern__motto-cell"><span class="zh">慧心</span>Wisdom</div>
-          <div class="hero-modern__motto-cell"><span class="zh">合群</span>Cooperation</div>
-          <div class="hero-modern__motto-cell"><span class="zh">創新</span>Innovation</div>
-        </div>
-
-        <div class="hero-modern__cta">
-          <a class="btn-solid" href="principal/">Meet the Principal →</a>
-          <a class="btn-outline" href="bilingual-campus/">Bilingual Campus</a>
-        </div>
+<!-- ============ HERO BANNER (full-width building) ============ -->
+<header class="hero-banner">
+  <div class="hero-banner__bg">
+    <img src="photos/school-gate.jpg" alt="Wenchang Elementary School main entrance with engraved school name" loading="eager">
+  </div>
+  <div class="hero-banner__overlay"></div>
+  <div class="hero-banner__content">
+    <div class="wrap">
+      <span class="hero-banner__eyebrow">Est. 1959 · Changhua County · Taiwan</span>
+      <h1>Wenchang Elementary School
+        <span class="h1-zh">彰化縣福興鄉文昌國民小學</span>
+      </h1>
+      <p class="hero-banner__tagline">
+        Where the watermelon fields meet the world.
+        <span class="zh">鎮平的西瓜田裡，揚帆向世界。</span>
+      </p>
+      <div class="hero-banner__cta">
+        <a class="btn-solid" href="principal/">Meet the Principal →</a>
+        <a class="btn-outline" href="bilingual-campus/">Bilingual Campus</a>
       </div>
-
-      <figure class="hero-modern__photo">
-        <img src="photos/mascots.jpg" alt="Wenchang Elementary school mascots in front of the campus fountain" loading="eager">
-        <span class="hero-modern__photo-badge">文昌 · Wenchang</span>
-        <div class="hero-modern__photo-quote">
-          <div class="q">"From a village schoolhouse on the watermelon fields&mdash;to a classroom that looks the world in the eye."</div>
-          <span class="attribution">— A "Setting Sail" School · 揚帆學校</span>
-        </div>
-      </figure>
-
     </div>
   </div>
 </header>
+
+<!-- ============ MOTTO BAND ============ -->
+<section class="motto-band">
+  <div class="wrap">
+    <div class="motto-band__inner">
+      <div class="motto-band__cell"><span class="zh">品格</span><span class="en">Character</span></div>
+      <span class="motto-band__sep">·</span>
+      <div class="motto-band__cell"><span class="zh">慧心</span><span class="en">Wisdom</span></div>
+      <span class="motto-band__sep">·</span>
+      <div class="motto-band__cell"><span class="zh">合群</span><span class="en">Cooperation</span></div>
+      <span class="motto-band__sep">·</span>
+      <div class="motto-band__cell"><span class="zh">創新</span><span class="en">Innovation</span></div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ============ PHOTO STRIP ============ -->
