@@ -320,41 +320,37 @@
   .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--yellow);}
   .contact__value a:hover{color:var(--yellow);}
 
-  /* ===== School Song ===== */
+  /* ===== School Song (cream-paper style, contrasts with green Contact below) ===== */
   .song{
-    background:linear-gradient(160deg, var(--green-deep) 0%, var(--green) 60%, #214a30 100%);
-    color:#fff;border-radius:24px;padding:48px 32px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(244,213,33,.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(230,59,44,.12) 0%, transparent 55%),
+      linear-gradient(160deg, #fffaee 0%, #fff5d6 60%, #fde9a8 100%);
+    color:var(--ink);border-radius:24px;padding:48px 32px;
+    position:relative;overflow:hidden;
+    border:1px solid #f1d77a;
     box-shadow:var(--shadow);
   }
   @media (min-width:720px){ .song{ padding:72px 64px; } }
-  .song::before{
-    content:'';position:absolute;top:-40px;right:-40px;width:240px;height:240px;
-    background:radial-gradient(circle at center, rgba(244,213,33,.30) 0%, transparent 70%);
-    pointer-events:none;
-  }
-  .song::after{
-    content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;
-    background:radial-gradient(circle at center, rgba(230,59,44,.22) 0%, transparent 70%);
-    pointer-events:none;
-  }
   .song__title{
     font-family:'Playfair Display',serif;font-size:36px;font-weight:800;line-height:1.15;
-    color:#fff;letter-spacing:.5px;position:relative;
+    color:var(--green-deep);letter-spacing:.5px;position:relative;
   }
   @media (min-width:720px){ .song__title{ font-size:52px; } }
-  .song__zh{font-size:20px;color:#fff5b8;margin-top:8px;font-weight:600;letter-spacing:1.5px;position:relative;}
+  .song__zh{font-size:20px;color:var(--ink);margin-top:8px;font-weight:600;letter-spacing:1.5px;position:relative;}
   @media (min-width:720px){ .song__zh{ font-size:24px; } }
-  .song__rule{width:80px;height:5px;background:var(--yellow);border-radius:3px;margin:18px 0 28px;position:relative;}
-  .song__credit{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#cfe7d3;margin-bottom:22px;position:relative;}
+  .song__rule{width:80px;height:5px;background:var(--red);border-radius:3px;margin:18px 0 28px;position:relative;}
+  .song__credit{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--ink-soft);margin-bottom:22px;position:relative;}
   @media (min-width:720px){ .song__credit{ font-size:20px; } }
+  .song__credit strong{color:var(--green-deep);font-style:normal;}
   .song__lyrics{
     display:grid;grid-template-columns:1fr;gap:18px;position:relative;
   }
   @media (min-width:760px){ .song__lyrics{ grid-template-columns:1fr 1fr;gap:24px 36px; } }
   .song__stanza{
     font-family:'Playfair Display','PingFang TC',serif;
-    font-size:21px;line-height:1.9;color:#fff;letter-spacing:1.5px;
-    padding:6px 0 6px 16px;border-left:3px solid var(--yellow);
+    font-size:21px;line-height:1.9;color:var(--green-deep);letter-spacing:1.5px;
+    padding:6px 0 6px 16px;border-left:3px solid var(--yellow-deep);
   }
   @media (min-width:720px){ .song__stanza{ font-size:23px; } }
   .song__stanza--accent{border-left-color:var(--red);}
