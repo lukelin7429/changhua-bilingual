@@ -40,7 +40,7 @@
   .sec__rule{width:96px;height:6px;background:var(--yellow);border-radius:3px;margin:22px 0 36px;}
 
   .subnav{background:var(--green-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
-  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:21px;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:21px;}
   @media (min-width:720px){ .subnav__inner{ font-size:23px; } }
   .subnav a{color:var(--green-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--red-deep);}
@@ -49,23 +49,55 @@
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* === Principal hero (editorial split, no pastel slab) === */
+  /* === Principal hero (editorial — cream wash, yellow accent, metadata strip) === */
   .prin-hero{
+    position:relative;
     display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
-    padding:8px 0 16px;
+    padding:36px 28px 36px 36px;
+    background:linear-gradient(135deg, #faf7ea 0%, #fdf5d4 100%);
+    border-radius:20px;
+    border:1px solid #f0e3a8;
   }
-  @media (min-width:760px){ .prin-hero{ grid-template-columns:1.25fr 1fr;gap:56px;padding:16px 0 24px; } }
-  .prin-photo{text-align:left;}
+  @media (min-width:760px){
+    .prin-hero{ grid-template-columns:1.2fr 1fr;gap:52px;padding:56px 56px 56px 64px; }
+  }
+  /* vertical yellow accent on hero's left edge */
+  .prin-hero::before{
+    content:'';position:absolute;left:0;top:32px;bottom:32px;width:6px;
+    background:var(--yellow);border-radius:0 4px 4px 0;
+  }
+  .prin-photo{position:relative;text-align:left;}
   .prin-photo img{
-    width:100%;height:auto;display:block;border-radius:16px;
-    box-shadow:0 24px 56px -20px rgba(21,80,40,.42), 0 10px 22px -10px rgba(21,80,40,.20);
-    /* keep the original 1.9:1 office portrait — no forced crop */
+    width:100%;height:auto;display:block;border-radius:14px;
+    box-shadow:0 26px 60px -22px rgba(21,80,40,.45), 0 12px 24px -12px rgba(21,80,40,.22);
+    border:5px solid #fff;
   }
-  .prin-photo__caption{margin-top:14px;font-size:18px;color:var(--ink-soft);line-height:1.55;letter-spacing:.5px;}
-  @media (min-width:720px){ .prin-photo__caption{ font-size:19px; } }
-  .prin-photo__caption b{color:var(--green-deep);font-weight:700;}
-  .prin-hero__sep{
-    grid-column:1 / -1;height:1px;background:var(--line);margin-top:6px;
+  .prin-photo__caption{
+    margin-top:14px;font-size:17px;color:var(--ink-soft);
+    line-height:1.55;letter-spacing:.5px;font-style:italic;
   }
+  @media (min-width:720px){ .prin-photo__caption{ font-size:18px; } }
+  .prin-photo__caption b{color:var(--green-deep);font-weight:700;font-style:normal;}
+  /* metadata strip — appointed / years of service / direct line */
+  .prin-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px 24px;
+    padding:18px 0;margin-top:22px;
+    border-top:1px solid rgba(21,80,40,.22);
+    border-bottom:1px solid rgba(21,80,40,.22);
+  }
+  @media (max-width:480px){ .prin-meta{ grid-template-columns:1fr; } }
+  .prin-meta__label{
+    font-family:'Playfair Display',serif;
+    font-size:13px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--red-deep);font-weight:700;
+  }
+  @media (min-width:720px){ .prin-meta__label{ font-size:14px; } }
+  .prin-meta__value{
+    font-family:'Playfair Display',serif;
+    font-size:19px;color:var(--green-deep);font-weight:700;line-height:1.2;margin-top:4px;
+  }
+  @media (min-width:720px){ .prin-meta__value{ font-size:21px; } }
+  .prin-hero__sep{display:none;}
   .role{font-family:'Playfair Display',serif;color:var(--red);font-size:15.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;}
   .prin-hero h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:var(--green-deep);line-height:1.1;margin-top:8px;letter-spacing:.5px;}
   @media (min-width:720px){ .prin-hero h1{ font-size:54px; } }
@@ -178,9 +210,22 @@
         <h1>Chuang Wen-kuei<span class="zh">莊文魁 校長</span></h1>
         <div class="lede">Twenty-five years of classroom and administrative service across four counties — appointed Sigang's principal in <strong>August 2024</strong>.</div>
         <div class="lede-zh">25 年跨四縣市（桃園 / 苗栗 / 彰化 / 縣府）的教學與行政歷練，2024 年 8 月接任西港國小校長，承接前任洪信德校長 2016–2024 八年耕耘。</div>
+        <div class="prin-meta">
+          <div>
+            <div class="prin-meta__label">Appointed · 接任</div>
+            <div class="prin-meta__value">Aug 2024</div>
+          </div>
+          <div>
+            <div class="prin-meta__label">Service · 年資</div>
+            <div class="prin-meta__value">25 yrs</div>
+          </div>
+          <div>
+            <div class="prin-meta__label">Office · 校長室</div>
+            <div class="prin-meta__value">04‑8941029 #10</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="prin-hero__sep"></div>
   </div>
 </section>
 
