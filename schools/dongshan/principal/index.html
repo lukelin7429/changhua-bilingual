@@ -7,7 +7,7 @@
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Principal · 校長室 · Dongshan Elementary School</title>
-<meta name="description" content="Principal Wang Chien-Kai, the 17th principal of Dongshan Elementary School. Took office August 2023. 王建凱校長 — 東山國小第 17 任校長，112 學年度起任職。">
+<meta name="description" content="Principal Wang Chien-Kai, the 17th principal of Dongshan Elementary School. Took office August 2023. Vision, strategy, and four guiding principles. 王建凱校長 — 東山國小第 17 任校長，112 學年度起任職。辦學理念、學校願景、經營策略完整呈現。">
 <meta property="og:title" content="Principal Wang Chien-Kai · 王建凱校長 · Dongshan Elementary">
 <meta property="og:type" content="website">
 
@@ -26,20 +26,23 @@
     --shadow-sm:0 4px 14px -4px rgba(26,70,38,.18);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+  /* Larger global type — Luke requested every page bumped up. */
+  html{scroll-behavior:smooth;font-size:18px;}
   body{
     font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
-    color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;
+    color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased;
+    font-size:19px;
   }
   a{color:var(--hill-deep);text-decoration:none;}
   a:hover{color:var(--brick-deep);}
-  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
   /* Sub-nav */
   .subnav{background:var(--hill-soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
-  .subnav__inner{padding:14px 0;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;text-align:center;}
-  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
-  .subnav a{display:inline-block;padding:6px 12px;border-radius:6px;color:var(--hill-deep);transition:all .2s;}
+  .subnav__inner{padding:16px 0;font-family:'Inter',sans-serif;font-size:19px;font-weight:600;text-align:center;}
+  @media (min-width:720px){ .subnav__inner{ font-size:22px; } }
+  .subnav a{display:inline-block;padding:8px 14px;border-radius:6px;color:var(--hill-deep);transition:all .2s;}
   .subnav a:hover{background:#fff;color:var(--brick-deep);}
   .subnav a.is-active{background:var(--hill);color:#fff;}
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
@@ -48,97 +51,235 @@
   /* Title strip */
   .title{
     background:linear-gradient(135deg,var(--hill-deep) 0%,var(--brick-deep) 100%);
-    color:#fff;padding:80px 24px 70px;text-align:center;
+    color:#fff;padding:88px 24px 78px;text-align:center;
   }
   .title__eyebrow{
-    display:inline-block;font-size:14px;letter-spacing:.22em;
+    display:inline-block;font-size:15.5px;letter-spacing:.22em;
     color:var(--fruit-soft);font-weight:700;text-transform:uppercase;
-    margin-bottom:18px;padding:4px 14px;border:1px solid var(--fruit);border-radius:99px;
+    margin-bottom:20px;padding:5px 16px;border:1px solid var(--fruit);border-radius:99px;
   }
   .title h1{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:clamp(44px,7vw,72px);line-height:1.05;font-weight:600;margin-bottom:10px;
+    font-size:clamp(48px,7.5vw,80px);line-height:1.05;font-weight:600;margin-bottom:12px;
   }
   .title .h1-zh{
-    font-size:clamp(20px,2.6vw,26px);font-weight:500;letter-spacing:.08em;
+    font-size:clamp(22px,2.8vw,30px);font-weight:500;letter-spacing:.08em;
     color:rgba(255,255,255,.92);
     font-family:'PingFang TC',sans-serif;
   }
 
   /* Main */
-  main{padding:72px 0;}
+  main{padding:80px 0 30px;}
 
+  /* ===== Principal card ===== */
   .principal-card{
-    display:grid;grid-template-columns:1fr 1.6fr;gap:48px;
+    display:grid;grid-template-columns:1fr 1.6fr;gap:52px;
     background:var(--cream);border-radius:20px;
-    padding:40px;box-shadow:var(--shadow);align-items:start;
+    padding:44px;box-shadow:var(--shadow);align-items:start;
   }
-  @media (max-width:760px){ .principal-card{ grid-template-columns:1fr;padding:28px;gap:32px; } }
+  @media (max-width:760px){ .principal-card{ grid-template-columns:1fr;padding:30px;gap:36px; } }
   .principal-photo{
     border-radius:14px;overflow:hidden;background:var(--cream);
     display:flex;align-items:center;justify-content:center;
     box-shadow:var(--shadow-sm);
   }
-  .principal-photo img{
-    width:100%;height:auto;display:block;
-  }
+  .principal-photo img{width:100%;height:auto;display:block;}
 
   .principal-text .seal{
     display:inline-block;background:var(--fruit);color:var(--hill-deep);
-    padding:4px 14px;border-radius:99px;
-    font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    margin-bottom:14px;
+    padding:5px 16px;border-radius:99px;
+    font-size:14.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:16px;
   }
   .principal-text h2{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:42px;color:var(--hill-deep);line-height:1.15;
+    font-size:48px;color:var(--hill-deep);line-height:1.1;
     font-weight:600;margin-bottom:6px;
   }
   .principal-text .name-zh{
-    font-family:'PingFang TC',serif;font-size:24px;
-    color:var(--ink);font-weight:500;margin-bottom:22px;
+    font-family:'PingFang TC',serif;font-size:28px;
+    color:var(--ink);font-weight:500;margin-bottom:24px;
     letter-spacing:.08em;
   }
   .principal-text .term{
     border:1px solid var(--line);border-left:4px solid var(--fruit);
-    background:#fff;border-radius:0 10px 10px 0;padding:14px 18px;
-    margin-bottom:24px;
+    background:#fff;border-radius:0 10px 10px 0;padding:16px 20px;
+    margin-bottom:26px;
   }
   .principal-text .term dt{
-    font-size:12.5px;color:var(--fruit-deep);font-weight:700;
+    font-size:13.5px;color:var(--fruit-deep);font-weight:700;
     letter-spacing:.14em;text-transform:uppercase;
   }
-  .principal-text .term dd{font-size:17px;color:var(--ink);font-weight:500;margin-top:2px;}
-  .principal-text .term dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;}
+  .principal-text .term dd{font-size:18.5px;color:var(--ink);font-weight:500;margin-top:3px;}
+  .principal-text .term dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;align-items:baseline;}
   @media (max-width:760px){ .principal-text .term dl{ grid-template-columns:1fr; } .principal-text .term dd{margin-bottom:8px;} }
 
-  .principal-text .pledge{font-size:19px;color:var(--ink);line-height:1.75;margin-bottom:14px;}
+  .principal-text .pledge{font-size:21px;color:var(--ink);line-height:1.8;margin-bottom:16px;}
   .principal-text .pledge.zh{
-    font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);
-    background:#fff;border-left:3px solid var(--hill);padding:14px 20px;
-    border-radius:0 10px 10px 0;line-height:1.85;
+    font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);
+    background:#fff;border-left:3px solid var(--hill);padding:16px 22px;
+    border-radius:0 10px 10px 0;line-height:1.9;
   }
 
-  /* Heritage strip */
+  /* ===== Section blocks ===== */
+  section.block{padding:60px 0;border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:none;}
+  .block-head{margin-bottom:30px;}
+  .block-head .eyebrow{
+    display:inline-block;color:var(--fruit-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:8px;
+  }
+  .block-head h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:38px;color:var(--hill-deep);font-weight:600;line-height:1.2;
+    margin-bottom:4px;
+  }
+  .block-head .h3-zh{
+    font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);
+    font-weight:500;
+  }
+
+  /* CV three columns */
+  .cv-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
+  }
+  .cv-card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:26px 28px;box-shadow:var(--shadow-sm);
+  }
+  .cv-card .cv-label{
+    display:block;color:var(--brick-deep);font-size:13.5px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px;
+  }
+  .cv-card .cv-label .zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;margin-left:8px;}
+  .cv-card h4{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:22px;color:var(--hill-deep);font-weight:600;margin-bottom:14px;line-height:1.3;
+  }
+  .cv-card ul{list-style:none;padding:0;}
+  .cv-card li{
+    font-size:17px;color:var(--ink);line-height:1.65;
+    padding:8px 0;border-top:1px dashed var(--line);
+  }
+  .cv-card li:first-child{border-top:none;}
+  .cv-card li .zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:15.5px;display:block;margin-top:2px;}
+  .cv-card.awards li{position:relative;padding-left:24px;}
+  .cv-card.awards li::before{
+    content:"★";position:absolute;left:0;top:8px;
+    color:var(--fruit);font-size:16px;
+  }
+
+  /* Principles 2x2 */
+  .principles{background:var(--hill-soft);border-radius:18px;padding:42px;}
+  .principles-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;
+  }
+  .principle{
+    background:#fff;border-radius:12px;padding:24px 26px;
+    border-left:4px solid var(--hill);box-shadow:var(--shadow-sm);
+  }
+  .principle .num{
+    display:block;font-family:'Cormorant Garamond',serif;
+    font-size:32px;color:var(--fruit-deep);font-weight:700;line-height:1;margin-bottom:8px;
+  }
+  .principle h4{
+    font-family:'PingFang TC',serif;font-size:22px;color:var(--ink);
+    font-weight:600;margin-bottom:6px;letter-spacing:.05em;
+  }
+  .principle p{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:17px;color:var(--ink-soft);line-height:1.55;
+  }
+
+  /* Vision banner */
+  .vision-banner{
+    background:linear-gradient(135deg,var(--fruit) 0%,var(--brick) 100%);
+    color:#fff;border-radius:18px;padding:50px 40px;text-align:center;
+  }
+  .vision-banner .vis-eyebrow{
+    display:inline-block;font-size:13.5px;letter-spacing:.22em;
+    color:rgba(255,255,255,.85);font-weight:700;text-transform:uppercase;
+    margin-bottom:18px;padding:4px 14px;border:1px solid rgba(255,255,255,.55);border-radius:99px;
+  }
+  .vision-banner .v-list{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px;margin-top:8px;
+  }
+  .vision-banner .v-item{
+    font-family:'PingFang TC',serif;font-size:28px;color:#fff;font-weight:600;
+    letter-spacing:.06em;
+  }
+  .vision-banner .v-en{
+    margin-top:18px;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:21px;color:rgba(255,255,255,.92);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.6;
+  }
+
+  /* Strategy stack */
+  .strategy{display:grid;gap:20px;}
+  .strat{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:28px 32px;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;
+  }
+  @media (max-width:680px){ .strat{ grid-template-columns:1fr; } }
+  .strat .strat-num{
+    font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;
+    color:var(--brick);line-height:1;width:80px;text-align:center;
+    border-right:2px solid var(--line);padding-right:24px;
+  }
+  @media (max-width:680px){ .strat .strat-num{border-right:none;border-bottom:2px solid var(--line);padding-right:0;padding-bottom:8px;width:auto;text-align:left;} }
+  .strat h4{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:24px;color:var(--hill-deep);font-weight:600;margin-bottom:4px;line-height:1.3;
+  }
+  .strat .h4-zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-bottom:14px;}
+  .strat ul{list-style:none;padding:0;margin-top:8px;}
+  .strat li{
+    font-size:17px;color:var(--ink);line-height:1.7;padding:6px 0;
+  }
+  .strat li strong{color:var(--brick-deep);font-weight:700;letter-spacing:.05em;}
+  .strat li .zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:16px;display:block;margin-top:2px;}
+
+  /* Looking ahead */
+  .ahead{
+    background:var(--cream);border-radius:18px;padding:48px 42px;text-align:center;
+  }
+  .ahead blockquote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:26px;color:var(--hill-deep);line-height:1.5;
+    max-width:780px;margin:0 auto 18px;
+  }
+  .ahead blockquote .zh{
+    display:block;font-family:'PingFang TC',serif;font-style:normal;font-size:21px;
+    color:var(--ink);margin-top:14px;letter-spacing:.04em;line-height:1.7;
+  }
+  .ahead p{
+    font-size:18px;color:var(--ink);line-height:1.8;max-width:780px;margin:0 auto;
+  }
+  .ahead p.zh{
+    font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);
+    margin-top:14px;line-height:1.95;
+  }
+
+  /* ===== Heritage strip ===== */
   .heritage{
-    margin-top:72px;padding:60px 0;background:var(--cream);border-radius:18px;
+    margin-top:48px;padding:64px 0;background:var(--cream);border-radius:18px;
   }
   .heritage h3{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:32px;color:var(--hill-deep);font-weight:600;text-align:center;
-    margin-bottom:6px;
+    font-size:36px;color:var(--hill-deep);font-weight:600;text-align:center;
+    margin-bottom:8px;
   }
   .heritage .h3-zh{
-    font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);
-    text-align:center;margin-bottom:36px;letter-spacing:.04em;
+    font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);
+    text-align:center;margin-bottom:40px;letter-spacing:.04em;
   }
   .succession{
     max-width:680px;margin:0 auto;
-    border-left:2px solid var(--fruit);padding-left:32px;
+    border-left:2px solid var(--fruit);padding-left:36px;
   }
-  .succession__item{margin-bottom:24px;position:relative;}
+  .succession__item{margin-bottom:26px;position:relative;}
   .succession__item::before{
-    content:"";position:absolute;left:-41px;top:6px;
+    content:"";position:absolute;left:-45px;top:6px;
     width:14px;height:14px;border-radius:50%;
     background:var(--fruit);box-shadow:0 0 0 3px var(--cream);
   }
@@ -147,23 +288,23 @@
   }
   .succession__order{
     font-family:'Cormorant Garamond',serif;
-    font-size:16px;font-weight:700;color:var(--fruit-deep);
-    letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px;
+    font-size:17px;font-weight:700;color:var(--fruit-deep);
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px;
   }
-  .succession__name{font-size:18px;color:var(--ink);font-weight:600;}
+  .succession__name{font-size:20px;color:var(--ink);font-weight:600;}
   .succession__name .en{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink-soft);font-weight:500;margin-left:8px;}
-  .succession__term{font-size:14px;color:var(--ink-soft);margin-top:2px;}
+  .succession__term{font-size:15.5px;color:var(--ink-soft);margin-top:2px;}
   .succession__item.is-current .succession__name{color:var(--brick-deep);}
 
   .footnote{
-    margin-top:30px;text-align:center;font-size:14px;color:var(--ink-soft);
-    font-style:italic;max-width:600px;margin-left:auto;margin-right:auto;
+    margin-top:34px;text-align:center;font-size:15.5px;color:var(--ink-soft);
+    font-style:italic;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.7;
   }
 
   /* Foot */
-  .foot{background:var(--hill-deep);color:rgba(255,255,255,.85);padding:40px 0;text-align:center;margin-top:80px;}
-  .foot__brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;}
-  .foot__hub{font-size:14px;color:rgba(255,255,255,.75);}
+  .foot{background:var(--hill-deep);color:rgba(255,255,255,.85);padding:44px 0;text-align:center;margin-top:80px;}
+  .foot__brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;margin-bottom:8px;}
+  .foot__hub{font-size:16px;color:rgba(255,255,255,.78);line-height:1.6;}
   .foot__hub a{color:var(--fruit-soft);font-weight:600;}
 </style>
 <script defer src="/analytics.js"></script>
@@ -217,10 +358,209 @@
           </dl>
         </div>
 
-        <p class="pledge">A school at the foot of the mountain has two compasses — the hills behind us, and the children walking toward us. Our job at Dongshan is to make sure those two never lose sight of each other: a baseball that still hears Beiguan drums, an English broadcast that still calls home in Taiwanese.</p>
-        <p class="pledge zh">山腳的學校有兩個方位——身後的山，與走來上學的孩子。我們在東山的任務，是讓這兩件事永遠不要彼此走散：讓棒球場上聽得到北管樂聲，讓英語廣播裡仍有台語的故鄉。</p>
+        <p class="pledge">A school at the foot of the mountain has two compasses — the hills behind us, and the children walking toward us. Our job at Dongshan is to make sure those two never lose sight of each other.</p>
+        <p class="pledge zh">山腳的學校有兩個方位——身後的山，與走來上學的孩子。我們在東山的任務，是讓這兩件事永遠不要彼此走散。</p>
       </div>
     </article>
+
+    <!-- ===== CV: Education / Experience / Awards ===== -->
+    <section class="block">
+      <div class="block-head">
+        <span class="eyebrow">Curriculum Vitae</span>
+        <h3>A Career Built in Classrooms &amp; District Offices</h3>
+        <div class="h3-zh">學經歷與獲獎</div>
+      </div>
+
+      <div class="cv-grid">
+        <div class="cv-card">
+          <span class="cv-label">Education<span class="zh">學歷</span></span>
+          <h4>From Yuntech Vocational Education</h4>
+          <ul>
+            <li>National Yunlin University of Science and Technology — Graduate Institute of Technological and Vocational Education
+              <span class="zh">國立雲林科技大學 · 技術及職業教育研究所</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-card">
+          <span class="cv-label">Experience<span class="zh">經歷</span></span>
+          <h4>Thirty Years in Front of Children</h4>
+          <ul>
+            <li>Homeroom teacher, Chenkang Elementary, Taoyuan — 1 year
+              <span class="zh">桃園縣陳康國小導師 · 1 年</span>
+            </li>
+            <li>Vocational instructor, Air Force Technical Academy — 2 years
+              <span class="zh">航空技術學校高職組教官 · 2 年</span>
+            </li>
+            <li>Homeroom teacher, Nanzhou Elementary, Changhua — 2.5 years
+              <span class="zh">彰化縣南州國小導師 · 2.5 年</span>
+            </li>
+            <li>Homeroom teacher / Section chief — 8.5 years
+              <span class="zh">導師兼組長 · 8.5 年</span>
+            </li>
+            <li>Director of office — 8 years
+              <span class="zh">主任 · 8 年</span>
+            </li>
+            <li>Curriculum Supervisor, Changhua County Education Bureau — 2 years
+              <span class="zh">彰化縣教育處課程督學 · 2 年</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-card awards">
+          <span class="cv-label">Awards<span class="zh">獲獎</span></span>
+          <h4>Recognized by the County</h4>
+          <ul>
+            <li>2017 Changhua County Outstanding Teacher Award (Duo Award)
+              <span class="zh">106 年彰化縣特殊優良教師鐸獎</span>
+            </li>
+            <li>2020 Changhua County SUPER Teacher Award — Jury Special Prize
+              <span class="zh">109 年彰化縣 SUPER 教師評審團特別獎</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Four Principles ===== -->
+    <section class="block">
+      <div class="block-head">
+        <span class="eyebrow">Part One · 壹</span>
+        <h3>Four Principles of School Leadership</h3>
+        <div class="h3-zh">辦學理念</div>
+      </div>
+
+      <div class="principles">
+        <div class="principles-grid">
+          <div class="principle">
+            <span class="num">01</span>
+            <h4>謹慎思考、迅速行動</h4>
+            <p>Think carefully. Act swiftly.</p>
+          </div>
+          <div class="principle">
+            <span class="num">02</span>
+            <h4>開誠布公、積極面對</h4>
+            <p>Speak openly. Face challenges head-on.</p>
+          </div>
+          <div class="principle">
+            <span class="num">03</span>
+            <h4>聆聽需求、研擬對策</h4>
+            <p>Listen to what is needed. Then design the answer.</p>
+          </div>
+          <div class="principle">
+            <span class="num">04</span>
+            <h4>責任承攬、揚帆啟航</h4>
+            <p>Take responsibility. Set sail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== School Vision ===== -->
+    <section class="block">
+      <div class="block-head">
+        <span class="eyebrow">Part Two · 貳</span>
+        <h3>The Kind of School We Want to Be</h3>
+        <div class="h3-zh">學校願景</div>
+      </div>
+
+      <div class="vision-banner">
+        <span class="vis-eyebrow">School Vision · 學校願景</span>
+        <div class="v-list">
+          <span class="v-item">感恩惜福</span>
+          <span class="v-item">·</span>
+          <span class="v-item">溫馨人文</span>
+          <span class="v-item">·</span>
+          <span class="v-item">創新多元</span>
+          <span class="v-item">·</span>
+          <span class="v-item">樂觀積極</span>
+        </div>
+        <p class="v-en">Grateful and warm-hearted. Humane and welcoming. Inventive and many-voiced. Optimistic and forward-leaning.</p>
+      </div>
+    </section>
+
+    <!-- ===== Strategic Approach ===== -->
+    <section class="block">
+      <div class="block-head">
+        <span class="eyebrow">Part Three · 參</span>
+        <h3>How We Get There — Three Strategies</h3>
+        <div class="h3-zh">經營策略</div>
+      </div>
+
+      <div class="strategy">
+
+        <article class="strat">
+          <div class="strat-num">一</div>
+          <div>
+            <h4>Reading the Needs — Strategic Thinking</h4>
+            <div class="h4-zh">分析需求 — 戰略思維</div>
+            <ul>
+              <li><strong>S-O Strategy</strong> — Connect external resources, organize volunteer support, and co-design curriculum through dialogue.
+                <span class="zh">S-O 戰略：鏈結資源、組織志工協助、共同對話及推展課程。</span>
+              </li>
+              <li><strong>S-O-T Strategy</strong> — Audit teaching talent, apply for special projects, and build a campus with warmth.
+                <span class="zh">S-O-T 戰略：盤點師資、申請專案、營造有溫度的校園。</span>
+              </li>
+              <li><strong>W-T Strategy</strong> — Use every occasion to advocate for the school and strengthen teacher–parent relationships.
+                <span class="zh">W-T 戰略：運用各式場合、行銷學校並提升親師親職關係。</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="strat">
+          <div class="strat-num">二</div>
+          <div>
+            <h4>Action Plan — Three Commitments</h4>
+            <div class="h4-zh">行動方案</div>
+            <ul>
+              <li><strong>Raise the quality of learning</strong> — host professional learning communities and run internal curriculum reviews.
+                <span class="zh">提升學習品保：辦理社群及課程校內評鑑。</span>
+              </li>
+              <li><strong>Strengthen core competencies</strong> — plan workshops, deepen evaluation of outcomes, and bring the competency-based curriculum to life.
+                <span class="zh">強固本質學能：規劃工作坊、深化成效評估執行、落實素養課程。</span>
+              </li>
+              <li><strong>Activate local resources</strong> — build a volunteer team, draw on parents' expertise, and integrate community resources.
+                <span class="zh">活化在地資源：籌組志工團隊、借重家長專長、整合資源推動。</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="strat">
+          <div class="strat-num">三</div>
+          <div>
+            <h4>Curriculum in Practice — An Ecological Model</h4>
+            <div class="h4-zh">課程實踐 — 生態模式的溝通詮釋活動</div>
+            <ul>
+              <li>Hold together the four common elements of every lesson — <strong>teacher, student, subject content, and environment</strong> — and run them as a single ecology. Through this <em>curriculum-in-practice ecological model</em>, our competency-based courses cultivate five capacities in every child:
+                <span class="zh">掌握課程共同要素：教師、學生、科目內容與環境。運用「課程實踐生態模式」於素養課程，打造學生五大力。</span>
+              </li>
+              <li><strong>Learning power · 學習力</strong> · <strong>Reading power · 閱讀力</strong> · <strong>Caring power · 關懷力</strong> · <strong>Action power · 行動力</strong> · <strong>Character power · 品格力</strong></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Looking Ahead ===== -->
+    <section class="block">
+      <div class="block-head">
+        <span class="eyebrow">Part Four · 肆</span>
+        <h3>Looking Ahead</h3>
+        <div class="h3-zh">展望未來</div>
+      </div>
+
+      <div class="ahead">
+        <blockquote>
+          “As the principal goes, so goes the school.”
+          <span class="zh">「有什麼樣的校長，就有什麼樣的學校。」</span>
+        </blockquote>
+        <p>My hope is to be a principal who is honest and grounded, professional in leadership, and unafraid to open up new and creative ways of running a school — so that every child, watered by love and laughter, can shine in their own way and grow into all they are capable of.</p>
+        <p class="zh">期許自己成為一位真誠踏實、專業領導、開創多元與創新經營的校長，讓每位孩子在愛與歡笑的滋潤下，人人適性揚才、發揮所長。</p>
+      </div>
+    </section>
 
     <!-- ===== Heritage strip ===== -->
     <section class="heritage">
