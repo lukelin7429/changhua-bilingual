@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News · 校園新聞 · Dongshan Elementary School</title>
+<meta name="description" content="Dongshan Elementary School news and honour roll — school evaluation, PaGamO reading distinction, OMC Olympiad math, and baseball / tennis results. 東山國小校園新聞與榮譽榜 — 校務評鑑、PaGamO 閱讀特優、OMC 數學競賽、棒網球賽事。">
+<meta property="og:title" content="News · 校園新聞 · Dongshan Elementary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --hill:#2e6b3f;--hill-deep:#1a4626;--hill-soft:#e3eee3;
+    --fruit:#d4a531;--fruit-deep:#8a6a16;--fruit-soft:#fbf2d8;
+    --brick:#b04a35;--brick-deep:#6f2920;--brick-soft:#f5dfd6;
+    --court:#a8c34a;--court-deep:#5a6e1f;--court-soft:#eef3d8;
+    --ink:#1c1810;--ink-soft:#5a534a;--line:#e6dfd1;--cream:#fbfaf6;
+    --shadow:0 14px 40px -16px rgba(26,70,38,.30);
+    --shadow-sm:0 4px 14px -4px rgba(26,70,38,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--hill-deep);text-decoration:none;}
+  a:hover{color:var(--brick-deep);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  .subnav{background:var(--hill-soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{padding:14px 0;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;text-align:center;}
+  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
+  .subnav a{display:inline-block;padding:6px 12px;border-radius:6px;color:var(--hill-deep);transition:all .2s;}
+  .subnav a:hover{background:#fff;color:var(--brick-deep);}
+  .subnav a.is-active{background:var(--hill);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .title{
+    background:linear-gradient(135deg,var(--brick-deep) 0%,var(--hill-deep) 100%);
+    color:#fff;padding:72px 24px 60px;text-align:center;
+  }
+  .title__eyebrow{
+    display:inline-block;font-size:14px;letter-spacing:.22em;
+    color:var(--fruit-soft);font-weight:700;text-transform:uppercase;
+    margin-bottom:18px;padding:4px 14px;border:1px solid var(--fruit);border-radius:99px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,6.5vw,66px);line-height:1.1;font-weight:600;margin-bottom:10px;
+  }
+  .title .h1-zh{
+    font-size:clamp(19px,2.5vw,25px);font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.92);font-family:'PingFang TC',sans-serif;
+  }
+  .title .lede{
+    margin-top:18px;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:20px;color:var(--fruit-soft);max-width:600px;margin-left:auto;margin-right:auto;
+  }
+
+  main{padding:64px 0;}
+
+  /* Featured row */
+  .featured{margin-bottom:64px;}
+  .featured-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  }
+  @media (max-width:760px){ .featured-grid{ grid-template-columns:1fr; } }
+  .featured-card{
+    padding:32px 28px;border-radius:16px;
+    background:var(--cream);border-top:6px solid var(--fruit);
+    box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  }
+  .featured-card.is-brick{border-top-color:var(--brick);background:var(--brick-soft);}
+  .featured-card.is-hill{border-top-color:var(--hill);background:var(--hill-soft);}
+  .featured-card.is-court{border-top-color:var(--court-deep);background:var(--court-soft);}
+  .featured-card .seal{
+    display:inline-block;background:#fff;color:var(--fruit-deep);
+    border:1px solid var(--fruit);padding:3px 12px;border-radius:99px;
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .featured-card.is-brick .seal{color:var(--brick-deep);border-color:var(--brick);}
+  .featured-card.is-hill .seal{color:var(--hill-deep);border-color:var(--hill);}
+  .featured-card.is-court .seal{color:var(--court-deep);border-color:var(--court-deep);}
+  .featured-card h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:30px;color:var(--ink);font-weight:600;line-height:1.2;
+    margin-bottom:4px;
+  }
+  .featured-card .h2-zh{
+    font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);
+    margin-bottom:14px;letter-spacing:.04em;
+  }
+  .featured-card p{font-size:16.5px;color:var(--ink);line-height:1.7;margin-bottom:10px;}
+  .featured-card p.zh{
+    font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);
+    line-height:1.85;
+  }
+
+  /* Section heads */
+  .sec-head{margin:0 0 36px;padding-top:24px;border-top:1px solid var(--line);}
+  .sec-head .eyebrow{
+    display:inline-block;color:var(--fruit-deep);font-size:13.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;
+  }
+  .sec-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:36px;color:var(--hill-deep);font-weight:600;line-height:1.2;
+    margin-bottom:6px;
+  }
+  .sec-head .h2-zh{
+    font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .sec-head + .news-list{ margin-top:0; }
+
+  /* News list */
+  .news-list{margin-bottom:56px;}
+  .news-item{
+    display:grid;grid-template-columns:140px 1fr;gap:24px;
+    padding:24px 0;border-bottom:1px solid var(--line);align-items:start;
+  }
+  @media (max-width:600px){ .news-item{ grid-template-columns:1fr;gap:6px; } }
+  .news-item__date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:15px;color:var(--fruit-deep);font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;padding-top:4px;
+  }
+  .news-item__date .yr{display:block;font-size:24px;line-height:1;}
+  .news-item__date .mo{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px;}
+  @media (max-width:600px){
+    .news-item__date{padding-top:0;}
+    .news-item__date .yr{display:inline;font-size:18px;}
+    .news-item__date .mo{display:inline;margin-left:6px;}
+  }
+  .news-item__body h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:22px;color:var(--hill-deep);font-weight:600;
+    line-height:1.3;margin-bottom:4px;
+  }
+  .news-item__body .h3-zh{
+    font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink);
+    font-weight:500;margin-bottom:8px;
+  }
+  .news-item__body p{font-size:15.5px;color:var(--ink-soft);line-height:1.7;}
+  .news-item__body p.zh{
+    font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);
+    line-height:1.8;margin-top:6px;
+  }
+  .news-item__tag{
+    display:inline-block;background:var(--hill-soft);color:var(--hill-deep);
+    padding:2px 10px;border-radius:99px;font-size:12px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;
+  }
+  .news-item__tag.t-sport{background:var(--brick-soft);color:var(--brick-deep);}
+  .news-item__tag.t-academic{background:var(--fruit-soft);color:var(--fruit-deep);}
+  .news-item__tag.t-honor{background:var(--court-soft);color:var(--court-deep);}
+
+  /* Live link strip */
+  .live{
+    background:var(--cream);border-radius:16px;
+    padding:32px;text-align:center;margin-top:48px;
+    border:1px solid var(--line);
+  }
+  .live h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:26px;color:var(--hill-deep);font-weight:600;margin-bottom:4px;
+  }
+  .live .h3-zh{
+    font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .live p{font-size:15.5px;color:var(--ink-soft);line-height:1.7;max-width:680px;margin:0 auto 18px;}
+  .live a.btn{
+    display:inline-block;background:var(--hill);color:#fff;
+    padding:11px 24px;border-radius:99px;font-weight:600;font-size:15.5px;
+    transition:background .2s;
+  }
+  .live a.btn:hover{background:var(--brick);}
+
+  .foot{background:var(--hill-deep);color:rgba(255,255,255,.85);padding:40px 0;text-align:center;margin-top:72px;}
+  .foot__brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;}
+  .foot__hub{font-size:14px;color:rgba(255,255,255,.75);}
+  .foot__hub a{color:var(--fruit-soft);font-weight:600;}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=dongshan">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<header class="title">
+  <span class="title__eyebrow">School Year 114 · 民國 114 學年度</span>
+  <h1>News &amp; Honour Roll</h1>
+  <div class="h1-zh">校園新聞 · 榮譽榜</div>
+  <p class="lede">A small school on a hillside with a long shelf of medals.</p>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ===== Featured ===== -->
+    <section class="featured">
+      <div class="featured-grid">
+
+        <article class="featured-card is-hill">
+          <span class="seal">School Evaluation · Excellent</span>
+          <h2>School Year 114 Evaluation: Excellent</h2>
+          <div class="h2-zh">114 學年度校務評鑑「優等」</div>
+          <p>Dongshan received the top "Excellent" rating in the Changhua County school evaluation for the 114 academic year — across leadership, curriculum, student affairs, and resource management.</p>
+          <p class="zh">本校榮獲彰化縣 114 學年度校務評鑑「優等」——涵蓋校長領導、課程教學、學務輔導、行政資源四大面向。</p>
+        </article>
+
+        <article class="featured-card">
+          <span class="seal">PaGamO · Distinction</span>
+          <h2>PaGamO Reading Literacy Base · Top Distinction</h2>
+          <div class="h2-zh">PaGamO 閱讀素養基地學校 · 特優</div>
+          <p>Dongshan is one of the few Changhua elementary schools to earn the top "Distinction" grade as a PaGamO Reading Literacy Base School — recognition of how reading is woven into the timetable, not added on top of it.</p>
+          <p class="zh">本校為彰化縣少數獲得「特優」評等的 PaGamO 閱讀素養基地學校——表彰閱讀作為每日課程的一部分，而非附加活動。</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Academic ===== -->
+    <header class="sec-head">
+      <span class="eyebrow">Academic</span>
+      <h2>In the Classroom</h2>
+      <div class="h2-zh">學科表現</div>
+    </header>
+
+    <ol class="news-list" style="list-style:none;">
+      <li class="news-item">
+        <div class="news-item__date"><span class="yr">2026</span><span class="mo">Spring</span></div>
+        <div class="news-item__body">
+          <span class="news-item__tag t-academic">Math</span>
+          <h3>OMC Olympiad National Math · Honourable Mention</h3>
+          <div class="h3-zh">2026 OMC 奧林匹亞全國數學競賽 · 優等獎</div>
+          <p>Dongshan students placed at the national level in the 2026 Olympiad Math Challenge.</p>
+          <p class="zh">本校學生於 2026 年 OMC 奧林匹亞全國數學競賽榮獲優等獎。</p>
+        </div>
+      </li>
+      <li class="news-item">
+        <div class="news-item__date"><span class="yr">2026</span><span class="mo">Spring</span></div>
+        <div class="news-item__body">
+          <span class="news-item__tag t-academic">English</span>
+          <h3>English Vocabulary Bee &amp; Readers' Theater</h3>
+          <div class="h3-zh">英語單字大會考 · 英語讀者劇場比賽</div>
+          <p>Dongshan's signature English programmes continue: a school-wide vocabulary bee, a readers' theater competition, and the "Little World Party Camp" bilingual summer programme.</p>
+          <p class="zh">英語單字大會考、英語讀者劇場比賽、「小小世界派對營」雙語營隊——東山三項長期英語特色課程持續推動。</p>
+        </div>
+      </li>
+    </ol>
+
+    <!-- ===== Sports ===== -->
+    <header class="sec-head">
+      <span class="eyebrow">Sport</span>
+      <h2>On the Field</h2>
+      <div class="h2-zh">運動場上</div>
+    </header>
+
+    <ol class="news-list" style="list-style:none;">
+      <li class="news-item">
+        <div class="news-item__date"><span class="yr">2026</span><span class="mo">Apr</span></div>
+        <div class="news-item__body">
+          <span class="news-item__tag t-sport">Recruitment</span>
+          <h3>SY 115 Sports-Class Tryout Results Published</h3>
+          <div class="h3-zh">115 學年度東山國小體育班甄試錄取名單</div>
+          <p>The official tryout results for the 115 school-year sports class are public — Dongshan continues its decades-long open-recruitment tradition for baseball and tennis.</p>
+          <p class="zh">115 學年度體育班甄試錄取名單已公告——東山持續多年公開招生的傳統，為棒球與網球兩大校隊培育選手。</p>
+        </div>
+      </li>
+      <li class="news-item">
+        <div class="news-item__date"><span class="yr">Ongoing</span><span class="mo">—</span></div>
+        <div class="news-item__body">
+          <span class="news-item__tag t-sport">Tennis</span>
+          <h3>Tennis Team · Multiple Tournament Wins</h3>
+          <div class="h3-zh">網球隊 · 多次競賽得獎</div>
+          <p>Dongshan's tennis team has placed across regional and county tournaments over multiple seasons — a steady engine of the school's sporting identity.</p>
+          <p class="zh">本校網球隊長年於縣賽、區賽屢獲佳績，是學校體育發展的核心引擎之一。</p>
+        </div>
+      </li>
+      <li class="news-item">
+        <div class="news-item__date"><span class="yr">Ongoing</span><span class="mo">—</span></div>
+        <div class="news-item__body">
+          <span class="news-item__tag t-sport">Baseball</span>
+          <h3>Baseball Team · Multiple Tournament Wins</h3>
+          <div class="h3-zh">棒球隊 · 多次競賽得獎</div>
+          <p>Alongside tennis, baseball is one of Dongshan's two flagship sports — with regular podium finishes in Changhua's school baseball circuit.</p>
+          <p class="zh">與網球並列為東山兩大旗艦運動，棒球隊在彰化縣校際聯賽中屢有佳績。</p>
+        </div>
+      </li>
+    </ol>
+
+    <!-- ===== Live link ===== -->
+    <div class="live">
+      <h3>Latest Bulletins from the School Office</h3>
+      <div class="h3-zh">校方即時公告</div>
+      <p>This page highlights selected honours and standing programmes. For day-to-day announcements (general, internal, honour-roll), the school maintains its own official bulletin board.</p>
+      <p>本頁列出代表性榮譽與長期計畫；每日例行公告（一般、內部、榮譽榜）由校方官網的公告系統發布。</p>
+      <a class="btn" href="https://dsps.chc.edu.tw/posts" target="_blank" rel="noopener">Open the school's bulletin board →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__brand">Dongshan Elementary School</div>
+    <div class="foot__hub">
+      Part of the <a href="https://changhua-bilingual.org/">Changhua Bilingual Hub</a> ·
+      by <a href="https://www.mycultureconnect.org/">My Culture Connect 人師教育協會</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

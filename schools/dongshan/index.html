@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dongshan Elementary School · 彰化縣員林市東山國民小學</title>
+<meta name="description" content="Dongshan Elementary School — A century-old country school at the foot of Bagua Mountain, neighbour to Yuanlin's Baiguo Hills. Founded 1918, established 1919. Home of baseball, tennis, and Beiguan music storybooks. 彰化縣員林市東山國民小學 — 創校於 1918 年的八卦山脈山腳小學，緊鄰百果山風景區。棒球、網球、北管音樂繪本的家。">
+<meta property="og:title" content="Dongshan Elementary School · 彰化縣員林市東山國民小學">
+<meta property="og:description" content="At the foot of the mountain, a century of stories · 山腳百年，故事猶新">
+<meta property="og:image" content="photos/banner-school.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Palette derived from Dongshan's "foot of mountain × Baiguo orchard × Beiguan brick × tennis-court green" */
+    --hill:#2e6b3f;          /* Bagua mountain canopy */
+    --hill-deep:#1a4626;
+    --hill-soft:#e3eee3;
+    --fruit:#d4a531;         /* Baiguo orchard gold */
+    --fruit-deep:#8a6a16;
+    --fruit-soft:#fbf2d8;
+    --brick:#b04a35;         /* Beiguan instruments / baseball clay */
+    --brick-deep:#6f2920;
+    --brick-soft:#f5dfd6;
+    --court:#a8c34a;         /* Tennis-court yellow-green */
+    --court-deep:#5a6e1f;
+    --court-soft:#eef3d8;
+
+    --ink:#1c1810;
+    --ink-soft:#5a534a;
+    --line:#e6dfd1;
+    --cream:#fbfaf6;
+
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(26,70,38,.30);
+    --shadow-sm:0 4px 14px -4px rgba(26,70,38,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--hill-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--brick-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ Sub-nav ============ */
+  .subnav{
+    background:var(--hill-soft);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .subnav__inner{
+    padding:14px 0;font-family:'Inter',sans-serif;
+    font-size:17px;font-weight:600;text-align:center;
+  }
+  @media (min-width:720px){ .subnav__inner{ font-size:20px; } }
+  .subnav a{
+    display:inline-block;padding:6px 12px;border-radius:6px;
+    color:var(--hill-deep);transition:all .2s;
+  }
+  .subnav a:hover{background:#fff;color:var(--brick-deep);}
+  .subnav a.is-active{background:var(--hill);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  /* ============ Hero Banner ============ */
+  .banner{
+    position:relative;background:var(--hill-deep);
+    color:#fff;overflow:hidden;
+  }
+  .banner__bg{
+    position:absolute;inset:0;
+    background:linear-gradient(120deg,rgba(26,70,38,.92) 0%,rgba(111,41,32,.78) 100%),
+               url("photos/banner-school.jpg") center/cover;
+  }
+  .banner__inner{
+    position:relative;
+    padding:80px 24px 70px;text-align:center;
+    max-width:var(--max);margin:0 auto;
+  }
+  .banner__brand{
+    display:inline-block;font-size:14px;letter-spacing:.22em;
+    color:var(--fruit-soft);font-weight:700;text-transform:uppercase;
+    margin-bottom:20px;
+    padding:4px 14px;border:1px solid var(--fruit);border-radius:99px;
+  }
+  .banner h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(46px,8vw,82px);
+    line-height:1.05;font-weight:600;letter-spacing:.01em;
+    margin-bottom:14px;
+  }
+  .banner__zh{
+    font-size:clamp(20px,2.8vw,28px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.92);
+    margin-bottom:24px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+  }
+  .banner__tagline{
+    max-width:680px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:22px;
+    color:var(--fruit-soft);
+  }
+  .banner__tagline .tagline-zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:17.5px;margin-top:8px;
+    color:rgba(255,255,255,.88);letter-spacing:.05em;
+  }
+
+  /* ============ Section base ============ */
+  section{padding:88px 0;}
+  .section-head{text-align:center;margin-bottom:54px;}
+  .section-head .eyebrow{
+    display:inline-block;color:var(--fruit-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(40px,5.8vw,60px);
+    font-weight:600;color:var(--hill-deep);line-height:1.2;margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:22px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:19px;
+    max-width:660px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:48px;align-items:start;
+  }
+  @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{
+    position:relative;border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow);aspect-ratio:4/3;
+    background:var(--hill-soft);
+  }
+  .about-photo img{ width:100%;height:100%;object-fit:cover; }
+  .about-photo .badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--fruit);color:var(--hill-deep);
+    padding:5px 12px;border-radius:99px;
+    font-size:13.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;z-index:2;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:36px;color:var(--hill-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:19.5px;color:var(--ink);margin-bottom:16px;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);margin:24px 0;position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--cream);padding:0 14px;
+    font-size:13.5px;color:var(--ink-soft);
+    letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:19px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .quick{
+    background:#fff;border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;margin-top:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .about-text .quick dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;}
+  .about-text .quick dt{
+    font-size:13.5px;color:var(--fruit-deep);
+    font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding-top:2px;
+  }
+  .about-text .quick dd{font-size:17px;color:var(--ink);font-weight:500;}
+
+  /* ============ Four Pillars ============ */
+  .pillars{background:#fff;}
+  .pillar-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:28px;
+  }
+  @media (max-width:820px){ .pillar-grid{ grid-template-columns:1fr; } }
+  .pillar{
+    padding:36px 32px;border-radius:18px;
+    background:var(--cream);border-left:6px solid var(--hill);
+    position:relative;overflow:hidden;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .pillar.pillar--orchard{border-left-color:var(--fruit);}
+  .pillar.pillar--orchard .pillar__num{color:var(--fruit-deep);}
+  .pillar.pillar--sport{border-left-color:var(--brick);}
+  .pillar.pillar--sport .pillar__num{color:var(--brick-deep);}
+  .pillar.pillar--music{border-left-color:var(--court-deep);}
+  .pillar.pillar--music .pillar__num{color:var(--court-deep);}
+  .pillar__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;font-weight:700;letter-spacing:.3em;
+    color:var(--hill-deep);margin-bottom:8px;
+  }
+  .pillar h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:30px;color:var(--ink);line-height:1.2;
+    margin-bottom:6px;font-weight:600;
+  }
+  .pillar .h3-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:var(--ink-soft);font-weight:500;
+    letter-spacing:.04em;margin-bottom:18px;
+  }
+  .pillar p{font-size:17px;color:var(--ink);line-height:1.7;margin-bottom:12px;}
+  .pillar p.zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:16px;color:var(--ink-soft);line-height:1.8;
+  }
+
+  /* ============ Heritage strip ============ */
+  .heritage{
+    background:linear-gradient(135deg,var(--hill-deep) 0%,var(--brick-deep) 100%);
+    color:#fff;
+  }
+  .heritage .section-head h2{color:#fff;}
+  .heritage .section-head .h2-zh{color:rgba(255,255,255,.85);}
+  .heritage .section-head .eyebrow{color:var(--fruit-soft);}
+  .timeline{
+    max-width:760px;margin:0 auto;
+    border-left:2px solid var(--fruit);
+    padding-left:34px;
+  }
+  .timeline__item{margin-bottom:34px;position:relative;}
+  .timeline__item::before{
+    content:"";position:absolute;left:-43px;top:6px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--fruit);box-shadow:0 0 0 4px var(--hill-deep);
+  }
+  .timeline__year{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;font-weight:700;color:var(--fruit-soft);
+    margin-bottom:4px;
+  }
+  .timeline__text{font-size:17.5px;color:rgba(255,255,255,.92);line-height:1.6;}
+  .timeline__zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:15.5px;color:rgba(255,255,255,.78);
+    margin-top:4px;letter-spacing:.04em;
+  }
+
+  /* ============ Explore cards ============ */
+  .explore{background:var(--cream);}
+  .explore-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+  }
+  .explore-card{
+    display:block;padding:28px 24px;border-radius:16px;
+    background:#fff;border:1px solid var(--line);
+    color:var(--ink);transition:all .25s;
+    box-shadow:var(--shadow-sm);
+  }
+  .explore-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    border-color:var(--hill);
+  }
+  .explore-card__icon{
+    font-size:32px;margin-bottom:10px;display:block;
+  }
+  .explore-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:24px;color:var(--hill-deep);font-weight:600;
+    margin-bottom:4px;
+  }
+  .explore-card .h3-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);margin-bottom:12px;
+  }
+  .explore-card p{font-size:15.5px;color:var(--ink-soft);line-height:1.6;}
+  .explore-card .arrow{
+    display:block;margin-top:14px;
+    font-size:14px;color:var(--brick);font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;
+  }
+
+  /* ============ Footer ============ */
+  .foot{
+    background:var(--hill-deep);color:rgba(255,255,255,.85);
+    padding:48px 0;text-align:center;
+  }
+  .foot__brand{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;color:#fff;font-weight:600;margin-bottom:8px;
+  }
+  .foot__zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:rgba(255,255,255,.75);margin-bottom:24px;
+  }
+  .foot__hub{
+    font-size:14.5px;color:rgba(255,255,255,.75);
+  }
+  .foot__hub a{color:var(--fruit-soft);font-weight:600;}
+  .foot__hub a:hover{color:#fff;}
+  .foot__meta{
+    margin-top:20px;font-size:13px;color:rgba(255,255,255,.55);
+    letter-spacing:.08em;
+  }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ===== Sub-nav ===== -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="./" class="is-active">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="news/">News</a>
+      <span class="subnav__sep">·</span>
+      <a href="lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=dongshan">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__bg" aria-hidden="true"></div>
+  <div class="banner__inner">
+    <div class="banner__brand">At the Foot of Bagua Mountain · Est. 1918</div>
+    <h1>Dongshan Elementary</h1>
+    <div class="banner__zh">彰化縣員林市東山國民小學</div>
+    <p class="banner__tagline">
+      A century at the foot of the mountain — where orchards, ballfields and Beiguan drums share the same morning.
+      <span class="tagline-zh">山腳百年，果園、球場與北管樂聲共享同一個清晨。</span>
+    </p>
+  </div>
+</header>
+
+<!-- ===== About ===== -->
+<section class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">About Our School</span>
+      <h2>A Country School in the City</h2>
+      <div class="h2-zh">市區裡的山腳學校</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <span class="badge">Bagua Mountain</span>
+        <img src="photos/banner-school.jpg" alt="Dongshan Elementary School campus, foot of Bagua Mountain" loading="lazy">
+      </div>
+      <div class="about-text">
+        <h3>From a sub-class to a century, the same hills look on.</h3>
+        <p class="en">Dongshan sits on the eastern edge of Yuanlin City, at the foot of the Bagua Mountain Range and next door to the Baiguo Hills scenic area. The school began in March 1918 as a sub-class of the local public school — funded by neighbours and built on land donated by the Jiang family's Zhongde Tang. A year later, it stood on its own as Dongshan Public School. Since then, seventeen principals have taken the lead, and the children of five villages — Nandong, Zhongdong, Dongbei, Zhenxing, and Dafeng — have called it home.</p>
+        <div class="zh-divider"></div>
+        <p class="zh">東山國小位於員林市東郊、八卦山脈山腳，緊鄰百果山風景區。民國 7 年 3 月成立為東山分教場，由鄉里募款、江姓種德堂捐地建校；隔年獨立為東山公學校。光復後改名為員林鎮東山國民小學，傳承至今已歷十七任校長，服務南東、中東、東北、鎮興、大峰五里子弟。</p>
+        <div class="quick">
+          <dl>
+            <dt>Founded</dt><dd>March 1918 · 民國 7 年</dd>
+            <dt>Established</dt><dd>1919 · 獨立公學校</dd>
+            <dt>Setting</dt><dd>Foothills, near Baiguo Hills</dd>
+            <dt>Principals</dt><dd>17th, Wang Chien-Kai 王建凱</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Four Pillars ===== -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What Makes Us Dongshan</span>
+      <h2>Four Pillars of a Mountain-Foot School</h2>
+      <div class="h2-zh">山腳學校的四支柱</div>
+      <p class="lede">Geography, sport, music, and reading — four ways our students meet the world before they leave the valley.</p>
+    </div>
+    <div class="pillar-grid">
+
+      <article class="pillar">
+        <div class="pillar__num">01 · MOUNTAIN</div>
+        <h3>At the Foot of Bagua</h3>
+        <div class="h3-zh">八卦山脈 · 百果山的鄰居</div>
+        <p>Dongshan's back wall is a hillside. Beyond the playground, orchards of grapes, wax apples, longans, and guavas climb up the Baiguo Hills — the source of the school's name and the easiest classroom we own.</p>
+        <p class="zh">校園後方就是山園，蒼翠的樹木與百果山的葡萄、楊桃、龍眼、芭樂果園拾級而上。「東山」之名來自這片山——也是我們最便利的戶外教室。</p>
+      </article>
+
+      <article class="pillar pillar--sport">
+        <div class="pillar__num">02 · SPORT</div>
+        <h3>Baseball & Tennis Teams</h3>
+        <div class="h3-zh">棒球隊 · 網球隊</div>
+        <p>Two sports teams sit at the heart of school life — alongside bilingual learning and technology education, the official trio of Dongshan's identity. Tryout lists are published openly each year.</p>
+        <p class="zh">棒球與網球是東山兩大體育校隊，與雙語教學、科技教育並列為學校三大特色課程。體育班招生公開、每年公告錄取名單。</p>
+      </article>
+
+      <article class="pillar pillar--music">
+        <div class="pillar__num">03 · MUSIC</div>
+        <h3>Beiguan × Picture-Book Music</h3>
+        <div class="h3-zh">北管文化探索 · 音樂繪本教學</div>
+        <p>A signature local-culture course pairs Taiwan's traditional Beiguan ensemble music with children's picture-book storytelling — a rare combination among Yuanlin's elementary schools.</p>
+        <p class="zh">「北管文化探索」結合「音樂繪本教學」——把臺灣傳統北管樂與兒童繪本敘事並置，是員林市少見的在地音樂課程組合。</p>
+      </article>
+
+      <article class="pillar pillar--orchard">
+        <div class="pillar__num">04 · READING</div>
+        <h3>PaGamO Reading Honour</h3>
+        <div class="h3-zh">PaGamO 閱讀素養基地學校 · 特優</div>
+        <p>Dongshan earned the highest "Distinction" rating as a PaGamO Reading Literacy Base School — and a top "Excellent" grade on the 114-year school evaluation. Reading is built into the timetable, not bolted on.</p>
+        <p class="zh">本校為 PaGamO 閱讀素養基地學校「特優」、114 學年度校務評鑑「優等」。閱讀不是外加活動，而是每日課表的一部分。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Heritage timeline ===== -->
+<section class="heritage">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">A Century, In Brief</span>
+      <h2>Heritage of Seventeen Principals</h2>
+      <div class="h2-zh">十七任校長的百年傳承</div>
+    </div>
+    <div class="timeline">
+      <div class="timeline__item">
+        <div class="timeline__year">1918 · 民國 7 年</div>
+        <div class="timeline__text">Dongshan Sub-Class founded in March; classes begin on April 1. Funded by villagers Cao Qing-Quan, Cao Kun-Shan, Jiang Qiu-Yang, Jiang Mao-Tong, Cao Yu — land donated by the Jiang family's Zhongde Tang.</div>
+        <div class="timeline__zh">三月成立東山分教場，4 月 1 日授課。曹清權、曹坤山、江秋陽、江茂桐、曹芋等人募款，江姓種德堂捐獻校地。</div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__year">1919</div>
+        <div class="timeline__text">Spun off as Dongshan Public School. Six-year curriculum begins.</div>
+        <div class="timeline__zh">獨立為東山公學校，學制改為六年。</div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__year">Post-1945</div>
+        <div class="timeline__text">Renamed Yuanlin Township Dongshan Elementary School. Jiang Wen-Zhou serves as first post-war principal.</div>
+        <div class="timeline__zh">光復後改為員林鎮東山國民小學，首任校長江文周。</div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__year">2023 · 民國 112</div>
+        <div class="timeline__text">Wang Chien-Kai takes office as the 17th principal.</div>
+        <div class="timeline__zh">第 17 任校長王建凱就任。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Explore the campus ===== -->
+<section class="explore">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Take a Look Inside</span>
+      <h2>Explore the Campus</h2>
+      <div class="h2-zh">逛逛東山</div>
+      <p class="lede">Five pages, one story — pick where to start.</p>
+    </div>
+    <div class="explore-grid">
+      <a class="explore-card" href="principal/">
+        <span class="explore-card__icon">🎓</span>
+        <h3>Principal</h3>
+        <div class="h3-zh">校長室</div>
+        <p>Meet Principal Wang Chien-Kai, the 17th to lead Dongshan since 1918.</p>
+        <span class="arrow">Read more →</span>
+      </a>
+      <a class="explore-card" href="news/">
+        <span class="explore-card__icon">📰</span>
+        <h3>News</h3>
+        <div class="h3-zh">校園新聞 · 榮譽榜</div>
+        <p>Honour-roll moments, sports results, and what's happening this term.</p>
+        <span class="arrow">See latest →</span>
+      </a>
+      <a class="explore-card" href="lessons/">
+        <span class="explore-card__icon">🎬</span>
+        <h3>Lessons</h3>
+        <div class="h3-zh">英語課程影片</div>
+        <p>Dongshan's own playlist: sports English, faculty self-intros, and our resident foreign teachers.</p>
+        <span class="arrow">Watch →</span>
+      </a>
+      <a class="explore-card" href="bilingual-campus/">
+        <span class="explore-card__icon">🌐</span>
+        <h3>Bilingual Campus</h3>
+        <div class="h3-zh">雙語校園</div>
+        <p>Daily classroom English and morning broadcasts — produced with My Culture Connect.</p>
+        <span class="arrow">Listen in →</span>
+      </a>
+      <a class="explore-card" href="https://changhua-bilingual.org/festivals/?from=dongshan">
+        <span class="explore-card__icon">🏮</span>
+        <h3>Festivals</h3>
+        <div class="h3-zh">節慶英文</div>
+        <p>A full year of bilingual festival lessons — shared with 100+ Changhua schools.</p>
+        <span class="arrow">Open library →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__brand">Dongshan Elementary School</div>
+    <div class="foot__zh">彰化縣員林市東山國民小學 · 510032 員林市南東里山腳路四段 212 號 · 04-8310749</div>
+    <div class="foot__hub">
+      Part of the <a href="https://changhua-bilingual.org/">Changhua Bilingual Hub</a> ·
+      by <a href="https://www.mycultureconnect.org/">My Culture Connect 人師教育協會</a>
+    </div>
+    <div class="foot__meta">
+      School site: <a href="https://dsps.chc.edu.tw/" target="_blank" rel="noopener">dsps.chc.edu.tw</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
