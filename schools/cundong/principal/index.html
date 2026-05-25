@@ -125,20 +125,32 @@
   .video-caption{margin-top:18px;color:var(--ink-soft);font-size:18px;text-align:center;}
   @media (min-width:720px){ .video-caption{ font-size:19px; } }
 
-  /* ============ BIOGRAPHY ============ */
+  /* ============ BIOGRAPHY (full-width, side-by-side EN/ZH) ============ */
   .biography{padding:80px 0;background:var(--bg-soft);}
   .bio-card{background:#fff;border-radius:24px;padding:48px 44px;box-shadow:var(--shadow-sm);border:1px solid var(--line);position:relative;}
   @media (min-width:720px){ .bio-card{ padding:60px 56px; } }
   .bio-card::before{content:"\201C";position:absolute;top:-20px;left:34px;font-family:'Fraunces',serif;font-size:160px;color:var(--brand);line-height:1;font-weight:700;opacity:.16;}
+  .bio-card .bio-head{margin-bottom:34px;text-align:center;}
   .bio-card .eyebrow{display:inline-block;font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:14px;}
   @media (min-width:720px){ .bio-card .eyebrow{ font-size:19px; } }
-  .bio-card h2{color:var(--brand-deep);margin-bottom:30px;}
-  .bio-card p{margin-bottom:18px;color:var(--ink);}
-  .bio-card p.lead{font-family:'Fraunces',serif;font-size:23px;font-style:italic;line-height:1.55;color:var(--brand-deep);margin-bottom:24px;}
-  @media (min-width:720px){ .bio-card p.lead{ font-size:27px; } }
-  .bio-card .zh-divider{height:1px;background:var(--line);margin:30px 0;}
-  .bio-card .zh p{color:var(--ink-soft);font-size:20px;line-height:1.75;}
-  @media (min-width:720px){ .bio-card .zh p{ font-size:21px; } }
+  .bio-card h2{color:var(--brand-deep);margin-bottom:20px;}
+  .bio-card p.lead{font-family:'Fraunces',serif;font-size:24px;font-style:italic;line-height:1.5;color:var(--brand-deep);text-align:center;margin:0 auto 38px;max-width:820px;}
+  @media (min-width:720px){ .bio-card p.lead{ font-size:30px; } }
+
+  /* Two-column bilingual body */
+  .bio-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;position:relative;}
+  @media (max-width:880px){.bio-cols{grid-template-columns:1fr;gap:32px;}}
+  @media (min-width:881px){
+    .bio-cols::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:1px;background:var(--line);}
+  }
+  .bio-col{padding:0 8px;}
+  .bio-col .lang-label{display:inline-block;font-size:14px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--brand);margin-bottom:18px;padding:5px 12px;background:var(--brand-soft);border-radius:999px;}
+  @media (min-width:720px){ .bio-col .lang-label{ font-size:15px; } }
+  .bio-col p{margin-bottom:18px;color:var(--ink);}
+  .bio-col.is-zh p{color:var(--ink-soft);}
+  .bio-col p strong{color:var(--brand-deep);}
+  .bio-col p.opening{font-family:'Fraunces',serif;font-size:22px;font-style:italic;font-weight:500;color:var(--brand-deep);margin-bottom:22px;line-height:1.5;}
+  @media (min-width:720px){ .bio-col p.opening{ font-size:24px; } }
 
   /* ============ EDUCATION & CAREER ============ */
   .resume{padding:80px 0;background:#fff;}
@@ -290,36 +302,51 @@
 
 <!-- ============ BIOGRAPHY ============ -->
 <section class="biography">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="bio-card">
-      <div class="eyebrow">A Letter From the Principal</div>
-      <h2>To the friends, families &amp; future students of Cundong</h2>
+      <div class="bio-head">
+        <div class="eyebrow">A Letter From the Principal</div>
+        <h2>To the friends, families &amp; future students of Cundong</h2>
+      </div>
 
-      <p class="lead">"The way of education is none other than love and example." — Friedrich Fröbel</p>
+      <p class="lead">"The way of education is none other than love and example." — Friedrich Fröbel<br><span style="display:block;font-family:'PingFang TC',sans-serif;font-style:normal;font-size:21px;font-weight:500;color:var(--ink);margin-top:10px;">福祿貝爾：「教育之道無他，唯愛與榜樣而已。」</span></p>
 
-      <p>Serving as a principal, I hold fast to my love for education — leading curriculum innovation among teachers, supporting their professional growth, and modeling the practice myself. Real help, real action, real partnership with the teaching staff: that is how we lift student learning.</p>
+      <div class="bio-cols">
+        <div class="bio-col is-en">
+          <span class="lang-label">English</span>
 
-      <p>A principal's core leadership task is to help teachers improve their craft. I think of the role as that of a <strong>lead teacher</strong> — bringing my own training in qualitative research and action research into a working dialogue with classroom practice, hoping to model what proactive professional development can look like.</p>
+          <p>Serving as a principal, I hold fast to my love for education — leading curriculum innovation among teachers, supporting their professional growth, and modeling the practice myself. Real help, real action, real partnership with the teaching staff: that is how we lift student learning.</p>
 
-      <p>I have served as a principal since February 2012 — first at Jianxin Elementary (2012–2015), then at Tongfang Elementary (2015–2022), and now at Cundong since August 2022. Across those years, in addition to the routine of Ministry and county programmes, evaluations, and audits, our schools have completed major renovations: classrooms rebuilt and reinforced, new gates and gatehouses, a refreshed library with its reading station and book-collection programme, comprehensive site redesigns. None of it would have been possible without the National Education Department, county funding, design and construction partners, and — above all — the patience of teachers, families, and community.</p>
+          <p>A principal's core leadership task is to help teachers improve their craft. I think of the role as that of a <strong>lead teacher</strong> — bringing my own training in qualitative research and action research into a working dialogue with classroom practice, hoping to model what proactive professional development can look like.</p>
 
-      <p>At each of my three schools, I have actively advanced <strong>Reading Education, English Education, and International Education</strong>. We have been a designated school for the Ministry's Digital-Assisted Subject Reading programme, the Ministry's English Teaching Innovation programme, an ISA-certified school, and a host campus for both ETA Co-Teachers and Foreign English Teachers (FETs). On the English side: a multi-year Ministry pilot school, continuously bringing in FET teachers, with measurable progress in both advanced and supplementary learning. On the reading side: a steady applicant to the Ministry's Library Reading Promotion programme, with the hope that our students grow into lifelong readers.</p>
+          <p>I have served as a principal since February 2012 — first at Jianxin Elementary (2012–2015), then at Tongfang Elementary (2015–2022), and now at Cundong since August 2022. Across those years, in addition to the routine of Ministry and county programmes, evaluations, and audits, our schools have completed major renovations: classrooms rebuilt and reinforced, new gates and gatehouses, a refreshed library with its reading station, comprehensive site redesigns. None of it would have been possible without the National Education Department, county funding, design and construction partners, and the patience of teachers, families, and community.</p>
 
-      <p>At Cundong, alongside reading, English, and international education, we also place enormous weight on <strong>environmental education and a sustainable campus</strong>. In 2023 we earned the U.S.–Taiwan Eco-Schools <strong>Bronze</strong> certification; in 2024, <strong>Silver</strong>; at the close of 2025, the highest honour — the <strong>Green Flag</strong>. Alongside it, we have earned Changhua County's "Sailing" and "Setting-Off" certifications in Reading, International Education, Arts, Environmental, and Health-Promotion education.</p>
+          <p>At each of my three schools, I have actively advanced <strong>Reading, English, and International Education</strong>. We have been a designated school for the Ministry's Digital-Assisted Subject Reading programme, the Ministry's English Teaching Innovation programme, an ISA-certified school, and a host campus for both ETA Co-Teachers and Foreign English Teachers (FETs).</p>
 
-      <p>We work hard to create platforms and opportunities for our children. Among our proudest are the <strong>Unicycle Squad</strong> — three years running, county girls' team champions — and the <strong>Ten Drum Troupe</strong>, which has represented our county at national competition and is regularly invited to open ceremonies and large events. Endless gratitude to the coaches, the students, the staff who make all this possible.</p>
+          <p>At Cundong, alongside reading, English, and international education, we place enormous weight on <strong>environmental education and a sustainable campus</strong>. In 2023 we earned the U.S.–Taiwan Eco-Schools <strong>Bronze</strong> certification; in 2024, <strong>Silver</strong>; at the close of 2025, the highest honour — the <strong>Green Flag</strong>.</p>
 
-      <p>"Choose one task, devote a life, benefit all" — that is how I would describe my own vocation in education. A principal's job is to model what they ask of others, and to make every decision in the interest of the school and its students. Deep thanks to the leaders who lifted me, the colleagues who have looked out for me, and to my family for their steady support along every step of this road.</p>
+          <p>We work hard to create platforms and opportunities for our children. Among our proudest are the <strong>Unicycle Squad</strong> — three years running, county girls' team champions — and the <strong>Ten Drum Troupe</strong>, which has represented our county at national competition and is regularly invited to open ceremonies. Endless gratitude to the coaches, the students, the staff who make all this possible.</p>
 
-      <div class="zh-divider"></div>
-      <div class="zh">
-        <p style="font-family:'Fraunces',serif;font-style:italic;font-size:23px;color:var(--brand-deep);font-weight:500;margin-bottom:24px;">福祿貝爾曾說：「教育之道無他，唯愛與榜樣而已。」</p>
-        <p>玟玟擔任校長職務，將秉持對教育的熱愛，推動教師教學革新，提昇教師專業發展與成長；並以身作則，化實際行動及支持協助，服務教師全面落實教育工作，以提升學生學習成效。</p>
-        <p>校長領導核心任務之一，即在協助教師改進教學，建構典範學習，提升教學成效，並以成為「<strong>首席教師</strong>」的角色自許。個人教學研究專長為「質性研究」，以教學實務與教學理論作結合，使其發揮較大的效益，嘗試結合行動研究，藉此希冀提供良性的示範，帶動現場教師主動發展專業的可能性。</p>
-        <p>玟玟自 101 年 2 月始擔任國小校長，無論是教育部、縣府計畫亦或是自發性活動，承辦上級長官交辦業務、訪視、評鑑等之外，校舍拆除重建、新建、補強、校門或守衛室完成、圖書室設施設備更新（共讀站、書福悅讀）、校園整體規劃改建等，圓滿完成。感謝教育部國教署、縣府經費補助、設計監造單位及施工廠商的用心，感謝歷任學校教職員工共體時艱，並感謝社區人士和家長的體諒。</p>
-        <p>玟玟在校長任內亦致力推動「<strong>閱讀教育</strong>」、「<strong>英語教育</strong>」及「<strong>國際教育</strong>」，為教育部數位輔助學科閱讀計畫辦理學校、教育部英語教學創新方案辦理學校、ISA 認證學校、引進 ETA 協同教師及 FET 外籍英語教師辦理學校。推動學生多元活動不遺餘力，無論是英語教育的拔尖與扶弱皆有長足的進步；另持續申辦教育部圖書館閱讀推動教師計畫，希望學生成為終身的閱讀人。</p>
-        <p>在村東，除了積極持續發展「閱讀教育」、「英語教育」、「國際教育」，環境教育及永續校園我們十分重視，<strong>112 年通過臺美生態學校銅牌、113 年銀牌，114 年底拿到綠旗認證殊榮</strong>；亦通過彰化縣政府閱讀教育、國際教育、藝術領域、環境教育、健康促進等揚帆及啟航學校認證。學校積極為孩子們創造更多機會與舞台，<strong>獨輪車蟬聯第三年女生組團體總錦標第一名，十鼓隊曾代表本縣參加全國賽</strong>，屢屢受邀參加活動的開幕式表演，為校、為縣爭光。</p>
-        <p>「<strong>擇一事，做一生，惠眾生</strong>」是玟玟對於教育志業的註解。擔任校長唯有以身作則，為學校、為學生利益做最大的考量。常懷感恩之心，一路走來，感恩長官的提攜及同事的照顧；感恩家人的支持與鼓勵，讓我在校長之路「全力以赴」。</p>
+          <p>"Choose one task, devote a life, benefit all" — that is how I would describe my own vocation in education. A principal's job is to model what they ask of others, and to make every decision in the interest of the school and its students.</p>
+        </div>
+
+        <div class="bio-col is-zh">
+          <span class="lang-label">中文</span>
+
+          <p>玟玟擔任校長職務，將秉持對教育的熱愛，推動教師教學革新，提昇教師專業發展與成長；並以身作則，化實際行動及支持協助，服務教師全面落實教育工作，以提升學生學習成效。</p>
+
+          <p>校長領導核心任務之一，即在協助教師改進教學，建構典範學習，提升教學成效，並以成為「<strong>首席教師</strong>」的角色自許。個人教學研究專長為「質性研究」，以教學實務與教學理論作結合，使其發揮較大的效益，嘗試結合行動研究，藉此希冀提供良性的示範，帶動現場教師主動發展專業的可能性。</p>
+
+          <p>玟玟自 101 年 2 月始擔任國小校長，無論是教育部、縣府計畫亦或是自發性活動，承辦上級長官交辦業務、訪視、評鑑等之外，校舍拆除重建、新建、補強、校門或守衛室完成、圖書室設施設備更新（共讀站、書福悅讀）、校園整體規劃改建等，圓滿完成。感謝教育部國教署、縣府經費補助、設計監造單位及施工廠商的用心，感謝歷任學校教職員工共體時艱，並感謝社區人士和家長的體諒。</p>
+
+          <p>玟玟在校長任內亦致力推動「<strong>閱讀教育</strong>」、「<strong>英語教育</strong>」及「<strong>國際教育</strong>」，為教育部數位輔助學科閱讀計畫辦理學校、教育部英語教學創新方案辦理學校、ISA 認證學校、引進 ETA 協同教師及 FET 外籍英語教師辦理學校。</p>
+
+          <p>在村東，除了積極持續發展「閱讀教育」、「英語教育」、「國際教育」，環境教育及永續校園我們十分重視，<strong>112 年通過臺美生態學校銅牌、113 年銀牌，114 年底拿到綠旗認證殊榮</strong>；亦通過彰化縣政府閱讀教育、國際教育、藝術領域、環境教育、健康促進等揚帆及啟航學校認證。</p>
+
+          <p>學校積極為孩子們創造更多機會與舞台，<strong>獨輪車蟬聯第三年女生組團體總錦標第一名，十鼓隊曾代表本縣參加全國賽</strong>，屢屢受邀參加活動的開幕式表演，為校、為縣爭光。</p>
+
+          <p>「<strong>擇一事，做一生，惠眾生</strong>」是玟玟對於教育志業的註解。擔任校長唯有以身作則，為學校、為學生利益做最大的考量。常懷感恩之心，一路走來，感恩長官的提攜及同事的照顧；感恩家人的支持與鼓勵，讓我在校長之路「全力以赴」。</p>
+        </div>
       </div>
     </div>
   </div>
