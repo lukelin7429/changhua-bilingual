@@ -7,9 +7,9 @@
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lessons · 雙語課堂 · Cundong Elementary</title>
-<meta name="description" content="Cundong Elementary's Word-of-the-Day video library, organised into four themes that mirror our campus life: sports, culture &amp; crafts, ecology, and everyday school life. 村東國小 Word of the Day 雙語影片，依運動、文化、生態、校園四主題分類。">
+<meta name="description" content="Cundong Elementary's Word-of-the-Day video library, organised into four bilingual units that mirror our campus life: the Eco Campus, Around the Classroom, PE &amp; the Drone Squad, and Festivals &amp; Crafts. 村東國小 Word of the Day 雙語影片，依生態校園、教室周圍、體育與無人機隊、節慶手作四單元分類。">
 <meta property="og:title" content="Lessons · 雙語課堂 · Cundong Elementary">
-<meta property="og:description" content="38 Word-of-the-Day videos co-produced with My Culture Connect, sorted by theme.">
+<meta property="og:description" content="38 Word-of-the-Day videos co-produced with My Culture Connect, sorted into four bilingual units.">
 <meta property="og:image" content="../photos/campus-mural-yellow.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -33,12 +33,10 @@
     --gold-soft:#FDF3DA;
     --leaf:#6E9239;
     --leaf-soft:#EAF2D9;
-    --orange:#D87A20;
-    --orange-soft:#FBE9D3;
     --ink:#0F1A22;
     --ink-soft:#5A6772;
     --line:#DCE6EE;
-    --max:1140px;
+    --bg-soft:#F4F8FC;
     --shadow:0 18px 50px -22px rgba(24,96,168,.35);
     --shadow-sm:0 4px 14px -4px rgba(24,96,168,.18);
   }
@@ -46,23 +44,15 @@
   html{scroll-behavior:smooth;}
   body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media (min-width:720px){ body{ font-size:23px; } }
-  p{font-size:20px;line-height:1.75;}
-  @media (min-width:720px){ p{ font-size:22px; } }
-  @media (min-width:720px){ .topbar-nav a{ font-size:17px !important; } }
-  @media (min-width:720px){ .hero-eyebrow{ font-size:18px !important; } }
-  @media (min-width:720px){ .eyebrow{ font-size:18px !important; } }
-  @media (min-width:720px){ .h2-zh{ font-size:24px !important; } }
-  @media (min-width:720px){ .video-caption,.figcaption,.caption{ font-size:19px !important; } }
   img{max-width:100%;display:block;}
   a{color:var(--brand-deep);text-decoration:none;transition:color .2s;}
   a:hover{color:var(--brand);}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
-  h1,h2,h3,h4{font-family:'Fraunces','Inter','PingFang TC',serif;font-weight:600;letter-spacing:-.01em;color:var(--ink);}
-  .zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;letter-spacing:.02em;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4{font-family:'Fraunces','Inter','PingFang TC',serif;font-weight:700;letter-spacing:-.01em;color:var(--ink);}
 
   /* ============ TOPBAR ============ */
   .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
-  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 28px;max-width:var(--max);margin:0 auto;}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 28px;max-width:1140px;margin:0 auto;}
   .topbar-brand{display:flex;align-items:center;gap:12px;}
   .topbar-brand img{width:42px;height:42px;}
   .topbar-name{font-family:'Fraunces',serif;font-weight:600;font-size:22px;line-height:1.15;color:var(--ink);}
@@ -70,101 +60,107 @@
   .topbar-nav{display:flex;gap:4px;flex-wrap:wrap;}
   .topbar-nav a{font-size:18px;font-weight:500;color:var(--ink-soft);padding:8px 12px;border-radius:8px;transition:all .15s ease;}
   .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brand-deep);background:var(--brand-soft);}
-  @media (max-width:760px){.topbar-nav a{font-size:17px;padding:6px 9px;}}
+  @media (max-width:760px){.topbar-nav a{font-size:16px;padding:6px 9px;}}
 
   /* ============ HERO ============ */
   .hero{
     position:relative;
-    min-height:320px;
+    min-height:340px;
     color:#fff;
     background:
       linear-gradient(135deg, rgba(180,110,40,.55) 0%, rgba(110,146,57,.5) 55%, rgba(180,110,40,.6) 100%),
       url('../photos/campus-mural-yellow.jpg') center / cover no-repeat;
     display:flex;align-items:center;
-    padding:54px 0 60px;
+    padding:64px 0 70px;
   }
   .hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--brand) 0%,var(--gold) 50%,var(--brand) 100%);}
-  .hero-eyebrow{display:inline-block;padding:6px 14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:16px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;font-weight:500;}
-  .hero h1{color:#fff;font-size:clamp(42px,3.8vw,66px);line-height:1.1;max-width:780px;text-shadow:0 4px 24px rgba(0,0,0,.32);}
-  .hero h1 .zh-line{display:block;font-family:'PingFang TC',sans-serif;font-size:28px;font-weight:500;margin-top:12px;letter-spacing:.06em;opacity:.94;}
-  .hero-tag{margin-top:22px;font-size:22px;max-width:680px;opacity:.95;text-shadow:0 2px 8px rgba(0,0,0,.25);}
-
-  /* ============ TOC ============ */
-  .toc{padding:34px 0;background:var(--brand-soft);border-bottom:1px solid var(--line);}
-  .toc-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-  .toc-row a{padding:10px 18px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);font-size:19px;font-weight:500;transition:all .15s;display:flex;align-items:center;gap:8px;}
-  .toc-row a:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);}
-  .toc-row a.tt-sports:hover{background:#fff;color:var(--brand-deep);border-color:var(--brand-pale);}
-  .toc-row a.tt-culture:hover{background:#fff;color:var(--red);border-color:#f0c3c5;}
-  .toc-row a.tt-eco:hover{background:#fff;color:var(--leaf);border-color:#cdd9b3;}
-  .toc-row a.tt-school:hover{background:#fff;color:var(--orange);border-color:#f0d4b5;}
-  .toc-row a .emoji{font-size:22px;}
+  .hero-eyebrow{display:inline-block;padding:7px 16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:18px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px;font-weight:500;}
+  .hero h1{color:#fff;font-size:48px;line-height:1.1;max-width:800px;text-shadow:0 4px 24px rgba(0,0,0,.32);}
+  @media (min-width:720px){ .hero h1{ font-size:72px; } }
+  .hero h1 .zh-line{display:block;font-family:'PingFang TC',sans-serif;font-size:24px;font-weight:500;margin-top:14px;letter-spacing:.06em;opacity:.94;}
+  @media (min-width:720px){ .hero h1 .zh-line{ font-size:30px; } }
+  .hero-tag{margin-top:26px;font-size:22px;line-height:1.55;max-width:760px;opacity:.95;text-shadow:0 2px 8px rgba(0,0,0,.25);}
+  @media (min-width:720px){ .hero-tag{ font-size:24px; } }
 
   /* ============ SECTION ============ */
-  section.theme{padding:80px 0;border-bottom:1px solid var(--line);}
-  section.theme:last-of-type{border-bottom:0;}
-  .theme-head{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-bottom:32px;}
-  .theme-icon{width:78px;height:78px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:50px;flex-shrink:0;}
-  .theme-head .label{font-size:16px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-bottom:8px;}
-  .theme-head h2{font-size:clamp(34px,2.6vw,44px);}
-  .theme-head h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;font-weight:400;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em;}
-  .theme-intro{font-size:20px;color:var(--ink);max-width:780px;margin-bottom:28px;}
-  .theme-intro .zh-mini{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;}
+  .units-section{padding:80px 0 90px;}
+  .sec-head{text-align:center;max-width:780px;margin:0 auto 60px;}
+  .sec-head .eyebrow{display:inline-block;font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:14px;}
+  @media (min-width:720px){ .sec-head .eyebrow{ font-size:19px; } }
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:700;font-size:42px;line-height:1.15;color:var(--ink);margin-bottom:18px;}
+  @media (min-width:720px){ .sec-head h2{ font-size:58px; } }
+  .sec-head .h2-zh{font-family:'PingFang TC',sans-serif;font-size:22px;font-weight:500;color:var(--ink-soft);letter-spacing:.04em;}
+  @media (min-width:720px){ .sec-head .h2-zh{ font-size:26px; } }
+  .sec-head .lede{font-size:22px;line-height:1.65;color:var(--ink);margin-top:24px;}
+  @media (min-width:720px){ .sec-head .lede{ font-size:24px; } }
+  .sec-head .lede .zh{display:block;margin-top:8px;color:var(--ink-soft);font-size:19px;}
+  @media (min-width:720px){ .sec-head .lede .zh{ font-size:22px; } }
 
-  /* theme-specific accents */
-  .theme.t-sports .theme-icon{background:var(--brand-soft);}
-  .theme.t-sports .theme-head .label{color:var(--brand-deep);}
-  .theme.t-culture .theme-icon{background:var(--red-soft);}
-  .theme.t-culture .theme-head .label{color:var(--red);}
-  .theme.t-eco .theme-icon{background:var(--leaf-soft);}
-  .theme.t-eco .theme-head .label{color:var(--leaf);}
-  .theme.t-school .theme-icon{background:var(--orange-soft);}
-  .theme.t-school .theme-head .label{color:var(--orange);}
+  /* ============ UNIT CARD GRID ============ */
+  .units{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media (max-width:780px){.units{grid-template-columns:1fr;}}
 
-  .player-frame{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px;}
-  .player-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .unit{
+    display:flex;flex-direction:column;
+    background:#fff;border-radius:24px;overflow:hidden;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+    transition:transform .2s,box-shadow .2s;color:var(--ink);
+  }
+  .unit:hover{transform:translateY(-6px);box-shadow:var(--shadow);color:var(--ink);}
+  .unit__hero{
+    display:flex;align-items:center;justify-content:center;
+    height:180px;
+    position:relative;
+  }
+  @media (min-width:720px){ .unit__hero{ height:220px; } }
+  .unit__emoji{font-size:90px;line-height:1;filter:drop-shadow(0 6px 20px rgba(0,0,0,.18));}
+  @media (min-width:720px){ .unit__emoji{ font-size:110px; } }
+  .unit__body{padding:30px 30px 34px;display:flex;flex-direction:column;flex:1;}
+  @media (min-width:720px){ .unit__body{ padding:34px 36px 38px; } }
+  .unit__no{font-size:16px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  @media (min-width:720px){ .unit__no{ font-size:18px; } }
+  .unit__title{font-family:'Fraunces',serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-.01em;}
+  @media (min-width:720px){ .unit__title{ font-size:40px; } }
+  .unit__title-zh{font-family:'PingFang TC',sans-serif;font-size:20px;font-weight:500;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+  @media (min-width:720px){ .unit__title-zh{ font-size:23px; } }
+  .unit__desc{font-size:20px;color:var(--ink);margin-top:18px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .unit__desc{ font-size:21px; } }
+  .unit__cta{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-size:19px;font-weight:600;color:var(--brand-deep);letter-spacing:.02em;}
+  @media (min-width:720px){ .unit__cta{ font-size:21px; } }
+  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+  .unit__cta .arrow{transition:transform .2s;font-family:serif;}
 
-  .words-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-  @media (max-width:880px){.words-grid{grid-template-columns:repeat(3,1fr);}}
-  @media (max-width:560px){.words-grid{grid-template-columns:repeat(2,1fr);}}
-  .word{padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:12px;transition:transform .15s,box-shadow .15s;display:block;color:var(--ink);}
-  .word:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);color:var(--ink);}
-  .word .en{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--ink);}
-  .word .pos{font-size:14px;color:var(--ink-soft);font-weight:500;margin-left:4px;}
-  .word .zh{display:block;font-size:17px;color:var(--ink-soft);margin-top:4px;}
-  .theme.t-sports .word:hover{border-color:var(--brand-pale);}
-  .theme.t-sports .word:hover .en{color:var(--brand-deep);}
-  .theme.t-culture .word:hover{border-color:#f0c3c5;}
-  .theme.t-culture .word:hover .en{color:var(--red);}
-  .theme.t-eco .word:hover{border-color:#cdd9b3;}
-  .theme.t-eco .word:hover .en{color:var(--leaf);}
-  .theme.t-school .word:hover{border-color:#f0d4b5;}
-  .theme.t-school .word:hover .en{color:var(--orange);}
+  /* unit color themes */
+  .u-1 .unit__hero{background:linear-gradient(135deg,#D6E6BF 0%,#A6C273 100%);}
+  .u-1 .unit__cta{color:#3F5F1E;}
+  .u-2 .unit__hero{background:linear-gradient(135deg,#C3DEEF 0%,#5A93C2 100%);}
+  .u-2 .unit__cta{color:var(--brand-deep);}
+  .u-3 .unit__hero{background:linear-gradient(135deg,#F5C2C5 0%,#D04249 100%);}
+  .u-3 .unit__cta{color:#8A0810;}
+  .u-4 .unit__hero{background:linear-gradient(135deg,#F5DEA9 0%,#D49C2A 100%);}
+  .u-4 .unit__cta{color:#6B4A0E;}
 
-  /* ============ CTA ============ */
-  .cta{background:linear-gradient(135deg,var(--brand-deep) 0%,var(--brand) 100%);color:#fff;padding:70px 0;}
-  .cta-card{text-align:center;max-width:720px;margin:0 auto;}
-  .cta-card .eyebrow{display:inline-block;font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-pale);font-weight:600;margin-bottom:14px;}
-  .cta-card h2{color:#fff;font-size:clamp(34px,2.6vw,42px);margin-bottom:14px;}
-  .cta-card p{opacity:.95;font-size:21px;margin-bottom:24px;}
-  .cta-btn{display:inline-block;padding:14px 30px;background:#fff;color:var(--brand-deep);border-radius:999px;font-weight:600;letter-spacing:.02em;transition:transform .15s;}
-  .cta-btn:hover{transform:translateY(-2px);color:var(--brand-deep);}
+  /* ============ PLAYLIST FALLBACK ============ */
+  .playlist-block{margin-top:80px;padding:36px;background:var(--bg-soft);border-radius:24px;border:1px solid var(--line);text-align:center;}
+  .playlist-block h3{font-family:'Fraunces',serif;font-weight:700;font-size:30px;color:var(--brand-deep);margin-bottom:6px;}
+  @media (min-width:720px){ .playlist-block h3{ font-size:36px; } }
+  .playlist-block .zh{font-size:20px;color:var(--ink-soft);margin-bottom:24px;}
+  @media (min-width:720px){ .playlist-block .zh{ font-size:22px; } }
+  .video-frame{position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;}
+  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
   /* ============ FOOTER ============ */
-  footer{background:var(--ink);color:rgba(255,255,255,.78);padding:48px 0 30px;}
+  footer{background:var(--ink);padding:48px 0 30px;color:rgba(255,255,255,.78);font-size:18px;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
   footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
   footer .foot-brand{display:flex;align-items:center;gap:14px;}
   footer .foot-brand img{width:38px;height:38px;}
   footer .foot-name{font-family:'Fraunces',serif;font-weight:600;color:#fff;font-size:20px;}
-  footer .foot-name small{display:block;font-family:'PingFang TC',sans-serif;font-weight:400;font-size:16px;color:rgba(255,255,255,.6);margin-top:2px;}
+  footer .foot-name small{display:block;font-family:'PingFang TC',sans-serif;font-weight:400;font-size:15px;color:rgba(255,255,255,.6);margin-top:2px;}
   footer .foot-meta{font-size:17px;text-align:right;color:rgba(255,255,255,.6);}
-  footer a{color:rgba(255,255,255,.85);}
+  @media (min-width:720px){ footer .foot-meta{ font-size:18px; } }
+  footer a{color:rgba(255,255,255,.95);font-weight:600;}
   footer a:hover{color:#fff;}
-
-  @media (max-width:680px){
-    .theme-head{grid-template-columns:1fr;text-align:center;gap:14px;}
-    .theme-icon{margin:0 auto;}
-  }
 </style>
 </head>
 <body>
@@ -202,200 +198,87 @@
       <span class="zh-line">每天一個字，從村東校園學起</span>
     </h1>
     <p class="hero-tag">
-      38 short Word-of-the-Day videos, co-produced with My Culture Connect — every word filmed somewhere on our campus, sorted into four themes that mirror our school life.
+      38 short Word-of-the-Day videos, co-produced with My Culture Connect — every word filmed somewhere on our campus, organised into four units that mirror our school life.
     </p>
   </div>
 </header>
 
 
-<!-- ============ TOC ============ -->
-<div class="toc">
+<!-- ============ UNITS ============ -->
+<section class="units-section">
   <div class="wrap">
-    <div class="toc-row">
-      <a class="tt-sports" href="#sports"><span class="emoji">🚴</span>Sports &amp; Movement</a>
-      <a class="tt-culture" href="#culture"><span class="emoji">🎨</span>Culture &amp; Crafts</a>
-      <a class="tt-eco" href="#ecology"><span class="emoji">🌱</span>Ecology &amp; Nature</a>
-      <a class="tt-school" href="#school"><span class="emoji">📚</span>School Life</a>
+    <div class="sec-head">
+      <div class="eyebrow">Word of the Day</div>
+      <h2>Four Units · 38 Words</h2>
+      <div class="h2-zh">四個單元 · 38 個字</div>
+      <p class="lede">
+        Every video lives in one of four units, each a window onto a different part of campus life. Pick one and watch them all the way through — or browse by interest.
+        <span class="zh">每一支影片都歸屬於一個單元，呈現校園生活不同面向。可以一單元連著看完，也可以按興趣選擇。</span>
+      </p>
     </div>
-  </div>
-</div>
+
+    <div class="units">
+
+      <a class="unit u-1" href="word/unit-1/">
+        <div class="unit__hero"><span class="unit__emoji">🌿</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 01 · 9 Words</div>
+          <div class="unit__title">The Eco Campus</div>
+          <div class="unit__title-zh">生態校園 — 從一棵植物到一面綠旗</div>
+          <div class="unit__desc">Cundong is a U.S.–Taiwan Eco Green Flag school. These nine words come from work students do with their own hands — planting, watering, sweeping, and climbing.</div>
+          <div class="unit__cta">Start Unit 1 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit u-2" href="word/unit-2/">
+        <div class="unit__hero"><span class="unit__emoji">📚</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 02 · 10 Words</div>
+          <div class="unit__title">Around the Classroom</div>
+          <div class="unit__title-zh">教室周圍 — 校園日常的英文</div>
+          <div class="unit__desc">The everyday school grammar — from the library rules to the courtyard fountain, the words that hold a Cundong school day together.</div>
+          <div class="unit__cta">Start Unit 2 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit u-3" href="word/unit-3/">
+        <div class="unit__hero"><span class="unit__emoji">🚴</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 03 · 8 Words</div>
+          <div class="unit__title">PE &amp; The Drone Squad</div>
+          <div class="unit__title-zh">體育與無人機隊 — 動態的英文</div>
+          <div class="unit__desc">Cundong is home to three signature teams — unicycling, roller skating, and drone flying — with national championship medals. These eight words come straight off our PE field.</div>
+          <div class="unit__cta">Start Unit 3 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit u-4" href="word/unit-4/">
+        <div class="unit__hero"><span class="unit__emoji">🎨</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 04 · 11 Words</div>
+          <div class="unit__title">Festivals, Crafts &amp; Play</div>
+          <div class="unit__title-zh">節慶手作 — 動手做的英文</div>
+          <div class="unit__desc">Some words can't be translated — they need to be held in your hands. Sugar painting, glove puppetry, Chinese yo-yo, Halloween — eleven words from things Cundong students actually make and play.</div>
+          <div class="unit__cta">Start Unit 4 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
 
 
-<!-- ============ SPORTS ============ -->
-<section class="theme t-sports" id="sports">
-  <div class="wrap">
-    <div class="theme-head">
-      <div class="theme-icon">🚴</div>
-      <div>
-        <div class="label">Theme 1 of 4 · 6 words</div>
-        <h2>Sports &amp; Movement
-          <span class="zh">運動與律動</span>
-        </h2>
+    <div class="playlist-block">
+      <h3>Watch the full playlist on YouTube</h3>
+      <div class="zh">不想分單元的話，這裡是完整 YouTube playlist（含全校教職員英文自我介紹 18 部 + WOTD 38 部 + 學校歡迎影片）</div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8Xn2CRDoIm2o2XIQlr4i87G&rel=0"
+          title="Cundong Elementary full video playlist"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
       </div>
     </div>
-    <p class="theme-intro">
-      Cundong is the home of three signature teams — unicycling, roller skating, and drone flying — all of which have placed in national championships. These six words come straight off our PE field and after-school practice.
-      <span class="zh-mini">村東以獨輪車、滑輪、無人機三大運動隊聞名，皆有全國錦標賽得獎紀錄。這六個字就在我們的操場與課後訓練拍攝。</span>
-    </p>
 
-    <div class="player-frame">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/KrUXg9J6D3g?playlist=kTLCJuvCfKk,1YWTPb4SM8E,EhX_Rmc-49I,UdQuQ95k-yU,tQI9sK3rdLI&rel=0"
-        title="Cundong WOTD Sports playlist"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"></iframe>
-    </div>
-
-    <div class="words-grid">
-      <a class="word" href="https://www.youtube.com/watch?v=KrUXg9J6D3g" target="_blank" rel="noopener"><span class="en">unicycle<span class="pos">(n.)</span></span><span class="zh">獨輪車</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=kTLCJuvCfKk" target="_blank" rel="noopener"><span class="en">jump rope<span class="pos">(n.)</span></span><span class="zh">跳繩</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=1YWTPb4SM8E" target="_blank" rel="noopener"><span class="en">Taekwondo<span class="pos">(n.)</span></span><span class="zh">跆拳道</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=EhX_Rmc-49I" target="_blank" rel="noopener"><span class="en">badminton<span class="pos">(n.)</span></span><span class="zh">羽球</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=UdQuQ95k-yU" target="_blank" rel="noopener"><span class="en">soccer<span class="pos">(n.)</span></span><span class="zh">足球</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=tQI9sK3rdLI" target="_blank" rel="noopener"><span class="en">dance routine<span class="pos">(n.)</span></span><span class="zh">舞蹈動作</span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ CULTURE ============ -->
-<section class="theme t-culture" id="culture">
-  <div class="wrap">
-    <div class="theme-head">
-      <div class="theme-icon">🎨</div>
-      <div>
-        <div class="label">Theme 2 of 4 · 7 words</div>
-        <h2>Culture &amp; Crafts
-          <span class="zh">文化與手作</span>
-        </h2>
-      </div>
-    </div>
-    <p class="theme-intro">
-      Some words can't be translated — they need to be seen. Sugar painting, glove puppetry, the Chinese yo-yo — these are crafts you can only learn by holding them in your hands. We filmed each one on campus, so the English word and the Taiwanese tradition arrive together.
-      <span class="zh-mini">糖畫、布袋戲、扯鈴——有些字翻譯不來，必須親手摸過。這些手作與文化字彙，每一個都是在校園裡實作中拍攝。</span>
-    </p>
-
-    <div class="player-frame">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/QgyEyTMT1X0?playlist=OD8_kmuujUA,n9E0WGeQbc4,5V_IVzkO6-k,uEfMJi0qQ_I,gV9iA9PW81s,LIezFbbFrsE&rel=0"
-        title="Cundong WOTD Culture playlist"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"></iframe>
-    </div>
-
-    <div class="words-grid">
-      <a class="word" href="https://www.youtube.com/watch?v=QgyEyTMT1X0" target="_blank" rel="noopener"><span class="en">glove puppetry</span><span class="zh">布袋戲</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=OD8_kmuujUA" target="_blank" rel="noopener"><span class="en">sugar painting</span><span class="zh">糖畫</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=n9E0WGeQbc4" target="_blank" rel="noopener"><span class="en">Chinese yo-yo<span class="pos">(n.)</span></span><span class="zh">扯鈴</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=5V_IVzkO6-k" target="_blank" rel="noopener"><span class="en">drum<span class="pos">(n.)</span></span><span class="zh">鼓</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=uEfMJi0qQ_I" target="_blank" rel="noopener"><span class="en">perler bead<span class="pos">(n.)</span></span><span class="zh">拼豆</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=gV9iA9PW81s" target="_blank" rel="noopener"><span class="en">Halloween<span class="pos">(n.)</span></span><span class="zh">萬聖節</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=LIezFbbFrsE" target="_blank" rel="noopener"><span class="en">Mother's Day card</span><span class="zh">母親節卡</span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ ECOLOGY ============ -->
-<section class="theme t-eco" id="ecology">
-  <div class="wrap">
-    <div class="theme-head">
-      <div class="theme-icon">🌱</div>
-      <div>
-        <div class="label">Theme 3 of 4 · 9 words</div>
-        <h2>Ecology &amp; Nature
-          <span class="zh">生態與自然</span>
-        </h2>
-      </div>
-    </div>
-    <p class="theme-intro">
-      Cundong is a U.S.–Taiwan Eco Green Flag school. That isn't a poster — it's a daily practice: planting, watering, sweeping, sorting, climbing the campus trees. These nine words come from work students do with their own hands.
-      <span class="zh-mini">村東是臺美生態學校綠旗校。生態不是口號，是每天動手做：種植、澆水、掃地、分類、爬校樹。這九個字都從學生親手做的事情裡誕生。</span>
-    </p>
-
-    <div class="player-frame">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/2fYRmKIFHU0?playlist=27zBi1EMy-A,LgCSF7kBR50,FAlnPqrS2UU,WYvO1COBUC0,F3TxoCxwybI,N2Tvwl3UJ4A,FgJpXoQHW1g,EwP58Dj8gE4&rel=0"
-        title="Cundong WOTD Ecology playlist"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"></iframe>
-    </div>
-
-    <div class="words-grid">
-      <a class="word" href="https://www.youtube.com/watch?v=2fYRmKIFHU0" target="_blank" rel="noopener"><span class="en">Earth Day<span class="pos">(n.)</span></span><span class="zh">地球日</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=27zBi1EMy-A" target="_blank" rel="noopener"><span class="en">moringa<span class="pos">(n.)</span></span><span class="zh">辣木</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=LgCSF7kBR50" target="_blank" rel="noopener"><span class="en">plant<span class="pos">(n.)</span></span><span class="zh">植物</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=FAlnPqrS2UU" target="_blank" rel="noopener"><span class="en">set plant<span class="pos">(n.)</span></span><span class="zh">植栽</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=WYvO1COBUC0" target="_blank" rel="noopener"><span class="en">water<span class="pos">(v.)</span></span><span class="zh">澆水</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=F3TxoCxwybI" target="_blank" rel="noopener"><span class="en">fertilizer<span class="pos">(n.)</span></span><span class="zh">肥料</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=N2Tvwl3UJ4A" target="_blank" rel="noopener"><span class="en">garden trowel<span class="pos">(n.)</span></span><span class="zh">小鏟子</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=FgJpXoQHW1g" target="_blank" rel="noopener"><span class="en">sweep<span class="pos">(v.)</span></span><span class="zh">掃地</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=EwP58Dj8gE4" target="_blank" rel="noopener"><span class="en">climbing trees</span><span class="zh">爬樹</span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ SCHOOL LIFE ============ -->
-<section class="theme t-school" id="school">
-  <div class="wrap">
-    <div class="theme-head">
-      <div class="theme-icon">📚</div>
-      <div>
-        <div class="label">Theme 4 of 4 · 16 words</div>
-        <h2>School Life
-          <span class="zh">校園生活</span>
-        </h2>
-      </div>
-    </div>
-    <p class="theme-intro">
-      This is the biggest theme — the everyday school grammar: the library rules, the mobile library, the fountain in the courtyard, the act of reading itself. From "first grader" to "professional development", these are the words that hold our school day together.
-      <span class="zh-mini">這是字數最多的主題——校園生活的日常文法：圖書館規則、行動圖書館、中庭噴水池、閱讀本身。從「一年級生」到「專業進修」，這些字串起村東每一天的節奏。</span>
-    </p>
-
-    <div class="player-frame">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/QFnaNAKsw8I?playlist=HerAf4NsA8c,kLQgA1MSlVc,V_cgqOpR4DE,04dJmaHaBQo,-kZ5ODfJrT0,gyXci9eGbOU,dUwwXPoRnNM,6dE1HrYq4ig,eSlMZWYAC8g,gGVulpzyb0w,PtEnIdEZ2R0,5UtBNEiLyt8,bEiBlPDBZN0,6MIi8fW1IpI,BQV3Sr51mMg&rel=0"
-        title="Cundong WOTD School Life playlist"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"></iframe>
-    </div>
-
-    <div class="words-grid">
-      <a class="word" href="https://www.youtube.com/watch?v=QFnaNAKsw8I" target="_blank" rel="noopener"><span class="en">learn English<span class="pos">(v.)</span></span><span class="zh">學習英語</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=HerAf4NsA8c" target="_blank" rel="noopener"><span class="en">reading</span><span class="zh">閱讀</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=kLQgA1MSlVc" target="_blank" rel="noopener"><span class="en">reading activity</span><span class="zh">閱讀活動</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=V_cgqOpR4DE" target="_blank" rel="noopener"><span class="en">drone<span class="pos">(n.)</span></span><span class="zh">無人機</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=04dJmaHaBQo" target="_blank" rel="noopener"><span class="en">mobile library<span class="pos">(n.)</span></span><span class="zh">行動圖書館</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=-kZ5ODfJrT0" target="_blank" rel="noopener"><span class="en">library rules</span><span class="zh">圖書館規則</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=gyXci9eGbOU" target="_blank" rel="noopener"><span class="en">fountain<span class="pos">(n.)</span></span><span class="zh">噴水池</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=dUwwXPoRnNM" target="_blank" rel="noopener"><span class="en">observe<span class="pos">(v.)</span></span><span class="zh">觀課</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=6dE1HrYq4ig" target="_blank" rel="noopener"><span class="en">wash your hands</span><span class="zh">洗手</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=eSlMZWYAC8g" target="_blank" rel="noopener"><span class="en">first grader</span><span class="zh">一年級生</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=gGVulpzyb0w" target="_blank" rel="noopener"><span class="en">newspaper<span class="pos">(n.)</span></span><span class="zh">報紙</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=PtEnIdEZ2R0" target="_blank" rel="noopener"><span class="en">game<span class="pos">(n.)</span></span><span class="zh">遊戲</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=5UtBNEiLyt8" target="_blank" rel="noopener"><span class="en">template<span class="pos">(n.)</span></span><span class="zh">範本</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=bEiBlPDBZN0" target="_blank" rel="noopener"><span class="en">color<span class="pos">(n.)</span></span><span class="zh">顏色</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=6MIi8fW1IpI" target="_blank" rel="noopener"><span class="en">pass</span><span class="zh">傳遞</span></a>
-      <a class="word" href="https://www.youtube.com/watch?v=BQV3Sr51mMg" target="_blank" rel="noopener"><span class="en">professional development<span class="pos">(n.)</span></span><span class="zh">專業進修</span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ CTA ============ -->
-<section class="cta">
-  <div class="wrap">
-    <div class="cta-card">
-      <div class="eyebrow">Want the full lessons?</div>
-      <h2>Teacher Mae's archive holds every class she's taught at Cundong</h2>
-      <p>Word-of-the-Day is the public surface. The actual lessons — demo classes, reading circle, singing competition, the whole Thailand cultural exchange — live on Mae's own teaching site, organised by school year.</p>
-      <a class="cta-btn" href="../bilingual-campus/">See English Life · 雙語生活 →</a>
-    </div>
   </div>
 </section>
 
