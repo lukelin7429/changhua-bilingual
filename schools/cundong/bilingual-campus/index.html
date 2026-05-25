@@ -105,14 +105,18 @@
   .sec-divider{height:1px;background:var(--line);max-width:var(--max);margin:0 auto;}
 
   /* ============ I. MEET MAE ============ */
+  .meet-mae .mae-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start;}
   .meet-mae{background:#fff;}
-  .mae-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center;}
-  @media (max-width:880px){.mae-grid{grid-template-columns:1fr;gap:34px;}}
-  .mae-photo{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--brand-deep) 0%,var(--brand) 100%);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);}
-  .mae-photo .mae-mark{font-family:'Fraunces',serif;color:#fff;text-align:center;}
-  .mae-photo .mae-mark .top{font-size:20px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-bottom:20px;font-weight:500;}
-  .mae-photo .mae-mark .big{font-size:82px;line-height:1;font-weight:700;letter-spacing:-.02em;}
-  .mae-photo .mae-mark .sub{font-size:18px;letter-spacing:.18em;text-transform:uppercase;margin-top:18px;opacity:.78;font-weight:500;}
+  @media (max-width:880px){.meet-mae .mae-grid{grid-template-columns:1fr;gap:34px;}}
+  .mae-photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;box-shadow:var(--shadow);}
+  .mae-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .mae-photo .mae-caption{position:absolute;left:0;right:0;bottom:0;padding:38px 22px 18px;background:linear-gradient(0deg,rgba(15,26,34,.88) 0%,rgba(15,26,34,0) 100%);color:#fff;}
+  .mae-photo .mae-caption .en{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:24px;line-height:1.2;margin-bottom:4px;}
+  @media (min-width:720px){ .mae-photo .mae-caption .en{ font-size:28px; } }
+  .mae-photo .mae-caption .zh{display:block;font-size:16px;opacity:.92;letter-spacing:.04em;}
+  @media (min-width:720px){ .mae-photo .mae-caption .zh{ font-size:18px; } }
+  .mae-photo .mae-flag{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.92);color:var(--brand-deep);padding:6px 14px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.08em;backdrop-filter:blur(6px);}
+  @media (min-width:720px){ .mae-photo .mae-flag{ font-size:15px; } }
   .mae-text h3{font-size:30px;color:var(--brand-deep);margin-bottom:10px;}
   .mae-text .role{font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:18px;}
   .mae-text p{margin-bottom:14px;color:var(--ink);}
@@ -251,10 +255,11 @@
 
     <div class="mae-grid">
       <div class="mae-photo">
-        <div class="mae-mark">
-          <div class="top">a · Mae · zing</div>
-          <div class="big">Mae</div>
-          <div class="sub">From the Philippines</div>
+        <img src="../photos/teacher-mae.jpg" alt="Teacher Maelyn (Mae) De Torres Villano, Cundong's Foreign English Teacher" loading="lazy">
+        <div class="mae-flag">🇵🇭 from the Philippines</div>
+        <div class="mae-caption">
+          <span class="en">Teacher Mae</span>
+          <span class="zh">Mae 老師 · 駐校外師</span>
         </div>
       </div>
 
