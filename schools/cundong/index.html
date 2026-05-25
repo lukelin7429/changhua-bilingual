@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cundong Elementary School · 彰化縣大村鄉村東國民小學</title>
+<meta name="description" content="Cundong Elementary School — A hilltop campus in Dacun Township, Changhua County, with sweeping views over the western Bagua Plateau. Established 1961. Home of A-mae-zing English with Teacher Mae, the U.S.–Taiwan Eco Green Flag, and an international pen-pal exchange with Thailand. 彰化縣大村鄉村東國民小學 — 八卦山麓的綠旗小校，外師 Mae 駐校，5A 班與泰國夥伴班國際交流。">
+<meta property="og:title" content="Cundong Elementary School · 彰化縣大村鄉村東國民小學">
+<meta property="og:description" content="A hilltop campus where the Bagua Plateau meets the sky · 八卦山麓上的綠旗小校">
+<meta property="og:image" content="photos/campus-mural-blue.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="shortcut icon" href="favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --brand:#1F94D9;        /* 校徽藍 */
+    --brand-deep:#1860A8;   /* 校景深藍 */
+    --brand-soft:#E8F2FA;
+    --brand-pale:#A8D8F0;
+    --red:#C6070F;          /* 校徽紅 */
+    --red-soft:#FBE9EA;
+    --leaf:#82A653;
+    --gold:#E8B948;
+    --ink:#0F1A22;
+    --ink-soft:#5A6772;
+    --line:#DCE6EE;
+    --white:#FFFFFF;
+    --max:1140px;
+    --shadow:0 18px 50px -22px rgba(24,96,168,.35);
+    --shadow-sm:0 4px 14px -4px rgba(24,96,168,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  a{color:var(--brand-deep);text-decoration:none;}
+  a:hover{color:var(--brand);}
+  h1,h2,h3,h4{font-family:'Fraunces','Inter','PingFang TC',serif;font-weight:600;letter-spacing:-.01em;color:var(--ink);}
+  h1{font-size:clamp(2.2rem,4.2vw,3.6rem);line-height:1.1;}
+  h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;}
+  h3{font-size:1.25rem;line-height:1.35;}
+  .zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;letter-spacing:.02em;}
+
+  /* ============ TOPBAR ============ */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 28px;max-width:var(--max);margin:0 auto;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-brand img{width:42px;height:42px;}
+  .topbar-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;line-height:1.15;color:var(--ink);}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:.78rem;color:var(--ink-soft);font-weight:400;letter-spacing:.04em;margin-top:2px;}
+  .topbar-nav{display:flex;gap:4px;flex-wrap:wrap;}
+  .topbar-nav a{font-size:.92rem;font-weight:500;color:var(--ink-soft);padding:8px 12px;border-radius:8px;transition:all .15s ease;}
+  .topbar-nav a:hover{color:var(--brand-deep);background:var(--brand-soft);}
+  .topbar-nav a.is-active{color:var(--brand-deep);background:var(--brand-soft);}
+  @media (max-width:760px){.topbar-nav a{font-size:.84rem;padding:6px 9px;}}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:520px;
+    color:#fff;
+    background:
+      linear-gradient(135deg, rgba(24,96,168,.72) 0%, rgba(24,96,168,.35) 55%, rgba(24,96,168,.78) 100%),
+      url('photos/campus-mural-blue.jpg') center / cover no-repeat;
+    display:flex;align-items:center;
+    padding:80px 0 90px;
+  }
+  .hero::before{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:8px;
+    background:linear-gradient(90deg,var(--brand) 0%,var(--red) 50%,var(--brand) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;}
+  .hero-eyebrow{display:inline-block;padding:6px 14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px;font-weight:500;}
+  .hero h1{color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.25);max-width:780px;}
+  .hero h1 .zh-line{display:block;font-family:'PingFang TC',sans-serif;font-size:1.45rem;font-weight:500;margin-top:14px;letter-spacing:.06em;opacity:.95;}
+  .hero-tag{margin-top:28px;font-size:1.12rem;max-width:680px;opacity:.95;line-height:1.55;}
+  .hero-tag .zh{display:block;margin-top:8px;font-size:.98rem;opacity:.85;}
+  .hero-facts{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px;}
+  .hero-fact{font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;opacity:.92;}
+  .hero-fact span{display:block;font-size:1.4rem;letter-spacing:0;text-transform:none;font-family:'Fraunces',serif;margin-top:4px;}
+
+  /* ============ SECTION HEAD ============ */
+  .section-head{text-align:center;margin-bottom:48px;}
+  .eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:14px;}
+  .h2-zh{font-family:'PingFang TC',sans-serif;font-size:1.05rem;font-weight:400;color:var(--ink-soft);margin-top:10px;letter-spacing:.05em;}
+
+  /* ============ ABOUT ============ */
+  .about{padding:90px 0 80px;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  @media (max-width:880px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+  .about-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+  .about-photo img{width:100%;display:block;}
+  .about-photo .caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(15,26,34,.78) 0%,rgba(15,26,34,0) 100%);color:#fff;padding:30px 22px 18px;font-size:.88rem;}
+  .about-photo .caption .en{display:block;font-weight:500;margin-bottom:4px;}
+  .about-text h3{margin-bottom:16px;color:var(--brand-deep);}
+  .about-text p{margin-bottom:14px;color:var(--ink);}
+  .about-text .zh-divider{height:1px;background:var(--line);margin:22px 0;}
+  .about-text .zh p{color:var(--ink-soft);font-size:.96rem;}
+
+  /* ============ IDENTITY ============ */
+  .identity{padding:90px 0 80px;background:var(--brand-soft);position:relative;}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:880px){.pillars{grid-template-columns:1fr;}}
+  .pillar{background:#fff;border-radius:18px;padding:36px 28px;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:transform .2s,box-shadow .2s;}
+  .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .pillar-icon{width:54px;height:54px;border-radius:14px;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;}
+  .pillar h3{color:var(--brand-deep);margin-bottom:6px;}
+  .pillar h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:.92rem;font-weight:400;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em;}
+  .pillar .en-body{font-size:.96rem;color:var(--ink);margin-top:14px;}
+  .pillar .divider-tiny{width:30px;height:2px;background:var(--brand);margin:16px 0 12px;}
+  .pillar .zh-body{font-size:.92rem;color:var(--ink-soft);}
+  .pillar.is-eco .pillar-icon{background:#E8F4DA;color:#4F7A1F;}
+  .pillar.is-thai .pillar-icon{background:var(--red-soft);color:var(--red);}
+
+  /* ============ MAE ============ */
+  .mae{padding:90px 0;background:#fff;}
+  .mae-card{background:linear-gradient(135deg,var(--brand-deep) 0%,var(--brand) 100%);color:#fff;border-radius:24px;padding:54px 48px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+  .mae-card::after{content:"a-Mae-zing";position:absolute;right:-30px;bottom:-50px;font-family:'Fraunces',serif;font-size:11rem;font-weight:700;opacity:.06;color:#fff;letter-spacing:-.04em;line-height:1;pointer-events:none;}
+  .mae-card .eyebrow{color:var(--brand-pale);}
+  .mae-card h2{color:#fff;max-width:660px;}
+  .mae-card .zh-sub{font-family:'PingFang TC',sans-serif;font-size:1rem;color:var(--brand-pale);margin-top:8px;letter-spacing:.05em;}
+  .mae-card p.lead{font-size:1.05rem;max-width:680px;margin-top:20px;opacity:.94;line-height:1.65;}
+  .mae-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px;max-width:760px;position:relative;z-index:2;}
+  @media (max-width:680px){.mae-links{grid-template-columns:1fr;}}
+  .mae-link{display:block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:18px 20px;color:#fff;transition:background .15s,transform .15s;}
+  .mae-link:hover{background:rgba(255,255,255,.18);color:#fff;transform:translateY(-2px);}
+  .mae-link strong{display:block;font-size:1rem;font-weight:600;margin-bottom:4px;}
+  .mae-link span{display:block;font-size:.85rem;opacity:.85;}
+  .mae-cta{display:inline-block;margin-top:32px;padding:14px 28px;background:#fff;color:var(--brand-deep);border-radius:999px;font-weight:600;letter-spacing:.02em;transition:transform .15s;}
+  .mae-cta:hover{transform:translateY(-2px);color:var(--brand-deep);}
+
+  /* ============ INTERNATIONAL ============ */
+  .intl{padding:90px 0 80px;background:var(--red-soft);}
+  .intl-head{text-align:center;margin-bottom:48px;}
+  .intl-head .flags{font-size:2.4rem;letter-spacing:14px;margin-bottom:18px;}
+  .intl-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;}
+  @media (max-width:880px){.intl-grid{grid-template-columns:1fr;}}
+  .intl-text h3{color:var(--red);margin-bottom:14px;}
+  .intl-text p{margin-bottom:14px;}
+  .intl-text .zh p{color:var(--ink-soft);font-size:.95rem;}
+  .intl-cta{display:inline-block;margin-top:14px;padding:12px 24px;background:var(--red);color:#fff;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s;}
+  .intl-cta:hover{transform:translateY(-2px);color:#fff;background:#a3050c;}
+  .intl-students{background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+  .intl-students h4{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+  .intl-students ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .intl-students li{display:flex;justify-content:space-between;gap:14px;padding:10px 14px;background:var(--red-soft);border-radius:10px;font-size:.92rem;}
+  .intl-students li .name{font-weight:500;color:var(--ink);}
+  .intl-students li .meta{color:var(--ink-soft);font-size:.84rem;}
+
+  /* ============ VIDEOS ============ */
+  .videos{padding:90px 0 80px;}
+  .videos-frame{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+  .videos-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .videos-meta{display:flex;flex-wrap:wrap;gap:24px 36px;justify-content:center;margin-top:30px;color:var(--ink-soft);font-size:.92rem;}
+  .videos-meta strong{color:var(--brand-deep);font-weight:600;}
+
+  /* ============ VISIT ============ */
+  .visit{padding:90px 0;background:var(--brand-soft);}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  @media (max-width:760px){.visit-grid{grid-template-columns:1fr;}}
+  .visit-card{background:#fff;border-radius:18px;padding:32px;box-shadow:var(--shadow-sm);}
+  .visit-card h3{color:var(--brand-deep);margin-bottom:14px;}
+  .visit-card dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;font-size:.94rem;}
+  .visit-card dt{font-weight:600;color:var(--ink-soft);letter-spacing:.04em;}
+  .visit-card dd a{font-weight:500;}
+  .visit-links{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
+  .visit-links a{display:inline-block;padding:9px 16px;background:var(--brand-soft);color:var(--brand-deep);border-radius:8px;font-size:.88rem;font-weight:500;transition:background .15s;}
+  .visit-links a:hover{background:var(--brand-pale);}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--ink);color:rgba(255,255,255,.78);padding:48px 0 30px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  footer .foot-brand{display:flex;align-items:center;gap:14px;}
+  footer .foot-brand img{width:38px;height:38px;}
+  footer .foot-name{font-family:'Fraunces',serif;font-weight:600;color:#fff;font-size:1rem;}
+  footer .foot-name small{display:block;font-family:'PingFang TC',sans-serif;font-weight:400;font-size:.78rem;color:rgba(255,255,255,.6);margin-top:2px;}
+  footer .foot-meta{font-size:.84rem;text-align:right;color:rgba(255,255,255,.6);}
+  footer a{color:rgba(255,255,255,.85);}
+  footer a:hover{color:#fff;}
+
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <img src="logo.png" alt="Cundong Elementary School crest">
+      <div class="topbar-name">
+        Cundong Elementary
+        <small>彰化縣大村鄉村東國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="#about">Disaster</a>
+      <a href="bilingual-campus/">English Life</a>
+      <a href="lessons/">Lessons</a>
+      <a href="#about">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=cundong">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="hero-eyebrow">Changhua County · Dacun Township · Est. 1961</span>
+    <h1>Cundong Elementary School
+      <span class="zh-line">彰化縣大村鄉村東國民小學</span>
+    </h1>
+    <p class="hero-tag">
+      Where the Bagua Plateau meets the sky — a hilltop campus looking out over Dacun and Yuanlin.
+      <span class="zh">坐落於八卦山麓的綠旗小校，從教室遠眺大村與員林平原。</span>
+    </p>
+    <div class="hero-facts">
+      <div class="hero-fact">Est. <span>1961</span></div>
+      <div class="hero-fact">U.S.–Taiwan Eco <span>Green Flag</span></div>
+      <div class="hero-fact">A-mae-zing <span>English</span></div>
+      <div class="hero-fact">Pen Pals with <span>Thailand</span></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>From a Hillside Branch School to a Green-Flag Campus</h2>
+      <div class="h2-zh">從村上分校到綠旗小校，六十五年的山麓教育</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="photos/campus-mural-yellow.jpg" alt="Cundong campus art mural — autumn forest scene" loading="lazy">
+        <div class="caption">
+          <span class="en">Our campus mural — a hand-painted forest of all four seasons</span>
+          校園彩繪牆 · 四季森林手繪
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>Founded 1961 · Serving three villages at the foot of the Bagua Plateau</h3>
+        <p>In 1957, fourteen local elders petitioned to bring schooling closer to children in Fuxing, Pinghe, and Huangcuo — three villages spread along the western edge of the Bagua Plateau. Two years later, Tsunshang Elementary opened a branch school here. In August 1961, that branch became its own campus: <strong>Cundong Elementary School</strong>.</p>
+        <p>Sixty-five years on, Cundong is a small school with a wide view. Our classrooms sit on hilltop terrain along Shanjiao Road (Provincial Highway 137); from many windows, students can see all the way across the Dacun grape country and into Yuanlin City.</p>
+        <p>Today our 11 classes follow three commitments first set out by the school: <strong>character, reading, and ecology</strong>. In School Year 114 (2025), our long-running environmental work earned the highest honor in Taiwan's Eco-Schools program — a U.S.–Taiwan <strong>Green Flag</strong> certification.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>民國 46 年（1957），何前、石金彩等十四位地方人士在大村鄉鄉民代表會提案設校，方便平和、福興、黃厝三村學童就近就讀。民國 48 年（1959）8 月成立「村上國校村東分校」，民國 50 年（1961）8 月奉准獨立，正式更名為村東國民學校。</p>
+          <p style="margin-top:14px;">校址位於福興村山腳路（縣道 137 號），地處八卦台地西緣山麓高處，視野可俯瞰大村葡萄產區與員林市區。全校 11 班，校本三大教育理念為「品格、閱讀、生態」。民國 114 學年度（2025），長期耕耘的環境教育榮獲臺美生態學校認證系統最高榮譽「綠旗（Green Flag）」。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ IDENTITY (3 pillars) ============ -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What Makes Us Cundong</div>
+      <h2>Three Things That Shape Our School</h2>
+      <div class="h2-zh">三個塑造村東國小的故事</div>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar is-eco">
+        <div class="pillar-icon">🌿</div>
+        <h3>U.S.–Taiwan Eco Green Flag
+          <small>臺美生態學校綠旗</small>
+        </h3>
+        <p class="en-body">Three years of work, three rising honors. In 112 we earned bronze; in 113, silver; in 114, the Green Flag — the program's highest tier. Our student "Eco Action Team" declaration is simple: take only what you need, sort what you no longer use, protect the plants and animals around us.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">三年深耕、三級晉升：112 學年度銅、113 學年度銀、114 學年度綠旗——臺美生態學校認證系統最高榮譽。學生「生態行動團隊宣言」很簡單：拿得剛好吃得對、資源回收要分類、保護植物與動物棲地。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar-icon">🌐</div>
+        <h3>A-mae-zing English
+          <small>菲律賓外師 Mae 駐校</small>
+        </h3>
+        <p class="en-body">Our English program is named after our Foreign English Teacher, Ms. Maelyn (Mae) De Torres Villano from the Philippines. "A-Mae-zing" is more than wordplay — it's how our students think about English class: a place where learning happens by doing, by playing, and by laughing together. Mae's own teaching site, with two full years of Cundong lesson archives, is linked below.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">英語課的名字「A-mae-zing English」其實就是外師 Maelyn (Mae) 老師的名字諧音——Mae 老師來自菲律賓，是村東駐校外籍英語老師。她的個人教學網站收藏了 113 與 114 兩個學年度的課堂、公開課、讀書會與歌唱比賽全紀錄。</p>
+      </article>
+
+      <article class="pillar is-thai">
+        <div class="pillar-icon">🌏</div>
+        <h3>Pen Pals With Thailand
+          <small>5A 班國際交流</small>
+        </h3>
+        <p class="en-body">Since May 2026, our 5A class has been writing — in English — to a partner class of 10-year-olds in Thailand. They introduce themselves, share their hobbies and pets, and leave each other comments in three languages. International education, without the airfare.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">自 2026 年 5 月起，村東 5A 班與泰國夥伴班透過 Padlet 線上交流牆持續用英文互相介紹自己、分享興趣與寵物，並用中、英、泰三語互相留言。不出國的國際教育，正在我們的教室發生。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MAE ============ -->
+<section class="mae" id="mae">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meet Our FET</div>
+      <h2>Teacher Mae &mdash; The Heart of A-mae-zing English</h2>
+      <div class="h2-zh">外師 Mae 老師 — A-mae-zing English 的核心</div>
+    </div>
+
+    <div class="mae-card">
+      <span class="eyebrow">From the Philippines · Cundong since the 113 school year</span>
+      <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);margin-top:14px;">
+        Hello! I'm Teacher Mae. <br>
+        Learning by doing, having fun together.
+      </h2>
+      <div class="zh-sub">菲律賓籍駐校外師 · "Learning by doing and having fun"</div>
+      <p class="lead">
+        Ms. Maelyn De Torres Villano runs Cundong's English program through immersive lessons,
+        public demo classes, reading circles, and Cundong's annual singing competition.
+        Her teaching archive — split across the 113 and 114 school years, plus a Gallery of
+        student work and a dedicated unit on our Thailand exchange — is just one click away.
+      </p>
+
+      <div class="mae-links">
+        <a class="mae-link" href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener">
+          <strong>About Teacher Mae</strong>
+          <span>Background, qualifications &amp; teaching philosophy</span>
+        </a>
+        <a class="mae-link" href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener">
+          <strong>113 CDES Archive</strong>
+          <span>Lessons, demo classes, reading circle, singing contest</span>
+        </a>
+        <a class="mae-link" href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener">
+          <strong>114 CDES &amp; Thailand Exchange</strong>
+          <span>This year's lessons + International Education unit</span>
+        </a>
+        <a class="mae-link" href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener">
+          <strong>Gallery &amp; Compilation</strong>
+          <span>Classroom materials, student crafts, resources</span>
+        </a>
+      </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+        <a class="mae-cta" href="bilingual-campus/">
+          See English Life · 雙語生活 →
+        </a>
+        <a class="mae-cta" href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener" style="background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.32);">
+          Visit A-mae-zing English ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ INTERNATIONAL ============ -->
+<section class="intl" id="international">
+  <div class="wrap">
+    <div class="intl-head">
+      <div class="flags">🇹🇼 ↔ 🇹🇭</div>
+      <div class="eyebrow">International Education</div>
+      <h2>Pen Pals in Two Languages</h2>
+      <div class="h2-zh">5A 班與泰國夥伴班 · 用英文跨海對話</div>
+    </div>
+
+    <div class="intl-grid">
+      <div class="intl-text">
+        <h3>One Padlet wall, two classrooms, one school year of conversation</h3>
+        <p>Hosted by Cundong's 5A English teacher Ms. Jessie and run alongside Ms Mae's bilingual lessons, the project pairs Cundong fifth-graders with a class of 10-year-olds at a partner school in Thailand. Students post in English, comment in English, and slip in Mandarin and Thai when emoji isn't enough.</p>
+        <p>Since the wall went live on 7 May 2026, posts have grown to 32 and counting — self-introductions, hobby quizzes, pet photos, and an ongoing debate about who plays the better Roblox.</p>
+        <div class="zh-divider" style="height:1px;background:rgba(198,7,15,.18);margin:18px 0;"></div>
+        <div class="zh">
+          <p>由村東 5A 班英語老師 Ms. Jessie 主持，搭配 Mae 老師的雙語教學節奏，5A 班與一所泰國小學的同齡夥伴班配對。學生用英文發文、用英文留言，偶爾用中文與泰文補位。2026 年 5 月 7 日上線以來貼文累積至 32 則並持續增加。</p>
+        </div>
+        <a class="intl-cta" href="https://padlet.com/jessie19831030/cun-dong-elementary-school-5a-8x1yz8j0q6t1slpe" target="_blank" rel="noopener">
+          Visit the live Padlet wall →
+        </a>
+      </div>
+
+      <div class="intl-students">
+        <h4>Meet a few of our exchange friends</h4>
+        <ul>
+          <li><span class="name">Renu 🇹🇭</span><span class="meta">Grade 5/1 · loves drawing &amp; pets</span></li>
+          <li><span class="name">Fluke 🇹🇭</span><span class="meta">Grade 5 · listens to Vocaloid songs</span></li>
+          <li><span class="name">ชินกฤต 🇹🇭</span><span class="meta">From the partner class in Thailand</span></li>
+          <li><span class="name">Yuki 🇹🇼</span><span class="meta">Cundong 5A</span></li>
+          <li><span class="name">050104 李品毅 🇹🇼</span><span class="meta">Cundong 5A · plays Roblox</span></li>
+          <li><span class="name">050114 裴金鈺 🇹🇼</span><span class="meta">Cundong 5A</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VIDEOS ============ -->
+<section class="videos" id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Video Library</div>
+      <h2>Word of the Day, Staff Hellos &amp; Welcome Films</h2>
+      <div class="h2-zh">村東國小影片 · 58 部由 MCC 與校方共同製作</div>
+    </div>
+
+    <div class="videos-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8Xn2CRDoIm2o2XIQlr4i87G&rel=0"
+        title="Cundong Elementary School video playlist"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+
+    <div class="videos-meta">
+      <div><strong>58 videos</strong> in the Cundong playlist</div>
+      <div><strong>18</strong> staff English self-introductions — from principal to school nurse</div>
+      <div><strong>38+</strong> Word of the Day lessons co-produced with MCC</div>
+    </div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <a href="lessons/" style="display:inline-block;padding:12px 26px;background:var(--brand-deep);color:#fff;border-radius:999px;font-weight:600;letter-spacing:.02em;transition:transform .15s;">
+        Browse lessons by theme · 依主題分類瀏覽 →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Visit &amp; Connect</div>
+      <h2>Find Us · Follow Us</h2>
+      <div class="h2-zh">聯絡資訊 · 學校官方平台</div>
+    </div>
+
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>Where We Are</h3>
+        <dl>
+          <dt>Address</dt>
+          <dd>No. 102-1, Shanjiao Rd., Fuxing Vil.,<br>Dacun Township, Changhua County 515<br><span class="zh">515 彰化縣大村鄉福興村山腳路 102-1 號</span></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+886-4-852-6328">(04) 852-6328</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:085@tdes.chc.edu.tw">085@tdes.chc.edu.tw</a></dd>
+          <dt>School District</dt>
+          <dd>Fuxing, Pinghe &amp; Huangcuo Villages<br><span class="zh">福興村、平和村、黃厝村</span></dd>
+        </dl>
+      </div>
+
+      <div class="visit-card">
+        <h3>Online</h3>
+        <p style="color:var(--ink-soft);font-size:.94rem;margin-bottom:14px;">Our presence across the web — official school site, social, and learning platforms.</p>
+        <div class="visit-links">
+          <a href="https://tdes.chc.edu.tw/" target="_blank" rel="noopener">Official Site</a>
+          <a href="https://www.facebook.com/CHCTDES/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://sites.google.com/mycultureconnect.org/a-mae-zing-english/home" target="_blank" rel="noopener">A-mae-zing English</a>
+          <a href="https://www.youtube.com/playlist?list=PL01OhMUI2G8Xn2CRDoIm2o2XIQlr4i87G" target="_blank" rel="noopener">YouTube Playlist</a>
+          <a href="https://padlet.com/jessie19831030/cun-dong-elementary-school-5a-8x1yz8j0q6t1slpe" target="_blank" rel="noopener">5A Padlet</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="logo.png" alt="Cundong crest">
+      <div class="foot-name">
+        Cundong Elementary School
+        <small>彰化縣大村鄉村東國民小學</small>
+      </div>
+    </div>
+    <div class="foot-meta">
+      Part of the <a href="https://changhua-bilingual.org/">Changhua Bilingual Hub</a> ·
+      A program by <a href="https://www.mycultureconnect.org/">My Culture Connect 人師教育協會</a><br>
+      Bilingual partner site since 2026 · Cundong 自 2009 起與人師合作雙語教育
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
