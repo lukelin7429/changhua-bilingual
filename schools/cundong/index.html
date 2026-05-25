@@ -155,31 +155,63 @@
   .pillar-body p{font-size:19px;margin-top:14px;color:var(--ink);line-height:1.6;flex:1;}
   @media (min-width:720px){ .pillar-body p{ font-size:20px; } }
 
-  /* ============ SPOTLIGHT (large feature cards: 十鼓, 獨輪車) ============ */
-  .spotlight{padding:96px 0;}
-  .spotlight-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
-  @media (max-width:900px){.spotlight-grid{grid-template-columns:1fr;gap:40px;}}
-  .spotlight.is-reverse .spotlight-grid{grid-template-columns:1fr 1.1fr;}
-  .spotlight.is-reverse .spotlight-photo{order:2;}
+  /* ============ SPOTLIGHT (full-bleed split layout) ============ */
+  .spotlight{padding:0;position:relative;}
+  .spotlight-split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:600px;}
+  @media (max-width:900px){.spotlight-split{grid-template-columns:1fr;min-height:auto;}}
+  .spotlight.is-reverse .spotlight-split{grid-template-columns:1fr 1fr;}
+  .spotlight.is-reverse .spotlight-photos{order:2;}
   .spotlight.is-reverse .spotlight-text{order:1;}
-  @media (max-width:900px){.spotlight.is-reverse .spotlight-photo{order:initial;}.spotlight.is-reverse .spotlight-text{order:initial;}}
-  .spotlight-photo{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
-  .spotlight-photo img{width:100%;display:block;}
-  .spotlight-photo .badge{position:absolute;top:22px;left:22px;background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:8px 14px;border-radius:999px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 6px 18px rgba(198,7,15,.3);}
-  @media (min-width:720px){ .spotlight-photo .badge{ font-size:17px; } }
+  @media (max-width:900px){.spotlight.is-reverse .spotlight-photos{order:initial;}.spotlight.is-reverse .spotlight-text{order:initial;}}
+
+  /* Photo column: 2 photos stacked, full-bleed to viewport edge */
+  .spotlight-photos{position:relative;display:grid;grid-template-rows:1fr 1fr;gap:0;}
+  .spotlight-ph{position:relative;overflow:hidden;}
+  .spotlight-ph img{width:100%;height:100%;object-fit:cover;display:block;}
+  .spotlight-ph .badge{position:absolute;top:22px;left:22px;background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:8px 14px;border-radius:999px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 6px 18px rgba(198,7,15,.3);}
+  @media (min-width:720px){ .spotlight-ph .badge{ font-size:17px; } }
+  @media (max-width:900px){.spotlight-photos{grid-template-rows:auto auto;}.spotlight-ph{aspect-ratio:3/2;}}
+
+  /* Text column: padded inside, EN|ZH side-by-side cols */
+  .spotlight-text{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:80px 60px 80px calc((100vw - var(--max)) / 2 + 60px);
+    background:#fff;
+  }
+  .spotlight.is-reverse .spotlight-text{
+    padding:80px calc((100vw - var(--max)) / 2 + 60px) 80px 60px;
+  }
+  @media (max-width:1180px){
+    .spotlight-text{padding:70px 40px;}
+    .spotlight.is-reverse .spotlight-text{padding:70px 40px;}
+  }
+  @media (max-width:760px){
+    .spotlight-text{padding:60px 28px;}
+    .spotlight.is-reverse .spotlight-text{padding:60px 28px;}
+  }
+  .spotlight.is-gold .spotlight-text{background:linear-gradient(180deg,#FFFCEF 0%,#fff 100%);}
+
   .spotlight-text .label{font-size:17px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:14px;}
   @media (min-width:720px){ .spotlight-text .label{ font-size:19px; } }
+  .spotlight.is-gold .spotlight-text .label{color:#A07A14;}
   .spotlight-text h2{color:var(--ink);margin-bottom:8px;}
   .spotlight-text h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:22px;font-weight:500;color:var(--ink-soft);margin-top:10px;letter-spacing:.05em;}
   @media (min-width:720px){ .spotlight-text h2 .zh{ font-size:26px; } }
-  .spotlight-text p{font-size:21px;line-height:1.7;color:var(--ink);margin-top:20px;}
-  @media (min-width:720px){ .spotlight-text p{ font-size:22px; } }
-  .spotlight-text .zh-divider{height:1px;background:var(--line);margin:24px 0;}
-  .spotlight-text .zh p{color:var(--ink-soft);font-size:20px;}
-  @media (min-width:720px){ .spotlight-text .zh p{ font-size:21px; } }
-  .spotlight.is-gold{background:linear-gradient(180deg,#FFFCEF 0%,#fff 100%);}
-  .spotlight.is-gold .spotlight-text .label{color:#A07A14;}
-  .spotlight.is-gold .spotlight-photo .badge{background:#A07A14;box-shadow:0 6px 18px rgba(160,122,20,.35);}
+
+  /* Two-column EN|ZH inside the text side */
+  .spotlight-cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:30px;position:relative;}
+  @media (max-width:880px){.spotlight-cols{grid-template-columns:1fr;gap:24px;}}
+  @media (min-width:881px){
+    .spotlight-cols::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:1px;background:var(--line);}
+  }
+  .spotlight-cols .lang-label{display:inline-block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:12px;padding:4px 10px;background:var(--red-soft);border-radius:999px;}
+  @media (min-width:720px){ .spotlight-cols .lang-label{ font-size:14px; } }
+  .spotlight.is-gold .spotlight-cols .lang-label{color:#A07A14;background:#F7E6C2;}
+  .spotlight-cols p{font-size:18px;line-height:1.65;color:var(--ink);margin-bottom:12px;}
+  @media (min-width:720px){ .spotlight-cols p{ font-size:19px; } }
+  .spotlight-cols .col-zh p{color:var(--ink-soft);}
+  .spotlight-cols p strong{color:var(--ink);font-weight:700;}
+  .spotlight.is-gold .spotlight-ph .badge{background:#A07A14;box-shadow:0 6px 18px rgba(160,122,20,.35);}
 
   /* ============ MAE CTA card ============ */
   .mae-cta-section{padding:80px 0;background:#fff;}
@@ -459,25 +491,36 @@
 </section>
 
 
-<!-- ============ SPOTLIGHT: TEN DRUM ============ -->
+<!-- ============ SPOTLIGHT: TEN DRUM (full-bleed split) ============ -->
 <section class="spotlight">
-  <div class="wrap">
-    <div class="spotlight-grid">
-      <div class="spotlight-photo">
+  <div class="spotlight-split">
+    <div class="spotlight-photos">
+      <div class="spotlight-ph">
         <img src="photos/ten-drum-team.jpg" alt="Cundong Ten Drum team group photo with their teacher" loading="lazy">
         <div class="badge">2024 · National Honors</div>
       </div>
-      <div class="spotlight-text">
-        <div class="label">Spotlight · 焦點</div>
-        <h2>How a Tiny School Wins on a National Stage
-          <span class="zh">小校的十鼓如何打到全國</span>
-        </h2>
-        <p>Over a decade ago, Cundong invited Master Tu Ya-wen from the Tainan Ten Drum Cultural Village to teach. Each year more students joined, and the troupe grew. In November 2023, our students took the Changhua County music competition's elementary percussion-ensemble division — first place. In March 2024, representing the county at the national finals, we earned national honors in the elementary percussion-ensemble category.</p>
-        <p>For years, parents here had measured success only by grades. The troupe taught them — and us — that there are many ways for a child to shine. As the kids found their courage on stage, their parents found new ways to see them.</p>
+      <div class="spotlight-ph">
+        <img src="photos/ten-drum-perform.jpg" alt="Cundong Ten Drum students performing on stage" loading="lazy">
+      </div>
+    </div>
+    <div class="spotlight-text">
+      <div class="label">Spotlight · 焦點</div>
+      <h2>How a Tiny School Wins on a National Stage
+        <span class="zh">小校的十鼓如何打到全國</span>
+      </h2>
 
-        <div class="zh-divider"></div>
-        <div class="zh">
-          <p>村東十鼓隊已創立超過十年，由台南十鼓文創園區涂雅文老師親自指導。2023 年 11 月於彰化縣 112 學年度學生音樂比賽榮獲<strong>國小團體組打擊樂第一名</strong>，2024 年 3 月代表彰化縣參加全國音樂比賽，於<strong>國小團體組打擊樂合奏項目獲全國優等</strong>。從唯成績論到看見孩子在各項才藝的亮點——是十鼓帶來的改變。</p>
+      <div class="spotlight-cols">
+        <div class="col-en">
+          <span class="lang-label">English</span>
+          <p>Over a decade ago, Cundong invited Master Tu Ya-wen from the Tainan Ten Drum Cultural Village to teach. Each year more students joined, and the troupe grew.</p>
+          <p>In November 2023, our students took the Changhua County music competition's elementary percussion-ensemble division — <strong>first place</strong>. In March 2024, representing the county at the national finals, we earned <strong>national honours</strong> in the elementary percussion-ensemble category.</p>
+          <p>For years, parents here had measured success only by grades. The troupe taught them — and us — that there are many ways for a child to shine. As the kids found their courage on stage, their parents found new ways to see them.</p>
+        </div>
+        <div class="col-zh">
+          <span class="lang-label">中文</span>
+          <p>村東十鼓隊已創立超過十年，由台南十鼓文創園區涂雅文老師親自指導，學生陸續加入，社團越來越壯大。</p>
+          <p>2023 年 11 月於彰化縣 112 學年度學生音樂比賽榮獲<strong>國小團體組打擊樂第一名</strong>，2024 年 3 月代表彰化縣參加全國音樂比賽，於<strong>國小團體組打擊樂合奏項目獲全國優等</strong>。</p>
+          <p>從唯成績論到看見孩子在各項才藝的亮點——是十鼓帶來的改變。家長慢慢發現，孩子發光的方式不只一種。</p>
         </div>
       </div>
     </div>
@@ -485,25 +528,36 @@
 </section>
 
 
-<!-- ============ SPOTLIGHT: UNICYCLE ============ -->
+<!-- ============ SPOTLIGHT: UNICYCLE (full-bleed split, reversed) ============ -->
 <section class="spotlight is-reverse is-gold">
-  <div class="wrap">
-    <div class="spotlight-grid">
-      <div class="spotlight-photo">
+  <div class="spotlight-split">
+    <div class="spotlight-photos">
+      <div class="spotlight-ph">
         <img src="photos/unicycle-team.jpg" alt="Cundong Unicycle Squad with teachers and parents under campus trees" loading="lazy">
         <div class="badge">County Champions</div>
       </div>
-      <div class="spotlight-text">
-        <div class="label">Spotlight · 焦點</div>
-        <h2>The Unicycle Squad That Taught Itself
-          <span class="zh">自學的獨輪車隊</span>
-        </h2>
-        <p>Three years ago, no one at Cundong knew how to ride a unicycle. There was no resident coach — just a two-hour weekly visit. So Mr. Yu Chun-ku and Mr. Chiang Tsun-ching, the teachers, decided to learn alongside the students. Mr. Yu bought unicycles with his own money so kids would have something to practice on. They studied competition videos online — basic skills first, then trick routines.</p>
-        <p>The first time the team entered a county tournament, they placed second in the freestyle group division. Two years later, the second-generation squad came home with the Magistrate's Cup middle-grade championship and the county overall middle-grade girls' title. Coach Chiang says unicycling helps the students focus — and he himself feels calmer because of it.</p>
+      <div class="spotlight-ph">
+        <img src="photos/unicycle-practice.jpg" alt="Cundong students practicing unicycle on the track" loading="lazy">
+      </div>
+    </div>
+    <div class="spotlight-text">
+      <div class="label">Spotlight · 焦點</div>
+      <h2>The Unicycle Squad That Taught Itself
+        <span class="zh">自學的獨輪車隊</span>
+      </h2>
 
-        <div class="zh-divider"></div>
-        <div class="zh">
-          <p>三年前村東連騎獨輪車的人都沒有，只靠每週兩小時教練到校。余俊穀老師與江存卿訓導組長決定和學生一起練。余老師自掏腰包買車給學生用，師生一起看網路比賽影片自學。第一次參賽就拿團體花式第二名。2023 年第二代校隊更拿下<strong>縣賽中年級組冠軍 + 全縣中年級女子組總錦標冠軍</strong>。江組長說，獨輪車訓練專注，連他自己上場也不那麼緊張了。</p>
+      <div class="spotlight-cols">
+        <div class="col-en">
+          <span class="lang-label">English</span>
+          <p>Three years ago, no one at Cundong knew how to ride a unicycle. There was no resident coach — just a two-hour weekly visit.</p>
+          <p>So Mr. Yu Chun-ku and Mr. Chiang Tsun-ching, the teachers, decided to learn alongside the students. Mr. Yu bought unicycles with his own money. They studied competition videos online — basic skills first, then trick routines.</p>
+          <p>The first tournament: <strong>second place</strong> in the freestyle group. Two years later, the second-generation squad came home with the <strong>Magistrate's Cup middle-grade championship</strong> and the county overall middle-grade girls' title.</p>
+        </div>
+        <div class="col-zh">
+          <span class="lang-label">中文</span>
+          <p>三年前村東連騎獨輪車的人都沒有，只靠每週兩小時教練到校。</p>
+          <p>余俊穀老師與江存卿訓導組長決定和學生一起練，余老師<strong>自掏腰包買車</strong>給學生用，師生一起看網路比賽影片自學。</p>
+          <p>第一次參賽就拿團體花式第二名。2023 年第二代校隊更拿下<strong>縣賽中年級組冠軍 + 全縣中年級女子組總錦標冠軍</strong>。江組長說，獨輪車訓練專注，連他自己上場也不那麼緊張了。</p>
         </div>
       </div>
     </div>
