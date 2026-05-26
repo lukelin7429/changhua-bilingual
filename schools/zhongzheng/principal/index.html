@@ -94,21 +94,10 @@ a:hover{color:var(--jade);}
   box-shadow:var(--shadow);
   background:linear-gradient(135deg,var(--honey-soft) 0%,#fff 60%,var(--jade-soft) 100%);
   aspect-ratio:4/5;
-  display:flex;align-items:center;justify-content:center;
 }
-.po-hero__photo .placeholder{
-  text-align:center;color:var(--honey-deep);
-}
-.po-hero__photo .placeholder .glyph{
-  font-family:'Cormorant Garamond',serif;
-  font-size:120px;line-height:1;font-weight:600;
-}
-.po-hero__photo .placeholder .label{
-  font-family:'PingFang TC',sans-serif;
-  font-size:13.5px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-soft);
-  margin-top:18px;
+.po-hero__photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 20%;
 }
 .po-hero__photo .badge{
   position:absolute;top:18px;right:18px;
@@ -294,21 +283,121 @@ section.po-body + section.po-body{padding-top:0;}
   line-height:1.85;
 }
 
-/* TBD / Placeholder note */
-.po-tbd{
-  background:var(--honey-soft);
-  border:1px dashed var(--honey);
-  border-radius:12px;
-  padding:18px 22px;
-  margin:20px 0;
-  font-size:14.5px;color:var(--honey-deep);
-  line-height:1.65;
+/* CV: Education + Career grid */
+.po-cv{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:30px;margin:30px 0 0;
 }
-.po-tbd strong{font-weight:700;}
-.po-tbd .zh{
+.po-cv__col{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:30px 30px 26px;
+  box-shadow:var(--shadow-sm);
+}
+.po-cv__col.is-edu{border-top:6px solid var(--jade);}
+.po-cv__col.is-career{border-top:6px solid var(--honey);}
+.po-cv__col h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:600;
+  color:var(--honey-deep);
+  letter-spacing:.01em;
+  margin-bottom:4px;
+}
+.po-cv__col h3 .zh{
   display:block;
   font-family:'PingFang TC',sans-serif;
-  font-size:13.5px;color:var(--ink-soft);margin-top:4px;
+  font-size:15.5px;color:var(--ink-soft);
+  font-weight:500;letter-spacing:.04em;
+  margin-top:4px;
+}
+.po-cv__list{
+  list-style:none;padding:0;margin:18px 0 0;
+}
+.po-cv__list li{
+  padding:14px 0;
+  border-bottom:1px dashed var(--line);
+}
+.po-cv__list li:last-child{border-bottom:none;}
+.po-cv__list .meta{
+  display:block;
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--jade);
+  margin-bottom:4px;
+}
+.po-cv__col.is-career .po-cv__list .meta{color:var(--honey);}
+.po-cv__list .title-en{
+  font-size:16.5px;color:var(--ink);font-weight:600;
+  line-height:1.45;
+}
+.po-cv__list .title-zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  font-size:15px;color:var(--ink-soft);
+  margin-top:3px;line-height:1.6;
+}
+
+/* Training certs panel */
+.po-certs{
+  margin-top:30px;
+  background:var(--honey-soft);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px 26px;
+}
+.po-certs__label{
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--honey-deep);
+  margin-bottom:10px;
+}
+.po-certs ol{
+  margin:0;padding-left:1.4em;
+  font-size:15.5px;color:var(--ink);line-height:1.85;
+}
+.po-certs ol li{margin-bottom:8px;}
+.po-certs ol li:last-child{margin-bottom:0;}
+.po-certs ol li .gloss{
+  display:block;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:14px;color:var(--ink-soft);margin-top:2px;
+}
+
+/* Vision (philosophy) placeholder */
+.po-vision{
+  background:#fff;
+  border:1.5px dashed var(--honey);
+  border-radius:16px;
+  padding:36px 38px;
+  margin:30px 0;
+  text-align:center;
+}
+.po-vision__label{
+  font-size:12.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--honey-deep);
+  margin-bottom:14px;
+}
+.po-vision__title{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:30px;color:var(--honey-deep);
+  font-weight:600;line-height:1.3;
+}
+.po-vision__title .zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  font-size:19px;color:var(--ink-soft);
+  font-weight:500;margin-top:6px;
+}
+.po-vision__body{
+  margin-top:16px;font-size:16px;color:var(--ink-soft);
+  line-height:1.75;
+}
+.po-vision__body .zh{
+  display:block;
+  font-family:'PingFang TC',sans-serif;
+  margin-top:6px;font-size:15px;
 }
 
 /* Visit panel */
@@ -379,6 +468,7 @@ section.po-body + section.po-body{padding-top:0;}
   .po-hero__photo{max-width:340px;margin:0 auto;}
   .po-lineage__list{grid-template-columns:1fr;}
   .po-pillars{grid-template-columns:1fr;}
+  .po-cv{grid-template-columns:1fr;}
   .po-visit__grid{grid-template-columns:1fr;gap:30px;}
 }
 @media (max-width:640px){
@@ -476,10 +566,7 @@ section.po-body + section.po-body{padding-top:0;}
       </div>
 
       <figure class="po-hero__photo">
-        <div class="placeholder">
-          <div class="glyph">林</div>
-          <div class="label">Principal Photo<br>校長照片待補</div>
-        </div>
+        <img src="../photos/principal-portrait.png" alt="Principal Lin Jun-cheng of Zhongzheng Elementary School">
         <span class="badge">Since 2024</span>
       </figure>
 
@@ -537,6 +624,125 @@ section.po-body + section.po-body{padding-top:0;}
   </div>
 </section>
 
+<!-- EDUCATION + CAREER CV -->
+<section class="po-body">
+  <div class="wrap">
+    <div class="wrap-narrow" style="padding:0;">
+      <h2>Education &amp; Career
+        <span class="zh">林校長的學經歷</span>
+      </h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);margin:14px 0 4px;line-height:1.55;">
+        From a math-and-science teaching degree at Chiayi to a master's in educational administration at Taitung &mdash; and from a homeroom desk through six different administrative chairs to the principal's office.
+      </p>
+      <p style="font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-bottom:8px;">
+        從嘉義師院的數理教育學士、台中師院的資訊教育碩士學分，到台東大學的教育行政碩士；從級任老師、六個處室組長與主任，一路走到中正國小的校長室。
+      </p>
+    </div>
+
+    <div class="po-cv">
+
+      <div class="po-cv__col is-edu">
+        <h3>Education
+          <span class="zh">學歷</span>
+        </h3>
+        <ul class="po-cv__list">
+          <li>
+            <span class="meta">Master's</span>
+            <span class="title-en">Educational Administration</span>
+            <span class="title-zh">國立臺東大學 教育研究所 行政組 碩士</span>
+          </li>
+          <li>
+            <span class="meta">Credit Program</span>
+            <span class="title-en">Information Education (Master's-credit Program)</span>
+            <span class="title-zh">國立臺中師範學院 資訊教育碩士學分班</span>
+          </li>
+          <li>
+            <span class="meta">B.Ed.</span>
+            <span class="title-en">Mathematics &amp; Science Education</span>
+            <span class="title-zh">國立嘉義師範學院 數理教育學系 學士</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="po-cv__col is-career">
+        <h3>Career
+          <span class="zh">主要經歷</span>
+        </h3>
+        <ul class="po-cv__list">
+          <li>
+            <span class="meta">2024 – present</span>
+            <span class="title-en">Principal, Zhongzheng Elementary School</span>
+            <span class="title-zh">彰化縣二林鎮中正國民小學 校長（第十任）</span>
+          </li>
+          <li>
+            <span class="meta">Administrative Roles</span>
+            <span class="title-en">Homeroom Teacher &middot; Director of IT &middot; Director of General Affairs &middot; Director of Counselling &middot; Director of Student Affairs &middot; Director of Academic Affairs &middot; Curriculum Supervisor (Changhua County Government)</span>
+            <span class="title-zh">級任教師 · 資訊組長 · 總務主任 · 輔導主任 · 學務主任 · 教務主任 · 彰化縣政府教育處 課程督學</span>
+          </li>
+          <li>
+            <span class="meta">Mentor Role</span>
+            <span class="title-en">Practicum Mentor Teacher for Pre-Service Teachers</span>
+            <span class="title-zh">國立嘉義大學實習教師 之實習輔導教師</span>
+          </li>
+          <li>
+            <span class="meta">Advisory Role</span>
+            <span class="title-en">Adjunct Curriculum Advisor &mdash; Social Studies Domain, Grade 1–9 Integrated Curriculum</span>
+            <span class="title-zh">彰化縣九年一貫課程 社會領域教學輔導團 兼任輔導員</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="po-certs">
+      <div class="po-certs__label">Additional Training &amp; Certifications &middot; 訓練進修</div>
+      <ol>
+        <li>
+          行政院公共工程委員會 — 採購專業人員基礎訓練班 結業
+          <span class="gloss">Procurement Professional Basic Training Program (Executive Yuan, Public Construction Commission)</span>
+        </li>
+        <li>
+          公共建築物設置身心障礙者行動設施及設備勘檢人員 培訓
+          <span class="gloss">Inspector Training — Accessibility Facilities in Public Buildings</span>
+        </li>
+        <li>
+          提升公有建築物工程品質 訓練班
+          <span class="gloss">Construction Quality Improvement Program for Public Buildings</span>
+        </li>
+        <li>
+          國家教育研究院籌備處 — 國民小學主任儲訓班 結業
+          <span class="gloss">Elementary School Director Reserve-Training Program (National Academy for Educational Research)</span>
+        </li>
+        <li>
+          志工特殊教育訓練 · 地層下陷防治
+          <span class="gloss">Special-Education Volunteer Training · Land Subsidence Prevention</span>
+        </li>
+        <li>
+          彰化縣政府 — 教師專業發展評鑑計畫「評鑑人員初階研習」
+          <span class="gloss">Teacher Professional Development Evaluator — Foundation-Level (Changhua County)</span>
+        </li>
+        <li>
+          彰化縣政府 — 教師專業發展評鑑計畫「評鑑人員進階研習」
+          <span class="gloss">Teacher Professional Development Evaluator — Advanced-Level (Changhua County)</span>
+        </li>
+        <li>
+          國家教育研究院 第 147 期 國民小學校長儲訓班 結業
+          <span class="gloss">Elementary School Principal Reserve-Training Program, 147th Cohort (National Academy for Educational Research)</span>
+        </li>
+        <li>
+          中華民國童軍總會 第 87 期 輔導人員木章訓練 結業
+          <span class="gloss">Wood Badge for Guidance Personnel, 87th Cohort (Scouts of China)</span>
+        </li>
+        <li>
+          環境教育人員認證 通過
+          <span class="gloss">Certified Environmental Educator</span>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
 <!-- FEATURED QUOTE -->
 <section class="po-body">
   <div class="wrap-narrow">
@@ -550,9 +756,15 @@ section.po-body + section.po-body{padding-top:0;}
       <div class="po-quote__source">&mdash; Principal Lin Jun-cheng &middot; 林畯城校長</div>
     </figure>
 
-    <div class="po-tbd">
-      <strong>Editor's note:</strong> Principal Lin's full education and career timeline, and a fuller account of his vision for Zhongzheng's next chapter, will be added once supplied by the school office.
-      <span class="zh">編輯註：林校長的完整學經歷與辦學理念詳述，將於校方提供後補上。</span>
+    <div class="po-vision">
+      <div class="po-vision__label">Educational Philosophy &middot; 辦學理念</div>
+      <div class="po-vision__title">Principal Lin's full statement of educational philosophy will appear here.
+        <span class="zh">林校長完整的辦學理念，將於校方提供後完整呈現於此。</span>
+      </div>
+      <p class="po-vision__body">
+        Coming soon &mdash; in Principal Lin's own words.
+        <span class="zh">敬請期待——由林校長親自撰述。</span>
+      </p>
     </div>
   </div>
 </section>
