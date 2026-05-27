@@ -117,6 +117,45 @@
   @media (min-width:720px){ .intro p .zh-inline{ font-size:22px; } }
   .intro p strong{color:var(--green-deep);font-weight:700;}
 
+  /* === Three Bilingual Highlights === */
+  .highlights{display:flex;flex-direction:column;gap:28px;}
+  .hl{
+    background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:1fr;
+  }
+  @media (min-width:760px){
+    .hl{grid-template-columns:1.05fr 1fr;align-items:stretch;}
+    .hl:nth-child(even){grid-template-columns:1fr 1.05fr;}
+    .hl:nth-child(even) .hl__img{order:2;}
+    .hl:nth-child(even) .hl__body{order:1;}
+  }
+  .hl__img{margin:0;background:#000;position:relative;min-height:240px;}
+  @media (min-width:760px){ .hl__img{ min-height:340px; } }
+  .hl__img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;}
+  .hl__body{padding:30px 28px 32px;}
+  @media (min-width:720px){ .hl__body{ padding:40px 40px 44px; } }
+  .hl__tag{
+    display:inline-block;font-family:'Playfair Display',serif;
+    font-size:14px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;
+    background:var(--yellow-soft);padding:5px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .hl__tag{ font-size:15px; } }
+  .hl__title{
+    font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
+    color:var(--green-deep);line-height:1.2;margin-top:14px;
+  }
+  @media (min-width:720px){ .hl__title{ font-size:34px; } }
+  .hl__title-zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.4;}
+  @media (min-width:720px){ .hl__title-zh{ font-size:22px; } }
+  .hl__en{font-size:20px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .hl__en{ font-size:22px; } }
+  .hl__en strong{color:var(--green-deep);font-weight:700;}
+  .hl__zh{font-size:18px;color:var(--ink-soft);margin-top:8px;line-height:1.7;}
+  @media (min-width:720px){ .hl__zh{ font-size:20px; } }
+  .hl__zh strong{color:var(--green-deep);font-weight:700;}
+
   /* === Players === */
   .player{margin-top:28px;}
   .player__ratio{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;box-shadow:var(--shadow);}
@@ -200,16 +239,67 @@
     <div class="intro__zh">在西港，英文不是一個科目，而是校園生活的一種習慣。</div>
     <div class="intro__rule"></div>
     <p>
-      Being a small coastal school doesn't mean a small world. This page collects two ways Sigang brings English into the rhythm of everyday school life — both made possible by the shared video libraries produced by <strong>My Culture Connect 人師教育協會</strong>.
-      <span class="zh-inline">沿海小校不等於小世界。本頁彙整西港把英文「織進日常」的兩種方式——兩條由<strong>人師教育協會</strong>製作、跨校共用的影音資源庫。</span>
+      Being a small coastal school doesn't mean a small world. This page collects Sigang's three bilingual highlights — and the two shared video libraries that bring English into every classroom day, produced by <strong>My Culture Connect 人師教育協會</strong>.
+      <span class="zh-inline">沿海小校不等於小世界。本頁彙整西港三個英語亮點，以及兩條由<strong>人師教育協會</strong>製作、跨校共用的影音資源庫——讓英語織進西港的日常。</span>
     </p>
+  </div>
+</section>
+
+<!-- ===== I. Three Bilingual Highlights (school-supplied bilingual copy) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Three Bilingual Highlights</h2>
+    <div class="sec__title-zh">西港的三個英語亮點 · 校方撰文</div>
+    <div class="sec__rule"></div>
+
+    <div class="highlights">
+      <article class="hl">
+        <figure class="hl__img">
+          <img src="../photos/featured-vr.jpg" alt="Teacher guiding student VR headset dialogue practice · 教師引導學生使用 VR 虛擬互動頭盔進行對話" loading="lazy">
+        </figure>
+        <div class="hl__body">
+          <div class="hl__tag">🥽 International English Village</div>
+          <h3 class="hl__title">VR Conversation Practice</h3>
+          <div class="hl__title-zh">國際英語村 · VR 虛擬互動頭盔對話</div>
+          <p class="hl__en">Sigang Elementary School has an <strong>International English Village</strong> where teachers guide students to conduct conversations using <strong>VR virtual interactive helmets</strong>.</p>
+          <p class="hl__zh">本校設有<strong>國際英語村</strong>，教師引導學生使用 <strong>VR 虛擬互動頭盔</strong>進行對話。</p>
+        </div>
+      </article>
+
+      <article class="hl">
+        <figure class="hl__img">
+          <img src="../photos/featured-eta.jpg" alt="ETA foreign teacher using campus touch-screen for English lesson · ETA 巡迴外師到校英語教學" loading="lazy">
+        </figure>
+        <div class="hl__body">
+          <div class="hl__tag">🌐 ETA On the Go</div>
+          <h3 class="hl__title">ETA On the Go Project</h3>
+          <div class="hl__title-zh">美籍英語協同教學助理深耕巡迴服務計畫</div>
+          <p class="hl__en"><strong>ETA On the Go Project</strong> — the foreign teacher leads students to learn about their families and festivals.</p>
+          <p class="hl__zh"><strong>美籍英語協同教學助理深耕巡迴服務計畫</strong>，外籍教師帶領學生認識家人與有關家人之節日。</p>
+        </div>
+      </article>
+
+      <article class="hl">
+        <figure class="hl__img">
+          <img src="../photos/featured-bookmobile.jpg" alt="CommonWealth Hope Reading Book Truck visit · 天下雜誌教育基金會希望閱讀書車到校巡迴服務" loading="lazy">
+        </figure>
+        <div class="hl__body">
+          <div class="hl__tag">📚 Hope Reading</div>
+          <h3 class="hl__title">CommonWealth Hope Reading Book Truck</h3>
+          <div class="hl__title-zh">天下雜誌教育基金會 · 希望閱讀書車巡迴服務</div>
+          <p class="hl__en">The <strong>CommonWealth Magazine Education Foundation's Hope Reading Book Truck</strong> visits Sigang Elementary School, providing students with a rich reading experience.</p>
+          <p class="hl__zh"><strong>天下雜誌教育基金會之希望閱讀書車</strong>到校巡迴服務，提供學生豐富的閱讀體驗。</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ===== II. Classroom English ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">I.</div>
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">Classroom English</h2>
     <div class="sec__title-zh">課室英語 · 給老師的口袋句庫</div>
     <div class="sec__rule"></div>
@@ -274,7 +364,7 @@
 <!-- ===== III. Bilingual Announcements ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Bilingual Announcements</h2>
     <div class="sec__title-zh">雙語廣播 · 校園的英語之聲</div>
     <div class="sec__rule"></div>
@@ -333,7 +423,7 @@
 <!-- ===== IV. Sigang on Camera ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Sigang on Camera</h2>
     <div class="sec__title-zh">西港國小自製影片 · Word of the Day</div>
     <div class="sec__rule"></div>
