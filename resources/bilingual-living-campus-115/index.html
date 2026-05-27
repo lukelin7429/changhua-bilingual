@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bilingual Living Campus 115 · Changhua Bilingual Hub</title>
+  <meta name="description" content="The essence of MOE's 115 academic year Bilingual Living Campus Plan — what it funds, what it asks of schools, and why it matters in Changhua.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Bilingual Living Campus 115 · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <link rel="stylesheet" href="/assets/css/resources.css">
+  <style>
+    .bllc-hero-eyebrow { color: var(--hub-primary); letter-spacing: .22em; text-transform: uppercase; font-weight: 600; font-size: .82rem; }
+    .bllc-hero-h1 { font-family: var(--hub-serif); font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; color: var(--hub-ink); letter-spacing: -.01em; margin: 18px 0 22px; }
+    .bllc-hero-h1 em { color: var(--hub-primary); font-style: italic; }
+    .bllc-hero-lede { font-size: 1.15rem; color: var(--hub-ink-soft); max-width: 62ch; line-height: 1.6; }
+    .bllc-hero-zh { font-family: var(--hub-zh-font); font-size: 1.02rem; color: var(--hub-ink-soft); max-width: 62ch; line-height: 1.75; margin-top: 16px; }
+
+    .bllc-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin: 40px 0 8px; }
+    .bllc-stat { background: #f7faf9; border: 1px solid var(--hub-line); border-radius: 14px; padding: 22px 20px; }
+    .bllc-stat-num { font-family: var(--hub-serif); font-weight: 700; font-size: 2.2rem; color: var(--hub-primary-deep); margin: 0; line-height: 1; }
+    .bllc-stat-num .unit { font-size: .9rem; color: var(--hub-ink-faint); font-weight: 500; margin-left: 6px; }
+    .bllc-stat-en { margin: 8px 0 2px; font-weight: 600; color: var(--hub-ink); font-size: .98rem; }
+    .bllc-stat-zh { margin: 0; font-family: var(--hub-zh-font); color: var(--hub-ink-soft); font-size: .9rem; }
+
+    .bllc-quote { border-left: 3px solid var(--hub-primary); padding: 6px 0 6px 22px; margin: 40px 0; }
+    .bllc-quote-text { font-family: var(--hub-serif); font-style: italic; font-size: 1.25rem; color: var(--hub-ink); line-height: 1.45; margin: 0; }
+    .bllc-quote-zh { font-family: var(--hub-zh-font); color: var(--hub-ink-soft); margin: 12px 0 0; font-size: .98rem; line-height: 1.7; }
+    .bllc-quote-cite { display: block; margin-top: 14px; color: var(--hub-ink-faint); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .bllc-h2 { font-family: var(--hub-serif); font-weight: 700; font-size: clamp(1.45rem, 2.3vw, 1.9rem); line-height: 1.2; color: var(--hub-ink); letter-spacing: -.01em; margin: 0 0 18px; }
+    .bllc-h2 .zh { font-family: var(--hub-zh-font); font-size: .6em; color: var(--hub-ink-faint); font-weight: 500; margin-left: 8px; }
+
+    .bllc-callout { background: #f0f6f5; border-radius: 14px; padding: 24px 26px; margin: 28px 0; }
+    .bllc-callout p { margin: 0 0 10px; }
+    .bllc-callout p:last-child { margin-bottom: 0; }
+
+    .bllc-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; margin: 28px 0; }
+    .bllc-card { border: 1px solid var(--hub-line); border-radius: 14px; padding: 26px 24px; background: #fff; }
+    .bllc-card-tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--hub-primary); margin-bottom: 10px; }
+    .bllc-card h3 { font-family: var(--hub-serif); font-weight: 700; font-size: 1.35rem; color: var(--hub-ink); margin: 0 0 6px; }
+    .bllc-card h3 .zh { font-family: var(--hub-zh-font); font-size: .72em; color: var(--hub-ink-faint); font-weight: 500; margin-left: 6px; }
+    .bllc-card-lede { color: var(--hub-ink-soft); margin: 0 0 14px; font-size: 1rem; }
+    .bllc-card ul { padding-left: 20px; margin: 0; color: var(--hub-ink-soft); line-height: 1.65; }
+    .bllc-card li { margin-bottom: 6px; }
+    .bllc-card li strong { color: var(--hub-ink); }
+    .bllc-card-foot { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--hub-line); font-family: var(--hub-zh-font); color: var(--hub-ink-soft); font-size: .92rem; line-height: 1.7; }
+
+    .bllc-table-wrap { overflow-x: auto; margin: 24px 0; }
+    .bllc-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+    .bllc-table thead th { background: var(--hub-primary); color: #fff; text-align: left; padding: 12px 14px; font-weight: 600; }
+    .bllc-table tbody td { padding: 12px 14px; border-bottom: 1px solid var(--hub-line); vertical-align: top; }
+    .bllc-table tbody tr:nth-child(even) td { background: #f8fbfa; }
+    .bllc-table .num { font-family: var(--hub-serif); font-weight: 700; color: var(--hub-primary-deep); white-space: nowrap; }
+    .bllc-table-zh { font-family: var(--hub-zh-font); font-size: .85rem; color: var(--hub-ink-faint); font-weight: 400; display: block; margin-top: 2px; }
+
+    .bllc-rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 24px 0; }
+    .bllc-rule { background: #fffaf3; border-left: 3px solid #c77b2a; border-radius: 0 12px 12px 0; padding: 18px 20px; }
+    .bllc-rule h4 { margin: 0 0 8px; font-family: var(--hub-serif); font-weight: 700; font-size: 1.05rem; color: var(--hub-ink); }
+    .bllc-rule p { margin: 0; color: var(--hub-ink-soft); font-size: .95rem; line-height: 1.6; }
+    .bllc-rule .zh { font-family: var(--hub-zh-font); color: var(--hub-ink-soft); font-size: .88rem; display: block; margin-top: 6px; }
+
+    .bllc-mcc-note { background: linear-gradient(180deg, #fff 0%, #f7faf9 100%); border: 1px solid var(--hub-line); border-radius: 16px; padding: 28px 30px; margin: 32px 0; }
+    .bllc-mcc-note h3 { font-family: var(--hub-serif); font-size: 1.3rem; margin: 0 0 14px; color: var(--hub-primary-deep); }
+    .bllc-mcc-note ul { padding-left: 22px; line-height: 1.7; color: var(--hub-ink-soft); margin: 0; }
+    .bllc-mcc-note ul li { margin-bottom: 8px; }
+    .bllc-mcc-note a { color: var(--hub-primary-deep); font-weight: 600; }
+
+    .bllc-source { font-size: .9rem; color: var(--hub-ink-faint); font-family: var(--hub-zh-font); line-height: 1.7; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--hub-line); }
+    .bllc-source strong { color: var(--hub-ink-soft); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/" aria-current="page">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="hub-section hub-section--narrow">
+  <p class="bllc-hero-eyebrow">Policy Context · Academic Year 115</p>
+  <h1 class="bllc-hero-h1">One unified plan to make English part of <em>everyday campus life</em>.</h1>
+  <p class="bllc-hero-lede">
+    Starting AY 114, Taiwan's Ministry of Education (MOE) consolidated multiple bilingual sub-programs
+    into a single plan: the <strong>Bilingual Living Campus Plan</strong>. It funds schools to embed
+    English into the daily rhythm of school life — not just in English class.
+  </p>
+  <p class="bllc-hero-zh">
+    自 114 學年度起，教育部國民及學前教育署將多項雙語子計畫統整為一個——「<strong>公立國民中小學雙語生活化校園計畫</strong>」。
+    它補助學校把英語融入校園日常的節奏，不只在英語課裡發生。本頁是這個計畫的精華摘要，給彰化的校長、雙語承辦、外師與家長參考。
+  </p>
+
+  <div class="bllc-stats">
+    <div class="bllc-stat">
+      <p class="bllc-stat-num">2030</p>
+      <p class="bllc-stat-en">National policy horizon</p>
+      <p class="bllc-stat-zh">連結 2030 雙語政策</p>
+    </div>
+    <div class="bllc-stat">
+      <p class="bllc-stat-num">2<span class="unit">phases</span></p>
+      <p class="bllc-stat-en">AY 114–116 · AY 117–119</p>
+      <p class="bllc-stat-zh">分兩階段推動</p>
+    </div>
+    <div class="bllc-stat">
+      <p class="bllc-stat-num">2<span class="unit">models</span></p>
+      <p class="bllc-stat-en">Living Campus · + Partial Domain</p>
+      <p class="bllc-stat-zh">生活化 · +部分領域</p>
+    </div>
+    <div class="bllc-stat">
+      <p class="bllc-stat-num">120<span class="unit">NTD 萬</span></p>
+      <p class="bllc-stat-en">Maximum annual award</p>
+      <p class="bllc-stat-zh">模式二最高補助額度</p>
+    </div>
+  </div>
+
+  <div class="bllc-quote">
+    <p class="bllc-quote-text">"Language learning works best when it connects to daily life — with the right frequency, at a fixed time, sustained over time."</p>
+    <p class="bllc-quote-zh">語言學習如能與生活連結、有適當頻率、固定的時間、持續的學習，較能見到成效。這句話寫進計畫緣起，也是整份計畫的核心邏輯：英語不是靠英語課孤軍奮戰，要靠整個校園的節奏。</p>
+    <span class="bllc-quote-cite">MOE K-12 Education Administration · 國教署</span>
+  </div>
+</section>
+
+<!-- ===== Why now ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">Why this plan, why now <span class="zh">為什麼是現在</span></h2>
+  <p>For a decade MOE has funded bilingual education through many parallel programs — Cool English, Submersion Schools, Test-Yourself platforms, off-campus summer camps, sister-school exchanges, expressive-arts contests. Schools applied to each separately. <strong>That paperwork load is now being trimmed.</strong></p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">過去十年教育部在雙語教育上有「沉浸式特色學校」「酷英平臺」「I Want to Test My English」「英語營」「姊妹校」「展能樂學」等多條補助線。學校往往要分別申請、分別結報。<strong>這份計畫正是為了行政減量。</strong></p>
+
+  <div class="bllc-callout">
+    <p><strong>Key change for AY 114 onward:</strong> The popular <em>"Speak Out &amp; Shine" English Showcase grant</em> (口說英語展能樂學計畫) is <strong>discontinued</strong> at the county/city level. Schools that ran it should pivot to this unified plan.</p>
+    <p class="hub-zh" style="font-size:.95rem">114 學年起，「國中小師生口說英語展能樂學計畫」不再受理各縣市政府申請。原本承辦該計畫的學校，應轉向本統整計畫申請。</p>
+  </div>
+</section>
+
+<!-- ===== Goals ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">The three goals <span class="zh">三大計畫目標</span></h2>
+  <div class="bllc-grid-2">
+    <div class="bllc-card">
+      <span class="bllc-card-tag">Goal 1</span>
+      <h3>A living-bilingual campus <span class="zh">營造氛圍</span></h3>
+      <p class="bllc-card-lede">Build the environment, the routines, and the opportunities for every student and teacher on campus to hear and speak more English.</p>
+      <p class="bllc-card-foot">營造雙語生活化校園的學習環境，提升全校師生英語聽力，增加開口說英語的機會。</p>
+    </div>
+    <div class="bllc-card">
+      <span class="bllc-card-tag">Goal 2</span>
+      <h3>Self-driven learners <span class="zh">自主學習</span></h3>
+      <p class="bllc-card-lede">Cultivate students who can learn English on their own — extending interest and effect beyond the timetable.</p>
+      <p class="bllc-card-foot">培養學生自主學習英語的能力，延展其英語學習的興趣及效果。</p>
+    </div>
+    <div class="bllc-card">
+      <span class="bllc-card-tag">Goal 3</span>
+      <h3>Stronger teachers <span class="zh">教師專業</span></h3>
+      <p class="bllc-card-lede">Support every teacher on campus — not just English teachers — in raising their own English ability and bilingual-teaching skill.</p>
+      <p class="bllc-card-foot">支持全校教師提升英語能力，精進英語與雙語教學的成效。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Two models ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">Two models to choose from <span class="zh">二種模式擇一</span></h2>
+  <p>A school applies for <strong>one</strong> model, sized to its capacity. Model 1 is the entry; Model 2 layers academic-subject bilingual teaching on top. <strong>The living-campus core runs through both.</strong></p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">學校依據自身條件、校本特色及延續先前已參與計畫之效果，擇一申請。雙語生活化是基本盤，貫穿兩個模式。</p>
+
+  <div class="bllc-grid-2">
+
+    <div class="bllc-card">
+      <span class="bllc-card-tag">Model 1</span>
+      <h3>Bilingual Living Campus <span class="zh">雙語生活化</span></h3>
+      <p class="bllc-card-lede">Embed English into school life through five action areas — no academic-subject teaching required.</p>
+      <ul>
+        <li><strong>Daily English moments:</strong> morning reading, songs, movement; "fixed time, on time" routine.</li>
+        <li><strong>Bilingual campus broadcasts:</strong> student announcers at break, lunch, or events.</li>
+        <li><strong>Foreign Teacher conversation corners</strong> for schools with an FET.</li>
+        <li><strong>Cool English platform</strong> for self-paced learning; teachers can also use its AI tools to reduce admin load.</li>
+        <li><strong>Whole-school showcases:</strong> reading, singing, drama, English campus tours.</li>
+        <li><strong>Off-campus tie-ins:</strong> partner with nearby attractions or shops for real-context English; online exchanges with schools abroad.</li>
+        <li><strong>Teacher upskilling:</strong> in-house or cross-school workshops, professional learning communities, English-test fees subsidised.</li>
+      </ul>
+      <p class="bllc-card-foot">關鍵詞：晨讀／律動、雙語廣播、對話角、酷英平臺、多元展演、社區共學、教師增能。</p>
+    </div>
+
+    <div class="bllc-card">
+      <span class="bllc-card-tag">Model 2</span>
+      <h3>Living + Partial-Domain Bilingual Teaching <span class="zh">生活化 + 部領</span></h3>
+      <p class="bllc-card-lede">Everything in Model 1, <strong>plus</strong> bilingual teaching in one or more non-language subjects, school-wide for that subject.</p>
+      <ul>
+        <li><strong>Eligible subjects:</strong> Arts, Health &amp; PE, Integrative Activities, or Technology — the four "hands-on" domains.</li>
+        <li><strong>New schools</strong> may pilot via Grade 3+ elective (校訂) courses; <strong>continuing schools</strong> stay in the original subject and expand gradually.</li>
+        <li><strong>Teachers:</strong> in-house Taiwanese teachers; CEFR <strong>B1 or higher</strong> preferred. At least one teacher must enrol in the MOE bilingual-teaching credit program (108 hrs + 6 hr follow-up).</li>
+        <li><strong>"Teacher can teach it, student can understand it"</strong> is the operating principle — no English-usage ratio mandated, no English assessment, students never forced to answer in English.</li>
+        <li><strong>Whole-grade implementation</strong> required — cannot cherry-pick classes.</li>
+        <li><strong>Cannot also apply</strong> to a county/city-run bilingual teaching grant in the same year.</li>
+      </ul>
+      <p class="bllc-card-foot">關鍵詞：藝術／健體／綜合／科技四領域、全年級實施、教師自願 B1 以上、學分班、不評量學生英語、不可同時申請縣市自辦計畫。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Funding ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">What it pays for <span class="zh">補助額度</span></h2>
+  <p>Award size scales with school size and model. Capital expenditure (equipment) is capped at <strong>20%</strong> of Model 1 budget and <strong>10%</strong> of Model 2 teaching-support budget.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">補助額度依學校班級規模分級，模式一資本門上限 20%、模式二上限 10%。下表為核心級距，完整附件見計畫原文。</p>
+
+  <h3 style="font-family:var(--hub-serif);font-weight:700;font-size:1.25rem;margin:32px 0 12px;color:var(--hub-ink)">Model 1 · Bilingual Living Campus</h3>
+  <div class="bllc-table-wrap">
+    <table class="bllc-table">
+      <thead>
+        <tr>
+          <th>School size <span class="bllc-table-zh">班級規模</span></th>
+          <th>Max award <span class="bllc-table-zh">最高核定額度</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>12 classes or fewer <span class="bllc-table-zh">12 班以下</span></td><td class="num">NT$ 150,000 <span class="bllc-table-zh">新臺幣 15 萬元</span></td></tr>
+        <tr><td>13–35 classes <span class="bllc-table-zh">13–35 班</span></td><td class="num">NT$ 250,000 <span class="bllc-table-zh">25 萬元</span></td></tr>
+        <tr><td>36 classes or more <span class="bllc-table-zh">36 班以上</span></td><td class="num">NT$ 350,000 <span class="bllc-table-zh">35 萬元</span></td></tr>
+        <tr><td>+ Branch campus or split-class site <span class="bllc-table-zh">含分校或分班者</span></td><td class="num">+ NT$ 50,000 <span class="bllc-table-zh">額外 5 萬元</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:var(--hub-serif);font-weight:700;font-size:1.25rem;margin:32px 0 12px;color:var(--hub-ink)">Model 2 · Adds Partial-Domain Bilingual Teaching</h3>
+  <p style="font-size:.95rem;color:var(--hub-ink-soft)">On top of the Model 1 living-campus award (up to NT$ 150,000), Model 2 schools receive teacher-support + student-foundation funding sized by class count and how many subjects they teach bilingually.</p>
+
+  <div class="bllc-table-wrap">
+    <table class="bllc-table">
+      <thead>
+        <tr>
+          <th>Scope <span class="bllc-table-zh">實施範圍</span></th>
+          <th>School size <span class="bllc-table-zh">班級</span></th>
+          <th>Total <span class="bllc-table-zh">總額</span></th>
+          <th>Teacher / Student split <span class="bllc-table-zh">教師 / 學生</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>2+ subjects</strong> <span class="bllc-table-zh">實施 2 領域以上</span></td><td>10+ classes <span class="bllc-table-zh">10 班以上</span></td><td class="num">120 萬</td><td>70 萬 / 50 萬</td></tr>
+        <tr><td>5–9 classes</td><td class="num">100 萬</td><td>60 萬 / 40 萬</td></tr>
+        <tr><td>≤ 4 classes</td><td class="num">80 萬</td><td>50 萬 / 30 萬</td></tr>
+        <tr><td rowspan="4"><strong>1 subject</strong> <span class="bllc-table-zh">實施 1 領域</span></td><td>16+ classes</td><td class="num">120 萬</td><td>70 萬 / 50 萬</td></tr>
+        <tr><td>12–15 classes</td><td class="num">100 萬</td><td>60 萬 / 40 萬</td></tr>
+        <tr><td>8–11 classes</td><td class="num">80 萬</td><td>50 萬 / 30 萬</td></tr>
+        <tr><td>≤ 7 classes</td><td class="num">60 萬</td><td>40 萬 / 20 萬</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bllc-callout">
+    <p><strong>Bonus for openness:</strong> Schools willing to open their bilingual lessons for other-school teachers to observe (at least once per semester, hosting 40+ visitors total) receive an extra <strong>NT$ 60,000</strong>. MOE selects up to 30 schools nationwide.</p>
+    <p class="hub-zh" style="font-size:.95rem">自願開放課室供他校教師入校觀課之學校，每學期至少 1 次、每學期接待至少 40 人，國教署擇優補助 30 校，每校加給經常門 6 萬元。</p>
+  </div>
+</section>
+
+<!-- ===== Rules to know ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">Six rules worth knowing <span class="zh">六條關鍵規則</span></h2>
+
+  <div class="bllc-rules">
+    <div class="bllc-rule">
+      <h4>1. Whole-grade, not cherry-picked</h4>
+      <p>Bilingual subject teaching (Model 2) must cover the entire grade level — fairness requires it.</p>
+      <span class="zh">部領之領域/科目應採全年級實施，不得僅以部分班級實施。</span>
+    </div>
+    <div class="bllc-rule">
+      <h4>2. No English assessment of students</h4>
+      <p>Teachers may not give English-language tests in bilingual subject classes; students are never required to reply in English.</p>
+      <span class="zh">教師不得進行英語能力評量，亦不得強制要求學生以英語回答。</span>
+    </div>
+    <div class="bllc-rule">
+      <h4>3. No mixing English and Chinese mid-sentence</h4>
+      <p>Use either language cleanly. Sentence-internal code-switching builds bad models for students.</p>
+      <span class="zh">避免同一句子同時夾雜國語文及英語文，以建立學生正確的英語溝通句型。</span>
+    </div>
+    <div class="bllc-rule">
+      <h4>4. One model only</h4>
+      <p>Schools applying for Model 2 cannot also receive a county/city-funded bilingual teaching grant — double-dipping triggers reclamation.</p>
+      <span class="zh">學校申請模式二時，不得同時申請直轄市、縣（市）政府自辦雙語教學計畫，違者撤銷補助並追繳款項。</span>
+    </div>
+    <div class="bllc-rule">
+      <h4>5. Submit a lesson plan</h4>
+      <p>Each school submits one detailed unit lesson plan per subject per year, released under <strong>Creative Commons BY-NC-SA 3.0 TW</strong> for other schools to use.</p>
+      <span class="zh">每學年每實施領域擇優以 1 單元教案詳案繳交國教署，並簽署創用 CC 授權同意書。</span>
+    </div>
+    <div class="bllc-rule">
+      <h4>6. Capped teacher release</h4>
+      <p>Teachers carrying this work may receive at most <strong>4 lesson-period reductions per week</strong>; Model 2 schools may name one lead coordinator at up to 6 periods per week.</p>
+      <span class="zh">每人每週減課不超過 4 節；模式二得有 1 位主要負責推動者每週減課不超過 6 節，並以 1 人為限。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== What this looks like in Changhua ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">What this looks like in Changhua <span class="zh">在彰化的具體樣貌</span></h2>
+  <p>Read against this Hub's existing resources, the plan maps cleanly to what Changhua schools already do — and what we can help with.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">把計畫條文對照本 Hub 已收集的資源，會發現許多項目其實已有現成素材。</p>
+
+  <div class="bllc-mcc-note">
+    <h3>Ready-made resources for the plan's five action areas</h3>
+    <ul>
+      <li><strong>Daily English moments &amp; morning assembly</strong> — see the <a href="/resources/bilingual-campus/morning-assembly/">Morning Assembly</a> unit and our <a href="/word-of-the-day/">Word of the Day</a> library (3,000+ classroom videos).</li>
+      <li><strong>Bilingual broadcasts</strong> — Sarah Thomas &amp; Susan Rose's 13-episode <a href="/resources/bilingual-campus/announcements/">Bilingual Announcements</a> series covers the four administrative offices.</li>
+      <li><strong>Conversation corners with FETs</strong> — find a foreign teacher near your school via the <a href="/fets/">FETs directory</a>.</li>
+      <li><strong>Festival and cultural English</strong> — drop-in lessons for sixteen festivals at the <a href="/festivals/">Festival English Hub</a>; embeddable as iframes.</li>
+      <li><strong>School tours &amp; self-introduction</strong> — see the <a href="/resources/bilingual-campus/school-tours/">School Tours</a> and <a href="/resources/bilingual-campus/english-self-intro/">English Self-Introduction</a> units.</li>
+      <li><strong>Teacher Classroom English</strong> — the <a href="/resources/classroom-english/">Classroom English</a> series (10 situations) for any non-English teacher to start using English in class today.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Applying ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:24px">
+  <h2 class="bllc-h2">How to apply <span class="zh">申請與核結流程</span></h2>
+  <ol style="line-height:1.85;color:var(--hub-ink-soft);padding-left:22px">
+    <li><strong>School fills the application form</strong> and submits to the local government (Changhua County Government for our schools).</li>
+    <li>The county <strong>reviews, consolidates, and ranks</strong> applications; passes them to MOE K-12 Education Administration (國教署) by the deadline.</li>
+    <li>Schools with both junior-high and elementary divisions may <strong>apply separately</strong> for each division.</li>
+    <li>After the year ends, the school submits a results report and budget reconciliation; the county forwards it to MOE within two months.</li>
+    <li>MOE also maintains a <strong>Bilingual Living Campus expert advisory pool</strong> — schools may request expert visits or online consultations.</li>
+  </ol>
+  <p class="hub-zh" style="color:var(--hub-ink-soft)">流程：學校填寫申請表 → 縣府初審彙整 → 國教署核定 → 執行 → 成果報告與經費核結。國教署另建置雙語生活化專家人才庫，學校可選擇專家到校或線上諮詢。</p>
+</section>
+
+<!-- ===== Source ===== -->
+<section class="hub-section hub-section--narrow" style="padding-top:8px;padding-bottom:48px">
+  <p class="bllc-source">
+    <strong>Source · 資料來源：</strong>教育部國民及學前教育署「公立國民中小學雙語生活化校園計畫」115 學年度公告版（含附件 1 部分領域課程雙語教學實施說明、附件 2 補助項目及核定額度一覽表、附件 3 經費編列原則）。本頁為精華摘要，不取代原始計畫條文；申請與核結請以國教署公告版本為準。<br>
+    <strong>Compiled by:</strong> <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>，for Changhua schools using the Changhua Bilingual Hub.
+  </p>
+</section>
+
+</main>
+
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+</body>
+</html>
