@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Soccer Program · 西港足球課 · Sigang Elementary</title>
+<meta name="description" content="Sigang Elementary's signature soccer programme — six bilingual lessons from first kickabout to match day. Designed for elementary readers with clear visuals, large type, and built-in quizzes.">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/sigang/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/sigang/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/sigang/favicon-180.png">
+<link rel="shortcut icon" href="/schools/sigang/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#0f4824;--green:#1d6f3a;--green-bright:#2fa055;--green-soft:#e2f3e6;
+    --pitch:#3aa55c;--pitch-line:rgba(255,255,255,.85);
+    --yellow:#ffd31a;--yellow-soft:#fff5b8;--yellow-deep:#b88800;
+    --red:#e63b2c;--red-soft:#fde2dd;--red-deep:#b32619;
+    --sky:#5ac0e6;--sky-soft:#e0f3fb;
+    --ink:#16241c;--ink-soft:#5a6963;--line:#dee5d6;
+    --cream-warm:#fffcef;
+    --shadow:0 18px 44px -16px rgba(15,72,36,.32);
+    --shadow-sm:0 8px 20px -8px rgba(15,72,36,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:25px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* === Back strip to school home === */
+  .back-strip{background:var(--yellow-soft);border-bottom:3px solid var(--yellow);padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:600;flex-wrap:wrap;}
+  @media (min-width:720px){ .back-strip{ font-size:21px;padding:18px 24px;gap:18px; } }
+  .back-strip a{color:var(--green-deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:2px solid var(--yellow-deep);transition:all .15s;}
+  .back-strip a:hover{background:var(--green-deep);color:#fff;border-color:var(--green-deep);transform:translateX(-2px);}
+  .back-strip .arrow{font-size:1.2em;}
+
+  /* === Hero === */
+  .banner{
+    position:relative;color:#fff;overflow:hidden;
+    background:
+      linear-gradient(135deg, rgba(15,72,36,.55) 0%, rgba(29,111,58,.85) 100%),
+      repeating-linear-gradient(90deg, var(--pitch) 0 80px, #348e4d 80px 160px);
+    padding:64px 24px 56px;text-align:center;border-bottom:6px solid var(--yellow);
+  }
+  @media (min-width:720px){ .banner{ padding:96px 24px 84px; } }
+  .banner::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 50% 100%, rgba(255,255,255,.25) 0 130px, transparent 132px),
+      linear-gradient(180deg, transparent 0%, transparent 88%, rgba(0,0,0,.18) 100%);
+    pointer-events:none;
+  }
+  .banner__inner{position:relative;z-index:1;max-width:880px;margin:0 auto;}
+  .banner__chip{display:inline-block;background:var(--yellow);color:var(--green-deep);font-family:'Playfair Display',serif;font-size:14px;letter-spacing:4px;font-weight:700;padding:8px 18px;border-radius:99px;text-transform:uppercase;}
+  @media (min-width:720px){ .banner__chip{ font-size:16px; } }
+  .banner__icon{font-size:78px;line-height:1;margin:18px 0 8px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.3));}
+  @media (min-width:720px){ .banner__icon{ font-size:108px; } }
+  .banner h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;letter-spacing:.5px;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner h1{ font-size:78px; } }
+  .banner__zh{font-size:22px;color:#fff5b8;margin-top:10px;font-weight:600;letter-spacing:2px;text-shadow:0 2px 12px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner__zh{ font-size:30px; } }
+  .banner__tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#fff;margin-top:18px;line-height:1.55;text-shadow:0 2px 10px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner__tagline{ font-size:23px; } }
+
+  /* === Intro === */
+  .intro{padding:56px 0 24px;text-align:center;}
+  @media (min-width:720px){ .intro{ padding:72px 0 32px; } }
+  .intro__title{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--green-deep);line-height:1.25;}
+  @media (min-width:720px){ .intro__title{ font-size:44px; } }
+  .intro__rule{width:90px;height:6px;background:var(--yellow);border-radius:3px;margin:18px auto 22px;}
+  .intro p{font-size:21px;color:var(--ink);line-height:1.7;max-width:760px;margin:0 auto;}
+  @media (min-width:720px){ .intro p{ font-size:24px; } }
+  .intro__zh{font-size:19px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  @media (min-width:720px){ .intro__zh{ font-size:22px; } }
+
+  /* === How to use === */
+  .how{background:var(--green-soft);padding:38px 28px;border-radius:20px;margin-top:28px;border-left:6px solid var(--green-bright);}
+  @media (min-width:720px){ .how{ padding:48px 44px; } }
+  .how h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--green-deep);font-weight:800;}
+  @media (min-width:720px){ .how h3{ font-size:32px; } }
+  .how__zh{font-size:18px;color:var(--ink-soft);margin-top:4px;}
+  @media (min-width:720px){ .how__zh{ font-size:21px; } }
+  .how__steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px;}
+  @media (min-width:720px){ .how__steps{ grid-template-columns:1fr 1fr 1fr;gap:20px; } }
+  .how__step{background:#fff;border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);}
+  .how__num{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--green-bright);line-height:1;flex-shrink:0;}
+  @media (min-width:720px){ .how__num{ font-size:42px; } }
+  .how__step b{display:block;font-size:19px;color:var(--green-deep);margin-bottom:3px;font-weight:700;}
+  @media (min-width:720px){ .how__step b{ font-size:22px; } }
+  .how__step span{font-size:16px;color:var(--ink-soft);line-height:1.5;display:block;}
+  @media (min-width:720px){ .how__step span{ font-size:18px; } }
+
+  /* === Lesson grid === */
+  .grid-section{padding:48px 0 72px;}
+  @media (min-width:720px){ .grid-section{ padding:64px 0 96px; } }
+  .grid-section__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--green-deep);letter-spacing:.3px;padding:0 0 14px;border-bottom:3px solid var(--yellow);margin-bottom:28px;}
+  @media (min-width:720px){ .grid-section__title{ font-size:40px; padding-bottom:18px; margin-bottom:36px; } }
+  .grid-section__title small{font-size:0.55em;font-weight:500;color:var(--ink-soft);letter-spacing:0;margin-left:14px;display:inline-block;font-family:'Inter','PingFang TC',sans-serif;}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+
+  .lesson{
+    background:#fff;border-radius:22px;border:1px solid var(--line);padding:30px 28px;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px;
+    border-top:10px solid var(--green-bright);transition:transform .2s, box-shadow .2s;
+  }
+  @media (min-width:720px){ .lesson{ padding:36px 34px; } }
+  .lesson:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .lesson:nth-child(1){border-top-color:var(--green-bright);}
+  .lesson:nth-child(2){border-top-color:var(--sky);}
+  .lesson:nth-child(3){border-top-color:var(--yellow);}
+  .lesson:nth-child(4){border-top-color:var(--red);}
+  .lesson:nth-child(5){border-top-color:var(--green-deep);}
+  .lesson:nth-child(6){border-top-color:var(--yellow-deep);}
+
+  .lesson__head{display:flex;align-items:flex-start;gap:18px;}
+  .lesson__icon{
+    font-size:54px;line-height:1;flex-shrink:0;
+    background:var(--green-soft);width:84px;height:84px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  @media (min-width:720px){ .lesson__icon{ font-size:66px;width:100px;height:100px; } }
+  .lesson:nth-child(2) .lesson__icon{background:var(--sky-soft);}
+  .lesson:nth-child(3) .lesson__icon{background:var(--yellow-soft);}
+  .lesson:nth-child(4) .lesson__icon{background:var(--red-soft);}
+  .lesson:nth-child(5) .lesson__icon{background:var(--green-soft);}
+  .lesson:nth-child(6) .lesson__icon{background:var(--yellow-soft);}
+
+  .lesson__main{flex:1;min-width:0;}
+  .lesson__no{font-family:'Playfair Display',serif;font-size:14px;color:var(--red-deep);font-weight:800;letter-spacing:3.5px;text-transform:uppercase;}
+  @media (min-width:720px){ .lesson__no{ font-size:16px; } }
+  .lesson__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--green-deep);line-height:1.2;margin-top:4px;}
+  @media (min-width:720px){ .lesson__title{ font-size:34px; } }
+  .lesson__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .lesson__zh{ font-size:22px; } }
+  .lesson__brief{font-size:18px;color:var(--ink-soft);line-height:1.6;}
+  @media (min-width:720px){ .lesson__brief{ font-size:20px; } }
+  .lesson__brief b{color:var(--green-deep);}
+
+  .lesson__buttons{display:flex;gap:12px;margin-top:auto;flex-wrap:wrap;}
+  .lbtn{
+    flex:1;min-width:150px;padding:18px 20px;border-radius:14px;text-decoration:none;
+    font-size:18px;font-weight:800;letter-spacing:.4px;text-align:center;
+    transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:inherit;
+  }
+  @media (min-width:720px){ .lbtn{ font-size:21px;padding:20px 24px; } }
+  .lbtn--handout{background:var(--green-deep);color:#fff;box-shadow:var(--shadow-sm);}
+  .lbtn--handout:hover{background:var(--green-bright);transform:translateY(-2px);}
+  .lbtn--quiz{background:var(--yellow);color:var(--green-deep);box-shadow:0 8px 22px -8px rgba(255,211,26,.7);border:2px solid var(--yellow-deep);}
+  .lbtn--quiz:hover{background:var(--yellow-deep);color:#fff;border-color:var(--yellow-deep);transform:translateY(-2px);}
+
+  /* === Footer === */
+  footer{text-align:center;padding:36px 24px;font-size:17px;color:var(--ink-soft);line-height:1.7;border-top:1px solid var(--line);background:var(--green-soft);}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:700;color:var(--green-deep);}
+  footer a{color:var(--green-deep);text-decoration:none;border-bottom:1px solid var(--yellow-deep);}
+  footer a:hover{color:var(--green-bright);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<div class="back-strip">
+  <a href="/schools/sigang/"><span class="arrow">←</span><span>Sigang Home · 西港首頁</span></a>
+  <a href="/schools/sigang/lessons/"><span class="arrow">←</span><span>All Lessons · 特色課程</span></a>
+</div>
+
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__chip">Signature Programme · 校長特色課程</div>
+    <div class="banner__icon">⚽</div>
+    <h1>Sigang Soccer</h1>
+    <div class="banner__zh">西港足球課 · From First Kick to Match Day</div>
+    <p class="banner__tagline">"On a small coastal campus, every child gets to wear a jersey, learn the calls in English, and play the world's game."</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2 class="intro__title">A game the whole world plays — let's play it in English too.</h2>
+    <div class="intro__rule"></div>
+    <p>Soccer is the most-played sport on Earth. At Sigang, our principal believes that every child — boy or girl, tall or small — deserves the chance to step onto a real grass field, learn the rules, and shout the calls in English with their teammates. These six lessons walk you from your very first kick to a real match day.</p>
+    <p class="intro__zh">足球是全世界踢的人最多的運動。校長相信每一個西港孩子都應該有機會踏上真正的草地，學會規則，用英文和隊友一起喊出比賽的口令。這六堂課，會帶你從第一腳開始，一路走到比賽日。</p>
+
+    <div class="how">
+      <h3>How to use this site · 怎麼用</h3>
+      <div class="how__zh">每一堂課都有兩個按鈕：左邊是講義，右邊是小考</div>
+      <div class="how__steps">
+        <div class="how__step"><div class="how__num">1</div><div><b>📖 Read the Handout</b><span>Vocabulary, drills, and roleplay scripts — read it first, listen to the words.<br><i>先讀講義，把單字與情境讀過一次</i></span></div></div>
+        <div class="how__step"><div class="how__num">2</div><div><b>⚽ Try the Drills</b><span>Practice with your coach and classmates on the field.<br><i>到場上和教練、同學一起做動作</i></span></div></div>
+        <div class="how__step"><div class="how__num">3</div><div><b>📝 Take the Quiz</b><span>Six questions to check what you remember.<br><i>挑戰六題小考，看你記住多少</i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="grid-section">
+    <h2 class="grid-section__title">Six Lessons <small>六堂足球課 · 由淺入深</small></h2>
+    <div class="grid">
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">⚽</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 01</div>
+            <div class="lesson__title">Welcome to Soccer!</div>
+            <div class="lesson__zh">認識足球 · 第一次上場</div>
+          </div>
+        </div>
+        <div class="lesson__brief">What is soccer? Meet the <b>ball</b>, the <b>field</b>, the <b>goal</b>, and your new <b>team</b>. Learn the very first words you'll hear from your coach.</div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-1/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-1/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">🏃</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 02</div>
+            <div class="lesson__title">Let's Dribble!</div>
+            <div class="lesson__zh">帶球前進 · 用腳控制球</div>
+          </div>
+        </div>
+        <div class="lesson__brief">Small touches, eyes up. Learn how to <b>dribble</b> the ball around <b>cones</b> with both your <b>left</b> and <b>right</b> foot.</div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-2/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-2/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">🤝</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 03</div>
+            <div class="lesson__title">Pass and Receive</div>
+            <div class="lesson__zh">傳球與接球 · 兩個人才好玩</div>
+          </div>
+        </div>
+        <div class="lesson__brief">Soccer is a team sport. Learn to <b>pass</b> with the inside of your foot, and <b>receive</b> the ball with a soft touch.</div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-3/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-3/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">🥅</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 04</div>
+            <div class="lesson__title">Shoot for the Goal!</div>
+            <div class="lesson__zh">射門得分 · 一腳定勝負</div>
+          </div>
+        </div>
+        <div class="lesson__brief">Now the fun part — <b>shoot</b>, <b>score</b>, and meet the brave <b>goalkeeper</b> who tries to <b>save</b> the ball.</div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-4/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-4/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">👥</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 05</div>
+            <div class="lesson__title">Be a Team Player</div>
+            <div class="lesson__zh">團隊合作 · 大家一起贏</div>
+          </div>
+        </div>
+        <div class="lesson__brief">Meet the <b>defender</b>, <b>midfielder</b>, <b>forward</b>, and <b>captain</b>. Learn to call "I'm <b>open</b>!" and to help your friends.</div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-5/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-5/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson__head">
+          <div class="lesson__icon">🏆</div>
+          <div class="lesson__main">
+            <div class="lesson__no">Lesson 06</div>
+            <div class="lesson__title">Match Day!</div>
+            <div class="lesson__zh">比賽日 · 終於要上場了</div>
+          </div>
+        </div>
+        <div class="lesson__brief">The <b>whistle</b> blows. The <b>referee</b> starts the <b>match</b>. Win, lose, or draw — finish with a smile and a handshake. <b>Fair play!</b></div>
+        <div class="lesson__buttons">
+          <a class="lbtn lbtn--handout" href="lesson-6/">📖 Handout · 講義</a>
+          <a class="lbtn lbtn--quiz" href="lesson-6/quiz/">📝 Quiz · 小考</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  ⚽ Sigang Soccer Programme · 西港足球課 · 2026 Curriculum<br>
+  © 西港國小 Sigang Elementary School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span><br>
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
