@@ -102,8 +102,11 @@
   @media(min-width:720px){.campus-card__en{font-size:16px;}}
 
   /* === Aileen Teacher Card === */
-  .teacher-card{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--teal-soft) 100%);border-radius:24px;padding:40px 30px;border:2px solid var(--teal);display:grid;grid-template-columns:1fr;gap:28px;}
-  @media (min-width:720px){ .teacher-card{ padding:48px;grid-template-columns:280px 1fr;gap:40px; } }
+  .teacher-card{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--teal-soft) 100%);border-radius:24px;border:2px solid var(--teal);overflow:hidden;}
+  .teacher-card__tvideo{position:relative;padding-bottom:56.25%;background:#000;}
+  .teacher-card__tvideo iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .teacher-card__tcontent{padding:32px 28px 36px;}
+  @media(min-width:720px){.teacher-card__tcontent{padding:40px 48px 44px;}}
   .teacher-card__avatar{width:120px;height:120px;background:linear-gradient(135deg,var(--teal-deep),var(--navy-deep));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:var(--shadow);margin:0 auto;}
   @media (min-width:720px){ .teacher-card__avatar{ width:160px;height:160px;font-size:68px; } }
   .teacher-card__name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy-deep);margin-top:16px;}
@@ -282,18 +285,15 @@
     <div class="sec__rule"></div>
 
     <div class="teacher-card">
-      <div>
-        <div style="position:relative;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/Ivx-1OPd73Q?rel=0"
-            title="Teacher Aileen Sim — Self Introduction 自我介紹"
-            loading="lazy"
-            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
-            allowfullscreen
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-        </div>
+      <div class="teacher-card__tvideo">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Ivx-1OPd73Q?rel=0"
+          title="Teacher Aileen Sim — Self Introduction 自我介紹"
+          loading="lazy"
+          allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+          allowfullscreen></iframe>
       </div>
-      <div>
+      <div class="teacher-card__tcontent">
         <div class="teacher-card__name">Teacher Aileen Sim</div>
         <div class="teacher-card__title">Foreign English Teacher · 北斗國中外籍英語老師</div>
         <div class="teacher-card__body">
@@ -305,8 +305,8 @@
         <a class="teacher-cta" href="https://sites.google.com/view/aileenmoraldesim/future-hub" target="_blank" rel="noopener">
           Visit Teacher Aileen's EduSpace Hub 🌐
         </a>
-      </div>
-    </div>
+      </div><!-- /.teacher-card__tcontent -->
+    </div><!-- /.teacher-card -->
 
     <div style="margin-top:32px;">
       <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">What's in Teacher Aileen's Hub</div>
