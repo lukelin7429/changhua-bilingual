@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bilingual Campus · 雙語校園 · Beidou Junior High</title>
-<meta name="description" content="Explore Beidou Junior High's bilingual campus through Teacher Aileen's school tour videos and English learning resources. 北斗國中雙語校園：外師校園導覽影片、Aileen 老師英語資源。">
+<meta name="description" content="Explore Beidou Junior High through 5 bilingual campus tour videos — school gate, turtle pond, tree climbing club, Principal's Office, and a full school introduction. 北斗國中雙語校園：5 支英文校園導覽影片、課室英語、雙語廣播。">
 <link rel="icon" type="image/x-icon" href="/schools/beidou-jhs/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/beidou-jhs/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/beidou-jhs/favicon-192.png">
@@ -24,7 +24,7 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.7;-webkit-font-smoothing:antialiased;}
-  @media (min-width:720px){ body{ font-size:23px; } }
+  @media (min-width:720px){ body{ font-size:26px; } }
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
@@ -77,6 +77,29 @@
   .player-link__text strong{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy-deep);}
   .player-link__text span{font-size:15px;color:var(--ink-soft);margin-top:2px;}
   .player-link__arrow{font-size:24px;color:var(--gold-deep);}
+
+  /* === Campus video grid === */
+  .campus-intro{background:linear-gradient(135deg,var(--teal-soft) 0%,var(--navy-soft) 100%);border-radius:24px;padding:32px 28px;margin-bottom:32px;}
+  .campus-intro h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy-deep);line-height:1.25;}
+  @media(min-width:720px){.campus-intro h3{font-size:40px;}}
+  .campus-intro .zh{font-size:17px;color:var(--ink-soft);margin-top:6px;}
+  .campus-intro p{font-size:19px;color:var(--ink);line-height:1.7;margin-top:14px;}
+  @media(min-width:720px){.campus-intro p{font-size:21px;}}
+  .campus-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media(min-width:720px){.campus-grid{grid-template-columns:repeat(2,1fr);gap:32px;}}
+  .campus-card{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-sm);}
+  .campus-card.full{grid-column:1/-1;}
+  .campus-card__video{position:relative;padding-bottom:56.25%;background:#000;}
+  .campus-card__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .campus-card__body{padding:16px 22px 20px;border-top:5px solid var(--teal);}
+  .campus-card:nth-child(2) .campus-card__body{border-top-color:var(--navy);}
+  .campus-card:nth-child(3) .campus-card__body{border-top-color:var(--gold);}
+  .campus-card:nth-child(4) .campus-card__body{border-top-color:var(--green);}
+  .campus-card:nth-child(5) .campus-card__body{border-top-color:var(--teal);}
+  .campus-card__zh{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy-deep);}
+  @media(min-width:720px){.campus-card__zh{font-size:26px;}}
+  .campus-card__en{font-size:14px;color:var(--ink-soft);margin-top:4px;letter-spacing:.3px;}
+  @media(min-width:720px){.campus-card__en{font-size:16px;}}
 
   /* === Aileen Teacher Card === */
   .teacher-card{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--teal-soft) 100%);border-radius:24px;padding:40px 30px;border:2px solid var(--teal);display:grid;grid-template-columns:1fr;gap:28px;}
@@ -150,43 +173,103 @@
   </div>
 </div>
 
-<!-- Section I: School Tour Playlist -->
+<!-- Section I: Campus Tour Videos -->
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
     <h2 class="sec__title">Campus Tour</h2>
-    <div class="sec__title-zh">外籍英語老師校園導覽 · Teacher Aileen 帶你走遍北中</div>
+    <div class="sec__title-zh">英文校園導覽 · 用英文走遍北斗國中每個角落</div>
     <div class="sec__rule"></div>
 
-    <div class="lede-box">
-      <h2>A bilingual walk through Beidou JHS</h2>
-      <div class="zh">用英文，走進北斗國中的每一個角落</div>
-      <p>
-        Join <strong>Teacher Aileen Sim</strong> on a guided tour of Beidou Junior High School — from the solar-panel rooftops and the domed observatory to the smart farm and the historic Zhengzhong Hall. Every location is a vocabulary lesson. Every corner of the campus tells a story in English.
-        <br><br>
-        <span style="color:var(--ink-soft);font-size:19px;">跟著 Aileen 老師，用英文導覽北斗國中的太陽能屋頂、天文台圓頂、智慧農場、北斗中正堂……校園的每個角落都是一堂活生生的英語課。</span>
-      </p>
+    <div class="campus-intro">
+      <h3>See Beidou JHS in English</h3>
+      <div class="zh">5 支校園導覽影片，帶你用英文認識北斗國中的每一個角落</div>
+      <p>From the school gate and the turtle pond to the tree-climbing club and the Principal's Office — explore every corner of Beidou Junior High through these bilingual campus tour videos.</p>
     </div>
 
-    <div class="player">
-      <div class="player__ratio">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8X48Cbnc0zFjWmstZkFI7Fr&rel=0"
-          title="Beidou Junior High School Campus Tour — Teacher Aileen Sim"
-          loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+    <div class="campus-grid">
+
+      <!-- 全校介紹：全寬 -->
+      <div class="campus-card full">
+        <div class="campus-card__video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/Qf9JJgsRpTE?rel=0"
+            title="北中之美與特色 The Beauty and Features of Beidou Junior High"
+            loading="lazy"
+            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="campus-card__body">
+          <div class="campus-card__zh">北中之美與特色</div>
+          <div class="campus-card__en">The Beauty and Features of Beidou Junior High</div>
+        </div>
       </div>
-    </div>
 
-    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8X48Cbnc0zFjWmstZkFI7Fr" target="_blank" rel="noopener">
-      <span class="player-link__icon">▶</span>
-      <span class="player-link__text">
-        <strong>Watch the full Campus Tour playlist on YouTube</strong>
-        <span>在 YouTube 開啟完整校園導覽播放清單 · 跟著 Aileen 老師走遍北中每個角落</span>
-      </span>
-      <span class="player-link__arrow">↗</span>
-    </a>
+      <!-- 攀樹社 -->
+      <div class="campus-card">
+        <div class="campus-card__video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/XaXi5Gu3B2A?rel=0"
+            title="攀樹社英文導覽 Campus Tour: Tree Climbing Club"
+            loading="lazy"
+            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="campus-card__body">
+          <div class="campus-card__zh">攀樹社英文導覽</div>
+          <div class="campus-card__en">Campus Tour: Tree Climbing Club</div>
+        </div>
+      </div>
+
+      <!-- 校長室 -->
+      <div class="campus-card">
+        <div class="campus-card__video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/cD3PIy3y1K4?rel=0"
+            title="校長室英文導覽 Campus Tour: Principal's Office"
+            loading="lazy"
+            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="campus-card__body">
+          <div class="campus-card__zh">校長室英文導覽</div>
+          <div class="campus-card__en">Campus Tour: Principal's Office</div>
+        </div>
+      </div>
+
+      <!-- 校門 -->
+      <div class="campus-card">
+        <div class="campus-card__video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/aUcDpQ9EAFg?rel=0"
+            title="校門英文導覽 Campus Tour: School Gate"
+            loading="lazy"
+            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="campus-card__body">
+          <div class="campus-card__zh">校門英文導覽</div>
+          <div class="campus-card__en">Campus Tour: School Gate</div>
+        </div>
+      </div>
+
+      <!-- 烏龜池 -->
+      <div class="campus-card">
+        <div class="campus-card__video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/xXyfkDkGuyY?rel=0"
+            title="烏龜池英文導覽 Campus Tour: Turtle Pond"
+            loading="lazy"
+            allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="campus-card__body">
+          <div class="campus-card__zh">烏龜池英文導覽</div>
+          <div class="campus-card__en">Campus Tour: Turtle Pond</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
