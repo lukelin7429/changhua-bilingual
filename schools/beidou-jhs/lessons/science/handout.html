@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Learning Handout · Bilingual Science · Beidou Junior High</title>
+<meta name="description" content="Bilingual activity handout for GIGO Robotic Arm and Air Paper Rocket. 北斗國中雙語科學講義：機械手臂與空氣紙火箭活動指引。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#1a3a5c;--navy:#2d5f8a;--navy-soft:#e3edf8;
+    --gold:#c8870a;--gold-deep:#9b6508;--gold-soft:#fef0d4;
+    --green:#3d7a52;--green-deep:#2a5638;--green-soft:#e5f2ea;
+    --teal:#1e6e68;--teal-deep:#155450;--teal-soft:#e0f0ef;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(26,58,92,.30);--shadow-sm:0 6px 16px -6px rgba(26,58,92,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  .subnav{background:var(--teal-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond',serif;font-size:19px;}
+  @media(min-width:720px){.subnav__inner{font-size:21px;}}
+  .subnav a{color:var(--teal-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--gold-deep);}
+  .subnav a.is-active{background:var(--teal-deep);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media(max-width:600px){.subnav__sep{display:none;}}
+
+  .unit-hero{background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 60%,var(--navy) 100%);color:#fff;padding:48px 24px 60px;text-align:center;}
+  @media(min-width:720px){.unit-hero{padding:72px 24px 88px;}}
+  .unit-hero__eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:var(--gold-soft);text-transform:uppercase;font-weight:600;}
+  @media(min-width:720px){.unit-hero__eyebrow{font-size:16px;}}
+  .unit-hero h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.1;letter-spacing:.5px;margin-top:10px;}
+  @media(min-width:720px){.unit-hero h1{font-size:72px;}}
+  .unit-hero__zh{font-size:20px;color:#b2d8d4;margin-top:10px;letter-spacing:1.5px;}
+  @media(min-width:720px){.unit-hero__zh{font-size:26px;}}
+  .unit-hero__meta{display:inline-flex;gap:24px;margin-top:24px;padding:12px 24px;background:rgba(255,255,255,.1);border-radius:99px;font-size:15px;color:#fff;font-weight:600;letter-spacing:1px;}
+  @media(min-width:720px){.unit-hero__meta{font-size:17px;gap:32px;}}
+
+  /* Handout card */
+  .handout{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:40px;}
+  .handout__hero{padding:24px 28px;display:flex;align-items:center;gap:16px;}
+  .hh-navy{background:linear-gradient(90deg,var(--navy-deep),var(--navy));}
+  .hh-teal{background:linear-gradient(90deg,var(--teal-deep),var(--teal));}
+  .handout__icon{font-size:2.2rem;}
+  .handout__hero h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:#fff;line-height:1.2;}
+  @media(min-width:720px){.handout__hero h2{font-size:32px;}}
+  .handout__hero p{font-size:14px;color:rgba(255,255,255,.8);margin-top:3px;}
+  @media(min-width:720px){.handout__hero p{font-size:16px;}}
+
+  /* Inline video */
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vid-caption{padding:10px 20px 14px;font-size:14px;color:var(--ink-soft);background:var(--bg-soft);border-bottom:1px solid var(--line);}
+  @media(min-width:720px){.vid-caption{font-size:15px;}}
+  .vid-caption strong{color:var(--ink);}
+
+  .handout__body{padding:28px 28px 32px;}
+  @media(min-width:720px){.handout__body{padding:32px 36px 40px;}}
+
+  /* Concept grid */
+  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+  @media(max-width:560px){.concept-grid{grid-template-columns:1fr;}}
+  .concept{border-radius:12px;padding:16px 18px;border-left:4px solid;}
+  .concept-navy{background:var(--navy-soft);border-color:var(--navy);}
+  .concept-teal{background:var(--teal-soft);border-color:var(--teal);}
+  .concept h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;margin-bottom:6px;}
+  @media(min-width:720px){.concept h4{font-size:22px;}}
+  .concept-navy h4{color:var(--navy-deep);}
+  .concept-teal h4{color:var(--teal-deep);}
+  .concept p{font-size:14px;color:var(--ink);line-height:1.6;}
+  @media(min-width:720px){.concept p{font-size:16px;}}
+
+  /* Flow table */
+  .flow-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy-deep);margin:24px 0 12px;}
+  @media(min-width:720px){.flow-title{font-size:26px;}}
+  .flow-wrap{overflow-x:auto;margin-bottom:24px;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  @media(min-width:720px){table{font-size:16px;}}
+  th{padding:10px 14px;text-align:left;font-weight:700;border-bottom:2px solid;}
+  th.navy{background:var(--navy-soft);color:var(--navy-deep);border-color:#c5d8f0;}
+  th.teal{background:var(--teal-soft);color:var(--teal-deep);border-color:#9ecfcb;}
+  td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:var(--bg-soft);}
+  .td-time{white-space:nowrap;font-weight:600;color:var(--ink-soft);width:90px;}
+  .td-phase{font-weight:700;width:150px;}
+  .td-phase small{display:block;font-size:.8em;color:var(--ink-soft);font-weight:500;}
+
+  /* Phrases */
+  .phrase-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+  .phrase-row{display:grid;grid-template-columns:1fr 1fr;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .ph-cn{padding:10px 16px;font-size:14px;background:var(--bg-soft);border-right:1px solid var(--line);}
+  @media(min-width:720px){.ph-cn{font-size:16px;}}
+  .ph-en{padding:10px 16px;font-size:14px;font-weight:700;color:var(--navy-deep);}
+  @media(min-width:720px){.ph-en{font-size:16px;}}
+
+  /* Data table */
+  .data-table{min-width:380px;}
+  .data-table td.fill{background:#f8fff8;color:#bbb;font-style:italic;text-align:center;}
+
+  /* Discussion box */
+  .discuss{background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:14px;padding:20px 24px;margin-top:6px;}
+  .discuss h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold-deep);margin-bottom:12px;}
+  @media(min-width:720px){.discuss h4{font-size:24px;}}
+  .discuss ol{padding-left:20px;display:flex;flex-direction:column;gap:10px;}
+  .discuss li{font-size:14px;color:var(--ink);line-height:1.6;}
+  @media(min-width:720px){.discuss li{font-size:16px;}}
+  .discuss li span{display:block;font-size:.88em;color:var(--ink-soft);margin-top:3px;}
+
+  /* Nav */
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:32px 0 12px;flex-wrap:wrap;}
+  .unit-nav a{color:var(--navy-deep);text-decoration:none;font-weight:700;font-size:16px;padding:10px 20px;border-radius:10px;border:2px solid var(--line);background:#fff;transition:all .15s;}
+  .unit-nav a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
+  .unit-nav a.back{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);}
+  .unit-nav a.back:hover{background:var(--navy);border-color:var(--navy);}
+
+  .print-btn{display:inline-block;background:var(--teal-soft);border:1px solid var(--teal);color:var(--teal-deep);border-radius:20px;padding:6px 20px;font-size:14px;cursor:pointer;font-weight:600;margin-top:14px;}
+  .print-btn:hover{background:var(--teal);color:#fff;}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
+  footer .org{font-weight:600;color:var(--navy-deep);}
+
+  @media print{
+    .subnav,.unit-nav,.print-btn{display:none;}
+    body{font-size:12pt;}
+    .handout{box-shadow:none;border:1px solid #ccc;margin-bottom:28px;}
+  }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="/schools/beidou-jhs/">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="/schools/beidou-jhs/lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="index.html">Science Course</a>
+      <span class="subnav__sep">·</span>
+      <a href="vocab.html">Vocabulary</a>
+      <span class="subnav__sep">·</span>
+      <a href="handout.html" class="is-active">Handout</a>
+      <span class="subnav__sep">·</span>
+      <a href="quiz.html">Quiz</a>
+    </div>
+  </div>
+</nav>
+
+<div class="unit-hero">
+  <div class="unit-hero__eyebrow">Bilingual Science · Philippines Exchange</div>
+  <h1>Learning Handout</h1>
+  <div class="unit-hero__zh">學習講義 · 雙語活動指引</div>
+  <div class="unit-hero__meta">
+    <span>📺 2 videos</span>
+    <span>📋 2 activity guides</span>
+    <span>🖨️ Printable</span>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:44px;padding-bottom:56px;">
+
+  <div style="text-align:right;margin-bottom:24px;">
+    <button class="print-btn" onclick="window.print()">🖨️ Print This Handout</button>
+  </div>
+
+  <!-- ══ HANDOUT 1: ROBOTIC ARM ══ -->
+  <div class="handout">
+    <div class="handout__hero hh-navy">
+      <div class="handout__icon">🤖</div>
+      <div>
+        <h2>Handout 1 — GIGO Robotic Arm</h2>
+        <p>機械手臂 · Beidou JH · Philippines Exchange Prep</p>
+      </div>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/LYFuPLv8-jo?rel=0"
+              title="GIGO Robotic Arm – assembly and operation reference video"
+              allowfullscreen></iframe>
+    </div>
+    <div class="vid-caption">
+      📺 <strong>Watch before you start:</strong> GIGO Robotic Arm — assembly, joints, and operation. 開始前先看：機械手臂組裝、關節與操作示範。
+    </div>
+
+    <div class="handout__body">
+
+      <div class="flow-title">🔬 Science Concepts &nbsp;科學概念</div>
+      <div class="concept-grid">
+        <div class="concept concept-navy">
+          <h4>What is a Robotic Arm?</h4>
+          <p>A programmable arm that uses <strong>servo motors</strong> and <strong>joints</strong> to grip, rotate, and move objects with precision — mimicking a human arm.<br><br>透過伺服馬達與關節，進行精確夾取與移動的可程式化裝置。</p>
+        </div>
+        <div class="concept concept-navy">
+          <h4>How Does It Work?</h4>
+          <p>The <strong>controller</strong> sends signals to each <strong>servo motor</strong>. Every motor controls one joint. Together they let the arm pick, place, and rotate objects precisely.<br><br>控制器發訊號給各伺服馬達，每個馬達控制一個關節，協同運作完成精準動作。</p>
+        </div>
+      </div>
+
+      <div class="flow-title">📋 Lesson Flow &nbsp;課堂流程</div>
+      <div class="flow-wrap">
+        <table>
+          <thead><tr>
+            <th class="navy">Time</th>
+            <th class="navy">Phase &nbsp;階段</th>
+            <th class="navy">English Activity &nbsp;英語活動</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="td-time">0–10 min</td><td class="td-phase">Grouping<small>分組</small></td><td>Introduce yourself: <em>"Hi! I'm ___. Nice to meet you!"</em> Count members in English.</td></tr>
+            <tr><td class="td-time">10–20 min</td><td class="td-phase">Introduction<small>課程說明</small></td><td>Listen for key words: <em>robotic arm, assembly, components.</em> Repeat after teacher.</td></tr>
+            <tr><td class="td-time">20–30 min</td><td class="td-phase">Materials<small>材料說明</small></td><td>Name each part in English as you receive it: <em>"Do we have all the components?"</em></td></tr>
+            <tr><td class="td-time">30–70 min</td><td class="td-phase">Assembly<small>組裝實作</small></td><td><em>"Step 1: Attach the base."</em> Ask for help: <em>"Can you show me how to connect this joint?"</em></td></tr>
+            <tr><td class="td-time">70–90 min</td><td class="td-phase">Operation<small>操作控制</small></td><td>Describe movements: <em>"I'm rotating the arm 90 degrees."</em> <em>"The gripper is open."</em></td></tr>
+            <tr><td class="td-time">90–110 min</td><td class="td-phase">Practice<small>應用練習</small></td><td>Challenge: pick up a small object. Report: <em>"Our arm successfully gripped the object."</em></td></tr>
+            <tr><td class="td-time">110–120 min</td><td class="td-phase">Closure<small>整理結束</small></td><td>Share one thing you learned: <em>"Today I learned how to ___."</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flow-title">🗣️ Useful Phrases &nbsp;實用短句</div>
+      <div class="phrase-grid">
+        <div class="phrase-row"><div class="ph-cn">請把控制器傳給我。</div><div class="ph-en">Pass me the controller, please.</div></div>
+        <div class="phrase-row"><div class="ph-cn">我們的機械手臂可以旋轉 90 度。</div><div class="ph-en">Our robotic arm can rotate 90 degrees.</div></div>
+        <div class="phrase-row"><div class="ph-cn">這個關節好像卡住了。</div><div class="ph-en">This joint seems to be stuck.</div></div>
+        <div class="phrase-row"><div class="ph-cn">可以再示範一次嗎？</div><div class="ph-en">Can you demonstrate it once more?</div></div>
+        <div class="phrase-row"><div class="ph-cn">我們成功地夾起物品了！</div><div class="ph-en">We successfully gripped the object!</div></div>
+      </div>
+
+      <div class="discuss">
+        <h4>💬 Discussion Questions &nbsp;討論問題</h4>
+        <ol>
+          <li>What part of the robotic arm was most difficult to assemble? Why?<span>機械手臂哪個部分最難組裝？為什麼？</span></li>
+          <li>How is a robotic arm similar to or different from a human arm?<span>機械手臂和人類手臂有何相似或不同之處？</span></li>
+          <li>Where do you think robotic arms are used in real life?<span>你認為機械手臂在現實生活中用於哪些地方？</span></li>
+          <li>If you could upgrade the robotic arm, what would you add?<span>如果你可以升級機械手臂，你會加入什麼功能？</span></li>
+        </ol>
+      </div>
+
+    </div>
+  </div><!-- /handout 1 -->
+
+
+  <!-- ══ HANDOUT 2: AIR ROCKET ══ -->
+  <div class="handout">
+    <div class="handout__hero hh-teal">
+      <div class="handout__icon">🚀</div>
+      <div>
+        <h2>Handout 2 — Air Paper Rocket</h2>
+        <p>空氣紙火箭 · Beidou JH · Philippines Exchange Prep</p>
+      </div>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/HdSnUpfJocs?rel=0"
+              title="Paper Rockets and Launcher – The Sci Guys: Science at Home"
+              allowfullscreen></iframe>
+    </div>
+    <div class="vid-caption">
+      📺 <strong>Watch before you start:</strong> Paper Rockets and Launcher (The Sci Guys) — construction, launch, and angle testing. 開始前先看：紙火箭製作、發射與角度測試。
+    </div>
+
+    <div class="handout__body">
+
+      <div class="flow-title">🔬 Science Concepts &nbsp;科學概念</div>
+      <div class="concept-grid">
+        <div class="concept concept-teal">
+          <h4>How Does an Air Rocket Fly?</h4>
+          <p><strong>Air pressure</strong> from the launcher propels the rocket forward. <strong>Gravity</strong> then pulls it back down. The <strong>fins</strong> stabilise its flight path.<br><br>發射器產生的氣壓推動火箭向前，重力再將其拉回，尾翼穩定飛行路徑。</p>
+        </div>
+        <div class="concept concept-teal">
+          <h4>The Best Launch Angle</h4>
+          <p>At <strong>45°</strong>, the rocket achieves maximum range on flat ground. Below 45° it lands quickly; above 45° it goes high but not far.<br><br>在平地上 45° 達最遠距離。低於 45° 很快落地；高於 45° 飛高卻飛不遠。</p>
+        </div>
+      </div>
+
+      <div class="flow-title">📋 Lesson Flow &nbsp;課堂流程</div>
+      <div class="flow-wrap">
+        <table>
+          <thead><tr>
+            <th class="teal">Time</th>
+            <th class="teal">Phase &nbsp;階段</th>
+            <th class="teal">English Activity &nbsp;英語活動</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="td-time">0–10 min</td><td class="td-phase">Grouping<small>分組</small></td><td>Assign roles in English: <em>Builder, Launcher, Recorder, Reporter.</em></td></tr>
+            <tr><td class="td-time">10–20 min</td><td class="td-phase">Introduction<small>課程說明</small></td><td>Listen for: <em>air pressure, gravity, trajectory, launch angle.</em> Draw the flight path.</td></tr>
+            <tr><td class="td-time">20–30 min</td><td class="td-phase">Materials<small>材料介紹</small></td><td>Name all materials. Say: <em>"We need ___ sheets of paper."</em></td></tr>
+            <tr><td class="td-time">30–70 min</td><td class="td-phase">Construction<small>製作火箭</small></td><td><em>"Roll the paper around the tube."</em> <em>"Fold and tape the nose cone."</em> <em>"Attach the fins."</em></td></tr>
+            <tr><td class="td-time">70–90 min</td><td class="td-phase">Launch<small>試射操作</small></td><td>Countdown: <em>"5, 4, 3, 2, 1 — Launch!"</em> Record: <em>"The rocket flew ___ meters."</em></td></tr>
+            <tr><td class="td-time">90–110 min</td><td class="td-phase">Testing<small>變因測試</small></td><td>Test 30°, 45°, 60°. Fill the data table. Compare: <em>"45° is better than 30° because …"</em></td></tr>
+            <tr><td class="td-time">110–120 min</td><td class="td-phase">Discussion<small>討論整理</small></td><td>Share conclusions: <em>"Our data shows that ___ degree gives the longest distance."</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flow-title">📊 Data Recording Table &nbsp;數據記錄表</div>
+      <div class="flow-wrap">
+        <table class="data-table">
+          <thead><tr>
+            <th class="teal">Launch Angle &nbsp;發射角度</th>
+            <th class="teal">Trial 1 &nbsp;第1次 (m)</th>
+            <th class="teal">Trial 2 &nbsp;第2次 (m)</th>
+            <th class="teal">Trial 3 &nbsp;第3次 (m)</th>
+            <th class="teal">Average &nbsp;平均 (m)</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>30°</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td></tr>
+            <tr><td>45°</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td></tr>
+            <tr><td>60°</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td><td class="fill">___</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flow-title">🗣️ Useful Phrases &nbsp;實用短句</div>
+      <div class="phrase-grid">
+        <div class="phrase-row"><div class="ph-cn">我們把角度設為 45 度。</div><div class="ph-en">We set the angle to 45 degrees.</div></div>
+        <div class="phrase-row"><div class="ph-cn">火箭飛了大約 8 公尺。</div><div class="ph-en">The rocket flew about 8 meters.</div></div>
+        <div class="phrase-row"><div class="ph-cn">我們的假設是角度越大飛越遠。</div><div class="ph-en">Our hypothesis is that a larger angle means longer distance.</div></div>
+        <div class="phrase-row"><div class="ph-cn">數據顯示 45 度效果最好。</div><div class="ph-en">The data shows that 45° works best.</div></div>
+        <div class="phrase-row"><div class="ph-cn">讓我們再測試一次確認結果。</div><div class="ph-en">Let's test it once more to confirm the result.</div></div>
+      </div>
+
+      <div class="discuss">
+        <h4>💬 Discussion Questions &nbsp;討論問題</h4>
+        <ol>
+          <li>Which launch angle gave your rocket the longest flight? Was it what you expected?<span>哪個角度讓火箭飛最遠？這是你預期的結果嗎？</span></li>
+          <li>How would changing the rocket's weight affect its flight distance?<span>改變火箭重量會如何影響飛行距離？</span></li>
+          <li>How are paper rockets and real space rockets similar or different?<span>紙火箭與真正的太空火箭有何相同或不同之處？</span></li>
+          <li>If you could redesign the rocket, what would you change?<span>如果你要重新設計火箭，你會改變什麼？</span></li>
+        </ol>
+      </div>
+
+    </div>
+  </div><!-- /handout 2 -->
+
+  <div class="unit-nav">
+    <a class="back" href="vocab.html">← Vocabulary</a>
+    <a href="quiz.html">Next: Quiz →</a>
+  </div>
+
+</div>
+
+<footer>
+  © 彰化縣立北斗國民中學 Beidou Junior High School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" style="color:var(--navy-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>

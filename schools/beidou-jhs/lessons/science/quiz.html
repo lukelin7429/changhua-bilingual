@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Science Festival Quiz · Bilingual Science · Beidou Junior High</title>
+<meta name="description" content="Interactive 25-question Science Festival Quiz — GIGO Robotic Arm and Air Paper Rocket. 北斗國中科學嘉年華英語小考：機械手臂與空氣紙火箭互動測驗。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#1a3a5c;--navy:#2d5f8a;--navy-soft:#e3edf8;
+    --gold:#c8870a;--gold-deep:#9b6508;--gold-soft:#fef0d4;
+    --green:#3d7a52;--green-soft:#e5f2ea;
+    --teal:#1e6e68;--teal-deep:#155450;--teal-soft:#e0f0ef;
+    --red:#b91c1c;--red-soft:#fee2e2;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(26,58,92,.30);--shadow-sm:0 6px 16px -6px rgba(26,58,92,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg-soft);color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px;}
+
+  /* Subnav */
+  .subnav{background:var(--navy-deep);padding:16px 0;position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:'Cormorant Garamond',serif;font-size:18px;}
+  @media(min-width:720px){.subnav__inner{font-size:20px;}}
+  .subnav a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{color:#fff;background:rgba(255,255,255,.12);}
+  .subnav a.is-active{background:var(--gold);color:#fff;}
+  .subnav__sep{color:rgba(255,255,255,.25);}
+  @media(max-width:600px){.subnav__sep{display:none;}}
+
+  /* Festival hero */
+  .fest-hero{
+    background:linear-gradient(160deg,#0d1a33 0%,#1a3a5c 50%,#0e3630 100%);
+    padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;
+  }
+  .fest-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:220px;height:220px;background:radial-gradient(circle,var(--gold) 0%,transparent 65%);opacity:.25;border-radius:50%;}
+  .fest-hero::after{content:'';position:absolute;bottom:-50px;left:-50px;width:200px;height:200px;background:radial-gradient(circle,var(--teal) 0%,transparent 65%);opacity:.3;border-radius:50%;}
+  .fest-hero__inner{position:relative;z-index:1;}
+  .fest-hero__confetti{font-size:1.4rem;letter-spacing:6px;margin-bottom:14px;animation:float 3s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .fest-hero__badge{display:inline-block;background:linear-gradient(90deg,var(--gold),#e09b10);color:#1a0a00;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-radius:99px;padding:5px 18px;margin-bottom:14px;}
+  .fest-hero h1{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1.1;margin-bottom:8px;}
+  @media(min-width:720px){.fest-hero h1{font-size:68px;}}
+  .fest-hero__zh{font-size:18px;color:#a8c4d8;margin-bottom:22px;}
+  @media(min-width:720px){.fest-hero__zh{font-size:22px;}}
+  .scoreboard{display:inline-flex;gap:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:14px 28px;}
+  .scoreboard__item{text-align:center;}
+  .scoreboard__num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;}
+  .scoreboard__label{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);margin-top:2px;}
+
+  /* Quiz wrap */
+  .quiz-wrap{padding:36px 0 60px;}
+
+  /* Part header */
+  .part-head{border-radius:16px;padding:18px 24px;margin:36px 0 20px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;}
+  .part-head::after{content:attr(data-part);position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;opacity:.07;color:#fff;}
+  .ph-navy{background:linear-gradient(90deg,var(--navy-deep),var(--navy));}
+  .ph-teal{background:linear-gradient(90deg,var(--teal-deep),var(--teal));}
+  .ph-gold{background:linear-gradient(90deg,var(--gold-deep),var(--gold));}
+  .ph-green{background:linear-gradient(90deg,var(--green-deep,#1a4228),var(--green));}
+  .ph-pts{margin-left:auto;background:rgba(255,255,255,.18);border-radius:10px;padding:3px 12px;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;}
+  .part-head__icon{font-size:2rem;}
+  .part-head h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;}
+  @media(min-width:720px){.part-head h2{font-size:26px;}}
+  .part-head p{font-size:13px;color:rgba(255,255,255,.8);margin-top:2px;}
+  @media(min-width:720px){.part-head p{font-size:14px;}}
+
+  /* Question card */
+  .qcard{background:#fff;border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 24px;margin-bottom:16px;}
+  .qbadge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;border-radius:6px;padding:2px 8px;margin-bottom:10px;color:#fff;}
+  .qb-navy{background:var(--navy);}
+  .qb-teal{background:var(--teal);}
+  .qb-gold{background:var(--gold-deep);}
+  .qb-green{background:var(--green);}
+  .qtext{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.5;}
+  @media(min-width:720px){.qtext{font-size:19px;}}
+  .qzh{font-size:13px;color:var(--ink-soft);margin-bottom:14px;}
+  @media(min-width:720px){.qzh{font-size:14px;}}
+
+  /* MCQ options */
+  .opts{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;border:2px solid var(--line);cursor:pointer;font-size:15px;transition:all .15s;background:#fafafa;}
+  @media(min-width:720px){.opt{font-size:17px;}}
+  .opt:hover{border-color:#aaa;background:#f0f0f0;}
+  .opt.selected{border-color:var(--navy);background:var(--navy-soft);}
+  .opt.correct{border-color:var(--green)!important;background:var(--green-soft)!important;color:var(--green)!important;font-weight:600;}
+  .opt.wrong{border-color:var(--red)!important;background:var(--red-soft)!important;color:var(--red)!important;text-decoration:line-through;}
+  .opt-letter{width:28px;height:28px;border-radius:50%;background:#e0e0e0;color:#555;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;transition:all .15s;}
+  .opt.selected .opt-letter{background:var(--navy);color:#fff;}
+  .opt.correct .opt-letter{background:var(--green);color:#fff;}
+  .opt.wrong .opt-letter{background:var(--red);color:#fff;}
+
+  /* Match selects */
+  .match-table{width:100%;font-size:14px;border-collapse:collapse;margin-top:8px;}
+  @media(min-width:720px){.match-table{font-size:16px;}}
+  .match-table th{padding:8px 12px;text-align:left;font-weight:700;border-bottom:2px solid var(--line);}
+  .match-table td{padding:8px 12px;border-bottom:1px solid var(--line);}
+  .match-table tr:last-child td{border-bottom:none;}
+  select.msel{border:2px solid var(--line);border-radius:8px;padding:5px 10px;font-size:14px;background:#fff;cursor:pointer;width:100%;}
+  @media(min-width:720px){select.msel{font-size:15px;}}
+  select.msel:focus{outline:none;border-color:var(--navy);}
+  select.msel.correct{border-color:var(--green);background:var(--green-soft);}
+  select.msel.wrong{border-color:var(--red);background:var(--red-soft);}
+
+  /* Fill blank */
+  .fill{border:none;border-bottom:2px solid #aaa;padding:2px 6px;font-size:16px;min-width:120px;background:transparent;color:var(--navy-deep);font-weight:600;outline:none;font-family:inherit;}
+  @media(min-width:720px){.fill{font-size:18px;}}
+  .fill:focus{border-color:var(--navy);}
+  .fill.correct{border-color:var(--green);color:var(--green);}
+  .fill.wrong{border-color:var(--red);color:var(--red);}
+
+  /* T/F */
+  .tf-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .tfbtn{padding:8px 22px;border-radius:99px;border:2px solid var(--line);font-size:15px;font-weight:700;cursor:pointer;background:#fafafa;transition:all .15s;}
+  .tfbtn:hover{border-color:#aaa;}
+  .tfbtn.selected{border-color:var(--navy);background:var(--navy-soft);color:var(--navy-deep);}
+  .tfbtn.correct{border-color:var(--green)!important;background:var(--green-soft)!important;color:var(--green)!important;}
+  .tfbtn.wrong{border-color:var(--red)!important;background:var(--red-soft)!important;color:var(--red)!important;}
+
+  /* Feedback */
+  .fb{margin-top:10px;padding:7px 14px;border-radius:8px;font-size:14px;font-weight:600;display:none;}
+  .fb.show{display:block;}
+  .fb.ok{background:var(--green-soft);color:var(--green);}
+  .fb.err{background:var(--red-soft);color:var(--red);}
+
+  /* Word bank */
+  .word-bank{background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:var(--gold-deep);}
+  @media(min-width:720px){.word-bank{font-size:15px;}}
+  .word-bank strong{color:var(--gold-deep);}
+
+  /* Submit */
+  .submit-area{text-align:center;padding:36px 0 16px;}
+  .check-btn{background:linear-gradient(90deg,var(--gold-deep),var(--gold));color:#fff;border:none;border-radius:99px;padding:15px 48px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px rgba(200,135,10,.4);letter-spacing:.04em;transition:all .2s;font-family:inherit;}
+  @media(min-width:720px){.check-btn{font-size:19px;}}
+  .check-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(200,135,10,.5);}
+
+  /* Result panel */
+  .result-panel{display:none;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:36px 28px;text-align:center;margin-top:28px;}
+  .result-panel.show{display:block;}
+  .result-emoji{font-size:3.5rem;margin-bottom:10px;}
+  .result-score{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold-deep);}
+  .result-total{font-size:17px;color:var(--ink-soft);margin-bottom:8px;}
+  .result-bar-bg{background:#eee;border-radius:10px;height:14px;overflow:hidden;margin:12px 0 22px;}
+  .result-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--navy),var(--gold));width:0;transition:width 1s ease;}
+  .result-msg{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:20px;line-height:1.5;}
+  @media(min-width:720px){.result-msg{font-size:19px;}}
+  .result-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .rbtn{border:none;border-radius:99px;padding:10px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .rbtn-retry{background:var(--navy-deep);color:#fff;}
+  .rbtn-home{background:var(--bg-soft);color:var(--ink);text-decoration:none;display:inline-block;}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  footer .org{font-weight:600;color:var(--navy-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="/schools/beidou-jhs/">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="/schools/beidou-jhs/lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="index.html">Science Course</a>
+      <span class="subnav__sep">·</span>
+      <a href="vocab.html">Vocabulary</a>
+      <span class="subnav__sep">·</span>
+      <a href="handout.html">Handout</a>
+      <span class="subnav__sep">·</span>
+      <a href="quiz.html" class="is-active">Quiz</a>
+    </div>
+  </div>
+</nav>
+
+<div class="fest-hero">
+  <div class="fest-hero__inner">
+    <div class="fest-hero__confetti">🎊 🤖 🚀 🔬 🎊</div>
+    <div class="fest-hero__badge">✦ Science English Festival ✦</div>
+    <h1>Quiz Time!</h1>
+    <div class="fest-hero__zh">北斗國中 科學嘉年華英語小考 · 菲律賓交流準備</div>
+    <div class="scoreboard">
+      <div class="scoreboard__item"><div class="scoreboard__num" id="live-score">0</div><div class="scoreboard__label">SCORE</div></div>
+      <div class="scoreboard__item"><div class="scoreboard__num">25</div><div class="scoreboard__label">TOTAL</div></div>
+      <div class="scoreboard__item"><div class="scoreboard__num">4</div><div class="scoreboard__label">PARTS</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-wrap">
+<div class="wrap">
+
+  <!-- PART A -->
+  <div class="part-head ph-navy" data-part="A">
+    <div class="part-head__icon">⚔️</div>
+    <div><h2>Part A — Word Warrior</h2><p>Match each English word to its Chinese meaning. 連連看。</p></div>
+    <div class="ph-pts">6 pts</div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-navy">A1 — Robotic Arm Words</div>
+    <div class="qtext">Match each word to its Chinese meaning. 請選出正確的中文意思。</div>
+    <table class="match-table">
+      <thead><tr><th>English</th><th>中文</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1.</strong> robotic arm</td><td><select class="msel" data-q="a1" data-ans="b"><option value="">— 選一個 —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr><td><strong>2.</strong> assembly</td><td><select class="msel" data-q="a2" data-ans="a"><option value="">— 選一個 —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr><td><strong>3.</strong> joint</td><td><select class="msel" data-q="a3" data-ans="c"><option value="">— 選一個 —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr><td><strong>4.</strong> gripper</td><td><select class="msel" data-q="a4" data-ans="d"><option value="">— 選一個 —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-teal">A2 — Rocket Words</div>
+    <div class="qtext">Match each rocket word. 火箭詞彙連連看。</div>
+    <table class="match-table">
+      <thead><tr><th>English</th><th>中文</th></tr></thead>
+      <tbody>
+        <tr><td><strong>5.</strong> air pressure</td><td><select class="msel" data-q="a5" data-ans="b"><option value="">— 選一個 —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr><td><strong>6.</strong> gravity</td><td><select class="msel" data-q="a6" data-ans="c"><option value="">— 選一個 —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr><td><strong>7.</strong> launch angle</td><td><select class="msel" data-q="a7" data-ans="d"><option value="">— 選一個 —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr><td><strong>8.</strong> trajectory</td><td><select class="msel" data-q="a8" data-ans="a"><option value="">— 選一個 —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PART B -->
+  <div class="part-head ph-teal" data-part="B">
+    <div class="part-head__icon">🧱</div>
+    <div><h2>Part B — Sentence Builder</h2><p>Choose the best word. 選出最適合的單字。</p></div>
+    <div class="ph-pts">6 pts</div>
+  </div>
+
+  <div class="qcard" id="qB1">
+    <div class="qbadge qb-teal">B1</div>
+    <div class="qtext">The _______ controls each joint by sending signals to the servo motors.</div>
+    <div class="qzh">_______（控制器）透過傳送訊號來控制機械手臂的每個關節。</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B1')"><div class="opt-letter">A</div>gripper</div>
+      <div class="opt" onclick="pick(this,'B1')"><div class="opt-letter">B</div>controller</div>
+      <div class="opt" onclick="pick(this,'B1')"><div class="opt-letter">C</div>launcher</div>
+      <div class="opt" onclick="pick(this,'B1')"><div class="opt-letter">D</div>trajectory</div>
+    </div>
+    <div class="fb" id="fb-B1"></div>
+  </div>
+
+  <div class="qcard" id="qB2">
+    <div class="qbadge qb-teal">B2</div>
+    <div class="qtext">More _______ in the launcher gives the rocket a stronger push and longer flight.</div>
+    <div class="qzh">發射器中更多的_______（氣壓）讓火箭飛得更遠。</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B2')"><div class="opt-letter">A</div>air pressure</div>
+      <div class="opt" onclick="pick(this,'B2')"><div class="opt-letter">B</div>joint</div>
+      <div class="opt" onclick="pick(this,'B2')"><div class="opt-letter">C</div>assembly</div>
+      <div class="opt" onclick="pick(this,'B2')"><div class="opt-letter">D</div>gripper</div>
+    </div>
+    <div class="fb" id="fb-B2"></div>
+  </div>
+
+  <div class="qcard" id="qB3">
+    <div class="qbadge qb-teal">B3</div>
+    <div class="qtext">"Can you show me how to _______ the controller?" — What is this student asking?</div>
+    <div class="qzh">這個學生在問什麼？</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B3')"><div class="opt-letter">A</div>To buy the controller（買控制器）</div>
+      <div class="opt" onclick="pick(this,'B3')"><div class="opt-letter">B</div>To learn how to use it（學習怎麼使用它）</div>
+      <div class="opt" onclick="pick(this,'B3')"><div class="opt-letter">C</div>To break the controller（弄壞控制器）</div>
+      <div class="opt" onclick="pick(this,'B3')"><div class="opt-letter">D</div>To give the controller away（把控制器給別人）</div>
+    </div>
+    <div class="fb" id="fb-B3"></div>
+  </div>
+
+  <div class="qcard" id="qB4">
+    <div class="qbadge qb-navy">B4</div>
+    <div class="qtext">A 45° launch angle gives the _______ flight distance on flat ground.</div>
+    <div class="qzh">在平地上，45° 的發射角度可達_______的飛行距離。</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B4')"><div class="opt-letter">A</div>shortest（最短）</div>
+      <div class="opt" onclick="pick(this,'B4')"><div class="opt-letter">B</div>maximum（最遠）</div>
+      <div class="opt" onclick="pick(this,'B4')"><div class="opt-letter">C</div>slowest（最慢）</div>
+      <div class="opt" onclick="pick(this,'B4')"><div class="opt-letter">D</div>highest（最高）</div>
+    </div>
+    <div class="fb" id="fb-B4"></div>
+  </div>
+
+  <div class="qcard" id="qB5">
+    <div class="qbadge qb-navy">B5</div>
+    <div class="qtext">"Our result shows that 45° gives the longest distance." — What is this?</div>
+    <div class="qzh">「Our result shows that…」這個句型是用來做什麼的？</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B5')"><div class="opt-letter">A</div>Asking for help（請求協助）</div>
+      <div class="opt" onclick="pick(this,'B5')"><div class="opt-letter">B</div>Giving a safety warning（提出安全警告）</div>
+      <div class="opt" onclick="pick(this,'B5')"><div class="opt-letter">C</div>Reporting an experimental result（報告實驗結果）</div>
+      <div class="opt" onclick="pick(this,'B5')"><div class="opt-letter">D</div>Introducing yourself（自我介紹）</div>
+    </div>
+    <div class="fb" id="fb-B5"></div>
+  </div>
+
+  <div class="qcard" id="qB6">
+    <div class="qbadge qb-teal">B6</div>
+    <div class="qtext">Which sentence is the BEST way to share Taiwan's science culture with a Filipino classmate?</div>
+    <div class="qzh">哪個句子最適合向菲律賓同學分享台灣的科學文化？</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,'B6')"><div class="opt-letter">A</div>"I don't know."</div>
+      <div class="opt" onclick="pick(this,'B6')"><div class="opt-letter">B</div>"Taiwan is better than the Philippines."</div>
+      <div class="opt" onclick="pick(this,'B6')"><div class="opt-letter">C</div>"In Taiwan, we use GIGO kits for robotics. Do you have science clubs at your school?"</div>
+      <div class="opt" onclick="pick(this,'B6')"><div class="opt-letter">D</div>"Be careful when you launch the rocket."</div>
+    </div>
+    <div class="fb" id="fb-B6"></div>
+  </div>
+
+  <!-- PART C -->
+  <div class="part-head ph-gold" data-part="C">
+    <div class="part-head__icon">✏️</div>
+    <div><h2>Part C — Science Explorer</h2><p>Fill in the blank with the correct word. 填入正確的英文單字。</p></div>
+    <div class="ph-pts">8 pts</div>
+  </div>
+
+  <div class="word-bank">
+    <strong>Word Bank 單字庫：</strong> &nbsp;
+    gravity &nbsp;|&nbsp; rotate &nbsp;|&nbsp; fins &nbsp;|&nbsp; precise &nbsp;|&nbsp; variable &nbsp;|&nbsp; observe &nbsp;|&nbsp; collaborate &nbsp;|&nbsp; launch
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C1</div>
+    <div class="qtext" style="line-height:2.2">In science experiments, we <strong><input class="fill" data-q="C1" data-ans="observe" placeholder="________"></strong> what happens and write down our findings.</div>
+    <div class="qzh">在科學實驗中，我們____（觀察）發生的事並記下發現。</div>
+    <div class="fb" id="fb-C1"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C2</div>
+    <div class="qtext" style="line-height:2.2">The robotic arm needs to be very <strong><input class="fill" data-q="C2" data-ans="precise" placeholder="________"></strong> to pick up small objects.</div>
+    <div class="qzh">機械手臂需要非常____（精確）才能夾起小物體。</div>
+    <div class="fb" id="fb-C2"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C3</div>
+    <div class="qtext" style="line-height:2.2"><strong><input class="fill" data-q="C3" data-ans="rotate" placeholder="________"></strong> the base 90 degrees to the right, then lower the arm carefully.</div>
+    <div class="qzh">將底座向右____（旋轉）90 度，然後小心放低手臂。</div>
+    <div class="fb" id="fb-C3"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C4</div>
+    <div class="qtext" style="line-height:2.2">The <strong><input class="fill" data-q="C4" data-ans="fins" placeholder="________"></strong> at the tail of the rocket keep it flying straight and stable.</div>
+    <div class="qzh">火箭尾部的____（尾翼）讓它保持直線穩定飛行。</div>
+    <div class="fb" id="fb-C4"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C5</div>
+    <div class="qtext" style="line-height:2.2"><strong><input class="fill" data-q="C5" data-ans="gravity" placeholder="________"></strong> pulls the rocket back toward Earth after it is launched.</div>
+    <div class="qzh">____（重力）在火箭發射後將它拉回地球。</div>
+    <div class="fb" id="fb-C5"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C6</div>
+    <div class="qtext" style="line-height:2.2">The launch angle is the <strong><input class="fill" data-q="C6" data-ans="variable" placeholder="________"></strong> we change to test how it affects flight distance.</div>
+    <div class="qzh">發射角度是我們改變的____（變因），測試它如何影響飛行距離。</div>
+    <div class="fb" id="fb-C6"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C7</div>
+    <div class="qtext" style="line-height:2.2">Ready? 5, 4, 3, 2, 1 — <strong><input class="fill" data-q="C7" data-ans="launch" placeholder="________"></strong>! The rocket flew 8 meters.</div>
+    <div class="qzh">準備好了嗎？5、4、3、2、1——____（發射）！火箭飛了 8 公尺。</div>
+    <div class="fb" id="fb-C7"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-gold">C8</div>
+    <div class="qtext" style="line-height:2.2">To succeed in science activities, students must <strong><input class="fill" data-q="C8" data-ans="collaborate" placeholder="________"></strong> and share their ideas with the team.</div>
+    <div class="qzh">為了在科學活動中成功，學生必須____（合作）並與團隊分享想法。</div>
+    <div class="fb" id="fb-C8"></div>
+  </div>
+
+  <!-- PART D -->
+  <div class="part-head ph-green" data-part="D">
+    <div class="part-head__icon">🌏</div>
+    <div><h2>Part D — Philippines Challenge</h2><p>True or False — Is each statement correct? 判斷敘述是否正確。</p></div>
+    <div class="ph-pts">5 pts</div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-green">D1</div>
+    <div class="qtext">A launch angle of 45° gives the maximum flight distance for an air rocket on flat ground.</div>
+    <div class="qzh">在平地上，45° 的發射角度可達到空氣火箭最遠的飛行距離。</div>
+    <div class="tf-row">
+      <button class="tfbtn" onclick="pickTF(this,'D1','true')">✅ True</button>
+      <button class="tfbtn" onclick="pickTF(this,'D1','false')">❌ False</button>
+    </div>
+    <div class="fb" id="fb-D1"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-green">D2</div>
+    <div class="qtext">The gripper of a robotic arm is used to rotate the base of the arm.</div>
+    <div class="qzh">機械手臂的夾爪是用來旋轉底座的。</div>
+    <div class="tf-row">
+      <button class="tfbtn" onclick="pickTF(this,'D2','true')">✅ True</button>
+      <button class="tfbtn" onclick="pickTF(this,'D2','false')">❌ False</button>
+    </div>
+    <div class="fb" id="fb-D2"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-green">D3</div>
+    <div class="qtext">"Can you show me how to assemble it?" is a good sentence for asking a classmate to teach you a skill.</div>
+    <div class="qzh">「Can you show me how to assemble it?」是一個請同學教你技能的好句子。</div>
+    <div class="tf-row">
+      <button class="tfbtn" onclick="pickTF(this,'D3','true')">✅ True</button>
+      <button class="tfbtn" onclick="pickTF(this,'D3','false')">❌ False</button>
+    </div>
+    <div class="fb" id="fb-D3"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-green">D4</div>
+    <div class="qtext">Gravity pulls objects upward, so rockets can fly higher when gravity is stronger.</div>
+    <div class="qzh">重力向上拉，所以重力越強火箭飛得越高。</div>
+    <div class="tf-row">
+      <button class="tfbtn" onclick="pickTF(this,'D4','true')">✅ True</button>
+      <button class="tfbtn" onclick="pickTF(this,'D4','false')">❌ False</button>
+    </div>
+    <div class="fb" id="fb-D4"></div>
+  </div>
+
+  <div class="qcard">
+    <div class="qbadge qb-green">D5</div>
+    <div class="qtext">"That's interesting! In my school, we use GIGO kits." is a great phrase for international exchange conversations.</div>
+    <div class="qzh">「That's interesting! In my school, we use GIGO kits.」是一個很適合國際交流場合的句子。</div>
+    <div class="tf-row">
+      <button class="tfbtn" onclick="pickTF(this,'D5','true')">✅ True</button>
+      <button class="tfbtn" onclick="pickTF(this,'D5','false')">❌ False</button>
+    </div>
+    <div class="fb" id="fb-D5"></div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-area">
+    <button class="check-btn" onclick="checkAll()">🏆 Check My Score!</button>
+    <div class="result-panel" id="result-panel">
+      <div class="result-emoji" id="r-emoji">🎉</div>
+      <div class="result-score" id="r-score">0</div>
+      <div class="result-total">/ 25 points</div>
+      <div class="result-bar-bg"><div class="result-bar" id="r-bar"></div></div>
+      <div class="result-msg" id="r-msg"></div>
+      <div class="result-btns">
+        <button class="rbtn rbtn-retry" onclick="location.reload()">🔄 Try Again</button>
+        <a class="rbtn rbtn-home" href="index.html">← Science Course</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+</div><!-- /quiz-wrap -->
+
+<footer>
+  © 彰化縣立北斗國民中學 Beidou Junior High School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" style="color:var(--navy-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+<script>
+const ANSWERS = {
+  a1:'b',a2:'a',a3:'c',a4:'d',
+  a5:'b',a6:'c',a7:'d',a8:'a',
+  B1:'b',B2:'a',B3:'b',B4:'b',B5:'c',B6:'c',
+  C1:'observe',C2:'precise',C3:'rotate',C4:'fins',C5:'gravity',C6:'variable',C7:'launch',C8:'collaborate',
+  D1:'true',D2:'false',D3:'true',D4:'false',D5:'true'
+};
+const ua = {};
+
+function pick(el, qId) {
+  el.closest('.opts').querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  ua[qId] = ['a','b','c','d'][['A','B','C','D'].indexOf(el.querySelector('.opt-letter').textContent)];
+}
+function pickTF(el, qId, val) {
+  el.closest('.tf-row').querySelectorAll('.tfbtn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  ua[qId] = val;
+}
+
+function checkAll() {
+  let score = 0;
+
+  // Part A — selects
+  document.querySelectorAll('select.msel').forEach(sel => {
+    const correct = ANSWERS[sel.dataset.q];
+    if(sel.value === correct){ sel.classList.add('correct'); sel.classList.remove('wrong'); score++; }
+    else { sel.classList.add('wrong'); sel.classList.remove('correct'); }
+  });
+
+  // Part B — MCQ
+  ['B1','B2','B3','B4','B5','B6'].forEach(qId => {
+    const card = document.getElementById('q'+qId);
+    const opts = card.querySelectorAll('.opt');
+    const fb = document.getElementById('fb-'+qId);
+    const correct = ANSWERS[qId];
+    const ci = ['a','b','c','d'].indexOf(correct);
+    const ui = ['a','b','c','d'].indexOf(ua[qId]);
+    opts.forEach((o,i) => { if(i===ci) o.classList.add('correct'); else if(i===ui) o.classList.add('wrong'); });
+    if(ua[qId]===correct){ score++; fb.textContent='✓ Correct!'; fb.className='fb show ok'; }
+    else { fb.textContent='✗ Answer: '+['A','B','C','D'][ci]; fb.className='fb show err'; }
+  });
+
+  // Part C — fill blanks
+  document.querySelectorAll('input.fill').forEach(inp => {
+    const correct = inp.dataset.ans.toLowerCase();
+    const val = inp.value.trim().toLowerCase();
+    const fb = document.getElementById('fb-'+inp.dataset.q);
+    if(val===correct){ inp.classList.add('correct'); score++; fb.textContent='✓ Correct!'; fb.className='fb show ok'; }
+    else { inp.classList.add('wrong'); fb.textContent='✗ Answer: '+inp.dataset.ans; fb.className='fb show err'; }
+  });
+
+  // Part D — T/F
+  ['D1','D2','D3','D4','D5'].forEach(qId => {
+    const fb = document.getElementById('fb-'+qId);
+    const card = fb.closest('.qcard');
+    const btns = card.querySelectorAll('.tfbtn');
+    const correct = ANSWERS[qId];
+    btns.forEach(b => {
+      const bVal = b.textContent.includes('True')?'true':'false';
+      if(bVal===correct) b.classList.add('correct');
+      else if(b.classList.contains('selected')) b.classList.add('wrong');
+    });
+    if(ua[qId]===correct){ score++; fb.textContent='✓ Correct!'; fb.className='fb show ok'; }
+    else { fb.textContent='✗ Answer: '+(correct==='true'?'True ✅':'False ❌'); fb.className='fb show err'; }
+  });
+
+  // Result
+  const pct = Math.round(score/25*100);
+  document.getElementById('live-score').textContent = score;
+  document.getElementById('r-score').textContent = score;
+  const msgs = [
+    [0,39,'Keep studying! 繼續加油！📚 Review the vocabulary page and try again.','😢'],
+    [40,59,'Good effort! 不錯的努力！You know many science words — keep practicing!','🙂'],
+    [60,79,'Great job! 很棒！You\'re getting ready for the Philippines exchange! 🇵🇭','😊'],
+    [80,95,'Excellent! 優秀！Your science English is really impressive!','🌟'],
+    [96,100,'PERFECT! 完美！ You\'re 100% ready to impress your Filipino friends! 🎉','🏆']
+  ];
+  const m = msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);
+  document.getElementById('r-emoji').textContent = m[3];
+  document.getElementById('r-msg').textContent = m[2];
+  const panel = document.getElementById('result-panel');
+  panel.classList.add('show');
+  setTimeout(()=>{ document.getElementById('r-bar').style.width = pct+'%'; },100);
+  panel.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+
+</body>
+</html>
