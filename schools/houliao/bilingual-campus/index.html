@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Life · 雙語校園 · Houliao Elementary</title>
+<meta name="description" content="Houliao's bilingual campus, in two free shared video libraries — Classroom English (the everyday English a teacher uses in class) and Bilingual Announcements (the school introduced office by office). Produced by My Culture Connect and shared across the Changhua Bilingual Hub. 後寮國小的雙語校園：課室英語與雙語廣播兩套人師共用免費影片庫。">
+<meta property="og:title" content="English Life · Houliao Elementary">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#1f5e6e;
+    --teal-deep:#0e3a45;
+    --teal-soft:#dceaee;
+    --paddy:#4a6e3a;
+    --paddy-deep:#2f4823;
+    --paddy-soft:#e2eadb;
+    --gold:#c08a3e;
+    --gold-deep:#7a5a17;
+    --gold-soft:#f4ead4;
+    --cream:#ffffff;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#e2dfd3;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(14,58,69,.28);
+    --shadow-sm:0 4px 14px -4px rgba(14,58,69,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:20px;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{font-size:23px;} }
+  img{max-width:100%;display:block;}
+  a{color:var(--teal);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--teal-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:13px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  @media (min-width:720px){ .topbar-nav a{font-size:17px;} }
+  .topbar-nav a:hover{color:var(--teal);}
+  .topbar-nav a.is-active{color:var(--teal-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+  }
+
+  /* page header — photo banner (school front gate) */
+  .page-head{
+    position:relative;text-align:center;color:#fff;
+    padding:84px 0 64px;
+    background:
+      linear-gradient(180deg, rgba(14,58,69,.72) 0%, rgba(14,58,69,.56) 45%, rgba(14,58,69,.86) 100%),
+      url('../photos/school-front.jpg') center 55% / cover no-repeat;
+    border-bottom:5px solid var(--gold);
+  }
+  @media (min-width:720px){ .page-head{padding:104px 0 84px;} }
+  .page-head__eyebrow{display:inline-block;font-size:15px;letter-spacing:.28em;color:var(--gold-soft);font-weight:700;text-transform:uppercase;margin-bottom:16px;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .page-head__eyebrow{font-size:16px;} }
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;line-height:1.1;font-weight:600;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .page-head h1{font-size:64px;} }
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:rgba(255,255,255,.92);font-weight:500;margin-top:12px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .page-head h1 .zh{font-size:24px;} }
+  .page-head__divider{width:60px;height:2px;background:var(--gold);border:0;margin:24px auto 18px;}
+  .page-head .lede{max-width:680px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:rgba(255,255,255,.96);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.42);}
+  @media (min-width:720px){ .page-head .lede{font-size:23px;} }
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:17px;color:rgba(255,255,255,.82);margin-top:8px;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .page-head .lede .zh-inline{font-size:19px;} }
+
+  main{padding:60px 0 80px;}
+
+  /* intro lede card */
+  .lede-card{
+    background:linear-gradient(135deg, var(--teal-soft) 0%, var(--paddy-soft) 100%);
+    border-radius:22px;padding:32px 28px;
+    margin-bottom:24px;
+  }
+  @media (min-width:720px){ .lede-card{padding:42px 40px;} }
+  .lede-card h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--teal-deep);line-height:1.25;}
+  @media (min-width:720px){ .lede-card h2{font-size:36px;} }
+  .lede-card h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  .lede-card p{font-size:20px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .lede-card p{font-size:22px;} }
+  .lede-card p strong{color:var(--teal-deep);font-weight:700;}
+  .lede-card p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.7;}
+  @media (min-width:720px){ .lede-card p .zh-inline{font-size:20px;} }
+
+  /* in-page jump links */
+  .jump{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px;}
+  .jump a{
+    flex:1 1 240px;
+    display:flex;flex-direction:column;gap:3px;
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:16px 20px;box-shadow:var(--shadow-sm);
+    transition:transform .2s,border-color .2s;
+  }
+  .jump a:hover{transform:translateY(-2px);border-color:var(--teal);}
+  .jump a .no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.18em;}
+  .jump a .t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--teal-deep);line-height:1.2;}
+  .jump a .t .zh{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);font-weight:600;margin-left:8px;}
+
+  /* section band (the two parts) */
+  .band{margin-top:66px;scroll-margin-top:90px;}
+  .band__no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:16px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;}
+  .band__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:34px;font-weight:600;color:var(--teal-deep);line-height:1.12;margin-top:6px;}
+  @media (min-width:720px){ .band__title{font-size:46px;} }
+  .band__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:.06em;}
+  @media (min-width:720px){ .band__title .zh{font-size:21px;} }
+  .band__rule{width:84px;height:5px;background:var(--paddy);border-radius:3px;margin:18px 0 22px;}
+  .band__intro{font-size:20px;color:var(--ink);line-height:1.7;margin-bottom:26px;}
+  @media (min-width:720px){ .band__intro{font-size:22px;} }
+  .band__intro strong{color:var(--teal-deep);font-weight:700;}
+  .band__intro .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.7;}
+  @media (min-width:720px){ .band__intro .zh-inline{font-size:20px;} }
+
+  /* credits strip */
+  .credits{
+    display:grid;grid-template-columns:1fr;gap:10px;
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;margin-bottom:30px;
+    box-shadow:var(--shadow-sm);
+  }
+  @media (min-width:720px){ .credits{grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 26px;} }
+  .credits__cell{padding:6px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ .credits__cell{border-bottom:none;border-right:1px solid var(--line);padding:0 22px 0 0;} .credits__cell:last-child{border-right:none;} }
+  .credits__label{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+  .credits__value{font-family:'Cormorant Garamond',serif;font-size:19.5px;color:var(--teal-deep);font-weight:600;margin-top:4px;}
+  .credits__value .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:2px;font-weight:500;}
+
+  /* player */
+  .player{
+    background:#fff;border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+  }
+  .player__ratio{position:relative;width:100%;padding-top:56.25%;background:#000;}
+  .player__ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+  .player-link{
+    display:flex;align-items:center;gap:14px;
+    background:var(--teal-deep);color:#fff;
+    padding:18px 22px;border-radius:14px;margin-top:18px;
+    text-decoration:none;transition:background .2s;
+  }
+  .player-link:hover{background:var(--gold);color:#fff;}
+  .player-link__icon{
+    font-size:24px;color:var(--gold-soft);
+    background:rgba(255,255,255,.08);
+    width:46px;height:46px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .player-link__text{flex:1;display:flex;flex-direction:column;gap:4px;}
+  .player-link__text strong{font-size:17px;font-weight:700;letter-spacing:.02em;}
+  .player-link__text span{font-size:14.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
+  .player-link__arrow{font-size:20px;color:var(--gold-soft);}
+
+  /* topics (classroom english) */
+  .topics-head{margin:46px 0 18px;}
+  .topics-head h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--teal-deep);border-bottom:3px solid var(--gold);padding-bottom:6px;display:inline-block;}
+  .topics-head h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink);font-weight:600;margin-top:6px;}
+  .topics-head p{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+
+  .topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (min-width:560px){ .topics-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (min-width:880px){ .topics-grid{grid-template-columns:repeat(5,1fr);} }
+
+  .topic-pill{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:18px 16px 16px;text-align:center;
+    box-shadow:var(--shadow-sm);
+    transition:transform .2s,border-color .2s;
+  }
+  .topic-pill:hover{transform:translateY(-2px);border-color:var(--teal);}
+  .topic-pill .no{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;color:var(--gold-deep);letter-spacing:.16em;}
+  .topic-pill .en{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--teal-deep);margin-top:8px;line-height:1.3;}
+  .topic-pill .zh{font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em;}
+
+  /* offices (announcements) */
+  .office-head{margin:46px 0 18px;}
+  .office-head h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--teal-deep);border-bottom:3px solid var(--gold);padding-bottom:6px;display:inline-block;}
+  .office-head h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink);font-weight:600;margin-top:6px;}
+  .office-head p{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+
+  .offices{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media (min-width:680px){ .offices{grid-template-columns:1fr 1fr;gap:22px;} }
+  @media (min-width:960px){ .offices{grid-template-columns:repeat(4,1fr);gap:22px;} }
+
+  .office{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:24px 22px;box-shadow:var(--shadow-sm);
+    border-top:7px solid var(--teal);
+    display:flex;flex-direction:column;
+  }
+  .office:nth-child(2){border-top-color:var(--gold);}
+  .office:nth-child(3){border-top-color:var(--paddy);}
+  .office:nth-child(4){border-top-color:var(--teal-deep);}
+  .office__name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--teal-deep);line-height:1.2;}
+  .office__zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:.04em;}
+  .office ul{list-style:none;margin-top:16px;padding:0;}
+  .office li{font-size:15.5px;padding:8px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+  .office li:last-child{border-bottom:none;}
+  .office .ep{
+    flex-shrink:0;
+    font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;
+    color:var(--gold-deep);letter-spacing:.06em;
+    background:var(--gold-soft);
+    padding:2px 8px;border-radius:4px;
+    min-width:54px;text-align:center;
+  }
+  .office li span:last-child{color:var(--ink);font-family:'PingFang TC',sans-serif;}
+
+  /* houliao office note */
+  .note-houliao{
+    background:var(--teal-soft);border:1px dashed var(--teal);border-radius:14px;
+    padding:20px 24px;margin-top:30px;
+    font-size:16.5px;color:var(--ink);line-height:1.7;
+  }
+  .note-houliao strong{color:var(--teal-deep);}
+
+  /* why box */
+  .why{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:32px 30px;box-shadow:var(--shadow-sm);
+    margin-top:64px;
+    border-left:6px solid var(--paddy);
+  }
+  @media (min-width:720px){ .why{padding:40px 40px;} }
+  .why h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--paddy-deep);font-weight:600;}
+  .why h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);font-weight:600;margin-top:4px;}
+  .why p{font-size:20px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  @media (min-width:720px){ .why p{font-size:22px;} }
+  .why p strong{color:var(--paddy-deep);}
+  .why p .zh-inline{display:block;color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.7;}
+  @media (min-width:720px){ .why p .zh-inline{font-size:20px;} }
+
+  .back-cta{text-align:center;margin-top:40px;}
+  .back-cta a{display:inline-block;background:var(--teal-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;}
+  .back-cta a:hover{background:var(--gold);color:#fff;}
+
+  /* footer */
+  footer{background:#0a2229;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+  footer .partner a{color:var(--gold-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--gold-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Houliao Elementary
+        <small>彰化縣後寮國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="./" class="is-active">English Life</a>
+      <a href="../news/">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=houliao">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">English Life · 雙語校園</div>
+    <h1>A Bilingual Campus
+      <span class="zh">雙語校園 · 課室英語與雙語廣播</span>
+    </h1>
+    <hr class="page-head__divider">
+    <p class="lede">
+      Two free shared video libraries that let English live in an ordinary Houliao school day.
+      <span class="zh-inline">兩套人師共用免費影片庫，讓英文走進後寮平常的一天——課堂裡，以及每天的校園廣播。</span>
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- INTRO -->
+    <div class="lede-card">
+      <h2>English that lives in the school day
+        <span class="zh">活在校園日常裡的英文</span>
+      </h2>
+      <p>
+        A bilingual campus is not one English lesson a week &mdash; it is English woven into the ordinary day. Houliao plugs into <strong>two free video libraries</strong> made by <strong>My Culture Connect 人師教育協會</strong> and shared across all 89 Changhua Bilingual Hub schools: one for the <strong>classroom</strong>, one for the <strong>school's daily announcements</strong>. No new budget, no extra teacher hours &mdash; just press play.
+        <span class="zh-inline">雙語校園不是一週一節英文課，而是把英文織進平常的一天。後寮接上<strong>人師教育協會</strong>製作、全 89 校共用的<strong>兩套免費影片庫</strong>：一套給<strong>課堂</strong>，一套給<strong>每天的校園廣播</strong>——不需要新預算、不需要額外師資工時，按下播放就能用。</span>
+      </p>
+    </div>
+
+    <!-- JUMP LINKS -->
+    <div class="jump">
+      <a href="#classroom-english">
+        <span class="no">PART I</span>
+        <span class="t">Classroom English<span class="zh">課室英語</span></span>
+      </a>
+      <a href="#bilingual-announcements">
+        <span class="no">PART II</span>
+        <span class="t">Bilingual Announcements<span class="zh">雙語廣播</span></span>
+      </a>
+    </div>
+
+    <!-- ============ PART I — CLASSROOM ENGLISH ============ -->
+    <section class="band" id="classroom-english">
+      <div class="band__no">Part I</div>
+      <h2 class="band__title">Classroom English
+        <span class="zh">課室英語 · 老師每天會用到的英文</span>
+      </h2>
+      <div class="band__rule"></div>
+      <p class="band__intro">
+        Every Taiwanese teacher already speaks the words English class needs &mdash; <strong>roll-call, prep, instructions, praise, classroom management, lesson activities, homework, wrap-up, exams</strong>. This series isolates each situation so the right phrase comes out the moment it is needed.
+        <span class="zh-inline">每位台灣老師在課堂上已經會用的句子——點名、課前準備、講解、稱讚、班級經營、課堂活動、作業、收尾、考試——這個影片庫把每個情境拆成獨立一支，第一次聽就能用出來。</span>
+      </p>
+
+      <!-- CREDITS -->
+      <div class="credits">
+        <div class="credits__cell">
+          <div class="credits__label">Instructor · 主講</div>
+          <div class="credits__value">Sarah Thomas
+            <span class="zh">Sarah 老師</span>
+          </div>
+        </div>
+        <div class="credits__cell">
+          <div class="credits__label">Producer · 製作</div>
+          <div class="credits__value">My Culture Connect
+            <span class="zh">人師教育協會</span>
+          </div>
+        </div>
+        <div class="credits__cell">
+          <div class="credits__label">Audience · 對象</div>
+          <div class="credits__value">In-service teachers
+            <span class="zh">在職教師、實習教師</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAYER -->
+      <div class="player">
+        <div class="player__ratio">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+            title="Classroom English playlist by Sarah Thomas"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+        <span class="player-link__icon">&#9654;</span>
+        <span class="player-link__text">
+          <strong>Browse the full playlist on YouTube</strong>
+          <span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支</span>
+        </span>
+        <span class="player-link__arrow">&#8599;</span>
+      </a>
+
+      <!-- TOPICS -->
+      <div class="topics-head">
+        <h3>What's inside the library
+          <span class="zh">影片庫的十大情境</span>
+        </h3>
+        <p>Ten situations, one video each &mdash; phrases a Houliao teacher can drop into a regular class without rewriting the lesson plan.</p>
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-pill"><div class="no">01</div><div class="en">Greetings &amp; Roll Call</div><div class="zh">問候、點名</div></div>
+        <div class="topic-pill"><div class="no">02</div><div class="en">Pre-Class Prep</div><div class="zh">課前準備</div></div>
+        <div class="topic-pill"><div class="no">03</div><div class="en">Explanations</div><div class="zh">講解</div></div>
+        <div class="topic-pill"><div class="no">04</div><div class="en">Pre-Teaching</div><div class="zh">課前活動</div></div>
+        <div class="topic-pill"><div class="no">05</div><div class="en">Praise &amp; Feedback</div><div class="zh">回饋讚美糾正</div></div>
+        <div class="topic-pill"><div class="no">06</div><div class="en">Classroom Mgmt</div><div class="zh">教室管理</div></div>
+        <div class="topic-pill"><div class="no">07</div><div class="en">Lesson Activities</div><div class="zh">課堂活動</div></div>
+        <div class="topic-pill"><div class="no">08</div><div class="en">Homework</div><div class="zh">分派作業</div></div>
+        <div class="topic-pill"><div class="no">09</div><div class="en">Wrap-Up</div><div class="zh">課堂收尾</div></div>
+        <div class="topic-pill"><div class="no">10</div><div class="en">Exams</div><div class="zh">考試</div></div>
+      </div>
+    </section>
+
+    <!-- ============ PART II — BILINGUAL ANNOUNCEMENTS ============ -->
+    <section class="band" id="bilingual-announcements">
+      <div class="band__no">Part II</div>
+      <h2 class="band__title">Bilingual Announcements
+        <span class="zh">雙語廣播 · 校園的英語之聲</span>
+      </h2>
+      <div class="band__rule"></div>
+      <p class="band__intro">
+        Every school office introduced bilingually &mdash; turning daily public-address time into a real bilingual moment for the whole campus. Organised by the four offices a typical Taiwanese school runs.
+        <span class="zh-inline">校園雙語廣播影片庫，依四個處室分組，把每天的廣播時間，變成校內真實的雙語浸潤。</span>
+      </p>
+
+      <!-- CREDITS -->
+      <div class="credits">
+        <div class="credits__cell">
+          <div class="credits__label">Hosts · 主播</div>
+          <div class="credits__value">Sarah Thomas &amp; Susan Rose
+            <span class="zh">Sarah 老師、Susan 老師</span>
+          </div>
+        </div>
+        <div class="credits__cell">
+          <div class="credits__label">Producer · 製作</div>
+          <div class="credits__value">My Culture Connect
+            <span class="zh">人師教育協會</span>
+          </div>
+        </div>
+        <div class="credits__cell">
+          <div class="credits__label">Format · 形式</div>
+          <div class="credits__value">Four Offices
+            <span class="zh">分四處室 · 校園廣播專用</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAYER -->
+      <div class="player">
+        <div class="player__ratio">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+            title="Bilingual Announcements playlist by Sarah Thomas &amp; Susan Rose"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+        <span class="player-link__icon">&#9654;</span>
+        <span class="player-link__text">
+          <strong>Browse the full playlist on YouTube</strong>
+          <span>在 YouTube 開啟完整 playlist · 任選想看的處室</span>
+        </span>
+        <span class="player-link__arrow">&#8599;</span>
+      </a>
+
+      <!-- OFFICES -->
+      <div class="office-head">
+        <h3>By office
+          <span class="zh">依處室分集</span>
+        </h3>
+        <p>The episodes map onto the four offices a typical Taiwanese elementary school runs &mdash; the same offices Houliao's children see signs for every day.</p>
+      </div>
+
+      <div class="offices">
+        <article class="office">
+          <div class="office__name">Academic Affairs</div>
+          <div class="office__zh">教務處</div>
+          <ul>
+            <li><span class="ep">EP</span><span>Curriculum &amp; Instruction · 教學組</span></li>
+            <li><span class="ep">EP</span><span>Registrar · 註冊組</span></li>
+            <li><span class="ep">EP</span><span>Equipment · 設備組</span></li>
+            <li><span class="ep">EP</span><span>Library · 圖書室</span></li>
+            <li><span class="ep">EP</span><span>IT · 資訊組</span></li>
+          </ul>
+        </article>
+
+        <article class="office">
+          <div class="office__name">Student Affairs</div>
+          <div class="office__zh">學務處</div>
+          <ul>
+            <li><span class="ep">EP</span><span>Discipline · 訓育組</span></li>
+            <li><span class="ep">EP</span><span>Health · 衛生組</span></li>
+            <li><span class="ep">EP</span><span>Sports · 體育組</span></li>
+          </ul>
+        </article>
+
+        <article class="office">
+          <div class="office__name">General Affairs</div>
+          <div class="office__zh">總務處</div>
+          <ul>
+            <li><span class="ep">EP</span><span>Documents · 文書組</span></li>
+            <li><span class="ep">EP</span><span>Maintenance · 事務組</span></li>
+            <li><span class="ep">EP</span><span>Cashier · 出納組</span></li>
+          </ul>
+        </article>
+
+        <article class="office">
+          <div class="office__name">Counselling</div>
+          <div class="office__zh">輔導室</div>
+          <ul>
+            <li><span class="ep">EP</span><span>Counselling · 輔導組</span></li>
+            <li><span class="ep">EP</span><span>Data &amp; Records · 資料組</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- A note specific to Houliao -->
+      <div class="note-houliao">
+        <strong>A note about Houliao's offices · 後寮的處室小說明：</strong>
+        Houliao is a small village school that runs a streamlined structure &mdash; <strong>"Educational Affairs" (教導處)</strong> combines what bigger schools split between <em>Academic Affairs</em> and <em>Student Affairs</em>. The series still maps cleanly onto the work each office does day-to-day. <br>
+        後寮屬偏鄉小校、採精簡結構：<strong>「教導處」</strong>合併了一般學校的「教務處」與「學務處」。即便如此，這一系列的內容仍然能完整對應到後寮各處室每天的工作。
+      </div>
+    </section>
+
+    <!-- WHY (covers both libraries) -->
+    <div class="why">
+      <h3>Why this matters at Houliao
+        <span class="zh">在後寮，為什麼這兩套影片庫特別重要</span>
+      </h3>
+      <p>
+        Houliao is a <strong>small rural village school</strong> where teachers carry a heavy mix of grades and subjects, and outside English exposure is hard to come by. These two libraries let the <strong>same sentences a city classroom hears</strong> walk into a Fangyuan classroom for free &mdash; and turn daily announcement time into a regular, low-pressure encounter with English for every child, with no extra prep, paperwork, or teacher hours.
+        <span class="zh-inline">後寮國小是一所偏鄉小校，老師往往跨年級、跨科目，校外的英語接觸機會有限。這兩套影片庫讓<strong>城市課堂聽到的同一組句子</strong>免費走進芳苑鄉的課堂，也把每天的廣播時間，變成校內每一位孩子規律、無壓的英語接觸——不需要額外備課、公文或師資工時。</span>
+      </p>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">&larr; Back to home · 回首頁</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣後寮國民小學 · Houliao Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'houliao-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300); setTimeout(report, 1200); setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if(!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+
+</body>
+</html>
