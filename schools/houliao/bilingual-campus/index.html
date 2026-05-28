@@ -61,8 +61,8 @@
     position:relative;text-align:center;color:#fff;
     padding:84px 0 64px;
     background:
-      linear-gradient(180deg, rgba(14,58,69,.72) 0%, rgba(14,58,69,.56) 45%, rgba(14,58,69,.86) 100%),
-      url('../photos/school-front.jpg') center 55% / cover no-repeat;
+      linear-gradient(180deg, rgba(14,58,69,.74) 0%, rgba(14,58,69,.55) 42%, rgba(14,58,69,.86) 100%),
+      url('../photos/campus-landmark.jpg') center 62% / cover no-repeat;
     border-bottom:5px solid var(--gold);
   }
   @media (min-width:720px){ .page-head{padding:104px 0 84px;} }
@@ -163,6 +163,17 @@
   .player-link__text strong{font-size:17px;font-weight:700;letter-spacing:.02em;}
   .player-link__text span{font-size:14.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
   .player-link__arrow{font-size:20px;color:var(--gold-soft);}
+
+  /* word-of-the-day video grid (made at Houliao) */
+  .wotd-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:720px){ .wotd-grid{grid-template-columns:1fr 1fr;gap:28px;} }
+  .wotd-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+  .wotd-card .player__ratio{border-radius:0;}
+  .wotd-card__cap{display:flex;align-items:baseline;gap:12px;padding:18px 22px;border-top:4px solid var(--gold);}
+  .wotd-card__word{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--teal-deep);line-height:1.1;}
+  @media (min-width:720px){ .wotd-card__word{font-size:32px;} }
+  .wotd-card__zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:600;}
+  @media (min-width:720px){ .wotd-card__zh{font-size:22px;} }
 
   /* topics (classroom english) */
   .topics-head{margin:46px 0 18px;}
@@ -283,7 +294,7 @@
   <div class="wrap">
     <div class="page-head__eyebrow">English Life · 雙語校園</div>
     <h1>A Bilingual Campus
-      <span class="zh">雙語校園 · 課室英語與雙語廣播</span>
+      <span class="zh">雙語校園 · 課室英語・雙語廣播・每日一字</span>
     </h1>
     <hr class="page-head__divider">
     <p class="lede">
@@ -316,6 +327,10 @@
       <a href="#bilingual-announcements">
         <span class="no">PART II</span>
         <span class="t">Bilingual Announcements<span class="zh">雙語廣播</span></span>
+      </a>
+      <a href="#word-of-the-day">
+        <span class="no">PART III</span>
+        <span class="t">Word of the Day<span class="zh">每日一字 · 後寮自製</span></span>
       </a>
     </div>
 
@@ -508,6 +523,60 @@
         Houliao is a small village school that runs a streamlined structure &mdash; <strong>"Educational Affairs" (教導處)</strong> combines what bigger schools split between <em>Academic Affairs</em> and <em>Student Affairs</em>. The series still maps cleanly onto the work each office does day-to-day. <br>
         後寮屬偏鄉小校、採精簡結構：<strong>「教導處」</strong>合併了一般學校的「教務處」與「學務處」。即便如此，這一系列的內容仍然能完整對應到後寮各處室每天的工作。
       </div>
+    </section>
+
+    <!-- ============ PART III — WORD OF THE DAY (made at Houliao) ============ -->
+    <section class="band" id="word-of-the-day">
+      <div class="band__no">Part III</div>
+      <h2 class="band__title">Word of the Day
+        <span class="zh">每日一字 · 後寮自製</span>
+      </h2>
+      <div class="band__rule"></div>
+      <p class="band__intro">
+        Houliao doesn't only borrow English &mdash; it makes it. These are Houliao's own episodes in the <strong>Changhua Bilingual Hub "Word of the Day"</strong> series: one English word, filmed on our own campus, taught by our own children.
+        <span class="zh-inline">後寮不只「用」英文，也「做」英文。這兩支是後寮為<strong>彰化雙語 Hub「每日一字」</strong>系列拍攝的影片——一個英文單字，在自己的校園裡，由自己的孩子來教。</span>
+      </p>
+
+      <div class="wotd-grid">
+        <article class="wotd-card">
+          <div class="player__ratio">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ay6umIYJjSk?rel=0"
+              title="Word of the Day: jump rope 跳繩 — Houliao Elementary"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="wotd-card__cap">
+            <span class="wotd-card__word">jump rope</span>
+            <span class="wotd-card__zh">跳繩</span>
+          </div>
+        </article>
+
+        <article class="wotd-card">
+          <div class="player__ratio">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/KhxKpaHsjT8?rel=0"
+              title="Word of the Day: soccer 足球 — Houliao Elementary"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="wotd-card__cap">
+            <span class="wotd-card__word">soccer</span>
+            <span class="wotd-card__zh">足球</span>
+          </div>
+        </article>
+      </div>
+
+      <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U7vg9472KB1Uxblmsh37rM" target="_blank" rel="noopener">
+        <span class="player-link__icon">&#9654;</span>
+        <span class="player-link__text">
+          <strong>Watch Houliao's Word of the Day on YouTube</strong>
+          <span>在 YouTube 看後寮的「每日一字」 · 持續增加中</span>
+        </span>
+        <span class="player-link__arrow">&#8599;</span>
+      </a>
     </section>
 
     <!-- WHY (covers both libraries) -->
