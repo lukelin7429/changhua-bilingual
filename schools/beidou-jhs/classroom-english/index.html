@@ -56,33 +56,20 @@
   @media (min-width:720px){ .page-hero__zh{ font-size:28px; } }
   .page-hero__rule{width:80px;height:5px;background:#fff;border-radius:3px;margin:24px 0 0;}
 
-  /* === Word of the Day units === */
-  .units{display:flex;flex-direction:column;gap:0;}
-  .unit{display:grid;grid-template-columns:100px 1fr;gap:0;border-radius:20px;overflow:hidden;border:1.5px solid var(--line);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s;background:#fff;margin-bottom:18px;}
-  @media (min-width:720px){ .unit{ grid-template-columns:160px 1fr; } }
-  .unit:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-  .unit__hero{background:var(--navy-soft);display:flex;align-items:center;justify-content:center;min-height:110px;}
-  @media (min-width:720px){ .unit__hero{ min-height:140px; } }
-  .unit__emoji{font-size:44px;}
-  @media (min-width:720px){ .unit__emoji{ font-size:60px; } }
-  .unit__body{padding:22px 24px;}
-  @media (min-width:720px){ .unit__body{ padding:28px 32px; } }
-  .unit__no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:14px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;}
-  .unit__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--navy-deep);line-height:1.2;margin-top:6px;}
-  @media (min-width:720px){ .unit__title{ font-size:30px; } }
-  .unit__title-zh{font-size:17px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
-  @media (min-width:720px){ .unit__title-zh{ font-size:18px; } }
-  .unit__desc{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
-  @media (min-width:720px){ .unit__desc{ font-size:18px; } }
-  .unit__cta{display:inline-flex;align-items:center;gap:6px;background:var(--navy-deep);color:#fff;border-radius:8px;padding:8px 16px;font-size:15px;font-weight:700;margin-top:14px;transition:background .15s;}
-  .unit:hover .unit__cta{background:var(--gold);}
-  .unit__cta .arrow{font-size:18px;}
-
-  /* colour per unit */
-  .u-1 .unit__hero{background:var(--teal-soft);}
-  .u-2 .unit__hero{background:var(--green-soft);}
-  .u-3 .unit__hero{background:var(--gold-soft);}
-  .u-4 .unit__hero{background:var(--navy-soft);}
+  /* === Word of the Day card grid === */
+  .wotd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
+  @media (min-width:600px){ .wotd-grid{ grid-template-columns:repeat(3,1fr);gap:14px; } }
+  @media (min-width:960px){ .wotd-grid{ grid-template-columns:repeat(4,1fr);gap:16px; } }
+  .wotd-card{background:#fff;border:1.5px solid var(--line);border-top:4px solid var(--navy);border-radius:16px;padding:16px 14px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-top-color .2s;}
+  .wotd-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-top-color:var(--gold);}
+  .wotd-card__no{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;}
+  .wotd-card__emoji{font-size:26px;line-height:1;margin:8px 0 4px;}
+  .wotd-card__word{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--navy-deep);line-height:1.25;}
+  @media (min-width:720px){ .wotd-card__word{ font-size:21px; } }
+  .wotd-card__pos{font-size:11px;color:var(--ink-soft);font-style:italic;margin-top:2px;}
+  .wotd-card__zh{font-size:13px;color:var(--ink-soft);font-weight:600;margin-top:5px;letter-spacing:.5px;}
+  .wotd-card__cta{margin-top:auto;padding-top:10px;font-size:12px;font-weight:700;color:var(--gold-deep);text-align:right;}
+  .wotd-card:hover .wotd-card__cta{color:var(--navy-deep);}
 
   /* === Video player === */
   .player{margin-top:28px;}
@@ -179,70 +166,293 @@
       <span class="zh">來自北斗國中校園的短片英語學習系列——農場、天文台、體育館、教室，每個角落都有新的英文詞彙。按下播放鍵，每天多學一個字。</span>
     </p>
 
-    <div class="player">
-      <div class="player__ratio">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs&rel=0"
-          title="Word of the Day — Beidou Junior High School Bilingual Series"
-          loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
-    </div>
+    <!-- 29 individual Word of the Day video cards -->
+    <div class="wotd-grid">
 
-    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-      <span class="player-link__icon">▶</span>
-      <span class="player-link__text">
-        <strong>Browse the full Word of the Day playlist on YouTube</strong>
-        <span>在 YouTube 開啟完整播放清單 · 北斗國中 Word of the Day 系列</span>
-      </span>
-      <span class="player-link__arrow">↗</span>
-    </a>
+      <a class="wotd-card" href="https://youtu.be/GRkF3awi6k8" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 01</div>
+        <div class="wotd-card__emoji">🚒</div>
+        <div class="wotd-card__word">firefighter</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">消防員</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
 
-    <div style="margin-top:36px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Topics in this series · 本系列主題</div>
-      <div class="units">
-        <a class="unit u-1" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-          <div class="unit__hero"><span class="unit__emoji">🌾</span></div>
-          <div class="unit__body">
-            <div class="unit__no">Series · Video</div>
-            <div class="unit__title">Campus Life in English</div>
-            <div class="unit__title-zh">北斗校園日常英文</div>
-            <div class="unit__desc">Words from the farm, the classroom, the gym, and the observatory — vocabulary that lives in the real places of Beidou JHS.</div>
-            <div class="unit__cta">Watch on YouTube <span class="arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="unit u-2" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-          <div class="unit__hero"><span class="unit__emoji">🔬</span></div>
-          <div class="unit__body">
-            <div class="unit__no">Series · Video</div>
-            <div class="unit__title">Science & Technology Words</div>
-            <div class="unit__title-zh">科技與自然科學英文詞彙</div>
-            <div class="unit__desc">Telescope, solar panel, sensor, fossil — the vocabulary of the subjects that make Beidou JHS special, taught one word at a time.</div>
-            <div class="unit__cta">Watch on YouTube <span class="arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="unit u-3" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-          <div class="unit__hero"><span class="unit__emoji">🏃</span></div>
-          <div class="unit__body">
-            <div class="unit__no">Series · Video</div>
-            <div class="unit__title">Sports & PE English</div>
-            <div class="unit__title-zh">體育與運動英文</div>
-            <div class="unit__desc">Woodball, batting practice, team sport, warm-up — the language of movement and physical education at Beidou JHS.</div>
-            <div class="unit__cta">Watch on YouTube <span class="arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="unit u-4" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-          <div class="unit__hero"><span class="unit__emoji">🎉</span></div>
-          <div class="unit__body">
-            <div class="unit__no">Series · Video</div>
-            <div class="unit__title">School Events & Seasons</div>
-            <div class="unit__title-zh">校園活動與季節英文</div>
-            <div class="unit__desc">Field day, graduation, winter solstice, semester — the words that mark the rhythm of the school year in Beidou Township.</div>
-            <div class="unit__cta">Watch on YouTube <span class="arrow">↗</span></div>
-          </div>
-        </a>
+      <a class="wotd-card" href="https://youtu.be/0sLb-pL3DLA" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 02</div>
+        <div class="wotd-card__emoji">💪</div>
+        <div class="wotd-card__word">fitness club</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">體能健身社</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/sjHR6xXwhnU" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 03</div>
+        <div class="wotd-card__emoji">🎸</div>
+        <div class="wotd-card__word">pop music club</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">熱音社</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/4JlnOYLqs8U" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 04</div>
+        <div class="wotd-card__emoji">🪚</div>
+        <div class="wotd-card__word">woodshop</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">木工坊</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/yi9SNNJcw20" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 05</div>
+        <div class="wotd-card__emoji">🏃</div>
+        <div class="wotd-card__word">earthquake drill</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">地震演習</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/Px-o2G2KC48" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 06</div>
+        <div class="wotd-card__emoji">🌳</div>
+        <div class="wotd-card__word">climbing trees</div>
+        <div class="wotd-card__pos">(v. phrase)</div>
+        <div class="wotd-card__zh">爬樹</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/Yh8VrQ0DDdk" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 07</div>
+        <div class="wotd-card__emoji">📚</div>
+        <div class="wotd-card__word">book</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">書</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/OBHYK7ZRTPw" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 08</div>
+        <div class="wotd-card__emoji">👂</div>
+        <div class="wotd-card__word">story listening</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">聽故事</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/WG8jz2LrmYQ" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 09</div>
+        <div class="wotd-card__emoji">🌌</div>
+        <div class="wotd-card__word">telescope</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">望遠鏡</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/B1MpUa1hS68" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 10</div>
+        <div class="wotd-card__emoji">🔭</div>
+        <div class="wotd-card__word">observatory</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">天文台</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/Lgo3y6HhfK4" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 11</div>
+        <div class="wotd-card__emoji">🍕</div>
+        <div class="wotd-card__word">pizza</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">披薩</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/nHSApZDL62o" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 12</div>
+        <div class="wotd-card__emoji">🔥</div>
+        <div class="wotd-card__word">rocket stove</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">火箭爐</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/xskSr1L1xZI" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 13</div>
+        <div class="wotd-card__emoji">🙌</div>
+        <div class="wotd-card__word">wash your hands</div>
+        <div class="wotd-card__pos">(v. phrase)</div>
+        <div class="wotd-card__zh">洗手</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/6UnGSEpbbmM" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 14</div>
+        <div class="wotd-card__emoji">📰</div>
+        <div class="wotd-card__word">newspaper</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">報紙</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/s0cbw9MrkMM" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 15</div>
+        <div class="wotd-card__emoji">📄</div>
+        <div class="wotd-card__word">test paper</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">試卷</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/wOrABQO4UPk" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 16</div>
+        <div class="wotd-card__emoji">😴</div>
+        <div class="wotd-card__word">take a nap</div>
+        <div class="wotd-card__pos">(v. phrase)</div>
+        <div class="wotd-card__zh">午睡</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/RYhwEt-OhcI" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 17</div>
+        <div class="wotd-card__emoji">📝</div>
+        <div class="wotd-card__word">test</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">考試</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/dCAbJcAC1qU" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 18</div>
+        <div class="wotd-card__emoji">🚗</div>
+        <div class="wotd-card__word">carport</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">車棚</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/z1F_eCM4Nvc" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 19</div>
+        <div class="wotd-card__emoji">🏐</div>
+        <div class="wotd-card__word">volleyball</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">排球</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/DRfuUMcTFyw" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 20</div>
+        <div class="wotd-card__emoji">🪣</div>
+        <div class="wotd-card__word">mop</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">拖把</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/POQ9RrhyQzA" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 21</div>
+        <div class="wotd-card__emoji">🍴</div>
+        <div class="wotd-card__word">utensils</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">餐具</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/qvDXGPdyDPI" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 22</div>
+        <div class="wotd-card__emoji">🥄</div>
+        <div class="wotd-card__word">serve</div>
+        <div class="wotd-card__pos">(v.) verb</div>
+        <div class="wotd-card__zh">打菜</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/AYutjzR7BMw" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 23</div>
+        <div class="wotd-card__emoji">🍱</div>
+        <div class="wotd-card__word">school lunch</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">營養午餐</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/ftdFRP5LeBA" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 24</div>
+        <div class="wotd-card__emoji">📦</div>
+        <div class="wotd-card__word">carry</div>
+        <div class="wotd-card__pos">(v.) verb</div>
+        <div class="wotd-card__zh">搬運・攜帶</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/s3xuqfFPL9I" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 25</div>
+        <div class="wotd-card__emoji">🧹</div>
+        <div class="wotd-card__word">sweep</div>
+        <div class="wotd-card__pos">(v.) verb</div>
+        <div class="wotd-card__zh">打掃・掃地</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/pXOSqjx-5GQ" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 26</div>
+        <div class="wotd-card__emoji">🏀</div>
+        <div class="wotd-card__word">shoot</div>
+        <div class="wotd-card__pos">(v.) verb</div>
+        <div class="wotd-card__zh">投籃</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/DXKt3nYKxAg" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 27</div>
+        <div class="wotd-card__emoji">⚾</div>
+        <div class="wotd-card__word">batting practice</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">打擊練習</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/vJa6RGgykUI" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 28</div>
+        <div class="wotd-card__emoji">🏑</div>
+        <div class="wotd-card__word">woodball</div>
+        <div class="wotd-card__pos">(n.) noun</div>
+        <div class="wotd-card__zh">木球</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+      <a class="wotd-card" href="https://youtu.be/owMXzw0hzCw" target="_blank" rel="noopener">
+        <div class="wotd-card__no">WotD · 29</div>
+        <div class="wotd-card__emoji">📈</div>
+        <div class="wotd-card__word">professional development</div>
+        <div class="wotd-card__pos">(n.) noun phrase</div>
+        <div class="wotd-card__zh">專業進修</div>
+        <div class="wotd-card__cta">Watch ↗</div>
+      </a>
+
+    </div><!-- /wotd-grid -->
+
+    <!-- Full playlist embed -->
+    <div style="margin-top:48px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Full Playlist · 完整播放清單</div>
+      <div class="player">
+        <div class="player__ratio">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs&rel=0"
+            title="Word of the Day — Beidou Junior High School Bilingual Series"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
       </div>
+      <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
+        <span class="player-link__icon">▶</span>
+        <span class="player-link__text">
+          <strong>Browse the full Word of the Day playlist on YouTube</strong>
+          <span>在 YouTube 開啟完整播放清單 · 北斗國中 Word of the Day 系列（29 支影片）</span>
+        </span>
+        <span class="player-link__arrow">↗</span>
+      </a>
     </div>
   </div>
 </section>
