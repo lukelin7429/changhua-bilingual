@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>雙語廣播 · Bilingual Broadcast · Beidou Junior High</title>
+<meta name="description" content="Beidou Junior High bilingual school announcements — a 13-episode series covering all four school offices in English and Chinese. 北斗國中雙語廣播：13 集四處室雙語廣播系列。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#1a3a5c;--navy:#2d5f8a;--navy-soft:#e3edf8;
+    --gold:#c8870a;--gold-deep:#9b6508;--gold-soft:#fef0d4;
+    --green:#3d7a52;--green-deep:#2a5638;--green-soft:#e5f2ea;
+    --teal:#1e6e68;--teal-deep:#155450;--teal-soft:#e0f0ef;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(26,58,92,.30);--shadow-sm:0 6px 16px -6px rgba(26,58,92,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--gold-deep);}
+  .subnav a.is-active{background:var(--gold);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .page-hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--navy-deep) 100%);color:#fff;padding:56px 24px;}
+  @media (min-width:720px){ .page-hero{ padding:80px 24px; } }
+  .page-hero__inner{max-width:1080px;margin:0 auto;}
+  .page-hero__sup{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#c5e8e0;font-weight:600;margin-bottom:14px;}
+  .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;line-height:1.1;letter-spacing:.5px;}
+  @media (min-width:720px){ .page-hero h1{ font-size:78px; } }
+  .page-hero__zh{font-size:22px;color:#c5e8e0;margin-top:10px;font-weight:500;letter-spacing:1.5px;}
+  @media (min-width:720px){ .page-hero__zh{ font-size:28px; } }
+  .page-hero__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:24px 0 0;}
+
+  .player{margin-top:28px;}
+  .player__ratio{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;box-shadow:var(--shadow);}
+  .player__ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .player-link{display:flex;align-items:center;gap:14px;padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;margin-top:20px;text-decoration:none;color:var(--ink);transition:all .2s;}
+  .player-link:hover{border-color:var(--green);background:var(--green-soft);}
+  .player-link__icon{background:#ff0000;color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .player-link__text{flex:1;display:flex;flex-direction:column;}
+  .player-link__text strong{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy-deep);}
+  .player-link__text span{font-size:15px;color:var(--ink-soft);margin-top:2px;}
+  .player-link__arrow{font-size:24px;color:var(--green-deep);}
+
+  .credits{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px;background:var(--green-soft);border-radius:14px;padding:20px 24px;}
+  @media (min-width:720px){ .credits{ grid-template-columns:repeat(3,1fr);gap:24px; } }
+  .credits__label{font-family:'Cormorant Garamond',serif;color:var(--green-deep);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+  .credits__value{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+
+  .offices-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:24px;}
+  @media (min-width:720px){ .offices-grid{ grid-template-columns:repeat(2,1fr);gap:22px; } }
+  .office-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;border-top:6px solid var(--green);}
+  .office-card:nth-child(2){border-top-color:var(--navy);}
+  .office-card:nth-child(3){border-top-color:var(--gold);}
+  .office-card:nth-child(4){border-top-color:var(--teal);}
+  .office-card .name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy-deep);}
+  .office-card .name-zh{font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  .office-card ul{list-style:none;margin-top:14px;}
+  .office-card li{font-size:15px;color:var(--ink);padding:6px 0;display:flex;gap:10px;border-bottom:1px solid var(--line);}
+  .office-card li:last-child{border-bottom:none;}
+  .office-card li .ep{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:13px;font-weight:700;letter-spacing:1px;min-width:48px;}
+
+  .broadcast-intro{background:linear-gradient(135deg,var(--green-soft) 0%,var(--navy-soft) 100%);border-radius:24px;padding:40px 30px;border:2px solid var(--green);}
+  @media (min-width:720px){ .broadcast-intro{ padding:56px 48px; } }
+  .broadcast-intro h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--navy-deep);line-height:1.25;}
+  @media (min-width:720px){ .broadcast-intro h2{ font-size:44px; } }
+  .broadcast-intro .zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  .broadcast-intro p{font-size:21px;color:var(--ink);margin-top:18px;line-height:1.7;}
+  @media (min-width:720px){ .broadcast-intro p{ font-size:22px; } }
+
+  .quote{margin-top:36px;background:var(--green-soft);border-left:6px solid var(--green);padding:24px 28px;border-radius:0 12px 12px 0;}
+  .quote__text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--green-deep);line-height:1.4;font-style:italic;}
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+
+  .back-cta{text-align:center;margin-top:32px;}
+  .back-cta a{display:inline-block;background:var(--navy-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
+  .back-cta a:hover{background:var(--gold);}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--navy-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="../classroom-english/">課室英語</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">雙語廣播</a>
+      <span class="subnav__sep">·</span>
+      <a href="../news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="page-hero__sup">Bilingual Broadcast · 雙語廣播</div>
+    <h1>The English Voice of Our Campus</h1>
+    <div class="page-hero__zh">校園的英語之聲 · 四處室雙語廣播系列</div>
+    <div class="page-hero__rule"></div>
+  </div>
+</div>
+
+<!-- Section I: Broadcast Series -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">雙語廣播 · 13 集四處室完整系列</div>
+    <div class="sec__rule"></div>
+
+    <div class="broadcast-intro">
+      <h2>When the school bell rings in two languages</h2>
+      <div class="zh">當廣播響起，英語也流進北斗國中的每個角落</div>
+      <p>
+        A <strong>13-episode bilingual announcement series</strong>, organized by the four school offices: <strong>Academic Affairs, Student Affairs, General Affairs, Counselling.</strong> Each office introduces what it does — turning the school's daily public-address routine into a real-world bilingual experience for every student and teacher at Beidou JHS.
+        <br><br>
+        <span style="color:var(--ink-soft);font-size:19px;line-height:1.6;display:block;margin-top:8px;">13 集雙語校園廣播，依教務、學務、總務、輔導四個處室分組，把廣播時間變成校內真實的雙語浸潤時刻——讓英語自然地流進北斗國中每位師生的耳朵。</span>
+      </p>
+    </div>
+
+    <div class="credits">
+      <div>
+        <div class="credits__label">Hosts 主播</div>
+        <div class="credits__value">Sarah Thomas &amp; Susan Rose</div>
+      </div>
+      <div>
+        <div class="credits__label">Producer 製作</div>
+        <div class="credits__value">My Culture Connect · 人師</div>
+      </div>
+      <div>
+        <div class="credits__label">Episodes 集數</div>
+        <div class="credits__value">13 episodes · 四處室</div>
+      </div>
+    </div>
+
+    <div class="player">
+      <div class="player__ratio">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+          title="Bilingual Announcements playlist — My Culture Connect 雙語廣播"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text">
+        <strong>Browse the full Bilingual Announcements playlist on YouTube</strong>
+        <span>在 YouTube 開啟完整 13 集 · 任選想看的處室廣播</span>
+      </span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
+    <div class="offices-grid">
+      <div class="office-card">
+        <div class="name">Academic Affairs</div>
+        <div class="name-zh">教務處 · 5 集</div>
+        <ul>
+          <li><span class="ep">EP 1-1</span><span>Curriculum &amp; Instruction · 教學組</span></li>
+          <li><span class="ep">EP 1-2</span><span>Registrar · 註冊組</span></li>
+          <li><span class="ep">EP 1-3</span><span>Equipment · 設備組</span></li>
+          <li><span class="ep">EP 1-4</span><span>Library · 圖書室</span></li>
+          <li><span class="ep">EP 1-5</span><span>IT · 資訊組</span></li>
+        </ul>
+      </div>
+      <div class="office-card">
+        <div class="name">Student Affairs</div>
+        <div class="name-zh">學務處 · 3 集</div>
+        <ul>
+          <li><span class="ep">EP 2-1</span><span>Discipline · 訓育組</span></li>
+          <li><span class="ep">EP 2-2</span><span>Health · 衛生組</span></li>
+          <li><span class="ep">EP 2-3</span><span>Sports · 體育組</span></li>
+        </ul>
+      </div>
+      <div class="office-card">
+        <div class="name">General Affairs</div>
+        <div class="name-zh">總務處 · 1 集</div>
+        <ul>
+          <li><span class="ep">EP 3</span><span>Facilities &amp; Operations · 總務日常</span></li>
+        </ul>
+      </div>
+      <div class="office-card">
+        <div class="name">Counselling</div>
+        <div class="name-zh">輔導室 · 1 集</div>
+        <ul>
+          <li><span class="ep">EP 4</span><span>Student Counselling · 輔導日常</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div class="quote__text">"Bilingualism starts in the hallway, not only in the classroom."</div>
+      <div class="quote__zh">「雙語教育從走廊的廣播開始，不只在課堂裡發生。」<br>—— 北斗國中雙語廣播的理念</div>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回北斗國中首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 彰化縣立北斗國民中學 Beidou Junior High School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--navy-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>

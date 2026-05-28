@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News · 最新消息 · Beidou Junior High</title>
+<meta name="description" content="Latest news and events from Beidou Junior High School — food-agriculture, bilingual education, astronomy, and more. 北斗國中最新消息：食農教育、雙語活動、天文科普、各項獎項。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#1a3a5c;--navy:#2d5f8a;--navy-soft:#e3edf8;
+    --gold:#c8870a;--gold-deep:#9b6508;--gold-soft:#fef0d4;
+    --green:#3d7a52;--green-deep:#2a5638;--green-soft:#e5f2ea;
+    --teal:#1e6e68;--teal-deep:#155450;--teal-soft:#e0f0ef;
+    --bg-soft:#f5f8fb;--line:#dde6ee;--ink:#1f2530;--ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(26,58,92,.30);--shadow-sm:0 6px 16px -6px rgba(26,58,92,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+
+  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--gold-deep);}
+  .subnav a.is-active{background:var(--gold);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+
+  .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--teal) 100%);color:#fff;padding:56px 24px;}
+  @media (min-width:720px){ .page-hero{ padding:80px 24px; } }
+  .page-hero__inner{max-width:1080px;margin:0 auto;}
+  .page-hero__sup{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#f5d99a;font-weight:600;margin-bottom:14px;}
+  .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;line-height:1.1;letter-spacing:.5px;}
+  @media (min-width:720px){ .page-hero h1{ font-size:78px; } }
+  .page-hero__zh{font-size:22px;color:#c9daea;margin-top:10px;font-weight:500;letter-spacing:1.5px;}
+  @media (min-width:720px){ .page-hero__zh{ font-size:28px; } }
+  .page-hero__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:24px 0 0;}
+
+  /* === News cards === */
+  .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:720px){ .news-grid{ grid-template-columns:repeat(2,1fr);gap:28px; } }
+  .news-card{background:#fff;border-radius:18px;border:1px solid var(--line);padding:28px 26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
+  .news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .news-card__cat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:12px;}
+  .cat--bilingual{background:var(--navy-soft);color:var(--navy-deep);}
+  .cat--food{background:var(--green-soft);color:var(--green-deep);}
+  .cat--award{background:var(--gold-soft);color:var(--gold-deep);}
+  .cat--science{background:var(--teal-soft);color:var(--teal-deep);}
+  .cat--sports{background:var(--navy-soft);color:var(--navy-deep);}
+  .news-card__date{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold-deep);font-weight:700;letter-spacing:1px;}
+  .news-card__icon{font-size:36px;margin-bottom:12px;}
+  @media (min-width:720px){ .news-card__icon{ font-size:44px; } }
+  .news-card__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--navy-deep);line-height:1.25;margin-top:8px;}
+  @media (min-width:720px){ .news-card__title{ font-size:28px; } }
+  .news-card__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:4px;}
+  .news-card__body{font-size:17px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .news-card__body{ font-size:18px; } }
+  .news-card__tag{margin-top:16px;display:inline-block;background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:13px;color:var(--ink-soft);font-weight:600;}
+
+  /* === Featured news === */
+  .news-featured{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--gold-soft) 100%);border-radius:24px;padding:36px 28px;border:2px solid var(--navy);box-shadow:var(--shadow);margin-bottom:36px;}
+  @media (min-width:720px){ .news-featured{ padding:48px 40px; } }
+  .news-featured__badge{display:inline-block;background:var(--gold);color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:16px;}
+  .news-featured__date{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold-deep);font-weight:700;}
+  .news-featured__title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy-deep);line-height:1.2;margin-top:8px;}
+  @media (min-width:720px){ .news-featured__title{ font-size:42px; } }
+  .news-featured__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  .news-featured__body{font-size:19px;color:var(--ink);margin-top:16px;line-height:1.7;max-width:760px;}
+  @media (min-width:720px){ .news-featured__body{ font-size:20px; } }
+
+  .back-cta{text-align:center;margin-top:40px;}
+  .back-cta a{display:inline-block;background:var(--navy-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
+  .back-cta a:hover{background:var(--gold);}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--navy-deep);}
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="../classroom-english/">課室英語</a>
+      <span class="subnav__sep">·</span>
+      <a href="../bilingual-broadcast/">雙語廣播</a>
+      <span class="subnav__sep">·</span>
+      <a href="./" class="is-active">News</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="page-hero__sup">News · 最新消息</div>
+    <h1>Latest News</h1>
+    <div class="page-hero__zh">北斗國中的校園故事 · 食農、雙語、科技、運動</div>
+    <div class="page-hero__rule"></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec__no">★</div>
+    <h2 class="sec__title">Featured Story</h2>
+    <div class="sec__title-zh">本期焦點</div>
+    <div class="sec__rule"></div>
+
+    <div class="news-featured">
+      <div class="news-featured__badge">🏆 Achievement · 學術成就</div>
+      <div class="news-featured__date">June 2023</div>
+      <div class="news-featured__title">Three Students Score Perfect 45 — First Time in 20 Years</div>
+      <div class="news-featured__title-zh">睽違 20 年！北斗國中 3 名學生獲國中教育會考滿級分</div>
+      <div class="news-featured__body">
+        For the first time in two decades, three students from Beidou JHS — <strong>Tseng Yu-cheng</strong> (資優班), <strong>Yang Cheng-hung</strong> (普通班), and <strong>Chang Yuan-chun</strong> (資優班) — achieved a perfect score of 45 on the national junior high assessment, with all three receiving a Grade 5 in the writing section. The students credited consistent effort, reduced screen time, and targeted practice on challenging subjects.
+        <br><br>
+        <span style="color:var(--ink-soft);font-size:18px;line-height:1.6;display:block;margin-top:8px;">睽違 20 年，曾宥誠、楊丞閎、張蒝畯三名學生在國中教育會考中獲得 45 分滿級分，寫作測驗均為 5 級分。三人共同表示，減少使用 3C 產品、持之以恆地刷題、徹底理解每一道不會的題目，是他們成功的關鍵。</span>
+      </div>
+    </div>
+
+    <div class="sec__no">·</div>
+    <h2 class="sec__title" style="font-size:38px;margin-top:6px;">All News</h2>
+    <div class="sec__title-zh">所有消息 · 北中校園動態</div>
+    <div class="sec__rule"></div>
+
+    <div class="news-grid">
+
+      <div class="news-card">
+        <div class="news-card__cat cat--food">🌾 Food Agriculture · 食農</div>
+        <div class="news-card__date">2025</div>
+        <div class="news-card__icon">🏅</div>
+        <div class="news-card__title">National Food-Agriculture Award — Team Excellence</div>
+        <div class="news-card__title-zh">第一屆國家食農教育傑出貢獻獎・團體組優等</div>
+        <div class="news-card__body">Beidou JHS was honoured in Taiwan's inaugural National Food-Agriculture Education Award — the highest recognition for schools that integrate farming and sustainability into daily curriculum.</div>
+        <div class="news-card__tag">🏆 National Award</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--science">🔭 Science · 科技</div>
+        <div class="news-card__date">May 2020</div>
+        <div class="news-card__icon">🔭</div>
+        <div class="news-card__title">Domed Observatory Opens at Beidou JHS</div>
+        <div class="news-card__title-zh">北斗國中圓頂天文台正式啟用</div>
+        <div class="news-card__body">On May 19, 2020, Beidou JHS officially opened its domed astronomical observatory equipped with a 13-cm refractor telescope — giving every student direct access to the night sky.</div>
+        <div class="news-card__tag">🔬 New Facility</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--award">☀️ Energy · 能源</div>
+        <div class="news-card__date">2020</div>
+        <div class="news-card__icon">☀️</div>
+        <div class="news-card__title">Energy Education Gold Award — 2,083 Solar Panels</div>
+        <div class="news-card__title-zh">能源教育標竿金獎 · 全縣最大太陽能板校園</div>
+        <div class="news-card__body">With 2,083 solar panels across 7 buildings — the largest solar campus in Changhua County — Beidou JHS received the Central Taiwan Energy Education Gold Standard Award in 2020.</div>
+        <div class="news-card__tag">⚡ Energy Award</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--bilingual">🌐 Bilingual · 雙語</div>
+        <div class="news-card__date">2025</div>
+        <div class="news-card__icon">👩‍🏫</div>
+        <div class="news-card__title">Teacher Aileen Sim Joins as Foreign English Teacher</div>
+        <div class="news-card__title-zh">外籍英語教師 Aileen Sim 駐校推動雙語教育</div>
+        <div class="news-card__body">Teacher Aileen Sim from the Philippines brings her ESL and university teaching experience to Beidou JHS, designing bilingual lessons that connect English to food-agriculture, astronomy, and campus life.</div>
+        <div class="news-card__tag">🌍 Bilingual Education</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--award">🌐 International · 國際</div>
+        <div class="news-card__date">2014</div>
+        <div class="news-card__icon">🥇</div>
+        <div class="news-card__title">International CyberFair — Platinum Award</div>
+        <div class="news-card__title-zh">國際網界博覽會白金獎 · 以北斗中正堂為研究主題</div>
+        <div class="news-card__body">In 2014, Beidou JHS students brought the history of the Zhengzhong Hall (1960, now a county-listed historical building) to the world stage, earning a Platinum Award at the International Schools CyberFair.</div>
+        <div class="news-card__tag">🌐 International Award</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--food">🌱 Ecology · 生態</div>
+        <div class="news-card__date">Ongoing</div>
+        <div class="news-card__icon">🌱</div>
+        <div class="news-card__title">Taiwan-US Eco-School Silver Certification</div>
+        <div class="news-card__title-zh">台美生態學校銀牌認證 · 環境永續的長期承諾</div>
+        <div class="news-card__body">Beidou JHS holds the Taiwan-US Eco-School Silver Certification, recognising the school's long-term commitment to environmental education, sustainable campus practices, and student-led ecological research.</div>
+        <div class="news-card__tag">🌿 Eco Certification</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--award">📚 Reading · 閱讀</div>
+        <div class="news-card__date">Ongoing</div>
+        <div class="news-card__icon">📚</div>
+        <div class="news-card__title">MOE Reading Cornerstone Award</div>
+        <div class="news-card__title-zh">教育部閱讀磐石獎 · 閱讀文化的長期耕耘</div>
+        <div class="news-card__body">Beidou JHS has received the Ministry of Education Reading Cornerstone Award, recognising years of sustained effort in building a campus reading culture across all grade levels and subject areas.</div>
+        <div class="news-card__tag">📖 MOE Award</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card__cat cat--bilingual">🌐 Bilingual · 雙語</div>
+        <div class="news-card__date">Ongoing</div>
+        <div class="news-card__icon">📡</div>
+        <div class="news-card__title">Bilingual Broadcast Goes Campus-Wide</div>
+        <div class="news-card__title-zh">雙語廣播走進全校 · 英語之聲每天響起</div>
+        <div class="news-card__body">Partnering with My Culture Connect, Beidou JHS launched a 13-episode bilingual announcement series covering all four school offices — making English a daily sound in every corridor and classroom.</div>
+        <div class="news-card__tag">📻 Campus Bilingual</div>
+      </div>
+
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to home · 回北斗國中首頁</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 彰化縣立北斗國民中學 Beidou Junior High School &nbsp;·&nbsp;
+  Bilingual website by <span class="org">My Culture Connect 人師教育協會</span> &nbsp;·&nbsp;
+  Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener" style="color:var(--navy-deep);">Changhua Bilingual Hub</a>
+</footer>
+
+</body>
+</html>
