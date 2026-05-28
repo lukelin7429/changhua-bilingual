@@ -169,11 +169,17 @@
   @media (min-width:720px){ .wotd-grid{grid-template-columns:1fr 1fr;gap:28px;} }
   .wotd-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
   .wotd-card .player__ratio{border-radius:0;}
-  .wotd-card__cap{display:flex;align-items:baseline;gap:12px;padding:18px 22px;border-top:4px solid var(--gold);}
-  .wotd-card__word{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--teal-deep);line-height:1.1;}
-  @media (min-width:720px){ .wotd-card__word{font-size:32px;} }
-  .wotd-card__zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:600;}
-  @media (min-width:720px){ .wotd-card__zh{font-size:22px;} }
+  .wotd-card__cap{display:flex;align-items:center;gap:14px;padding:20px 24px;color:#fff;}
+  .wotd-card:nth-child(1) .wotd-card__cap{background:linear-gradient(120deg,#0e8a8a 0%,#27a07a 100%);}
+  .wotd-card:nth-child(2) .wotd-card__cap{background:linear-gradient(120deg,#e07b39 0%,#e7a92e 100%);}
+  .wotd-card:nth-child(3) .wotd-card__cap{background:linear-gradient(120deg,#3f7fd0 0%,#5aa6e0 100%);}
+  .wotd-card:nth-child(4) .wotd-card__cap{background:linear-gradient(120deg,#8a5fb0 0%,#b07cc9 100%);}
+  .wotd-card__emoji{font-size:36px;line-height:1;flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));}
+  @media (min-width:720px){ .wotd-card__emoji{font-size:44px;} }
+  .wotd-card__word{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:#fff;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.22);}
+  @media (min-width:720px){ .wotd-card__word{font-size:38px;} }
+  .wotd-card__zh{font-family:'PingFang TC',sans-serif;font-size:22px;color:#fff;font-weight:700;margin-left:auto;text-shadow:0 1px 4px rgba(0,0,0,.22);}
+  @media (min-width:720px){ .wotd-card__zh{font-size:26px;} }
 
   /* topics (classroom english) */
   .topics-head{margin:46px 0 18px;}
@@ -548,6 +554,7 @@
               allowfullscreen></iframe>
           </div>
           <div class="wotd-card__cap">
+            <span class="wotd-card__emoji">🪢</span>
             <span class="wotd-card__word">jump rope</span>
             <span class="wotd-card__zh">跳繩</span>
           </div>
@@ -563,6 +570,7 @@
               allowfullscreen></iframe>
           </div>
           <div class="wotd-card__cap">
+            <span class="wotd-card__emoji">⚽</span>
             <span class="wotd-card__word">soccer</span>
             <span class="wotd-card__zh">足球</span>
           </div>

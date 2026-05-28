@@ -49,21 +49,25 @@
   .topbar-nav a.is-active{color:var(--teal-deep);font-weight:700;}
   @media (max-width:760px){ .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;} .topbar-nav{gap:14px;justify-content:flex-start;} }
 
-  /* page head */
-  .page-head{background:#fff;padding:60px 0 30px;text-align:center;border-bottom:1px solid var(--line);}
-  .page-head__eyebrow{display:inline-block;font-size:15px;letter-spacing:.22em;color:var(--paddy);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+  /* page head — photo banner (school landmark) */
+  .page-head{position:relative;text-align:center;color:#fff;padding:84px 0 64px;
+    background:linear-gradient(180deg, rgba(14,58,69,.74) 0%, rgba(14,58,69,.5) 45%, rgba(14,58,69,.84) 100%), url('../photos/campus-landmark.jpg') center 62% / cover no-repeat;
+    border-bottom:5px solid var(--gold);}
+  @media (min-width:720px){ .page-head{padding:104px 0 84px;} }
+  .page-head__eyebrow{display:inline-block;font-size:15px;letter-spacing:.28em;color:var(--gold-soft);font-weight:700;text-transform:uppercase;margin-bottom:16px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
   @media (min-width:720px){ .page-head__eyebrow{font-size:16px;} }
-  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:40px;line-height:1.12;font-weight:600;color:var(--teal-deep);}
-  @media (min-width:720px){ .page-head h1{font-size:58px;} }
-  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:.05em;}
-  @media (min-width:720px){ .page-head h1 .zh{font-size:22px;} }
-  .page-head .lede{max-width:680px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--ink);line-height:1.55;}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:42px;line-height:1.1;font-weight:600;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.5);}
+  @media (min-width:720px){ .page-head h1{font-size:62px;} }
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:rgba(255,255,255,.94);font-weight:500;margin-top:12px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  @media (min-width:720px){ .page-head h1 .zh{font-size:24px;} }
+  .page-head__divider{width:60px;height:2px;background:var(--gold);border:0;margin:22px auto 18px;}
+  .page-head .lede{max-width:680px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:rgba(255,255,255,.96);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.5);}
   @media (min-width:720px){ .page-head .lede{font-size:23px;} }
-  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:8px;}
+  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:17px;color:rgba(255,255,255,.86);margin-top:8px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
   @media (min-width:720px){ .page-head .lede .zh-inline{font-size:19px;} }
 
   /* category key */
-  .cat-key{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:34px 0 0;font-size:16px;}
+  .cat-key{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 34px;font-size:16px;}
   @media (min-width:720px){ .cat-key{font-size:18px;} }
   .cat-key span{padding:6px 14px;border-radius:8px;font-weight:700;}
   .ck-reading{background:var(--paddy-soft);color:var(--paddy-deep);}
@@ -203,10 +207,16 @@
     <h1>Stories from Houliao
       <span class="zh">後寮的故事 · 稻浪邊上一座小校的大事與日常</span>
     </h1>
+    <hr class="page-head__divider">
     <p class="lede">
       Field trips, reading walks, music and magic — what a small village school can do when every child is given the stage.
       <span class="zh-inline">遊學、走讀、音樂與魔術——當每一個孩子都被認真對待，一所偏鄉小校能做的事比想像更多。</span>
     </p>
+  </div>
+</header>
+
+<section class="news">
+  <div class="wrap">
     <div class="cat-key">
       <span class="ck-reading">📖 Reading · 閱讀</span>
       <span class="ck-field">🔭 Field Study · 遊學</span>
@@ -214,11 +224,6 @@
       <span class="ck-community">💛 Community · 關懷</span>
       <span class="ck-english">🎃 English Life · 校園英語</span>
     </div>
-  </div>
-</header>
-
-<section class="news">
-  <div class="wrap">
     <div class="news-grid">
 
       <a class="nc cat--reading" href="young-writers-picturebook/">
@@ -258,7 +263,7 @@
       </a>
 
       <a class="nc cat--community" href="magic-music-caravan/">
-        <div class="nc__thumb"><span class="nc__vidtag">▶ Video</span><img src="https://i.ytimg.com/vi/Fst9K88n3rs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Fst9K88n3rs/hqdefault.jpg'" alt="A Trainload of Joy: The Magic &amp; Music Caravan Pulls Into Houliao" loading="lazy"><span class="play">▶</span></div>
+        <div class="nc__thumb"><span class="nc__vidtag">▶ Video</span><img src="magic-music-caravan/photo.png" alt="A Trainload of Joy: The Magic &amp; Music Caravan Pulls Into Houliao" loading="lazy"><span class="play">▶</span></div>
         <div class="nc__body">
           <div class="nc__cat">COMMUNITY · 關懷列車</div>
           <div class="nc__date">April 8, 2026 · 115/4/8</div>
