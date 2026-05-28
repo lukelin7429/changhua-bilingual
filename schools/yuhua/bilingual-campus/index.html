@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>English Life · 雙語校園 · Yuhua Elementary School</title>
+<meta name="description" content="At Yuhua, bilingual life happens between the lessons — Sarah Thomas's Classroom English playlist and the four-office Bilingual Announcements series, freely shared by My Culture Connect 人師教育協會. 育華的雙語在課堂之外：Sarah Thomas 的課室英語影片，與四處室的雙語廣播——由人師教育協會公開分享。">
+<meta property="og:title" content="English Life · Yuhua Elementary">
+<meta property="og:description" content="Bilingual is the air, not the syllabus.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../photos/english-life-hero.jpg">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sea:#22638a;
+    --sea-deep:#0f3a55;
+    --sea-soft:#dceaf2;
+    --leaf:#3d7a3d;
+    --leaf-deep:#235024;
+    --leaf-soft:#dde8d4;
+    --sand:#caa056;
+    --sand-deep:#8b6a17;
+    --sand-soft:#f7eed9;
+    --cream:#ffffff;
+    --ink:#1a201f;
+    --ink-soft:#5a615f;
+    --line:#e3ddd0;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(15,58,85,.30);
+    --shadow-sm:0 4px 14px -4px rgba(15,58,85,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);background:#fff;
+    font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  @media (min-width:720px){ body{ font-size:22px; } }
+  img{max-width:100%;display:block;}
+  a{color:var(--sea);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--leaf-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ============ Top bar (sub-nav) ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;color:var(--sea-deep);line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);
+    margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--sea);}
+  .topbar-nav a.is-active{color:var(--sea-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* ============ HERO BANNER ============ */
+  .hero{
+    position:relative;
+    background:#0f3a55 url('../photos/english-life-hero.jpg') center 38%/cover;
+    min-height:320px;display:flex;align-items:flex-end;overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  @media (min-width:720px){ .hero{ min-height:420px; } }
+  @media (min-width:1080px){ .hero{ min-height:480px; } }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(15,58,85,.32) 0%, rgba(15,58,85,.78) 100%),
+      linear-gradient(90deg, rgba(15,58,85,.35) 0%, rgba(15,58,85,0) 55%);
+    pointer-events:none;
+  }
+  .hero > .wrap{
+    position:relative;z-index:1;width:100%;
+    padding-top:48px;padding-bottom:36px;color:#fff;
+  }
+  @media (min-width:720px){ .hero > .wrap{ padding-top:64px;padding-bottom:48px; } }
+  .hero__eyebrow{
+    display:inline-block;
+    font-size:14.5px;letter-spacing:.26em;
+    color:#f7eed9;font-weight:700;
+    text-transform:uppercase;margin-bottom:14px;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .hero__eyebrow{ font-size:16px; } }
+  .hero h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,7vw,76px);
+    line-height:1.04;font-weight:700;letter-spacing:.01em;
+    color:#fff;
+    text-shadow:0 4px 22px rgba(0,0,0,.5);
+  }
+  .hero h1 .zh{
+    display:block;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:clamp(20px,2.7vw,28px);
+    font-weight:500;letter-spacing:.06em;
+    color:#e4eef5;margin-top:10px;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  .hero__tagline{
+    max-width:680px;margin-top:20px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:22px;color:#fff5d9;line-height:1.5;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .hero__tagline{ font-size:25px; } }
+  .hero__tagline .tagline-zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:19px;color:#e7eef4;margin-top:6px;letter-spacing:.05em;
+  }
+  @media (min-width:720px){ .hero__tagline .tagline-zh{ font-size:21px; } }
+
+  /* ============ Section ============ */
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:88px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--sand-deep);font-size:22px;font-weight:700;letter-spacing:5px;
+  }
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(36px,6vw,58px);font-weight:600;
+    color:var(--sea-deep);line-height:1.15;margin-top:6px;letter-spacing:.2px;
+  }
+  .sec__title-zh{
+    font-size:20px;color:var(--ink-soft);font-weight:500;
+    margin-top:10px;letter-spacing:.04em;
+  }
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{
+    width:96px;height:5px;background:var(--sand);
+    border-radius:3px;margin:22px 0 32px;
+  }
+
+  /* Lead */
+  .lead{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(26px,3.4vw,36px);font-weight:600;
+    color:var(--sea-deep);line-height:1.35;letter-spacing:.2px;
+  }
+  .lead-zh{
+    font-size:20px;color:var(--ink-soft);font-weight:500;
+    margin-top:14px;line-height:1.55;
+  }
+  @media (min-width:720px){ .lead-zh{ font-size:24px; } }
+  .body{margin-top:24px;color:var(--ink);line-height:1.75;max-width:820px;}
+  .body p{margin-top:16px;}
+  .body p:first-child{margin-top:0;}
+  .body .zh{color:var(--ink-soft);font-size:19px;margin-top:8px;line-height:1.65;}
+  @media (min-width:720px){ .body .zh{ font-size:21px; } }
+  .body strong{color:var(--sea-deep);font-weight:700;}
+
+  /* Credits strip */
+  .credits{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow-sm);margin-top:30px;overflow:hidden;
+  }
+  @media (min-width:720px){ .credits{grid-template-columns:repeat(3,1fr);} }
+  .credits__cell{
+    padding:22px 26px;border-bottom:1px solid var(--line);
+  }
+  @media (min-width:720px){
+    .credits__cell{border-bottom:none;border-right:1px solid var(--line);}
+    .credits__cell:last-child{border-right:none;}
+  }
+  .credits__label{
+    font-size:13px;color:var(--ink-soft);font-weight:600;
+    letter-spacing:2px;text-transform:uppercase;
+  }
+  .credits__value{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;color:var(--sea-deep);font-weight:600;
+    margin-top:6px;line-height:1.25;
+  }
+  .credits__sub{font-size:15.5px;color:var(--ink-soft);margin-top:4px;}
+
+  /* Player */
+  .player{margin-top:36px;}
+  .player__ratio{
+    position:relative;padding-bottom:56.25%;height:0;
+    border-radius:16px;overflow:hidden;background:#000;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+  }
+  .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player-link{
+    display:flex;align-items:center;gap:14px;
+    margin-top:18px;padding:14px 22px;
+    background:var(--sea-soft);border-radius:12px;
+    color:var(--sea-deep);text-decoration:none;
+    border:1px solid var(--line);
+  }
+  .player-link:hover{background:var(--sand-soft);}
+  .player-link__icon{font-size:22px;}
+  .player-link__text{flex:1;}
+  .player-link__text strong{display:block;font-size:17px;color:var(--sea-deep);}
+  .player-link__text span{display:block;font-size:15px;color:var(--ink-soft);margin-top:2px;}
+  .player-link__arrow{font-size:20px;color:var(--sand-deep);}
+
+  /* Topics grid */
+  .topics{
+    display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px;
+  }
+  @media (min-width:720px){ .topics{grid-template-columns:1fr 1fr;gap:18px;} }
+  .topic{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;display:flex;align-items:flex-start;gap:14px;
+    box-shadow:var(--shadow-sm);
+  }
+  .topic__no{
+    flex-shrink:0;width:36px;height:36px;border-radius:50%;
+    background:var(--sea-soft);color:var(--sea-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;
+  }
+  .topic__text{flex:1;}
+  .topic__en{
+    font-family:'Cormorant Garamond',serif;font-size:20px;
+    color:var(--sea-deep);font-weight:600;line-height:1.3;
+  }
+  .topic__zh{
+    font-family:'PingFang TC',sans-serif;font-size:16px;
+    color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;
+  }
+
+  /* Offices grid */
+  .offices{
+    display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;
+  }
+  @media (min-width:720px){ .offices{grid-template-columns:1fr 1fr;gap:24px;} }
+  .office{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:26px 28px;box-shadow:var(--shadow-sm);
+    border-top:6px solid var(--leaf);
+  }
+  .office:nth-child(2){border-top-color:var(--sea);}
+  .office:nth-child(3){border-top-color:var(--sand);}
+  .office:nth-child(4){border-top-color:var(--leaf-deep);}
+  .office__count{
+    display:inline-block;background:var(--sea-soft);color:var(--sea-deep);
+    font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    padding:4px 12px;border-radius:99px;
+  }
+  .office__name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;font-weight:600;color:var(--sea-deep);
+    margin-top:12px;line-height:1.2;
+  }
+  .office__name-zh{
+    font-family:'PingFang TC',sans-serif;font-size:18px;
+    color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:.05em;
+  }
+  .office__body{font-size:18px;color:var(--ink);margin-top:12px;line-height:1.65;}
+  .office__body .zh{display:block;color:var(--ink-soft);font-size:16.5px;margin-top:6px;}
+
+  /* Note */
+  .note{
+    background:var(--sand-soft);border:1px dashed var(--sand);border-radius:14px;
+    padding:22px 26px;margin-top:36px;
+    font-size:17px;color:var(--ink);line-height:1.7;
+  }
+  .note strong{color:var(--sand-deep);}
+  .note .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:8px;}
+
+  /* Back */
+  .back-cta{text-align:center;margin-top:40px;}
+  .back-cta a{
+    display:inline-block;background:var(--sea-deep);color:#fff;
+    padding:14px 28px;border-radius:12px;font-weight:600;font-size:17px;letter-spacing:.04em;
+  }
+  .back-cta a:hover{background:var(--sand);color:#fff;}
+
+  /* Footer */
+  footer{background:#0a1f2d;color:rgba(255,255,255,.65);padding:36px 0;font-size:15.5px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--sand-soft);font-weight:600;}
+  footer .partner a{color:var(--sand-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--sand-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Yuhua Elementary
+        <small>彰化縣芳苑鄉育華國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="./" class="is-active">English Life</a>
+      <a href="../news/">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="hero__eyebrow">English Life · 雙語校園</span>
+    <h1>Bilingual is the air,<br>not the syllabus.
+      <span class="zh">雙語不是一堂課，是一座校園。</span>
+    </h1>
+    <p class="hero__tagline">
+      The English children hear between the lessons — on the intercom and from their teachers.
+      <span class="tagline-zh">下課時聽到的英語，比上課時多。</span>
+    </p>
+  </div>
+</header>
+
+<!-- ===== I. About ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">What "English Life" means at Yuhua</h2>
+    <div class="sec__title-zh">育華的雙語日常 · 課堂之外的英語</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">The strongest English program isn't a class — it's a campus.</div>
+    <div class="lead-zh">最強的英語計畫不是一堂課，而是一座校園。</div>
+
+    <div class="body">
+      <p>At Yuhua, bilingual life happens <strong>between</strong> the English lessons. It's the morning announcement that comes through the intercom in two languages. It's the homeroom teacher who says <em>"line up, please"</em> once a day. It's the office sign you read without thinking — and remember without studying.</p>
+      <p class="zh">在育華，雙語不只是一堂英文課，而是課堂之外的日常。是早上廣播的雙語版本、是導師偶爾說一句 "line up, please"、是處室門牌不假思索就能讀懂的字。</p>
+      <p>This page brings together the two halves of that quiet bilingual layer — what teachers say in the classroom, and what the campus says back through the intercom. Both are produced with <strong>My Culture Connect 人師教育協會</strong>, and freely shared with every partner school in our network.</p>
+      <p class="zh">這一頁把日常雙語的兩半合在一起呈現——老師在課堂裡的英語，與校園透過廣播說回來的英語。兩者都由人師教育協會製作，公開分享給網絡內所有夥伴學校。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Classroom English ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · 給老師的口袋句庫（影片版）</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">The phrases teachers say between the lessons — taught on video.</div>
+    <div class="lead-zh">老師在課堂裡每天會用上的英文句子——這次有人示範給你看。</div>
+
+    <div class="body">
+      <p>A practical video library covering the everyday English a Taiwanese teacher actually uses in the classroom: <strong>greetings and roll call, pre-class set-up, instructions, praise and correction, classroom management, lesson activities, assigning homework, wrapping up, and exam directions.</strong> Each video isolates one situation so the phrases stick on first hearing.</p>
+      <p class="zh">這個影片教材庫涵蓋臺灣老師每天會用到的課堂英語——問候點名、課前準備、講解、回饋讚美、糾正、教室管理、課堂活動、分派作業、課堂收尾、考試指令。每支影片只處理一個情境，第一次聽就能記住。</p>
+    </div>
+
+    <div class="credits">
+      <div class="credits__cell">
+        <div class="credits__label">Presenter · 主講</div>
+        <div class="credits__value">Sarah Thomas</div>
+        <div class="credits__sub">English-medium classroom specialist</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Producer · 製作</div>
+        <div class="credits__value">My Culture Connect</div>
+        <div class="credits__sub">人師教育協會</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">For · 適用對象</div>
+        <div class="credits__value">In-Service Teachers</div>
+        <div class="credits__sub">在職教師（國小／國中皆適用）</div>
+      </div>
+    </div>
+
+    <div class="player">
+      <div class="player__ratio">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+          title="Classroom English playlist by Sarah Thomas"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text">
+        <strong>Browse the full playlist on YouTube</strong>
+        <span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支影片</span>
+      </span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
+    <div class="topics">
+      <div class="topic"><div class="topic__no">01</div><div class="topic__text"><div class="topic__en">Greetings &amp; Roll-Call</div><div class="topic__zh">問候 · 點名</div></div></div>
+      <div class="topic"><div class="topic__no">02</div><div class="topic__text"><div class="topic__en">Getting Ready for the Lesson</div><div class="topic__zh">課前準備</div></div></div>
+      <div class="topic"><div class="topic__no">03</div><div class="topic__text"><div class="topic__en">Explaining &amp; Demonstrating</div><div class="topic__zh">講解與示範</div></div></div>
+      <div class="topic"><div class="topic__no">04</div><div class="topic__text"><div class="topic__en">Warm-Up Activities</div><div class="topic__zh">課前暖身活動</div></div></div>
+      <div class="topic"><div class="topic__no">05</div><div class="topic__text"><div class="topic__en">Feedback, Praise &amp; Correction</div><div class="topic__zh">回饋 · 讚美 · 糾正</div></div></div>
+      <div class="topic"><div class="topic__no">06</div><div class="topic__text"><div class="topic__en">Classroom Management</div><div class="topic__zh">教室管理</div></div></div>
+      <div class="topic"><div class="topic__no">07</div><div class="topic__text"><div class="topic__en">Classroom Activities</div><div class="topic__zh">課堂活動</div></div></div>
+      <div class="topic"><div class="topic__no">08</div><div class="topic__text"><div class="topic__en">Assigning Homework</div><div class="topic__zh">分派作業</div></div></div>
+      <div class="topic"><div class="topic__no">09</div><div class="topic__text"><div class="topic__en">Wrapping Up the Lesson</div><div class="topic__zh">課堂收尾</div></div></div>
+      <div class="topic"><div class="topic__no">10</div><div class="topic__text"><div class="topic__en">Tests &amp; Assessments</div><div class="topic__zh">測驗</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Bilingual Announcements ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">校園廣播英語 · 用英文認識每個處室</div>
+    <div class="sec__rule"></div>
+
+    <div class="lead">The morning intercom in two languages — by the four offices that keep school life running.</div>
+    <div class="lead-zh">早上的校園廣播，雙語版本——由教務、學務、總務、輔導四個處室共同寫稿、共同上鏡。</div>
+
+    <div class="body">
+      <p>A <strong>13-episode bilingual announcement series</strong>, organized by the four school offices: <strong>Academic Affairs (教務處)</strong>, <strong>Student Affairs (學務處)</strong>, <strong>General Affairs (總務處)</strong>, and <strong>Counselling (輔導室)</strong>. Each office introduces what it does, in both English and Chinese — turning the school's daily public-address routine into a real-world bilingual exposure for every student walking the corridors.</p>
+      <p class="zh">這是一個 13 集的雙語校園廣播系列，依四個處室分組：教務處、學務處、總務處、輔導室，由各組親自介紹自己的工作，雙語對照——把學校每天的廣播時間，變成全校學生在走廊上就能接收的英語浸潤。</p>
+    </div>
+
+    <div class="credits">
+      <div class="credits__cell">
+        <div class="credits__label">Hosts · 主播</div>
+        <div class="credits__value">Sarah &amp; Susan</div>
+        <div class="credits__sub">Sarah Thomas · Susan Rose</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Producer · 製作</div>
+        <div class="credits__value">My Culture Connect</div>
+        <div class="credits__sub">人師教育協會</div>
+      </div>
+      <div class="credits__cell">
+        <div class="credits__label">Episodes · 集數</div>
+        <div class="credits__value">13 Episodes</div>
+        <div class="credits__sub">四處室共十三集</div>
+      </div>
+    </div>
+
+    <div class="player">
+      <div class="player__ratio">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+          title="Bilingual Announcements playlist by Sarah Thomas and Susan Rose"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text">
+        <strong>Browse the full playlist on YouTube</strong>
+        <span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一集</span>
+      </span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
+    <div class="offices">
+      <article class="office">
+        <div class="office__count">5 Episodes</div>
+        <h3 class="office__name">Office of Academic Affairs</h3>
+        <div class="office__name-zh">教務處</div>
+        <div class="office__body">The office that organises classes, curriculum, textbooks, and timetables — the engine room of every school day.<span class="zh">負責課程編排、教科書、課表與教學行政——學校每一天的引擎室。</span></div>
+      </article>
+
+      <article class="office">
+        <div class="office__count">3 Episodes</div>
+        <h3 class="office__name">Office of Student Affairs</h3>
+        <div class="office__name-zh">學務處</div>
+        <div class="office__body">Looks after student life, school events, safety, and discipline — from morning assembly to after-school clubs.<span class="zh">負責學生生活、校園活動、安全與生活教育——從晨會到放學後社團都在這裡。</span></div>
+      </article>
+
+      <article class="office">
+        <div class="office__count">Includes 1 Episode</div>
+        <h3 class="office__name">Office of General Affairs</h3>
+        <div class="office__name-zh">總務處</div>
+        <div class="office__body">Looks after the building itself: classrooms, repairs, supplies, and the school grounds — the office that keeps the school standing.<span class="zh">負責校舍、設備、修繕與校園環境——讓學校能持續運作的後勤處室。</span></div>
+      </article>
+
+      <article class="office">
+        <div class="office__count">Includes 1 Episode</div>
+        <h3 class="office__name">Counselling Office</h3>
+        <div class="office__name-zh">輔導室</div>
+        <div class="office__body">Where every child can come to talk — about feelings, friendships, family, or anything that is hard to say in class.<span class="zh">孩子可以來聊聊感受、朋友、家庭、或任何在教室裡不容易說出口的事——一個被傾聽的安靜角落。</span></div>
+      </article>
+    </div>
+
+    <div class="note">
+      <strong>About these playlists · 關於這兩份影音資源</strong><br>
+      Both Classroom English and Bilingual Announcements are produced by <strong>My Culture Connect (人師教育協會)</strong> and freely shared with all partner schools in our network. When the playlists grow, Yuhua's page picks up the new videos automatically.
+      <span class="zh">課室英語與校園廣播兩份系列都由人師教育協會製作，公開分享給網絡內所有合作學校。日後 playlist 擴充，育華頁面也會自動拿到新版。</span>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to School Home · 回到學校首頁</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣芳苑鄉育華國民小學 · Yuhua Elementary School</div>
+    <div class="partner">Bilingual web by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'yuhua-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+</body>
+</html>

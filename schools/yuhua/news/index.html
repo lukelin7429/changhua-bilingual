@@ -55,13 +55,58 @@
     .topbar-nav a{font-size:13.5px;}
   }
 
-  /* page header */
-  .page-head{background:#fff;padding:64px 0 32px;text-align:center;border-bottom:1px solid var(--line);}
-  .page-head__eyebrow{display:inline-block;font-size:14px;letter-spacing:.22em;color:var(--leaf-deep);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
-  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,6vw,58px);line-height:1.12;font-weight:600;color:var(--sea-deep);}
-  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.05em;}
-  .page-head .lede{max-width:680px;margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);line-height:1.55;}
-  .page-head .lede .zh-inline{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink-soft);margin-top:8px;}
+  /* page hero banner (photo + dark overlay + white text) */
+  .page-head{
+    position:relative;
+    background:#0f3a55 url('../photos/news-hero.jpg') center 42%/cover;
+    min-height:300px;display:flex;align-items:flex-end;overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  @media (min-width:720px){ .page-head{ min-height:380px; } }
+  @media (min-width:1080px){ .page-head{ min-height:440px; } }
+  .page-head::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(15,58,85,.32) 0%, rgba(15,58,85,.78) 100%),
+      linear-gradient(90deg, rgba(15,58,85,.35) 0%, rgba(15,58,85,0) 55%);
+    pointer-events:none;
+  }
+  .page-head > .wrap{
+    position:relative;z-index:1;width:100%;
+    padding-top:44px;padding-bottom:34px;color:#fff;
+  }
+  @media (min-width:720px){ .page-head > .wrap{ padding-top:60px;padding-bottom:44px; } }
+  .page-head__eyebrow{
+    display:inline-block;font-size:14.5px;letter-spacing:.26em;
+    color:#f7eed9;font-weight:700;text-transform:uppercase;margin-bottom:14px;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .page-head__eyebrow{ font-size:16px; } }
+  .page-head h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,7vw,72px);line-height:1.04;font-weight:700;letter-spacing:.01em;
+    color:#fff;
+    text-shadow:0 4px 22px rgba(0,0,0,.5);
+  }
+  .page-head h1 .zh{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:clamp(20px,2.7vw,26px);
+    color:#e4eef5;font-weight:500;margin-top:10px;letter-spacing:.06em;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  .page-head .lede{
+    max-width:720px;margin:18px 0 0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:21px;color:#fff5d9;line-height:1.5;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .page-head .lede{ font-size:24px; } }
+  .page-head .lede .zh-inline{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:18px;color:#e7eef4;margin-top:8px;letter-spacing:.05em;
+  }
+  @media (min-width:720px){ .page-head .lede .zh-inline{ font-size:20px; } }
 
   /* stories grid */
   .stories{padding:64px 0 80px;}
@@ -159,9 +204,8 @@
     <nav class="topbar-nav">
       <a href="../">Home</a>
       <a href="../principal/">Principal</a>
+      <a href="../bilingual-campus/">English Life</a>
       <a href="./" class="is-active">News</a>
-      <a href="../classroom-english/">Classroom English</a>
-      <a href="../announcements/">Announcements</a>
       <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
     </nav>
   </div>
