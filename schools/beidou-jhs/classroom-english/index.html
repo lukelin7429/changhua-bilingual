@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>課室英語 · Classroom English · Beidou Junior High</title>
-<meta name="description" content="Beidou Junior High classroom English resources: Word of the Day videos, Teacher Aileen's learning hub, and shared MCC classroom English playlist. 北斗國中課室英語：每日一字播放清單、Aileen 老師教學資源、課室英語影片。">
+<meta name="description" content="36 支課室英語影片依情境分類：問候語、課前準備、講解、教學活動、回饋糾正、教室管理、考試…全部直接嵌入，方便老師隨時取用。">
 <link rel="icon" type="image/x-icon" href="/schools/beidou-jhs/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/beidou-jhs/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/beidou-jhs/favicon-192.png">
@@ -24,120 +24,90 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.7;-webkit-font-smoothing:antialiased;}
-  @media (min-width:720px){ body{ font-size:23px; } }
+  @media(min-width:720px){body{font-size:26px;}}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-  section{padding:56px 0;border-bottom:1px solid var(--line);}
-  @media (min-width:720px){ section{ padding:80px 0; } }
-  section:last-of-type{border-bottom:none;}
-  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
-  @media (min-width:720px){ .sec__no{ font-size:25px; } }
-  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
-  @media (min-width:720px){ .sec__title{ font-size:60px; } }
-  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
-  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
-  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
-  .sec__lede{font-size:21px;color:var(--ink);max-width:780px;line-height:1.7;margin-bottom:28px;}
-  @media (min-width:720px){ .sec__lede{ font-size:22px; } }
-  .sec__lede .zh{display:block;color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.55;}
-  @media (min-width:720px){ .sec__lede .zh{ font-size:19px; } }
 
-  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  /* === Top nav === */
+  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;}
   .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
-  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  @media(min-width:720px){.subnav__inner{font-size:21px;}}
   .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--gold-deep);}
   .subnav a.is-active{background:var(--gold);color:#fff;}
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
-  @media (max-width:600px){ .subnav__sep{display:none;} }
+  @media(max-width:600px){.subnav__sep{display:none;}}
 
-  .page-hero{background:linear-gradient(135deg,var(--gold-deep) 0%,var(--navy-deep) 100%);color:#fff;padding:56px 24px;}
-  @media (min-width:720px){ .page-hero{ padding:80px 24px; } }
+  /* === Hero === */
+  .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--teal-deep) 100%);color:#fff;padding:56px 24px;}
+  @media(min-width:720px){.page-hero{padding:80px 24px;}}
   .page-hero__inner{max-width:1080px;margin:0 auto;}
-  .page-hero__sup{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#fde8bb;font-weight:600;margin-bottom:14px;}
+  .page-hero__sup{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#f5d99a;font-weight:600;margin-bottom:14px;}
   .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;line-height:1.1;letter-spacing:.5px;}
-  @media (min-width:720px){ .page-hero h1{ font-size:78px; } }
-  .page-hero__zh{font-size:22px;color:#fde8bb;margin-top:10px;font-weight:500;letter-spacing:1.5px;}
-  @media (min-width:720px){ .page-hero__zh{ font-size:28px; } }
-  .page-hero__rule{width:80px;height:5px;background:#fff;border-radius:3px;margin:24px 0 0;}
+  @media(min-width:720px){.page-hero h1{font-size:78px;}}
+  .page-hero__zh{font-size:22px;color:#c5e8e5;margin-top:10px;font-weight:500;letter-spacing:1.5px;}
+  @media(min-width:720px){.page-hero__zh{font-size:28px;}}
+  .page-hero__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:24px 0 0;}
+  .page-hero__meta{margin-top:20px;font-size:17px;color:rgba(255,255,255,.75);display:flex;flex-wrap:wrap;gap:8px 20px;}
+  .page-hero__meta span{background:rgba(255,255,255,.12);padding:4px 14px;border-radius:20px;}
 
-  /* === Word of the Day card grid === */
-  .wotd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
-  @media (min-width:600px){ .wotd-grid{ grid-template-columns:repeat(3,1fr);gap:14px; } }
-  @media (min-width:960px){ .wotd-grid{ grid-template-columns:repeat(4,1fr);gap:16px; } }
-  .wotd-card{background:#fff;border:1.5px solid var(--line);border-top:4px solid var(--navy);border-radius:16px;padding:16px 14px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-top-color .2s;}
-  .wotd-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-top-color:var(--gold);}
-  .wotd-card__no{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;}
-  .wotd-card__emoji{font-size:26px;line-height:1;margin:8px 0 4px;}
-  .wotd-card__word{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--navy-deep);line-height:1.25;}
-  @media (min-width:720px){ .wotd-card__word{ font-size:21px; } }
-  .wotd-card__pos{font-size:11px;color:var(--ink-soft);font-style:italic;margin-top:2px;}
-  .wotd-card__zh{font-size:13px;color:var(--ink-soft);font-weight:600;margin-top:5px;letter-spacing:.5px;}
-  .wotd-card__cta{margin-top:auto;padding-top:10px;font-size:12px;font-weight:700;color:var(--gold-deep);text-align:right;}
-  .wotd-card:hover .wotd-card__cta{color:var(--navy-deep);}
+  /* === Category jump nav === */
+  .cat-jump{background:#fff;border-bottom:2px solid var(--line);padding:14px 0;overflow-x:auto;}
+  .cat-jump__inner{display:flex;flex-wrap:nowrap;gap:8px;padding:0 24px;max-width:1080px;margin:0 auto;min-width:max-content;}
+  .cat-jump a{font-size:14px;font-weight:600;color:var(--navy-deep);text-decoration:none;padding:6px 16px;border-radius:20px;border:1.5px solid var(--line);background:var(--bg-soft);white-space:nowrap;transition:all .15s;}
+  @media(min-width:720px){.cat-jump a{font-size:15px;}}
+  .cat-jump a:hover{background:var(--navy-soft);border-color:var(--navy);}
 
-  /* === Video player === */
-  .player{margin-top:28px;}
-  .player__ratio{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;box-shadow:var(--shadow);}
-  .player__ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-  .player-link{display:flex;align-items:center;gap:14px;padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;margin-top:20px;text-decoration:none;color:var(--ink);transition:all .2s;}
-  .player-link:hover{border-color:var(--gold);background:var(--gold-soft);}
-  .player-link__icon{background:#ff0000;color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-  .player-link__text{flex:1;display:flex;flex-direction:column;}
-  .player-link__text strong{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy-deep);}
-  .player-link__text span{font-size:15px;color:var(--ink-soft);margin-top:2px;}
-  .player-link__arrow{font-size:24px;color:var(--gold-deep);}
+  /* === Category sections === */
+  .cat-section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media(min-width:720px){.cat-section{padding:72px 0;}}
+  .cat-section:last-of-type{border-bottom:none;}
+  .cat-header{margin-bottom:32px;}
+  .cat-no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:16px;font-weight:700;letter-spacing:4px;text-transform:uppercase;}
+  .cat-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:4px;}
+  @media(min-width:720px){.cat-title{font-size:50px;}}
+  .cat-title-en{font-size:17px;color:var(--ink-soft);margin-top:6px;font-weight:500;}
+  @media(min-width:720px){.cat-title-en{font-size:19px;}}
+  .cat-rule{width:56px;height:5px;border-radius:3px;margin:18px 0 0;background:var(--teal);}
+  .cat-rule--navy{background:var(--navy);}
+  .cat-rule--gold{background:var(--gold);}
+  .cat-rule--green{background:var(--green);}
 
-  /* === Classroom English topics === */
-  .credits{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px;background:var(--navy-soft);border-radius:14px;padding:20px 24px;}
-  @media (min-width:720px){ .credits{ grid-template-columns:repeat(3,1fr);gap:24px; } }
-  .credits__cell{}
-  .credits__label{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-  .credits__value{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
-  .topics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px;}
-  @media (min-width:720px){ .topics-grid{ grid-template-columns:repeat(5,1fr);gap:14px; } }
-  .topic-pill{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;}
-  .topic-pill .no{font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:13px;font-weight:700;letter-spacing:1.5px;}
-  .topic-pill .en{font-size:15px;color:var(--navy-deep);font-weight:700;margin-top:4px;line-height:1.3;}
-  .topic-pill .zh{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+  /* === Video grid === */
+  .ce-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:600px){.ce-grid{grid-template-columns:repeat(2,1fr);gap:26px;}}
+  @media(min-width:900px){.ce-grid--wide{grid-template-columns:repeat(3,1fr);gap:28px;}}
 
-  /* === Aileen card === */
-  .aileen-cta{background:linear-gradient(135deg,var(--teal-soft) 0%,var(--navy-soft) 100%);border-radius:20px;padding:36px 28px;border:2px solid var(--teal);display:flex;flex-direction:column;gap:20px;align-items:flex-start;}
-  @media (min-width:720px){ .aileen-cta{ flex-direction:row;align-items:center;padding:40px 36px; } }
-  .aileen-cta__text{flex:1;}
-  .aileen-cta__title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy-deep);line-height:1.2;}
-  @media (min-width:720px){ .aileen-cta__title{ font-size:34px; } }
-  .aileen-cta__zh{font-size:17px;color:var(--ink-soft);font-weight:600;margin-top:6px;}
-  .aileen-cta__desc{font-size:18px;color:var(--ink);margin-top:12px;line-height:1.6;}
-  @media (min-width:720px){ .aileen-cta__desc{ font-size:19px; } }
-  .aileen-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:14px 24px;text-decoration:none;font-weight:700;font-size:18px;white-space:nowrap;transition:all .15s;flex-shrink:0;}
-  @media (min-width:720px){ .aileen-btn{ font-size:20px; } }
-  .aileen-btn:hover{background:var(--navy-deep);}
+  /* === Video card === */
+  .ce-card{background:#fff;border-radius:16px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-sm);}
+  .ce-card__video{position:relative;padding-bottom:56.25%;background:#111;}
+  .ce-card__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .ce-card__label{padding:13px 18px 15px;border-top:5px solid var(--teal);}
+  .ce-card--navy .ce-card__label{border-top-color:var(--navy);}
+  .ce-card--gold .ce-card__label{border-top-color:var(--gold);}
+  .ce-card--green .ce-card__label{border-top-color:var(--green);}
+  .ce-card__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;}
+  .ce-card__zh{font-size:17px;font-weight:700;color:var(--navy-deep);margin-top:2px;line-height:1.35;}
+  @media(min-width:720px){.ce-card__zh{font-size:18px;}}
 
-  .quote{margin-top:36px;background:var(--gold-soft);border-left:6px solid var(--gold);padding:24px 28px;border-radius:0 12px 12px 0;}
-  .quote__text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold-deep);line-height:1.4;font-style:italic;}
-  @media (min-width:720px){ .quote__text{ font-size:32px; } }
-  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
-  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
-
-  .back-cta{text-align:center;margin-top:32px;}
-  .back-cta a{display:inline-block;background:var(--navy-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
-  .back-cta a:hover{background:var(--gold);}
+  /* === Back link === */
+  .back-bar{text-align:center;padding:48px 0 16px;}
+  .back-bar a{display:inline-flex;align-items:center;gap:8px;background:var(--navy-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;transition:all .15s;}
+  .back-bar a:hover{background:var(--gold);}
 
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
-  @media (min-width:720px){ footer{ font-size:19px; } }
+  @media(min-width:720px){footer{font-size:19px;}}
   footer .org{font-weight:600;color:var(--navy-deep);}
 </style>
 </head>
 <body>
 
+<!-- Top navigation -->
 <nav class="subnav">
   <div class="wrap">
     <div class="subnav__inner">
       <a href="../">Home</a>
       <span class="subnav__sep">·</span>
       <a href="../principal/">Principal</a>
-      <span class="subnav__sep">·</span>
-      <a href="../bilingual-campus/">Bilingual Campus</a>
       <span class="subnav__sep">·</span>
       <a href="../bilingual-campus/">Bilingual Campus</a>
       <span class="subnav__sep">·</span>
@@ -148,418 +118,531 @@
   </div>
 </nav>
 
+<!-- Hero -->
 <div class="page-hero">
   <div class="page-hero__inner">
     <div class="page-hero__sup">Classroom English · 課室英語</div>
-    <h1>Learn English with Us</h1>
-    <div class="page-hero__zh">每日一字 · 課室英語 · Teacher Aileen 的教學資源</div>
+    <h1>Speak English in Class</h1>
+    <div class="page-hero__zh">36 支影片 · 11 個課堂情境 · 老師隨手可用</div>
     <div class="page-hero__rule"></div>
+    <div class="page-hero__meta">
+      <span>🎬 36 videos</span>
+      <span>👩‍🏫 Sarah Thomas</span>
+      <span>🏫 My Culture Connect 人師教育協會</span>
+    </div>
   </div>
 </div>
 
-<!-- Section I: Word of the Day -->
-<section>
+<!-- Category jump nav -->
+<nav class="cat-jump">
+  <div class="cat-jump__inner">
+    <a href="#greetings">① 問候語</a>
+    <a href="#before-class">② 課前準備</a>
+    <a href="#explanation">③ 講解</a>
+    <a href="#comprehension">④ 確認理解</a>
+    <a href="#feedback">⑤ 回饋糾正</a>
+    <a href="#management">⑥ 教室管理</a>
+    <a href="#engagement">⑦ 引起參與</a>
+    <a href="#assignment">⑧ 分派作業</a>
+    <a href="#wrapup">⑨ 課堂收尾</a>
+    <a href="#exams">⑩ 考試</a>
+    <a href="#shorts">＋ 短片補充</a>
+  </div>
+</nav>
+
+
+<!-- ① 問候語 Greetings -->
+<section class="cat-section" id="greetings">
   <div class="wrap">
-    <div class="sec__no">I.</div>
-    <h2 class="sec__title">Word of the Day</h2>
-    <div class="sec__title-zh">每日一字 · 北斗國中校園英文小故事</div>
-    <div class="sec__rule"></div>
-
-    <p class="sec__lede">
-      Short bilingual videos featuring English words and phrases from the Beidou JHS campus — the farm, the observatory, the gym, and the classroom. Pick a video, press play, and add one word to your day.
-      <span class="zh">來自北斗國中校園的短片英語學習系列——農場、天文台、體育館、教室，每個角落都有新的英文詞彙。按下播放鍵，每天多學一個字。</span>
-    </p>
-
-    <!-- 29 individual Word of the Day video cards -->
-    <div class="wotd-grid">
-
-      <a class="wotd-card" href="https://youtu.be/GRkF3awi6k8" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 01</div>
-        <div class="wotd-card__emoji">🚒</div>
-        <div class="wotd-card__word">firefighter</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">消防員</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/0sLb-pL3DLA" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 02</div>
-        <div class="wotd-card__emoji">💪</div>
-        <div class="wotd-card__word">fitness club</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">體能健身社</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/sjHR6xXwhnU" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 03</div>
-        <div class="wotd-card__emoji">🎸</div>
-        <div class="wotd-card__word">pop music club</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">熱音社</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/4JlnOYLqs8U" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 04</div>
-        <div class="wotd-card__emoji">🪚</div>
-        <div class="wotd-card__word">woodshop</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">木工坊</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/yi9SNNJcw20" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 05</div>
-        <div class="wotd-card__emoji">🏃</div>
-        <div class="wotd-card__word">earthquake drill</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">地震演習</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/Px-o2G2KC48" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 06</div>
-        <div class="wotd-card__emoji">🌳</div>
-        <div class="wotd-card__word">climbing trees</div>
-        <div class="wotd-card__pos">(v. phrase)</div>
-        <div class="wotd-card__zh">爬樹</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/Yh8VrQ0DDdk" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 07</div>
-        <div class="wotd-card__emoji">📚</div>
-        <div class="wotd-card__word">book</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">書</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/OBHYK7ZRTPw" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 08</div>
-        <div class="wotd-card__emoji">👂</div>
-        <div class="wotd-card__word">story listening</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">聽故事</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/WG8jz2LrmYQ" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 09</div>
-        <div class="wotd-card__emoji">🌌</div>
-        <div class="wotd-card__word">telescope</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">望遠鏡</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/B1MpUa1hS68" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 10</div>
-        <div class="wotd-card__emoji">🔭</div>
-        <div class="wotd-card__word">observatory</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">天文台</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/Lgo3y6HhfK4" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 11</div>
-        <div class="wotd-card__emoji">🍕</div>
-        <div class="wotd-card__word">pizza</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">披薩</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/nHSApZDL62o" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 12</div>
-        <div class="wotd-card__emoji">🔥</div>
-        <div class="wotd-card__word">rocket stove</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">火箭爐</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/xskSr1L1xZI" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 13</div>
-        <div class="wotd-card__emoji">🙌</div>
-        <div class="wotd-card__word">wash your hands</div>
-        <div class="wotd-card__pos">(v. phrase)</div>
-        <div class="wotd-card__zh">洗手</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/6UnGSEpbbmM" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 14</div>
-        <div class="wotd-card__emoji">📰</div>
-        <div class="wotd-card__word">newspaper</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">報紙</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/s0cbw9MrkMM" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 15</div>
-        <div class="wotd-card__emoji">📄</div>
-        <div class="wotd-card__word">test paper</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">試卷</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/wOrABQO4UPk" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 16</div>
-        <div class="wotd-card__emoji">😴</div>
-        <div class="wotd-card__word">take a nap</div>
-        <div class="wotd-card__pos">(v. phrase)</div>
-        <div class="wotd-card__zh">午睡</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/RYhwEt-OhcI" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 17</div>
-        <div class="wotd-card__emoji">📝</div>
-        <div class="wotd-card__word">test</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">考試</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/dCAbJcAC1qU" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 18</div>
-        <div class="wotd-card__emoji">🚗</div>
-        <div class="wotd-card__word">carport</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">車棚</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/z1F_eCM4Nvc" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 19</div>
-        <div class="wotd-card__emoji">🏐</div>
-        <div class="wotd-card__word">volleyball</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">排球</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/DRfuUMcTFyw" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 20</div>
-        <div class="wotd-card__emoji">🪣</div>
-        <div class="wotd-card__word">mop</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">拖把</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/POQ9RrhyQzA" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 21</div>
-        <div class="wotd-card__emoji">🍴</div>
-        <div class="wotd-card__word">utensils</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">餐具</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/qvDXGPdyDPI" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 22</div>
-        <div class="wotd-card__emoji">🥄</div>
-        <div class="wotd-card__word">serve</div>
-        <div class="wotd-card__pos">(v.) verb</div>
-        <div class="wotd-card__zh">打菜</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/AYutjzR7BMw" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 23</div>
-        <div class="wotd-card__emoji">🍱</div>
-        <div class="wotd-card__word">school lunch</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">營養午餐</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/ftdFRP5LeBA" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 24</div>
-        <div class="wotd-card__emoji">📦</div>
-        <div class="wotd-card__word">carry</div>
-        <div class="wotd-card__pos">(v.) verb</div>
-        <div class="wotd-card__zh">搬運・攜帶</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/s3xuqfFPL9I" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 25</div>
-        <div class="wotd-card__emoji">🧹</div>
-        <div class="wotd-card__word">sweep</div>
-        <div class="wotd-card__pos">(v.) verb</div>
-        <div class="wotd-card__zh">打掃・掃地</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/pXOSqjx-5GQ" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 26</div>
-        <div class="wotd-card__emoji">🏀</div>
-        <div class="wotd-card__word">shoot</div>
-        <div class="wotd-card__pos">(v.) verb</div>
-        <div class="wotd-card__zh">投籃</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/DXKt3nYKxAg" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 27</div>
-        <div class="wotd-card__emoji">⚾</div>
-        <div class="wotd-card__word">batting practice</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">打擊練習</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/vJa6RGgykUI" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 28</div>
-        <div class="wotd-card__emoji">🏑</div>
-        <div class="wotd-card__word">woodball</div>
-        <div class="wotd-card__pos">(n.) noun</div>
-        <div class="wotd-card__zh">木球</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-      <a class="wotd-card" href="https://youtu.be/owMXzw0hzCw" target="_blank" rel="noopener">
-        <div class="wotd-card__no">WotD · 29</div>
-        <div class="wotd-card__emoji">📈</div>
-        <div class="wotd-card__word">professional development</div>
-        <div class="wotd-card__pos">(n.) noun phrase</div>
-        <div class="wotd-card__zh">專業進修</div>
-        <div class="wotd-card__cta">Watch ↗</div>
-      </a>
-
-    </div><!-- /wotd-grid -->
-
-    <!-- Full playlist embed -->
-    <div style="margin-top:48px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Full Playlist · 完整播放清單</div>
-      <div class="player">
-        <div class="player__ratio">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs&rel=0"
-            title="Word of the Day — Beidou Junior High School Bilingual Series"
-            loading="lazy"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+    <div class="cat-header">
+      <div class="cat-no">① Greetings</div>
+      <h2 class="cat-title">問候語</h2>
+      <div class="cat-title-en">How to greet students and take attendance in English</div>
+      <div class="cat-rule"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/hhm1KLW3c14?rel=0" title="課室英語 1-1 問候語" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">1-1</div>
+          <div class="ce-card__zh">問候語</div>
         </div>
       </div>
-      <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8V0hMsYI_xoNAuc8Ru00FFs" target="_blank" rel="noopener">
-        <span class="player-link__icon">▶</span>
-        <span class="player-link__text">
-          <strong>Browse the full Word of the Day playlist on YouTube</strong>
-          <span>在 YouTube 開啟完整播放清單 · 北斗國中 Word of the Day 系列（29 支影片）</span>
-        </span>
-        <span class="player-link__arrow">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Section II: Teacher Aileen's Resources -->
-<section>
-  <div class="wrap">
-    <div class="sec__no">II.</div>
-    <h2 class="sec__title">Teacher Aileen's EduSpace</h2>
-    <div class="sec__title-zh">Aileen 老師的英語學習中心 · 豐富的自學資源</div>
-    <div class="sec__rule"></div>
-
-    <p class="sec__lede">
-      Teacher Aileen Sim has built a comprehensive online hub for Beidou JHS students — with worksheets, games, news corners, and monthly highlights all in one place. Powered by her mission: <em>"Empowering Future Minds Through English, Science, and AI."</em>
-      <span class="zh">Aileen 老師為北斗國中建立了完整的線上英語學習中心，包含學習單、遊戲、新聞角落與每月精選。她的教學使命：「透過英語、科學與 AI，賦能未來的心靈。」</span>
-    </p>
-
-    <div class="aileen-cta">
-      <div class="aileen-cta__text">
-        <div class="aileen-cta__title">BJHS English Hub — Teacher Aileen's EduSpace</div>
-        <div class="aileen-cta__zh">北斗國中英語學習中心 · Aileen 老師教學網站</div>
-        <div class="aileen-cta__desc">
-          Event Gallery · News Corner · English Environment · Student Showcase · Worksheet Hub · Game Lab · Monthly Highlights · AI-powered learning resources — all in one place, all in English.
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/-GDVhmygkjc?rel=0" title="課室英語 1-2 點名" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">1-2</div>
+          <div class="ce-card__zh">點名</div>
         </div>
       </div>
-      <a class="aileen-btn" href="https://sites.google.com/view/aileenmoraldesim/future-hub" target="_blank" rel="noopener">
-        Visit EduSpace Hub ↗
-      </a>
     </div>
   </div>
 </section>
 
-<!-- Section III: Shared MCC Classroom English -->
-<section>
+
+<!-- ② 課前準備 Before Class -->
+<section class="cat-section" id="before-class">
   <div class="wrap">
-    <div class="sec__no">III.</div>
-    <h2 class="sec__title">Classroom English</h2>
-    <div class="sec__title-zh">課室英語 · 老師的口袋句庫</div>
-    <div class="sec__rule"></div>
-
-    <p class="sec__lede">
-      A practical video library of the everyday English a teacher actually uses in the classroom — <strong>greetings, instructions, praise, classroom management, activities, homework, wrap-up, exams.</strong> Each video isolates one situation so the phrases stick.
-      <span class="zh">這個影片教材庫涵蓋老師每天會用到的課堂英語，每支影片只處理一個情境，第一次聽就能記住。由 <strong>My Culture Connect 人師教育協會</strong>製作，彰化縣合作校共用。</span>
-    </p>
-
-    <div class="credits">
-      <div class="credits__cell">
-        <div class="credits__label">Instructor 主講</div>
-        <div class="credits__value">Sarah Thomas · Sarah 老師</div>
-      </div>
-      <div class="credits__cell">
-        <div class="credits__label">Producer 製作</div>
-        <div class="credits__value">My Culture Connect · 人師</div>
-      </div>
-      <div class="credits__cell">
-        <div class="credits__label">Audience 對象</div>
-        <div class="credits__value">In-service teachers · 在職教師</div>
-      </div>
+    <div class="cat-header">
+      <div class="cat-no">② Before Class</div>
+      <h2 class="cat-title">課前準備</h2>
+      <div class="cat-title-en">Reviewing, visual aids, equipment, and entering the lesson</div>
+      <div class="cat-rule cat-rule--navy"></div>
     </div>
-
-    <div class="player">
-      <div class="player__ratio">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
-          title="Classroom English playlist by Sarah Thomas — My Culture Connect"
-          loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/bW2KcVBmFjk?rel=0" title="課室英語 2-1 複習" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">2-1</div>
+          <div class="ce-card__zh">複習</div>
+        </div>
       </div>
-    </div>
-
-    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
-      <span class="player-link__icon">▶</span>
-      <span class="player-link__text">
-        <strong>Browse the full Classroom English playlist on YouTube</strong>
-        <span>在 YouTube 開啟完整 playlist · 直接跳到想看的情境</span>
-      </span>
-      <span class="player-link__arrow">↗</span>
-    </a>
-
-    <div class="topics-grid">
-      <div class="topic-pill"><div class="no">01</div><div class="en">Greetings &amp; Roll Call</div><div class="zh">問候、點名</div></div>
-      <div class="topic-pill"><div class="no">02</div><div class="en">Pre-Class Prep</div><div class="zh">課前準備</div></div>
-      <div class="topic-pill"><div class="no">03</div><div class="en">Explanations</div><div class="zh">講解</div></div>
-      <div class="topic-pill"><div class="no">04</div><div class="en">Pre-Teaching</div><div class="zh">課前活動</div></div>
-      <div class="topic-pill"><div class="no">05</div><div class="en">Praise &amp; Feedback</div><div class="zh">回饋讚美糾正</div></div>
-      <div class="topic-pill"><div class="no">06</div><div class="en">Classroom Mgmt</div><div class="zh">教室管理</div></div>
-      <div class="topic-pill"><div class="no">07</div><div class="en">Lesson Activities</div><div class="zh">課堂活動</div></div>
-      <div class="topic-pill"><div class="no">08</div><div class="en">Homework</div><div class="zh">分派作業</div></div>
-      <div class="topic-pill"><div class="no">09</div><div class="en">Wrap-Up</div><div class="zh">課堂收尾</div></div>
-      <div class="topic-pill"><div class="no">10</div><div class="en">Exams</div><div class="zh">考試</div></div>
-    </div>
-
-    <div class="quote">
-      <div class="quote__text">"The language of the classroom is the first language of confidence."</div>
-      <div class="quote__zh">「課堂語言，是自信的第一語言。」<br>—— 北斗國中雙語教育的信念</div>
-    </div>
-
-    <div class="back-cta">
-      <a href="../">← Back to home · 回北斗國中首頁</a>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/pNOy7g025bk?rel=0" title="課室英語 2-2 視覺輔助" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">2-2</div>
+          <div class="ce-card__zh">視覺輔助</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/9UrG29yCeBQ?rel=0" title="課室英語 2-3 設備操作" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">2-3</div>
+          <div class="ce-card__zh">設備操作</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/s080aXCDfKA?rel=0" title="課室英語 2-4 準備進入課文" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">2-4</div>
+          <div class="ce-card__zh">準備進入課文</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
+<!-- ③ 講解 Explanation -->
+<section class="cat-section" id="explanation">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">③ Explanation</div>
+      <h2 class="cat-title">講解</h2>
+      <div class="cat-title-en">Explaining content clearly in English</div>
+      <div class="cat-rule cat-rule--gold"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/XGAqzl3FtXI?rel=0" title="課室英語 3 講解" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">3</div>
+          <div class="ce-card__zh">講解</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ④ 確認理解與互動 Comprehension Check -->
+<section class="cat-section" id="comprehension">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">④ Comprehension Check</div>
+      <h2 class="cat-title">確認理解與互動</h2>
+      <div class="cat-title-en">Checking understanding, asking opinions, daily conversation</div>
+      <div class="cat-rule cat-rule--green"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--green">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/qW8ms2zNrLg?rel=0" title="課室英語 4-1 確認理解" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">4-1</div>
+          <div class="ce-card__zh">確認理解</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--green">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/S2OqBqMdZg4?rel=0" title="課室英語 4-2 詢問意見/鼓勵發言" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">4-2</div>
+          <div class="ce-card__zh">詢問意見・鼓勵發言</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--green">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/UyPPLBY833M?rel=0" title="課室英語 4-3 日常會話問題" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">4-3</div>
+          <div class="ce-card__zh">日常會話問題</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑤ 回饋與糾正 Feedback & Correction -->
+<section class="cat-section" id="feedback">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑤ Feedback &amp; Correction</div>
+      <h2 class="cat-title">回饋與糾正</h2>
+      <div class="cat-title-en">Praising students and giving gentle corrections in English</div>
+      <div class="cat-rule"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/3avvygcCTZA?rel=0" title="課室英語 5-1 回饋/讚美" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">5-1</div>
+          <div class="ce-card__zh">回饋・讚美</div>
+        </div>
+      </div>
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/LeAijvftfv0?rel=0" title="課室英語 5-2 糾正" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">5-2</div>
+          <div class="ce-card__zh">糾正</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑥ 教室管理 Classroom Management -->
+<section class="cat-section" id="management">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑥ Classroom Management</div>
+      <h2 class="cat-title">教室管理</h2>
+      <div class="cat-title-en">Maintaining order and distributing materials in English</div>
+      <div class="cat-rule cat-rule--navy"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/4yheumtdqiM?rel=0" title="課室英語 6-1 管理秩序" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">6-1</div>
+          <div class="ce-card__zh">管理秩序</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/mTvtzCfQUd4?rel=0" title="課室英語 6-2 分發講義" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">6-2</div>
+          <div class="ce-card__zh">分發講義</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑦ 引起參與 Student Engagement -->
+<section class="cat-section" id="engagement">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑦ Student Engagement</div>
+      <h2 class="cat-title">引起參與</h2>
+      <div class="cat-title-en">9 techniques: discussions, group work, note-taking, concept explanation and more</div>
+      <div class="cat-rule cat-rule--gold"></div>
+    </div>
+    <div class="ce-grid ce-grid--wide">
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/Q-qRGv3utdk?rel=0" title="課室英語 7-1 引起學生參與" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-1</div>
+          <div class="ce-card__zh">引起學生參與</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/Zyc5QIfT0-I?rel=0" title="課室英語 7-2 建構語言知識" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-2</div>
+          <div class="ce-card__zh">建構語言知識</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/YrS5zKJO9tI?rel=0" title="課室英語 7-3 詢問意見與討論" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-3</div>
+          <div class="ce-card__zh">詢問意見與討論</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/zP2hefYLVsE?rel=0" title="課室英語 7-4 分組練習" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-4</div>
+          <div class="ce-card__zh">分組練習</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/XiiArYI5f3M?rel=0" title="課室英語 7-5 教學生做筆記" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-5</div>
+          <div class="ce-card__zh">教學生做筆記</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/5RDSv4H8fgw?rel=0" title="課室英語 7-6 請學生參考課本和資料" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-6</div>
+          <div class="ce-card__zh">請學生參考課本和資料</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/BnXdQfmjHMA?rel=0" title="課室英語 7-7 主題轉換" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-7</div>
+          <div class="ce-card__zh">主題轉換</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/QgpxLrY33T4?rel=0" title="課室英語 7-8 說明主要概念" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-8</div>
+          <div class="ce-card__zh">說明主要概念</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/Rd8a8up8qOI?rel=0" title="課室英語 7-9 舉例" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">7-9</div>
+          <div class="ce-card__zh">舉例</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑧ 分派作業 Assignments -->
+<section class="cat-section" id="assignment">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑧ Assignments</div>
+      <h2 class="cat-title">分派作業</h2>
+      <div class="cat-title-en">Giving homework instructions in English</div>
+      <div class="cat-rule cat-rule--green"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--green">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/jMV1z7mnaTw?rel=0" title="課室英語 8 分派作業" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">8</div>
+          <div class="ce-card__zh">分派作業</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑨ 課堂收尾 Wrap-Up -->
+<section class="cat-section" id="wrapup">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑨ Wrap-Up</div>
+      <h2 class="cat-title">課堂收尾</h2>
+      <div class="cat-title-en">Closing the lesson and previewing next time in English</div>
+      <div class="cat-rule"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/zVR2RqfAZ7o?rel=0" title="課室英語 9-1 下次要討論的議題" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">9-1</div>
+          <div class="ce-card__zh">下次要討論的議題</div>
+        </div>
+      </div>
+      <div class="ce-card">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/4n3aLRCyYvA?rel=0" title="課室英語 9-2 下課" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">9-2</div>
+          <div class="ce-card__zh">下課</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑩ 考試 Exams -->
+<section class="cat-section" id="exams">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">⑩ Exams</div>
+      <h2 class="cat-title">考試</h2>
+      <div class="cat-title-en">Before the test, during, marking, and going over results</div>
+      <div class="cat-rule cat-rule--navy"></div>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/qDoa8ejscsk?rel=0" title="課室英語 10-1 考前叮嚀" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">10-1</div>
+          <div class="ce-card__zh">考前叮嚀</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/hg6Ozp66YSk?rel=0" title="課室英語 10-2 考試結束前的提醒" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">10-2</div>
+          <div class="ce-card__zh">考試結束前的提醒</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/FlEPnkpNclc?rel=0" title="課室英語 10-3 改考卷" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">10-3</div>
+          <div class="ce-card__zh">改考卷</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--navy">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/pLBCtQzhKmw?rel=0" title="課室英語 10-4 講解考卷" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">10-4</div>
+          <div class="ce-card__zh">講解考卷</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ＋ 短片補充 Quick Clips -->
+<section class="cat-section" id="shorts">
+  <div class="wrap">
+    <div class="cat-header">
+      <div class="cat-no">＋ Quick Clips</div>
+      <h2 class="cat-title">短片補充</h2>
+      <div class="cat-title-en">Short focused clips for quick reference</div>
+      <div class="cat-rule cat-rule--gold"></div>
+    </div>
+    <div class="ce-grid ce-grid--wide">
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/JFVaG971gPk?rel=0" title="Take Attendance" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Take Attendance</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/bcfM-upcB4A?rel=0" title="Take Attendance 2" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Take Attendance 2</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/b75snQyEyLg?rel=0" title="Before Class Part 1" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Before Class (Part 1)</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/CuA_EEYVcUI?rel=0" title="Before Class Part 2" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Before Class (Part 2)</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/bbMYazKbKw0?rel=0" title="Classroom English Equipment" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Equipment 設備</div>
+        </div>
+      </div>
+      <div class="ce-card ce-card--gold">
+        <div class="ce-card__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/26CODWCdz3A?rel=0" title="Classroom English" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="ce-card__label">
+          <div class="ce-card__no">CLIP</div>
+          <div class="ce-card__zh">Classroom English</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-bar">
+      <a href="../bilingual-campus/">← 回雙語校園 · Back to Bilingual Campus</a>
+    </div>
+  </div>
+</section>
+
 
 <footer>
   © 彰化縣立北斗國民中學 Beidou Junior High School &nbsp;·&nbsp;
