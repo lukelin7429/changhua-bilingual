@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bilingual Lessons · Beidou Junior High School</title>
-<meta name="description" content="Beidou JHS Bilingual Lessons — 4 courses: Word of the Day, Bilingual Science, Classroom English, Bilingual Broadcast. 北斗國中雙語課程入口：每日一字、雙語科學、課室英語、廣播英語。">
+<meta name="description" content="Beidou JHS Bilingual Lessons — 5 courses: Word of the Day, Bilingual Science, Classroom English, Bilingual Broadcast, 2000 Vocabulary. 北斗國中雙語課程入口：每日一字、雙語科學、課室英語、廣播英語、國中2000單字。">
 <link rel="icon" type="image/x-icon" href="/schools/beidou-jhs/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/beidou-jhs/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/beidou-jhs/favicon-192.png">
@@ -78,6 +78,8 @@
   .ch-sci .course__hero{background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 100%);}
   .ch-ce  .course__hero{background:linear-gradient(135deg,var(--gold-deep) 0%,var(--navy-deep) 100%);}
   .ch-bb  .course__hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--navy-deep) 100%);}
+  .ch-v2k .course__hero{background:linear-gradient(135deg,#1e2d1e 0%,#253525 100%);}
+  .ch-v2k .course__pill{background:var(--green-soft);color:var(--green-deep);}
   .course__body{flex:1;padding:18px 14px 18px 24px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto auto;align-content:center;column-gap:14px;row-gap:4px;}
   @media(min-width:720px){.course__body{padding:22px 28px 22px 32px;column-gap:24px;row-gap:6px;}}
   .course__tag{grid-column:1;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);}
@@ -156,6 +158,19 @@
   .bb-unit__label{font-size:16px;line-height:1.35;}
   @media(min-width:720px){.bb-unit__label{font-size:18px;}}
 
+  .v2k-strip{background:#f0f5f0;border-radius:20px;padding:28px 30px;margin-top:20px;border:1px solid #c8ddc8;}
+  .v2k-strip__title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--green-deep);margin-bottom:16px;}
+  @media(min-width:720px){.v2k-strip__title{font-size:26px;}}
+  .v2k-units{display:flex;flex-wrap:wrap;gap:10px;}
+  .v2k-unit{background:#fff;border:1px solid var(--line);border-top:4px solid var(--green);border-radius:12px;padding:12px 20px;text-decoration:none;color:var(--green-deep);font-size:16px;font-weight:600;transition:all .15s;display:flex;align-items:center;gap:10px;}
+  .v2k-unit:nth-child(2){border-top-color:var(--navy);}
+  .v2k-unit:nth-child(3){border-top-color:var(--gold);}
+  .v2k-unit:nth-child(4){border-top-color:#6a5acd;}
+  .v2k-unit:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
+  .v2k-unit__num{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;font-weight:700;}
+  .v2k-unit__name{font-size:16px;}
+  @media(min-width:720px){.v2k-unit__name{font-size:18px;}}
+
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
   @media(min-width:720px){footer{font-size:19px;}}
   footer .org{font-weight:600;color:var(--navy-deep);}
@@ -192,7 +207,7 @@
 <section>
   <div class="wrap">
     <h2 class="sec__title">All Courses</h2>
-    <div class="sec__title-zh">所有課程 · 點選進入學習</div>
+    <div class="sec__title-zh">全部 5 門課程 · 點選進入學習</div>
     <div class="sec__rule"></div>
 
     <div class="courses">
@@ -262,6 +277,24 @@
             <span class="course__pill">🎙 13 Episodes</span>
             <span class="course__pill">🏫 4 Offices</span>
             <span class="course__pill">📡 MCC Production</span>
+          </div>
+          <div class="course__cta">Enter Course <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Course 5: 2000 Vocabulary Practice -->
+      <a class="course ch-v2k" href="vocab-2000/">
+        <div class="course__hero"><span class="course__emoji">🎯</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 05 · Vocabulary Practice</div>
+          <div class="course__title">2000 Vocabulary</div>
+          <div class="course__title-zh">國中2000單字練習 · 互動式單字卡與測驗</div>
+          <p class="course__desc">Interactive flashcards and quizzes based on Taiwan's Ministry of Education 2000-word list. Flip cards, answer multiple-choice questions, and earn stars — 332 Stage 1 survival words ready to go.</p>
+          <div class="course__pills">
+            <span class="course__pill">🃏 Flashcards</span>
+            <span class="course__pill">🎯 Quiz</span>
+            <span class="course__pill">⭐ Stars &amp; Streaks</span>
+            <span class="course__pill">📱 Mobile-ready</span>
           </div>
           <div class="course__cta">Enter Course <span class="arrow">→</span></div>
         </div>
@@ -374,6 +407,29 @@
       </div>
     </div>
 
+    <!-- 2000 Vocabulary quick links -->
+    <div class="v2k-strip">
+      <div class="v2k-strip__title">🎯 2000 Vocabulary — Jump to a Stage</div>
+      <div class="v2k-units">
+        <a class="v2k-unit" href="vocab-2000/">
+          <span>🌱</span>
+          <div><div class="v2k-unit__num">Stage 1</div><div class="v2k-unit__name">生存單字 · Survival Words (332)</div></div>
+        </a>
+        <a class="v2k-unit" href="vocab-2000/">
+          <span>📘</span>
+          <div><div class="v2k-unit__num">Stage 2</div><div class="v2k-unit__name">核心單字 · Core Words — Coming Soon</div></div>
+        </a>
+        <a class="v2k-unit" href="vocab-2000/">
+          <span>📗</span>
+          <div><div class="v2k-unit__num">Stage 3</div><div class="v2k-unit__name">延伸單字 · Extended Words — Coming Soon</div></div>
+        </a>
+        <a class="v2k-unit" href="vocab-2000/">
+          <span>🏆</span>
+          <div><div class="v2k-unit__num">Stage 4</div><div class="v2k-unit__name">進階單字 · Advanced Words — Coming Soon</div></div>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -385,3 +441,4 @@
 
 </body>
 </html>
+
