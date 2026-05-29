@@ -106,8 +106,7 @@
   .news-grid{display:grid;grid-template-columns:1fr;gap:26px;}
   @media (min-width:680px){ .news-grid{grid-template-columns:1fr 1fr;gap:28px;} }
   @media (min-width:1000px){ .news-grid{grid-template-columns:repeat(3,1fr);} }
-  a.nc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);border-top:6px solid var(--acc);color:inherit;transition:transform .2s,box-shadow .2s;}
-  a.nc:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .nc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);border-top:6px solid var(--acc);color:inherit;}
   .nc__thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accSoft);display:flex;align-items:center;justify-content:center;position:relative;}
   .nc__thumb .emoji{font-size:74px;line-height:1;filter:drop-shadow(0 6px 14px rgba(15,26,34,.18));}
   .nc__body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;}
@@ -121,15 +120,12 @@
   @media (min-width:720px){ .nc__title-zh{font-size:20px;} }
   .nc__excerpt{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.6;flex:1;}
   @media (min-width:720px){ .nc__excerpt{font-size:18px;} }
-  .nc__more{margin-top:18px;font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--acc);}
-  @media (min-width:720px){ .nc__more{font-size:18px;} }
 
   /* ============ HONOUR ROLL ============ */
   .honour{padding:34px 0 80px;}
   .hroll{display:grid;grid-template-columns:1fr;gap:16px;}
   @media (min-width:760px){ .hroll{grid-template-columns:1fr 1fr;gap:18px;} }
-  a.hr{display:block;background:#fff;border:1px solid var(--line);border-left:6px solid var(--gold-deep);border-radius:14px;padding:20px 24px;box-shadow:var(--shadow-sm);color:inherit;transition:transform .15s,box-shadow .2s;}
-  a.hr:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .hr{display:block;background:#fff;border:1px solid var(--line);border-left:6px solid var(--gold-deep);border-radius:14px;padding:20px 24px;box-shadow:var(--shadow-sm);color:inherit;}
   .hr .hr-date{font-size:15px;color:var(--ink-soft);font-weight:600;}
   @media (min-width:720px){ .hr .hr-date{font-size:16px;} }
   .hr .hr-title{font-family:'Fraunces',serif;font-size:21px;font-weight:700;color:var(--ink);margin-top:4px;line-height:1.3;}
@@ -138,7 +134,6 @@
   @media (min-width:720px){ .hr .hr-zh{font-size:18px;} }
   .src-note{margin-top:30px;font-size:17px;color:var(--ink-soft);}
   @media (min-width:720px){ .src-note{font-size:18px;} }
-  .src-note a{font-weight:600;}
   .back-cta{margin-top:40px;}
   .back-cta a{display:inline-block;background:var(--brand-deep);color:#fff;padding:14px 30px;border-radius:999px;font-weight:600;font-size:18px;}
   @media (min-width:720px){ .back-cta a{font-size:20px;} }
@@ -201,12 +196,12 @@
     <div class="section-head">
       <div class="eyebrow">Recent Highlights</div>
       <h2>Latest Stories</h2>
-      <div class="h2-zh">近期亮點 · 點擊前往學校官網閱讀全文</div>
+      <div class="h2-zh">近期校園榮譽與好消息</div>
     </div>
 
     <div class="news-grid">
 
-      <a class="nc cat--unicycle" href="https://tdes.chc.edu.tw/posts/1057" target="_blank" rel="noopener">
+      <article class="nc cat--unicycle">
         <div class="nc__thumb"><span class="emoji">🛞</span></div>
         <div class="nc__body">
           <div class="nc__cat">UNICYCLE · 獨輪車</div>
@@ -214,11 +209,10 @@
           <h3 class="nc__title">National Unicycle Championship — Top Honours</h3>
           <div class="nc__title-zh">全國教育盃獨輪車錦標賽 · 成績優異</div>
           <p class="nc__excerpt">Cundong's self-taught Unicycle Squad rode onto the national stage at the 13th National Education Cup Unicycle Championship — and came home with honours.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
-      <a class="nc cat--skating" href="https://tdes.chc.edu.tw/posts/1050" target="_blank" rel="noopener">
+      <article class="nc cat--skating">
         <div class="nc__thumb"><span class="emoji">⛸️</span></div>
         <div class="nc__body">
           <div class="nc__cat">SKATING · 滑輪溜冰</div>
@@ -226,11 +220,10 @@
           <h3 class="nc__title">Multiple Medals at the Tainan Skating Championship</h3>
           <div class="nc__title-zh">臺南市主委盃滑輪溜冰錦標賽 · 多項佳績</div>
           <p class="nc__excerpt">Our skaters travelled south to the Tainan Chairperson's Cup Inline Skating Championship and brought home medals across several events.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
-      <a class="nc cat--reading" href="https://tdes.chc.edu.tw/posts/1015" target="_blank" rel="noopener">
+      <article class="nc cat--reading">
         <div class="nc__thumb"><span class="emoji">📖</span></div>
         <div class="nc__body">
           <div class="nc__cat">READING · 閱讀</div>
@@ -238,11 +231,10 @@
           <h3 class="nc__title">Reading Rangers Shine in the County Digital Reading Challenge</h3>
           <div class="nc__title-zh">彰化縣數位閱讀競賽 · 寒假閱讀小奇兵知識挑戰賽獲佳績</div>
           <p class="nc__excerpt">In the Changhua Digital Reading Challenge's "Winter Reading Rangers" knowledge contest, Cundong's readers placed among the county's best.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
-      <a class="nc cat--mothertongue" href="https://tdes.chc.edu.tw/posts/1014" target="_blank" rel="noopener">
+      <article class="nc cat--mothertongue">
         <div class="nc__thumb"><span class="emoji">🗣️</span></div>
         <div class="nc__body">
           <div class="nc__cat">MOTHER TONGUE · 母語</div>
@@ -250,11 +242,10 @@
           <h3 class="nc__title">Award-Winning Mother-Tongue Picture Books</h3>
           <div class="nc__title-zh">114 學年度臺灣母語繪本製作比賽 · 榮獲佳績</div>
           <p class="nc__excerpt">Cundong's young authors and illustrators earned honours at this year's Taiwanese Mother-Tongue Picture Book competition — telling local stories in their own language.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
-      <a class="nc cat--tech" href="https://tdes.chc.edu.tw/posts/963" target="_blank" rel="noopener">
+      <article class="nc cat--tech">
         <div class="nc__thumb"><span class="emoji">🚁</span></div>
         <div class="nc__body">
           <div class="nc__cat">DRONE &amp; TECH · 無人機</div>
@@ -262,11 +253,10 @@
           <h3 class="nc__title">Flying High at the Creativity Cup Drone Competition</h3>
           <div class="nc__title-zh">2026 創意盃無人機競賽 · 個人與團體賽雙料獲獎</div>
           <p class="nc__excerpt">At the 2026 Creativity Cup Drone Competition, Cundong's pilots earned awards in both the individual and team events.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
-      <a class="nc cat--sports" href="https://tdes.chc.edu.tw/posts/1004" target="_blank" rel="noopener">
+      <article class="nc cat--sports">
         <div class="nc__thumb"><span class="emoji">🏆</span></div>
         <div class="nc__body">
           <div class="nc__cat">SKATING · 總統盃</div>
@@ -274,9 +264,8 @@
           <h3 class="nc__title">Presidential Cup National Skating Championship</h3>
           <div class="nc__title-zh">115 年第 23 屆總統盃全國小學溜冰錦標賽 · 榮獲佳績</div>
           <p class="nc__excerpt">Cundong skaters competed at the 23rd Presidential Cup National Elementary Skating Championship and finished among the winners.</p>
-          <div class="nc__more">View on official site ↗</div>
         </div>
-      </a>
+      </article>
 
     </div>
   </div>
@@ -292,42 +281,39 @@
     </div>
 
     <div class="hroll">
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/1029" target="_blank" rel="noopener">
+      <div class="hr">
         <div class="hr-date">April 18, 2026 · 115/4/18</div>
         <div class="hr-title">County Education Cup — Folk Sports (Unicycle)</div>
         <div class="hr-zh">彰化縣 114 學年度教育盃民俗體育（獨輪車）錦標賽 · 多項佳績</div>
-      </a>
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/1023" target="_blank" rel="noopener">
+      </div>
+      <div class="hr">
         <div class="hr-date">April 14, 2026 · 115/4/14</div>
         <div class="hr-title">County Education Cup — Speed Inline Skating</div>
         <div class="hr-zh">彰化縣 114 學年度教育盃競速直排輪溜冰錦標賽 · 獲佳績</div>
-      </a>
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/962" target="_blank" rel="noopener">
+      </div>
+      <div class="hr">
         <div class="hr-date">March 9, 2026 · 115/3/9</div>
         <div class="hr-title">Yunlin Chairperson's Cup National Skating League — Taichung Stop</div>
         <div class="hr-zh">雲林縣理事長盃全國滑輪溜冰錦標賽 · 菁英積分聯賽台中 SUGATTI 站獲佳績</div>
-      </a>
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/933" target="_blank" rel="noopener">
+      </div>
+      <div class="hr">
         <div class="hr-date">February 3, 2026 · 115/2/3</div>
         <div class="hr-title">2026 Creativity Cup Drone Competition</div>
         <div class="hr-zh">2026 創意盃無人機競賽 · 榮獲佳績</div>
-      </a>
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/930" target="_blank" rel="noopener">
+      </div>
+      <div class="hr">
         <div class="hr-date">January 31, 2026 · 115/1/31</div>
         <div class="hr-title">Changhua County Combined School Sports Meet</div>
         <div class="hr-zh">彰化縣 115 年中小學聯合運動會 · 個人單項佳績</div>
-      </a>
-      <a class="hr" href="https://tdes.chc.edu.tw/posts/887" target="_blank" rel="noopener">
+      </div>
+      <div class="hr">
         <div class="hr-date">December 17, 2025 · 114/12/17</div>
         <div class="hr-title">2025 AI Robotics, Creative Coding &amp; Drone Soccer Competition</div>
         <div class="hr-zh">2025 AI 機器人創意程式暨足球無人機競賽 · 獲佳績</div>
-      </a>
+      </div>
     </div>
 
-    <p class="src-note">
-      Stories and dates are drawn from the school's official Honour Roll.
-      <a href="https://tdes.chc.edu.tw/posts/2/type" target="_blank" rel="noopener">See the full Honour Roll on the official site ↗ · 榮譽榜全部公告</a>
-    </p>
+    <p class="src-note">Highlights and dates compiled from Cundong Elementary's school announcements. · 新聞與日期整理自村東國小校園公告。</p>
 
     <div class="back-cta"><a href="../">← Back to Cundong home · 回村東首頁</a></div>
   </div>
