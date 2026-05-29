@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>英文單字練習 Vocabulary Practice 🎯</title>
+<style>
+:root {
+  --bg:       #1E2D1E;
+  --board:    #253525;
+  --card:     #2C422C;
+  --card2:    #243424;
+  --chalk:    #F2EDD7;
+  --chalk2:   #D4CDB5;
+  --yellow:   #FFD93D;
+  --green:    #6BCB77;
+  --coral:    #FF6B6B;
+  --blue:     #74B9FF;
+  --purple:   #A29BFE;
+  --orange:   #FDCB6E;
+  --border:   rgba(242,237,215,0.15);
+  --shadow:   0 8px 32px rgba(0,0,0,0.4);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--chalk);
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ─── 黑板紋路背景 ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
+  z-index: 0;
+}
+header, .mode-tabs, .theme-wrap, .progress-wrap, .container { position: relative; z-index: 1; }
+
+/* ─── Header ─── */
+header {
+  background: var(--board);
+  border-bottom: 3px solid rgba(242,237,215,0.2);
+  padding: 20px 20px 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+header h1 {
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--yellow);
+  text-shadow: 0 0 20px rgba(255,217,61,0.4);
+  letter-spacing: 1px; line-height: 1.25;
+}
+.h1-en {
+  display: block; font-size: 0.62em;
+  font-weight: 600; opacity: 0.8;
+  letter-spacing: 1px; margin-top: 2px;
+}
+header p {
+  font-size: 0.85rem;
+  color: var(--chalk2); margin-top: 5px;
+}
+.star-row {
+  margin-top: 8px; display: flex;
+  align-items: center; justify-content: center; gap: 8px;
+}
+.star-chip {
+  background: rgba(255,217,61,0.15);
+  border: 1.5px solid rgba(255,217,61,0.4);
+  color: var(--yellow); font-weight: 800;
+  font-size: 0.9rem; padding: 4px 16px; border-radius: 20px;
+}
+
+/* ─── Mode Tabs ─── */
+.mode-tabs {
+  display: flex;
+  background: var(--board);
+  border-bottom: 2px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.mode-tab {
+  flex: 1; padding: 12px 15px; text-align: center;
+  font-size: 1rem; font-weight: 700;
+  cursor: pointer; color: var(--chalk2);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s; margin-bottom: -2px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+}
+.mode-tab.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+.tab-en {
+  font-size: 0.7rem; font-weight: 500;
+  opacity: 0.72; letter-spacing: 0.5px;
+}
+
+/* ─── Theme Chips ─── */
+.theme-wrap {
+  padding: 12px 16px 10px;
+  overflow-x: auto; white-space: nowrap;
+  background: var(--board);
+  border-bottom: 1px solid var(--border);
+}
+.theme-chip {
+  display: inline-flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 6px 16px; margin-right: 8px;
+  border-radius: 20px; cursor: pointer;
+  border: 1.5px solid var(--border);
+  color: var(--chalk2); background: transparent;
+  transition: all 0.18s; white-space: nowrap;
+  vertical-align: middle;
+}
+.theme-chip.active {
+  background: var(--yellow); border-color: var(--yellow);
+  color: #1E2D1E;
+  box-shadow: 0 3px 12px rgba(255,217,61,0.35);
+}
+.chip-zh {
+  font-size: 0.85rem; font-weight: 700; line-height: 1.3;
+}
+.chip-en {
+  font-size: 0.68rem; font-weight: 500;
+  opacity: 0.75; line-height: 1.2;
+  letter-spacing: 0.3px;
+}
+.theme-chip.active .chip-en { opacity: 0.65; }
+
+/* ─── Progress ─── */
+.progress-wrap {
+  padding: 12px 20px 8px;
+  background: var(--board);
+  border-bottom: 1px solid var(--border);
+}
+.progress-info {
+  display: flex; justify-content: space-between;
+  font-size: 0.82rem; color: var(--chalk2);
+  margin-bottom: 7px; font-weight: 600;
+}
+.progress-bar {
+  height: 8px; background: rgba(255,255,255,0.1);
+  border-radius: 8px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+  border-radius: 8px; transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(107,203,119,0.5);
+}
+
+/* ─── Container ─── */
+.container { padding: 18px 20px; max-width: 560px; margin: 0 auto; }
+
+/* ─── Streak ─── */
+.streak-bar {
+  text-align: center; min-height: 36px;
+  margin-bottom: 14px; font-weight: 700;
+}
+.streak-badge {
+  display: inline-block;
+  background: rgba(255,217,61,0.15);
+  border: 2px solid var(--yellow);
+  color: var(--yellow); padding: 6px 20px;
+  border-radius: 20px; font-size: 0.95rem;
+  animation: popIn 0.3s cubic-bezier(.4,0,0,1.4);
+  text-shadow: 0 0 12px rgba(255,217,61,0.6);
+}
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── Flashcard ─── */
+.fc-scene { perspective: 1200px; margin-bottom: 18px; }
+.flashcard {
+  width: 100%; min-height: 260px; position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute; width: 100%; min-height: 260px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 20px; padding: 32px 28px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.card-front {
+  background: var(--card);
+  border: 2px solid rgba(242,237,215,0.18);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.card-back {
+  background: linear-gradient(135deg, #243424, #1E2D1E);
+  border: 2px solid rgba(107,203,119,0.3);
+  transform: rotateY(180deg);
+  box-shadow: var(--shadow), 0 0 30px rgba(107,203,119,0.1);
+}
+.card-spacer { min-height: 260px; }
+
+.card-tag {
+  font-size: 0.75rem; font-weight: 700;
+  border: 1.5px solid rgba(255,217,61,0.4);
+  color: var(--yellow); padding: 4px 14px;
+  border-radius: 12px; margin-bottom: 18px;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ★ 超大單字 ★ */
+.card-word {
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 900;
+  color: var(--chalk);
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(242,237,215,0.2);
+}
+.card-tap-hint {
+  font-size: 0.85rem; color: var(--chalk2);
+  margin-top: 18px; opacity: 0.8;
+}
+
+/* ★ 超大意思 ★ */
+.card-meaning {
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  font-weight: 900;
+  color: var(--green);
+  text-align: center;
+  text-shadow: 0 0 20px rgba(107,203,119,0.4);
+  line-height: 1.15;
+}
+.card-word-hint {
+  font-size: 1rem; color: var(--chalk2);
+  margin-top: 14px; font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ─── FC Buttons ─── */
+.fc-actions { display: flex; gap: 14px; margin-bottom: 16px; }
+.btn-know, .btn-review {
+  flex: 1; padding: 16px 12px;
+  border: none; border-radius: 16px;
+  font-size: 1.1rem; font-weight: 800;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  line-height: 1.3;
+}
+.btn-know {
+  background: var(--green); color: #1E2D1E;
+  box-shadow: 0 4px 16px rgba(107,203,119,0.4);
+}
+.btn-review {
+  background: var(--coral); color: white;
+  box-shadow: 0 4px 16px rgba(255,107,107,0.4);
+}
+.btn-know:active, .btn-review:active { transform: scale(0.96); }
+
+.fc-nav {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 12px;
+}
+.btn-nav {
+  padding: 12px 22px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px; background: var(--card);
+  font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; color: var(--yellow);
+  transition: all 0.15s;
+}
+.btn-nav:active { opacity: 0.7; transform: scale(0.96); }
+.btn-nav:disabled { opacity: 0.25; cursor: not-allowed; transform: none; }
+.card-counter { font-size: 0.9rem; color: var(--chalk2); font-weight: 600; }
+
+.known-stats {
+  text-align: center; font-size: 0.85rem;
+  color: var(--chalk2); margin-bottom: 10px; font-weight: 600;
+}
+.known-stats span { color: var(--green); font-weight: 800; }
+
+/* ─── Quiz 上下版面 ─── */
+.quiz-score-row {
+  display: flex; justify-content: center;
+  gap: 16px; margin-bottom: 14px;
+}
+.score-chip {
+  background: var(--card); border-radius: 14px;
+  padding: 10px 22px; font-size: 0.9rem; font-weight: 700;
+  color: var(--chalk2); border: 1.5px solid var(--border);
+}
+.score-chip span { color: var(--yellow); font-size: 1.3rem; font-weight: 900; }
+
+.quiz-question-card {
+  background: var(--card);
+  border-radius: 20px; padding: 36px 24px;
+  text-align: center; margin-bottom: 16px;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.quiz-num-label {
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--yellow); letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+/* ★ 單字超大 ★ */
+.quiz-word {
+  font-size: clamp(3.2rem, 10vw, 5.5rem);
+  font-weight: 900; color: var(--chalk);
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(242,237,215,0.15);
+}
+.quiz-sub {
+  font-size: 0.88rem; color: var(--chalk2);
+  margin-top: 12px; opacity: 0.8;
+}
+
+/* 2x2 選項 */
+.quiz-options {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 14px;
+}
+.quiz-opt {
+  padding: 22px 14px; min-height: 80px;
+  border-radius: 16px; border: 2px solid var(--border);
+  background: var(--card); font-size: 1.3rem; font-weight: 700;
+  cursor: pointer; text-align: center;
+  transition: all 0.15s; color: var(--chalk);
+  line-height: 1.4; display: flex;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.quiz-opt:hover   { border-color: var(--yellow); color: var(--yellow); }
+.quiz-opt:active  { transform: scale(0.97); }
+.quiz-opt.correct {
+  background: rgba(107,203,119,0.2);
+  border-color: var(--green); color: var(--green);
+  box-shadow: 0 0 20px rgba(107,203,119,0.3);
+}
+.quiz-opt.wrong {
+  background: rgba(255,107,107,0.15);
+  border-color: var(--coral); color: var(--coral);
+  animation: shake 0.4s;
+}
+.quiz-opt.show-ans {
+  background: rgba(107,203,119,0.2);
+  border-color: var(--green); color: var(--green);
+}
+.quiz-opt:disabled { cursor: not-allowed; }
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.quiz-feedback {
+  text-align: center; font-size: 1.3rem; font-weight: 800;
+  min-height: 42px; padding: 8px; border-radius: 12px;
+  margin-bottom: 12px;
+}
+.quiz-feedback.correct { color: var(--green); text-shadow: 0 0 16px rgba(107,203,119,0.5); }
+.quiz-feedback.wrong   { color: var(--coral); }
+
+.btn-next {
+  width: 100%; padding: 18px;
+  border: none; border-radius: 16px;
+  background: var(--yellow); color: #1E2D1E;
+  font-size: 1.1rem; font-weight: 900;
+  cursor: pointer; transition: all 0.15s;
+  box-shadow: 0 4px 16px rgba(255,217,61,0.3);
+  display: none;
+}
+.btn-next.show { display: block; }
+.btn-next:active { transform: scale(0.97); }
+
+/* ─── Summary ─── */
+.summary {
+  background: var(--card); border-radius: 24px;
+  padding: 36px 24px; text-align: center;
+  border: 2px solid var(--border); box-shadow: var(--shadow);
+  display: none;
+}
+.summary.show { display: block; }
+.summary-emoji { font-size: 4.5rem; margin-bottom: 12px; }
+.summary h2 { font-size: 1.5rem; font-weight: 800; color: var(--chalk); margin-bottom: 10px; }
+.summary-score {
+  font-size: 3.2rem; font-weight: 900;
+  color: var(--yellow);
+  text-shadow: 0 0 20px rgba(255,217,61,0.4);
+  margin: 12px 0 8px;
+}
+.summary-stars { font-size: 2rem; margin-bottom: 14px; }
+.summary p { color: var(--chalk2); font-size: 0.95rem; margin-bottom: 24px; font-weight: 500; line-height: 1.6; }
+.btn-restart {
+  padding: 16px 44px;
+  background: var(--yellow); color: #1E2D1E;
+  border: none; border-radius: 16px;
+  font-size: 1.1rem; font-weight: 900; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255,217,61,0.3);
+}
+.btn-restart:active { transform: scale(0.97); }
+
+/* ─── Confetti ─── */
+.confetti-container {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 999; overflow: hidden;
+}
+.confetti-piece {
+  position: absolute; border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎯 英文單字練習<span class="h1-en">Vocabulary Practice</span></h1>
+  <p>第一階段：生存單字 Stage 1: Survival Words ｜ 共 <span id="totalCount">0</span> 個 words</p>
+  <div class="star-row">
+    <div class="star-chip">⭐ <span id="starTotal">0</span> 顆星 Stars</div>
+  </div>
+</header>
+
+<div class="mode-tabs">
+  <div class="mode-tab active" id="tabFlash" onclick="switchMode('flash')">🃏 單字卡<span class="tab-en">Flashcards</span></div>
+  <div class="mode-tab"        id="tabQuiz"  onclick="switchMode('quiz')">🎯 選擇題<span class="tab-en">Quiz</span></div>
+</div>
+
+<div class="theme-wrap" id="themeWrap"></div>
+
+<div class="progress-wrap">
+  <div class="progress-info">
+    <span id="progressText">準備開始！ Ready!</span>
+    <span id="progressPct">0%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── 單字卡 ── -->
+  <div id="flashMode">
+    <div class="streak-bar" id="streakBar"></div>
+    <div class="known-stats">
+      已認識 Known：<span id="knownCount">0</span> ／ 待加強 To Review：<span id="reviewCount">0</span>
+    </div>
+    <div class="fc-scene">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="card-face card-front">
+          <div class="card-tag" id="fcTag">載入中</div>
+          <div class="card-word" id="fcWord">...</div>
+          <div class="card-tap-hint">👆 點我看中文意思<br><span style="font-size:0.85em">Tap to see meaning</span></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-meaning" id="fcMeaning">...</div>
+          <div class="card-word-hint" id="fcWordHint">...</div>
+          <div class="card-tap-hint" style="margin-top:16px">👆 點我再看英文<br><span style="font-size:0.85em">Tap to flip back</span></div>
+        </div>
+      </div>
+      <div class="card-spacer"></div>
+    </div>
+    <div class="fc-actions" id="fcActions" style="display:none">
+      <button class="btn-review" onclick="markCard(false)">😅 再看一次<br><span style="font-size:0.78em;opacity:0.85;font-weight:600">Review Again</span></button>
+      <button class="btn-know"   onclick="markCard(true)">🙌 我認識！<br><span style="font-size:0.78em;opacity:0.85;font-weight:600">Got it!</span></button>
+    </div>
+    <div class="fc-nav">
+      <button class="btn-nav" id="btnPrev" onclick="prevCard()">← 上一個 Prev</button>
+      <span class="card-counter" id="cardCounter">1 / 1</span>
+      <button class="btn-nav" id="btnNext" onclick="nextCard()">下一個 Next →</button>
+    </div>
+  </div>
+
+  <!-- ── 選擇題 ── -->
+  <div id="quizMode" style="display:none">
+    <div class="streak-bar" id="quizStreakBar"></div>
+    <div class="quiz-score-row">
+      <div class="score-chip">⭐ 得分 Score <span id="quizScore">0</span></div>
+      <div class="score-chip">📝 第 <span id="quizNum">1</span> 題 Q.</div>
+    </div>
+
+    <div class="quiz-question-card">
+      <div class="quiz-num-label" id="quizNumLabel">第 1 題 / 共 0 題</div>
+      <div class="quiz-word" id="quizWord">...</div>
+      <div class="quiz-sub">選出正確的中文意思 · Choose the correct meaning 👇</div>
+    </div>
+    <div class="quiz-feedback" id="quizFeedback"></div>
+    <div class="quiz-options"  id="quizOptions"></div>
+    <button class="btn-next" id="btnNextQuiz" onclick="nextQuiz()">下一題 Next →</button>
+
+    <div class="summary" id="quizSummary">
+      <div class="summary-emoji" id="summaryEmoji">🎉</div>
+      <h2>本回合結束！<br><span style="font-size:0.72em;opacity:0.8;font-weight:600">Round Complete!</span></h2>
+      <div class="summary-score" id="summaryScore">0 / 0</div>
+      <div class="summary-stars"  id="summaryStars">⭐⭐⭐</div>
+      <p id="summaryMsg"></p>
+      <button class="btn-restart" onclick="restartQuiz()">🔄 再來一次！ Play Again</button>
+    </div>
+  </div>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+const VOCAB = [
+  {word:"a",meaning:"一(個)",theme:"冠詞限定詞"},
+  {word:"a few",meaning:"一些(可數)",theme:"冠詞限定詞"},
+  {word:"a little",meaning:"一些(不可數)",theme:"冠詞限定詞"},
+  {word:"a lot",meaning:"很多",theme:"冠詞限定詞"},
+  {word:"the",meaning:"這個；那個",theme:"冠詞限定詞"},
+  {word:"this",meaning:"這個",theme:"冠詞限定詞"},
+  {word:"that",meaning:"那個",theme:"冠詞限定詞"},
+  {word:"these",meaning:"這些",theme:"冠詞限定詞"},
+  {word:"those",meaning:"那些",theme:"冠詞限定詞"},
+  {word:"my",meaning:"我的",theme:"冠詞限定詞"},
+  {word:"our",meaning:"我們的",theme:"冠詞限定詞"},
+  {word:"your",meaning:"你的；你們的",theme:"冠詞限定詞"},
+  {word:"his",meaning:"他的",theme:"冠詞限定詞"},
+  {word:"her",meaning:"她的；她",theme:"冠詞限定詞"},
+  {word:"its",meaning:"它的",theme:"冠詞限定詞"},
+  {word:"their",meaning:"他們的",theme:"冠詞限定詞"},
+  {word:"every",meaning:"每一個",theme:"冠詞限定詞"},
+  {word:"I",meaning:"我",theme:"代名詞"},
+  {word:"me",meaning:"我(受格)",theme:"代名詞"},
+  {word:"mine",meaning:"我的東西",theme:"代名詞"},
+  {word:"myself",meaning:"我自己",theme:"代名詞"},
+  {word:"you",meaning:"你；你們",theme:"代名詞"},
+  {word:"yours",meaning:"你的東西",theme:"代名詞"},
+  {word:"yourself",meaning:"你自己",theme:"代名詞"},
+  {word:"he",meaning:"他",theme:"代名詞"},
+  {word:"him",meaning:"他(受格)",theme:"代名詞"},
+  {word:"himself",meaning:"他自己",theme:"代名詞"},
+  {word:"she",meaning:"她",theme:"代名詞"},
+  {word:"hers",meaning:"她的東西",theme:"代名詞"},
+  {word:"herself",meaning:"她自己",theme:"代名詞"},
+  {word:"it",meaning:"它；牠",theme:"代名詞"},
+  {word:"itself",meaning:"它自己",theme:"代名詞"},
+  {word:"we",meaning:"我們",theme:"代名詞"},
+  {word:"us",meaning:"我們(受格)",theme:"代名詞"},
+  {word:"ours",meaning:"我們的東西",theme:"代名詞"},
+  {word:"ourselves",meaning:"我們自己",theme:"代名詞"},
+  {word:"they",meaning:"他們",theme:"代名詞"},
+  {word:"them",meaning:"他們(受格)",theme:"代名詞"},
+  {word:"theirs",meaning:"他們的東西",theme:"代名詞"},
+  {word:"themselves",meaning:"他們自己",theme:"代名詞"},
+  {word:"all",meaning:"全部；所有",theme:"代名詞"},
+  {word:"another",meaning:"另一個",theme:"代名詞"},
+  {word:"any",meaning:"任何(一個)",theme:"代名詞"},
+  {word:"anyone",meaning:"任何人",theme:"代名詞"},
+  {word:"anything",meaning:"任何事物",theme:"代名詞"},
+  {word:"both",meaning:"兩者都",theme:"代名詞"},
+  {word:"each",meaning:"每一個",theme:"代名詞"},
+  {word:"everyone",meaning:"每個人",theme:"代名詞"},
+  {word:"everything",meaning:"每件事",theme:"代名詞"},
+  {word:"many",meaning:"很多(可數)",theme:"代名詞"},
+  {word:"most",meaning:"大多數",theme:"代名詞"},
+  {word:"nobody",meaning:"沒有人",theme:"代名詞"},
+  {word:"nothing",meaning:"沒有東西",theme:"代名詞"},
+  {word:"other",meaning:"其他的",theme:"代名詞"},
+  {word:"some",meaning:"一些",theme:"代名詞"},
+  {word:"someone",meaning:"某人",theme:"代名詞"},
+  {word:"something",meaning:"某事；某物",theme:"代名詞"},
+  {word:"how",meaning:"如何；多(少)",theme:"Wh問句字"},
+  {word:"what",meaning:"什麼",theme:"Wh問句字"},
+  {word:"which",meaning:"哪一個",theme:"Wh問句字"},
+  {word:"who",meaning:"誰",theme:"Wh問句字"},
+  {word:"whose",meaning:"誰的",theme:"Wh問句字"},
+  {word:"when",meaning:"何時；當…時",theme:"Wh問句字"},
+  {word:"where",meaning:"在何處",theme:"Wh問句字"},
+  {word:"whether",meaning:"是否",theme:"Wh問句字"},
+  {word:"why",meaning:"為什麼",theme:"Wh問句字"},
+  {word:"while",meaning:"在…的時候",theme:"Wh問句字"},
+  {word:"be",meaning:"是；在",theme:"Be動詞助動詞"},
+  {word:"am",meaning:"是；在(第一人稱)",theme:"Be動詞助動詞"},
+  {word:"is",meaning:"是；在(第三人稱)",theme:"Be動詞助動詞"},
+  {word:"are",meaning:"是；在(複數)",theme:"Be動詞助動詞"},
+  {word:"was",meaning:"是；在(過去式)",theme:"Be動詞助動詞"},
+  {word:"were",meaning:"是；在(過去複數)",theme:"Be動詞助動詞"},
+  {word:"been",meaning:"是；在(過去分詞)",theme:"Be動詞助動詞"},
+  {word:"do",meaning:"做；助動詞",theme:"Be動詞助動詞"},
+  {word:"does",meaning:"做(第三人稱單數)",theme:"Be動詞助動詞"},
+  {word:"did",meaning:"做(過去式)",theme:"Be動詞助動詞"},
+  {word:"done",meaning:"做(過去分詞)",theme:"Be動詞助動詞"},
+  {word:"have",meaning:"有；吃；喝",theme:"Be動詞助動詞"},
+  {word:"has",meaning:"有(第三人稱單數)",theme:"Be動詞助動詞"},
+  {word:"had",meaning:"有(過去式)",theme:"Be動詞助動詞"},
+  {word:"can",meaning:"能夠；會",theme:"Be動詞助動詞"},
+  {word:"could",meaning:"能夠(過去式)",theme:"Be動詞助動詞"},
+  {word:"will",meaning:"將；會(未來式)",theme:"Be動詞助動詞"},
+  {word:"would",meaning:"將會(過去式)",theme:"Be動詞助動詞"},
+  {word:"may",meaning:"可以；或許",theme:"Be動詞助動詞"},
+  {word:"might",meaning:"可能(語氣較弱)",theme:"Be動詞助動詞"},
+  {word:"must",meaning:"必須；一定",theme:"Be動詞助動詞"},
+  {word:"should",meaning:"應該",theme:"Be動詞助動詞"},
+  {word:"about",meaning:"關於；大約",theme:"介系詞"},
+  {word:"above",meaning:"在…之上",theme:"介系詞"},
+  {word:"after",meaning:"在…之後",theme:"介系詞"},
+  {word:"along",meaning:"沿著",theme:"介系詞"},
+  {word:"around",meaning:"在…周圍；大約",theme:"介系詞"},
+  {word:"at",meaning:"在…(時間或地點)",theme:"介系詞"},
+  {word:"before",meaning:"在…之前",theme:"介系詞"},
+  {word:"behind",meaning:"在…後面",theme:"介系詞"},
+  {word:"below",meaning:"在…下面",theme:"介系詞"},
+  {word:"beside",meaning:"在…旁邊",theme:"介系詞"},
+  {word:"between",meaning:"在…兩者之間",theme:"介系詞"},
+  {word:"by",meaning:"在旁邊；藉由",theme:"介系詞"},
+  {word:"during",meaning:"在…期間",theme:"介系詞"},
+  {word:"from",meaning:"從；離開",theme:"介系詞"},
+  {word:"in",meaning:"在…裡面",theme:"介系詞"},
+  {word:"inside",meaning:"在…以內",theme:"介系詞"},
+  {word:"near",meaning:"靠近；鄰近",theme:"介系詞"},
+  {word:"on",meaning:"在…上面",theme:"介系詞"},
+  {word:"outside",meaning:"在…外面",theme:"介系詞"},
+  {word:"over",meaning:"在…上方",theme:"介系詞"},
+  {word:"since",meaning:"自從；自…以後",theme:"介系詞"},
+  {word:"than",meaning:"比",theme:"介系詞"},
+  {word:"through",meaning:"穿過；通過",theme:"介系詞"},
+  {word:"under",meaning:"在…之下；未滿",theme:"介系詞"},
+  {word:"until",meaning:"直到",theme:"介系詞"},
+  {word:"with",meaning:"和…在一起；用",theme:"介系詞"},
+  {word:"without",meaning:"沒有",theme:"介系詞"},
+  {word:"few",meaning:"很少的",theme:"數量"},
+  {word:"first",meaning:"第一",theme:"數量"},
+  {word:"second",meaning:"第二；秒",theme:"數量"},
+  {word:"third",meaning:"第三",theme:"數量"},
+  {word:"hundred",meaning:"百",theme:"數量"},
+  {word:"last",meaning:"最後；持續",theme:"數量"},
+  {word:"much",meaning:"很多(不可數)",theme:"數量"},
+  {word:"number",meaning:"數字",theme:"數量"},
+  {word:"several",meaning:"數個；幾個",theme:"數量"},
+  {word:"thousand",meaning:"千",theme:"數量"},
+  {word:"morning",meaning:"早上",theme:"時間"},
+  {word:"noon",meaning:"正午",theme:"時間"},
+  {word:"afternoon",meaning:"下午",theme:"時間"},
+  {word:"evening",meaning:"傍晚；黃昏",theme:"時間"},
+  {word:"night",meaning:"夜晚",theme:"時間"},
+  {word:"Monday",meaning:"星期一",theme:"時間"},
+  {word:"Tuesday",meaning:"星期二",theme:"時間"},
+  {word:"Wednesday",meaning:"星期三",theme:"時間"},
+  {word:"Thursday",meaning:"星期四",theme:"時間"},
+  {word:"Friday",meaning:"星期五",theme:"時間"},
+  {word:"Saturday",meaning:"星期六",theme:"時間"},
+  {word:"Sunday",meaning:"星期日",theme:"時間"},
+  {word:"week",meaning:"星期；一週",theme:"時間"},
+  {word:"weekend",meaning:"週末",theme:"時間"},
+  {word:"month",meaning:"月份",theme:"時間"},
+  {word:"January",meaning:"一月",theme:"時間"},
+  {word:"February",meaning:"二月",theme:"時間"},
+  {word:"March",meaning:"三月",theme:"時間"},
+  {word:"April",meaning:"四月",theme:"時間"},
+  {word:"May",meaning:"五月",theme:"時間"},
+  {word:"June",meaning:"六月",theme:"時間"},
+  {word:"July",meaning:"七月",theme:"時間"},
+  {word:"August",meaning:"八月",theme:"時間"},
+  {word:"September",meaning:"九月",theme:"時間"},
+  {word:"October",meaning:"十月",theme:"時間"},
+  {word:"November",meaning:"十一月",theme:"時間"},
+  {word:"December",meaning:"十二月",theme:"時間"},
+  {word:"season",meaning:"季節",theme:"時間"},
+  {word:"spring",meaning:"春天",theme:"時間"},
+  {word:"summer",meaning:"夏天",theme:"時間"},
+  {word:"fall",meaning:"秋天；落下",theme:"時間"},
+  {word:"autumn",meaning:"秋天",theme:"時間"},
+  {word:"winter",meaning:"冬天",theme:"時間"},
+  {word:"time",meaning:"時間；次數",theme:"時間"},
+  {word:"once",meaning:"一次；曾經",theme:"時間"},
+  {word:"twice",meaning:"兩次",theme:"時間"},
+  {word:"today",meaning:"今天",theme:"時間"},
+  {word:"tonight",meaning:"今晚",theme:"時間"},
+  {word:"tomorrow",meaning:"明天",theme:"時間"},
+  {word:"yesterday",meaning:"昨天",theme:"時間"},
+  {word:"past",meaning:"過去",theme:"時間"},
+  {word:"future",meaning:"未來",theme:"時間"},
+  {word:"ago",meaning:"在…以前",theme:"時間"},
+  {word:"already",meaning:"已經",theme:"時間"},
+  {word:"early",meaning:"早；早的",theme:"時間"},
+  {word:"next",meaning:"下一個",theme:"時間"},
+  {word:"soon",meaning:"馬上；即刻",theme:"時間"},
+  {word:"year",meaning:"年",theme:"時間"},
+  {word:"hour",meaning:"小時",theme:"時間"},
+  {word:"minute",meaning:"分鐘",theme:"時間"},
+  {word:"clock",meaning:"時鐘",theme:"時間"},
+  {word:"watch",meaning:"手錶；看",theme:"時間"},
+  {word:"aunt",meaning:"阿姨；嬸嬸",theme:"家庭"},
+  {word:"brother",meaning:"兄弟",theme:"家庭"},
+  {word:"cousin",meaning:"表/堂兄弟姐妹",theme:"家庭"},
+  {word:"daughter",meaning:"女兒",theme:"家庭"},
+  {word:"family",meaning:"家庭；家人",theme:"家庭"},
+  {word:"father",meaning:"父親；爸爸",theme:"家庭"},
+  {word:"grandfather",meaning:"爺爺；外公",theme:"家庭"},
+  {word:"grandmother",meaning:"奶奶；外婆",theme:"家庭"},
+  {word:"grow",meaning:"成長；種植",theme:"家庭"},
+  {word:"husband",meaning:"丈夫",theme:"家庭"},
+  {word:"married",meaning:"已婚的",theme:"家庭"},
+  {word:"mother",meaning:"母親；媽媽",theme:"家庭"},
+  {word:"parent",meaning:"父親或母親",theme:"家庭"},
+  {word:"relative",meaning:"親戚",theme:"家庭"},
+  {word:"sister",meaning:"姊妹",theme:"家庭"},
+  {word:"uncle",meaning:"叔叔；舅舅",theme:"家庭"},
+  {word:"son",meaning:"兒子",theme:"家庭"},
+  {word:"dad",meaning:"爸爸",theme:"家庭"},
+  {word:"mom",meaning:"媽媽",theme:"家庭"},
+  {word:"baby",meaning:"嬰兒",theme:"人物"},
+  {word:"boy",meaning:"男孩",theme:"人物"},
+  {word:"child",meaning:"小孩",theme:"人物"},
+  {word:"girl",meaning:"女孩",theme:"人物"},
+  {word:"kid",meaning:"小孩；開玩笑",theme:"人物"},
+  {word:"king",meaning:"國王",theme:"人物"},
+  {word:"man",meaning:"男人；人",theme:"人物"},
+  {word:"neighbor",meaning:"鄰居",theme:"人物"},
+  {word:"people",meaning:"人們",theme:"人物"},
+  {word:"person",meaning:"人",theme:"人物"},
+  {word:"queen",meaning:"女王",theme:"人物"},
+  {word:"stranger",meaning:"陌生人",theme:"人物"},
+  {word:"teenager",meaning:"青少年",theme:"人物"},
+  {word:"visitor",meaning:"遊客；訪客",theme:"人物"},
+  {word:"woman",meaning:"女性；婦女",theme:"人物"},
+  {word:"ask",meaning:"詢問；邀請",theme:"基礎動詞"},
+  {word:"call",meaning:"打電話；叫",theme:"基礎動詞"},
+  {word:"come",meaning:"來",theme:"基礎動詞"},
+  {word:"feel",meaning:"感覺；覺得",theme:"基礎動詞"},
+  {word:"get",meaning:"得到；抵達；變得",theme:"基礎動詞"},
+  {word:"give",meaning:"給予；贈送",theme:"基礎動詞"},
+  {word:"go",meaning:"去；上(學)",theme:"基礎動詞"},
+  {word:"help",meaning:"幫助",theme:"基礎動詞"},
+  {word:"know",meaning:"知道；了解",theme:"基礎動詞"},
+  {word:"like",meaning:"喜歡",theme:"基礎動詞"},
+  {word:"look",meaning:"看；看起來",theme:"基礎動詞"},
+  {word:"make",meaning:"做；使…",theme:"基礎動詞"},
+  {word:"need",meaning:"需要",theme:"基礎動詞"},
+  {word:"play",meaning:"玩；演奏；進行",theme:"基礎動詞"},
+  {word:"put",meaning:"放",theme:"基礎動詞"},
+  {word:"say",meaning:"說",theme:"基礎動詞"},
+  {word:"see",meaning:"看見；明白",theme:"基礎動詞"},
+  {word:"take",meaning:"拿；帶；吃(藥)",theme:"基礎動詞"},
+  {word:"tell",meaning:"告訴；指示",theme:"基礎動詞"},
+  {word:"think",meaning:"思考；認為",theme:"基礎動詞"},
+  {word:"use",meaning:"使用",theme:"基礎動詞"},
+  {word:"want",meaning:"想要",theme:"基礎動詞"},
+  {word:"work",meaning:"工作；運作",theme:"基礎動詞"},
+  {word:"live",meaning:"居住；生活",theme:"基礎動詞"},
+  {word:"walk",meaning:"走路；散步",theme:"基礎動詞"},
+  {word:"run",meaning:"跑；經營",theme:"基礎動詞"},
+  {word:"read",meaning:"閱讀；朗讀",theme:"基礎動詞"},
+  {word:"write",meaning:"寫；寫信",theme:"基礎動詞"},
+  {word:"listen",meaning:"傾聽",theme:"基礎動詞"},
+  {word:"speak",meaning:"說話；談論",theme:"基礎動詞"},
+  {word:"talk",meaning:"說話；聊天",theme:"基礎動詞"},
+  {word:"eat",meaning:"吃",theme:"基礎動詞"},
+  {word:"drink",meaning:"喝；飲料",theme:"基礎動詞"},
+  {word:"sleep",meaning:"睡覺",theme:"基礎動詞"},
+  {word:"wake",meaning:"醒來；叫醒",theme:"基礎動詞"},
+  {word:"cook",meaning:"烹煮；廚師",theme:"基礎動詞"},
+  {word:"clean",meaning:"打掃；乾淨的",theme:"基礎動詞"},
+  {word:"shop",meaning:"購物；商店",theme:"基礎動詞"},
+  {word:"study",meaning:"讀書；學習",theme:"基礎動詞"},
+  {word:"learn",meaning:"學習",theme:"基礎動詞"},
+  {word:"practice",meaning:"練習",theme:"基礎動詞"},
+  {word:"try",meaning:"嘗試",theme:"基礎動詞"},
+  {word:"start",meaning:"開始",theme:"基礎動詞"},
+  {word:"stop",meaning:"停止；車站",theme:"基礎動詞"},
+  {word:"begin",meaning:"開始",theme:"基礎動詞"},
+  {word:"finish",meaning:"完成；結束",theme:"基礎動詞"},
+  {word:"turn",meaning:"轉；變化；順序",theme:"基礎動詞"},
+  {word:"find",meaning:"發現；找到",theme:"基礎動詞"},
+  {word:"keep",meaning:"保持；繼續",theme:"基礎動詞"},
+  {word:"show",meaning:"出示；節目",theme:"基礎動詞"},
+  {word:"bring",meaning:"帶來",theme:"基礎動詞"},
+  {word:"good",meaning:"好的",theme:"基礎形容詞"},
+  {word:"better",meaning:"更好的",theme:"基礎形容詞"},
+  {word:"best",meaning:"最好的",theme:"基礎形容詞"},
+  {word:"bad",meaning:"不好的",theme:"基礎形容詞"},
+  {word:"worse",meaning:"更差的",theme:"基礎形容詞"},
+  {word:"worst",meaning:"最差的",theme:"基礎形容詞"},
+  {word:"big",meaning:"大的",theme:"基礎形容詞"},
+  {word:"large",meaning:"大的；寬廣的",theme:"基礎形容詞"},
+  {word:"small",meaning:"小的",theme:"基礎形容詞"},
+  {word:"little",meaning:"小的；少量的",theme:"基礎形容詞"},
+  {word:"new",meaning:"新的",theme:"基礎形容詞"},
+  {word:"old",meaning:"老的；舊的",theme:"基礎形容詞"},
+  {word:"young",meaning:"年輕的",theme:"基礎形容詞"},
+  {word:"happy",meaning:"高興的；快樂的",theme:"基礎形容詞"},
+  {word:"sad",meaning:"悲傷的",theme:"基礎形容詞"},
+  {word:"busy",meaning:"忙碌的",theme:"基礎形容詞"},
+  {word:"easy",meaning:"容易的",theme:"基礎形容詞"},
+  {word:"hard",meaning:"困難的；努力地",theme:"基礎形容詞"},
+  {word:"difficult",meaning:"困難的",theme:"基礎形容詞"},
+  {word:"important",meaning:"重要的",theme:"基礎形容詞"},
+  {word:"different",meaning:"不同的",theme:"基礎形容詞"},
+  {word:"same",meaning:"相同的",theme:"基礎形容詞"},
+  {word:"hot",meaning:"熱的；辣的",theme:"基礎形容詞"},
+  {word:"cold",meaning:"冷的；感冒",theme:"基礎形容詞"},
+  {word:"nice",meaning:"好的；友善的",theme:"基礎形容詞"},
+  {word:"great",meaning:"很棒的；優秀的",theme:"基礎形容詞"},
+  {word:"long",meaning:"長的",theme:"基礎形容詞"},
+  {word:"short",meaning:"矮的；短的",theme:"基礎形容詞"},
+  {word:"high",meaning:"高的",theme:"基礎形容詞"},
+  {word:"low",meaning:"低的",theme:"基礎形容詞"},
+  {word:"fast",meaning:"快速的",theme:"基礎形容詞"},
+  {word:"slow",meaning:"緩慢的",theme:"基礎形容詞"},
+  {word:"far",meaning:"遠的；遠地",theme:"基礎形容詞"},
+  {word:"right",meaning:"右邊的；正確的",theme:"基礎形容詞"},
+  {word:"wrong",meaning:"錯誤的",theme:"基礎形容詞"},
+  {word:"true",meaning:"真的；真實的",theme:"基礎形容詞"},
+  {word:"false",meaning:"假的",theme:"基礎形容詞"},
+  {word:"free",meaning:"免費的；自由的",theme:"基礎形容詞"},
+  {word:"open",meaning:"打開；開著的",theme:"基礎形容詞"},
+  {word:"close",meaning:"關；接近的",theme:"基礎形容詞"},
+  {word:"very",meaning:"很；非常",theme:"副詞連接詞"},
+  {word:"also",meaning:"也；此外",theme:"副詞連接詞"},
+  {word:"too",meaning:"也；太",theme:"副詞連接詞"},
+  {word:"either",meaning:"也不(否定句)",theme:"副詞連接詞"},
+  {word:"because",meaning:"因為",theme:"副詞連接詞"},
+  {word:"so",meaning:"所以；非常",theme:"副詞連接詞"},
+  {word:"but",meaning:"但是",theme:"副詞連接詞"},
+  {word:"and",meaning:"和；而且",theme:"副詞連接詞"},
+  {word:"or",meaning:"或者；否則",theme:"副詞連接詞"},
+  {word:"if",meaning:"如果；是否",theme:"副詞連接詞"},
+  {word:"again",meaning:"再一次",theme:"副詞連接詞"},
+  {word:"always",meaning:"總是；始終",theme:"副詞連接詞"},
+  {word:"never",meaning:"從未；決不",theme:"副詞連接詞"},
+  {word:"often",meaning:"常常",theme:"副詞連接詞"},
+  {word:"sometimes",meaning:"有時候",theme:"副詞連接詞"},
+  {word:"usually",meaning:"通常",theme:"副詞連接詞"},
+  {word:"only",meaning:"只；唯一的",theme:"副詞連接詞"},
+  {word:"still",meaning:"仍然",theme:"副詞連接詞"},
+  {word:"then",meaning:"然後；那時",theme:"副詞連接詞"},
+  {word:"there",meaning:"那裡",theme:"副詞連接詞"},
+  {word:"here",meaning:"這裡",theme:"副詞連接詞"},
+  {word:"now",meaning:"現在",theme:"副詞連接詞"},
+  {word:"well",meaning:"很好地；健康的",theme:"副詞連接詞"},
+  {word:"really",meaning:"真正地；非常",theme:"副詞連接詞"},
+  {word:"maybe",meaning:"或許；也許",theme:"副詞連接詞"},
+  {word:"please",meaning:"請；取悅",theme:"副詞連接詞"},
+  {word:"not",meaning:"不；沒有",theme:"副詞連接詞"},
+  {word:"no",meaning:"不；沒有",theme:"副詞連接詞"},
+  {word:"yes",meaning:"是的",theme:"副詞連接詞"}
+];
+
+let mode='flash', activeTheme='all', filtered=[], idx=0, flipped=false;
+let known=new Set(), reviewSet=new Set(), totalStars=0, streak=0;
+let quizList=[], qIdx=0, qScore=0, qAnsweredThis=false, qStreak=0;
+const CONFETTI_COLORS=['#FFD93D','#6BCB77','#FF6B6B','#74B9FF','#A29BFE','#FDCB6E'];
+
+function init(){
+  document.getElementById('totalCount').textContent=VOCAB.length;
+  buildChips(); filterVocab(); renderFlash();
+}
+
+function buildChips(){
+  const themes=['all',...new Set(VOCAB.map(v=>v.theme))];
+  // 中文主標 + 英文副標
+  const L={
+    all:          {zh:'全部',      en:'All'},
+    '冠詞限定詞': {zh:'冠詞',      en:'Articles'},
+    '代名詞':     {zh:'代名詞',    en:'Pronouns'},
+    'Wh問句字':   {zh:'Wh字',      en:'Wh-words'},
+    'Be動詞助動詞':{zh:'Be動詞',   en:'Auxiliaries'},
+    '介系詞':     {zh:'介系詞',    en:'Prepositions'},
+    '數量':       {zh:'數量',      en:'Numbers'},
+    '時間':       {zh:'時間',      en:'Time'},
+    '家庭':       {zh:'家庭',      en:'Family'},
+    '人物':       {zh:'人物',      en:'People'},
+    '基礎動詞':   {zh:'動詞',      en:'Verbs'},
+    '基礎形容詞': {zh:'形容詞',    en:'Adjectives'},
+    '副詞連接詞': {zh:'副詞連接詞', en:'Adverbs'},
+  };
+  document.getElementById('themeWrap').innerHTML=
+    themes.map(t=>{
+      const label = L[t] || {zh:t, en:''};
+      const inner = label.en
+        ? `<span class="chip-zh">${label.zh}</span><span class="chip-en">${label.en}</span>`
+        : `<span class="chip-zh">${label.zh}</span>`;
+      return `<div class="theme-chip${t==='all'?' active':''}" data-t="${t}" onclick="pickTheme('${t}')">${inner}</div>`;
+    }).join('');
+}
+
+function pickTheme(t){
+  activeTheme=t;
+  document.querySelectorAll('.theme-chip').forEach(c=>c.classList.toggle('active',c.dataset.t===t));
+  filterVocab(); idx=0; known.clear(); reviewSet.clear(); streak=0; qStreak=0;
+  if(mode==='flash') renderFlash();
+  else { qIdx=0; qScore=0; document.getElementById('quizSummary').classList.remove('show'); initQuiz(); }
+}
+
+function filterVocab(){
+  filtered=activeTheme==='all'?[...VOCAB]:VOCAB.filter(v=>v.theme===activeTheme);
+  shuffle(filtered);
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; }
+
+function setProgress(cur,tot){
+  const pct=tot?Math.round(cur/tot*100):0;
+  document.getElementById('progressText').textContent=`${cur} / ${tot}`;
+  document.getElementById('progressPct').textContent=pct+'%';
+  document.getElementById('progressFill').style.width=pct+'%';
+}
+
+function addStar(n){ totalStars+=n; document.getElementById('starTotal').textContent=totalStars; }
+
+function switchMode(m){
+  mode=m;
+  document.getElementById('tabFlash').classList.toggle('active',m==='flash');
+  document.getElementById('tabQuiz').classList.toggle('active',m==='quiz');
+  document.getElementById('flashMode').style.display=m==='flash'?'block':'none';
+  document.getElementById('quizMode').style.display=m==='quiz'?'block':'none';
+  if(m==='flash'){idx=0;known.clear();reviewSet.clear();streak=0;filterVocab();renderFlash();}
+  else{qIdx=0;qScore=0;qStreak=0;document.getElementById('quizSummary').classList.remove('show');filterVocab();initQuiz();}
+}
+
+function renderFlash(){
+  if(!filtered.length)return;
+  const v=filtered[idx];
+  flipped=false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('fcActions').style.display='none';
+  document.getElementById('fcTag').textContent=v.theme;
+  document.getElementById('fcWord').textContent=v.word;
+  document.getElementById('fcMeaning').textContent=v.meaning;
+  document.getElementById('fcWordHint').textContent=v.word;
+  document.getElementById('cardCounter').textContent=`${idx+1} / ${filtered.length}`;
+  document.getElementById('knownCount').textContent=known.size;
+  document.getElementById('reviewCount').textContent=reviewSet.size;
+  document.getElementById('btnPrev').disabled=idx===0;
+  document.getElementById('btnNext').disabled=idx===filtered.length-1;
+  setProgress(idx+1,filtered.length);
+  updateStreak('streakBar',streak);
+}
+
+function flipCard(){
+  flipped=!flipped;
+  document.getElementById('flashcard').classList.toggle('flipped',flipped);
+  document.getElementById('fcActions').style.display=flipped?'flex':'none';
+}
+
+function markCard(ok){
+  const w=filtered[idx].word;
+  if(ok){known.add(w);reviewSet.delete(w);streak++;addStar(1);updateStreak('streakBar',streak);if(streak>=5)launchConfetti();}
+  else{reviewSet.add(w);known.delete(w);streak=0;}
+  nextCard();
+}
+
+function prevCard(){if(idx>0){idx--;renderFlash();}}
+function nextCard(){if(idx<filtered.length-1){idx++;renderFlash();}}
+
+function initQuiz(){
+  quizList=shuffle([...filtered]);qIdx=0;qScore=0;qStreak=0;
+  document.getElementById('quizScore').textContent=0;
+  document.getElementById('quizNum').textContent=1;
+  renderQuiz();
+}
+
+function renderQuiz(){
+  if(qIdx>=quizList.length){showSummary();return;}
+  qAnsweredThis=false;
+  const v=quizList[qIdx];
+  document.getElementById('quizWord').textContent=v.word;
+  document.getElementById('quizNumLabel').textContent=`第 ${qIdx+1} 題 Q.${qIdx+1} / 共 ${quizList.length} 題 Total`;
+  document.getElementById('quizNum').textContent=qIdx+1;
+  document.getElementById('quizFeedback').textContent='';
+  document.getElementById('quizFeedback').className='quiz-feedback';
+  document.getElementById('btnNextQuiz').classList.remove('show');
+  document.getElementById('quizSummary').classList.remove('show');
+  setProgress(qIdx+1,quizList.length);
+  updateStreak('quizStreakBar',qStreak);
+  const pool=VOCAB.map(x=>x.meaning).filter(m=>m!==v.meaning);
+  shuffle(pool);
+  const opts=shuffle([v.meaning,...pool.slice(0,3)]);
+  document.getElementById('quizOptions').innerHTML=
+    opts.map(o=>`<button class="quiz-opt" onclick="answer(this,'${esc(o)}','${esc(v.meaning)}')">${o}</button>`).join('');
+}
+
+function esc(s){return s.replace(/'/g,"\\'");}
+
+function answer(btn,sel,correct){
+  if(qAnsweredThis)return;
+  qAnsweredThis=true;
+  document.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+  const fb=document.getElementById('quizFeedback');
+  if(sel===correct){
+    btn.classList.add('correct');qScore++;qStreak++;
+    document.getElementById('quizScore').textContent=qScore;
+    fb.textContent='✅ 答對了！Correct! 太棒了！';fb.className='quiz-feedback correct';
+    addStar(1);
+    if(qStreak>=3)launchConfetti();
+    updateStreak('quizStreakBar',qStreak);
+  }else{
+    btn.classList.add('wrong');qStreak=0;
+    fb.textContent='❌ 答錯囉 Wrong！看一下正確答案 Check the answer below';fb.className='quiz-feedback wrong';
+    document.querySelectorAll('.quiz-opt').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('show-ans');});
+    updateStreak('quizStreakBar',qStreak);
+  }
+  document.getElementById('btnNextQuiz').classList.add('show');
+}
+
+function nextQuiz(){qIdx++;renderQuiz();}
+
+function showSummary(){
+  const pct=Math.round(qScore/quizList.length*100);
+  const emoji=pct>=80?'🏆':pct>=60?'🌟':'💪';
+  const stars=pct>=80?'⭐⭐⭐':pct>=60?'⭐⭐':'⭐';
+  const msg=pct>=80
+    ?'超厲害！繼續保持！<br><span style="font-size:0.9em;opacity:0.8">Excellent! Keep it up!</span>'
+    :pct>=60
+    ?'不錯喔！再練幾次一定更好！<br><span style="font-size:0.9em;opacity:0.8">Good job! Practice makes perfect!</span>'
+    :'沒關係，多看單字卡再來挑戰！<br><span style="font-size:0.9em;opacity:0.8">No worries! Review the flashcards &amp; try again!</span>';
+  document.getElementById('summaryEmoji').textContent=emoji;
+  document.getElementById('summaryScore').textContent=`${qScore} / ${quizList.length}（${pct}%）`;
+  document.getElementById('summaryStars').textContent=stars;
+  document.getElementById('summaryMsg').innerHTML=msg;
+  document.getElementById('quizSummary').classList.add('show');
+  if(pct>=80)launchConfetti();
+  setProgress(quizList.length,quizList.length);
+}
+
+function restartQuiz(){document.getElementById('quizSummary').classList.remove('show');initQuiz();}
+
+function updateStreak(id,n){
+  const el=document.getElementById(id);
+  if(n>=5) el.innerHTML=`<span class="streak-badge">🔥🔥 連續 ${n} 題全對！你太強了！ On fire! ${n}-streak!</span>`;
+  else if(n>=3) el.innerHTML=`<span class="streak-badge">🔥 連續答對 ${n} 題！繼續！ ${n} in a row!</span>`;
+  else if(n>0) el.innerHTML=`<span style="color:var(--orange);font-size:0.88rem">✨ 連續 ${n} 題正確 · ${n} correct in a row</span>`;
+  else el.innerHTML='';
+}
+
+function launchConfetti(){
+  const c=document.getElementById('confettiContainer');c.innerHTML='';
+  for(let i=0;i<50;i++){
+    const el=document.createElement('div');el.className='confetti-piece';
+    const col=CONFETTI_COLORS[Math.floor(Math.random()*CONFETTI_COLORS.length)];
+    const size=6+Math.random()*10;
+    el.style.cssText=`left:${Math.random()*100}%;background:${col};width:${size}px;height:${size}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.2+Math.random()*1.5}s;animation-delay:${Math.random()*.8}s;`;
+    c.appendChild(el);
+  }
+  setTimeout(()=>c.innerHTML='',3500);
+}
+
+init();
+</script>
+</body>
+</html>
