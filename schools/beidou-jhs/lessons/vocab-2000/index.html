@@ -411,6 +411,81 @@ header p {
 .btn-restart:active { transform: scale(0.97); }
 
 
+/* ─── Roadmap Panel ─── */
+.roadmap {
+  background: var(--board);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 20px 16px;
+}
+.roadmap-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none;
+}
+.roadmap-toggle-title {
+  font-size: 0.95rem; font-weight: 800; color: var(--yellow);
+  letter-spacing: 0.5px;
+}
+.roadmap-toggle-hint {
+  font-size: 0.75rem; color: var(--chalk2); opacity: 0.75;
+}
+.roadmap-body {
+  margin-top: 14px; overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  max-height: 600px; opacity: 1;
+}
+.roadmap-body.collapsed { max-height: 0; opacity: 0; margin-top: 0; }
+
+.roadmap-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.roadmap-table th {
+  text-align: left; padding: 6px 10px;
+  color: var(--chalk2); font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.roadmap-table td {
+  padding: 9px 10px; border-bottom: 1px solid rgba(242,237,215,0.07);
+  vertical-align: middle;
+}
+.roadmap-table tr:last-child td { border-bottom: none; }
+.roadmap-table tr.total-row td {
+  border-top: 1px solid var(--border);
+  color: var(--yellow); font-weight: 800;
+  font-size: 0.88rem;
+}
+.stage-label {
+  font-weight: 800; color: var(--chalk);
+  white-space: nowrap;
+}
+.stage-label-en {
+  display: block; font-size: 0.68rem;
+  color: var(--chalk2); opacity: 0.75;
+  font-weight: 500; margin-top: 1px;
+}
+.theme-desc {
+  color: var(--chalk2); font-size: 0.78rem; line-height: 1.4;
+}
+.word-count {
+  text-align: right; font-weight: 800;
+  color: var(--green); white-space: nowrap; padding-right: 0;
+}
+.roadmap-bar {
+  height: 5px; border-radius: 3px; margin-top: 5px;
+  background: rgba(242,237,215,0.1);
+  overflow: hidden; min-width: 60px;
+}
+.roadmap-bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+}
+.roadmap-tagline {
+  text-align: center; margin-top: 12px;
+  font-size: 0.78rem; color: var(--chalk2);
+  opacity: 0.75; line-height: 1.6;
+}
+
 /* ─── Stage Selector Bar ─── */
 .stage-bar {
   padding: 10px 16px 8px;
@@ -500,6 +575,76 @@ header p {
     <div class="star-chip">⭐ <span id="starTotal">0</span> 顆星 Stars</div>
   </div>
 </header>
+
+<!-- ── 學習路線圖 Roadmap ── -->
+<div class="roadmap">
+  <div class="roadmap-toggle" onclick="toggleRoadmap()">
+    <span class="roadmap-toggle-title">📊 國中2000單字 · 四階段學習計畫 Learning Roadmap</span>
+    <span class="roadmap-toggle-hint" id="roadmapHint">▲ 收起 Hide</span>
+  </div>
+  <div class="roadmap-body" id="roadmapBody">
+    <table class="roadmap-table">
+      <thead>
+        <tr>
+          <th>階段 Stage</th>
+          <th>內容 Content</th>
+          <th style="text-align:right">單字數 Words</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="stage-label">第一階段<span class="stage-label-en">Stage 1 · Survival</span></span>
+          </td>
+          <td>
+            <span class="theme-desc">生存單字 · 冠詞、代名詞、動詞…12 主題</span>
+            <div class="roadmap-bar"><div class="roadmap-bar-fill" style="width:20%;background:var(--blue)"></div></div>
+          </td>
+          <td class="word-count" style="color:var(--blue)">332</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="stage-label">第二階段<span class="stage-label-en">Stage 2 · Core</span></span>
+          </td>
+          <td>
+            <span class="theme-desc">核心單字 · 個性、食物、學校、地點…7 主題</span>
+            <div class="roadmap-bar"><div class="roadmap-bar-fill" style="width:16%;background:var(--purple)"></div></div>
+          </td>
+          <td class="word-count" style="color:var(--purple)">262</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="stage-label">第三階段<span class="stage-label-en">Stage 3 · Extended</span></span>
+          </td>
+          <td>
+            <span class="theme-desc">延伸單字 · 身體、交通、動物、職業…11 主題</span>
+            <div class="roadmap-bar"><div class="roadmap-bar-fill" style="width:17%;background:var(--green)"></div></div>
+          </td>
+          <td class="word-count" style="color:var(--green)">280</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="stage-label">第四階段<span class="stage-label-en">Stage 4 · Advanced</span></span>
+          </td>
+          <td>
+            <span class="theme-desc">進階字彙 · 教育部 800 進階單字（字母排列）</span>
+            <div class="roadmap-bar"><div class="roadmap-bar-fill" style="width:47%;background:var(--yellow)"></div></div>
+          </td>
+          <td class="word-count" style="color:var(--yellow)">784</td>
+        </tr>
+        <tr class="total-row">
+          <td>✅ 合計 Total</td>
+          <td>31 個主題 themes</td>
+          <td class="word-count">1,658</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="roadmap-tagline">
+      每天練習 20 個單字 · Practice 20 words a day<br>
+      第一階段 5週 → 第二階段 4週 → 第三階段 5週 → 第四階段 40週 · 共約 54 週完成全部！
+    </p>
+  </div>
+</div>
 
 <div class="mode-tabs">
   <div class="mode-tab active" id="tabFlash" onclick="switchMode('flash')">🃏 單字卡<span class="tab-en">Flashcards</span></div>
@@ -2250,6 +2395,13 @@ let mode='flash', activeTheme='all', activeStage='all', filtered=[], idx=0, flip
 let known=new Set(), reviewSet=new Set(), totalStars=0, streak=0;
 let quizList=[], qIdx=0, qScore=0, qAnsweredThis=false, qStreak=0;
 const CONFETTI_COLORS=['#FFD93D','#6BCB77','#FF6B6B','#74B9FF','#A29BFE','#FDCB6E'];
+
+function toggleRoadmap(){
+  const body=document.getElementById('roadmapBody');
+  const hint=document.getElementById('roadmapHint');
+  const collapsed=body.classList.toggle('collapsed');
+  hint.textContent=collapsed?'▼ 展開 Show':'▲ 收起 Hide';
+}
 
 function init(){
   document.getElementById('totalCount').textContent=VOCAB.length; // overridden by buildStageBar
