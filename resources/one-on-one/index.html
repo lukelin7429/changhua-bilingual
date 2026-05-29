@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>One-on-One Conversation Lessons · 一對一英語會話課 · Changhua Bilingual Hub</title>
+<meta name="description" content="A guided, theme-based English curriculum for student volunteers who teach younger learners one-on-one. Each theme is a ready-to-run 40-minute lesson — warm-up, words, sentence patterns, a draw-a-question game, and a roleplay. Open the page, share your screen, and read the blue boxes out loud.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#e8553a;--coral-deep:#b83a23;--coral-soft:#ffe4dc;
+    --teal:#1f9e8f;--teal-deep:#0f6f63;--teal-soft:#d8f2ee;
+    --sun:#f6b51e;--sun-soft:#fff1c9;--sun-deep:#9a6c00;
+    --plum:#7a4fb0;--plum-soft:#efe6fb;
+    --ink:#22201e;--ink-soft:#6a6560;--line:#ece6df;
+    --cream-warm:#fffaf2;
+    --shadow:0 18px 44px -16px rgba(184,58,35,.28);
+    --shadow-sm:0 8px 20px -8px rgba(184,58,35,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:25px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  .back-strip{background:var(--sun-soft);border-bottom:3px solid var(--sun);padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:600;flex-wrap:wrap;}
+  @media (min-width:720px){ .back-strip{ font-size:21px;padding:18px 24px;gap:18px; } }
+  .back-strip a{color:var(--coral-deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:2px solid var(--sun-deep);transition:all .15s;}
+  .back-strip a:hover{background:var(--coral-deep);color:#fff;border-color:var(--coral-deep);transform:translateX(-2px);}
+  .back-strip .arrow{font-size:1.2em;}
+
+  /* Hero */
+  .banner{position:relative;color:#fff;overflow:hidden;background:linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);padding:64px 24px 56px;text-align:center;border-bottom:6px solid var(--sun);}
+  @media (min-width:720px){ .banner{ padding:96px 24px 84px; } }
+  .banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 120%, rgba(255,255,255,.22) 0 160px, transparent 162px);pointer-events:none;}
+  .banner__inner{position:relative;z-index:1;max-width:900px;margin:0 auto;}
+  .banner__chip{display:inline-block;background:var(--sun);color:var(--coral-deep);font-family:'Playfair Display',serif;font-size:14px;letter-spacing:3px;font-weight:700;padding:8px 18px;border-radius:99px;text-transform:uppercase;}
+  @media (min-width:720px){ .banner__chip{ font-size:16px; } }
+  .banner__icon{font-size:74px;line-height:1;margin:18px 0 6px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.3));}
+  @media (min-width:720px){ .banner__icon{ font-size:104px; } }
+  .banner h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;letter-spacing:.5px;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.35);}
+  @media (min-width:720px){ .banner h1{ font-size:74px; } }
+  .banner__zh{font-size:22px;color:#fff;margin-top:10px;font-weight:600;letter-spacing:1.5px;text-shadow:0 2px 12px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner__zh{ font-size:30px; } }
+  .banner__tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#fff;margin-top:18px;line-height:1.55;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner__tagline{ font-size:24px; } }
+
+  /* Intro */
+  .intro{padding:54px 0 20px;text-align:center;}
+  @media (min-width:720px){ .intro{ padding:72px 0 28px; } }
+  .intro__title{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--coral-deep);line-height:1.25;}
+  @media (min-width:720px){ .intro__title{ font-size:44px; } }
+  .intro__rule{width:90px;height:6px;background:var(--sun);border-radius:3px;margin:18px auto 22px;}
+  .intro p{font-size:21px;color:var(--ink);line-height:1.7;max-width:780px;margin:0 auto;}
+  @media (min-width:720px){ .intro p{ font-size:24px; } }
+  .intro__zh{font-size:19px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  @media (min-width:720px){ .intro__zh{ font-size:22px; } }
+
+  /* How to run */
+  .how{background:var(--teal-soft);padding:38px 28px;border-radius:20px;margin-top:30px;border-left:8px solid var(--teal);}
+  @media (min-width:720px){ .how{ padding:48px 44px; } }
+  .how h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--teal-deep);font-weight:800;}
+  @media (min-width:720px){ .how h3{ font-size:34px; } }
+  .how__zh{font-size:18px;color:var(--ink-soft);margin-top:4px;}
+  @media (min-width:720px){ .how__zh{ font-size:21px; } }
+  .how__steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px;}
+  @media (min-width:720px){ .how__steps{ grid-template-columns:1fr 1fr 1fr;gap:20px; } }
+  .how__step{background:#fff;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);}
+  .how__num{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--coral);line-height:1;flex-shrink:0;}
+  @media (min-width:720px){ .how__num{ font-size:44px; } }
+  .how__step b{display:block;font-size:19px;color:var(--teal-deep);margin-bottom:4px;font-weight:800;}
+  @media (min-width:720px){ .how__step b{ font-size:22px; } }
+  .how__step span{font-size:16px;color:var(--ink-soft);line-height:1.5;display:block;}
+  @media (min-width:720px){ .how__step span{ font-size:18px; } }
+
+  /* Theme grid */
+  .grid-section{padding:48px 0 76px;}
+  @media (min-width:720px){ .grid-section{ padding:64px 0 96px; } }
+  .grid-section__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--coral-deep);letter-spacing:.3px;padding:0 0 14px;border-bottom:3px solid var(--sun);margin-bottom:30px;}
+  @media (min-width:720px){ .grid-section__title{ font-size:40px;padding-bottom:18px;margin-bottom:36px; } }
+  .grid-section__title small{font-size:.5em;font-weight:500;color:var(--ink-soft);letter-spacing:0;margin-left:14px;display:inline-block;font-family:'Inter','PingFang TC',sans-serif;}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr;gap:26px; } }
+
+  .theme{background:#fff;border-radius:22px;border:1px solid var(--line);padding:26px 26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px;border-top:10px solid var(--coral);}
+  @media (min-width:720px){ .theme{ padding:32px 32px; } }
+  .theme__head{display:flex;align-items:flex-start;gap:16px;}
+  .theme__icon{font-size:46px;line-height:1;flex-shrink:0;background:var(--coral-soft);width:78px;height:78px;border-radius:18px;display:flex;align-items:center;justify-content:center;}
+  @media (min-width:720px){ .theme__icon{ font-size:56px;width:92px;height:92px; } }
+  .theme__main{flex:1;min-width:0;}
+  .theme__no{font-family:'Playfair Display',serif;font-size:14px;color:var(--coral-deep);font-weight:800;letter-spacing:3px;text-transform:uppercase;}
+  @media (min-width:720px){ .theme__no{ font-size:16px; } }
+  .theme__title{font-family:'Playfair Display',serif;font-size:25px;font-weight:800;color:var(--ink);line-height:1.2;margin-top:4px;}
+  @media (min-width:720px){ .theme__title{ font-size:32px; } }
+  .theme__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .theme__zh{ font-size:21px; } }
+  .theme__brief{font-size:17px;color:var(--ink-soft);line-height:1.55;}
+  @media (min-width:720px){ .theme__brief{ font-size:19px; } }
+  .theme__btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px 22px;border-radius:14px;text-decoration:none;font-size:19px;font-weight:800;letter-spacing:.4px;transition:all .15s;font-family:inherit;}
+  @media (min-width:720px){ .theme__btn{ font-size:22px;padding:20px 24px; } }
+  .theme__btn--go{background:var(--coral-deep);color:#fff;box-shadow:var(--shadow-sm);}
+  .theme__btn--go:hover{background:var(--coral);transform:translateY(-2px);}
+  .theme--soon{opacity:.72;border-top-color:var(--line);}
+  .theme--soon .theme__icon{background:#f3f0ec;filter:grayscale(.35);}
+  .theme--soon .theme__title{color:var(--ink-soft);}
+  .theme__soon{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 22px;border-radius:14px;font-size:17px;font-weight:800;letter-spacing:1px;background:var(--cream-warm);color:var(--ink-soft);border:2px dashed var(--line);text-transform:uppercase;}
+  @media (min-width:720px){ .theme__soon{ font-size:19px; } }
+
+  footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);line-height:1.7;border-top:1px solid var(--line);background:var(--cream-warm);}
+  @media (min-width:720px){ footer{ font-size:18px; } }
+  footer .org{font-weight:700;color:var(--coral-deep);}
+  footer a{color:var(--coral-deep);text-decoration:none;border-bottom:1px solid var(--sun-deep);font-weight:600;}
+  footer a:hover{color:var(--teal-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<div class="back-strip">
+  <a href="/resources/"><span class="arrow">←</span><span>Resources · 教學資源</span></a>
+  <a href="/"><span class="arrow">←</span><span>Hub Home · 首頁</span></a>
+</div>
+
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__chip">Changhua Bilingual Hub · 全縣彰化雙語</div>
+    <div class="banner__icon">🧑‍🏫</div>
+    <h1>One-on-One Conversation</h1>
+    <div class="banner__zh">一對一英語會話課 · A Lesson Kit for Young Tutors</div>
+    <p class="banner__tagline">"You don't need to be a teacher yet — just open the page, share your screen, and read the blue boxes out loud." 你還不用是個老師——打開這一頁、分享螢幕，照著藍色框念出來，就能上課。</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2 class="intro__title">Teaching one-on-one, made easy.</h2>
+    <div class="intro__rule"></div>
+    <p>Each theme below is a complete, ready-to-run <b>40-minute lesson</b> for a young volunteer teaching English to a younger learner. No lesson planning needed — every minute is mapped out, every line you should say is written for you, and there's a fun game to keep the conversation going.</p>
+    <p class="intro__zh">下面每一個主題都是一堂完整、可直接上的 <b>40 分鐘課程</b>，專為「教年紀更小的孩子英文」的高中生志工設計。不用自己備課——每一分鐘都安排好了，每一句你該說的話都幫你寫好了，還有一個小遊戲讓對話不冷場。</p>
+
+    <div class="how">
+      <h3>How to run a lesson · 怎麼上一堂課</h3>
+      <div class="how__zh">三個步驟，照著做就好</div>
+      <div class="how__steps">
+        <div class="how__step"><div class="how__num">1</div><div><b>🖥️ Open &amp; share</b><span>Open the theme page and share your screen on Google Meet.<br><i>打開主題頁，在視訊上分享螢幕。</i></span></div></div>
+        <div class="how__step"><div class="how__num">2</div><div><b>⏱️ Follow the blocks</b><span>Go down the time blocks: hello → words → sentences → game → talk.<br><i>照時間區塊往下走：打招呼→單字→句型→遊戲→對話。</i></span></div></div>
+        <div class="how__step"><div class="how__num">3</div><div><b>😊 End happy</b><span>Praise the student and give a take-home question for next time.<br><i>稱讚學生，給一個帶回家的問題，下次有話聊。</i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="grid-section">
+    <h2 class="grid-section__title">Themes <small>主題課程 · 每個主題可上 1–2 週</small></h2>
+    <div class="grid">
+
+      <article class="theme">
+        <div class="theme__head">
+          <div class="theme__icon">👋</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 01</div>
+            <div class="theme__title">All About Me</div>
+            <div class="theme__zh">認識我自己</div>
+          </div>
+        </div>
+        <div class="theme__brief">Name, age, family, hometown, and the things you like. The perfect first lesson to break the ice.<br>名字、年齡、家庭、家鄉、喜歡的東西——第一次見面的破冰首選。</div>
+        <a class="theme__btn theme__btn--go" href="all-about-me/">▶ Start lesson · 開始上課</a>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">👨‍👩‍👧‍👦</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 02</div>
+            <div class="theme__title">My Family &amp; Home</div>
+            <div class="theme__zh">家人與我的家</div>
+          </div>
+        </div>
+        <div class="theme__brief">Family members, rooms in the house, and what everyone does.<br>家庭成員、房間、家裡的人在做什麼。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">⭐</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 03</div>
+            <div class="theme__title">My Favorite Things</div>
+            <div class="theme__zh">我最喜歡的</div>
+          </div>
+        </div>
+        <div class="theme__brief">Food, color, animal, sport — practice "I like…" and "My favorite… is…".<br>食物、顏色、動物、運動——練習「I like…」「My favorite… is…」。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">⏰</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 04</div>
+            <div class="theme__title">My Day</div>
+            <div class="theme__zh">我的一天</div>
+          </div>
+        </div>
+        <div class="theme__brief">Daily routine, telling time, and everyday verbs.<br>作息、看時間、日常動作動詞。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🍜</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 05</div>
+            <div class="theme__title">Food &amp; Eating</div>
+            <div class="theme__zh">食物與點餐</div>
+          </div>
+        </div>
+        <div class="theme__brief">Likes and dislikes, snacks, and ordering food roleplay.<br>喜歡/不喜歡、零食、點餐情境對話。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🎒</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 06</div>
+            <div class="theme__title">School &amp; Subjects</div>
+            <div class="theme__zh">學校與科目</div>
+          </div>
+        </div>
+        <div class="theme__brief">School subjects, classroom things, and "What's your favorite class?"<br>學校科目、教室物品、「你最喜歡哪一堂課？」</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">⚽</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 07</div>
+            <div class="theme__title">Hobbies &amp; Free Time</div>
+            <div class="theme__zh">興趣與休閒</div>
+          </div>
+        </div>
+        <div class="theme__brief">Sports, games, and what you do on the weekend.<br>運動、遊戲、週末做什麼。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🐶</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 08</div>
+            <div class="theme__title">Animals &amp; Pets</div>
+            <div class="theme__zh">動物與寵物</div>
+          </div>
+        </div>
+        <div class="theme__brief">Animal names and simple ways to describe them.<br>動物名稱、用簡單句子描述動物。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🌦️</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 09</div>
+            <div class="theme__title">Weather, Seasons &amp; Clothes</div>
+            <div class="theme__zh">天氣季節與穿著</div>
+          </div>
+        </div>
+        <div class="theme__brief">"How's the weather?", the four seasons, and what to wear.<br>「今天天氣如何？」、四季、穿什麼衣服。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">😊</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 10</div>
+            <div class="theme__title">Feelings &amp; Emotions</div>
+            <div class="theme__zh">心情與感受</div>
+          </div>
+        </div>
+        <div class="theme__brief">Happy, sad, tired, excited — "How do you feel today?"<br>開心、難過、累、興奮——「你今天覺得怎麼樣？」</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🏙️</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 11</div>
+            <div class="theme__title">My Town &amp; Places</div>
+            <div class="theme__zh">我的城鎮與地方</div>
+          </div>
+        </div>
+        <div class="theme__brief">Places around town, shops, and asking for simple directions.<br>城鎮裡的地方、商店、問簡單的路。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+      <article class="theme theme--soon">
+        <div class="theme__head">
+          <div class="theme__icon">🎉</div>
+          <div class="theme__main">
+            <div class="theme__no">Theme 12</div>
+            <div class="theme__title">Holidays &amp; Celebrations</div>
+            <div class="theme__zh">節日與慶祝</div>
+          </div>
+        </div>
+        <div class="theme__brief">Festivals around the year — links to the Hub's Festival English series.<br>一年四季的節慶——連結 Hub 的 Festival English 系列。</div>
+        <div class="theme__soon">Coming soon · 即將推出</div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  🧑‍🏫 One-on-One Conversation Lessons · 一對一英語會話課 · 2026 Curriculum<br>
+  A guided lesson kit for student volunteers · 給高中生志工的一對一上課引導<br>
+  Curriculum by <span class="org">My Culture Connect 人師教育協會</span><br>
+  Part of the <a href="/resources/">Changhua Bilingual Hub · 彰化雙語資源網</a>
+</footer>
+
+</body>
+</html>

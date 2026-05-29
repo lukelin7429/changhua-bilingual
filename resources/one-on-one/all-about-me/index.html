@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Theme 1: All About Me · One-on-One Conversation · Changhua Bilingual Hub</title>
+<meta name="description" content="A guided 40-minute one-on-one English lesson for student volunteers. Theme 1 — All About Me: greetings, key words, sentence patterns, a draw-a-question game, and a getting-to-know-you roleplay. Just open the page and read the blue boxes out loud.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#e8553a;--coral-deep:#b83a23;--coral-soft:#ffe4dc;
+    --teal:#1f9e8f;--teal-deep:#0f6f63;--teal-soft:#d8f2ee;
+    --sun:#f6b51e;--sun-soft:#fff1c9;--sun-deep:#9a6c00;
+    --plum:#7a4fb0;--plum-soft:#efe6fb;
+    --ink:#22201e;--ink-soft:#6a6560;--line:#ece6df;
+    --cream-warm:#fffaf2;
+    --shadow:0 18px 44px -16px rgba(184,58,35,.28);
+    --shadow-sm:0 8px 20px -8px rgba(184,58,35,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:25px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* === Back strip === */
+  .back-strip{background:var(--sun-soft);border-bottom:3px solid var(--sun);padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:600;flex-wrap:wrap;}
+  @media (min-width:720px){ .back-strip{ font-size:20px;padding:18px 24px;gap:18px; } }
+  .back-strip a{color:var(--coral-deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:2px solid var(--sun-deep);transition:all .15s;}
+  .back-strip a:hover{background:var(--coral-deep);color:#fff;border-color:var(--coral-deep);transform:translateX(-2px);}
+
+  /* === Theme header strip === */
+  .strip{background:linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);color:#fff;padding:30px 24px;text-align:center;border-bottom:6px solid var(--sun);}
+  @media (min-width:720px){ .strip{ padding:44px 24px; } }
+  .strip__no{font-family:'Playfair Display',serif;font-size:15px;letter-spacing:4.5px;color:var(--sun-soft);font-weight:800;text-transform:uppercase;}
+  @media (min-width:720px){ .strip__no{ font-size:17px; } }
+  .strip__icon{font-size:64px;line-height:1;margin:10px 0 4px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25));}
+  @media (min-width:720px){ .strip__icon{ font-size:88px; } }
+  .strip__topic{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;margin-top:6px;letter-spacing:.5px;line-height:1.1;text-shadow:0 3px 16px rgba(0,0,0,.25);}
+  @media (min-width:720px){ .strip__topic{ font-size:56px; } }
+  .strip__zh{font-size:19px;color:#fff;font-weight:500;margin-top:8px;letter-spacing:1px;opacity:.95;}
+  @media (min-width:720px){ .strip__zh{ font-size:24px; } }
+  .strip__meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
+  .strip__tag{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-size:15px;font-weight:700;letter-spacing:.5px;padding:7px 16px;border-radius:99px;}
+  @media (min-width:720px){ .strip__tag{ font-size:17px; } }
+
+  /* === Sections === */
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:64px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{display:inline-block;font-family:'Playfair Display',serif;color:#fff;background:var(--coral-deep);font-size:18px;font-weight:800;letter-spacing:2px;padding:8px 18px;border-radius:99px;}
+  @media (min-width:720px){ .sec__no{ font-size:21px; } }
+  .sec__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--coral-deep);line-height:1.15;margin-top:14px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:52px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--sun);border-radius:3px;margin:20px 0 30px;}
+  .sec__what{font-size:20px;color:var(--ink);line-height:1.7;background:var(--cream-warm);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:8px;}
+  @media (min-width:720px){ .sec__what{ font-size:23px; } }
+  .sec__what b{color:var(--coral-deep);}
+  .sec__what .zh{display:block;font-size:17px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .sec__what .zh{ font-size:20px; } }
+
+  /* === Cue box (the tutor's lines) === */
+  .cue{background:var(--teal-soft);border-left:9px solid var(--teal);border-radius:16px;padding:22px 24px 16px;margin:20px 0;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .cue{ padding:26px 30px 20px; } }
+  .cue__label{display:inline-block;font-family:'Playfair Display',serif;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal-deep);background:#fff;padding:6px 16px;border-radius:99px;border:2px solid var(--teal);margin-bottom:8px;}
+  @media (min-width:720px){ .cue__label{ font-size:16px; } }
+  .cue__line{display:flex;gap:14px;align-items:flex-start;padding:14px 0;}
+  .cue__line + .cue__line{border-top:1.5px dashed var(--teal);}
+  .cue__body{flex:1;min-width:0;}
+  .cue__say{font-size:23px;font-weight:700;color:var(--teal-deep);line-height:1.5;}
+  @media (min-width:720px){ .cue__say{ font-size:28px; } }
+  .cue__say b{background:var(--sun-soft);color:var(--coral-deep);padding:1px 8px;border-radius:5px;font-weight:800;}
+  .cue__zh{font-size:17px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
+  @media (min-width:720px){ .cue__zh{ font-size:20px; } }
+
+  /* === Teacher tip === */
+  .tip{background:var(--sun-soft);border:1px solid var(--sun);border-radius:14px;padding:16px 20px;margin:18px 0;display:flex;gap:14px;align-items:flex-start;}
+  .tip__icon{font-size:26px;line-height:1;flex-shrink:0;}
+  @media (min-width:720px){ .tip__icon{ font-size:32px; } }
+  .tip__text{font-size:18px;color:var(--ink);line-height:1.6;}
+  @media (min-width:720px){ .tip__text{ font-size:21px; } }
+  .tip__text b{color:var(--sun-deep);font-weight:800;}
+  .tip__text .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:4px;}
+  @media (min-width:720px){ .tip__text .zh{ font-size:18px; } }
+
+  /* === Speak button === */
+  .speak{width:52px;height:52px;border-radius:50%;border:none;background:#fff;color:var(--teal-deep);font-size:24px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s, background .15s, color .15s;flex-shrink:0;border:2px solid var(--teal);}
+  .speak:hover{background:var(--teal);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--teal);color:#fff;animation:pulse 1s infinite;}
+  @media (min-width:720px){ .speak{ width:58px;height:58px;font-size:27px; } }
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+  /* === Before You Start === */
+  .before{background:var(--teal-soft);border-radius:22px;padding:30px 26px;border-left:9px solid var(--teal);box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .before{ padding:42px 40px; } }
+  .before__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--teal-deep);line-height:1.2;}
+  @media (min-width:720px){ .before__title{ font-size:38px; } }
+  .before__zh{font-size:18px;color:var(--ink-soft);margin-top:4px;}
+  @media (min-width:720px){ .before__zh{ font-size:21px; } }
+  .before__list{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:14px;}
+  .before__item{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;}
+  .before__check{font-size:26px;line-height:1;flex-shrink:0;}
+  @media (min-width:720px){ .before__check{ font-size:30px; } }
+  .before__item b{color:var(--teal-deep);}
+  .before__item .en{font-size:19px;font-weight:600;color:var(--ink);line-height:1.5;}
+  @media (min-width:720px){ .before__item .en{ font-size:22px; } }
+  .before__item .zh{font-size:16px;color:var(--ink-soft);margin-top:3px;line-height:1.5;}
+  @media (min-width:720px){ .before__item .zh{ font-size:18px; } }
+  .before__call{margin-top:22px;background:var(--sun-soft);border:2px dashed var(--sun-deep);border-radius:14px;padding:18px 22px;font-size:19px;color:var(--ink);line-height:1.6;}
+  @media (min-width:720px){ .before__call{ font-size:22px; } }
+  .before__call b{color:var(--coral-deep);}
+  .chip-say{display:inline-block;background:var(--teal-soft);border:2px solid var(--teal);color:var(--teal-deep);font-weight:800;padding:1px 10px;border-radius:7px;font-size:.92em;}
+
+  /* === Vocab === */
+  .vocab-list{display:flex;flex-direction:column;gap:18px;}
+  .vocab{background:#fff;border-radius:18px;border:1px solid var(--line);padding:22px 24px;display:grid;grid-template-columns:78px 1fr auto;gap:16px;align-items:center;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .vocab{grid-template-columns:118px 1fr auto;gap:24px;padding:28px 32px;} }
+  .vocab__emoji{font-size:58px;line-height:1;text-align:center;}
+  @media (min-width:720px){ .vocab__emoji{ font-size:82px; } }
+  .vocab__main{min-width:0;}
+  .vocab__word{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--coral-deep);border-bottom:5px solid var(--sun);display:inline-block;padding-bottom:2px;line-height:1.1;}
+  @media (min-width:720px){ .vocab__word{ font-size:50px; } }
+  .vocab__pos{font-size:17px;color:var(--ink-soft);margin-top:6px;font-style:italic;}
+  @media (min-width:720px){ .vocab__pos{ font-size:20px; } }
+  .vocab__zh{font-size:20px;color:var(--ink);font-weight:700;margin-top:6px;}
+  @media (min-width:720px){ .vocab__zh{ font-size:24px; } }
+  .vocab__example{font-style:italic;color:var(--teal-deep);font-size:17px;margin-top:10px;line-height:1.5;padding:10px 16px;background:var(--teal-soft);border-left:5px solid var(--teal);border-radius:6px;font-weight:600;}
+  @media (min-width:720px){ .vocab__example{ font-size:20px; } }
+
+  /* === Sentence patterns === */
+  .patterns{display:flex;flex-direction:column;gap:18px;}
+  .pattern{background:#fff;border-radius:18px;border:1px solid var(--line);border-top:8px solid var(--plum);padding:24px 26px;box-shadow:var(--shadow-sm);display:flex;gap:18px;align-items:flex-start;}
+  .pattern:nth-child(2){border-top-color:var(--teal);}
+  .pattern:nth-child(3){border-top-color:var(--coral);}
+  .pattern:nth-child(4){border-top-color:var(--sun-deep);}
+  .pattern:nth-child(5){border-top-color:var(--plum);}
+  .pattern:nth-child(6){border-top-color:var(--teal);}
+  .pattern__main{flex:1;min-width:0;}
+  .pattern__say{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--ink);line-height:1.35;}
+  @media (min-width:720px){ .pattern__say{ font-size:34px; } }
+  .pattern__blank{color:var(--coral-deep);border-bottom:4px dashed var(--coral);padding:0 6px;}
+  .pattern__zh{font-size:18px;color:var(--ink-soft);margin-top:8px;}
+  @media (min-width:720px){ .pattern__zh{ font-size:21px; } }
+  .pattern__eg{font-style:italic;color:var(--teal-deep);font-size:17px;margin-top:10px;background:var(--teal-soft);border-radius:8px;padding:8px 14px;display:inline-block;font-weight:600;}
+  @media (min-width:720px){ .pattern__eg{ font-size:20px; } }
+
+  /* === Game === */
+  .game{background:linear-gradient(140deg, var(--plum) 0%, #5a3a86 100%);color:#fff;border-radius:24px;padding:34px 24px 38px;text-align:center;box-shadow:var(--shadow);}
+  @media (min-width:720px){ .game{ padding:48px 40px 52px; } }
+  .game__label{display:inline-block;font-family:'Playfair Display',serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.45);padding:7px 18px;border-radius:99px;}
+  @media (min-width:720px){ .game__label{ font-size:16px; } }
+  .game__how{font-size:18px;color:#f0e6ff;margin-top:14px;line-height:1.55;max-width:560px;margin-left:auto;margin-right:auto;}
+  @media (min-width:720px){ .game__how{ font-size:21px; } }
+  .game__card{background:#fff;border-radius:20px;padding:36px 24px;margin:24px auto 0;max-width:660px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:0 14px 34px -12px rgba(0,0,0,.35);}
+  @media (min-width:720px){ .game__card{ min-height:230px;padding:46px 32px; } }
+  .game__q{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--plum);line-height:1.3;}
+  @media (min-width:720px){ .game__q{ font-size:42px; } }
+  .game__zh{font-size:19px;color:var(--ink-soft);line-height:1.5;}
+  @media (min-width:720px){ .game__zh{ font-size:23px; } }
+  .game__hint{font-size:19px;color:var(--ink-soft);font-style:italic;}
+  @media (min-width:720px){ .game__hint{ font-size:23px; } }
+  .game__speak{width:54px;height:54px;border-radius:50%;border:2px solid var(--plum);background:var(--plum-soft);color:var(--plum);font-size:24px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:all .15s;}
+  .game__speak:hover{background:var(--plum);color:#fff;}
+  .game__speak.is-speaking{background:var(--plum);color:#fff;animation:pulse 1s infinite;}
+  .game__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+  .game__btn{font-family:inherit;font-size:20px;font-weight:800;letter-spacing:.5px;padding:18px 32px;border-radius:14px;border:none;cursor:pointer;transition:transform .15s, background .15s;display:inline-flex;align-items:center;gap:8px;}
+  @media (min-width:720px){ .game__btn{ font-size:24px;padding:20px 38px; } }
+  .game__btn--main{background:var(--sun);color:#5a3a86;box-shadow:0 8px 22px -8px rgba(246,181,30,.7);}
+  .game__btn--main:hover{background:#fff;transform:translateY(-3px);}
+  .game__count{margin-top:18px;font-size:16px;color:#e6d8ff;letter-spacing:.5px;}
+  @media (min-width:720px){ .game__count{ font-size:18px; } }
+
+  /* === Roleplay (Talk Time) === */
+  .scn{background:#fff;border-radius:20px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
+  .scn__head{background:var(--teal-deep);color:#fff;padding:22px 28px;}
+  .scn__no{font-size:14px;color:var(--sun-soft);font-weight:800;letter-spacing:3px;}
+  @media (min-width:720px){ .scn__no{ font-size:16px; } }
+  .scn__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;margin-top:4px;letter-spacing:.5px;}
+  @media (min-width:720px){ .scn__title{ font-size:34px; } }
+  .scn__goal{font-style:italic;color:#d8f2ee;font-size:16.5px;margin-top:8px;line-height:1.5;}
+  @media (min-width:720px){ .scn__goal{ font-size:19.5px; } }
+  .scn__body{padding:18px 28px 24px;}
+  .ln{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);align-items:flex-start;}
+  .ln:last-child{border-bottom:none;}
+  .ln__role{flex-shrink:0;font-size:13px;font-weight:800;color:#fff;padding:6px 12px;border-radius:6px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;min-width:96px;text-align:center;}
+  @media (min-width:720px){ .ln__role{ font-size:14.5px;min-width:108px; } }
+  .ln__role--a{background:var(--coral);}
+  .ln__role--b{background:var(--teal);}
+  .ln__text{flex:1;font-size:20px;color:var(--ink);line-height:1.6;padding-top:2px;}
+  @media (min-width:720px){ .ln__text{ font-size:23px; } }
+  .ln__text b{background:var(--sun-soft);color:var(--coral-deep);padding:1px 7px;border-radius:4px;font-weight:800;}
+  .ln__speak{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:none;background:var(--cream-warm);color:var(--teal-deep);font-size:18px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s, color .15s;margin-top:2px;border:1.5px solid var(--teal);}
+  .ln__speak:hover{background:var(--teal);color:#fff;}
+  .ln__speak.is-speaking{background:var(--teal);color:#fff;animation:pulse 1s infinite;}
+
+  /* === Week 2 === */
+  .week2{background:var(--coral-soft);border-radius:22px;padding:30px 26px;border-left:9px solid var(--coral);box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .week2{ padding:42px 40px; } }
+  .week2__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--coral-deep);line-height:1.2;}
+  @media (min-width:720px){ .week2__title{ font-size:38px; } }
+  .week2__zh{font-size:18px;color:var(--ink-soft);margin-top:4px;}
+  @media (min-width:720px){ .week2__zh{ font-size:21px; } }
+  .week2__grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:24px;}
+  @media (min-width:720px){ .week2__grid{ grid-template-columns:1fr 1fr;gap:22px; } }
+  .w2card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;}
+  .w2card h4{font-family:'Playfair Display',serif;font-size:22px;color:var(--coral-deep);font-weight:800;display:flex;align-items:center;gap:10px;}
+  @media (min-width:720px){ .w2card h4{ font-size:27px; } }
+  .w2card p{font-size:18px;color:var(--ink);margin-top:10px;line-height:1.6;}
+  @media (min-width:720px){ .w2card p{ font-size:21px; } }
+  .w2card .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media (min-width:720px){ .w2card .zh{ font-size:18px; } }
+
+  /* === Footer === */
+  footer{text-align:center;padding:34px 22px;font-size:16px;color:var(--ink-soft);line-height:1.7;border-top:1px solid var(--line);background:var(--cream-warm);}
+  @media (min-width:720px){ footer{ font-size:18px; } }
+  footer .org{font-weight:700;color:var(--coral-deep);}
+  footer a{color:var(--coral-deep);text-decoration:none;border-bottom:1px solid var(--sun-deep);font-weight:600;}
+  footer a:hover{color:var(--teal-deep);}
+
+  @media print{
+    body{background:#fff;font-size:13pt;}
+    .speak, .ln__speak, .game__btns, .game__speak, .back-strip{display:none !important;}
+    .strip{break-after:avoid;}
+    section{break-inside:avoid-page;page-break-inside:avoid;}
+    .vocab, .pattern, .scn, .cue, .game{break-inside:avoid-page;page-break-inside:avoid;}
+    .game{background:#fff !important;color:var(--ink) !important;border:2px solid var(--plum);}
+    .game__how, .game__count{color:var(--ink-soft) !important;}
+  }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<div class="back-strip">
+  <a href="../"><span>←</span><span>All Themes · 主題總覽</span></a>
+  <a href="/resources/"><span>←</span><span>Resources · 教學資源</span></a>
+</div>
+
+<header class="strip">
+  <div class="strip__no">Theme 01 · One-on-One Conversation</div>
+  <div class="strip__icon">👋</div>
+  <div class="strip__topic">All About Me</div>
+  <div class="strip__zh">認識我自己 · 第一次見面的課</div>
+  <div class="strip__meta">
+    <span class="strip__tag">⏱ 40-minute lesson</span>
+    <span class="strip__tag">🧑‍🏫 You = the teacher</span>
+    <span class="strip__tag">📅 Good for 1–2 weeks</span>
+  </div>
+</header>
+
+<!-- ===== BEFORE YOU START ===== -->
+<section>
+  <div class="wrap">
+    <div class="before">
+      <div class="before__title">👀 Before you start · 開始前</div>
+      <div class="before__zh">給小老師的 30 秒準備 — 讀完這一塊就可以開始上課了。</div>
+      <ul class="before__list">
+        <li class="before__item"><span class="before__check">😊</span><div>
+          <div class="en">Smile and say hello first. You set the mood.</div>
+          <div class="zh">先微笑、先打招呼。你開心，學生就放鬆。</div></div></li>
+        <li class="before__item"><span class="before__check">🖥️</span><div>
+          <div class="en">Share your screen so your student can see this page.</div>
+          <div class="zh">在 Google Meet 分享螢幕，讓學生看到這一頁的單字和圖片。</div></div></li>
+        <li class="before__item"><span class="before__check">🐢</span><div>
+          <div class="en">Go slowly. Point at each word. Wait for the student to answer.</div>
+          <div class="zh">慢慢來。指著每個字。問完問題後，安靜等學生回答（數到 5）。</div></div></li>
+        <li class="before__item"><span class="before__check">🔊</span><div>
+          <div class="en">Not sure how a word sounds? Tap the speaker button to hear it.</div>
+          <div class="zh">不確定怎麼念？點 🔊 按鈕，網頁會幫你念出來。</div></div></li>
+      </ul>
+      <div class="before__call">
+        💬 <b>The blue boxes are your lines.</b> Whenever you see a <span class="chip-say">Say this</span> box, just read the big English sentence out loud to your student. You don't have to make up anything — it's all written for you.<br>
+        <span style="font-size:.82em;color:var(--ink-soft);">藍色框就是你的「台詞」。看到 <span class="chip-say">Say this</span> 就照著念大字的英文，不用自己想，全部都幫你寫好了。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 0–5 MIN · WARM-UP ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">0–5 MIN</div>
+    <h2 class="sec__title">Warm-Up &amp; Hello</h2>
+    <div class="sec__title-zh">打招呼，讓學生放鬆</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__what">First, just be friendly. Don't teach yet — say hello, smile, and ask how they are.
+      <span class="zh">先不要教東西。打招呼、微笑、問問他今天好不好。讓學生覺得「這個哥哥/姊姊很親切」。</span></div>
+
+    <div class="cue">
+      <div class="cue__label">💬 Say this · 這樣說</div>
+      <div class="cue__line">
+        <button class="speak" data-speak="Hi! I'm so happy to see you. How are you today?" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">Hi! I'm so happy to see you. <b>How are you</b> today?</div>
+          <div class="cue__zh">嗨！我好開心見到你。你今天好嗎？</div></div></div>
+      <div class="cue__line">
+        <button class="speak" data-speak="My name is ___. You can call me ___. What is your name?" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">My name is ___. You can call me ___. <b>What is your name?</b></div>
+          <div class="cue__zh">我叫 ___。你可以叫我 ___。你叫什麼名字呢？（先講你自己的名字示範）</div></div></div>
+      <div class="cue__line">
+        <button class="speak" data-speak="Great! Are you ready to learn some English with me? Let's go!" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">Great! Are you <b>ready</b>? Let's learn some English together!</div>
+          <div class="cue__zh">太好了！準備好了嗎？我們一起來學英文吧！</div></div></div>
+    </div>
+
+    <div class="tip"><span class="tip__icon">👉</span><div class="tip__text">
+      <b>Teacher tip:</b> If the student is shy, that's normal. Smile, nod, and say <i>"It's okay, take your time."</i> Never rush them.
+      <span class="zh">小提醒：學生害羞很正常。微笑、點頭，說「沒關係，慢慢來」。千萬不要催他。</span></div></div>
+  </div>
+</section>
+
+<!-- ===== 5–15 MIN · TODAY'S WORDS ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">5–15 MIN</div>
+    <h2 class="sec__title">Today's Words</h2>
+    <div class="sec__title-zh">今天的六個單字 · 點 🔊 聽發音</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__what"><b>Share your screen.</b> Read each word, tap 🔊, then ask the student to repeat it after you. Point at the picture.
+      <span class="zh">分享螢幕。每個字你先念一次（或點 🔊），再請學生跟著念一次。指著旁邊的圖片幫助理解。</span></div>
+
+    <div class="cue" style="margin-bottom:30px;">
+      <div class="cue__label">💬 Say this for every word · 每個字都這樣帶</div>
+      <div class="cue__line">
+        <button class="speak" data-speak="Listen. Name. Can you say it? Name." aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">Listen: <b>"name."</b> Now you try — can you say it?</div>
+          <div class="cue__zh">聽：「name」。換你念念看！（每個單字都重複這個動作）</div></div></div>
+    </div>
+
+    <div class="vocab-list">
+      <div class="vocab"><div class="vocab__emoji">🪪</div><div class="vocab__main">
+        <div class="vocab__word">name</div><div class="vocab__pos">/neɪm/ · n.</div>
+        <div class="vocab__zh">名字</div>
+        <div class="vocab__example">"My name is Lily."</div></div>
+        <button class="speak" data-speak="name. My name is Lily." aria-label="Hear">🔊</button></div>
+
+      <div class="vocab"><div class="vocab__emoji">🎂</div><div class="vocab__main">
+        <div class="vocab__word">age</div><div class="vocab__pos">/eɪdʒ/ · n.</div>
+        <div class="vocab__zh">年齡 · 幾歲</div>
+        <div class="vocab__example">"I am ten years old."</div></div>
+        <button class="speak" data-speak="age. I am ten years old." aria-label="Hear">🔊</button></div>
+
+      <div class="vocab"><div class="vocab__emoji">👨‍👩‍👧‍👦</div><div class="vocab__main">
+        <div class="vocab__word">family</div><div class="vocab__pos">/ˈfæm.əl.i/ · n.</div>
+        <div class="vocab__zh">家人 · 家庭</div>
+        <div class="vocab__example">"I love my family."</div></div>
+        <button class="speak" data-speak="family. I love my family." aria-label="Hear">🔊</button></div>
+
+      <div class="vocab"><div class="vocab__emoji">🏠</div><div class="vocab__main">
+        <div class="vocab__word">hometown</div><div class="vocab__pos">/ˈhoʊm.taʊn/ · n.</div>
+        <div class="vocab__zh">家鄉 · 住的地方</div>
+        <div class="vocab__example">"My hometown is Changhua."</div></div>
+        <button class="speak" data-speak="hometown. My hometown is Changhua." aria-label="Hear">🔊</button></div>
+
+      <div class="vocab"><div class="vocab__emoji">⭐</div><div class="vocab__main">
+        <div class="vocab__word">favorite</div><div class="vocab__pos">/ˈfeɪ.vər.ɪt/ · adj.</div>
+        <div class="vocab__zh">最喜歡的</div>
+        <div class="vocab__example">"Blue is my favorite color."</div></div>
+        <button class="speak" data-speak="favorite. Blue is my favorite color." aria-label="Hear">🔊</button></div>
+
+      <div class="vocab"><div class="vocab__emoji">🎨</div><div class="vocab__main">
+        <div class="vocab__word">hobby</div><div class="vocab__pos">/ˈhɑː.bi/ · n.</div>
+        <div class="vocab__zh">興趣 · 嗜好</div>
+        <div class="vocab__example">"My hobby is drawing."</div></div>
+        <button class="speak" data-speak="hobby. My hobby is drawing." aria-label="Hear">🔊</button></div>
+    </div>
+
+    <div class="tip"><span class="tip__icon">👉</span><div class="tip__text">
+      <b>Teacher tip:</b> Praise every try! Say <span class="chip-say">"Nice!"</span> <span class="chip-say">"Good job!"</span> <span class="chip-say">"Almost — try again!"</span> Kids learn faster when they feel safe.
+      <span class="zh">小提醒：每次嘗試都要稱讚！多說「Nice!」「Good job!」「差一點，再試一次！」孩子覺得安全就學得快。</span></div></div>
+  </div>
+</section>
+
+<!-- ===== 15–22 MIN · KEY SENTENCES ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">15–22 MIN</div>
+    <h2 class="sec__title">Key Sentences</h2>
+    <div class="sec__title-zh">關鍵句型 · 引導學生填空回答</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__what">Read the sentence and tap 🔊. Then say it again but <b>stop at the blank</b> and let the student finish it about themselves.
+      <span class="zh">念出句子並點 🔊。然後再念一次，但<b>念到底線就停下來</b>，讓學生用自己的情況把句子接完。</span></div>
+
+    <div class="cue" style="margin-bottom:30px;">
+      <div class="cue__label">💬 How to use a pattern · 怎麼帶句型</div>
+      <div class="cue__line">
+        <button class="speak" data-speak="My name is Lily. Now you. My name is...?" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">"My name is Lily." Now <b>you</b> — "My name is…?"</div>
+          <div class="cue__zh">先示範：「My name is Lily.」再把球丟給學生：「My name is…?」等他自己接名字。</div></div></div>
+    </div>
+
+    <div class="patterns">
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">My name is <span class="pattern__blank">＿＿＿</span>.</div>
+        <div class="pattern__zh">我的名字是 ＿＿＿。</div>
+        <div class="pattern__eg">e.g. "My name is Wei-Ting."</div></div>
+        <button class="speak" data-speak="My name is Wei-Ting." aria-label="Hear">🔊</button></div>
+
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">I am <span class="pattern__blank">＿＿＿</span> years old.</div>
+        <div class="pattern__zh">我 ＿＿＿ 歲。</div>
+        <div class="pattern__eg">e.g. "I am nine years old."</div></div>
+        <button class="speak" data-speak="I am nine years old." aria-label="Hear">🔊</button></div>
+
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">I live in <span class="pattern__blank">＿＿＿</span>.</div>
+        <div class="pattern__zh">我住在 ＿＿＿。</div>
+        <div class="pattern__eg">e.g. "I live in Lukang."</div></div>
+        <button class="speak" data-speak="I live in Lukang." aria-label="Hear">🔊</button></div>
+
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">There are <span class="pattern__blank">＿＿＿</span> people in my family.</div>
+        <div class="pattern__zh">我家有 ＿＿＿ 個人。</div>
+        <div class="pattern__eg">e.g. "There are four people in my family."</div></div>
+        <button class="speak" data-speak="There are four people in my family." aria-label="Hear">🔊</button></div>
+
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">My favorite color is <span class="pattern__blank">＿＿＿</span>.</div>
+        <div class="pattern__zh">我最喜歡的顏色是 ＿＿＿。</div>
+        <div class="pattern__eg">e.g. "My favorite color is green."</div></div>
+        <button class="speak" data-speak="My favorite color is green." aria-label="Hear">🔊</button></div>
+
+      <div class="pattern"><div class="pattern__main">
+        <div class="pattern__say">I like <span class="pattern__blank">＿＿＿</span>.</div>
+        <div class="pattern__zh">我喜歡 ＿＿＿。</div>
+        <div class="pattern__eg">e.g. "I like basketball."</div></div>
+        <button class="speak" data-speak="I like basketball." aria-label="Hear">🔊</button></div>
+    </div>
+
+    <div class="tip"><span class="tip__icon">👉</span><div class="tip__text">
+      <b>Teacher tip:</b> Always answer first about <i>yourself</i>, then ask the student. Hearing your example makes it easy for them to copy.
+      <span class="zh">小提醒：每個句型都先講「你自己」的版本，再問學生。學生聽過你的例子，照樣造句就容易多了。</span></div></div>
+  </div>
+</section>
+
+<!-- ===== 22–32 MIN · LET'S PLAY (GAME) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">22–32 MIN</div>
+    <h2 class="sec__title">Let's Play! 🎡</h2>
+    <div class="sec__title-zh">一起玩「抽問題」遊戲</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__what">Time to talk! Press <b>Draw a question</b>, read it to your student, and let them answer in English. Then it's your turn to answer too — take turns!
+      <span class="zh">換成對話練習！按「Draw a question 抽一張」，把問題念給學生聽，請他用英文回答。然後換你回答 — 輪流玩，最好玩！</span></div>
+
+    <div class="game">
+      <span class="game__label">🎡 All About Me · Question Draw</span>
+      <p class="game__how">Press the button to draw a question. Read it out loud, then take turns answering. 按按鈕抽問題，念出來，輪流回答。</p>
+      <div class="game__card" id="gameCard">
+        <div class="game__hint" id="gameHint">Press <b>“Draw a question”</b> to start! 👇<br><span style="font-size:.78em;">按下面的按鈕開始抽問題</span></div>
+        <div class="game__q" id="gameQ" style="display:none;"></div>
+        <div class="game__zh" id="gameZh" style="display:none;"></div>
+        <button class="speak game__speak" id="gameSpeak" aria-label="Hear the question">🔊</button>
+      </div>
+      <div class="game__btns">
+        <button class="game__btn game__btn--main" id="gameDraw">🎲 Draw a question · 抽一張</button>
+      </div>
+      <div class="game__count" id="gameCount"></div>
+    </div>
+
+    <div class="tip" style="margin-top:26px;"><span class="tip__icon">👉</span><div class="tip__text">
+      <b>Teacher tip:</b> Short answers are okay! If the student says just <i>"blue,"</i> help them grow it: <span class="chip-say">"My favorite color is blue."</span> Repeat the full sentence together.
+      <span class="zh">小提醒：學生只講一個字（如「blue」）也很好！幫他延長成完整句子：「My favorite color is blue.」再一起念一次完整句。</span></div></div>
+  </div>
+</section>
+
+<!-- ===== 32–40 MIN · TALK TIME + WRAP-UP ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">32–40 MIN</div>
+    <h2 class="sec__title">Talk Time &amp; Goodbye</h2>
+    <div class="sec__title-zh">小對話練習 + 溫暖的道別</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__what">Read this little conversation together. You are <b>You (teacher)</b>; the student plays <b>Student</b>. Then swap roles and do it again!
+      <span class="zh">一起念這段小對話。你念「You」的部分，學生念「Student」的部分。念完可以交換角色再玩一次！</span></div>
+
+    <article class="scn">
+      <div class="scn__head">
+        <div class="scn__no">ROLEPLAY · 小對話</div>
+        <div class="scn__title">Nice to Meet You!</div>
+        <div class="scn__goal">Goal: Use today's sentences in a real chat. 把今天學的句子串成一段對話。</div>
+      </div>
+      <div class="scn__body">
+        <div class="ln"><span class="ln__role ln__role--a">You</span><div class="ln__text">Hi! <b>What is your name?</b></div><button class="ln__speak" data-speak="Hi! What is your name?">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--b">Student</span><div class="ln__text">My name is <b>＿＿＿</b>.</div><button class="ln__speak" data-speak="My name is Mei.">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--a">You</span><div class="ln__text">Nice to meet you! <b>How old are you?</b></div><button class="ln__speak" data-speak="Nice to meet you! How old are you?">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--b">Student</span><div class="ln__text">I am <b>＿＿＿</b> years old.</div><button class="ln__speak" data-speak="I am ten years old.">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--a">You</span><div class="ln__text">Cool! <b>Where do you live?</b></div><button class="ln__speak" data-speak="Cool! Where do you live?">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--b">Student</span><div class="ln__text">I live in <b>＿＿＿</b>.</div><button class="ln__speak" data-speak="I live in Changhua.">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--a">You</span><div class="ln__text">Tell me one thing you <b>like</b>.</div><button class="ln__speak" data-speak="Tell me one thing you like.">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--b">Student</span><div class="ln__text">I like <b>＿＿＿</b>.</div><button class="ln__speak" data-speak="I like dogs.">🔊</button></div>
+        <div class="ln"><span class="ln__role ln__role--a">You</span><div class="ln__text">Me too! You did a <b>great job</b> today!</div><button class="ln__speak" data-speak="Me too! You did a great job today!">🔊</button></div>
+      </div>
+    </article>
+
+    <div class="cue" style="margin-top:28px;">
+      <div class="cue__label">💬 Say this to finish · 這樣收尾</div>
+      <div class="cue__line">
+        <button class="speak" data-speak="Wow, you did so well today. I'm really proud of you!" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">Wow, you did so well today. <b>I'm really proud of you!</b></div>
+          <div class="cue__zh">哇，你今天表現得超棒。我真的以你為榮！</div></div></div>
+      <div class="cue__line">
+        <button class="speak" data-speak="Next time, can you tell me about your family? See you next week. Bye-bye!" aria-label="Hear">🔊</button>
+        <div class="cue__body">
+          <div class="cue__say">Next time, can you tell me about your <b>family</b>? See you next week — <b>bye-bye!</b></div>
+          <div class="cue__zh">下次可以跟我介紹你的家人嗎？下週見 — 掰掰！（給學生一個小任務，下次有話題）</div></div></div>
+    </div>
+
+    <div class="tip"><span class="tip__icon">👉</span><div class="tip__text">
+      <b>Teacher tip:</b> Always end happy. A big smile and <span class="chip-say">"See you next week!"</span> makes the student excited to come back.
+      <span class="zh">小提醒：一定要開心收尾。大大的笑容加一句「See you next week!」會讓學生期待下一堂課。</span></div></div>
+  </div>
+</section>
+
+<!-- ===== WEEK 2 ===== -->
+<section>
+  <div class="wrap">
+    <div class="week2">
+      <div class="week2__title">📅 Second week? Keep going!</div>
+      <div class="week2__zh">同一個主題可以上兩週。第二堂課這樣延伸：</div>
+      <div class="week2__grid">
+        <div class="w2card"><h4>🔁 Review &amp; play</h4>
+          <p>Replay the question game and the roleplay. This time, ask the student to answer in <b>full sentences</b>.</p>
+          <p class="zh">重玩抽問題遊戲和小對話。這次請學生用「完整句子」回答。</p></div>
+        <div class="w2card"><h4>📷 Show &amp; tell</h4>
+          <p>Ask the student to bring a <b>family photo</b> and introduce two people: "This is my…"</p>
+          <p class="zh">請學生帶一張全家福，介紹其中兩個人：「This is my…」</p></div>
+        <div class="w2card"><h4>🎨 Draw it</h4>
+          <p>The student draws their <b>favorite</b> thing, then tells you about it in English.</p>
+          <p class="zh">請學生畫出他「最喜歡的」東西，再用英文跟你介紹。</p></div>
+        <div class="w2card"><h4>⭐ New questions</h4>
+          <p>Add: "What is your favorite animal?" · "What do you do after school?" · "Who is your best friend?"</p>
+          <p class="zh">加入新問題：最喜歡的動物？放學後做什麼？最好的朋友是誰？</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  👋 All About Me · Theme 1 · One-on-One Conversation Curriculum<br>
+  A guided lesson kit for student volunteers · 給高中生志工的一對一上課引導<br>
+  Curriculum by <span class="org">My Culture Connect 人師教育協會</span><br>
+  Part of the <a href="/resources/">Changhua Bilingual Hub · 彰化雙語資源網</a>
+</footer>
+
+<script>
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.9; u.pitch = 1;
+  if(btn){ btn.classList.add('is-speaking'); u.onend = () => btn.classList.remove('is-speaking'); u.onerror = () => btn.classList.remove('is-speaking'); }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(b => { b.addEventListener('click', () => speak(b.dataset.speak, b)); });
+
+/* === Question Draw game === */
+const QUESTIONS = [
+  { en:'What is your name?',            zh:'你叫什麼名字？' },
+  { en:'How old are you?',              zh:'你幾歲？' },
+  { en:'Where do you live?',            zh:'你住在哪裡？' },
+  { en:'How many people are in your family?', zh:'你家有幾個人？' },
+  { en:'What is your favorite color?',  zh:'你最喜歡什麼顏色？' },
+  { en:'What is your favorite food?',   zh:'你最喜歡吃什麼？' },
+  { en:'What is your hobby?',           zh:'你的興趣是什麼？' },
+  { en:'What animal do you like?',      zh:'你喜歡什麼動物？' },
+  { en:'Who is your best friend?',      zh:'你最好的朋友是誰？' },
+  { en:'What do you do after school?',  zh:'你放學後都做什麼？' },
+];
+const gHint = document.getElementById('gameHint');
+const gQ = document.getElementById('gameQ');
+const gZh = document.getElementById('gameZh');
+const gSpeak = document.getElementById('gameSpeak');
+const gDraw = document.getElementById('gameDraw');
+const gCount = document.getElementById('gameCount');
+let gLast = -1, gDrawn = 0, gCurrent = '';
+
+gDraw.addEventListener('click', () => {
+  let i;
+  do { i = Math.floor(Math.random() * QUESTIONS.length); }
+  while (i === gLast && QUESTIONS.length > 1);
+  gLast = i; gDrawn++;
+  const q = QUESTIONS[i];
+  gCurrent = q.en;
+  gHint.style.display = 'none';
+  gQ.style.display = 'block'; gQ.textContent = q.en;
+  gZh.style.display = 'block'; gZh.textContent = q.zh;
+  gSpeak.style.display = 'inline-flex';
+  gDraw.innerHTML = '🎲 Draw another · 再抽一張';
+  gCount.textContent = `Questions drawn 已抽 ${gDrawn}`;
+  speak(q.en, gSpeak);
+});
+gSpeak.addEventListener('click', () => { if(gCurrent) speak(gCurrent, gSpeak); });
+</script>
+</body>
+</html>
