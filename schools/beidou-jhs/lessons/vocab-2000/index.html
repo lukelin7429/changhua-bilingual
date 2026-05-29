@@ -424,9 +424,47 @@ header p {
   0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
   100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
+
+/* ─── School Nav ─── */
+.school-nav {
+  background: #e3edf8;
+  border-bottom: 1px solid #dde6ee;
+  padding: 14px 20px;
+  position: relative; z-index: 100;
+}
+.school-nav__inner {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  justify-content: center; align-items: center;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 17px; max-width: 1100px; margin: 0 auto;
+}
+.school-nav a {
+  color: #1a3a5c; text-decoration: none; font-weight: 600;
+  padding: 5px 12px; border-radius: 20px; transition: all .15s;
+  white-space: nowrap;
+}
+.school-nav a:hover { background: #fff; color: #9b6508; }
+.school-nav a.is-active { background: #c8870a; color: #fff; }
+.school-nav__sep { color: #5a606e; opacity: .4; font-size: 14px; }
+@media(max-width: 480px) { .school-nav__sep { display: none; } }
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
 </style>
 </head>
 <body>
+
+<nav class="school-nav">
+  <div class="school-nav__inner">
+    <a href="../../">Home</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../principal/">Principal</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../bilingual-campus/">Bilingual Campus</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../" class="is-active">Bilingual Lessons</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../news/">News</a>
+  </div>
+</nav>
 
 <header>
   <h1>🎯 英文單字練習<span class="h1-en">Vocabulary Practice</span></h1>
