@@ -9,7 +9,7 @@
 <title>Principal's Office · 校長室 · Minsheng Elementary</title>
 <meta name="description" content="A word from Principal Tseng Chun-yao of Minsheng Elementary — the 12th principal of a 110-year school in central Changhua, born inside the Confucius Temple. 曾俊堯校長與民生國小的辦學理念：關愛、樂活、引導、學習。">
 <meta property="og:title" content="Principal's Office · 校長室 · Minsheng Elementary">
-<meta property="og:description" content="Principal Tseng Chun-yao on leading a 110-year school: To Love, To Live, To Lead, To Learn.">
+<meta property="og:image" content="../photos/principal-tseng.jpg">
 <meta property="og:type" content="profile">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,290 +22,269 @@
   --gold:#B8954A;--gold-deep:#7a5e20;--gold-soft:#f5edd9;
   --slate:#3a4a5c;--slate-soft:#e3e8ee;
   --ink:#1f1a16;--ink-soft:#5e5750;--line:#ead9d4;
-  --max:1080px;--max-narrow:780px;
+  --max:1080px;--max-narrow:800px;
   --shadow:0 14px 40px -16px rgba(77,18,18,.28);
   --shadow-sm:0 4px 14px -4px rgba(77,18,18,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+body{
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--ink);background:#fff;
+  font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+@media (min-width:720px){ body{ font-size:23px; } }
 img{max-width:100%;display:block;}
 a{color:var(--crimson-deep);text-decoration:none;transition:color .2s;}
 a:hover{color:var(--gold-deep);}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 .wrap-narrow{max-width:var(--max-narrow);margin:0 auto;padding:0 24px;}
 
-/* ===== HERO ===== */
-.po-hero{
-  background:linear-gradient(180deg,var(--crimson-soft) 0%,#fff 100%);
-  padding:64px 0 50px;
-  border-top:4px solid var(--crimson);
-  border-bottom:1px solid var(--line);
+/* === Page banner === */
+.page-banner{
+  position:relative;
+  background:
+    linear-gradient(180deg, rgba(26,8,8,.74) 0%, rgba(26,8,8,.45) 45%, rgba(26,8,8,.86) 100%),
+    url('../photos/campus-02.jpg') center 45% / cover no-repeat;
+  padding:84px 0 76px;text-align:center;color:#fff;
+  border-bottom:5px solid var(--gold);
 }
-.po-hero__grid{
-  display:grid;grid-template-columns:1fr .8fr;
-  gap:54px;align-items:center;
+.page-banner__eyebrow{
+  display:inline-block;font-size:15px;letter-spacing:.28em;
+  color:#f5e6c4;font-weight:700;text-transform:uppercase;
+  margin-bottom:18px;text-shadow:0 1px 6px rgba(0,0,0,.45);
 }
-.po-hero__eyebrow{
-  display:inline-block;
-  font-size:13.5px;letter-spacing:.22em;font-weight:700;
-  text-transform:uppercase;color:var(--crimson);
-  margin-bottom:18px;
-}
-.po-hero h1{
+@media (min-width:720px){ .page-banner__eyebrow{ font-size:16.5px; } }
+.page-banner h1{
   font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:clamp(44px,6.6vw,68px);
-  line-height:1.05;font-weight:600;letter-spacing:.005em;
-  color:var(--crimson-deep);
-  margin-bottom:14px;
+  font-size:clamp(44px,7vw,72px);
+  line-height:1.05;font-weight:600;color:#fff;
+  text-shadow:0 2px 16px rgba(0,0,0,.55);
 }
-.po-hero h1 .h1-zh{
+.page-banner h1 .h1-zh{
   display:block;
   font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
-  font-size:clamp(20px,2.5vw,26px);
+  font-size:clamp(22px,2.8vw,28px);
   font-weight:500;letter-spacing:.08em;
-  color:var(--ink-soft);
-  margin-top:12px;
+  color:rgba(255,255,255,.92);margin-top:14px;
+  text-shadow:0 1px 8px rgba(0,0,0,.45);
 }
-.po-hero__name{
-  margin-top:24px;
-  padding-top:24px;
-  border-top:1px solid var(--line);
+.page-banner__tagline{
+  max-width:720px;margin:24px auto 0;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(19px,2.2vw,23px);
+  color:rgba(255,255,255,.95);line-height:1.55;
+  text-shadow:0 1px 8px rgba(0,0,0,.45);
 }
-.po-hero__name .role{
-  font-size:13px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-deep);
-  margin-bottom:6px;
-}
-.po-hero__name .name-en{
-  font-family:'Cormorant Garamond',serif;
-  font-size:30px;font-weight:600;
-  color:var(--crimson-deep);
-  line-height:1.2;
-}
-.po-hero__name .name-zh{
+.page-banner__tagline .zh{
+  display:block;font-style:normal;
   font-family:'PingFang TC',sans-serif;
-  font-size:18.5px;color:var(--ink-soft);
-  font-weight:500;margin-top:4px;
-  letter-spacing:.04em;
+  font-size:17px;margin-top:10px;
+  color:rgba(255,255,255,.82);letter-spacing:.05em;
 }
-.po-hero__name .since{
-  margin-top:10px;
-  font-size:14.5px;color:var(--ink-soft);
-  font-style:italic;
-}
+@media (min-width:720px){ .page-banner__tagline .zh{ font-size:19px; } }
 
-.po-hero__photo{
-  position:relative;
-  border-radius:18px;overflow:hidden;
-  box-shadow:var(--shadow);
-  background:linear-gradient(135deg,var(--crimson-soft) 0%,#fff 60%,var(--gold-soft) 100%);
-  aspect-ratio:4/5;
-  display:flex;align-items:center;justify-content:center;
+/* === Principal portrait card (after banner) === */
+.po-card{
+  margin-top:-60px;position:relative;z-index:2;
+  background:#fff;border-radius:22px;border:1px solid var(--line);
+  box-shadow:var(--shadow);padding:40px;
+  display:grid;grid-template-columns:.85fr 1.4fr;gap:50px;align-items:center;
+  max-width:1040px;margin-left:auto;margin-right:auto;
 }
-.po-hero__photo .placeholder{
-  text-align:center;color:var(--crimson-deep);
+.po-portrait{
+  position:relative;border-radius:18px;overflow:hidden;
+  aspect-ratio:4/5;box-shadow:var(--shadow-sm);
 }
-.po-hero__photo .placeholder .glyph{
-  font-family:'Cormorant Garamond',serif;
-  font-size:120px;line-height:1;font-weight:600;
-}
-.po-hero__photo .placeholder .label{
-  font-family:'PingFang TC',sans-serif;
-  font-size:13.5px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-soft);
-  margin-top:18px;
-}
-.po-hero__photo .badge{
+.po-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+.po-portrait .badge{
   position:absolute;top:18px;right:18px;
   background:var(--crimson);color:#fff;
-  padding:6px 14px;border-radius:99px;
-  font-size:13px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 16px;border-radius:99px;
+  font-size:13.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
 }
-
-/* ===== SECTION BASE ===== */
-section.po-body{padding:60px 0;}
-section.po-body + section.po-body{padding-top:0;}
-.po-body h2{
-  font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:clamp(30px,3.6vw,42px);
-  font-weight:600;color:var(--crimson-deep);
-  line-height:1.2;
-  margin-bottom:6px;
+.po-meta .role{
+  font-size:14.5px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:10px;
 }
-.po-body h2 .zh{
-  display:block;
+.po-meta h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;font-weight:600;color:var(--crimson-deep);line-height:1.15;
+}
+.po-meta h2 small{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:24px;color:var(--ink-soft);font-weight:500;margin-top:8px;
+}
+.po-meta .since{
+  margin-top:14px;font-size:16px;color:var(--ink-soft);font-style:italic;
+}
+@media (min-width:720px){ .po-meta .since{ font-size:17px; } }
+.po-meta .career{
+  margin-top:18px;padding:14px 18px;
+  background:var(--gold-soft);border-left:4px solid var(--gold);
+  border-radius:0 10px 10px 0;
   font-family:'PingFang TC',sans-serif;
-  font-size:20px;color:var(--ink-soft);
-  font-weight:500;
-  margin-top:6px;letter-spacing:.04em;
+  font-size:17px;color:var(--ink);line-height:1.7;
 }
-.po-body .en-block{
-  font-size:19px;color:var(--ink);
-  line-height:1.75;margin:22px 0;
+@media (min-width:720px){ .po-meta .career{ font-size:18px; } }
+
+/* === Body sections === */
+section.po-body{padding:64px 0;}
+.po-body h2.sec-title{
+  font-family:'Cormorant Garamond','PingFang TC',serif;
+  font-size:clamp(32px,4vw,48px);font-weight:600;
+  color:var(--crimson-deep);line-height:1.2;margin-bottom:6px;
 }
+.po-body h2.sec-title .zh{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:22px;color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.04em;
+}
+@media (min-width:720px){ .po-body h2.sec-title .zh{ font-size:24px; } }
+.po-body .lede{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:22px;color:var(--ink);margin:14px 0 4px;line-height:1.55;
+}
+@media (min-width:720px){ .po-body .lede{ font-size:24px; } }
+.po-body .lede-zh{
+  font-family:'PingFang TC',sans-serif;
+  font-size:17px;color:var(--ink-soft);margin-bottom:24px;line-height:1.7;
+}
+@media (min-width:720px){ .po-body .lede-zh{ font-size:18.5px; } }
+.po-body .en-block{font-size:20px;color:var(--ink);line-height:1.78;margin:22px 0;}
+@media (min-width:720px){ .po-body .en-block{ font-size:21px; } }
 .po-body .en-block p{margin-bottom:14px;}
 .po-body .en-block p:last-child{margin-bottom:0;}
 .po-body .zh-block{
   font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
-  font-size:18px;color:var(--ink);
-  background:#fff;
+  font-size:19px;color:var(--ink);background:#fff;
   border-left:3px solid var(--crimson);
   padding:18px 22px;border-radius:8px;
-  margin:14px 0;line-height:1.95;
+  margin:14px 0;line-height:1.92;
 }
-.po-body .zh-block p{margin-bottom:8px;}
+@media (min-width:720px){ .po-body .zh-block{ font-size:20px; } }
+.po-body .zh-block p{margin-bottom:10px;}
 .po-body .zh-block p:last-child{margin-bottom:0;}
 
 /* Lineage strip — 12 principals */
 .po-lineage{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:30px 30px 24px;
-  margin:30px 0;
-  box-shadow:var(--shadow-sm);
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:32px 32px 26px;margin:30px 0;box-shadow:var(--shadow-sm);
 }
 .po-lineage__label{
-  font-size:12.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--crimson);
-  margin-bottom:18px;
+  font-size:13px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--crimson);margin-bottom:20px;
 }
 .po-lineage__list{
   display:grid;grid-template-columns:repeat(2,1fr);
-  gap:10px 24px;
-  list-style:none;
+  gap:10px 28px;list-style:none;
 }
+@media (max-width:760px){ .po-lineage__list{ grid-template-columns:1fr; } }
 .po-lineage__list li{
   display:flex;align-items:baseline;gap:12px;
-  padding:8px 0;
-  border-bottom:1px dashed var(--line);
-  font-size:15px;color:var(--ink);
+  padding:9px 0;border-bottom:1px dashed var(--line);
+  font-size:16px;color:var(--ink);
 }
-.po-lineage__list li:last-child,
-.po-lineage__list li:nth-last-child(2){border-bottom:none;}
+@media (min-width:720px){ .po-lineage__list li{ font-size:17px; } }
 .po-lineage__list .no{
-  flex:0 0 auto;
-  font-family:'Cormorant Garamond',serif;color:var(--crimson);font-weight:700;
-  font-size:14.5px;letter-spacing:1.2px;min-width:54px;
+  flex:0 0 auto;font-family:'Cormorant Garamond',serif;
+  color:var(--crimson);font-weight:700;font-size:15.5px;
+  letter-spacing:1.2px;min-width:56px;
 }
-.po-lineage__list .name-en{
-  font-weight:600;color:var(--crimson-deep);
-}
-.po-lineage__list .years{
-  display:block;font-size:13px;color:var(--ink-soft);margin-top:2px;
-}
+.po-lineage__list .name-en{font-weight:600;color:var(--crimson-deep);}
+.po-lineage__list .years{display:block;font-size:13.5px;color:var(--ink-soft);margin-top:3px;}
 .po-lineage__list li.is-current{
   background:linear-gradient(90deg,var(--crimson-soft) 0%,#fff 80%);
-  border-radius:8px;padding:10px 12px;margin:6px 0;
-  border-bottom:none;
+  border-radius:8px;padding:11px 14px;margin:6px 0;border-bottom:none;
 }
 .po-lineage__list li.is-current .name-en{color:var(--crimson-deep);font-weight:700;}
 
 /* Featured quote */
 .po-quote{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:40px 44px;
-  margin:30px 0;
-  box-shadow:var(--shadow-sm);
-  position:relative;
-  overflow:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:44px 48px;margin:30px 0;box-shadow:var(--shadow-sm);
+  position:relative;overflow:hidden;
 }
 .po-quote::before{
-  content:"\201C";
-  position:absolute;top:-30px;left:18px;
+  content:"\201C";position:absolute;top:-30px;left:18px;
   font-family:'Cormorant Garamond',serif;
-  font-size:160px;color:var(--crimson-soft);
-  line-height:1;
+  font-size:180px;color:var(--crimson-soft);line-height:1;
 }
 .po-quote__en{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(23px,3vw,29px);
-  font-style:italic;
-  color:var(--crimson-deep);
-  line-height:1.4;
-  position:relative;
+  font-size:clamp(24px,3.1vw,30px);font-style:italic;
+  color:var(--crimson-deep);line-height:1.42;position:relative;
 }
 .po-quote__zh{
-  margin-top:22px;
-  padding-top:22px;
-  border-top:1px solid var(--line);
+  margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
   font-family:'PingFang TC',sans-serif;
-  font-size:18.5px;color:var(--ink);
-  line-height:1.85;
+  font-size:20px;color:var(--ink);line-height:1.88;
 }
-.po-quote__source{
-  margin-top:18px;
-  font-size:14px;color:var(--ink-soft);
-  font-style:italic;
-}
+@media (min-width:720px){ .po-quote__zh{ font-size:21px; } }
+.po-quote__source{margin-top:20px;font-size:15px;color:var(--ink-soft);font-style:italic;}
 
 /* 4L grid */
-.po-4l{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:14px;margin:24px 0 6px;
-}
+.po-4l{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:26px 0 6px;}
+@media (max-width:880px){ .po-4l{ grid-template-columns:repeat(2,1fr); } }
 .po-4l__card{
   background:linear-gradient(180deg,var(--crimson-soft) 0%,#fff 100%);
   border:1px solid var(--line);border-radius:14px;
-  padding:22px 18px 20px;
-  text-align:center;
-  box-shadow:var(--shadow-sm);
+  padding:24px 20px 22px;text-align:center;box-shadow:var(--shadow-sm);
 }
 .po-4l__verb{
   font-family:'Cormorant Garamond',serif;
-  font-size:24px;font-weight:700;
-  color:var(--crimson-deep);
-  letter-spacing:.04em;
-  line-height:1.15;
+  font-size:26px;font-weight:700;color:var(--crimson-deep);
+  letter-spacing:.04em;line-height:1.15;
 }
-.po-4l__zh{
-  margin-top:8px;
-  font-family:'PingFang TC',sans-serif;
-  font-size:17px;font-weight:600;
-  color:var(--gold-deep);
-}
-.po-4l__hint{
-  margin-top:8px;
-  font-size:13.5px;color:var(--ink-soft);
-  line-height:1.5;
-}
+.po-4l__zh{margin-top:10px;font-family:'PingFang TC',sans-serif;font-size:19px;font-weight:600;color:var(--gold-deep);}
+.po-4l__hint{margin-top:10px;font-size:15px;color:var(--ink-soft);line-height:1.55;}
+@media (min-width:720px){ .po-4l__hint{ font-size:15.5px; } }
+.po-4l__hint .zh{display:block;font-family:'PingFang TC',sans-serif;margin-top:4px;}
 
-/* Pillar cards (5 work pillars) */
-.po-pillars{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:22px;margin:30px 0;
+/* Three-axis core */
+.po-axis{
+  margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
 }
+@media (max-width:760px){ .po-axis{ grid-template-columns:1fr; } }
+.po-axis__card{
+  background:var(--gold-soft);border:1px solid var(--line);border-radius:14px;
+  padding:22px 22px 24px;text-align:center;
+  border-top:5px solid var(--gold);
+}
+.po-axis__card:nth-child(2){border-top-color:var(--crimson);}
+.po-axis__card:nth-child(3){border-top-color:var(--slate);}
+.po-axis__zh{
+  font-family:'PingFang TC',sans-serif;
+  font-size:21px;font-weight:700;color:var(--crimson-deep);line-height:1.3;
+}
+@media (min-width:720px){ .po-axis__zh{ font-size:23px; } }
+.po-axis__en{
+  margin-top:8px;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16.5px;color:var(--gold-deep);line-height:1.45;
+}
+@media (min-width:720px){ .po-axis__en{ font-size:18px; } }
+
+/* Pillar cards */
+.po-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:30px 0;}
+@media (max-width:760px){ .po-pillars{ grid-template-columns:1fr; } }
 .po-pillar{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:28px 26px;
-  box-shadow:var(--shadow-sm);
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:30px 28px;box-shadow:var(--shadow-sm);
   border-top:6px solid var(--crimson);
-  transition:transform .25s, box-shadow .25s;
+  transition:transform .25s,box-shadow .25s;
 }
 .po-pillar:nth-child(2){border-top-color:var(--gold);}
 .po-pillar:nth-child(3){border-top-color:var(--slate);}
 .po-pillar:nth-child(4){border-top-color:var(--crimson);}
 .po-pillar:nth-child(5){border-top-color:var(--gold-deep);}
-.po-pillar:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow);
-}
+.po-pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
 .po-pillar .icon{
   font-family:'Cormorant Garamond',serif;
-  font-size:30px;font-weight:700;
-  width:50px;height:50px;border-radius:12px;
+  font-size:32px;font-weight:700;
+  width:56px;height:56px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  background:var(--crimson-soft);color:var(--crimson-deep);
-  margin-bottom:16px;
+  background:var(--crimson-soft);color:var(--crimson-deep);margin-bottom:18px;
 }
 .po-pillar:nth-child(2) .icon{background:var(--gold-soft);color:var(--gold-deep);}
 .po-pillar:nth-child(3) .icon{background:var(--slate-soft);color:var(--slate);}
@@ -313,170 +292,138 @@ section.po-body + section.po-body{padding-top:0;}
 .po-pillar:nth-child(5) .icon{background:var(--gold-soft);color:var(--gold-deep);}
 .po-pillar h3{
   font-family:'Cormorant Garamond',serif;
-  font-size:21px;font-weight:600;
-  color:var(--crimson-deep);
-  line-height:1.25;
-  margin-bottom:4px;
+  font-size:23px;font-weight:600;color:var(--crimson-deep);line-height:1.25;margin-bottom:4px;
 }
 .po-pillar h3 .zh{
-  display:block;
-  font-family:'PingFang TC',sans-serif;
-  font-size:15.5px;color:var(--ink-soft);
-  font-weight:500;
-  margin-top:4px;letter-spacing:.04em;
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:4px;letter-spacing:.04em;
 }
-.po-pillar .body-en{
-  font-size:15.5px;color:var(--ink);
-  margin-top:14px;line-height:1.7;
-}
+.po-pillar .body-en{font-size:17px;color:var(--ink);margin-top:14px;line-height:1.72;}
+@media (min-width:720px){ .po-pillar .body-en{ font-size:17.5px; } }
 .po-pillar .body-zh{
   font-family:'PingFang TC',sans-serif;
-  font-size:15px;color:var(--ink-soft);
-  margin-top:12px;padding-top:12px;
-  border-top:1px dashed var(--line);
-  line-height:1.85;
+  font-size:16.5px;color:var(--ink-soft);
+  margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);line-height:1.88;
 }
+@media (min-width:720px){ .po-pillar .body-zh{ font-size:17px; } }
 
-/* TBD note */
-.po-tbd{
-  background:var(--gold-soft);
-  border:1px dashed var(--gold);
-  border-radius:12px;
-  padding:18px 22px;
-  margin:20px 0;
-  font-size:14.5px;color:var(--gold-deep);
-  line-height:1.65;
+/* Truth-good-beauty closing */
+.po-tgb{
+  background:linear-gradient(135deg, var(--crimson-deep) 0%, #1a0808 100%);
+  color:#fff;border-radius:22px;padding:48px 40px;
+  box-shadow:var(--shadow);border-top:4px solid var(--gold);
+  margin:30px 0;
 }
-.po-tbd strong{font-weight:700;}
-.po-tbd .zh{
-  display:block;
-  font-family:'PingFang TC',sans-serif;
-  font-size:13.5px;color:var(--ink-soft);margin-top:4px;
+@media (min-width:720px){ .po-tgb{ padding:60px 56px; } }
+.po-tgb__eyebrow{color:#f5e6c4;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;}
+.po-tgb__title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.6vw,38px);font-weight:600;line-height:1.3;margin-top:14px;
 }
+.po-tgb__title small{
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:19px;font-weight:600;color:rgba(255,255,255,.82);margin-top:10px;
+}
+@media (min-width:720px){ .po-tgb__title small{ font-size:21px; } }
+.po-tgb__triad{
+  margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+@media (max-width:680px){ .po-tgb__triad{ grid-template-columns:1fr; } }
+.po-tgb__card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);border-radius:14px;
+  padding:24px 22px;text-align:center;backdrop-filter:blur(6px);
+}
+.po-tgb__char{
+  font-family:'PingFang TC',sans-serif;font-size:38px;font-weight:700;
+  color:#f5e6c4;line-height:1;
+}
+.po-tgb__verb{
+  margin-top:10px;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;color:rgba(255,255,255,.88);
+}
+.po-tgb__hint{
+  margin-top:6px;font-family:'PingFang TC',sans-serif;
+  font-size:15.5px;color:rgba(255,255,255,.78);line-height:1.55;
+}
+@media (min-width:720px){ .po-tgb__hint{ font-size:16px; } }
 
 /* Visit panel */
-.po-visit{
-  background:var(--crimson-deep);color:#fff;
-  padding:60px 0;
-}
-.po-visit__grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:50px;align-items:start;
-}
+.po-visit{background:var(--crimson-deep);color:#fff;padding:64px 0;}
+.po-visit__grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;}
+@media (max-width:880px){ .po-visit__grid{ grid-template-columns:1fr;gap:34px; } }
 .po-visit h2{
-  font-family:'Cormorant Garamond',serif;
-  color:#fff;
-  font-size:46px;font-weight:600;line-height:1.15;
+  font-family:'Cormorant Garamond',serif;color:#fff;
+  font-size:50px;font-weight:600;line-height:1.15;
 }
 .po-visit h2 .zh{
-  display:block;
-  font-family:'PingFang TC',sans-serif;
-  font-size:21px;color:rgba(255,255,255,.75);
-  font-weight:500;margin-top:8px;
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:23px;color:rgba(255,255,255,.78);font-weight:500;margin-top:8px;
 }
-.po-visit p{
-  font-size:18px;color:rgba(255,255,255,.85);
-  margin-top:20px;line-height:1.75;
-}
-.po-visit p.zh{
-  font-family:'PingFang TC',sans-serif;
-  margin-top:14px;font-size:17px;
-}
+.po-visit p{font-size:19px;color:rgba(255,255,255,.86);margin-top:22px;line-height:1.78;}
+@media (min-width:720px){ .po-visit p{ font-size:20px; } }
+.po-visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:18px;}
 .po-contact{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:16px;padding:28px 30px;
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  border-radius:16px;padding:30px 32px;backdrop-filter:blur(8px);
 }
-.po-contact dl{display:grid;gap:18px;}
+.po-contact dl{display:grid;gap:20px;}
 .po-contact dt{
-  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
-  color:#f5e6c4;font-weight:700;
-  margin-bottom:4px;
+  font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+  color:#f5e6c4;font-weight:700;margin-bottom:5px;
 }
-.po-contact dd{
-  font-size:18px;color:#fff;
-  font-family:'PingFang TC',sans-serif;
-  line-height:1.55;
-}
-.po-contact dd a{
-  color:#fff;border-bottom:1px solid rgba(255,255,255,.4);
-  padding-bottom:1px;
-}
+.po-contact dd{font-size:19px;color:#fff;font-family:'PingFang TC',sans-serif;line-height:1.55;}
+@media (min-width:720px){ .po-contact dd{ font-size:20px; } }
+.po-contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
 .po-contact dd a:hover{color:#f5e6c4;border-color:#f5e6c4;}
 
 /* Footer */
 .site-footer{
-  background:#1a0808;color:rgba(255,255,255,.6);
-  padding:32px 0;font-size:14.5px;
-  border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;
+  background:#1a0808;color:rgba(255,255,255,.62);
+  padding:36px 0;font-size:16px;
+  border-top:1px solid rgba(255,255,255,.08);text-align:center;
 }
+@media (min-width:720px){ .site-footer{ font-size:17px; } }
 .site-footer .partner{color:#f5e6c4;font-weight:600;}
 .site-footer .partner a{color:#f5e6c4;border-bottom:1px solid transparent;}
 .site-footer .partner a:hover{border-bottom-color:#f5e6c4;}
 
 /* Mobile */
 @media (max-width:880px){
-  .po-hero__grid{grid-template-columns:1fr;gap:36px;}
-  .po-hero__photo{max-width:340px;margin:0 auto;}
-  .po-lineage__list{grid-template-columns:1fr;}
-  .po-4l{grid-template-columns:repeat(2,1fr);}
-  .po-pillars{grid-template-columns:1fr;}
-  .po-visit__grid{grid-template-columns:1fr;gap:30px;}
-}
-@media (max-width:640px){
-  .po-hero{padding:48px 0 36px;}
-  section.po-body{padding:42px 0;}
-  .po-quote{padding:30px 28px;}
-  .po-quote::before{font-size:110px;top:-18px;left:14px;}
+  .po-card{grid-template-columns:1fr;gap:30px;padding:32px 28px;margin-top:-40px;}
+  .po-portrait{max-width:320px;margin:0 auto;}
 }
 
 /* ============ TOPBAR ============ */
 .topbar{
-  background:rgba(255,255,255,.94);
-  border-bottom:1px solid var(--line);
-  padding:14px 0;
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);
+  padding:15px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
 }
-.topbar-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:18px;
-}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
 .topbar-brand{display:flex;align-items:center;gap:12px;}
 .topbar-name{
   font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:19px;font-weight:600;
-  color:var(--crimson-deep);
-  line-height:1.1;
+  font-size:21px;font-weight:600;color:var(--crimson-deep);line-height:1.1;
 }
 .topbar-name small{
-  display:block;
-  font-family:'PingFang TC',sans-serif;
-  font-size:12.5px;font-weight:500;
-  color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  display:block;font-family:'PingFang TC',sans-serif;
+  font-size:13.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
 }
-.topbar-nav{
-  display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
-}
-.topbar-nav a{
-  color:var(--ink);font-size:14.5px;font-weight:500;
-  letter-spacing:.04em;text-decoration:none;
-}
+.topbar-nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+.topbar-nav a{color:var(--ink);font-size:15.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+@media (min-width:720px){ .topbar-nav a{ font-size:16px; } }
 .topbar-nav a:hover{color:var(--crimson);}
 .topbar-nav a.is-active{color:var(--crimson-deep);font-weight:700;}
 @media (max-width:560px){
   .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
   .topbar-nav{gap:14px;justify-content:flex-start;}
-  .topbar-nav a{font-size:13.5px;}
+  .topbar-nav a{font-size:14.5px;}
 }
 </style>
-<script defer src="/analytics.js"></script>
 </head>
 <body>
 
-<!-- ============ TOPBAR ============ -->
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="wrap topbar-inner">
     <div class="topbar-brand">
@@ -491,52 +438,51 @@ section.po-body + section.po-body{padding-top:0;}
       <a href="../english-resource-center/">English Hub</a>
       <a href="../bilingual-campus/">Bilingual Campus</a>
       <a href="../lessons/">Lessons</a>
+      <a href="../news/">News</a>
       <a href="https://changhua-bilingual.org/festivals/?from=minsheng">Festivals</a>
     </nav>
   </div>
 </div>
 
-<!-- HERO -->
-<header class="po-hero">
+<!-- PAGE BANNER -->
+<header class="page-banner">
   <div class="wrap">
-    <div class="po-hero__grid">
-
-      <div>
-        <span class="po-hero__eyebrow">A Word from the Principal</span>
-        <h1>The Principal's Office
-          <span class="h1-zh">校長室</span>
-        </h1>
-        <p style="font-size:20px;color:var(--ink);line-height:1.6;font-family:'Cormorant Garamond',serif;font-style:italic;margin-top:8px;">
-          A 110-year school born inside the Confucius Temple &mdash; led, today, by its twelfth principal, who carries with him four verbs and five quiet commitments.
-        </p>
-        <p style="font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.85;">
-          一所從彰化孔廟開始的百年小學——今天，由第十二任校長帶領。他隨身帶著四個動詞，與五個安靜的承諾。
-        </p>
-
-        <div class="po-hero__name">
-          <div class="role">Principal · 校長</div>
-          <div class="name-en">Tseng Chun-yao</div>
-          <div class="name-zh">曾俊堯</div>
-          <div class="since">Appointed Aug 2024 · 自 2024 年 8 月接任民生國小校長 · 第十二任</div>
-        </div>
-      </div>
-
-      <figure class="po-hero__photo">
-        <div class="placeholder">
-          <div class="glyph">曾</div>
-          <div class="label">Principal Photo<br>校長照片待補</div>
-        </div>
-        <span class="badge">Since 2024</span>
-      </figure>
-
-    </div>
+    <span class="page-banner__eyebrow">A Word from the Principal · 12<sup>th</sup> Principal</span>
+    <h1>The Principal's Office
+      <span class="h1-zh">校長室</span>
+    </h1>
+    <p class="page-banner__tagline">
+      A 110-year school born inside the Confucius Temple, led today by its twelfth principal.
+      <span class="zh">一所從彰化孔廟開始的百年小學，今天由第十二任校長帶領。</span>
+    </p>
   </div>
 </header>
 
-<!-- ABOUT -->
+<!-- PRINCIPAL CARD -->
+<div class="wrap">
+  <div class="po-card">
+    <figure class="po-portrait">
+      <img src="../photos/principal-tseng.jpg" alt="Principal Tseng Chun-yao · 曾俊堯校長">
+      <span class="badge">Since 2024</span>
+    </figure>
+    <div class="po-meta">
+      <div class="role">Principal · 校長</div>
+      <h2>Tseng Chun-yao
+        <small>曾俊堯 校長</small>
+      </h2>
+      <div class="since">Appointed Aug 2024 · 自 2024 年 8 月接任民生國小校長 · 第十二任</div>
+      <div class="career">
+        21 years in education · 從事教職生涯將滿 <strong>二十一年</strong><br>
+        Previously Principal of Macuo Elementary, Sihhu Township · 前任：溪湖鎮媽厝國小校長
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT: Twelfth Walk -->
 <section class="po-body">
   <div class="wrap-narrow">
-    <h2>The Twelfth Hand at the Gate
+    <h2 class="sec-title">The Twelfth Hand at the Gate
       <span class="zh">第十二任校長，走進百年校史</span>
     </h2>
     <div class="en-block">
@@ -545,7 +491,7 @@ section.po-body + section.po-body{padding-top:0;}
     </div>
     <div class="zh-block">
       <p>2024 年 8 月，曾俊堯校長走進民生國小校門，成為這所百年小學中的<strong>第十二任校長</strong>——也就是從 1916 年在彰化孔廟廟埕開學以來，第十二雙握過民生鑰匙的手。他從溪湖鎮<strong>媽厝國小</strong>調任而來，那是他在民生之前所服務的學校。</p>
-      <p>在他之前，有十一位校長走過這條路——從 1945 年戰後光復後四個月就到任的首任校長鄭茂淋，到他的前任洪榮炎校長。民生的歷任校長名單不只是一張名單，而是一條手與手相接的鎖鏈，每一雙手都把學校交到下一雙手裡，比接過時，再穩一些。</p>
+      <p>在他之前，有十一位校長走過這條路。民生的歷任校長名單不只是一張名單，而是一條手與手相接的鎖鏈，每一雙手都把學校交到下一雙手裡，比接過時，再穩一些。</p>
     </div>
   </div>
 </section>
@@ -554,15 +500,11 @@ section.po-body + section.po-body{padding-top:0;}
 <section class="po-body">
   <div class="wrap">
     <div class="wrap-narrow" style="padding:0;">
-      <h2>Twelve Principals, A Century and a Bit
+      <h2 class="sec-title">Twelve Principals, A Century and a Bit
         <span class="zh">民生國小歷任校長（戰後）</span>
       </h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);margin:14px 0 4px;line-height:1.55;">
-        From Cheng Mao-lin, who took office in December 1945, to Tseng Chun-yao, who takes his turn today.
-      </p>
-      <p style="font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-bottom:8px;">
-        從 1945 年 12 月就任的戰後首任校長鄭茂淋，到今天接過鑰匙的曾俊堯校長。日治時代的歷任校長（1916–1945）由校方校史室保存。
-      </p>
+      <p class="lede">From Cheng Mao-lin in 1945 to Tseng Chun-yao today.</p>
+      <p class="lede-zh">從 1945 年戰後首任校長鄭茂淋，到今天接過鑰匙的曾俊堯校長。日治時代的歷任校長（1916–1945）由校方校史室保存。</p>
     </div>
 
     <div class="po-lineage">
@@ -585,39 +527,76 @@ section.po-body + section.po-body{padding-top:0;}
   </div>
 </section>
 
-<!-- FEATURED QUOTE: 4L -->
+<!-- HEADLINE QUOTE -->
 <section class="po-body">
   <div class="wrap-narrow">
-    <h2>Four Verbs at the Heart
-      <span class="zh">教育核心價值 · 四個動詞</span>
+    <h2 class="sec-title">A Word from Principal Tseng
+      <span class="zh">曾校長的一句話</span>
     </h2>
 
     <figure class="po-quote">
-      <p class="po-quote__en">To Love, To Live, To Lead, To Learn &mdash; four verbs we hold ourselves to, every day a child walks through Minsheng's gate.</p>
-      <p class="po-quote__zh">關愛、樂活、引導、學習——這四個動詞，是民生每天面對每一個走進校門的孩子時，我們對自己的要求。</p>
+      <p class="po-quote__en">Education is not about teaching every child the same way &mdash; it is about creating the greatest value within each child. Student subjectivity, plural development, and making sure every child succeeds: these are my basic convictions.</p>
+      <p class="po-quote__zh">教育不是把每個人都教得一模一樣，而是創造每個孩子最大的價值。「學生主體 · 多元發展 · 成就每一位孩子」——這是我對教育的基本信念。</p>
       <div class="po-quote__source">&mdash; Principal Tseng Chun-yao &middot; 曾俊堯校長</div>
     </figure>
+  </div>
+</section>
+
+<!-- 4L Core Beliefs -->
+<section class="po-body">
+  <div class="wrap-narrow">
+    <h2 class="sec-title">Four Verbs at the Heart
+      <span class="zh">教育信念 · 四個核心價值</span>
+    </h2>
+    <p class="lede">Love makes education move. Living gives it meaning. Leading gives it direction. Learning keeps it alive.</p>
+    <p class="lede-zh">愛是教育的原動力，樂活賦予教育意義，引導給予教育方向，學習讓教育持續活著。</p>
 
     <div class="po-4l">
       <div class="po-4l__card">
         <div class="po-4l__verb">To Love</div>
         <div class="po-4l__zh">關愛</div>
-        <div class="po-4l__hint">To see each child as a whole person.<br>看見每一個完整的孩子。</div>
+        <div class="po-4l__hint">Love is education's driving force.<br><span class="zh">愛是教育的原動力，教育有愛，行動無礙。</span></div>
       </div>
       <div class="po-4l__card">
         <div class="po-4l__verb">To Live</div>
         <div class="po-4l__zh">樂活</div>
-        <div class="po-4l__hint">To grow up well, in body and mind.<br>身心都長得好。</div>
+        <div class="po-4l__hint">Education <em>is</em> living; living <em>is</em> education.<br><span class="zh">教育即生活、生活即教育。</span></div>
       </div>
       <div class="po-4l__card">
         <div class="po-4l__verb">To Lead</div>
         <div class="po-4l__zh">引導</div>
-        <div class="po-4l__hint">To guide, not to pull or push.<br>引導，而不是拖或推。</div>
+        <div class="po-4l__hint">Not to instill — to guide.<br><span class="zh">教育非灌輸，而是引導，引導孩子發光發熱。</span></div>
       </div>
       <div class="po-4l__card">
         <div class="po-4l__verb">To Learn</div>
         <div class="po-4l__zh">學習</div>
-        <div class="po-4l__hint">To keep the appetite for learning alive.<br>讓學習的胃口一直在。</div>
+        <div class="po-4l__hint">Light the fire of curiosity, keep the appetite alive.<br><span class="zh">點燃學習熱情，淬鍊學習毅力，享受學習樂趣。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curriculum Core: 親近自然·學習·愛 -->
+<section class="po-body">
+  <div class="wrap-narrow">
+    <h2 class="sec-title">Three Axes of Our Curriculum
+      <span class="zh">課程教學三主軸</span>
+    </h2>
+    <p class="lede">Close to nature · Learning · Love.</p>
+    <p class="lede-zh">親近自然 · 學習 · 愛——民生課程教學的核心，從三條主軸實踐對孩子的愛與教育理想。</p>
+
+    <div class="po-axis">
+      <div class="po-axis__card">
+        <div class="po-axis__zh">守護環境<br>熱愛生命</div>
+        <div class="po-axis__en">Guard the earth, love every life.</div>
+      </div>
+      <div class="po-axis__card">
+        <div class="po-axis__zh">樂在學習<br>多元展能</div>
+        <div class="po-axis__en">Joyful learning, many talents.</div>
+      </div>
+      <div class="po-axis__card">
+        <div class="po-axis__zh">優質品格<br>感恩關懷</div>
+        <div class="po-axis__en">Strong character, grateful heart.</div>
       </div>
     </div>
   </div>
@@ -627,15 +606,11 @@ section.po-body + section.po-body{padding-top:0;}
 <section class="po-body">
   <div class="wrap">
     <div class="wrap-narrow" style="padding:0;">
-      <h2>Five Quiet Commitments
-        <span class="zh">五大重點工作</span>
+      <h2 class="sec-title">Five Quiet Commitments
+        <span class="zh">五大重點工作 · 深耕校園</span>
       </h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);margin:14px 0 4px;line-height:1.55;">
-        The five working commitments Principal Tseng has set for Minsheng's next chapter.
-      </p>
-      <p style="font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-bottom:8px;">
-        曾校長為民生下一個篇章設下的五個工作承諾。
-      </p>
+      <p class="lede">The five working commitments Principal Tseng has set for Minsheng's next chapter.</p>
+      <p class="lede-zh">曾校長為民生下一個篇章設下的五個工作承諾，啟承彰化縣「基礎扎根 · 創新突破 · 多元展能」三大教育願景。</p>
     </div>
 
     <div class="po-pillars">
@@ -645,8 +620,8 @@ section.po-body + section.po-body{padding-top:0;}
         <h3>Team, Family, Community
           <span class="zh">活化團隊合作</span>
         </h3>
-        <p class="body-en">Bring the school, the parents, and the surrounding community into one steady conversation. A school that talks well with the families around it is a school where every child has more than one safe pair of hands.</p>
-        <p class="body-zh">把學校、家長與社區之間的對話打通——讓校園、教職、家長都在同一條溝通的渠道上。一所與家庭社區好好對話的學校，每個孩子身邊就不只有一雙安全的手。</p>
+        <p class="body-en">School, parents, and community as one body: a healthy PTA, devoted parent volunteers, and unobstructed channels of communication. The school is a home, and the home raises every child.</p>
+        <p class="body-zh">學校、家長、社區緊密結合、共生共榮——家長會組織健全、家長志工挹注、教職員工溝通暢通。學校如家，親師合作，社區協力，共同營造愛與關懷的學習情境，守護莘莘學子。</p>
       </article>
 
       <article class="po-pillar">
@@ -654,8 +629,8 @@ section.po-body + section.po-body{padding-top:0;}
         <h3>Deepen the Lessons
           <span class="zh">深化課程教學</span>
         </h3>
-        <p class="body-en">Anchor every subject in the principle of <em>"close to nature, in love with learning."</em> International education, IT, reading, P.E., and character: not five competing programs, but five threads in one curriculum.</p>
-        <p class="body-zh">以「親近自然 · 學習 · 愛」為核心錨點——讓國際教育、資訊科技、閱讀、體育、品格成為同一套課程裡的五條線，而不是五個彼此競爭的計畫。</p>
+        <p class="body-en">Anchored in <em>Close to nature · Learning · Love</em>, with three threads — environment, joyful learning, character — woven through international education, IT, reading, P.E., and the arts.</p>
+        <p class="body-zh">以「親近自然 · 學習 · 愛」為核心，透過「守護環境熱愛生命」、「樂在學習多元展能」、「優質品格感恩關懷」三大主軸，扎根基本學力，推動國際教育、資訊科技、閱讀、體育、品格、藝文與多元社團。</p>
       </article>
 
       <article class="po-pillar">
@@ -663,8 +638,8 @@ section.po-body + section.po-body{padding-top:0;}
         <h3>The Space Around the Lesson
           <span class="zh">美化環境空間</span>
         </h3>
-        <p class="body-en">Shape the campus into a learning environment that is <em>local, ecological, and curricular</em>. A school that the community is in, and a community that the school is in &mdash; two sides of the same daily walk.</p>
-        <p class="body-zh">把校園打造成一個「在地、生態、課程化」的學習場域。讓「學校就在社區裡，社區也在學校裡」這件事，不是口號，而是每天走在校園時自然發生的事。</p>
+        <p class="body-en">Shape the campus into a learning environment that is <em>local, ecological, and curricular</em>. The school is in the community; the community is in the school.</p>
+        <p class="body-zh">活化校園空間，以「在地化、生態化、課程化」為主題，以孩子學習為起始點，建構「學校社區化、社區學校化」的學習場域。打造一所用愛與關懷守護孩子的校園環境。</p>
       </article>
 
       <article class="po-pillar">
@@ -672,8 +647,8 @@ section.po-body + section.po-body{padding-top:0;}
         <h3>Teachers Who Keep Growing
           <span class="zh">精緻專業精進</span>
         </h3>
-        <p class="body-en">Build a school where teachers attend training, share what they learn, and leave a trail of resources behind them for the next colleague to pick up. Professional growth is not extra-curricular; it is the curriculum the teacher takes home each evening.</p>
-        <p class="body-zh">讓老師參加進修、彼此分享，並把資源留下來給下一位接手的同事。專業成長不是「課外的事」——而是老師每天晚上帶回家的那份功課。</p>
+        <p class="body-en">Teachers keep attending training, sharing what they've learned, and leaving a trail of resources behind them for the next colleague to pick up.</p>
+        <p class="body-zh">教師團隊積極參與進修，透過教學經驗分享交流，在教學之路上互相學習，建立教學資源分享平台，為孩子持續追求專業上的精進發展。</p>
       </article>
 
       <article class="po-pillar">
@@ -681,10 +656,40 @@ section.po-body + section.po-body{padding-top:0;}
         <h3>Many Hands, One Child
           <span class="zh">整合多元資源</span>
         </h3>
-        <p class="body-en">Pull together people, materials, environment, and community resources around the child &mdash; not around the office that happens to control them. The point isn't an integrated budget; the point is whether the student gets the right help, from anyone in the school, on the day they need it.</p>
-        <p class="body-zh">把人力、物力、環境與社區資源，圍繞著「這個孩子」拉攏在一起——而不是圍著「剛好管這筆預算的處室」打轉。整合的不是經費，而是「孩子在需要的那一天，學校裡有誰能對的時候出手」。</p>
+        <p class="body-en">Pull together people, materials, environment, and community resources around the child. Parents, teachers, and students build the SMART school together.</p>
+        <p class="body-zh">整合人力、物力、環境、專案計畫、社區資源，拓展資源網絡，聚焦孩子學習需求。親師生共同營造兼具自然之美與人文典範的「SMART」學校。</p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- Truth-Good-Beauty closing -->
+<section class="po-body">
+  <div class="wrap-narrow">
+    <div class="po-tgb">
+      <div class="po-tgb__eyebrow">A Twenty-One-Year Dream · 二十一年的夢</div>
+      <h3 class="po-tgb__title">From the truth, the good, and the beautiful &mdash; an Ideal Republic of Education.
+        <small>用教育之真、善、美，實踐心目中「教育理想國」的夢想，未曾改變。</small>
+      </h3>
+
+      <div class="po-tgb__triad">
+        <div class="po-tgb__card">
+          <div class="po-tgb__char">真</div>
+          <div class="po-tgb__verb">Truth</div>
+          <div class="po-tgb__hint">Lived out in daily practice.<br>在於生活實踐。</div>
+        </div>
+        <div class="po-tgb__card">
+          <div class="po-tgb__char">善</div>
+          <div class="po-tgb__verb">Goodness</div>
+          <div class="po-tgb__hint">Carried by many hands.<br>在於集合眾人之力。</div>
+        </div>
+        <div class="po-tgb__card">
+          <div class="po-tgb__char">美</div>
+          <div class="po-tgb__verb">Beauty</div>
+          <div class="po-tgb__hint">Holding infinite possibility.<br>在於有無限的可能。</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -726,7 +731,6 @@ section.po-body + section.po-body{padding-top:0;}
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div>© 2026 彰化縣彰化市民生國民小學 · Minsheng Elementary School</div>
