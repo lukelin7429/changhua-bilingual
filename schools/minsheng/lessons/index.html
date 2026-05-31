@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lessons · 課程 · Minsheng Elementary</title>
+<meta name="description" content="Minsheng Elementary's bilingual learning hub — Word of the Day video series organized by theme: sports, daily school routine, and festivals/music/camp. 民生國小雙語課程入口：每日一字影片三單元（運動、校園日常、節慶音樂）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crimson:#7B1E1E;--crimson-deep:#4d1212;--crimson-soft:#fbe9e9;
+    --gold:#B8954A;--gold-deep:#7a5e20;--gold-soft:#f5edd9;
+    --jade:#2d7d54;--jade-deep:#1c5235;--jade-soft:#dbeee2;
+    --blue:#2a6298;--blue-deep:#173e64;--blue-soft:#d9e7f3;
+    --bg-soft:#fbf6f6;--line:#ead9d4;--ink:#1f1a16;--ink-soft:#5e5750;
+    --shadow:0 14px 38px -16px rgba(77,18,18,.30);
+    --shadow-sm:0 6px 16px -6px rgba(77,18,18,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* === Top-bar === */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--crimson-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  .topbar-nav a:hover{color:var(--crimson);}
+  .topbar-nav a.is-active{color:var(--crimson-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* === Banner === */
+  .banner{background:linear-gradient(135deg, var(--crimson-deep) 0%, var(--crimson) 60%, var(--gold) 130%);color:#fff;padding:54px 24px 62px;text-align:center;border-bottom:4px solid var(--gold);}
+  @media (min-width:720px){ .banner{ padding:72px 24px 84px; } }
+  .banner__inner{max-width:880px;margin:0 auto;}
+  .banner__eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:#f5e6c4;text-transform:uppercase;font-weight:600;}
+  @media (min-width:720px){ .banner__eyebrow{ font-size:16px; } }
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.1;margin-top:10px;letter-spacing:.5px;}
+  @media (min-width:720px){ .banner h1{ font-size:72px; } }
+  .banner__zh{font-size:20px;color:rgba(255,255,255,.85);margin-top:10px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .banner__zh{ font-size:26px; } }
+  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;margin-top:22px;font-size:19px;color:rgba(255,236,196,.92);}
+  @media (min-width:720px){ .banner__tagline{ font-size:23px; } }
+
+  /* === Section === */
+  section{padding:48px 0 28px;}
+  @media (min-width:720px){ section{ padding:72px 0 36px; } }
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:34px;font-weight:700;color:var(--crimson-deep);line-height:1.15;}
+  @media (min-width:720px){ .sec__title{ font-size:46px; } }
+  .sec__title-zh{font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:6px;letter-spacing:.04em;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:21px; } }
+  .sec__rule{width:96px;height:6px;background:var(--crimson);border-radius:3px;margin:18px 0 26px;}
+  .sec__lede{font-size:18px;color:var(--ink-soft);margin-bottom:28px;line-height:1.7;max-width:780px;}
+  @media (min-width:720px){ .sec__lede{ font-size:20.5px; } }
+  .sec__lede .zh{display:block;margin-top:6px;font-family:'PingFang TC',sans-serif;font-size:.92em;}
+
+  /* === Unit cards === */
+  .units{display:grid;grid-template-columns:1fr;gap:22px;margin:30px 0 12px;}
+  @media (min-width:640px){ .units{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:960px){ .units{ grid-template-columns:repeat(3,1fr);gap:26px; } }
+  .unit{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .25s, box-shadow .25s;}
+  .unit:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .unit__hero{position:relative;padding:36px 26px 30px;text-align:center;color:#fff;overflow:hidden;}
+  .unit__hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 55%);pointer-events:none;}
+  .unit__emoji{position:relative;z-index:1;font-size:62px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.22));transition:transform .3s;line-height:1;}
+  @media (min-width:720px){ .unit__emoji{ font-size:78px; } }
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+
+  .unit.u-1 .unit__hero{background:linear-gradient(135deg, #4ba17a 0%, #1c5235 100%);}
+  .unit.u-2 .unit__hero{background:linear-gradient(135deg, #4a8bc4 0%, #173e64 100%);}
+  .unit.u-3 .unit__hero{background:linear-gradient(135deg, #d9b870 0%, #7a5e20 100%);}
+
+  .unit__body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .unit__body{ padding:28px 30px 32px; } }
+  .unit__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);}
+  @media (min-width:720px){ .unit__no{ font-size:14px; } }
+  .unit__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--crimson-deep);line-height:1.2;margin-top:6px;}
+  @media (min-width:720px){ .unit__title{ font-size:30px; } }
+  .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .unit__title-zh{ font-size:19px; } }
+  .unit__desc{font-size:16px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+  @media (min-width:720px){ .unit__desc{ font-size:18px; } }
+  .unit__words{margin-top:14px;display:flex;flex-wrap:wrap;gap:5px;}
+  .unit__word{background:var(--crimson-soft);color:var(--crimson-deep);font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:99px;letter-spacing:.04em;}
+  @media (min-width:720px){ .unit__word{ font-size:13.5px; } }
+  .unit.u-1 .unit__word{background:var(--jade-soft);color:var(--jade-deep);}
+  .unit.u-2 .unit__word{background:var(--blue-soft);color:var(--blue-deep);}
+  .unit.u-3 .unit__word{background:var(--gold-soft);color:var(--gold-deep);}
+  .unit__cta{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);color:var(--crimson-deep);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;letter-spacing:.5px;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  @media (min-width:720px){ .unit__cta{ font-size:19px; } }
+  .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
+  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+
+  /* === Full playlist embed === */
+  .playlist-block{background:linear-gradient(135deg, var(--bg-soft) 0%, var(--crimson-soft) 100%);border-radius:22px;padding:32px 22px;border:1px solid var(--line);}
+  @media (min-width:720px){ .playlist-block{ padding:48px 40px; } }
+  .playlist-block h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--crimson-deep);text-align:center;}
+  @media (min-width:720px){ .playlist-block h3{ font-size:32px; } }
+  .playlist-block .zh{text-align:center;font-size:17px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .playlist-block .zh{ font-size:19px; } }
+  .playlist-block .note{text-align:center;font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  .video-frame{margin-top:20px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .playlist-link{display:inline-flex;align-items:center;gap:10px;margin:18px auto 0;padding:12px 22px;background:#fff;border:1.5px solid var(--crimson);color:var(--crimson-deep);border-radius:99px;font-weight:700;font-size:15px;text-decoration:none;transition:background .2s,color .2s;}
+  .playlist-link:hover{background:var(--crimson);color:#fff;}
+  .playlist-link-wrap{text-align:center;}
+
+  footer{text-align:center;padding:36px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
+  @media (min-width:720px){ footer{ font-size:17px; } }
+  footer .org{font-weight:600;color:var(--crimson-deep);}
+  footer a{color:var(--crimson-deep);text-decoration:none;border-bottom:1px dashed var(--line);}
+  footer a:hover{border-bottom-color:var(--crimson-deep);}
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Minsheng Elementary
+        <small>彰化縣彰化市民生國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="../english-resource-center/">English Hub</a>
+      <a href="../bilingual-campus/">Bilingual Campus</a>
+      <a href="" class="is-active">Lessons</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=minsheng">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ===== Compact Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__eyebrow">Minsheng Bilingual Curriculum</div>
+    <h1>Lessons</h1>
+    <div class="banner__zh">民生雙語課程入口</div>
+    <p class="banner__tagline">Pick a unit. Press play. Learn English with us.</p>
+  </div>
+</header>
+
+<!-- ===== Word of the Day ===== -->
+<section>
+  <div class="wrap">
+    <h2 class="sec__title">Word of the Day</h2>
+    <div class="sec__title-zh">每日一字 · 校園裡的英文小故事</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      Short bilingual videos filmed across the Minsheng campus &mdash; sorted into three themed units. Each video isolates one word, used in a real Minsheng moment.
+      <span class="zh">短小的雙語影片——拍攝於民生校園的真實場景，分為三個主題單元。每支影片只處理一個單字，搭配民生日常的真實畫面與例句。</span>
+    </p>
+
+    <div class="units">
+
+      <a class="unit u-1" href="word/unit-1/">
+        <div class="unit__hero"><span class="unit__emoji">⚽</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 01 · Video · 4 words</div>
+          <div class="unit__title">Sports &amp; Movement</div>
+          <div class="unit__title-zh">運動 · 動起來</div>
+          <div class="unit__desc">From soccer drills to a basketball backboard, frisbee throws to morning warm-ups &mdash; the vocabulary that lives on the field.</div>
+          <div class="unit__words">
+            <span class="unit__word">soccer</span>
+            <span class="unit__word">basketball</span>
+            <span class="unit__word">frisbee</span>
+            <span class="unit__word">warm up</span>
+          </div>
+          <div class="unit__cta">Start Unit 1 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit u-2" href="word/unit-2/">
+        <div class="unit__hero"><span class="unit__emoji">🛎️</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 02 · Video · 4 words</div>
+          <div class="unit__title">The School Day, in English</div>
+          <div class="unit__title-zh">校園日常 · 每天的節奏</div>
+          <div class="unit__desc">Recess, sweeping the corridor, story time, and even teacher PD &mdash; the words that frame an ordinary day at Minsheng, in English.</div>
+          <div class="unit__words">
+            <span class="unit__word">recess</span>
+            <span class="unit__word">sweep</span>
+            <span class="unit__word">read</span>
+            <span class="unit__word">professional development</span>
+          </div>
+          <div class="unit__cta">Start Unit 2 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="unit u-3" href="word/unit-3/">
+        <div class="unit__hero"><span class="unit__emoji">🎶</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 03 · Video · 4 words</div>
+          <div class="unit__title">Festivals, Music &amp; Camp</div>
+          <div class="unit__title-zh">節慶 · 音樂 · 露營</div>
+          <div class="unit__desc">Easter egg dyeing, spring couplet calligraphy, the music class's rhythm band, and a fire dance around the winter campfire.</div>
+          <div class="unit__words">
+            <span class="unit__word">Easter egg</span>
+            <span class="unit__word">spring couplet</span>
+            <span class="unit__word">rhythm band</span>
+            <span class="unit__word">campfire</span>
+          </div>
+          <div class="unit__cta">Start Unit 3 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Full playlist embed ===== -->
+<section style="padding-top:6px;padding-bottom:64px;">
+  <div class="wrap">
+    <div class="playlist-block">
+      <h3>Watch the full playlist on YouTube</h3>
+      <div class="zh">不想分單元的話，這裡是完整 YouTube playlist</div>
+      <p class="note">The full Minsheng playlist also includes a school welcome tour, music-program intro, English Village walk-through, and the staff's English self-introductions.<br><span style="font-family:'PingFang TC',sans-serif;">民生完整 playlist 還包含學校導覽、音樂班介紹、英語村走訪、各處室主任與校長的英文自我介紹影片。</span></p>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8W6PaWNrBJb0IQfuZi6It3I&rel=0" title="Minsheng Word of the Day · full playlist" allowfullscreen></iframe>
+      </div>
+      <div class="playlist-link-wrap">
+        <a class="playlist-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8W6PaWNrBJb0IQfuZi6It3I" target="_blank" rel="noopener">▶ Open on YouTube &middot; 在 YouTube 開啟</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span class="org">彰化縣彰化市民生國民小學 · Minsheng Elementary School</span> &nbsp;·&nbsp;
+  Word of the Day series with <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a>
+</footer>
+
+</body>
+</html>
