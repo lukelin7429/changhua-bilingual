@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lessons · 課程 · Hosin Elementary School 合興國小</title>
+<meta name="description" content="Hosin Elementary bilingual lessons — Word of the Day video series and co-teaching Photo Stories with FET Edwin Schadewald. 合興國小雙語課程入口：每日一詞 + 照片情境合教。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1a5c3e;--forest-deep:#0d3522;--forest-soft:#d1e8dc;
+    --water:#2a7d8c;--water-deep:#1a5260;--water-soft:#cde6ec;
+    --amber:#b87a24;--amber-deep:#7a5015;--amber-soft:#f5e6c8;
+    --violet:#6b4fa3;--violet-deep:#45317d;--violet-soft:#ece4f4;
+    --rose:#c05880;--rose-deep:#8a3560;--rose-soft:#fbe2ec;
+    --ink:#1c211e;--ink-soft:#5b6661;--line:#dce5df;
+    --shadow:0 14px 38px -16px rgba(13,53,34,.30);--shadow-sm:0 6px 16px -6px rgba(13,53,34,.18);
+    --max:1100px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){body{font-size:22px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--forest);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--amber);}
+
+  /* TOPBAR */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--forest-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;}
+  @media (min-width:720px){.topbar-nav a{font-size:17px;}}
+  .topbar-nav a:hover{color:var(--forest);}
+  .topbar-nav a.is-active{color:var(--forest-deep);font-weight:700;}
+  @media (max-width:760px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:14px;justify-content:flex-start;}}
+
+  /* PAGE BANNER */
+  .page-head{
+    position:relative;text-align:center;color:#fff;padding:80px 0 64px;
+    background:linear-gradient(180deg,rgba(13,53,34,.72) 0%,rgba(13,53,34,.48) 44%,rgba(13,53,34,.84) 100%),
+      url('../photos/campus-03.jpg') center 55% / cover no-repeat;
+    border-bottom:5px solid var(--amber);
+  }
+  @media (min-width:720px){.page-head{padding:100px 0 80px;}}
+  .page-head .eyebrow{display:inline-block;font-size:14px;letter-spacing:.28em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:14px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(44px,7vw,68px);font-weight:600;color:#fff;line-height:1.1;text-shadow:0 2px 14px rgba(0,0,0,.5);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,23px);color:rgba(255,255,255,.92);font-weight:500;margin-top:10px;letter-spacing:.06em;}
+  .page-head hr{width:60px;height:2px;background:var(--amber);border:0;margin:22px auto 18px;}
+  .page-head .lede{max-width:620px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.2vw,21px);color:rgba(255,255,255,.95);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.44);}
+
+  /* SECTION BASE */
+  section{padding:72px 0;}
+  .sec-head{text-align:center;margin-bottom:52px;}
+  .sec-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px;}
+  .sec-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(36px,5vw,52px);font-weight:600;line-height:1.2;margin-bottom:6px;}
+  .sec-head .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;}
+  .sec-head .rule{width:70px;height:4px;border-radius:3px;margin:18px auto 22px;}
+  .sec-head .lede{font-size:18px;color:var(--ink-soft);line-height:1.7;max-width:680px;margin:0 auto;}
+
+  /* UNIT CARDS GRID */
+  .units{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:640px){.units{grid-template-columns:repeat(2,1fr);gap:26px;}}
+  @media (min-width:1000px){.units{grid-template-columns:repeat(3,1fr);}}
+
+  .unit{
+    background:#fff;border-radius:22px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .24s,box-shadow .24s;
+    text-decoration:none;color:inherit;
+  }
+  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 52px -18px rgba(13,53,34,.32);}
+
+  .unit__hero{
+    height:160px;display:flex;align-items:center;justify-content:center;
+    font-size:80px;position:relative;overflow:hidden;
+  }
+  @media (min-width:720px){.unit__hero{height:176px;font-size:96px;}}
+  .unit__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;background:radial-gradient(circle,rgba(255,255,255,.38) 0%,transparent 60%);border-radius:50%;}
+  .unit__hero::after{content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.22) 0%,transparent 60%);border-radius:50%;}
+  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));transition:transform .28s;}
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+
+  /* Per-unit gradients */
+  .u-1 .unit__hero{background:linear-gradient(135deg,#3a8c5f 0%,#0d3522 100%);}
+  .u-2 .unit__hero{background:linear-gradient(135deg,#3a9bae 0%,#1a5260 100%);}
+  .u-1p .unit__hero{background:linear-gradient(135deg,#c07a3e 0%,#7a5015 100%);}
+  .u-2p .unit__hero{background:linear-gradient(135deg,#9070c4 0%,#45317d 100%);}
+  .u-3p .unit__hero{background:linear-gradient(135deg,#d97aa0 0%,#8a3560 100%);}
+
+  .unit__body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column;}
+  .unit__no{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);}
+  .unit__title{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;color:var(--forest-deep);line-height:1.2;margin-top:6px;}
+  @media (min-width:720px){.unit__title{font-size:31px;}}
+  .unit__title-zh{font-family:'PingFang TC',sans-serif;font-size:16.5px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.02em;}
+  @media (min-width:720px){.unit__title-zh{font-size:18.5px;}}
+  .unit__desc{font-size:16.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7;flex:1;}
+  @media (min-width:720px){.unit__desc{font-size:18px;}}
+
+  /* tag pills */
+  .unit__tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+  .unit__tag{font-size:13px;font-weight:600;padding:4px 11px;border-radius:20px;background:var(--forest-soft);color:var(--forest-deep);}
+  .u-2 .unit__tag{background:var(--water-soft);color:var(--water-deep);}
+  .u-1p .unit__tag,.u-2p .unit__tag,.u-3p .unit__tag{background:var(--amber-soft);color:var(--amber-deep);}
+
+  .unit__cta{
+    margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);
+    font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;letter-spacing:.5px;
+    display:flex;justify-content:flex-end;align-items:center;gap:6px;color:var(--amber-deep);
+  }
+  @media (min-width:720px){.unit__cta{font-size:19px;}}
+  .unit__cta .arrow{transition:transform .2s;}
+  .unit:hover .unit__cta .arrow{transform:translateX(5px);}
+
+  /* PLAYLIST BLOCK */
+  .playlist-wrap{background:linear-gradient(135deg,var(--forest-soft) 0%,var(--water-soft) 100%);border-radius:22px;padding:32px 24px;border:1px solid var(--line);}
+  @media (min-width:720px){.playlist-wrap{padding:48px 42px;}}
+  .playlist-wrap h3{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--forest-deep);text-align:center;}
+  .playlist-wrap .pl-zh{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);margin-top:6px;}
+  .playlist-wrap .pl-lede{text-align:center;font-size:17px;color:var(--ink);margin-top:10px;line-height:1.65;max-width:600px;margin-left:auto;margin-right:auto;}
+  .video-frame{margin-top:28px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+  /* FOOTER */
+  .footer{background:var(--forest-deep);color:rgba(255,255,255,.72);text-align:center;padding:42px 0 36px;font-size:15px;}
+  .footer a{color:var(--amber-soft);}
+  .footer a:hover{color:#fff;}
+  .footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;margin-bottom:10px;}
+  .footer-mcc{margin-top:12px;font-size:14px;opacity:.65;}
+</style>
+</head>
+<body>
+
+<nav class="topbar" role="navigation">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="topbar-brand">
+        <div class="topbar-name">
+          Hosin Elementary
+          <small>合興國民小學</small>
+        </div>
+      </div>
+      <div class="topbar-nav">
+        <a href="../">Home</a>
+        <a href="../principal/">Principal</a>
+        <a href="../lessons/" class="is-active">Lessons</a>
+        <a href="../bilingual-campus/">Bilingual Campus</a>
+        <a href="../news/">News</a>
+        <a href="https://changhua-bilingual.org/festivals/?from=hosin" target="_blank" rel="noopener">Festivals</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head" role="banner">
+  <div class="wrap">
+    <span class="eyebrow">Bilingual Curriculum · 雙語課程</span>
+    <h1>Lessons
+      <span class="zh">詞彙與情境合教</span>
+    </h1>
+    <hr>
+    <p class="lede">Word of the Day videos, co-teaching Photo Stories, and the full playlist — all in one place.</p>
+  </div>
+</header>
+
+<!-- WORD OF THE DAY -->
+<section aria-labelledby="wotd-heading">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--forest);">Word of the Day · 每日一詞</span>
+      <h2 id="wotd-heading" style="color:var(--forest-deep);">Vocabulary Units
+        <span class="zh">詞彙學習單元</span>
+      </h2>
+      <div class="rule" style="background:var(--forest);"></div>
+      <p class="lede">Short bilingual video clips — one word, one context, one sentence at a time.<br>
+        <span style="font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);display:block;margin-top:6px;">每部影片聚焦一個詞彙，提供英中例句，輕鬆跟著校長和師生一起學。</span>
+      </p>
+    </div>
+    <div class="units">
+
+      <!-- Unit 1 -->
+      <a href="word/unit-1/" class="unit u-1">
+        <div class="unit__hero">
+          <span class="unit__emoji">📚</span>
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">Word of the Day · Unit 1</div>
+          <div class="unit__title">School &amp; Daily Life</div>
+          <div class="unit__title-zh">學校與日常生活</div>
+          <p class="unit__desc">Nine vocabulary words drawn from everyday campus life — from murals on the wall to sit-and-reach tests on sports day.</p>
+          <div class="unit__tags">
+            <span class="unit__tag">mural</span>
+            <span class="unit__tag">jump rope</span>
+            <span class="unit__tag">workbook</span>
+            <span class="unit__tag">sit-up</span>
+            <span class="unit__tag">umbrella</span>
+            <span class="unit__tag">+4 more</span>
+          </div>
+          <div class="unit__cta">Explore Unit 1 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Unit 2 -->
+      <a href="word/unit-2/" class="unit u-2">
+        <div class="unit__hero">
+          <span class="unit__emoji">🎨</span>
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">Word of the Day · Unit 2</div>
+          <div class="unit__title">Arts, Sports &amp; Seasons</div>
+          <div class="unit__title-zh">藝術、體育與節慶</div>
+          <p class="unit__desc">Four words celebrating creativity, movement, and seasonal moments — from sculpting clay to celebrating Mother's Day.</p>
+          <div class="unit__tags">
+            <span class="unit__tag">modelling clay</span>
+            <span class="unit__tag">leave</span>
+            <span class="unit__tag">badminton</span>
+            <span class="unit__tag">Mother's Day</span>
+          </div>
+          <div class="unit__cta">Explore Unit 2 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STORY CO-TEACHING -->
+<section style="background:linear-gradient(180deg,#fff 0%,var(--forest-soft) 100%);" aria-labelledby="photo-heading">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--amber);">Co-Teaching Photo Stories · 合教照片情境</span>
+      <h2 id="photo-heading" style="color:var(--forest-deep);">Photo Story Units
+        <span class="zh">與外師合教的課室情境</span>
+      </h2>
+      <div class="rule" style="background:var(--amber);"></div>
+      <p class="lede">FET Edwin Schadewald co-taught with Hosin teachers across 27 bilingual classroom situations — captured in photos with English captions and bilingual vocabulary.<br>
+        <span style="font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);display:block;margin-top:6px;">前任外師 Edwin Schadewald 與合興各班老師合作，共紀錄 27 個雙語課室情境，每張照片皆附英文說明與中英詞彙對照。</span>
+      </p>
+    </div>
+    <div class="units">
+
+      <!-- Photo Unit 1 -->
+      <a href="word/unit-1-photo/" class="unit u-1p">
+        <div class="unit__hero">
+          <span class="unit__emoji">🔬</span>
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">Photo Story · Unit 1</div>
+          <div class="unit__title">Science &amp; Culture</div>
+          <div class="unit__title-zh">科學探索與文化傳承</div>
+          <p class="unit__desc">Air cannons, Beiguan music, RC car programming, earthquake drills, RGB LEDs, water rockets, and Taiwanese picture books — nine cross-curricular sessions.</p>
+          <div class="unit__tags">
+            <span class="unit__tag">Air Cannon</span>
+            <span class="unit__tag">Beiguan</span>
+            <span class="unit__tag">Water Rocket</span>
+            <span class="unit__tag">+6 more</span>
+          </div>
+          <div class="unit__cta">View Unit 1 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Photo Unit 2 -->
+      <a href="word/unit-2-photo/" class="unit u-2p">
+        <div class="unit__hero">
+          <span class="unit__emoji">🍵</span>
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">Photo Story · Unit 2</div>
+          <div class="unit__title">Daily Life &amp; Traditions</div>
+          <div class="unit__title-zh">生活習慣與傳統文化</div>
+          <p class="unit__desc">Hand-washing, crafts class, tea ceremony, morning reading, digital library, international education — nine scenes from everyday school life.</p>
+          <div class="unit__tags">
+            <span class="unit__tag">Tea Ceremony</span>
+            <span class="unit__tag">Newspaper</span>
+            <span class="unit__tag">Digital Library</span>
+            <span class="unit__tag">+6 more</span>
+          </div>
+          <div class="unit__cta">View Unit 2 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Photo Unit 3 -->
+      <a href="word/unit-3-photo/" class="unit u-3p">
+        <div class="unit__hero">
+          <span class="unit__emoji">🌿</span>
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">Photo Story · Unit 3</div>
+          <div class="unit__title">Ecology &amp; Campus Events</div>
+          <div class="unit__title-zh">生態觀察與校園活動</div>
+          <p class="unit__desc">Summer camp, bird art class, campus plant study, tea tasting, Hexing Temple visit, and semester clean-up — nine snapshots of school community life.</p>
+          <div class="unit__tags">
+            <span class="unit__tag">Summer Camp</span>
+            <span class="unit__tag">Bird Art</span>
+            <span class="unit__tag">Campus Plants</span>
+            <span class="unit__tag">+6 more</span>
+          </div>
+          <div class="unit__cta">View Unit 3 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULL PLAYLIST -->
+<section aria-labelledby="playlist-heading">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--water);">YouTube · 影片播放清單</span>
+      <h2 id="playlist-heading" style="color:var(--forest-deep);">Full Video Playlist
+        <span class="zh">合興國小完整影片清單</span>
+      </h2>
+      <div class="rule" style="background:var(--water);"></div>
+      <p class="lede">28 videos — Word of the Day, staff English introductions, and the school welcome tour. All on our YouTube channel.</p>
+    </div>
+    <div class="playlist-wrap">
+      <h3>合興國小影片 · Hosin Elementary Videos</h3>
+      <p class="pl-zh">播放清單共 28 部 · 詞彙影片 14 部 · 行政英文自介 13 部 · 學校英文簡介 1 部</p>
+      <p class="pl-lede">Browse the full playlist or click any thumbnail to start. New videos added as lessons progress.</p>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PL01OhMUI2G8WHhvOFtcFbx4vP-FxfVX1F"
+          title="合興國小影片播放清單 Hosin Elementary Video Playlist"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-brand">Hosin Elementary School · 合興國民小學</div>
+    <p>彰化縣埤頭鄉合興村文鄉路161號 &nbsp;|&nbsp; Tel: (04) 8922-030</p>
+    <p class="footer-mcc">Bilingual programme supported by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photo Stories · Daily Life & Traditions · Hosin Elementary 合興國小</title>
+<meta name="description" content="Photo Stories unit-2-photo — Daily Life & Traditions. Morning routines, creative crafts, reading habits, cultural traditions, and healthy practices — the ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --forest:#1a5c3e;--forest-deep:#0d3522;--forest-soft:#d1e8dc;
+    --water:#2a7d8c;--water-deep:#1a5260;--water-soft:#cde6ec;
+    --amber:#b87a24;--amber-deep:#7a5015;--amber-soft:#f5e6c8;
+    --violet:#6b4fa3;--violet-deep:#45317d;--violet-soft:#ece4f4;
+    --rose:#c05880;--rose-deep:#8a3560;--rose-soft:#fbe2ec;
+    --ink:#1c211e;--ink-soft:#5b6661;--line:#dce5df;--bg-soft:#f4f8f5;
+    --shadow:0 14px 38px -16px rgba(13,53,34,.28);--shadow-sm:0 6px 16px -6px rgba(13,53,34,.16);
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:22px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--forest);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--amber);}
+
+  /* TOPBAR */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--forest-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;}
+  @media(min-width:720px){.topbar-nav a{font-size:17px;}}
+  .topbar-nav a:hover{color:var(--forest);}
+  .topbar-nav a.is-active{color:var(--forest-deep);font-weight:700;}
+  @media(max-width:760px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:14px;justify-content:flex-start;}}
+
+  /* UNIT HERO */
+  .unit-hero{color:#fff;padding:60px 24px 72px;text-align:center;}
+  @media(min-width:720px){.unit-hero{padding:84px 24px 100px;}}
+  .u-1p{background:linear-gradient(135deg,#c07a3e 0%,#7a5015 100%);}
+  .u-2p{background:linear-gradient(135deg,#9070c4 0%,#45317d 100%);}
+  .u-3p{background:linear-gradient(135deg,#d97aa0 0%,#8a3560 100%);}
+  .unit-hero .eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:rgba(255,255,255,.75);text-transform:uppercase;font-weight:600;margin-bottom:12px;}
+  .unit-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,68px);font-weight:700;line-height:1.1;letter-spacing:.5px;}
+  .unit-hero .zh{font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.8);margin-top:8px;letter-spacing:.08em;}
+  .unit-hero .snip{max-width:620px;margin:20px auto 0;font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.88);line-height:1.6;}
+  .unit-hero .back-link{display:inline-flex;align-items:center;gap:6px;margin-top:28px;padding:9px 20px;border-radius:20px;background:rgba(255,255,255,.18);color:#fff;font-size:15px;font-weight:600;transition:background .2s;}
+  .unit-hero .back-link:hover{background:rgba(255,255,255,.28);color:#fff;}
+
+  /* STORY CARDS */
+  .sc-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:44px 0 60px;}
+  @media(min-width:580px){.sc-grid{grid-template-columns:repeat(2,1fr);gap:20px;}}
+  @media(min-width:900px){.sc-grid{grid-template-columns:repeat(3,1fr);}}
+
+  .sc{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:26px 26px 24px;box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;gap:6px;
+    color:inherit;text-decoration:none;
+    transition:transform .22s,box-shadow .22s;
+  }
+  .u-1p-theme .sc{border-left:5px solid var(--amber);}
+  .u-2p-theme .sc{border-left:5px solid var(--violet);}
+  .u-3p-theme .sc{border-left:5px solid var(--rose);}
+  .sc:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .sc__num{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);}
+  .sc__title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest-deep);line-height:1.2;}
+  .sc__teacher{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+  .sc__arrow{font-size:20px;color:var(--amber);margin-top:auto;padding-top:14px;}
+
+  .sec-intro{padding:52px 0 0;text-align:center;}
+  .sec-intro p{color:var(--ink-soft);font-size:18px;line-height:1.7;max-width:660px;margin:0 auto 8px;}
+  .sec-intro .zh{font-family:'PingFang TC',sans-serif;font-size:16px;}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><div class="topbar-inner">
+  <a href="../../../" class="topbar-name">Hosin Elementary<small>合興國小</small></a>
+  <nav class="topbar-nav">
+    <a href="../../../">Home</a>
+    <a href="../../../principal/">Principal</a>
+    <a href="../../" class="is-active">Lessons</a>
+    <a href="../../../bilingual-campus/">Bilingual Campus</a>
+    <a href="../../../news/">News</a>
+  </nav>
+</div></div></header>
+<div class="unit-hero u-2p">
+  <div class="eyebrow">Photo Stories · Unit 2 Photo</div>
+  <div style="font-size:52px;margin:12px 0 8px;">🍵</div>
+  <h1>Daily Life &amp; Traditions</h1>
+  <p class="zh">生活習慣與傳統文化</p>
+  <p class="snip">Morning routines, creative crafts, reading habits, cultural traditions, and healthy practices — the everyday moments that shape a student's character.</p>
+  <a href="../../" class="back-link">← All Lessons</a>
+</div>
+<main class="wrap">
+  <div class="sec-intro">
+    <p class="zh">晨間習慣、創意手工、閱讀習慣、文化傳統與健康實踐——塑造學生品格的日常時刻。</p>
+  </div>
+  <div class="sc-grid u-2p-theme">
+      <a class="sc" href="the-disease/">
+        <div class="sc__num">01</div>
+        <div class="sc__title">The Disease</div>
+        <div class="sc__teacher">Teacher 曾宜庭</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="collage/">
+        <div class="sc__num">02</div>
+        <div class="sc__title">Collage</div>
+        <div class="sc__teacher">Teacher 張寶月</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="challenge/">
+        <div class="sc__num">03</div>
+        <div class="sc__title">Challenge</div>
+        <div class="sc__teacher">Teacher 王俊翔</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="international-education/">
+        <div class="sc__num">04</div>
+        <div class="sc__title">International Education</div>
+        <div class="sc__teacher">Teacher 洪英豪</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="morning-study/">
+        <div class="sc__num">05</div>
+        <div class="sc__title">Morning Study</div>
+        <div class="sc__teacher">Teacher 許芳媚</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="tea-ceremony/">
+        <div class="sc__num">06</div>
+        <div class="sc__title">Tea Ceremony</div>
+        <div class="sc__teacher">Teacher 許靜芳</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="newspaper/">
+        <div class="sc__num">07</div>
+        <div class="sc__title">Newspaper</div>
+        <div class="sc__teacher">Teacher 郭增俊</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="digital/">
+        <div class="sc__num">08</div>
+        <div class="sc__title">Digital</div>
+        <div class="sc__teacher">Teacher 陳怡瑤</div>
+        <div class="sc__arrow">→</div>
+      </a>
+      <a class="sc" href="creativity/">
+        <div class="sc__num">09</div>
+        <div class="sc__title">Creativity</div>
+        <div class="sc__teacher">Teacher 陳姿穎</div>
+        <div class="sc__arrow">→</div>
+      </a>
+  </div>
+</main>
+<footer style="text-align:center;padding:40px 24px;color:var(--ink-soft);font-size:15px;border-top:1px solid var(--line);margin-top:64px;">
+  <p>合興國小 Hosin Elementary · Pitou Township, Changhua County</p>
+  <p style="margin-top:6px;">Bilingual Education Program · My Culture Connect 人師教育協會</p>
+</footer>
+</body>
+</html>

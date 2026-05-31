@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Principal · 校長室 · Hosin Elementary School 合興國小</title>
+<meta name="description" content="Principal Yang Zhen-Feng leads Hosin Elementary School with a philosophy rooted in love, ecology, and student-centred learning. 楊振豐校長以愛為出發點，致力打造生態、雙語、全人教育的合興校園。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1a5c3e;
+    --forest-deep:#0d3522;
+    --forest-soft:#d1e8dc;
+    --water:#2a7d8c;
+    --water-deep:#1a5260;
+    --water-soft:#cde6ec;
+    --amber:#b87a24;
+    --amber-deep:#7a5015;
+    --amber-soft:#f5e6c8;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#dce5df;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(13,53,34,.28);
+    --shadow-sm:0 4px 14px -4px rgba(13,53,34,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:20px;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){body{font-size:22px;}}
+  img{max-width:100%;display:block;}
+  a{color:var(--forest);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--amber);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* TOPBAR */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--forest-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;}
+  @media (min-width:720px){.topbar-nav a{font-size:17px;}}
+  .topbar-nav a:hover{color:var(--forest);}
+  .topbar-nav a.is-active{color:var(--forest-deep);font-weight:700;}
+  @media (max-width:760px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:14px;justify-content:flex-start;}}
+
+  /* PAGE BANNER */
+  .page-head{
+    position:relative;text-align:center;color:#fff;padding:90px 0 72px;
+    background:linear-gradient(180deg,rgba(13,53,34,.72) 0%,rgba(13,53,34,.50) 44%,rgba(13,53,34,.86) 100%),
+      url('../photos/campus-02.jpg') center 45% / cover no-repeat;
+    border-bottom:5px solid var(--amber);
+  }
+  @media (min-width:720px){.page-head{padding:112px 0 90px;}}
+  .page-head .eyebrow{display:inline-block;font-size:14px;letter-spacing:.28em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:16px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+  @media (min-width:720px){.page-head .eyebrow{font-size:15px;}}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(44px,7vw,68px);font-weight:600;color:#fff;line-height:1.1;text-shadow:0 2px 14px rgba(0,0,0,.5);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(19px,2.6vw,24px);color:rgba(255,255,255,.92);font-weight:500;margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+  .page-head hr{width:60px;height:2px;background:var(--amber);border:0;margin:22px auto 18px;}
+  .page-head .lede{max-width:640px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.4vw,22px);color:rgba(255,255,255,.96);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.46);}
+
+  /* INTRO SECTION */
+  .intro{padding:88px 0 70px;background:#fff;}
+  .intro-grid{display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start;}
+  @media (max-width:820px){.intro-grid{grid-template-columns:1fr;gap:38px;}}
+  .principal-portrait{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+  .principal-portrait img{width:100%;height:auto;display:block;}
+  .principal-badge{background:var(--forest-deep);color:#fff;text-align:center;padding:18px 20px;}
+  .principal-badge .name-en{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.04em;}
+  .principal-badge .name-zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--amber-soft);margin-top:6px;letter-spacing:.1em;}
+  .principal-badge .title-line{font-size:14px;color:rgba(255,255,255,.72);margin-top:4px;letter-spacing:.08em;}
+  .intro-text .school-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(34px,5vw,54px);font-weight:600;color:var(--forest-deep);line-height:1.2;margin-bottom:18px;}
+  .intro-text .school-name .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.06em;}
+  .intro-text .en-body{font-size:19.5px;color:var(--ink);line-height:1.7;margin-bottom:22px;}
+  .intro-text .zh-body{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:19.5px;color:var(--ink);line-height:1.9;}
+
+  /* QUOTES */
+  .quotes{background:linear-gradient(135deg,var(--forest-deep) 0%,var(--water-deep) 100%);padding:80px 0;}
+  .quotes-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  @media (max-width:720px){.quotes-grid{grid-template-columns:1fr;gap:28px;}}
+  .quote-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:36px 32px;backdrop-filter:blur(6px);}
+  .quote-card .q-mark{font-family:'Cormorant Garamond',serif;font-size:80px;line-height:.8;color:var(--amber-soft);opacity:.6;margin-bottom:14px;display:block;}
+  .quote-card blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.4vw,22px);color:#fff;line-height:1.65;margin-bottom:16px;}
+  .quote-card .attr{font-size:16px;color:var(--amber-soft);font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .quote-card .attr-zh{font-family:'PingFang TC',sans-serif;font-size:15px;color:rgba(255,255,255,.65);margin-top:6px;letter-spacing:.06em;}
+
+  /* EDUCATION & CAREER */
+  .profile{padding:88px 0;background:var(--forest-soft);}
+  .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  @media (max-width:820px){.profile-grid{grid-template-columns:1fr;gap:36px;}}
+  .profile-block h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(32px,4vw,44px);color:var(--forest-deep);font-weight:600;margin-bottom:28px;line-height:1.2;}
+  .profile-block h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:6px;letter-spacing:.06em;}
+
+  .edu-list{list-style:none;}
+  .edu-list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .edu-list li:last-child{border-bottom:none;}
+  .edu-badge{width:36px;height:36px;border-radius:10px;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0;font-family:'Cormorant Garamond',serif;}
+  .edu-text .level{font-size:15px;font-weight:700;color:var(--forest);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+  .edu-text .school{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);}
+
+  .career-list{list-style:none;}
+  .career-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .career-item:last-child{border-bottom:none;}
+  .career-num{width:34px;height:34px;border-radius:50%;background:var(--water);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0;font-family:'Cormorant Garamond',serif;}
+  .career-item.current .career-num{background:var(--amber);color:#fff;}
+  .career-body .role{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);line-height:1.5;}
+  .career-body .years{font-size:14.5px;color:var(--ink-soft);margin-top:4px;font-weight:600;}
+
+  /* HONORS */
+  .honors{padding:72px 0;background:#fff;}
+  .honors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media (max-width:600px){.honors-grid{grid-template-columns:1fr;}}
+  .honor-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start;}
+  .honor-icon{width:44px;height:44px;border-radius:12px;background:var(--amber-soft);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .honor-text .year{font-size:13.5px;font-weight:700;color:var(--amber);letter-spacing:.1em;margin-bottom:4px;}
+  .honor-text .name{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);line-height:1.5;}
+
+  /* PRINCIPLES */
+  .principles{padding:88px 0;background:linear-gradient(180deg,var(--forest-soft) 0%,#fff 100%);}
+  .section-head{text-align:center;margin-bottom:62px;}
+  .section-head .eyebrow{display:inline-block;color:var(--forest);font-size:14.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;}
+  .section-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(38px,5.5vw,58px);font-weight:600;color:var(--forest-deep);line-height:1.2;margin-bottom:8px;}
+  .section-head .h2-zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;}
+  .section-head .lede{color:var(--ink-soft);font-size:18.5px;max-width:620px;margin:16px auto 0;}
+
+  .principle-list{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:900px){.principle-list{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.principle-list{grid-template-columns:1fr;}}
+  .principle-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 26px;box-shadow:var(--shadow-sm);transition:transform .24s,box-shadow .24s,border-color .24s;}
+  .principle-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--forest);}
+  .p-num{width:42px;height:42px;border-radius:12px;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:16px;}
+  .p-title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:24px;color:var(--forest-deep);font-weight:600;margin-bottom:6px;}
+  .p-title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:3px;letter-spacing:.04em;}
+  .p-body{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);line-height:1.85;margin-top:14px;}
+
+  /* UNESCO FIVE CAPABILITIES */
+  .capabilities{margin:28px 0;background:var(--water-soft);border-radius:14px;padding:24px 26px;}
+  .capabilities ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (max-width:560px){.capabilities ul{grid-template-columns:1fr;}}
+  .capabilities li{font-size:17px;color:var(--water-deep);padding:8px 12px;background:#fff;border-radius:8px;font-weight:500;}
+  .capabilities li span{display:block;font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:2px;}
+
+  /* STRATEGIES */
+  .strategies{padding:88px 0;background:#fff;}
+  .strategy-list{display:flex;flex-direction:column;gap:20px;}
+  .strategy-item{display:flex;gap:20px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;box-shadow:var(--shadow-sm);transition:border-color .2s;}
+  .strategy-item:hover{border-color:var(--water);}
+  .s-num{width:46px;height:46px;border-radius:14px;background:var(--water-soft);color:var(--water-deep);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;flex-shrink:0;}
+  .s-body .s-title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:22px;font-weight:600;color:var(--water-deep);margin-bottom:8px;}
+  .s-body .s-text{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink);line-height:1.85;}
+
+  /* FOOTER */
+  .footer{background:var(--forest-deep);color:rgba(255,255,255,.72);text-align:center;padding:42px 0 36px;font-size:15px;}
+  .footer a{color:var(--amber-soft);}
+  .footer a:hover{color:#fff;}
+  .footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;margin-bottom:10px;}
+  .footer-mcc{margin-top:12px;font-size:14px;opacity:.65;}
+</style>
+</head>
+<body>
+
+<nav class="topbar" role="navigation" aria-label="Site navigation">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="topbar-brand">
+        <div class="topbar-name">
+          Hosin Elementary
+          <small>合興國民小學</small>
+        </div>
+      </div>
+      <div class="topbar-nav">
+        <a href="../">Home</a>
+        <a href="../principal/" class="is-active">Principal</a>
+        <a href="../lessons/">Lessons</a>
+        <a href="../bilingual-campus/">Bilingual Campus</a>
+        <a href="../news/">News</a>
+        <a href="https://changhua-bilingual.org/festivals/?from=hosin" target="_blank" rel="noopener">Festivals</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head" role="banner">
+  <div class="wrap">
+    <span class="eyebrow">Principal · 校長室</span>
+    <h1>Leading with Love
+      <span class="zh">以愛為本，樹人興校</span>
+    </h1>
+    <hr>
+    <p class="lede">A servant-leader who believes every child carries a unique light worth nurturing.</p>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro" aria-labelledby="intro-heading">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <div class="principal-portrait">
+          <img src="../photos/principal-yang.jpg" alt="Principal Yang Zhen-Feng 楊振豐校長" loading="lazy">
+          <div class="principal-badge">
+            <div class="name-en">Yang, Zhen-Feng</div>
+            <div class="name-zh">楊振豐 校長</div>
+            <div class="title-line">Principal · Hosin Elementary School</div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-text">
+        <h2 id="intro-heading" class="school-name">
+          Hosin Elementary School
+          <span class="zh">彰化縣埤頭鄉合興國民小學</span>
+        </h2>
+        <p class="en-body">Principal Yang Zhen-Feng brings a lifelong dedication to education to the heart of Pitou Township. Shaped by over two decades in the classroom and administration — from Wanxing to Minquan to his current post at Hosin — he leads with the conviction that school is first and foremost for the student.</p>
+        <p class="en-body">His philosophy draws from Victor Hugo's vision of the boundless human soul and Friedrich Froebel's gentle reminder that education is nothing more than love and example.</p>
+        <div class="zh-body">
+          <p>楊校長在教育路上走了三十餘年，歷任教師、教學組長、教導主任、課程督學，至今主持合興國小。他相信每一位孩子都有與生俱來的氣質與能力，學校的使命是為每個孩子打造適合成長的環境，「學生主體，教學為先」是他辦學的核心信條。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes" aria-label="Principal's guiding quotes 校長座右銘">
+  <div class="wrap">
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <span class="q-mark">"</span>
+        <blockquote>There is a spectacle more vast than the sea, and it is the sky; there is a spectacle more vast than the sky, and it is the interior of the soul.</blockquote>
+        <div class="attr">Victor Hugo</div>
+        <div class="attr-zh">維克多·雨果：「有比大海更遼闊的景色，那是天空；有比天空更遼闊的景色，那是靈魂的深處。」</div>
+      </div>
+      <div class="quote-card">
+        <span class="q-mark">"</span>
+        <blockquote>Education is nothing more, nor less, than love and example.</blockquote>
+        <div class="attr">Friedrich Froebel</div>
+        <div class="attr-zh">福祿貝爾：「教育無他，愛與榜樣而已。」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CAREER -->
+<section class="profile" aria-labelledby="profile-heading">
+  <div class="wrap">
+    <div id="profile-heading" class="section-head" style="margin-bottom:56px;">
+      <span class="eyebrow">Background · 學術與資歷</span>
+      <h2>Education &amp; Career<span class="h2-zh" style="display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;margin-top:6px;">學歷 · 教職歷程</span></h2>
+    </div>
+    <div class="profile-grid">
+      <!-- Education -->
+      <div class="profile-block">
+        <h2>Education
+          <span class="zh">學歷</span>
+        </h2>
+        <ul class="edu-list">
+          <li>
+            <div class="edu-badge">一</div>
+            <div class="edu-text">
+              <div class="level">Elementary</div>
+              <div class="school">彰化縣二林鎮二林國民小學</div>
+            </div>
+          </li>
+          <li>
+            <div class="edu-badge">二</div>
+            <div class="edu-text">
+              <div class="level">Junior High</div>
+              <div class="school">彰化縣二林鎮二林國民中學</div>
+            </div>
+          </li>
+          <li>
+            <div class="edu-badge">三</div>
+            <div class="edu-text">
+              <div class="level">Teachers' College</div>
+              <div class="school">台東師範專科學校普通科</div>
+            </div>
+          </li>
+          <li>
+            <div class="edu-badge">四</div>
+            <div class="edu-text">
+              <div class="level">Bachelor's Degree</div>
+              <div class="school">國立台南師範學院初等教育學系</div>
+            </div>
+          </li>
+          <li>
+            <div class="edu-badge">五</div>
+            <div class="edu-text">
+              <div class="level">Master's Degree</div>
+              <div class="school">國立花蓮師範學院初等教育系<br>社會科教學碩士班</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Career -->
+      <div class="profile-block">
+        <h2>Career
+          <span class="zh">教職歷程</span>
+        </h2>
+        <ol class="career-list">
+          <li class="career-item">
+            <div class="career-num">1</div>
+            <div class="career-body">
+              <div class="role">彰化縣二林鎮萬興國小　教師</div>
+              <div class="years">6 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">2</div>
+            <div class="career-body">
+              <div class="role">彰化縣二林鎮萬興國小　教師兼教學組長</div>
+              <div class="years">6 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">3</div>
+            <div class="career-body">
+              <div class="role">彰化縣大城鄉美豐國小　教師兼教導主任</div>
+              <div class="years">3 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">4</div>
+            <div class="career-body">
+              <div class="role">彰化縣芳苑鄉芳苑國小　教師兼教導主任</div>
+              <div class="years">3 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">5</div>
+            <div class="career-body">
+              <div class="role">彰化縣課程與教學輔導團　社會領域兼任輔導員</div>
+              <div class="years">4 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">6</div>
+            <div class="career-body">
+              <div class="role">彰化縣芳苑國小兼縣府教育處課程督學</div>
+              <div class="years">3 months</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">7</div>
+            <div class="career-body">
+              <div class="role">彰化縣芳苑鄉民權國小　校長</div>
+              <div class="years">4 years</div>
+            </div>
+          </li>
+          <li class="career-item">
+            <div class="career-num">8</div>
+            <div class="career-body">
+              <div class="role">彰化縣二林鎮萬興國小　校長</div>
+              <div class="years">7 years</div>
+            </div>
+          </li>
+          <li class="career-item current">
+            <div class="career-num">9</div>
+            <div class="career-body">
+              <div class="role">彰化縣埤頭鄉合興國小　校長</div>
+              <div class="years">Present · 現任</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section class="honors" aria-labelledby="honors-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Recognition · 榮譽</span>
+      <h2 id="honors-heading">Awards &amp; Honours
+        <span class="h2-zh" style="display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:6px;letter-spacing:.04em;">個人榮譽</span>
+      </h2>
+    </div>
+    <div class="honors-grid">
+      <div class="honor-card">
+        <div class="honor-icon">🏅</div>
+        <div class="honor-text">
+          <div class="year">二林鎮 · 80年度</div>
+          <div class="name">優秀青年</div>
+        </div>
+      </div>
+      <div class="honor-card">
+        <div class="honor-icon">🏅</div>
+        <div class="honor-text">
+          <div class="year">大城鄉 · 92年度</div>
+          <div class="name">優秀青年</div>
+        </div>
+      </div>
+      <div class="honor-card">
+        <div class="honor-icon">🎖️</div>
+        <div class="honor-text">
+          <div class="year">彰化縣 · 96年度</div>
+          <div class="name">特殊優良教師</div>
+        </div>
+      </div>
+      <div class="honor-card">
+        <div class="honor-icon">🎓</div>
+        <div class="honor-text">
+          <div class="year">國立台東大學 · 101年度</div>
+          <div class="name">傑出校友</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP PRINCIPLES -->
+<section class="principles" aria-labelledby="principles-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Philosophy · 辦學理念</span>
+      <h2 id="principles-heading">Six Principles of Leadership
+        <span class="h2-zh">六大辦學主軸</span>
+      </h2>
+      <p class="lede">A framework built on love, capability, and servant leadership.</p>
+    </div>
+    <div class="principle-list">
+
+      <div class="principle-card">
+        <div class="p-num">1</div>
+        <div class="p-title">Students First
+          <span class="zh">以學生為中心</span>
+        </div>
+        <p class="p-body">Every plan and support system puts the student first. With love as its foundation, the school strives to reach every child, teach according to each learner's nature, and bring every student forward.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">2</div>
+        <div class="p-title">Key Competencies
+          <span class="zh">以「關鍵能力」規劃學習藍圖</span>
+        </div>
+        <p class="p-body">Guided by UNESCO's five pillars of lifelong learning:</p>
+        <div class="capabilities">
+          <ul>
+            <li>Learning to Know <span>學習知的能力</span></li>
+            <li>Learning to Do <span>學習動手做</span></li>
+            <li>Learning to Live Together <span>學習與他人相處</span></li>
+            <li>Learning to Be <span>學習自我實踐</span></li>
+            <li>Learning to Change <span>學習應變的能力</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">3</div>
+        <div class="p-title">Servant Leadership
+          <span class="zh">校長是有擔當的「僕人」</span>
+        </div>
+        <p class="p-body">Education exists to serve. A principal leads by example, willing to sacrifice and contribute — embodying the belief that thoughts shape habits, and habits shape destiny.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">4</div>
+        <div class="p-title">Care &amp; Respect
+          <span class="zh">營造關懷與尊重的人文環境</span>
+        </div>
+        <p class="p-body">Children flourish in a warm, safe, respectful environment — like plants thriving in sunlight and water. Such a school builds self-confidence, dignity, and the foundations of whole-person development.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">5</div>
+        <div class="p-title">Teacher Professionalism
+          <span class="zh">尊重教師專業</span>
+        </div>
+        <p class="p-body">Respect every teacher's expertise, build consensus, and create a harmonious, professionally oriented environment — a place where "students love coming to school, and teachers teach with peace of mind."</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">6</div>
+        <div class="p-title">Community Resources
+          <span class="zh">結合社會資源</span>
+        </div>
+        <p class="p-body">Engage parents, community organizations, and social institutions as genuine education partners — rational communication, heartfelt tolerance, and mutual trust between home and school.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADMINISTRATIVE STRATEGIES -->
+<section class="strategies" aria-labelledby="strategies-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Leadership · 行政策略</span>
+      <h2 id="strategies-heading">Eight Administrative Strategies
+        <span class="h2-zh">八項行政領導策略</span>
+      </h2>
+    </div>
+    <div class="strategy-list">
+
+      <div class="strategy-item">
+        <div class="s-num">1</div>
+        <div class="s-body">
+          <div class="s-title">Quiet Observation · 靜心觀察</div>
+          <p class="s-text">Like surveying a neglected garden — discern what must be cleared and what must be cherished, without damaging root systems or harmony.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">2</div>
+        <div class="s-body">
+          <div class="s-title">Gradual Change · 煮蛙效應的逆向思考</div>
+          <p class="s-text">Slower change breeds higher acceptance. Every transformation requires a plan and timeline; never sacrifice long-term foundations for short-term results.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">3</div>
+        <div class="s-body">
+          <div class="s-title">Warm Workplace · 創造溫馨有愛的人文工作環境</div>
+          <p class="s-text">A joyful workplace raises efficiency. Timely care and support for teachers resolves difficulties and fulfils their needs.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">4</div>
+        <div class="s-body">
+          <div class="s-title">Adaptive Leadership · 權變領導、充分尊重</div>
+          <p class="s-text">Build mutual trust through proactive care; use work checklists to enable self-monitoring and transparent progress management.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">5</div>
+        <div class="s-body">
+          <div class="s-title">Shared Goals · 結合組織與成員目標</div>
+          <p class="s-text">Use surveys and interviews to understand personal aspirations; set short-term goals that motivate teachers to pursue self-actualisation alongside institutional objectives.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">6</div>
+        <div class="s-body">
+          <div class="s-title">Professional Growth · 配合教師需求規劃專業成長</div>
+          <p class="s-text">Organise cross-school professional development; dedicate weekly morning meeting time for teachers to share insights; encourage action research and teaching portfolios.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">7</div>
+        <div class="s-body">
+          <div class="s-title">Parent Partnership · 鼓勵家長參與</div>
+          <p class="s-text">Invite parents, teachers, and students to learn together and create a three-way win. Treat parents as friends; guide participation in ways that build belonging and identity.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="s-num">8</div>
+        <div class="s-body">
+          <div class="s-title">Community Integration · 導入並善用社區資源</div>
+          <p class="s-text">"The school's future resources lie in the community." Encourage teachers and students to serve the community; invite community members to school events, building reciprocal bonds.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-brand">Hosin Elementary School · 合興國民小學</div>
+    <p>彰化縣埤頭鄉合興村文鄉路161號 &nbsp;|&nbsp; Tel: (04) 8922-030</p>
+    <p class="footer-mcc">Bilingual programme supported by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

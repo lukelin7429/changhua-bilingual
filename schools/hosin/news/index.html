@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News · 校園消息 · Hosin Elementary School 合興國小</title>
+<meta name="description" content="Hosin Elementary School news and honours — field athletics, academic competitions, cultural events, and student achievements. 合興國小校園消息與榮耀榜。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1a5c3e;--forest-deep:#0d3522;--forest-soft:#d1e8dc;
+    --water:#2a7d8c;--water-deep:#1a5260;--water-soft:#cde6ec;
+    --amber:#b87a24;--amber-deep:#7a5015;--amber-soft:#f5e6c8;
+    --ink:#1c211e;--ink-soft:#5b6661;--line:#dce5df;
+    --max:1100px;
+    --shadow:0 14px 40px -16px rgba(13,53,34,.26);--shadow-sm:0 4px 14px -4px rgba(13,53,34,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:20px;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){body{font-size:22px;}}
+  img{max-width:100%;display:block;}
+  a{color:var(--forest);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--amber);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* TOPBAR */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--forest-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;}
+  @media (min-width:720px){.topbar-nav a{font-size:17px;}}
+  .topbar-nav a:hover{color:var(--forest);}
+  .topbar-nav a.is-active{color:var(--forest-deep);font-weight:700;}
+  @media (max-width:760px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:14px;justify-content:flex-start;}}
+
+  /* PAGE BANNER */
+  .page-head{
+    position:relative;text-align:center;color:#fff;padding:84px 0 66px;
+    background:
+      linear-gradient(180deg,rgba(13,53,34,.72) 0%,rgba(13,53,34,.50) 42%,rgba(13,53,34,.86) 100%),
+      url('../photos/campus-01.jpg') center 40% / cover no-repeat;
+    border-bottom:5px solid var(--amber);
+  }
+  @media (min-width:720px){.page-head{padding:104px 0 84px;}}
+  .page-head .eyebrow{display:inline-block;font-size:15px;letter-spacing:.28em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:16px;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  .page-head h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(42px,7vw,64px);line-height:1.1;font-weight:600;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  .page-head h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,22px);color:rgba(255,255,255,.92);font-weight:500;margin-top:12px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+  .page-head hr{width:60px;height:2px;background:var(--amber);border:0;margin:24px auto 18px;}
+  .page-head .lede{max-width:660px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.3vw,22px);color:rgba(255,255,255,.96);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.42);}
+
+  /* CATEGORY */
+  .cat-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:32px 0 20px;}
+  .cat-bar .cat{font-size:14.5px;font-weight:700;padding:7px 16px;border-radius:99px;cursor:default;}
+  .cat-athletics{background:var(--forest-soft);color:var(--forest-deep);}
+  .cat-academic{background:var(--water-soft);color:var(--water-deep);}
+  .cat-culture{background:var(--amber-soft);color:var(--amber-deep);}
+  .cat-award{background:#f0e6f8;color:#5b317d;}
+  .cat-intl{background:#e6f4f0;color:#1d6b5a;}
+
+  /* NEWS GRID */
+  section{padding:16px 0 80px;}
+  .year-head{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,52px);
+    font-weight:600;color:var(--forest-deep);margin-bottom:8px;line-height:1.1;
+  }
+  .year-head small{font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:500;color:var(--ink-soft);margin-left:14px;letter-spacing:.04em;}
+  .year-divider{height:3px;background:linear-gradient(90deg,var(--forest) 0%,transparent 100%);border:0;border-radius:2px;margin-bottom:28px;}
+
+  .news-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:52px;}
+  @media (min-width:600px){.news-grid{grid-template-columns:repeat(2,1fr);gap:18px;}}
+  @media (min-width:900px){.news-grid{grid-template-columns:repeat(3,1fr);}}
+
+  .nc{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;gap:10px;
+    transition:transform .22s,box-shadow .22s,border-color .22s;
+  }
+  .nc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--forest);}
+  .nc__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .nc__date{font-size:13.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.06em;}
+  .nc__cat{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:99px;}
+  .nc__title{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:17px;color:var(--ink);line-height:1.6;flex:1;}
+  @media (min-width:720px){.nc__title{font-size:18px;}}
+  .nc__title strong{color:var(--forest-deep);}
+  .nc__title .highlight{color:var(--amber-deep);font-weight:700;}
+
+  /* highlight card for top achievements */
+  .nc.is-top{border-left:5px solid var(--amber);background:linear-gradient(135deg,#fffdf7 0%,#fff 100%);}
+  .nc.is-water{border-left:5px solid var(--water);}
+  .nc.is-forest{border-left:5px solid var(--forest);}
+
+  /* HONOURS SECTION */
+  .honours-intro{background:linear-gradient(135deg,var(--forest-deep) 0%,var(--water-deep) 100%);color:#fff;border-radius:20px;padding:36px 32px;margin-bottom:32px;text-align:center;}
+  .honours-intro .eyebrow{font-size:14px;letter-spacing:.24em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:12px;}
+  .honours-intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:600;color:#fff;line-height:1.1;}
+  .honours-intro .sub{font-family:'PingFang TC',sans-serif;font-size:17px;color:rgba(255,255,255,.78);margin-top:10px;}
+
+  /* FOOTER */
+  .footer{background:var(--forest-deep);color:rgba(255,255,255,.72);text-align:center;padding:42px 0 36px;font-size:15px;}
+  .footer a{color:var(--amber-soft);}
+  .footer a:hover{color:#fff;}
+  .footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;margin-bottom:10px;}
+  .footer-mcc{margin-top:12px;font-size:14px;opacity:.65;}
+</style>
+</head>
+<body>
+
+<nav class="topbar" role="navigation">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="topbar-name">
+        Hosin Elementary
+        <small>合興國民小學</small>
+      </div>
+      <div class="topbar-nav">
+        <a href="../">Home</a>
+        <a href="../principal/">Principal</a>
+        <a href="../lessons/">Lessons</a>
+        <a href="../bilingual-campus/">Bilingual Campus</a>
+        <a href="../news/" class="is-active">News</a>
+        <a href="https://changhua-bilingual.org/festivals/?from=hosin" target="_blank" rel="noopener">Festivals</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head" role="banner">
+  <div class="wrap">
+    <span class="eyebrow">News &amp; Honours · 校園消息</span>
+    <h1>Stories from Hosin
+      <span class="zh">校園榮耀 · 師生動態</span>
+    </h1>
+    <hr>
+    <p class="lede">Athletics champions, cultural performers, science fair participants — Hosin students shine.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="cat-bar" aria-label="Legend">
+    <span class="cat cat-athletics">🏃 Athletics · 田徑體育</span>
+    <span class="cat cat-academic">📖 Academic · 學術競賽</span>
+    <span class="cat cat-culture">🎵 Culture · 文化語文</span>
+    <span class="cat cat-award">🏅 Award · 師生獲獎</span>
+    <span class="cat cat-intl">🌍 Science &amp; Tech · 科技</span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- HONOURS HEADER -->
+    <div class="honours-intro">
+      <div class="eyebrow">Hall of Honours · 榮耀榜</div>
+      <h2>Hosin Shines</h2>
+      <p class="sub">Recent achievements by teachers and students of Hosin Elementary · 合興師生近期榮譽紀錄</p>
+    </div>
+
+    <!-- 2026 -->
+    <section aria-labelledby="y2026">
+      <h2 class="year-head" id="y2026">2026 <small>115 學年度</small></h2>
+      <hr class="year-divider">
+      <div class="news-grid">
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2026-05-19</span>
+            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+          </div>
+          <div class="nc__title">陳瑩瑩主任榮獲彰化縣 115 年度 <span class="highlight">特殊優良教師銅質獎</span></div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2026-05-15</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">參加 115 年 <strong>全國小學田徑賽</strong>，為縣爭光</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-05-14</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">115 學年度語文競賽分區賽榮獲佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-05-07</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">115 年語文競賽分區賽榮獲佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-04-07</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">師生參加 <strong>臺灣母語繪本製作比賽</strong>榮獲佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-03-24</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">五年戊班胡星彤參加台北城東扶輪社台語演講 <span class="highlight">第三名</span></div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-03-13</span>
+            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+          </div>
+          <div class="nc__title">程昱瑄組長性別平等教育徵文<strong>優選</strong></div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2026-03-13</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">田徑隊參加 115 年青年盃全國田徑公開賽佳績</div>
+        </div>
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2026-03-05</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">田徑隊 <span class="highlight">國小女童田徑總錦標全國第三</span> 🥉</div>
+        </div>
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2026-02-02</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">田徑隊彰化縣 115 年中小聯運 <span class="highlight">小女甲組田徑總錦標全縣第一名</span> 🥇</div>
+        </div>
+
+        <div class="nc is-water">
+          <div class="nc__meta">
+            <span class="nc__date">2026-01-21</span>
+            <span class="nc__cat cat-intl" style="background:#e6f4f0;color:#1d6b5a;">Science &amp; Tech</span>
+          </div>
+          <div class="nc__title">學生參加 114 學年度<strong>科技教育創意實作競賽</strong>佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2026-01-20</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">師生參加臺灣母語創作徵文比賽佳績</div>
+        </div>
+
+      </div><!-- .news-grid 2026 -->
+
+      <!-- 2025 -->
+      <h2 class="year-head" id="y2025">2025 <small>114 學年度</small></h2>
+      <hr class="year-divider">
+      <div class="news-grid">
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2025-11-24</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">師生參加 114 年 <strong>全國語文競賽</strong>佳績</div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2025-11-22</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">田徑隊參加 114 年 <strong>屏東盃全國中小學田徑錦標賽</strong>佳績</div>
+        </div>
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2025-11-21</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">縣長盃五人制足球：六年男乙組 <span class="highlight">亞軍</span>、五年男組 <span class="highlight">第四名</span> ⚽</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-11-03</span>
+            <span class="nc__cat cat-academic">Academic</span>
+          </div>
+          <div class="nc__title">彰化縣 114 年度英語朗讀比賽<strong>佳作</strong></div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-10-23</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">彰化縣 114 學年度學生美術比賽成績優異</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-09-22</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">彰化縣 114 年度語文競賽國小組複賽佳績</div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2025-09-20</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">六年甲班江姸欣參加 114 年臺北市秋季 <strong>全國田徑公開賽</strong>佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-09-04</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">彰化縣 114 年度【童畫心世界】繪畫比賽佳績</div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2025-08-27</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">六年甲班江姸欣參加 114 年 <strong>台中盃全國中小學田徑賽</strong>佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-08-18</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">田徑隊代表埤頭鄉參加 <strong>彰化縣運</strong>佳績</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-05-26</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">六年丙班參加 114 年彰化縣體育嘉年華大隊接力佳績</div>
+        </div>
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2025-05-19</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">六年丙班江佳穎代表彰化縣參加全國小學田徑錦標賽：100m <span class="highlight">全國第12名</span>、200m <span class="highlight">全國第11名</span> 🏃‍♀️</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-05-15</span>
+            <span class="nc__cat cat-culture">Culture</span>
+          </div>
+          <div class="nc__title">114 年南區國小組語文競賽佳績</div>
+        </div>
+
+        <div class="nc is-water">
+          <div class="nc__meta">
+            <span class="nc__date">2025-04-10</span>
+            <span class="nc__cat cat-intl" style="background:#e6f4f0;color:#1d6b5a;">Science &amp; Tech</span>
+          </div>
+          <div class="nc__title">師生參加第 65 屆 <strong>國民中小學科學展覽會</strong>佳作 🔬</div>
+        </div>
+
+        <div class="nc">
+          <div class="nc__meta">
+            <span class="nc__date">2025-03-28</span>
+            <span class="nc__cat cat-academic">Academic</span>
+          </div>
+          <div class="nc__title">二年丁班作品刊登《智慧菓》雜誌第 161 期 📖</div>
+        </div>
+
+        <div class="nc is-top">
+          <div class="nc__meta">
+            <span class="nc__date">2025-03-14</span>
+            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+          </div>
+          <div class="nc__title">黃于芩老師彰化縣 113 學年度讀報創意達人競賽 <span class="highlight">全縣第二名</span> 🥈</div>
+        </div>
+
+        <div class="nc is-forest">
+          <div class="nc__meta">
+            <span class="nc__date">2025-03-12</span>
+            <span class="nc__cat cat-athletics">Athletics</span>
+          </div>
+          <div class="nc__title">六丙江佳穎參加 114 年新北市青年盃全國田徑公開賽佳績</div>
+        </div>
+
+      </div><!-- .news-grid 2025 -->
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-brand">Hosin Elementary School · 合興國民小學</div>
+    <p>彰化縣埤頭鄉合興村文鄉路161號 &nbsp;|&nbsp; Tel: (04) 8922-030</p>
+    <p class="footer-mcc">Bilingual programme supported by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hosin Elementary School · 彰化縣埤頭鄉合興國民小學</title>
+<meta name="description" content="Hosin Elementary School — An ecology campus in Pitou Township, Changhua County. Founded 1917, where the Ecological Pond, Native Fish Gallery, and Tortoise Garden bring nature into every lesson. 彰化縣埤頭鄉合興國民小學 — 建校於 1917 年，生態池、原生魚廊、龜之家，讓自然融入每一堂課。">
+<meta property="og:title" content="Hosin Elementary School · 彰化縣合興國小">
+<meta property="og:description" content="Where ecology meets bilingual education · 生態校園遇上雙語學習">
+<meta property="og:image" content="photos/campus-01.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --forest:#1a5c3e;
+    --forest-deep:#0d3522;
+    --forest-soft:#d1e8dc;
+    --water:#2a7d8c;
+    --water-deep:#1a5260;
+    --water-soft:#cde6ec;
+    --amber:#b87a24;
+    --amber-deep:#7a5015;
+    --amber-soft:#f5e6c8;
+    --ink:#1c211e;
+    --ink-soft:#5b6661;
+    --line:#dce5df;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(13,53,34,.28);
+    --shadow-sm:0 4px 14px -4px rgba(13,53,34,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--forest);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--amber);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ── TOPBAR ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--forest-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  @media (min-width:720px){ .topbar-nav a{font-size:17px;} }
+  .topbar-nav a:hover{color:var(--forest);}
+  .topbar-nav a.is-active{color:var(--forest-deep);font-weight:700;}
+  @media (max-width:760px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:14px;justify-content:flex-start;}}
+
+  /* ── HERO BANNER ── */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(13,53,34,.70) 0%, rgba(13,53,34,.50) 42%, rgba(13,53,34,.84) 100%),
+      url('photos/campus-01.jpg') center 50% / cover no-repeat;
+    padding:104px 0 80px;text-align:center;color:#fff;
+    border-bottom:5px solid var(--amber);
+  }
+  .title__eyebrow{display:inline-block;font-size:14px;letter-spacing:.28em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:20px;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  .title h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(44px,7vw,72px);line-height:1.08;font-weight:600;color:#fff;margin-bottom:8px;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  .title .h1-zh{font-size:clamp(20px,2.6vw,26px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:12px;font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+  .title__divider{width:60px;height:2px;background:var(--amber);margin:24px auto 18px;border:0;}
+  .title__tagline{max-width:600px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:rgba(255,255,255,.96);line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.42);}
+  .title__tagline .tagline-zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:17px;margin-top:8px;color:rgba(255,255,255,.82);letter-spacing:.05em;}
+
+  /* Stats strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:780px;margin:40px auto 0;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);}
+  .stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .stat:last-child{border-right:none;}
+  .stat__label-en{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+  .stat__label-zh{font-size:14.5px;margin-top:8px;color:var(--amber-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  @media (max-width:880px){.stats{grid-template-columns:repeat(2,1fr);}.stats .stat:nth-child(2){border-right:none;}.stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16);}}
+
+  /* ── SECTIONS base ── */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{display:inline-block;color:var(--forest);font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;}
+  .section-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(42px,6vw,62px);font-weight:600;color:var(--forest-deep);line-height:1.2;margin-bottom:8px;}
+  .section-head .h2-zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:22.5px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;}
+  .section-head .lede{color:var(--ink-soft);font-size:19.5px;max-width:640px;margin:18px auto 0;}
+
+  /* ── ABOUT ── */
+  .about{background:#fff;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .about-photos{display:grid;grid-template-rows:auto auto;gap:14px;}
+  .about-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo .caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(13,53,34,.85) 0%,transparent 100%);color:#fff;padding:18px 16px 12px;font-size:15.5px;font-family:'PingFang TC',sans-serif;}
+  .about-photo .caption .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17.5px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
+  .about-text h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:37.5px;color:var(--forest-deep);line-height:1.25;margin-bottom:18px;font-weight:600;}
+  .about-text .en{font-size:20px;color:var(--ink);margin-bottom:18px;}
+  .about-text .zh-divider{height:1px;background:var(--line);margin:24px 0;position:relative;}
+  .about-text .zh-divider::before{content:"中文 / 中文";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:0 14px;font-size:14px;color:var(--ink-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+  .about-text .zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:19.5px;color:var(--ink);line-height:1.85;}
+  .about-text .quick{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:26px;box-shadow:var(--shadow-sm);}
+  .about-text .quick dt{font-size:14px;font-weight:700;color:var(--forest);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;}
+  .about-text .quick dd{font-size:18px;color:var(--ink);margin:2px 0 12px;font-family:'PingFang TC',sans-serif;}
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ── ECOLOGY PILLARS ── */
+  .identity{background:linear-gradient(180deg,#fff 0%,var(--forest-soft) 100%);}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .pillar{background:#fff;border-radius:18px;padding:36px 30px 32px;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;}
+  .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--forest);}
+  .pillar .icon{width:54px;height:54px;border-radius:14px;background:var(--forest-soft);color:var(--forest-deep);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:22px;}
+  .pillar:nth-child(2) .icon{background:var(--water-soft);color:var(--water-deep);}
+  .pillar:nth-child(3) .icon{background:var(--amber-soft);color:var(--amber-deep);}
+  .pillar h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:30px;color:var(--forest-deep);line-height:1.25;font-weight:600;margin-bottom:6px;}
+  .pillar h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);font-weight:500;margin-top:4px;letter-spacing:.04em;}
+  .pillar .en-body{font-size:18px;color:var(--ink);margin:18px 0;line-height:1.7;}
+  .pillar .divider-tiny{height:1px;background:var(--line);margin:14px 0;}
+  .pillar .zh-body{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);line-height:1.85;}
+
+  /* ── PRINCIPAL ── */
+  .principal{background:#fff;}
+  .principal-card{display:grid;grid-template-columns:.95fr 1.4fr;gap:50px;align-items:center;background:#fff;border-radius:22px;padding:50px;border:1px solid var(--line);box-shadow:var(--shadow);max-width:1000px;margin:0 auto;}
+  .principal-photo{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;box-shadow:var(--shadow-sm);background:var(--forest-soft);}
+  .principal-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;}
+  .principal-text .role{color:var(--forest);font-size:14.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .principal-text h3{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--forest-deep);line-height:1.15;margin-bottom:6px;}
+  .principal-text h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:22.5px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .principal-text .values{margin:24px 0 4px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 22px;}
+  .value-item{padding-left:14px;border-left:3px solid var(--amber);}
+  .value-item .v-en{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--forest-deep);line-height:1.3;}
+  .value-item .v-zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
+  .principal-text .quote{margin-top:24px;padding:18px 20px;background:var(--forest-soft);border-left:4px solid var(--forest);border-radius:0 10px 10px 0;font-family:'Cormorant Garamond',serif;font-size:19.5px;font-style:italic;color:var(--forest-deep);line-height:1.55;}
+  .principal-text .quote cite{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:8px;font-weight:600;letter-spacing:.04em;}
+  .principal-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--forest);font-weight:700;font-size:17px;font-family:'Cormorant Garamond',serif;letter-spacing:.04em;}
+  .principal-link:hover{color:var(--amber);}
+
+  /* ── STUDENT LIFE ── */
+  .life{background:linear-gradient(180deg,var(--forest-soft) 0%,#fff 100%);}
+  .life-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
+  .life-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;}
+  .life-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .life-card__img{aspect-ratio:16/10;background:var(--forest-soft);overflow:hidden;}
+  .life-card__img img{width:100%;height:100%;object-fit:cover;}
+  .life-card__body{padding:26px 28px 30px;}
+  .life-card .tag{display:inline-block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);font-weight:700;margin-bottom:8px;}
+  .life-card h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:29px;color:var(--forest-deep);line-height:1.25;font-weight:600;margin-bottom:4px;}
+  .life-card h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);font-weight:500;margin-top:4px;letter-spacing:.04em;}
+  .life-card .en-text{font-size:18px;color:var(--ink);margin:14px 0 8px;line-height:1.7;}
+  .life-card .zh-text{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);line-height:1.8;padding-top:10px;border-top:1px dashed var(--line);margin-top:12px;}
+
+  /* ── FET TEACHERS ── */
+  .fets{background:#fff;padding:72px 0;}
+  .fets-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:0;}
+  @media (max-width:720px){.fets-grid{grid-template-columns:1fr;gap:20px;}}
+  .fet{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 30px 30px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:0;transition:transform .24s,box-shadow .24s,border-color .24s;}
+  .fet:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--forest);}
+  .fet__flag{font-size:42px;margin-bottom:14px;line-height:1;}
+  .fet__name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--forest-deep);line-height:1.15;}
+  .fet__origin{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:5px;letter-spacing:.04em;}
+  .fet__bio{font-size:18px;color:var(--ink);margin:18px 0 22px;line-height:1.7;flex:1;}
+  .fet__link{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:var(--forest-soft);color:var(--forest-deep);
+    padding:14px 20px;border-radius:12px;font-weight:700;font-size:17px;
+    text-decoration:none;transition:background .2s,color .2s;
+    border:1px solid transparent;
+  }
+  .fet__link:hover{background:var(--forest);color:#fff;}
+  .fet__link .link-label{font-family:'Cormorant Garamond',serif;font-size:19px;}
+  .fet__link .link-sub{font-family:'PingFang TC',sans-serif;font-size:13.5px;color:var(--forest);font-weight:500;margin-top:2px;display:block;}
+  .fet:hover .fet__link .link-sub{color:rgba(255,255,255,.75);}
+  .fet__link .arrow{font-size:20px;transition:transform .2s;}
+  .fet__link:hover .arrow{transform:translateX(4px);}
+
+  /* ── VISIT ── */
+  .visit{background:var(--forest-deep);color:#fff;padding:80px 0;}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .visit h2{font-family:'Cormorant Garamond',serif;font-size:52.5px;font-weight:600;line-height:1.15;margin-bottom:6px;}
+  .visit h2 small{display:block;font-family:'PingFang TC',sans-serif;font-size:22.5px;font-weight:500;color:rgba(255,255,255,.75);margin-top:8px;}
+  .visit p{font-size:19px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:18px;}
+  .contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:28px 30px;backdrop-filter:blur(8px);}
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{font-size:14.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-soft);font-weight:700;margin-bottom:4px;}
+  .contact dd{font-size:19.5px;color:#fff;font-family:'PingFang TC',sans-serif;line-height:1.55;}
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--amber-soft);border-color:var(--amber-soft);}
+  .visit-cta{margin-top:30px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:520px){.visit-cta{grid-template-columns:1fr 1fr;}}
+  .visit-cta a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;padding:16px 20px;border-radius:14px;text-decoration:none;font-weight:600;letter-spacing:.02em;transition:background .2s,border-color .2s,transform .2s;}
+  .visit-cta a:hover{background:var(--amber);border-color:var(--amber);color:#fff;transform:translateY(-2px);}
+  .visit-cta__icon{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--amber-soft);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;}
+  .visit-cta__txt{display:flex;flex-direction:column;gap:2px;line-height:1.3;}
+  .visit-cta__txt strong{font-size:16.5px;}
+  .visit-cta__txt span{font-size:13.5px;font-family:'PingFang TC',sans-serif;color:rgba(255,255,255,.7);font-weight:500;}
+  .visit-cta__arrow{margin-left:auto;font-size:18px;color:rgba(255,255,255,.55);}
+  .visit-cta a:hover .visit-cta__arrow{color:#fff;}
+
+  /* ── FOOTER ── */
+  footer{background:#071a10;color:rgba(255,255,255,.6);padding:36px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.08);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--amber-soft);font-weight:600;}
+  footer .partner a{color:var(--amber-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--amber-soft);}
+
+  /* ── MOBILE ── */
+  @media (max-width:880px){
+    .title{padding:52px 0 38px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;}
+    .principal-text .values{grid-template-columns:1fr;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Hosin Elementary
+        <small>彰化縣埤頭鄉合興國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="lessons/">Lessons</a>
+      <a href="bilingual-campus/">Bilingual Campus</a>
+      <a href="news/">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=hosin">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO BANNER -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Pitou Township · Changhua · Est. 1917</span>
+    <h1>Hosin Elementary School
+      <div class="h1-zh">彰化縣埤頭鄉合興國民小學</div>
+    </h1>
+    <hr class="title__divider">
+    <p class="title__tagline">
+      Where ecology meets bilingual education
+      <span class="tagline-zh">生態校園，雙語學習，從合興出發</span>
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__label-en">Est. 1917</div>
+        <div class="stat__label-zh">創校年份</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Pitou Township</div>
+        <div class="stat__label-zh">埤頭鄉</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Ecology Campus</div>
+        <div class="stat__label-zh">生態校園</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Bilingual School</div>
+        <div class="stat__label-zh">雙語學校</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/campus-02.jpg" alt="Hosin Elementary campus · 合興國小校園">
+          <div class="caption">
+            <span class="en">School grounds in Pitou Township</span>
+            埤頭鄉合興國小校園一隅
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/campus-03.jpg" alt="Hosin Elementary campus · 合興國小校景">
+          <div class="caption">
+            <span class="en">Learning beyond the classroom</span>
+            課室之外的學習風景
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>A school rooted in the land of Hoshim Village.</h3>
+        <p class="en">Hosin Elementary was established on <strong>April 1, 1917</strong> — more than a century of education in the heart of Pitou Township. The school's name carries the spirit of the community: <em>Hosin</em> (合興), meaning "harmony and prosperity," echoes the name of <strong>Hosin Temple</strong> (合興宮), founded in 1743, around which this village grew.</p>
+        <p class="en">Today, students learn in a campus alive with nature — an ecological pond, a native fish gallery, and a <strong>Sulcata Tortoise</strong> in the Tortoise Garden, which opened in October 2024 after two years of preparation.</p>
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>合興國小創立於 <strong>1917 年</strong>（明治 50 年）4 月 1 日，超過百年深耕埤頭鄉合興村。校名取自村中古廟「合興宮」（清乾隆 8 年，1743 年創建）——「合」是和諧，「興」是興盛，是這塊土地的祝願。</p>
+          <p>今日的合興國小，學生在校園裡有生態池、原生魚廊，以及 2024 年 10 月啟用、由全校師生命名的「龜之家」——一隻來自非洲的蘇卡達陸龜靜靜地陪著孩子們長大。</p>
+        </div>
+        <dl class="quick">
+          <dt>Full Name</dt>
+          <dd>彰化縣埤頭鄉合興國民小學 · Hosin Elementary School</dd>
+          <dt>Address</dt>
+          <dd>彰化縣埤頭鄉合興村文鄉路 161 號</dd>
+          <dt>Phone</dt>
+          <dd>(04) 8922-030</dd>
+          <dt>Official Site</dt>
+          <dd><a href="https://shses.chc.edu.tw/" target="_blank" rel="noopener">shses.chc.edu.tw ↗</a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOLOGY PILLARS -->
+<section class="identity" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">School Features</div>
+      <h2>What Makes Hosin, Hosin</h2>
+      <div class="h2-zh">合興國小的三大辦學主軸</div>
+      <p class="lede">A bilingual ecology campus where every subject connects to the living world around it.</p>
+    </div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="icon">🌿</div>
+        <h3>Ecology Education
+          <small>生態教育</small>
+        </h3>
+        <p class="en-body">The school campus doubles as a living laboratory. The <strong>Ecological Pond</strong> hosts native aquatic plants and fish; the <strong>Native Fish Gallery</strong> lets students observe Taiwan's freshwater species up close; and the <strong>Tortoise Garden</strong> cares for a Sulcata Tortoise — the world's third-largest land tortoise — named by student vote.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">校園即是教室——水生池、原生魚廊、龜之家，讓台灣原生生態成為每一堂課的活教材。獨角仙復育計畫、落葉堆肥，生態從課本走向了土地。</p>
+      </div>
+
+      <div class="pillar">
+        <div class="icon">🌐</div>
+        <h3>Bilingual &amp; STEM
+          <small>雙語與科技</small>
+        </h3>
+        <p class="en-body">Two Foreign English Teachers (FETs) — <strong>Karla Roflo</strong> and <strong>Amandeep Kaur</strong> — teach alongside Taiwanese homeroom teachers, connecting English to real campus moments. In parallel, students code in <strong>Scratch</strong>, design in <strong>Tinkercad 3D</strong>, and explore science through water rockets and RGB LED programming.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">兩位外師（菲律賓籍 Karla、印度籍 Amandeep）駐校合教，雙語學習融入日常。與此同時，Scratch 程式、3D 列印、水火箭、RGB LED 等 STEM 課程讓孩子動手探索科技。</p>
+      </div>
+
+      <div class="pillar">
+        <div class="icon">🏃</div>
+        <h3>Athletics &amp; Culture
+          <small>體育與本土文化</small>
+        </h3>
+        <p class="en-body">Hosin's <strong>track and field team</strong> is one of Changhua's strongest, capturing the county's top title in girls' athletics and finishing in the <strong>national top twelve</strong>. On the cultural side, students study <strong>Taiwanese Mother Tongue</strong>, create bilingual picture books in Holo, and visit the 300-year-old <strong>Hosin Temple</strong> to learn about the Bomb Mazu tradition.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">田徑隊是全縣頂尖強隊，女童組全縣第一、全國前十二。文化面，臺語繪本製作、母語演講、合興宮媽祖文化巡禮，讓孩子扎根土地。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPAL -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Principal</div>
+      <h2>Yang Zhen-Feng</h2>
+      <div class="h2-zh">校長 · 楊振豐</div>
+    </div>
+    <div class="principal-card">
+      <div class="principal-photo">
+        <img src="photos/principal-yang.jpg" alt="Principal Yang Zhen-Feng · 校長楊振豐">
+      </div>
+      <div class="principal-text">
+        <div class="role">Principal · 校長</div>
+        <h3>Yang Zhen-Feng
+          <small>楊振豐 校長</small>
+        </h3>
+        <blockquote class="quote">
+          "Education is nothing other than love and example."
+          <cite>— Froebel · 福祿貝爾</cite>
+        </blockquote>
+        <div class="values">
+          <div class="value-item">
+            <div class="v-en">Student-first</div>
+            <div class="v-zh">學生為主體</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Five key abilities</div>
+            <div class="v-zh">UNESCO 五大關鍵能力</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Servant leadership</div>
+            <div class="v-zh">校長是學校的「僕人」</div>
+          </div>
+          <div class="value-item">
+            <div class="v-en">Community partnership</div>
+            <div class="v-zh">結合社會資源</div>
+          </div>
+        </div>
+        <a class="principal-link" href="principal/">Read full biography →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT LIFE -->
+<section class="life" id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Campus Life</div>
+      <h2>Life at Hosin</h2>
+      <div class="h2-zh">合興校園的日常風景</div>
+    </div>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="life-card__img">
+          <img src="photos/campus-04.jpg" alt="Hosin campus · 合興校園">
+        </div>
+        <div class="life-card__body">
+          <div class="tag">Bilingual Campus</div>
+          <h3>English Every Day
+            <small>從早自習到課後，英文就在校園裡</small>
+          </h3>
+          <p class="en-text">Word of the Day videos, co-teaching with FETs, Classroom English in every corridor — English is woven into the daily rhythm at Hosin.</p>
+          <p class="zh-text">每日一字短片、外師合班教學、課室英語廣播，英文融入合興每一天的節奏。</p>
+        </div>
+      </div>
+      <div class="life-card">
+        <div class="life-card__img">
+          <img src="photos/campus-01.jpg" alt="Hosin school grounds · 合興校景">
+        </div>
+        <div class="life-card__body">
+          <div class="tag">International</div>
+          <h3>Sister School Exchange
+            <small>跨越國境的姐妹校計畫</small>
+          </h3>
+          <p class="en-text">Students at Hosin connect with partner schools in India — sharing their campus, culture, and aspirations in English with young learners on the other side of the world.</p>
+          <p class="zh-text">透過外師 Karla 與 Amandeep 的牽線，合興學生與印度姐妹校線上交流，用英文分享台灣的校園故事。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FET TEACHERS -->
+<section class="fets" id="fets">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Foreign English Teachers</div>
+      <h2>Meet Our FETs</h2>
+      <div class="h2-zh">外籍英語教師</div>
+      <p class="lede">Two teachers from opposite ends of the world, sharing one campus in Pitou Township.</p>
+    </div>
+    <div class="fets-grid">
+
+      <div class="fet">
+        <div class="fet__flag">🇵🇭</div>
+        <div class="fet__name">Karla Roflo</div>
+        <div class="fet__origin">Philippines · Cebu · 菲律賓宿霧 &nbsp;|&nbsp; TESOL Certified</div>
+        <p class="fet__bio">Karla holds a Liberal Arts degree from San Jose Recoletos University and has taught English across the Philippines, Japan, and Taiwan. At Hosin, she bridges cultures through bilingual lessons, international exchanges with partner schools in India, and her belief that <em>"language is the bridge between cultures."</em></p>
+        <a class="fet__link" href="https://sites.google.com/mycultureconnect.org/karla-roflo/home" target="_blank" rel="noopener">
+          <div>
+            <span class="link-label">Karla's Teaching Site</span>
+            <span class="link-sub">sites.google.com · 外師教學網站</span>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="fet">
+        <div class="fet__flag">🇮🇳</div>
+        <div class="fet__name">Amandeep Kaur</div>
+        <div class="fet__origin">India · Rajasthan · 印度拉賈斯坦邦</div>
+        <p class="fet__bio">Amandeep began her teaching journey as a volunteer in a rural village school in Rajasthan before finding her way to Taiwan. At Hosin, she runs English clubs and co-teaches across subjects with a philosophy rooted in empathy: <em>"Learning happens when students feel safe, respected, seen, and heard."</em></p>
+        <a class="fet__link" href="https://sites.google.com/twrses.org/amandeepkaur/home" target="_blank" rel="noopener">
+          <div>
+            <span class="link-label">Amandeep's Teaching Site</span>
+            <span class="link-sub">sites.google.com · 外師教學網站</span>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Visit Us
+          <small>歡迎來到合興</small>
+        </h2>
+        <p>Hosin Elementary is located in Pitou Township, Changhua County, surrounded by the farmlands and villages that have shaped this community for generations.</p>
+        <p class="zh">合興國小位於彰化縣埤頭鄉，四周是陪伴這座村庄一代又一代的農田與廟宇。歡迎來到合興，親身感受這座生態校園的氣息。</p>
+        <div class="visit-cta">
+          <a href="https://shses.chc.edu.tw/" target="_blank" rel="noopener">
+            <div class="visit-cta__icon">🏫</div>
+            <div class="visit-cta__txt">
+              <strong>Official Website</strong>
+              <span>shses.chc.edu.tw</span>
+            </div>
+            <div class="visit-cta__arrow">→</div>
+          </a>
+          <a href="https://changhua-bilingual.org/festivals/?from=hosin" target="_blank" rel="noopener">
+            <div class="visit-cta__icon">🎉</div>
+            <div class="visit-cta__txt">
+              <strong>Festival English</strong>
+              <span>節慶英語課程</span>
+            </div>
+            <div class="visit-cta__arrow">→</div>
+          </a>
+        </div>
+      </div>
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>彰化縣埤頭鄉合興村文鄉路 161 號<br>No. 161, Wenxiang Rd, Pitou Township</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd>(04) 8922-030</dd>
+          </div>
+          <div>
+            <dt>Fax · 傳真</dt>
+            <dd>(04) 8924-730</dd>
+          </div>
+          <div>
+            <dt>Principal · 校長</dt>
+            <dd>楊振豐 Yang Zhen-Feng</dd>
+          </div>
+          <div>
+            <dt>School Code · 學校代碼</dt>
+            <dd>074722</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 合興國小 Hosin Elementary School · Pitou Township, Changhua County</span>
+    <span class="partner">Bilingual website by <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
