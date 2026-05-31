@@ -226,6 +226,106 @@
   }
   @media (min-width:720px){ .track-card__body-zh{ font-size:16px; } }
 
+  /* Mr. Jov feature card */
+  .jov-card{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:linear-gradient(135deg, var(--crimson-soft) 0%, #fff 60%, var(--gold-soft) 100%);
+    border:1px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);overflow:hidden;
+    border-top:6px solid var(--gold);
+    margin:36px 0 14px;
+  }
+  @media (min-width:760px){ .jov-card{ grid-template-columns:5fr 7fr;align-items:center; } }
+  .jov-card__photo{
+    aspect-ratio:4/5;overflow:hidden;
+    background:linear-gradient(135deg,var(--gold-soft) 0%,var(--crimson-soft) 100%);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  @media (min-width:760px){ .jov-card__photo{ aspect-ratio:auto;height:100%;min-height:440px; } }
+  .jov-card__photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;}
+  .jov-card__photo .flag{
+    position:absolute;top:18px;left:18px;
+    background:rgba(255,255,255,.94);color:var(--crimson-deep);
+    padding:6px 14px;border-radius:99px;
+    font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;
+    box-shadow:0 2px 12px rgba(0,0,0,.18);
+  }
+  @media (min-width:720px){ .jov-card__photo .flag{ font-size:15px; } }
+
+  .jov-card__body{padding:34px 34px 38px;}
+  @media (min-width:720px){ .jov-card__body{ padding:42px 44px; } }
+  .jov-card__role{
+    font-family:'Cormorant Garamond',serif;
+    font-size:13.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+    color:var(--gold-deep);
+  }
+  @media (min-width:720px){ .jov-card__role{ font-size:15px; } }
+  .jov-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;font-weight:700;color:var(--crimson-deep);
+    line-height:1.15;margin-top:8px;
+  }
+  @media (min-width:720px){ .jov-card h3{ font-size:42px; } }
+  .jov-card h3 small{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:19px;color:var(--ink);font-weight:500;
+    margin-top:8px;letter-spacing:.04em;
+  }
+  @media (min-width:720px){ .jov-card h3 small{ font-size:22px; } }
+  .jov-card__creds{
+    margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .jov-card__cred{
+    background:#fff;border:1px solid var(--line);
+    font-size:14px;font-weight:600;color:var(--crimson-deep);
+    padding:5px 12px;border-radius:99px;letter-spacing:.02em;
+  }
+  @media (min-width:720px){ .jov-card__cred{ font-size:15px; } }
+  .jov-card__cred.is-gold{background:var(--gold-soft);color:var(--gold-deep);border-color:var(--gold-soft);}
+  .jov-card__body p{
+    margin-top:18px;font-size:18px;color:var(--ink);line-height:1.78;
+  }
+  @media (min-width:720px){ .jov-card__body p{ font-size:19.5px; } }
+  .jov-card__body p.zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);margin-top:10px;
+    padding:14px 18px;background:#fff;border-left:3px solid var(--gold);
+    border-radius:0 10px 10px 0;line-height:1.88;
+  }
+  @media (min-width:720px){ .jov-card__body p.zh{ font-size:18px; } }
+  .jov-card__highlights{
+    margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px;
+  }
+  @media (min-width:600px){ .jov-card__highlights{ grid-template-columns:repeat(2,1fr); } }
+  .jov-card__hl{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;display:flex;align-items:flex-start;gap:12px;
+  }
+  .jov-card__hl-icon{
+    flex:0 0 auto;font-size:24px;line-height:1;
+  }
+  .jov-card__hl-text{
+    font-size:15px;color:var(--ink);line-height:1.5;
+  }
+  @media (min-width:720px){ .jov-card__hl-text{ font-size:16px; } }
+  .jov-card__hl-text strong{color:var(--crimson-deep);font-weight:700;}
+  .jov-card__hl-text small{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:13px;color:var(--ink-soft);margin-top:2px;
+  }
+  @media (min-width:720px){ .jov-card__hl-text small{ font-size:14px; } }
+  .jov-card__cta{
+    margin-top:24px;display:inline-flex;align-items:center;gap:8px;
+    padding:12px 24px;background:var(--crimson);color:#fff;
+    border-radius:99px;font-weight:700;font-size:15.5px;text-decoration:none;
+    transition:background .15s;
+  }
+  @media (min-width:720px){ .jov-card__cta{ font-size:16.5px; } }
+  .jov-card__cta:hover{background:var(--crimson-deep);color:#fff;}
+  .jov-card__cta .arrow{font-size:1.2em;}
+
   /* External links */
   .links{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px;}
   @media (min-width:720px){ .links{ grid-template-columns:repeat(2,1fr); } }
@@ -436,8 +536,54 @@
     <p class="lead">An English Village students walk into, Mr. Jov in the corridor, and a SMART school-wide curriculum stitched across the day.</p>
     <p class="lead-zh">一座學生能走進去的英語村、Jov 老師走在走廊上、與一套貫穿一整天的 SMART 校本課程。</p>
 
+    <!-- Mr. Jov feature card -->
+    <article class="jov-card">
+      <div class="jov-card__photo">
+        <img src="../photos/teacher-jov.png" alt="Mr. Jov · 外籍英語老師 Jovanni Rafols Aniban">
+        <span class="flag">🇵🇭 Filipino &middot; 菲律賓籍</span>
+      </div>
+      <div class="jov-card__body">
+        <div class="jov-card__role">Our Foreign English Teacher · 駐校外籍英語教師</div>
+        <h3>Jovanni Rafols Aniban
+          <small>Mr. Jov · Jov 老師</small>
+        </h3>
+        <div class="jov-card__creds">
+          <span class="jov-card__cred is-gold">University of the Philippines</span>
+          <span class="jov-card__cred">English Club Coach</span>
+          <span class="jov-card__cred">English Village Lead</span>
+        </div>
+
+        <p>Mr. Jov &mdash; <strong>Jovanni Rafols Aniban</strong> &mdash; is Minsheng's full-time foreign English teacher and a graduate of the <strong>University of the Philippines</strong>. He coaches our English Club, runs the English Village high-speed-rail-station roleplays, leads Halloween classroom teaching, and hosts our sister-school online exchanges with classmates in <strong>Indonesia</strong> and <strong>India</strong>. He lives in the corridors as much as he lives in the classroom &mdash; which is exactly why students remember the English he uses.</p>
+        <p class="zh"><strong>Jov 老師</strong>是民生駐校的全職外籍英語教師，畢業於菲律賓最高學府<strong>菲律賓大學（University of the Philippines）</strong>。他帶英語俱樂部（讀者劇場去年第 3、今年進步到第 2）、英語村高鐵站角色扮演、萬聖節教學，並主持與印尼 Newton Global School、印度的姊妹校線上文化交流。他走在走廊上的時間，跟在教室裡的時間一樣多——這正是孩子們會記住他英語的原因。</p>
+
+        <div class="jov-card__highlights">
+          <div class="jov-card__hl">
+            <span class="jov-card__hl-icon">🎭</span>
+            <span class="jov-card__hl-text"><strong>English Club &mdash; County Silver</strong><small>讀者劇場去年第 3 → 今年第 2</small></span>
+          </div>
+          <div class="jov-card__hl">
+            <span class="jov-card__hl-icon">🌏</span>
+            <span class="jov-card__hl-text"><strong>Sister Schools</strong><small>印尼 Newton Global School · 印度線上文化交流</small></span>
+          </div>
+          <div class="jov-card__hl">
+            <span class="jov-card__hl-icon">🚄</span>
+            <span class="jov-card__hl-text"><strong>English Village Lead</strong><small>高鐵站、市集、餐廳情境角色扮演</small></span>
+          </div>
+          <div class="jov-card__hl">
+            <span class="jov-card__hl-icon">🎃</span>
+            <span class="jov-card__hl-text"><strong>Halloween Teaching</strong><small>萬聖節單字教學、節慶歌曲帶唱</small></span>
+          </div>
+        </div>
+
+        <a class="jov-card__cta" href="https://sites.google.com/mycultureconnect.org/englishlearningjourney" target="_blank" rel="noopener">
+          Visit Mr. Jov's English Learning Journey
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </article>
+
     <div class="body">
-      <p>Down at the school level, the English Resource Center turns the two outer "hats" into something a six-year-old can actually walk through. There's an <strong>English Village</strong> &mdash; a simulated bilingual environment on campus (high-speed-rail station, market, restaurant scenes) where younger students do their first roleplay before they ever leave the building. There's our foreign teacher <strong>Jovanni Rafols Aniban (Mr. Jov)</strong> &mdash; who lives in the corridors as much as in the classroom. There's an annual cycle of <strong>storytelling and English speech contests</strong>, an <strong>English Reading King (Cool English)</strong> club, and the <strong>SMART</strong> school-wide curriculum &mdash; Science, Math, Art, Reading, Technology &mdash; through which English is woven into subjects, not isolated as one.</p>
+      <p>Down at the school level, the English Resource Center turns the two outer "hats" into something a six-year-old can actually walk through. There's an <strong>English Village</strong> &mdash; a simulated bilingual environment on campus (high-speed-rail station, market, restaurant scenes) where younger students do their first roleplay before they ever leave the building. There's an annual cycle of <strong>storytelling and English speech contests</strong>, an <strong>English Reading King (Cool English)</strong> club, and the <strong>SMART</strong> school-wide curriculum &mdash; Science, Math, Art, Reading, Technology &mdash; through which English is woven into subjects, not isolated as one.</p>
       <p class="zh">在校內層級，英語資源中心把上面兩頂「帽子」，變成六歲孩子可以真正走進去的東西。我們有<strong>英語村</strong>——一個校內的模擬雙語環境（高鐵站、市集、餐廳情境）。我們有外籍英語教師 <strong>Jovanni Rafols Aniban（Jov 老師）</strong>——他活在走廊上的時間，跟在教室裡的時間一樣多。我們有年度循環的<strong>英語說故事比賽</strong>、<strong>Cool English 英閱王</strong>校隊、以及貫穿全校的 <strong>SMART 校本課程</strong>——科學、數學、藝術、閱讀、科技——讓英語融入學科，而不是被孤立成「另外一堂課」。</p>
       <p>The point is not to turn every child into a native speaker. The point is that by the time a Minsheng student leaves grade 6, English will have stopped feeling like a class subject and started feeling like one of the natural sounds of school.</p>
       <p class="zh">這一切的目標，不是要把每個孩子都變成英語母語者。目標是——當一個民生孩子六年級畢業時，英語對他而言，已經不再像是「一個科目」，而像是「校園裡眾多自然聲音之一」。</p>
