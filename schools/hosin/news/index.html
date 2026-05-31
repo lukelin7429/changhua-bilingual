@@ -85,10 +85,18 @@
   .nc__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
   .nc__date{font-size:13.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.06em;}
   .nc__cat{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:99px;}
-  .nc__title{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:17px;color:var(--ink);line-height:1.6;flex:1;}
-  @media (min-width:720px){.nc__title{font-size:18px;}}
-  .nc__title strong{color:var(--forest-deep);}
-  .nc__title .highlight{color:var(--amber-deep);font-weight:700;}
+
+  /* Bilingual title block */
+  .nc__en{
+    font-size:17px;font-weight:600;color:var(--ink);line-height:1.55;
+  }
+  @media (min-width:720px){.nc__en{font-size:18px;}}
+  .nc__en .hi{color:var(--amber-deep);font-weight:700;}
+  .nc__zh{
+    font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-top:4px;
+    border-top:1px dashed var(--line);padding-top:7px;
+  }
 
   /* highlight card for top achievements */
   .nc.is-top{border-left:5px solid var(--amber);background:linear-gradient(135deg,#fffdf7 0%,#fff 100%);}
@@ -170,9 +178,10 @@
         <div class="nc is-top">
           <div class="nc__meta">
             <span class="nc__date">2026-05-19</span>
-            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+            <span class="nc__cat cat-award">Award</span>
           </div>
-          <div class="nc__title">陳瑩瑩主任榮獲彰化縣 115 年度 <span class="highlight">特殊優良教師銅質獎</span></div>
+          <p class="nc__en">Director Chen Ying-ying received the <span class="hi">Bronze Medal for Outstanding Teachers</span> awarded by Changhua County.</p>
+          <p class="nc__zh">陳瑩瑩主任榮獲彰化縣 115 年度特殊優良教師銅質獎</p>
         </div>
 
         <div class="nc is-forest">
@@ -180,7 +189,8 @@
             <span class="nc__date">2026-05-15</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">參加 115 年 <strong>全國小學田徑賽</strong>，為縣爭光</div>
+          <p class="nc__en">The track and field team represented Hosin at the <span class="hi">National Elementary School Track and Field Championships</span>, bringing honour to the county.</p>
+          <p class="nc__zh">參加 115 年全國小學田徑賽，為縣爭光</p>
         </div>
 
         <div class="nc">
@@ -188,7 +198,8 @@
             <span class="nc__date">2026-05-14</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">115 學年度語文競賽分區賽榮獲佳績</div>
+          <p class="nc__en">Students earned distinguished results in the district round of the <span class="hi">Language Arts Competition</span>.</p>
+          <p class="nc__zh">115 學年度語文競賽分區賽榮獲佳績</p>
         </div>
 
         <div class="nc">
@@ -196,7 +207,8 @@
             <span class="nc__date">2026-05-07</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">115 年語文競賽分區賽榮獲佳績</div>
+          <p class="nc__en">Students earned distinguished results in the district round of the <span class="hi">Language Arts Competition</span>.</p>
+          <p class="nc__zh">115 年語文競賽分區賽榮獲佳績</p>
         </div>
 
         <div class="nc">
@@ -204,7 +216,8 @@
             <span class="nc__date">2026-04-07</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">師生參加 <strong>臺灣母語繪本製作比賽</strong>榮獲佳績</div>
+          <p class="nc__en">Teachers and students earned honours in the <span class="hi">Taiwanese Native Language Picture Book Competition</span>.</p>
+          <p class="nc__zh">師生參加臺灣母語繪本製作比賽榮獲佳績</p>
         </div>
 
         <div class="nc">
@@ -212,15 +225,17 @@
             <span class="nc__date">2026-03-24</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">五年戊班胡星彤參加台北城東扶輪社台語演講 <span class="highlight">第三名</span></div>
+          <p class="nc__en">Fifth-grader Hu Xing-tong won <span class="hi">3rd place</span> in the Taiwanese Language Speech Contest hosted by the Taipei East Rotary Club.</p>
+          <p class="nc__zh">五年戊班胡星彤參加台北城東扶輪社台語演講第三名</p>
         </div>
 
         <div class="nc">
           <div class="nc__meta">
             <span class="nc__date">2026-03-13</span>
-            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+            <span class="nc__cat cat-award">Award</span>
           </div>
-          <div class="nc__title">程昱瑄組長性別平等教育徵文<strong>優選</strong></div>
+          <p class="nc__en">Section Chief Cheng Yu-xuan won a <span class="hi">Merit Award</span> in the Gender Equity Education Essay Competition.</p>
+          <p class="nc__zh">程昱瑄組長性別平等教育徵文優選</p>
         </div>
 
         <div class="nc is-forest">
@@ -228,7 +243,8 @@
             <span class="nc__date">2026-03-13</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">田徑隊參加 115 年青年盃全國田徑公開賽佳績</div>
+          <p class="nc__en">The track and field team earned distinguished results at the <span class="hi">Youth Cup National Open Track and Field Meet</span>.</p>
+          <p class="nc__zh">田徑隊參加 115 年青年盃全國田徑公開賽佳績</p>
         </div>
 
         <div class="nc is-top">
@@ -236,7 +252,8 @@
             <span class="nc__date">2026-03-05</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">田徑隊 <span class="highlight">國小女童田徑總錦標全國第三</span> 🥉</div>
+          <p class="nc__en">The track and field team ranked <span class="hi">3rd nationwide</span> in the Girls Elementary School All-Around Track Competition. 🥉</p>
+          <p class="nc__zh">田徑隊國小女童田徑總錦標全國第三</p>
         </div>
 
         <div class="nc is-top">
@@ -244,15 +261,17 @@
             <span class="nc__date">2026-02-02</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">田徑隊彰化縣 115 年中小聯運 <span class="highlight">小女甲組田徑總錦標全縣第一名</span> 🥇</div>
+          <p class="nc__en">The track and field team claimed <span class="hi">1st place in Changhua County</span> in the Girls Division A All-Around event at the Joint Athletic Games. 🥇</p>
+          <p class="nc__zh">田徑隊彰化縣 115 年中小聯運小女甲組田徑總錦標全縣第一名</p>
         </div>
 
         <div class="nc is-water">
           <div class="nc__meta">
             <span class="nc__date">2026-01-21</span>
-            <span class="nc__cat cat-intl" style="background:#e6f4f0;color:#1d6b5a;">Science &amp; Tech</span>
+            <span class="nc__cat cat-intl">Science &amp; Tech</span>
           </div>
-          <div class="nc__title">學生參加 114 學年度<strong>科技教育創意實作競賽</strong>佳績</div>
+          <p class="nc__en">Students earned honours in the <span class="hi">Technology Education Creative Design Competition</span>.</p>
+          <p class="nc__zh">學生參加 114 學年度科技教育創意實作競賽佳績</p>
         </div>
 
         <div class="nc">
@@ -260,7 +279,8 @@
             <span class="nc__date">2026-01-20</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">師生參加臺灣母語創作徵文比賽佳績</div>
+          <p class="nc__en">Teachers and students earned honours in the <span class="hi">Taiwanese Native Language Creative Writing Competition</span>.</p>
+          <p class="nc__zh">師生參加臺灣母語創作徵文比賽佳績</p>
         </div>
 
       </div><!-- .news-grid 2026 -->
@@ -275,7 +295,8 @@
             <span class="nc__date">2025-11-24</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">師生參加 114 年 <strong>全國語文競賽</strong>佳績</div>
+          <p class="nc__en">Teachers and students achieved honours at the <span class="hi">National Language Arts Competition</span>.</p>
+          <p class="nc__zh">師生參加 114 年全國語文競賽佳績</p>
         </div>
 
         <div class="nc is-forest">
@@ -283,7 +304,8 @@
             <span class="nc__date">2025-11-22</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">田徑隊參加 114 年 <strong>屏東盃全國中小學田徑錦標賽</strong>佳績</div>
+          <p class="nc__en">The track and field team earned distinguished results at the <span class="hi">Pingtung Cup National Elementary School Track and Field Championships</span>.</p>
+          <p class="nc__zh">田徑隊參加 114 年屏東盃全國中小學田徑錦標賽佳績</p>
         </div>
 
         <div class="nc is-top">
@@ -291,7 +313,8 @@
             <span class="nc__date">2025-11-21</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">縣長盃五人制足球：六年男乙組 <span class="highlight">亞軍</span>、五年男組 <span class="highlight">第四名</span> ⚽</div>
+          <p class="nc__en">County Mayor's Cup Five-a-Side Football — Grade 6 Boys B Group <span class="hi">Runner-up</span>, Grade 5 Boys Group <span class="hi">4th Place</span>. ⚽</p>
+          <p class="nc__zh">縣長盃五人制足球：六年男乙組亞軍、五年男組第四名</p>
         </div>
 
         <div class="nc">
@@ -299,7 +322,8 @@
             <span class="nc__date">2025-11-03</span>
             <span class="nc__cat cat-academic">Academic</span>
           </div>
-          <div class="nc__title">彰化縣 114 年度英語朗讀比賽<strong>佳作</strong></div>
+          <p class="nc__en">Students received a <span class="hi">Merit Award</span> in the Changhua County English Oral Reading Competition.</p>
+          <p class="nc__zh">彰化縣 114 年度英語朗讀比賽佳作</p>
         </div>
 
         <div class="nc">
@@ -307,7 +331,8 @@
             <span class="nc__date">2025-10-23</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">彰化縣 114 學年度學生美術比賽成績優異</div>
+          <p class="nc__en">Students earned outstanding results in the <span class="hi">Changhua County Student Art Competition</span>.</p>
+          <p class="nc__zh">彰化縣 114 學年度學生美術比賽成績優異</p>
         </div>
 
         <div class="nc">
@@ -315,7 +340,8 @@
             <span class="nc__date">2025-09-22</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">彰化縣 114 年度語文競賽國小組複賽佳績</div>
+          <p class="nc__en">Students earned distinguished results in the district round of the Changhua County <span class="hi">Language Arts Competition</span>.</p>
+          <p class="nc__zh">彰化縣 114 年度語文競賽國小組複賽佳績</p>
         </div>
 
         <div class="nc is-forest">
@@ -323,7 +349,8 @@
             <span class="nc__date">2025-09-20</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">六年甲班江姸欣參加 114 年臺北市秋季 <strong>全國田徑公開賽</strong>佳績</div>
+          <p class="nc__en">Sixth-grader Jiang Yan-xin earned distinguished results at the <span class="hi">Taipei Autumn National Open Track and Field Meet</span>.</p>
+          <p class="nc__zh">六年甲班江姸欣參加 114 年臺北市秋季全國田徑公開賽佳績</p>
         </div>
 
         <div class="nc">
@@ -331,7 +358,8 @@
             <span class="nc__date">2025-09-04</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">彰化縣 114 年度【童畫心世界】繪畫比賽佳績</div>
+          <p class="nc__en">Students earned honours in the Changhua County <span class="hi">"Children's Heart World" Drawing Competition</span>.</p>
+          <p class="nc__zh">彰化縣 114 年度【童畫心世界】繪畫比賽佳績</p>
         </div>
 
         <div class="nc is-forest">
@@ -339,7 +367,8 @@
             <span class="nc__date">2025-08-27</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">六年甲班江姸欣參加 114 年 <strong>台中盃全國中小學田徑賽</strong>佳績</div>
+          <p class="nc__en">Sixth-grader Jiang Yan-xin earned distinguished results at the <span class="hi">Taichung Cup National Elementary School Track and Field Championships</span>.</p>
+          <p class="nc__zh">六年甲班江姸欣參加 114 年台中盃全國中小學田徑賽佳績</p>
         </div>
 
         <div class="nc">
@@ -347,7 +376,8 @@
             <span class="nc__date">2025-08-18</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">田徑隊代表埤頭鄉參加 <strong>彰化縣運</strong>佳績</div>
+          <p class="nc__en">The track and field team represented Pitou Township at the <span class="hi">Changhua County Athletic Games</span>.</p>
+          <p class="nc__zh">田徑隊代表埤頭鄉參加彰化縣運佳績</p>
         </div>
 
         <div class="nc">
@@ -355,7 +385,8 @@
             <span class="nc__date">2025-05-26</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">六年丙班參加 114 年彰化縣體育嘉年華大隊接力佳績</div>
+          <p class="nc__en">Class 6C participated in the <span class="hi">Changhua County Physical Education Carnival Relay Race</span> and earned distinguished results.</p>
+          <p class="nc__zh">六年丙班參加 114 年彰化縣體育嘉年華大隊接力佳績</p>
         </div>
 
         <div class="nc is-top">
@@ -363,7 +394,8 @@
             <span class="nc__date">2025-05-19</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">六年丙班江佳穎代表彰化縣參加全國小學田徑錦標賽：100m <span class="highlight">全國第12名</span>、200m <span class="highlight">全國第11名</span> 🏃‍♀️</div>
+          <p class="nc__en">Class 6C's Jiang Jia-ying represented Changhua County at the National Elementary Track Championships — <span class="hi">100m: 12th nationwide</span>, <span class="hi">200m: 11th nationwide</span>. 🏃‍♀️</p>
+          <p class="nc__zh">六年丙班江佳穎代表彰化縣參加全國小學田徑錦標賽：100m 全國第12名、200m 全國第11名</p>
         </div>
 
         <div class="nc">
@@ -371,15 +403,17 @@
             <span class="nc__date">2025-05-15</span>
             <span class="nc__cat cat-culture">Culture</span>
           </div>
-          <div class="nc__title">114 年南區國小組語文競賽佳績</div>
+          <p class="nc__en">Students earned distinguished results in the <span class="hi">Southern District Elementary School Language Arts Competition</span>.</p>
+          <p class="nc__zh">114 年南區國小組語文競賽佳績</p>
         </div>
 
         <div class="nc is-water">
           <div class="nc__meta">
             <span class="nc__date">2025-04-10</span>
-            <span class="nc__cat cat-intl" style="background:#e6f4f0;color:#1d6b5a;">Science &amp; Tech</span>
+            <span class="nc__cat cat-intl">Science &amp; Tech</span>
           </div>
-          <div class="nc__title">師生參加第 65 屆 <strong>國民中小學科學展覽會</strong>佳作 🔬</div>
+          <p class="nc__en">Teachers and students earned a Merit Award at the <span class="hi">65th National Science Fair</span>. 🔬</p>
+          <p class="nc__zh">師生參加第 65 屆國民中小學科學展覽會佳作</p>
         </div>
 
         <div class="nc">
@@ -387,15 +421,17 @@
             <span class="nc__date">2025-03-28</span>
             <span class="nc__cat cat-academic">Academic</span>
           </div>
-          <div class="nc__title">二年丁班作品刊登《智慧菓》雜誌第 161 期 📖</div>
+          <p class="nc__en">A work by Class 2D was published in <span class="hi">Wisdom Fruit Magazine</span>, Issue 161. 📖</p>
+          <p class="nc__zh">二年丁班作品刊登《智慧菓》雜誌第 161 期</p>
         </div>
 
         <div class="nc is-top">
           <div class="nc__meta">
             <span class="nc__date">2025-03-14</span>
-            <span class="nc__cat cat-award" style="background:#f0e6f8;color:#5b317d;">Award</span>
+            <span class="nc__cat cat-award">Award</span>
           </div>
-          <div class="nc__title">黃于芩老師彰化縣 113 學年度讀報創意達人競賽 <span class="highlight">全縣第二名</span> 🥈</div>
+          <p class="nc__en">Teacher Huang Yu-qin won <span class="hi">2nd place in Changhua County</span> in the Newspaper Reading Creative Teacher Competition. 🥈</p>
+          <p class="nc__zh">黃于芩老師彰化縣 113 學年度讀報創意達人競賽全縣第二名</p>
         </div>
 
         <div class="nc is-forest">
@@ -403,7 +439,8 @@
             <span class="nc__date">2025-03-12</span>
             <span class="nc__cat cat-athletics">Athletics</span>
           </div>
-          <div class="nc__title">六丙江佳穎參加 114 年新北市青年盃全國田徑公開賽佳績</div>
+          <p class="nc__en">Sixth-grader Jiang Jia-ying earned distinguished results at the <span class="hi">New Taipei City Youth Cup National Open Track and Field Meet</span>.</p>
+          <p class="nc__zh">六丙江佳穎參加 114 年新北市青年盃全國田徑公開賽佳績</p>
         </div>
 
       </div><!-- .news-grid 2025 -->
