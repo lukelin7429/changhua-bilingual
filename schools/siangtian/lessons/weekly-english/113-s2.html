@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>113學年第二學期每週英語 · 香田國小</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/siangtian/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lo:#d97706;--lo-bg:#fffbeb;
+  --mi:#059669;--mi-bg:#f0fdf4;
+  --hi:#2563eb;--hi-bg:#eff6ff;
+  --paddy:#527a3e;--paddy-deep:#2f4d24;--paddy-soft:#dde9d3;
+  --rice:#c8a13a;--rice-deep:#8a6a1c;--rice-soft:#f5ecd3;
+  --gold:#caa056;--gold-soft:#f7eed9;
+  --ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+.subnav{background:var(--paddy-soft);padding:12px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+.subnav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18px;}
+.subnav a{color:var(--paddy-deep);text-decoration:none;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;}
+.subnav a:hover{background:#fff;color:var(--rice-deep);}
+.subnav__sep{color:var(--ink-soft);opacity:.4;}
+.banner{background:linear-gradient(135deg,#1a4a3a 0%,#0d2e24 100%);padding:52px 24px 44px;text-align:center;color:#fff;}
+.banner__pre{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:#86d5b8;font-weight:700;margin-bottom:14px;font-family:'Inter',sans-serif;}
+.banner__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:48px;font-weight:600;line-height:1.1;color:#fff;}
+@media(min-width:720px){.banner__title{font-size:66px;}}
+.banner__zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:#a8e6d4;margin-top:10px;letter-spacing:.06em;}
+.banner__meta{font-size:15px;color:#6ecfb4;margin-top:14px;font-family:'PingFang TC',sans-serif;}
+.legend{padding:30px 0 20px;}
+.legend__inner{display:flex;flex-wrap:wrap;gap:12px;}
+.lchip{display:inline-flex;align-items:center;gap:9px;border-radius:99px;padding:9px 20px;font-size:15px;font-weight:600;border:2px solid;}
+.lchip--lo{background:var(--lo-bg);color:var(--lo);border-color:var(--lo);}
+.lchip--mi{background:var(--mi-bg);color:var(--mi);border-color:var(--mi);}
+.lchip--hi{background:var(--hi-bg);color:var(--hi);border-color:var(--hi);}
+.lchip .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.lchip--lo .dot{background:var(--lo);}
+.lchip--mi .dot{background:var(--mi);}
+.lchip--hi .dot{background:var(--hi);}
+.lchip__zh{font-family:'PingFang TC',sans-serif;font-size:13px;opacity:.75;}
+.weeks{padding-bottom:72px;}
+.month-div{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);padding:32px 0 14px;font-weight:700;border-bottom:1px solid var(--line);margin-bottom:18px;}
+.wk{display:grid;grid-template-columns:68px 1fr;gap:20px;margin-bottom:20px;align-items:start;}
+@media(max-width:540px){.wk{grid-template-columns:50px 1fr;gap:12px;}}
+.wk__num{text-align:center;padding-top:4px;}
+.wk__n{display:block;font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:var(--paddy-deep);line-height:1;}
+@media(max-width:540px){.wk__n{font-size:34px;}}
+.wk__d{display:block;font-size:12px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:4px;line-height:1.55;}
+.wk__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:800px){.wk__cols{grid-template-columns:1fr;gap:10px;}}
+.wk__col{border-radius:14px;padding:18px 20px 20px;}
+.wk__col--lo{background:var(--lo-bg);border-top:4px solid var(--lo);}
+.wk__col--mi{background:var(--mi-bg);border-top:4px solid var(--mi);}
+.wk__col--hi{background:var(--hi-bg);border-top:4px solid var(--hi);}
+.wk__col--empty{opacity:.3;}
+.wk__grade{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:11px;display:block;}
+.wk__col--lo .wk__grade{color:var(--lo);}
+.wk__col--mi .wk__grade{color:var(--mi);}
+.wk__col--hi .wk__grade{color:var(--hi);}
+.wk__q{font-size:15px;color:var(--ink-soft);line-height:1.6;font-family:'PingFang TC',sans-serif;display:block;margin-bottom:5px;}
+.wk__a{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:22px;font-weight:600;color:var(--ink);line-height:1.35;display:block;}
+.wk__v{font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:9px;line-height:1.7;font-family:'PingFang TC',sans-serif;display:block;}
+.wk__special{border-radius:14px;padding:22px 28px;text-align:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:22px;font-weight:600;font-style:italic;color:var(--paddy-deep);background:var(--paddy-soft);border:1px solid var(--line);}
+footer{background:#0f1a0c;color:rgba(255,255,255,.65);padding:32px 0;font-size:15px;}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+footer .partner{color:var(--gold-soft);font-weight:600;}
+footer a{color:var(--gold-soft);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../../">Home</a>
+      <span class="subnav__sep">·</span>
+      <a href="../">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="../#weekly">← Weekly English</a>
+    </div>
+  </div>
+</nav>
+
+<header class="banner">
+  <div class="banner__pre">Siangtian Elementary · 香田國小 · Weekly English</div>
+  <div class="banner__title">113學年 第二學期</div>
+  <div class="banner__zh">英語每週一句 時間表</div>
+  <div class="banner__meta">Feb 2025 – Jun 2025 &nbsp;·&nbsp; 第 1–20 週</div>
+</header>
+
+<div class="legend">
+  <div class="wrap">
+    <div class="legend__inner">
+      <span class="lchip lchip--lo"><span class="dot"></span>低年級<span class="lchip__zh">Grades 1 &amp; 2</span></span>
+      <span class="lchip lchip--mi"><span class="dot"></span>中年級<span class="lchip__zh">Grades 3 &amp; 4</span></span>
+      <span class="lchip lchip--hi"><span class="dot"></span>高年級<span class="lchip__zh">Grades 5 &amp; 6</span></span>
+    </div>
+  </div>
+</div>
+
+<section class="weeks">
+<div class="wrap">
+
+<div class="month-div">February · 二月</div>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">1</span><span class="wk__d">02/10<br>02/14</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special">Preparatory Week &nbsp;·&nbsp; 準備週</div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">2</span><span class="wk__d">02/17<br>02/21</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What day is today? 今天星期幾？</span><span class="wk__a">Monday.</span></div>
+    <div class="wk__col wk__col--mi wk__col--empty"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__a">—</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">3</span><span class="wk__d">02/24<br>02/28</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What color is it? 這是什麼顏色？</span><span class="wk__a">Green.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What color is it? 這是什麼顏色？</span><span class="wk__a">It's green.</span><span class="wk__v">red · blue · green · yellow · black</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<div class="month-div">March · 三月</div>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">4</span><span class="wk__d">03/03<br>03/07</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What color is it? 這是什麼顏色？</span><span class="wk__a">Green.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What color is it? 這是什麼顏色？</span><span class="wk__a">It's green.</span><span class="wk__v">red · blue · green · yellow · black</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">5</span><span class="wk__d">03/10<br>03/14</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">How's the weather? 今天天氣怎麼樣？</span><span class="wk__a">Sunny.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">How's the weather? 今天天氣怎麼樣？</span><span class="wk__a">It's sunny.</span><span class="wk__v">rainy · windy · cloudy · snowy</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">6</span><span class="wk__d">03/17<br>03/22</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">How's the weather? 今天天氣怎麼樣？</span><span class="wk__a">Sunny.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">How's the weather? 今天天氣怎麼樣？</span><span class="wk__a">It's sunny.</span><span class="wk__v">rainy · windy · cloudy · snowy</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">7</span><span class="wk__d">03/24<br>03/28</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What time is it? 現在幾點？</span><span class="wk__a">Ten o'clock.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What time is it? 現在幾點？</span><span class="wk__a">______ o'clock.</span><span class="wk__v">seven · eight · nine · ten · eleven · twelve</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">8</span><span class="wk__d">03/31<br>04/04</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What time is it? 現在幾點？</span><span class="wk__a">Ten o'clock.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What time is it? 現在幾點？</span><span class="wk__a">______ o'clock.</span><span class="wk__v">seven · eight · nine · ten · eleven · twelve</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<div class="month-div">April · 四月</div>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">9</span><span class="wk__d">04/07<br>04/11</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What's your favorite fruit? 你最喜歡的水果是什麼？</span><span class="wk__a">Apple.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What's your favorite fruit? 你最喜歡的水果是什麼？</span><span class="wk__a">Apple.</span><span class="wk__v">apple · banana · orange · grape</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">10</span><span class="wk__d">04/14<br>04/18</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special">Midterm Exam &nbsp;·&nbsp; 期中考</div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">11</span><span class="wk__d">04/21<br>04/25</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What season do you like? 你喜歡哪個季節？</span><span class="wk__a">Spring.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What season do you like? 你喜歡哪個季節？</span><span class="wk__a">I like spring.</span><span class="wk__v">spring · summer · fall · winter</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">12</span><span class="wk__d">04/28<br>05/02</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What season do you like? 你喜歡哪個季節？</span><span class="wk__a">Spring.</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What season do you like? 你喜歡哪個季節？</span><span class="wk__a">I like spring.</span><span class="wk__v">spring · summer · fall · winter</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<div class="month-div">May · 五月</div>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">13</span><span class="wk__d">05/05<br>05/09</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special" style="font-style:normal;">Say 0 to 10 &nbsp;·&nbsp; 從零數到十</div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">14</span><span class="wk__d">05/12<br>05/16</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special" style="font-style:normal;">Say 0 to 10 &nbsp;·&nbsp; 從零數到十</div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">15</span><span class="wk__d">05/19<br>05/23</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__a">rice dumplings 粽子</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__a">Happy Dragon Boat Festival! 端午節快樂！</span></div>
+    <div class="wk__col wk__col--hi"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">Happy Dragon Boat Festival!</span><span class="wk__a" style="margin-top:6px;">I like to eat rice dumplings. 我喜歡吃粽子。</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">16</span><span class="wk__d">05/26<br>05/30</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__a">rice dumplings 粽子</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__a">Happy Dragon Boat Festival! 端午節快樂！</span></div>
+    <div class="wk__col wk__col--hi"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">Happy Dragon Boat Festival!</span><span class="wk__a" style="margin-top:6px;">I like to eat rice dumplings. 我喜歡吃粽子。</span></div>
+  </div>
+</article>
+
+<div class="month-div">June · 六月</div>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">17</span><span class="wk__d">06/02<br>06/06</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What do you like to eat? 你喜歡吃什麼？</span><span class="wk__a">Candy. 糖果。</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What do you like to eat? 你喜歡吃什麼？</span><span class="wk__a">I like to eat candy. 我喜歡吃糖果。</span><span class="wk__v">candy 糖果 · cookie 餅乾 · cake 蛋糕 · ice cream 冰淇淋</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">18</span><span class="wk__d">06/09<br>06/13</span></div>
+  <div class="wk__cols">
+    <div class="wk__col wk__col--lo"><span class="wk__grade">低年級 · Gr. 1–2</span><span class="wk__q">What do you like to eat? 你喜歡吃什麼？</span><span class="wk__a">Candy. 糖果。</span></div>
+    <div class="wk__col wk__col--mi"><span class="wk__grade">中年級 · Gr. 3–4</span><span class="wk__q">What do you like to eat? 你喜歡吃什麼？</span><span class="wk__a">I like to eat candy. 我喜歡吃糖果。</span><span class="wk__v">candy 糖果 · cookie 餅乾 · cake 蛋糕 · ice cream 冰淇淋</span></div>
+    <div class="wk__col wk__col--hi wk__col--empty"><span class="wk__grade">高年級 · Gr. 5–6</span><span class="wk__a">—</span></div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">19</span><span class="wk__d">06/16<br>06/20</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special">End of Period Settlement &nbsp;·&nbsp; 期末結算</div>
+  </div>
+</article>
+
+<article class="wk">
+  <div class="wk__num"><span class="wk__n">20</span><span class="wk__d">06/23<br>06/27</span></div>
+  <div class="wk__cols" style="grid-template-columns:1fr;">
+    <div class="wk__special">Final Exam &nbsp;·&nbsp; 期末考</div>
+  </div>
+</article>
+
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2025 彰化縣二林鎮香田國民小學 · Siangtian Elementary School</div>
+    <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+<script>
+(function(){if(window.parent===window)return;function r(){var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight);window.parent.postMessage({type:'siangtian-iframe-height',height:h},'*');}window.addEventListener('load',r);window.addEventListener('resize',r);setTimeout(r,300);setTimeout(r,1200);setTimeout(r,3000);if('ResizeObserver'in window)new ResizeObserver(r).observe(document.body);Array.from(document.images).forEach(function(i){if(!i.complete)i.addEventListener('load',r);});})();
+</script>
+</body>
+</html>
