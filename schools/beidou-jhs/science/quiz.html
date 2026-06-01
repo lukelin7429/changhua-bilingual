@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Science Festival Quiz – Beidou JH</title>
+  <style>
+    :root {
+      --blue: #1a73e8; --dark-blue: #0d47a1;
+      --teal: #00897b; --orange: #f57c00;
+      --red: #e53935; --green: #2e7d32;
+      --purple: #6a1b9a; --gold: #f9a825;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d0d2b; color: #222; }
+
+    /* ── NAV ── */
+    nav {
+      background: #0d47a1; color: #fff;
+      padding: 14px 24px; display: flex; align-items: center; gap: 16px;
+    }
+    nav a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; }
+    nav a:hover { color: #fff; }
+    nav .sep { opacity: .4; }
+    nav .current { color: #ffd54f; font-weight: 600; }
+
+    /* ── FESTIVAL HERO ── */
+    .festival-hero {
+      background:
+        linear-gradient(160deg, rgba(26,5,51,.76) 0%, rgba(13,27,94,.76) 50%, rgba(0,53,48,.76) 100%),
+        url("images/aerial.jpg") center/cover no-repeat;
+      padding: 52px 24px 40px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .confetti-row {
+      font-size: 1.5rem; letter-spacing: 8px;
+      margin-bottom: 16px; animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .festival-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--gold), #ff8f00);
+      color: #1a0533; font-weight: 800; font-size: .8rem;
+      letter-spacing: .12em; border-radius: 20px;
+      padding: 5px 18px; margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .festival-hero h1 {
+      font-size: 2.4rem; font-weight: 900;
+      color: #fff; text-shadow: 0 0 40px rgba(249,168,37,.5);
+      margin-bottom: 6px;
+    }
+    .festival-hero h1 span { color: var(--gold); }
+    .festival-hero .sub { color: rgba(255,255,255,.75); font-size: 1rem; margin-bottom: 24px; }
+
+    /* score board */
+    .score-board {
+      display: inline-flex; gap: 24px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px; padding: 14px 28px;
+    }
+    .score-item { text-align: center; }
+    .score-item .s-num { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
+    .score-item .s-label { font-size: .72rem; color: rgba(255,255,255,.6); letter-spacing: .05em; }
+
+    /* ── QUIZ WRAPPER ── */
+    .quiz-wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 56px; }
+
+    /* ── PART HEADER ── */
+    .part-header {
+      border-radius: 16px; padding: 20px 26px;
+      margin-bottom: 20px; margin-top: 36px;
+      display: flex; align-items: center; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .part-header::after {
+      content: attr(data-part);
+      position: absolute; right: 20px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 5rem; font-weight: 900; opacity: .08; color: #fff;
+      letter-spacing: -.02em;
+    }
+    .ph-blue   { background: linear-gradient(90deg,#1a73e8,#0d47a1); }
+    .ph-teal   { background: linear-gradient(90deg,#00897b,#004d40); }
+    .ph-orange { background: linear-gradient(90deg,#f57c00,#bf360c); }
+    .ph-purple { background: linear-gradient(90deg,#6a1b9a,#311b92); }
+    .part-header .ph-icon { font-size: 2.2rem; }
+    .part-header h2 { font-size: 1.15rem; font-weight: 800; color: #fff; }
+    .part-header p  { font-size: .83rem; color: rgba(255,255,255,.8); margin-top: 2px; }
+    .part-header .pts {
+      margin-left: auto; background: rgba(255,255,255,.2);
+      border-radius: 12px; padding: 4px 14px;
+      font-size: .8rem; font-weight: 700; color: #fff;
+      white-space: nowrap;
+    }
+
+    /* ── QUESTION CARD ── */
+    .q-card {
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 3px 14px rgba(0,0,0,.12);
+      padding: 22px 24px; margin-bottom: 16px;
+    }
+    .q-num-badge {
+      display: inline-block;
+      font-size: .72rem; font-weight: 800; letter-spacing: .08em;
+      border-radius: 6px; padding: 2px 8px; margin-bottom: 10px;
+      color: #fff;
+    }
+    .nb-blue   { background: var(--blue); }
+    .nb-teal   { background: var(--teal); }
+    .nb-orange { background: var(--orange); }
+    .nb-purple { background: var(--purple); }
+
+    .q-text { font-size: .97rem; font-weight: 600; color: #111; margin-bottom: 14px; line-height: 1.5; }
+    .q-cn   { font-size: .8rem; color: #888; margin-top: -10px; margin-bottom: 14px; }
+
+    /* MCQ OPTIONS */
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .opt {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border-radius: 10px;
+      border: 2px solid #e8e8e8; cursor: pointer;
+      font-size: .9rem; transition: all .15s;
+      background: #fafafa;
+    }
+    .opt:hover { border-color: #bbb; background: #f0f0f0; }
+    .opt.selected { border-color: var(--blue); background: #e8f0fe; }
+    .opt.correct  { border-color: var(--green)!important; background: #e8f5e9!important; color: var(--green); font-weight: 600; }
+    .opt.wrong    { border-color: var(--red)!important;   background: #ffebee!important; color: var(--red);   text-decoration: line-through; }
+    .opt-letter {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #e0e0e0; color: #555;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 700; flex-shrink: 0;
+      transition: all .15s;
+    }
+    .opt.selected .opt-letter { background: var(--blue); color: #fff; }
+    .opt.correct  .opt-letter { background: var(--green); color: #fff; }
+    .opt.wrong    .opt-letter { background: var(--red);   color: #fff; }
+
+    /* MATCH (Part 1) */
+    .match-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width:500px) { .match-wrap { grid-template-columns: 1fr; } }
+    .match-col h4 { font-size: .8rem; font-weight: 700; color: #888; letter-spacing: .06em; margin-bottom: 8px; }
+    .match-item {
+      padding: 9px 14px; background: #fafafa;
+      border: 2px solid #e8e8e8; border-radius: 10px;
+      font-size: .88rem; cursor: pointer; transition: all .15s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .match-item .mi-key { font-weight: 700; color: var(--blue); min-width: 20px; }
+    .match-item.mi-right .mi-key { color: var(--teal); }
+    .match-item:hover { border-color: #aaa; }
+    .match-item.selected  { border-color: var(--blue); background: #e8f0fe; }
+    .match-item.matched   { border-color: var(--green); background: #e8f5e9; }
+    .match-item.mismatch  { border-color: var(--red);   background: #ffebee; }
+    select.match-sel {
+      border: 2px solid #e0e0e0; border-radius: 8px; padding: 6px 10px;
+      font-size: .88rem; background: #fff; cursor: pointer;
+      width: 100%; margin-top: 6px;
+    }
+    select.match-sel:focus { outline: none; border-color: var(--blue); }
+    select.match-sel.correct { border-color: var(--green); background: #e8f5e9; }
+    select.match-sel.wrong   { border-color: var(--red);   background: #ffebee; }
+
+    /* FILL BLANK */
+    .fill-blank {
+      display: inline-block;
+      border: none; border-bottom: 2px solid #aaa;
+      padding: 2px 6px; font-size: .97rem;
+      min-width: 120px; background: transparent;
+      color: var(--dark-blue); font-weight: 600;
+      outline: none;
+    }
+    .fill-blank:focus { border-color: var(--blue); }
+    .fill-blank.correct { border-color: var(--green); color: var(--green); }
+    .fill-blank.wrong   { border-color: var(--red);   color: var(--red); }
+
+    /* T/F */
+    .tf-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .tf-btn {
+      padding: 8px 24px; border-radius: 24px; border: 2px solid #e0e0e0;
+      font-size: .9rem; font-weight: 700; cursor: pointer; background: #fafafa;
+      transition: all .15s;
+    }
+    .tf-btn:hover { border-color: #aaa; }
+    .tf-btn.selected  { border-color: var(--blue); background: #e8f0fe; color: var(--blue); }
+    .tf-btn.correct   { border-color: var(--green); background: #e8f5e9; color: var(--green); }
+    .tf-btn.wrong     { border-color: var(--red);   background: #ffebee; color: var(--red); }
+
+    /* FEEDBACK */
+    .feedback {
+      margin-top: 10px; padding: 8px 14px; border-radius: 8px;
+      font-size: .85rem; font-weight: 600; display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.ok  { background: #e8f5e9; color: var(--green); }
+    .feedback.err { background: #ffebee; color: var(--red); }
+
+    /* SUBMIT / RESULT */
+    .quiz-actions { text-align: center; margin-top: 32px; }
+    .check-btn {
+      background: linear-gradient(90deg, #f57c00, #e65100);
+      color: #fff; border: none; border-radius: 30px;
+      padding: 14px 44px; font-size: 1.05rem; font-weight: 800;
+      cursor: pointer; box-shadow: 0 4px 18px rgba(245,124,0,.4);
+      letter-spacing: .04em; transition: all .2s;
+    }
+    .check-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,124,0,.5); }
+
+    .result-panel {
+      display: none;
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 6px 30px rgba(0,0,0,.15);
+      padding: 36px 32px; text-align: center;
+      margin-top: 28px;
+    }
+    .result-panel.show { display: block; }
+    .result-emoji { font-size: 3.5rem; margin-bottom: 10px; }
+    .result-score { font-size: 2.8rem; font-weight: 900; color: var(--orange); }
+    .result-total { font-size: 1.1rem; color: #888; margin-bottom: 10px; }
+    .result-msg { font-size: 1.05rem; font-weight: 600; margin-bottom: 18px; }
+    .result-bar-bg { background: #eee; border-radius: 10px; height: 16px; overflow: hidden; margin: 10px 0 24px; }
+    .result-bar { height: 100%; border-radius: 10px; background: linear-gradient(90deg,#f57c00,#ffd54f); transition: width 1s ease; width: 0; }
+    .retry-btn {
+      background: var(--dark-blue); color: #fff; border: none;
+      border-radius: 24px; padding: 10px 32px; font-size: .9rem;
+      font-weight: 700; cursor: pointer; margin: 6px;
+    }
+    .home-btn {
+      background: #eee; color: #333; border: none;
+      border-radius: 24px; padding: 10px 32px; font-size: .9rem;
+      font-weight: 700; cursor: pointer; margin: 6px; text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <span class="current">🏆 Science Festival Quiz</span>
+</nav>
+
+<!-- FESTIVAL HERO -->
+<div class="festival-hero">
+  <div class="confetti-row">🎊 🤖 🚀 🔬 🎊</div>
+  <div class="festival-badge">✦ Science English Festival ✦</div>
+  <h1>🏆 <span>Quiz Time!</span></h1>
+  <p class="sub">北斗國中 科學英語小考 × 菲律賓交流準備</p>
+  <div class="score-board">
+    <div class="score-item">
+      <div class="s-num" id="live-score">0</div>
+      <div class="s-label">SCORE</div>
+    </div>
+    <div class="score-item">
+      <div class="s-num">25</div>
+      <div class="s-label">TOTAL</div>
+    </div>
+    <div class="score-item">
+      <div class="s-num">4</div>
+      <div class="s-label">PARTS</div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-wrap">
+
+  <!-- ══════════════════════════════
+       PART A — WORD WARRIOR
+  ═══════════════════════════════ -->
+  <div class="part-header ph-blue" data-part="A">
+    <div class="ph-icon">⚔️</div>
+    <div>
+      <h2>Part A — Word Warrior</h2>
+      <p>Match each English word to its Chinese meaning. &nbsp;將英文單字連連看。</p>
+    </div>
+    <div class="pts">6 pts</div>
+  </div>
+
+  <!-- A1 -->
+  <div class="q-card">
+    <div class="q-num-badge nb-blue">A1 — Match</div>
+    <div class="q-text">Match each word to its Chinese meaning. &nbsp;將正確的中文意思填入空格。</div>
+    <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin-top:6px">
+      <thead><tr>
+        <th style="background:#e8f0fe;color:#0d47a1;padding:8px 10px;text-align:left;border-radius:8px 0 0 0">English Word</th>
+        <th style="background:#e8f0fe;color:#0d47a1;padding:8px 10px;text-align:left;border-radius:0 8px 0 0">Chinese Meaning</th>
+      </tr></thead>
+      <tbody id="match-a1">
+        <tr data-ans="b"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>1.</strong> robotic arm</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a1-1"><option value="">— choose —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr data-ans="a"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>2.</strong> assembly</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a1-2"><option value="">— choose —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr data-ans="d"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>3.</strong> gripper</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a1-3"><option value="">— choose —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+        <tr data-ans="c"><td style="padding:8px 10px"><strong>4.</strong> joint</td><td style="padding:8px 10px"><select class="match-sel" data-q="a1-4"><option value="">— choose —</option><option value="a">組裝</option><option value="b">機械手臂</option><option value="c">關節</option><option value="d">夾爪</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- A2 -->
+  <div class="q-card">
+    <div class="q-num-badge nb-blue">A2 — Match</div>
+    <div class="q-text">Match each rocket word to its Chinese meaning. &nbsp;火箭詞彙連連看。</div>
+    <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin-top:6px">
+      <thead><tr>
+        <th style="background:#e0f2f1;color:#004d40;padding:8px 10px;text-align:left">English Word</th>
+        <th style="background:#e0f2f1;color:#004d40;padding:8px 10px;text-align:left">Chinese Meaning</th>
+      </tr></thead>
+      <tbody>
+        <tr data-ans="b"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>5.</strong> air pressure</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a2-1"><option value="">— choose —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr data-ans="c"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>6.</strong> gravity</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a2-2"><option value="">— choose —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr data-ans="d"><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><strong>7.</strong> launch angle</td><td style="padding:8px 10px;border-bottom:1px solid #f0f0f0"><select class="match-sel" data-q="a2-3"><option value="">— choose —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+        <tr data-ans="a"><td style="padding:8px 10px"><strong>8.</strong> trajectory</td><td style="padding:8px 10px"><select class="match-sel" data-q="a2-4"><option value="">— choose —</option><option value="a">軌跡</option><option value="b">氣壓</option><option value="c">重力</option><option value="d">發射角度</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       PART B — SENTENCE BUILDER
+  ═══════════════════════════════ -->
+  <div class="part-header ph-teal" data-part="B">
+    <div class="ph-icon">🧱</div>
+    <div>
+      <h2>Part B — Sentence Builder</h2>
+      <p>Choose the best word to complete each sentence. &nbsp;選出最適合的單字完成句子。</p>
+    </div>
+    <div class="pts">8 pts</div>
+  </div>
+
+  <!-- B1 -->
+  <div class="q-card" data-ans="b" data-part="B">
+    <div class="q-num-badge nb-teal">B1 — Multiple Choice</div>
+    <div class="q-text">The _______ controls each joint of the robotic arm by sending electrical signals.</div>
+    <div class="q-cn">_______（控制器）透過傳送電子訊號來控制機械手臂的每個關節。</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B1')"><div class="opt-letter">A</div> gripper</div>
+      <div class="opt" onclick="selectOpt(this,'B1')"><div class="opt-letter">B</div> servo motor</div>
+      <div class="opt" onclick="selectOpt(this,'B1')"><div class="opt-letter">C</div> launcher</div>
+      <div class="opt" onclick="selectOpt(this,'B1')"><div class="opt-letter">D</div> trajectory</div>
+    </div>
+    <div class="feedback" id="fb-B1"></div>
+  </div>
+
+  <!-- B2 -->
+  <div class="q-card" data-ans="a" data-part="B">
+    <div class="q-num-badge nb-teal">B2 — Multiple Choice</div>
+    <div class="q-text">When you increase the _______, the rocket flies with more force off the launcher.</div>
+    <div class="q-cn">增加_______（氣壓），火箭從發射器飛出的力量就越大。</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B2')"><div class="opt-letter">A</div> air pressure</div>
+      <div class="opt" onclick="selectOpt(this,'B2')"><div class="opt-letter">B</div> joint</div>
+      <div class="opt" onclick="selectOpt(this,'B2')"><div class="opt-letter">C</div> variable</div>
+      <div class="opt" onclick="selectOpt(this,'B2')"><div class="opt-letter">D</div> assembly</div>
+    </div>
+    <div class="feedback" id="fb-B2"></div>
+  </div>
+
+  <!-- B3 -->
+  <div class="q-card" data-ans="c" data-part="B">
+    <div class="q-num-badge nb-teal">B3 — Multiple Choice</div>
+    <div class="q-text">"_______ the arm 90 degrees to the right." — What does this instruction tell the robotic arm to do?</div>
+    <div class="q-cn">這個指令是叫機械手臂做什麼？</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B3')"><div class="opt-letter">A</div> Pick up an object</div>
+      <div class="opt" onclick="selectOpt(this,'B3')"><div class="opt-letter">B</div> Move backward</div>
+      <div class="opt" onclick="selectOpt(this,'B3')"><div class="opt-letter">C</div> Turn / spin the arm</div>
+      <div class="opt" onclick="selectOpt(this,'B3')"><div class="opt-letter">D</div> Close the gripper</div>
+    </div>
+    <div class="feedback" id="fb-B3"></div>
+  </div>
+
+  <!-- B4 -->
+  <div class="q-card" data-ans="b" data-part="B">
+    <div class="q-num-badge nb-teal">B4 — Multiple Choice</div>
+    <div class="q-text">Which sentence pattern is best for <strong>asking a classmate to demonstrate something</strong>?</div>
+    <div class="q-cn">下列哪個句型最適合請同學示範某件事？</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B4')"><div class="opt-letter">A</div> "Our result shows that 45° is best."</div>
+      <div class="opt" onclick="selectOpt(this,'B4')"><div class="opt-letter">B</div> "Can you show me how to operate the controller?"</div>
+      <div class="opt" onclick="selectOpt(this,'B4')"><div class="opt-letter">C</div> "Be careful when you launch the rocket."</div>
+      <div class="opt" onclick="selectOpt(this,'B4')"><div class="opt-letter">D</div> "I think gravity affects distance."</div>
+    </div>
+    <div class="feedback" id="fb-B4"></div>
+  </div>
+
+  <!-- B5 -->
+  <div class="q-card" data-ans="a" data-part="B">
+    <div class="q-num-badge nb-teal">B5 — Multiple Choice</div>
+    <div class="q-text">What does "step by step" mean in science activities?</div>
+    <div class="q-cn">"step by step" 在科學活動中是什麼意思？</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B5')"><div class="opt-letter">A</div> Follow instructions in order, one at a time（按順序，一步一步地）</div>
+      <div class="opt" onclick="selectOpt(this,'B5')"><div class="opt-letter">B</div> Walk carefully around the lab（在實驗室小心走路）</div>
+      <div class="opt" onclick="selectOpt(this,'B5')"><div class="opt-letter">C</div> Skip the hard steps（跳過困難的步驟）</div>
+      <div class="opt" onclick="selectOpt(this,'B5')"><div class="opt-letter">D</div> Repeat each step three times（每個步驟重複三次）</div>
+    </div>
+    <div class="feedback" id="fb-B5"></div>
+  </div>
+
+  <!-- B6 -->
+  <div class="q-card" data-ans="d" data-part="B">
+    <div class="q-num-badge nb-teal">B6 — Multiple Choice</div>
+    <div class="q-text">A student says: "My <strong>hypothesis</strong> is that 45° gives the longest flight distance." What is a hypothesis?</div>
+    <div class="q-cn">學生說：「我的假設是 45° 可以達到最遠的飛行距離。」假設（hypothesis）是什麼？</div>
+    <div class="options">
+      <div class="opt" onclick="selectOpt(this,'B6')"><div class="opt-letter">A</div> A proven fact（已被證明的事實）</div>
+      <div class="opt" onclick="selectOpt(this,'B6')"><div class="opt-letter">B</div> A final conclusion（最終結論）</div>
+      <div class="opt" onclick="selectOpt(this,'B6')"><div class="opt-letter">C</div> A safety rule（安全規則）</div>
+      <div class="opt" onclick="selectOpt(this,'B6')"><div class="opt-letter">D</div> An educated guess to test（一個有根據的猜測，待實驗驗證）</div>
+    </div>
+    <div class="feedback" id="fb-B6"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       PART C — FILL IN THE BLANK
+  ═══════════════════════════════ -->
+  <div class="part-header ph-orange" data-part="C">
+    <div class="ph-icon">✏️</div>
+    <div>
+      <h2>Part C — Science Explorer</h2>
+      <p>Fill in the blanks with the correct word. &nbsp;填入正確的英文單字。</p>
+    </div>
+    <div class="pts">6 pts</div>
+  </div>
+
+  <div style="background:#fff3e0;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:.85rem;color:#e65100;">
+    <strong>Word Bank 單字庫：</strong> &nbsp;
+    gravity &nbsp;|&nbsp; collaborate &nbsp;|&nbsp; fins &nbsp;|&nbsp; precise &nbsp;|&nbsp; variable &nbsp;|&nbsp; observe
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C1</div>
+    <div class="q-text" style="line-height:2">
+      In science experiments, we <strong><input class="fill-blank" data-q="C1" data-ans="observe" placeholder="______"></strong> what happens and write down our findings.
+    </div>
+    <div class="q-cn">在科學實驗中，我們____（觀察）發生的事並記下發現。</div>
+    <div class="feedback" id="fb-C1"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C2</div>
+    <div class="q-text" style="line-height:2">
+      The robotic arm needs to be very <strong><input class="fill-blank" data-q="C2" data-ans="precise" placeholder="______"></strong> to pick up small objects without dropping them.
+    </div>
+    <div class="q-cn">機械手臂需要非常____（精確）才能夾起小物體而不掉落。</div>
+    <div class="feedback" id="fb-C2"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C3</div>
+    <div class="q-text" style="line-height:2">
+      The <strong><input class="fill-blank" data-q="C3" data-ans="fins" placeholder="______"></strong> at the tail of the rocket keep it flying straight and stable.
+    </div>
+    <div class="q-cn">火箭尾部的____（尾翼）讓它保持直線穩定飛行。</div>
+    <div class="feedback" id="fb-C3"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C4</div>
+    <div class="q-text" style="line-height:2">
+      <strong><input class="fill-blank" data-q="C4" data-ans="gravity" placeholder="______"></strong> is the force that pulls every object — including rockets — back toward the Earth.
+    </div>
+    <div class="q-cn">____（重力）是將所有物體（包括火箭）拉回地球的力。</div>
+    <div class="feedback" id="fb-C4"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C5</div>
+    <div class="q-text" style="line-height:2">
+      In this experiment, the launch angle is the <strong><input class="fill-blank" data-q="C5" data-ans="variable" placeholder="______"></strong> we are changing to see how it affects flight distance.
+    </div>
+    <div class="q-cn">在這個實驗中，發射角度是我們改變的____（變因）。</div>
+    <div class="feedback" id="fb-C5"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-orange">C6</div>
+    <div class="q-text" style="line-height:2">
+      To succeed in science activities, students must <strong><input class="fill-blank" data-q="C6" data-ans="collaborate" placeholder="______"></strong> and share their ideas with the team.
+    </div>
+    <div class="q-cn">為了在科學活動中成功，學生必須____（合作）並與團隊分享想法。</div>
+    <div class="feedback" id="fb-C6"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       PART D — TEAM CHALLENGE (T/F + Reflection)
+  ═══════════════════════════════ -->
+  <div class="part-header ph-purple" data-part="D">
+    <div class="ph-icon">🌏</div>
+    <div>
+      <h2>Part D — Philippines Challenge</h2>
+      <p>True or False — Decide if each statement is correct. &nbsp;判斷下列敘述是否正確。</p>
+    </div>
+    <div class="pts">5 pts</div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-purple">D1 — True / False</div>
+    <div class="q-text">A launch angle of 45° gives the maximum flight distance for an air rocket on flat ground.</div>
+    <div class="q-cn">在平地上，45° 的發射角度可以達到空氣火箭最遠的飛行距離。</div>
+    <div class="tf-row">
+      <button class="tf-btn" onclick="selectTF(this,'D1','true')">✅ True</button>
+      <button class="tf-btn" onclick="selectTF(this,'D1','false')">❌ False</button>
+    </div>
+    <div class="feedback" id="fb-D1"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-purple">D2 — True / False</div>
+    <div class="q-text">The gripper of a robotic arm is used to rotate the base of the arm.</div>
+    <div class="q-cn">機械手臂的夾爪是用來旋轉手臂底座的。</div>
+    <div class="tf-row">
+      <button class="tf-btn" onclick="selectTF(this,'D2','false')">✅ True</button>
+      <button class="tf-btn" onclick="selectTF(this,'D2','false')">❌ False</button>
+    </div>
+    <div class="feedback" id="fb-D2"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-purple">D3 — True / False</div>
+    <div class="q-text">When you say "Can you show me how to assemble it?" you are asking someone to teach you a skill.</div>
+    <div class="q-cn">當你說「Can you show me how to assemble it?」時，你是在請別人教你一項技能。</div>
+    <div class="tf-row">
+      <button class="tf-btn" onclick="selectTF(this,'D3','true')">✅ True</button>
+      <button class="tf-btn" onclick="selectTF(this,'D3','false')">❌ False</button>
+    </div>
+    <div class="feedback" id="fb-D3"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-purple">D4 — True / False</div>
+    <div class="q-text">In a science experiment, data refers to the information and numbers you collect from testing.</div>
+    <div class="q-cn">在科學實驗中，數據（data）是指你在測試中收集的資訊和數字。</div>
+    <div class="tf-row">
+      <button class="tf-btn" onclick="selectTF(this,'D4','true')">✅ True</button>
+      <button class="tf-btn" onclick="selectTF(this,'D4','false')">❌ False</button>
+    </div>
+    <div class="feedback" id="fb-D4"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-badge nb-purple">D5 — True / False</div>
+    <div class="q-text">"That's interesting! In my school, we use GIGO kits." is a good phrase for sharing with international students.</div>
+    <div class="q-cn">「That's interesting! In my school, we use GIGO kits.」是一個很適合與國際學生交流分享的句子。</div>
+    <div class="tf-row">
+      <button class="tf-btn" onclick="selectTF(this,'D5','true')">✅ True</button>
+      <button class="tf-btn" onclick="selectTF(this,'D5','false')">❌ False</button>
+    </div>
+    <div class="feedback" id="fb-D5"></div>
+  </div>
+
+  <!-- ── SUBMIT ── -->
+  <div class="quiz-actions">
+    <button class="check-btn" onclick="checkAll()">🏆 Check My Score!</button>
+
+    <div class="result-panel" id="result-panel">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <div class="result-score" id="result-score">0</div>
+      <div class="result-total">/ 25 points</div>
+      <div class="result-bar-bg"><div class="result-bar" id="result-bar"></div></div>
+      <div class="result-msg" id="result-msg"></div>
+      <button class="retry-btn" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="home-btn" href="index.html">← Back to Home</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ── State ── */
+const answers = {
+  // Part A (matching): q-id → correct value
+  'a1-1':'b','a1-2':'a','a1-3':'d','a1-4':'c',
+  'a2-1':'b','a2-2':'c','a2-3':'d','a2-4':'a',
+  // Part B (MCQ): questionId → correct letter index (0=A)
+  'B1':'b','B2':'a','B3':'c','B4':'b','B5':'a','B6':'d',
+  // Part C (fill): questionId → answer string (lowercase)
+  'C1':'observe','C2':'precise','C3':'fins','C4':'gravity','C5':'variable','C6':'collaborate',
+  // Part D (T/F): questionId → 'true'|'false'
+  'D1':'true','D2':'false','D3':'true','D4':'true','D5':'true'
+};
+
+const userAnswers = {};
+
+/* ── MCQ ── */
+function selectOpt(el, qId) {
+  const card = el.closest('.q-card');
+  card.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  const idx = ['A','B','C','D'].indexOf(el.querySelector('.opt-letter').textContent);
+  userAnswers[qId] = ['a','b','c','d'][idx];
+}
+
+/* ── T/F ── */
+function selectTF(el, qId, val) {
+  const card = el.closest('.q-card');
+  card.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qId] = val;
+}
+
+/* ── Score Tracking ── */
+function updateLiveScore() {
+  // simplified: just count filled answers
+  document.getElementById('live-score').textContent = Object.keys(userAnswers).length;
+}
+
+/* ── Check All ── */
+function checkAll() {
+  let score = 0;
+
+  // Part A — selects
+  document.querySelectorAll('select.match-sel').forEach(sel => {
+    const qId = sel.dataset.q;
+    const correct = answers[qId];
+    if (sel.value === correct) { sel.classList.add('correct'); sel.classList.remove('wrong'); score++; }
+    else { sel.classList.add('wrong'); sel.classList.remove('correct'); }
+  });
+
+  // Part B — MCQ
+  ['B1','B2','B3','B4','B5','B6'].forEach(qId => {
+    const card = document.querySelector(`.q-card[data-ans="${answers[qId]}"][data-part="B"]`) ||
+                 findCardByQ(qId);
+    const opts = document.querySelectorAll(`#fb-${qId}`)[0]?.closest('.q-card')?.querySelectorAll('.opt');
+    const fb = document.getElementById(`fb-${qId}`);
+    if (!opts) return;
+    const correctIdx = ['a','b','c','d'].indexOf(answers[qId]);
+    const ua = userAnswers[qId];
+    const uaIdx = ['a','b','c','d'].indexOf(ua);
+    opts.forEach((o,i) => {
+      if(i === correctIdx){ o.classList.add('correct'); }
+      else if(i === uaIdx){ o.classList.add('wrong'); }
+    });
+    if(ua === answers[qId]){ score++; fb.textContent='✓ Correct!'; fb.className='feedback show ok'; }
+    else { fb.textContent='✗ The correct answer is: '+['A','B','C','D'][correctIdx]; fb.className='feedback show err'; }
+  });
+
+  // Part C — fill blanks
+  document.querySelectorAll('input.fill-blank').forEach(inp => {
+    const qId = inp.dataset.q;
+    const correct = inp.dataset.ans.toLowerCase();
+    const val = inp.value.trim().toLowerCase();
+    const fb = document.getElementById(`fb-${qId}`);
+    if(val === correct){ inp.classList.add('correct'); score++; fb.textContent='✓ Correct!'; fb.className='feedback show ok'; }
+    else { inp.classList.add('wrong'); fb.textContent=`✗ Answer: ${inp.dataset.ans}`; fb.className='feedback show err'; }
+  });
+
+  // Part D — T/F
+  ['D1','D2','D3','D4','D5'].forEach(qId => {
+    const fb = document.getElementById(`fb-${qId}`);
+    const card = fb.closest('.q-card');
+    const btns = card.querySelectorAll('.tf-btn');
+    const ua = userAnswers[qId];
+    const correct = answers[qId];
+    btns.forEach(b => {
+      const bVal = b.textContent.includes('True') ? 'true' : 'false';
+      if(bVal === correct){ b.classList.add('correct'); }
+      else if(b.classList.contains('selected')){ b.classList.add('wrong'); }
+    });
+    if(ua === correct){ score++; fb.textContent='✓ Correct!'; fb.className='feedback show ok'; }
+    else if(ua){ fb.textContent=`✗ Answer: ${correct==='true'?'True':'False'}`; fb.className='feedback show err'; }
+    else { fb.textContent='✗ No answer selected.'; fb.className='feedback show err'; }
+  });
+
+  // Show result
+  const pct = Math.round(score/25*100);
+  document.getElementById('result-score').textContent = score;
+  document.getElementById('live-score').textContent = score;
+  const msgs = [
+    [0,39,'Keep studying! 繼續加油！📚 Review the vocabulary page and try again.','😢'],
+    [40,59,'Good effort! 不錯的努力！ You know many science words — keep practicing!','🙂'],
+    [60,79,'Great job! 很棒！ You\'re getting ready for the Philippines exchange! 🇵🇭','😊'],
+    [80,95,'Excellent! 優秀！ Your science English is really impressive!','🌟'],
+    [96,100,'PERFECT! 完美！ You\'re 100% ready to wow the Filipino students! 🎉🏆','🏆']
+  ];
+  const m = msgs.find(([lo,hi]) => pct>=lo && pct<=hi);
+  document.getElementById('result-emoji').textContent = m[3];
+  document.getElementById('result-msg').textContent = m[2];
+  const panel = document.getElementById('result-panel');
+  panel.classList.add('show');
+  setTimeout(()=>{ document.getElementById('result-bar').style.width = pct+'%'; },100);
+  panel.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function retryQuiz(){
+  location.reload();
+}
+</script>
+</body>
+</html>

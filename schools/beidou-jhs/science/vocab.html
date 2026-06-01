@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocabulary & Sentence Patterns – Beidou Science</title>
+  <style>
+    :root {
+      --blue: #1a73e8; --dark-blue: #0d47a1;
+      --teal: #00897b; --dark-teal: #004d40;
+      --orange: #f57c00; --bg: #f0f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #222; }
+
+    nav {
+      background: var(--dark-blue); color: #fff;
+      padding: 14px 24px; display: flex; align-items: center; gap: 16px;
+    }
+    nav a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; }
+    nav a:hover { color: #fff; }
+    nav .sep { opacity: .4; }
+    nav .current { color: #ffd54f; font-weight: 600; }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(26,115,232,.70) 0%, rgba(13,71,161,.70) 100%),
+        url("images/tree-path.jpg") center/cover no-repeat;
+      color: #fff; padding: 40px 24px 32px; text-align: center;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 6px; }
+    .hero p { opacity: .85; font-size: .95rem; }
+
+    .main { max-width: 980px; margin: 0 auto; padding: 36px 24px; }
+
+    /* ── SECTION HEADER ── */
+    .sec-header {
+      border-radius: 14px; padding: 18px 24px; margin-bottom: 24px; margin-top: 48px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sec-header-blue   { background: linear-gradient(90deg,#1a73e8,#0d47a1); color: #fff; }
+    .sec-header-teal   { background: linear-gradient(90deg,#00897b,#004d40); color: #fff; }
+    .sec-header-orange { background: linear-gradient(90deg,#f57c00,#bf360c); color: #fff; }
+    .sec-header .icon { font-size: 2rem; }
+    .sec-header h2 { font-size: 1.2rem; font-weight: 700; }
+    .sec-header p  { font-size: .85rem; opacity: .85; margin-top: 2px; }
+
+    /* ── WORD GROUP ── */
+    .word-group {
+      background: #fff; border-radius: 18px;
+      box-shadow: 0 3px 14px rgba(0,0,0,.09);
+      overflow: hidden; margin-bottom: 28px;
+    }
+    .word-group-header {
+      padding: 16px 22px;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .wgh-blue   { background: #e8f0fe; }
+    .wgh-teal   { background: #e0f2f1; }
+    .wgh-orange { background: #fff3e0; }
+    .word-group-header h3 { font-size: 1rem; font-weight: 700; }
+    .wgh-blue h3   { color: var(--dark-blue); }
+    .wgh-teal h3   { color: var(--dark-teal); }
+    .wgh-orange h3 { color: #bf360c; }
+    .word-group-header .wg-label {
+      margin-left: auto; font-size: .72rem; font-weight: 700;
+      letter-spacing: .08em; padding: 3px 10px; border-radius: 8px; color: #fff;
+    }
+    .label-blue   { background: var(--blue); }
+    .label-teal   { background: var(--teal); }
+    .label-orange { background: var(--orange); }
+
+    /* ── EMBEDDED VIDEO ── */
+    .vc__video {
+      position: relative;
+      padding-bottom: 56.25%;   /* 16:9 */
+      height: 0; overflow: hidden;
+      background: #000;
+    }
+    .vc__video iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: 0;
+    }
+    .video-caption {
+      padding: 10px 18px 14px;
+      font-size: .8rem; color: #666; background: #fafafa;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .video-caption strong { color: #333; }
+
+    /* ── WORD CARDS ── */
+    .word-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 12px; padding: 18px 18px 20px;
+    }
+    .word-card {
+      border-radius: 10px; padding: 13px 15px;
+      border-top: 3px solid; background: #fafafa;
+      transition: transform .15s;
+    }
+    .word-card:hover { transform: translateY(-2px); }
+    .word-card.blue   { border-color: var(--blue);   }
+    .word-card.teal   { border-color: var(--teal);   }
+    .word-card.orange { border-color: var(--orange); }
+    .word-card .num { font-size: .68rem; font-weight: 700; letter-spacing: .06em; margin-bottom: 5px; }
+    .word-card.blue .num   { color: var(--blue);   }
+    .word-card.teal .num   { color: var(--teal);   }
+    .word-card.orange .num { color: var(--orange); }
+    .word-card .en { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .word-card .cn { font-size: .8rem; color: #666; margin-bottom: 6px; }
+    .word-card .eg { font-size: .76rem; color: #888; font-style: italic;
+      background: #f0f0f0; border-radius: 5px; padding: 4px 7px; line-height: 1.5; }
+
+    /* ── TWO-VIDEO LAYOUT ── */
+    .two-videos {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    @media(max-width: 600px) { .two-videos { grid-template-columns: 1fr; } }
+    .two-videos .vc__video { border-right: 1px solid #222; }
+    .two-videos .vc__video:last-child { border-right: none; }
+
+    /* ── SENTENCE PATTERNS ── */
+    .patterns-title {
+      font-size: 1.3rem; font-weight: 700; color: var(--dark-blue);
+      margin-bottom: 6px; margin-top: 8px;
+    }
+    .patterns-sub { color: #555; font-size: .9rem; margin-bottom: 20px; }
+    .pattern-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+    .pattern-item {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+      padding: 16px 20px;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 14px; align-items: start;
+    }
+    .pattern-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--dark-blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+    }
+    .pattern-num.teal { background: var(--teal); }
+    .pattern-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .pattern-content .blank { color: var(--blue); font-style: italic; }
+    .pattern-content .blank.teal { color: var(--teal); }
+    .pattern-content .cn-label { font-size: .8rem; color: #888; margin-bottom: 6px; }
+    .pattern-content .examples { font-size: .83rem; color: #444; line-height: 1.7; }
+    .pattern-content .examples span {
+      display: inline-block; background: #f0f4ff; border-radius: 4px;
+      padding: 1px 6px; margin: 2px;
+    }
+
+    .tip-box {
+      background: #fff8e1; border: 1.5px solid #ffd54f;
+      border-radius: 12px; padding: 16px 20px; margin-bottom: 32px;
+    }
+    .tip-box h4 { font-size: .95rem; font-weight: 700; color: #f57f17; margin-bottom: 6px; }
+    .tip-box ul { padding-left: 18px; }
+    .tip-box li { font-size: .85rem; color: #555; line-height: 1.8; }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--dark-blue); color: #fff;
+      text-decoration: none; border-radius: 24px;
+      padding: 8px 20px; font-size: .85rem; font-weight: 600;
+      margin-bottom: 28px; transition: opacity .2s;
+    }
+    .back-btn:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <span class="current">Vocabulary &amp; Sentence Patterns</span>
+</nav>
+
+<div class="hero">
+  <h1>📖 Vocabulary &amp; Sentence Patterns</h1>
+  <p>單字與句型 — GIGO Robotic Arm + Air Paper Rocket</p>
+</div>
+
+<div class="main">
+
+  <!-- ═══════════════════════════════════
+       TOPIC 1: GIGO ROBOTIC ARM
+  ════════════════════════════════════ -->
+  <div class="sec-header sec-header-blue">
+    <div class="icon">🤖</div>
+    <div>
+      <h2>Topic 1 — GIGO Robotic Arm &nbsp;機械手臂</h2>
+      <p>Assembly · Joints · Operation · Control</p>
+    </div>
+  </div>
+
+  <!-- Word Group 1: The Machine -->
+  <div class="word-group">
+    <div class="word-group-header wgh-blue">
+      <span>🔩</span>
+      <h3>Word Group 1 — The Machine &nbsp;認識機械手臂</h3>
+      <span class="wg-label label-blue">WORDS 01–05</span>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/PMQjo716tYY?rel=0"
+              title="GIGO Robotic Arm – Assembly Demo"
+              allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      📺 <strong>Watch:</strong> GIGO Robotic Arm — See how the arm is built and what it can do. 看看機械手臂如何組裝與運作。
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card blue">
+        <div class="num">WORD 01</div>
+        <div class="en">robotic arm</div>
+        <div class="cn">機械手臂</div>
+        <div class="eg">"Can you move the <strong>robotic arm</strong> to the left?"</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 02</div>
+        <div class="en">assembly</div>
+        <div class="cn">組裝</div>
+        <div class="eg">"Let's start the <strong>assembly</strong> step by step."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 03</div>
+        <div class="en">components</div>
+        <div class="cn">零件／組件</div>
+        <div class="eg">"Check that all <strong>components</strong> are here."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 04</div>
+        <div class="en">joint</div>
+        <div class="cn">關節／連接處</div>
+        <div class="eg">"The <strong>joint</strong> lets the arm bend and rotate."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 05</div>
+        <div class="en">gripper</div>
+        <div class="cn">夾爪</div>
+        <div class="eg">"Use the <strong>gripper</strong> to pick up the object."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Word Group 2: Control & Movement -->
+  <div class="word-group">
+    <div class="word-group-header wgh-blue">
+      <span>🎮</span>
+      <h3>Word Group 2 — Control &amp; Movement &nbsp;控制與動作</h3>
+      <span class="wg-label label-blue">WORDS 06–10</span>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/0r-SvAXIN3s?rel=0"
+              title="GIGO Robotic Arm Operation – servo motor and controller"
+              allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      📺 <strong>Watch:</strong> GIGO Robotic Arm #1246R — Learn how the servo motor and controller work together. 了解伺服馬達與控制器如何配合運作。
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card blue">
+        <div class="num">WORD 06</div>
+        <div class="en">servo motor</div>
+        <div class="cn">伺服馬達</div>
+        <div class="eg">"The <strong>servo motor</strong> controls the arm's movement."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 07</div>
+        <div class="en">operate / operation</div>
+        <div class="cn">操作／操控</div>
+        <div class="eg">"I will <strong>operate</strong> the arm now."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 08</div>
+        <div class="en">controller</div>
+        <div class="cn">控制器</div>
+        <div class="eg">"Pass me the <strong>controller</strong>, please."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 09</div>
+        <div class="en">rotate</div>
+        <div class="cn">旋轉</div>
+        <div class="eg">"<strong>Rotate</strong> the base 90 degrees to the right."</div>
+      </div>
+      <div class="word-card blue">
+        <div class="num">WORD 10</div>
+        <div class="en">precise / precision</div>
+        <div class="cn">精確／精準度</div>
+        <div class="eg">"Good <strong>precision</strong> is key for a robotic arm."</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       TOPIC 2: AIR PAPER ROCKET
+  ════════════════════════════════════ -->
+  <div class="sec-header sec-header-teal">
+    <div class="icon">🚀</div>
+    <div>
+      <h2>Topic 2 — Air Paper Rocket &nbsp;空氣紙火箭</h2>
+      <p>Construction · Launch · Air Pressure · Physics</p>
+    </div>
+  </div>
+
+  <!-- Word Group 3: Build Your Rocket -->
+  <div class="word-group">
+    <div class="word-group-header wgh-teal">
+      <span>🛠️</span>
+      <h3>Word Group 3 — Build Your Rocket &nbsp;製作你的火箭</h3>
+      <span class="wg-label label-teal">WORDS 11–15</span>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/HdSnUpfJocs?rel=0"
+              title="Paper Rockets and Launcher – The Sci Guys"
+              allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      📺 <strong>Watch:</strong> Paper Rockets and Launcher — The Sci Guys show you how to build and launch an air rocket. 科學小子示範如何製作並發射空氣紙火箭。
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card teal">
+        <div class="num">WORD 11</div>
+        <div class="en">air rocket</div>
+        <div class="cn">空氣火箭</div>
+        <div class="eg">"We made a paper <strong>air rocket</strong> in science class."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 12</div>
+        <div class="en">launcher</div>
+        <div class="cn">發射器</div>
+        <div class="eg">"Place your rocket on the <strong>launcher</strong>."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 13</div>
+        <div class="en">launch</div>
+        <div class="cn">發射</div>
+        <div class="eg">"Ready? Let's <strong>launch</strong> the rocket!"</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 14</div>
+        <div class="en">fin / nose cone</div>
+        <div class="cn">尾翼／火箭頭</div>
+        <div class="eg">"The <strong>fins</strong> help the rocket fly straight."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 15</div>
+        <div class="en">construct</div>
+        <div class="cn">建造／製作</div>
+        <div class="eg">"We need 30 minutes to <strong>construct</strong> the rocket."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Word Group 4: The Science of Flight -->
+  <div class="word-group">
+    <div class="word-group-header wgh-teal">
+      <span>🔬</span>
+      <h3>Word Group 4 — The Science of Flight &nbsp;飛行科學</h3>
+      <span class="wg-label label-teal">WORDS 16–20</span>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/AweP9Rbryhs?rel=0"
+              title="Paper Rockets for Under Five Dollars – Physics"
+              allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      📺 <strong>Watch:</strong> Paper Rockets (Physics) — Understand air pressure, gravity, trajectory, and launch angles in action. 從影片中看懂氣壓、重力、軌跡與發射角度的科學原理。
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card teal">
+        <div class="num">WORD 16</div>
+        <div class="en">air pressure</div>
+        <div class="cn">氣壓</div>
+        <div class="eg">"More <strong>air pressure</strong> = longer flight distance."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 17</div>
+        <div class="en">gravity</div>
+        <div class="cn">重力</div>
+        <div class="eg">"<strong>Gravity</strong> pulls the rocket back down."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 18</div>
+        <div class="en">launch angle</div>
+        <div class="cn">發射角度</div>
+        <div class="eg">"Change the <strong>launch angle</strong> to 45 degrees."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 19</div>
+        <div class="en">trajectory</div>
+        <div class="cn">飛行軌跡</div>
+        <div class="eg">"A 45° angle gives the best <strong>trajectory</strong>."</div>
+      </div>
+      <div class="word-card teal">
+        <div class="num">WORD 20</div>
+        <div class="en">flight distance</div>
+        <div class="cn">飛行距離</div>
+        <div class="eg">"Measure the <strong>flight distance</strong> in meters."</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       COMMON WORDS
+  ════════════════════════════════════ -->
+  <div class="sec-header sec-header-orange">
+    <div class="icon">🌟</div>
+    <div>
+      <h2>Common Science Words &nbsp;共用科學詞彙</h2>
+      <p>Both Topics · Science Communication Basics</p>
+    </div>
+  </div>
+
+  <div class="word-group">
+    <div class="word-group-header wgh-orange">
+      <span>🔁</span>
+      <h3>Word Group 5 — Science Communication &nbsp;科學交流必備詞</h3>
+      <span class="wg-label label-orange">WORDS 21–28</span>
+    </div>
+
+    <div class="vc__video">
+      <iframe src="https://www.youtube-nocookie.com/embed/PuTfak_etqM?rel=0"
+              title="Make your own Rocket Launcher! – Nanogirl's Lab STEM activities"
+              allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      📺 <strong>Watch:</strong> Nanogirl's Lab — See how scientists observe, record, and share their results. 看看科學家如何觀察、記錄並分享成果。
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card orange">
+        <div class="num">WORD 21</div>
+        <div class="en">observe / observation</div>
+        <div class="cn">觀察</div>
+        <div class="eg">"What do you <strong>observe</strong>?"</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 22</div>
+        <div class="en">record</div>
+        <div class="cn">記錄</div>
+        <div class="eg">"Please <strong>record</strong> your results in the table."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 23</div>
+        <div class="en">hypothesis</div>
+        <div class="cn">假設</div>
+        <div class="eg">"My <strong>hypothesis</strong> is that 45° is the best angle."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 24</div>
+        <div class="en">variable</div>
+        <div class="cn">變因</div>
+        <div class="eg">"Angle is the <strong>variable</strong> we are testing."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 25</div>
+        <div class="en">result / data</div>
+        <div class="cn">結果／數據</div>
+        <div class="eg">"Our <strong>data</strong> shows a clear pattern."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 26</div>
+        <div class="en">conclude / conclusion</div>
+        <div class="cn">結論</div>
+        <div class="eg">"Our <strong>conclusion</strong> is that angle affects distance."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 27</div>
+        <div class="en">safety rules</div>
+        <div class="cn">安全規則</div>
+        <div class="eg">"Always follow the <strong>safety rules</strong>."</div>
+      </div>
+      <div class="word-card orange">
+        <div class="num">WORD 28</div>
+        <div class="en">collaborate</div>
+        <div class="cn">合作</div>
+        <div class="eg">"We need to <strong>collaborate</strong> as a team."</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SENTENCE PATTERNS
+  ════════════════════════════════════ -->
+  <div class="sec-header sec-header-blue" style="margin-top:48px">
+    <div class="icon">💬</div>
+    <div>
+      <h2>Sentence Patterns &nbsp;句型練習</h2>
+      <p>10 key frames for hands-on science activities &amp; international exchange</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 Pronunciation Tips for Filipino English</h4>
+    <ul>
+      <li><strong>robot</strong> → ROH-bot &nbsp;|&nbsp; <strong>assemble</strong> → uh-SEM-bul &nbsp;|&nbsp; <strong>trajectory</strong> → truh-JEK-tuh-ree</li>
+      <li><strong>pressure</strong> → PRESH-er &nbsp;|&nbsp; <strong>gravity</strong> → GRAV-ih-tee &nbsp;|&nbsp; <strong>variable</strong> → VAIR-ee-uh-bul</li>
+      <li>Filipino English speakers often use <strong>rising intonation</strong> for statements — don't worry if it sounds like a question!</li>
+    </ul>
+  </div>
+
+  <div class="pattern-list">
+    <div class="pattern-item">
+      <div class="pattern-num">1</div>
+      <div class="pattern-content">
+        <h4>How do you <span class="blank">[verb]</span> the <span class="blank">[noun]</span>?</h4>
+        <div class="cn-label">詢問操作方式</div>
+        <div class="examples">
+          <span>How do you <strong>assemble</strong> the robotic arm?</span>
+          <span>How do you <strong>launch</strong> the rocket?</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num">2</div>
+      <div class="pattern-content">
+        <h4>Can you show me how to <span class="blank">[verb]</span> it?</h4>
+        <div class="cn-label">請對方示範</div>
+        <div class="examples">
+          <span>Can you show me how to <strong>operate</strong> the controller?</span>
+          <span>Can you show me how to <strong>measure</strong> the distance?</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num">3</div>
+      <div class="pattern-content">
+        <h4>Let me try to <span class="blank">[verb]</span> it.</h4>
+        <div class="cn-label">表達想嘗試</div>
+        <div class="examples">
+          <span>Let me try to <strong>rotate</strong> the arm.</span>
+          <span>Let me try to <strong>adjust</strong> the angle.</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num">4</div>
+      <div class="pattern-content">
+        <h4>My group is <span class="blank">[verb+ing]</span> the <span class="blank">[noun]</span>.</h4>
+        <div class="cn-label">描述小組正在做的事</div>
+        <div class="examples">
+          <span>My group is <strong>assembling</strong> the robotic arm.</span>
+          <span>My group is <strong>testing</strong> different launch angles.</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num teal">5</div>
+      <div class="pattern-content">
+        <h4>Be careful when you <span class="blank teal">[verb]</span>.</h4>
+        <div class="cn-label">給出安全提醒</div>
+        <div class="examples">
+          <span>Be careful when you <strong>use</strong> the gripper.</span>
+          <span>Be careful when you <strong>launch</strong> the rocket.</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num teal">6</div>
+      <div class="pattern-content">
+        <h4>What happens when you <span class="blank teal">[verb]</span> the <span class="blank teal">[noun]</span>?</h4>
+        <div class="cn-label">詢問實驗結果</div>
+        <div class="examples">
+          <span>What happens when you <strong>increase</strong> the air pressure?</span>
+          <span>What happens when you <strong>change</strong> the angle to 60°?</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num teal">7</div>
+      <div class="pattern-content">
+        <h4>I think the <span class="blank teal">[noun]</span> affects <span class="blank teal">[noun]</span> because …</h4>
+        <div class="cn-label">表達科學推論</div>
+        <div class="examples">
+          <span>I think the <strong>angle</strong> affects <strong>flight distance</strong> because …</span>
+          <span>I think the <strong>motor</strong> affects <strong>arm speed</strong> because …</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num teal">8</div>
+      <div class="pattern-content">
+        <h4>Our result shows that <span class="blank teal">[finding]</span>.</h4>
+        <div class="cn-label">報告實驗結果</div>
+        <div class="examples">
+          <span>Our result shows that <strong>45° gives the longest distance</strong>.</span>
+          <span>Our result shows that <strong>the arm can lift small objects</strong>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num">9</div>
+      <div class="pattern-content">
+        <h4>In Taiwan, we also <span class="blank">[verb]</span> … Do you do this in the Philippines?</h4>
+        <div class="cn-label">與國際夥伴交流</div>
+        <div class="examples">
+          <span>In Taiwan, we also use GIGO kits. Do you have <strong>robotics clubs</strong> at your school?</span>
+        </div>
+      </div>
+    </div>
+    <div class="pattern-item">
+      <div class="pattern-num">10</div>
+      <div class="pattern-content">
+        <h4>That's interesting! In my school, we <span class="blank">[fact]</span>.</h4>
+        <div class="cn-label">分享與回應</div>
+        <div class="examples">
+          <span>That's interesting! In my school, we test <strong>three different angles</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="back-btn" href="index.html">← Back to Home</a>
+
+</div>
+</body>
+</html>
