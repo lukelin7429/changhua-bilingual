@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>School News · 學校新聞 · Mingli Elementary School</title>
+<meta name="description" content="News and activities from Mingli Elementary School — sports days, art performances, bilingual events, eco-education, and the everyday life of Tianzhong's most spirited small school. 明禮國小最新消息——運動會、藝文展演、雙語活動、生態教育與田中最有精神的小學日常。">
+<meta property="og:title" content="School News · 學校新聞 · Mingli Elementary School">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --g-deep:#1a4330;--g:#2d7a52;--g-light:#52b788;--g-soft:#d8f3dc;
+    --gold:#c8922a;--gold-soft:#fdf8e7;--gold-deep:#7d5a0a;
+    --earth:#a0522d;--earth-soft:#f5e6d8;
+    --ink:#1a2a1e;--ink-soft:#536653;--line:#d4e8d7;
+    --shadow:0 14px 38px -16px rgba(26,67,48,.28);
+    --shadow-sm:0 6px 16px -6px rgba(26,67,48,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media(min-width:720px){section{padding:80px 0;}}
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Playfair Display',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media(min-width:720px){.sec__no{font-size:25px;}}
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--g-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media(min-width:720px){.sec__title{font-size:60px;}}
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media(min-width:720px){.sec__title-zh{font-size:24px;}}
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+  .sec__lead{font-size:20px;color:var(--ink);line-height:1.7;max-width:780px;margin-bottom:40px;}
+  @media(min-width:720px){.sec__lead{font-size:22px;}}
+  .sec__lead-zh{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.65;}
+  @media(min-width:720px){.sec__lead-zh{font-size:19px;}}
+
+  /* News grid */
+  .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media(min-width:720px){.news-grid{grid-template-columns:1fr 1fr;gap:28px;}}
+  @media(min-width:1000px){.news-grid{grid-template-columns:1fr 1fr 1fr;gap:28px;}}
+
+  .news-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+
+  .news-card__img-wrap{position:relative;width:100%;padding-top:56%;background:linear-gradient(135deg,var(--g-soft) 0%,var(--gold-soft) 100%);}
+  .news-card__img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .news-card__placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;}
+  .news-card__placeholder-icon{font-size:48px;}
+  .news-card__placeholder-text{font-size:13px;color:var(--ink-soft);font-style:italic;}
+
+  .news-card__tag{position:absolute;top:14px;left:14px;background:var(--g);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;}
+  .news-card__tag.tag--english{background:var(--gold);}
+  .news-card__tag.tag--eco{background:var(--g-light);}
+  .news-card__tag.tag--sports{background:var(--earth);}
+  .news-card__tag.tag--arts{background:#7b5ea7;}
+  .news-card__tag.tag--summer{background:#d4870a;}
+
+  .news-card__body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column;}
+  @media(min-width:720px){.news-card__body{padding:26px 28px 30px;}}
+  .news-card__date{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+  @media(min-width:720px){.news-card__date{font-size:14px;}}
+  .news-card__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.3;}
+  @media(min-width:720px){.news-card__title{font-size:26px;}}
+  .news-card__zh{font-size:16px;color:var(--ink-soft);margin-top:6px;font-weight:600;line-height:1.45;}
+  @media(min-width:720px){.news-card__zh{font-size:18px;}}
+  .news-card__desc{margin-top:14px;font-size:17px;color:var(--ink);line-height:1.65;flex:1;}
+  @media(min-width:720px){.news-card__desc{font-size:18px;}}
+
+  /* English news section */
+  .eng-news{display:flex;flex-direction:column;gap:24px;}
+  .eng-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:720px){.eng-card{grid-template-columns:280px 1fr;padding:30px 30px;}}
+  .eng-card__video{border-radius:12px;overflow:hidden;background:#000;}
+  .eng-card__video-ratio{position:relative;width:100%;padding-top:56.25%;}
+  .eng-card__video-ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .eng-card__badge{display:inline-block;background:var(--gold);color:var(--g-deep);font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+  .eng-card__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.25;}
+  @media(min-width:720px){.eng-card__title{font-size:26px;}}
+  .eng-card__zh{font-size:16px;color:var(--ink-soft);margin-top:6px;font-weight:600;}
+  @media(min-width:720px){.eng-card__zh{font-size:18px;}}
+  .eng-card__desc{margin-top:12px;font-size:17px;color:var(--ink);line-height:1.65;}
+  @media(min-width:720px){.eng-card__desc{font-size:18px;}}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media(min-width:720px){footer{font-size:17px;}}
+  footer .org{font-weight:600;color:var(--g-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ===== I. School News ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">School News</h2>
+    <div class="sec__title-zh">學校新聞 · 明禮孩子的每一個精彩時刻</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      From sports days and art performances to eco-education and community exploration — here is what life looks like at Mingli Elementary School.
+      <div class="sec__lead-zh">從運動會、藝文展演，到生態教育與社區探索——這就是明禮國小的日常樣貌。</div>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🏃</div>
+          </div>
+          <span class="news-card__tag tag--sports">Sports</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Mar 25, 2025</div>
+          <h3 class="news-card__title">School Anniversary Sports Day</h3>
+          <div class="news-card__zh">校慶運動會</div>
+          <p class="news-card__desc">The whole school — students, teachers, and families — came together for our annual sports day. The drum team and ocarina ensemble opened the ceremony with a spirited performance, setting the perfect tone for the day's events.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">💐</div>
+          </div>
+          <span class="news-card__tag">Craft</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">May 2025</div>
+          <h3 class="news-card__title">Mother's Day: Pipe-Cleaner Bouquets</h3>
+          <div class="news-card__zh">母親節獻愛：毛根花束傳心意</div>
+          <p class="news-card__desc">School storytelling mothers guided Grade 2 students in crafting colourful pipe-cleaner bouquets for Mother's Day. Each child poured creativity and care into two bright flowers, making a handmade gift with a personal touch.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🏮</div>
+          </div>
+          <span class="news-card__tag">Culture</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Feb 2025</div>
+          <h3 class="news-card__title">Creative Lantern Painting</h3>
+          <div class="news-card__zh">創意燈籠彩繪</div>
+          <p class="news-card__desc">For the Tianzhong Township Lunar New Year celebration, Mingli students brought their own artistic touch to traditional lanterns — each one a small canvas for imagination, colour, and personality.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🎼</div>
+          </div>
+          <span class="news-card__tag tag--arts">Arts</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">2025</div>
+          <h3 class="news-card__title">Arts &amp; Music Performance</h3>
+          <div class="news-card__zh">藝文展演</div>
+          <p class="news-card__desc">Students performed at the Tianzhong District talent showcase and music concert — practising various instruments, building confidence, and growing into well-rounded, expressive learners.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🏊</div>
+          </div>
+          <span class="news-card__tag tag--sports">Sports</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">2025</div>
+          <h3 class="news-card__title">Swimming Programme</h3>
+          <div class="news-card__zh">游泳課程</div>
+          <p class="news-card__desc">Through regular swimming lessons, students made dramatic progress in their technique and water confidence — each session a small victory in skill, courage, and self-belief.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🎄</div>
+          </div>
+          <span class="news-card__tag tag--english">English</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Dec 24, 2024</div>
+          <h3 class="news-card__title">Joyful Christmas Celebration</h3>
+          <div class="news-card__zh">歡樂聖誕慶典</div>
+          <p class="news-card__desc">Students shone in the Christmas talent show — some introducing themselves in English, others spelling out the holiday acronym in creative ways. A celebration of language, creativity, and festive spirit.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">⚾</div>
+          </div>
+          <span class="news-card__tag tag--sports">Sports</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Dec 23, 2024</div>
+          <h3 class="news-card__title">Grade 6A: Baseball Cheering Performance</h3>
+          <div class="news-card__zh">臺灣尚勇！六甲班棒球應援表演</div>
+          <p class="news-card__desc">Grade 6A performed a high-energy baseball cheering routine in the school auditorium — all movement, rhythm, and enthusiasm, bringing the crowd to its feet.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🥁</div>
+          </div>
+          <span class="news-card__tag">Field Trip</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Nov 12, 2024</div>
+          <h3 class="news-card__title">Ten Drum Cultural Park: A Magical Journey</h3>
+          <div class="news-card__zh">十鼓奇幻之旅：搭乘魔法列車</div>
+          <p class="news-card__desc">Grade 3A visited the Ten Drum Cultural Village in Tainan — exploring the history of an old sugar factory, and experiencing the remarkable fusion of traditional drumming and modern technology.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🎤</div>
+          </div>
+          <span class="news-card__tag tag--english">English</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Oct 16, 2024</div>
+          <h3 class="news-card__title">English Group Recitation — Commendation Award</h3>
+          <div class="news-card__zh">英語團體朗讀比賽 · 六甲佳作</div>
+          <p class="news-card__desc">Grade 6A competed in the Changhua County English Recitation Competition and brought home a well-deserved Commendation Award — a proud moment for the students and their teachers.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🌏</div>
+          </div>
+          <span class="news-card__tag">Field Trip</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Nov 12, 2024</div>
+          <h3 class="news-card__title">Tainan Culture Trip: Chimei Museum &amp; Ten Drum</h3>
+          <div class="news-card__zh">台南文化之旅：奇美博物館＋十鼓文化村</div>
+          <p class="news-card__desc">Students explored the Chimei Museum and Ten Drum Cultural Village — taking in world-class art, Taiwanese history, and an interactive drumming workshop that left everyone buzzing.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">📳</div>
+          </div>
+          <span class="news-card__tag">Safety</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Sep 20, 2024</div>
+          <h3 class="news-card__title">National Earthquake Drill</h3>
+          <div class="news-card__zh">地震防災演習</div>
+          <p class="news-card__desc">At 9:21 a.m. on September 20th, Mingli joined Taiwan's national earthquake drill — students and teachers practising the three essential steps: Drop, Cover, and Hold On.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🕯️</div>
+          </div>
+          <span class="news-card__tag">Teacher PD</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">May 1, 2024</div>
+          <h3 class="news-card__title">Teacher Aroma Candle Workshop</h3>
+          <div class="news-card__zh">教師香氛蠟燭工作坊</div>
+          <p class="news-card__desc">Teachers joined a hands-on workshop learning the craft of flower-petal soy candle making — a creative professional development day that brought the team together in a spirit of curiosity and relaxation.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🎉</div>
+          </div>
+          <span class="news-card__tag">Anniversary</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">2023</div>
+          <h3 class="news-card__title">80th Anniversary Celebrations</h3>
+          <div class="news-card__zh">建校 80 週年校慶</div>
+          <p class="news-card__desc">Mingli celebrated its 80th anniversary with an opening ceremony, student performances, sports races, and a special exhibition of student artwork — eight decades of community, learning, and growth.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__img-wrap">
+          <div class="news-card__placeholder">
+            <div class="news-card__placeholder-icon">🌾</div>
+          </div>
+          <span class="news-card__tag tag--eco">Eco</span>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__date">Dec 13, 2022</div>
+          <h3 class="news-card__title">Scarecrow-Making: An Agricultural Art Lesson</h3>
+          <div class="news-card__zh">稻草人製作活動</div>
+          <p class="news-card__desc">Students learned about agricultural heritage and created their own scarecrow designs from dry grass, bamboo poles, and old clothes — each one unique, each one a lesson in patience, craft, and land connection. Written by Teacher Sarah Thomas.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. English News Reports ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">English News Reports</h2>
+    <div class="sec__title-zh">英文新聞報導 · 孩子自己說出學校的故事</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      Watch Mingli students and our foreign teacher report on school events in English — from the 80th anniversary to the Dom Jones campus visit.
+      <div class="sec__lead-zh">看明禮的孩子與外師用英文報導學校大事——從八十週年校慶到 Dom Jones 校園採訪。</div>
+    </div>
+
+    <div class="eng-news">
+
+      <article class="eng-card">
+        <div class="eng-card__video">
+          <div class="eng-card__video-ratio">
+            <iframe src="https://www.youtube-nocookie.com/embed/ugPeclZYyQM?rel=0"
+              title="Dom Jones visits Mingli Elementary School — English news report"
+              loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <span class="eng-card__badge">Apr 14, 2026</span>
+          <h3 class="eng-card__title">Dom Jones Visits Mingli Campus</h3>
+          <div class="eng-card__zh">彰化縣明禮國小：Dom Jones 訪問校園新聞</div>
+          <p class="eng-card__desc">Dom Jones — the bilingual resource mascot for MCC across Changhua County — paid a special visit to Mingli. Students reported on the visit in English, showcasing their bilingual reporting skills in this lively campus news segment.</p>
+        </div>
+      </article>
+
+      <article class="eng-card">
+        <div class="eng-card__video">
+          <div class="eng-card__video-ratio">
+            <iframe src="https://www.youtube-nocookie.com/embed/GFj6043d_XU?rel=0"
+              title="Mingli Summer Camp 2024 English news report"
+              loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <span class="eng-card__badge">Summer 2024</span>
+          <h3 class="eng-card__title">Summer Camp 2024 English News Report</h3>
+          <div class="eng-card__zh">明禮夏日樂學英文新聞報導 2024</div>
+          <p class="eng-card__desc">Students reported on the 2024 Summer Camp activities in English — community food exploration, ordering at a local café, and a guided tour of Tianzhong High Speed Rail Station. Real English in real places.</p>
+        </div>
+      </article>
+
+      <article class="eng-card">
+        <div class="eng-card__video">
+          <div class="eng-card__video-ratio">
+            <iframe src="https://www.youtube-nocookie.com/embed/shlRAZki9oI?rel=0"
+              title="Mingli scarecrow-making English news report"
+              loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <span class="eng-card__badge">Dec 2022</span>
+          <h3 class="eng-card__title">Scarecrow-Making: English News Clip</h3>
+          <div class="eng-card__zh">明禮國小稻草人製作英語報導</div>
+          <p class="eng-card__desc">A short English news clip reporting on the school's scarecrow-making activity — key vocabulary, real photos, and students explaining the agricultural craft in their own words.</p>
+        </div>
+      </article>
+
+      <article class="eng-card">
+        <div class="eng-card__video">
+          <div class="eng-card__video-ratio">
+            <iframe src="https://www.youtube-nocookie.com/embed/Pu4xi8iUB9o?rel=0"
+              title="Mingli 80th Anniversary English report"
+              loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <span class="eng-card__badge">2023</span>
+          <h3 class="eng-card__title">80th Anniversary English Report</h3>
+          <div class="eng-card__zh">彰化縣明禮國小八十週年校慶英文報導</div>
+          <p class="eng-card__desc">Marking Mingli's 80th anniversary with an English language news report — capturing the sports events, performances, and community spirit that made the day memorable.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 彰化縣田中鎮明禮國民小學 · Mingli Elementary School &nbsp;·&nbsp;
+  Bilingual page by <span class="org">My Culture Connect 人師教育協會</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lessons · 課程學習 · Mingli Elementary School</title>
+<meta name="description" content="English lessons from Mingli Elementary School — Summer Camp, themed topic lessons, and 9 units of school-life vocabulary. 明禮國小英語課程——夏日樂學、主題課程與九大詞彙單元。">
+<meta property="og:title" content="Lessons · 課程學習 · Mingli Elementary School">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --g-deep:#1a4330;--g:#2d7a52;--g-light:#52b788;--g-soft:#d8f3dc;
+    --gold:#c8922a;--gold-soft:#fdf8e7;--gold-deep:#7d5a0a;
+    --earth:#a0522d;--earth-soft:#f5e6d8;
+    --ink:#1a2a1e;--ink-soft:#536653;--line:#d4e8d7;
+    --shadow:0 14px 38px -16px rgba(26,67,48,.28);
+    --shadow-sm:0 6px 16px -6px rgba(26,67,48,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media(min-width:720px){section{padding:80px 0;}}
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Playfair Display',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media(min-width:720px){.sec__no{font-size:25px;}}
+  .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--g-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media(min-width:720px){.sec__title{font-size:60px;}}
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media(min-width:720px){.sec__title-zh{font-size:24px;}}
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
+  .sec__lead{font-size:20px;color:var(--ink);line-height:1.7;max-width:780px;margin-bottom:40px;}
+  @media(min-width:720px){.sec__lead{font-size:22px;}}
+  .sec__lead-zh{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.65;}
+  @media(min-width:720px){.sec__lead-zh{font-size:19px;}}
+
+  /* ── Summer Camp cards ── */
+  .camp-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media(min-width:720px){.camp-grid{grid-template-columns:1fr 1fr 1fr;gap:28px;}}
+  .camp-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .camp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .camp-card__header{padding:28px 26px 20px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line);}
+  .camp-card__year{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:var(--g-soft);line-height:1;}
+  .camp-card:nth-child(2) .camp-card__year{color:var(--gold-soft);}
+  .camp-card:nth-child(3) .camp-card__year{color:var(--earth-soft);}
+  .camp-card__badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--g);color:#fff;width:fit-content;}
+  .camp-card:nth-child(2) .camp-card__badge{background:var(--gold);}
+  .camp-card:nth-child(3) .camp-card__badge{background:var(--earth);}
+  .camp-card__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.25;}
+  @media(min-width:720px){.camp-card__title{font-size:24px;}}
+  .camp-card__zh{font-size:15px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  @media(min-width:720px){.camp-card__zh{font-size:17px;}}
+  .camp-card__body{padding:20px 26px 28px;flex:1;}
+  .camp-card__desc{font-size:17px;color:var(--ink);line-height:1.65;}
+  @media(min-width:720px){.camp-card__desc{font-size:18px;}}
+  .camp-card__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .camp-tag{font-size:13px;background:var(--g-soft);color:var(--g-deep);padding:4px 10px;border-radius:99px;font-weight:600;}
+  .camp-card:nth-child(2) .camp-tag{background:var(--gold-soft);color:var(--gold-deep);}
+  .camp-card:nth-child(3) .camp-tag{background:var(--earth-soft);color:var(--earth);}
+
+  /* ── Camp videos strip ── */
+  .camp-videos{display:flex;flex-direction:column;gap:20px;margin-top:36px;}
+  .camp-video-row{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:720px){.camp-video-row{grid-template-columns:1fr 1fr;}}
+  .camp-video-item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+  .camp-video-item__ratio{position:relative;width:100%;padding-top:56.25%;background:#000;}
+  .camp-video-item__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .camp-video-item__caption{padding:14px 16px;font-size:15px;color:var(--ink-soft);}
+  @media(min-width:720px){.camp-video-item__caption{font-size:16px;}}
+  .camp-video-item__caption b{color:var(--g-deep);}
+
+  /* ── Topic grid ── */
+  .topics-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:720px){.topics-grid{grid-template-columns:1fr 1fr;gap:22px;}}
+  @media(min-width:1000px){.topics-grid{grid-template-columns:1fr 1fr 1fr;gap:22px;}}
+  .topic-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 24px 26px;box-shadow:var(--shadow-sm);border-left:6px solid var(--g);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:8px;}
+  @media(min-width:720px){.topic-card{padding:28px 26px 30px;}}
+  .topic-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .topic-card:nth-child(2n){border-left-color:var(--gold);}
+  .topic-card:nth-child(3n){border-left-color:var(--earth);}
+  .topic-card:nth-child(4n){border-left-color:var(--g-light);}
+  .topic-card__icon{font-size:44px;line-height:1;}
+  @media(min-width:720px){.topic-card__icon{font-size:52px;}}
+  .topic-card__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.25;}
+  @media(min-width:720px){.topic-card__title{font-size:26px;}}
+  .topic-card__zh{font-size:16px;color:var(--ink);font-weight:600;}
+  @media(min-width:720px){.topic-card__zh{font-size:18px;}}
+  .topic-card__desc{font-size:16px;color:var(--ink-soft);line-height:1.6;}
+  @media(min-width:720px){.topic-card__desc{font-size:17px;}}
+
+  /* ── Unit accordion ── */
+  .units{display:flex;flex-direction:column;gap:14px;}
+  .unit{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+  .unit__header{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;user-select:none;transition:background .15s;}
+  .unit__header:hover{background:var(--g-soft);}
+  .unit__no{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--g-soft);line-height:1;min-width:52px;}
+  @media(min-width:720px){.unit__no{font-size:42px;min-width:64px;}}
+  .unit__label{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--g-deep);flex:1;}
+  @media(min-width:720px){.unit__label{font-size:24px;}}
+  .unit__count{font-size:14px;color:var(--ink-soft);font-weight:600;white-space:nowrap;}
+  .unit__arrow{font-size:20px;color:var(--gold);transition:transform .25s;flex-shrink:0;}
+  .unit.is-open .unit__arrow{transform:rotate(180deg);}
+  .unit.is-open .unit__no{color:var(--g-light);}
+  .unit__body{display:none;padding:0 24px 24px;}
+  .unit.is-open .unit__body{display:block;}
+  .unit__words{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+  .word-pill{background:var(--g-soft);color:var(--g-deep);padding:6px 14px;border-radius:99px;font-size:15px;font-weight:600;line-height:1.4;}
+  @media(min-width:720px){.word-pill{font-size:17px;}}
+  .word-pill span{color:var(--ink-soft);font-weight:400;font-size:.85em;}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
+  @media(min-width:720px){footer{font-size:17px;}}
+  footer .org{font-weight:600;color:var(--g-deep);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ===== I. Summer Camp ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Summer Camp</h2>
+    <div class="sec__title-zh">夏日樂學 · 三年的社區探索與農藝美學</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      Every summer, Mingli students step beyond the classroom — into local coffee shops, rice paddies, high-speed rail stations, and pottery studios — learning English through real experiences in their own community.
+      <div class="sec__lead-zh">每年夏天，明禮的孩子走出教室——走進在地咖啡館、稻田、高鐵站與陶藝工坊，在真實的社區場景中學習英語。</div>
+    </div>
+
+    <div class="camp-grid">
+
+      <article class="camp-card">
+        <div class="camp-card__header">
+          <div class="camp-card__year">2025</div>
+          <span class="camp-card__badge">E 農藝境</span>
+          <h3 class="camp-card__title">Eco-Farming &amp; Aesthetic Exploration</h3>
+          <div class="camp-card__zh">明禮E農藝境：社區創生與美學探索</div>
+        </div>
+        <div class="camp-card__body">
+          <p class="camp-card__desc">Five core values — Simple Fun, Trying New Things, Bright Ideas, Staying Healthy, Being Happy — guided students through sushi-making, sweet-twist pastry, eco-enzyme, Tianzhong pottery, weather station exploration, and an HSR station guided tour.</p>
+          <div class="camp-card__tags">
+            <span class="camp-tag">壽司製作</span>
+            <span class="camp-tag">寶大甜麻花</span>
+            <span class="camp-tag">田中陶藝</span>
+            <span class="camp-tag">氣象站</span>
+            <span class="camp-tag">高鐵站導覽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="camp-card">
+        <div class="camp-card__header">
+          <div class="camp-card__year">2024</div>
+          <span class="camp-card__badge">E 食代</span>
+          <h3 class="camp-card__title">Community Food Exploration</h3>
+          <div class="camp-card__zh">明禮E食代社區探索</div>
+        </div>
+        <div class="camp-card__body">
+          <p class="camp-card__desc">Students became community explorers — visiting Little Field Coffee beside the rice paddies, ordering food in English, buying tickets at Tianzhong HSR station, interviewing local farmers, and learning Tianzhong pottery at the pottery studio.</p>
+          <div class="camp-card__tags">
+            <span class="camp-tag">點餐對話</span>
+            <span class="camp-tag">高鐵購票</span>
+            <span class="camp-tag">在地農夫採訪</span>
+            <span class="camp-tag">田中窯陶藝</span>
+            <span class="camp-tag">環保堆肥</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="camp-card">
+        <div class="camp-card__header">
+          <div class="camp-card__year">2023</div>
+          <span class="camp-card__badge">田中穀倉</span>
+          <h3 class="camp-card__title">Rice Granary English Ambassador</h3>
+          <div class="camp-card__zh">學習擔任田中穀倉英文代言人</div>
+        </div>
+        <div class="camp-card__body">
+          <p class="camp-card__desc">Students learned to be English ambassadors for Tianzhong — the "Rice Granary of Taiwan." Exploring the history of the 1937 granary building, Zhuoshui River rice culture, and the Pabao Rice brand, they practised presenting their hometown in English.</p>
+          <div class="camp-card__tags">
+            <span class="camp-tag">田中穀倉歷史</span>
+            <span class="camp-tag">濁水溪米文化</span>
+            <span class="camp-tag">米代言人練習</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- 2025 Camp Videos -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:48px;margin-bottom:6px;">2025 Summer Camp Highlights</h3>
+    <p style="font-size:17px;color:var(--ink-soft);margin-bottom:20px;">夏日樂學精華影片</p>
+    <div class="camp-video-row">
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/4KSvq6qs8w0?rel=0" title="2025 Summer Camp — Sweet Twist Factory" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>2025 · 參觀寶大蜜麻花</b> — Sweet Twist Factory Visit</div>
+      </div>
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/qrTGple71XQ?rel=0" title="2025 Summer Camp — HSR Station Tour" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>2025 · 高鐵站導覽</b> — HSR Station Tour</div>
+      </div>
+    </div>
+    <div class="camp-video-row" style="margin-top:18px;">
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/fkzacIrK9ac?rel=0" title="2025 Summer Camp — Weather Station" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>2025 · 田中氣象站</b> — Tianzhong Weather Station</div>
+      </div>
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/GFj6043d_XU?rel=0" title="2024 Summer Camp English News Report" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>2024 · 英文新聞報導</b> — English News Report</div>
+      </div>
+    </div>
+
+    <!-- 2024 key videos -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:40px;margin-bottom:20px;">2024 Community Conversations</h3>
+    <div class="camp-video-row">
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/CvbsH5Ctm7I?rel=0" title="Ordering Food — Summer Camp 2024" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>點餐對話篇</b> — Ordering Food in English</div>
+      </div>
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/bvlQ7sUJw4M?rel=0" title="Buying Train Tickets — Summer Camp 2024" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>高鐵購票練習篇</b> — Buying Tickets at HSR Station</div>
+      </div>
+    </div>
+
+    <!-- 2023 key video -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:40px;margin-bottom:20px;">2023 Rice Granary Ambassador</h3>
+    <div style="max-width:580px;">
+      <div class="camp-video-item">
+        <div class="camp-video-item__ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/ukJRleBnnyY?rel=0" title="Tianzhong Rice Ambassador — student version" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+        </div>
+        <div class="camp-video-item__caption"><b>田中米的代言——學生版</b> — Tianzhong Rice Brand Ambassador</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Topic Lessons ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Topic Lessons</h2>
+    <div class="sec__title-zh">主題課程 · 從校慶到茶道，每個主題都是一扇窗</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      Each topic lesson explores a real activity or place at Mingli — with key vocabulary, example sentences, and videos filmed right here on campus.
+      <div class="sec__lead-zh">每個主題課程探索明禮真實的活動或場景——包含關鍵字、例句，以及在校園內實地拍攝的影片。</div>
+    </div>
+
+    <div class="topics-grid">
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🌾</div>
+        <h3 class="topic-card__title">Scarecrow</h3>
+        <div class="topic-card__zh">稻草人</div>
+        <p class="topic-card__desc">Learn the vocabulary of traditional scarecrow-making: crop, tie, hay, stuff. Students made real scarecrows using bamboo poles and dry grass.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">💻</div>
+        <h3 class="topic-card__title">Computer Lab</h3>
+        <div class="topic-card__zh">電腦教室</div>
+        <p class="topic-card__desc">Computer lab essentials — mouse, tablet, keyboards — in bilingual sentences. A mini lesson filmed in Mingli's own computer room.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🍵</div>
+        <h3 class="topic-card__title">Tea Ceremony</h3>
+        <div class="topic-card__zh">茶道</div>
+        <p class="topic-card__desc">Tea leaves, teapot, pour, teacup — the vocabulary of Taiwan's tea culture, step by step, from preparing the pot to the first sip.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🏑</div>
+        <h3 class="topic-card__title">Croquet</h3>
+        <div class="topic-card__zh">槌球</div>
+        <p class="topic-card__desc">Mingli's signature sport — croquet court, mallet, wicket — explained in bilingual sentences. A gentle outdoor game that every student learns.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🎉</div>
+        <h3 class="topic-card__title">School Anniversary</h3>
+        <div class="topic-card__zh">校慶</div>
+        <p class="topic-card__desc">The 80th anniversary in English — volunteer, relay race, rehearsal, award presentation, and more. A vocabulary tour through the whole event.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🏺</div>
+        <h3 class="topic-card__title">Tianzhong Pottery</h3>
+        <div class="topic-card__zh">田中陶藝</div>
+        <p class="topic-card__desc">Pottery, pottery wheel, tea culture — the English vocabulary of Tianzhong's famous kiln, and why pottery is one of the hardest arts to master.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">➕</div>
+        <h3 class="topic-card__title">Math</h3>
+        <div class="topic-card__zh">數學英語</div>
+        <p class="topic-card__desc">Addition, minus, times — say it in English! A short, clear bilingual series covering the three core operations with real example sentences.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🏫</div>
+        <h3 class="topic-card__title">Mingli School Introduction</h3>
+        <div class="topic-card__zh">學校英文介紹</div>
+        <p class="topic-card__desc">County, protect, farm, badminton — 12 key words to describe Mingli Elementary School in simple, clear English sentences.</p>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-card__icon">🎮</div>
+        <h3 class="topic-card__title">Happy English (Wordwall)</h3>
+        <div class="topic-card__zh">快樂學英文</div>
+        <p class="topic-card__desc">Three levels of Wordwall vocabulary challenges — picture choice, picture matching, and spelling. Interactive, self-paced, and rewarding for every learner.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Vocabulary Units ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Vocabulary Units</h2>
+    <div class="sec__title-zh">詞彙單元 · 9 個單元、從校園生活到在地特色</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      Nine vocabulary units covering everyday school life at Mingli — every word illustrated with a real video filmed right here on campus.
+      <div class="sec__lead-zh">九個詞彙單元涵蓋明禮的日常校園生活——每個字都有在校內實地拍攝的影片說明。</div>
+    </div>
+
+    <div class="units" id="units">
+
+      <div class="unit is-open">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">1</div>
+          <div class="unit__label">Unit 1 — School Events &amp; Traditions</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">volunteer <span>志工</span></span>
+            <span class="word-pill">relay race <span>接力賽跑</span></span>
+            <span class="word-pill">tire pushing game <span>滾輪胎</span></span>
+            <span class="word-pill">dance exercise <span>健康操</span></span>
+            <span class="word-pill">anniversary <span>校慶</span></span>
+            <span class="word-pill">tea ceremony <span>茶道</span></span>
+            <span class="word-pill">dance <span>跳舞</span></span>
+            <span class="word-pill">baton <span>接力棒</span></span>
+            <span class="word-pill">put <span>放下</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">2</div>
+          <div class="unit__label">Unit 2 — Agricultural Life</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">instruction <span>指示說明</span></span>
+            <span class="word-pill">carry <span>拿/背起</span></span>
+            <span class="word-pill">QR code <span>快速回應圖碼</span></span>
+            <span class="word-pill">pole <span>竹竿</span></span>
+            <span class="word-pill">listen <span>聽</span></span>
+            <span class="word-pill">read <span>看/讀</span></span>
+            <span class="word-pill">bake <span>烘烤</span></span>
+            <span class="word-pill">scarecrow <span>稻草人</span></span>
+            <span class="word-pill">hay <span>稻草</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">3</div>
+          <div class="unit__label">Unit 3 — Classroom Objects</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">security guard <span>警衛</span></span>
+            <span class="word-pill">exhibit <span>展覽</span></span>
+            <span class="word-pill">magnet <span>磁鐵</span></span>
+            <span class="word-pill">blackboard <span>黑板</span></span>
+            <span class="word-pill">pencil case <span>鉛筆盒</span></span>
+            <span class="word-pill">pencil sharpener <span>削鉛筆機</span></span>
+            <span class="word-pill">stamp <span>蓋章/點數</span></span>
+            <span class="word-pill">potted plants <span>盆栽</span></span>
+            <span class="word-pill">sink <span>洗手台</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">4</div>
+          <div class="unit__label">Unit 4 — Daily Routines</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">take a nap <span>午休</span></span>
+            <span class="word-pill">raise your hand <span>舉手</span></span>
+            <span class="word-pill">professional development <span>教師專業進修</span></span>
+            <span class="word-pill">upstairs / downstairs <span>上下樓梯</span></span>
+            <span class="word-pill">desktop computer <span>桌上型電腦</span></span>
+            <span class="word-pill">brush your teeth <span>刷牙</span></span>
+            <span class="word-pill">connect <span>連接</span></span>
+            <span class="word-pill">mural <span>壁畫</span></span>
+            <span class="word-pill">line up <span>排隊</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">5</div>
+          <div class="unit__label">Unit 5 — Health &amp; Learning Tools</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">eye test <span>視力檢查</span></span>
+            <span class="word-pill">height <span>身高</span></span>
+            <span class="word-pill">nurse <span>護士</span></span>
+            <span class="word-pill">vegetable <span>蔬菜</span></span>
+            <span class="word-pill">iPad <span>平板電腦</span></span>
+            <span class="word-pill">worksheet <span>學習單</span></span>
+            <span class="word-pill">observe <span>觀課/觀察</span></span>
+            <span class="word-pill">tour bus <span>遊覽車</span></span>
+            <span class="word-pill">catch <span>接（球）</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">6</div>
+          <div class="unit__label">Unit 6 — School Activities</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">mow <span>割草</span></span>
+            <span class="word-pill">workbook <span>習作本</span></span>
+            <span class="word-pill">repot <span>移植/換盆</span></span>
+            <span class="word-pill">sewing machine <span>縫紉機</span></span>
+            <span class="word-pill">check-in <span>檢核</span></span>
+            <span class="word-pill">sign <span>簽名</span></span>
+            <span class="word-pill">100 meter dash <span>百米短跑</span></span>
+            <span class="word-pill">award presentation <span>頒獎典禮</span></span>
+            <span class="word-pill">rehearsal <span>排練</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">7</div>
+          <div class="unit__label">Unit 7 — Arts, Math &amp; Culture</div>
+          <div class="unit__count">9 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">addition <span>加法</span></span>
+            <span class="word-pill">minus <span>減法</span></span>
+            <span class="word-pill">times <span>乘法</span></span>
+            <span class="word-pill">social studies <span>社會科</span></span>
+            <span class="word-pill">pottery <span>陶器</span></span>
+            <span class="word-pill">pottery wheel <span>陶輪</span></span>
+            <span class="word-pill">tea culture <span>茶文化</span></span>
+            <span class="word-pill">tour <span>參觀</span></span>
+            <span class="word-pill">balloon <span>氣球</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">8</div>
+          <div class="unit__label">Unit 8 — Nature &amp; Art</div>
+          <div class="unit__count">8 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">artist <span>藝術家</span></span>
+            <span class="word-pill">pet <span>撫摸</span></span>
+            <span class="word-pill">weed <span>除草</span></span>
+            <span class="word-pill">paint pouring <span>流體畫</span></span>
+            <span class="word-pill">basketball <span>籃球</span></span>
+            <span class="word-pill">seedling <span>秧苗</span></span>
+            <span class="word-pill">taro <span>芋頭</span></span>
+            <span class="word-pill">ocarina <span>陶笛</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit__header" onclick="toggleUnit(this)">
+          <div class="unit__no">9</div>
+          <div class="unit__label">Unit 9 — Farm, Music &amp; Craft</div>
+          <div class="unit__count">7 words</div>
+          <div class="unit__arrow">▾</div>
+        </div>
+        <div class="unit__body">
+          <div class="unit__words">
+            <span class="word-pill">Chinese flute <span>笛子</span></span>
+            <span class="word-pill">farm <span>種植/耕作</span></span>
+            <span class="word-pill">okra seedling <span>秋葵苗</span></span>
+            <span class="word-pill">bake <span>烘焙</span></span>
+            <span class="word-pill">aroma stone <span>擴香石</span></span>
+            <span class="word-pill">jump rope competition <span>跳繩比賽</span></span>
+            <span class="word-pill">tablet <span>平板</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 彰化縣田中鎮明禮國民小學 · Mingli Elementary School &nbsp;·&nbsp;
+  Bilingual page by <span class="org">My Culture Connect 人師教育協會</span>
+</footer>
+
+<script>
+function toggleUnit(header){
+  const unit = header.closest('.unit');
+  unit.classList.toggle('is-open');
+}
+</script>
+</body>
+</html>
