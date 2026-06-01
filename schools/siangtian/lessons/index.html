@@ -160,6 +160,24 @@
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
   footer .partner{color:var(--gold-soft);font-weight:600;}
   footer a{color:var(--gold-soft);}
+  /* ============ BANNER ============ */
+  .banner{position:relative;background:#1a2e12 url('../photos/banner-corridor.jpg') center 30%/cover no-repeat;min-height:240px;display:flex;align-items:flex-end;overflow:hidden;}
+  @media(min-width:720px){ .banner{ min-height:340px; } }
+  @media(min-width:1080px){ .banner{ min-height:400px; } }
+  .banner::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(47,77,36,.22) 0%,rgba(20,40,12,.72) 100%);pointer-events:none;}
+  .banner__inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:28px 24px 22px;color:#fff;display:flex;align-items:flex-end;gap:14px;}
+  @media(min-width:720px){ .banner__inner{ padding:44px 36px 34px;gap:20px; } }
+  .banner__text{flex:1;min-width:0;}
+  .banner__brand{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:#f5e5b0;font-weight:700;margin-bottom:10px;}
+  @media(min-width:720px){ .banner__brand{ font-size:14.5px; } }
+  .banner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:38px;font-weight:600;line-height:1.05;letter-spacing:.01em;text-shadow:0 3px 18px rgba(0,0,0,.45);}
+  @media(min-width:720px){ .banner h1{ font-size:58px; } }
+  @media(min-width:1080px){ .banner h1{ font-size:70px; } }
+  .banner__zh{font-size:16px;color:#d8ecd0;margin-top:6px;font-weight:500;letter-spacing:.08em;text-shadow:0 2px 10px rgba(0,0,0,.4);font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;}
+  @media(min-width:720px){ .banner__zh{ font-size:21px; } }
+  .banner__logo{flex-shrink:0;align-self:flex-end;width:50px;height:50px;border-radius:11px;background:#fff;padding:3px;box-shadow:0 6px 20px -5px rgba(0,0,0,.5);}
+  @media(min-width:720px){ .banner__logo{ width:66px;height:66px;padding:4px; } }
+  .banner__logo img{width:100%;height:100%;border-radius:8px;display:block;object-fit:contain;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -184,6 +202,22 @@
     </div>
   </div>
 </nav>
+
+<!-- ============ BANNER ============ -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <div class="banner__brand">Siangtian Elementary · Curriculum</div>
+      <h1>Lessons
+        <div class="banner__zh">特色課程</div>
+      </h1>
+    </div>
+    <div class="banner__logo">
+      <img src="../favicon-192.png" alt="Siangtian Elementary logo" loading="eager">
+    </div>
+  </div>
+</header>
+
 
 <!-- ===== I. Lede ===== -->
 <section>
