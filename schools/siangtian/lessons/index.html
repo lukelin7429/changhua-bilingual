@@ -93,13 +93,32 @@
   .season--autumn .season__what{color:var(--rice-deep);}
   .season__detail{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);margin-top:6px;line-height:1.7;}
 
-  /* Weekly English */
-  .week{background:#fff;border:2px dashed var(--gold);border-radius:18px;padding:24px 24px 28px;margin-top:22px;}
-  @media(min-width:720px){ .week{ padding:32px 36px; } }
-  .week__pill{display:inline-block;background:var(--gold);color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:99px;}
-  .week__sentence{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--paddy-deep);line-height:1.5;margin-top:14px;}
-  @media(min-width:720px){ .week__sentence{ font-size:30px; } }
-  .week__zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+  /* === Semester PDF accordion === */
+  .sem-list{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+  .sem{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);}
+  .sem__sum{list-style:none;display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;background:linear-gradient(120deg,#fff 0%,var(--rice-soft) 100%);transition:background .15s;}
+  .sem__sum::-webkit-details-marker{display:none;}
+  .sem__sum::marker{display:none;}
+  .sem__sum:hover{background:linear-gradient(120deg,#fff 0%,var(--gold-soft) 100%);}
+  .sem[open]>.sem__sum{border-bottom:1px solid var(--line);}
+  .sem__info{flex:1;min-width:0;}
+  .sem__tag{display:inline-block;background:var(--gold);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:99px;margin-bottom:8px;}
+  .sem__name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:21px;font-weight:600;color:var(--paddy-deep);line-height:1.2;}
+  @media(min-width:720px){.sem__name{font-size:27px;}}
+  .sem__meta-line{font-family:'PingFang TC',sans-serif;font-size:13.5px;color:var(--ink-soft);margin-top:5px;}
+  @media(min-width:720px){.sem__meta-line{font-size:15px;}}
+  .sem__caret{width:30px;height:30px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-soft);font-size:13px;transition:transform .2s;background:var(--gold);}
+  .sem__caret::before{content:'▸';}
+  .sem[open]>.sem__sum .sem__caret{transform:rotate(90deg);}
+  .sem__body{padding:22px 22px 26px;}
+  @media(min-width:720px){.sem__body{padding:26px 30px 32px;}}
+  .sem__actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;}
+  .sem__btn{display:inline-flex;align-items:center;padding:9px 18px;border-radius:99px;font-size:14px;font-weight:600;text-decoration:none;border:2px solid var(--paddy);color:var(--paddy-deep);background:#fff;transition:all .15s;}
+  .sem__btn:hover{background:var(--paddy-deep);color:#fff;}
+  .sem__btn--dl{border-color:var(--rice-deep);color:var(--rice-deep);}
+  .sem__btn--dl:hover{background:var(--rice-deep);color:#fff;}
+  .sem__embed{border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .sem__embed iframe{width:100%;height:70vh;min-height:480px;border:0;display:block;}
 
   /* Video frame (YouTube embed) */
   .videoframe{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:14px;overflow:hidden;margin-top:22px;box-shadow:var(--shadow-sm);}
@@ -202,7 +221,7 @@
 
 
 <!-- ===== II. Weekly English ===== -->
-<section>
+<section id="weekly">
   <div class="wrap">
     <div class="sec__no">ENGLISH · 02</div>
     <div class="sec__title">Weekly English</div>
@@ -216,19 +235,75 @@
         <div class="lesson__zh">英語不必貪多，先把這週這句學好</div>
       </div>
       <div class="lesson__body">
-        <p>For a small country school, the question is not how many words a child can memorise — it is whether English shows up at all in the rhythm of the week. So we built <strong>Weekly English</strong>: a single sentence, posted on the school site each week, used by every class from Grade 1 to Grade 6.</p>
-        <p class="zh">對偏鄉小校來說，問題從來不是「孩子背了多少英文單字」——而是英文有沒有出現在這一週的日常裡。所以我們做了「<strong>每週英語</strong>」：每週一句，在學校網站上更新，全校一年級到六年級通用。</p>
-
-        <div class="week">
-          <span class="week__pill">This Week · 本週</span>
-          <p class="week__sentence">"It's harvest day. Let's go to the rice paddy!"</p>
-          <p class="week__zh">今天是收割日，我們去稻田吧！ &nbsp;·&nbsp; A sentence the whole school can use this week.</p>
-        </div>
-
-        <p style="margin-top:24px;">In partnership with My Culture Connect, our weekly sentence is paired with audio — so children hear the natural rhythm of the line, not just read it. A small but steady door through which an English-speaking world walks into our country classrooms.</p>
-        <p class="zh">在人師教育協會的協助下，「每週英語」搭配音檔——孩子不只看到句子，更聽得到自然的節奏。一道小而穩定的門，讓英語的世界，慢慢走進這所農村小校。</p>
+        <p>For a small country school, the question is not how many words a child can memorise — it is whether English shows up at all in the rhythm of the week. So we built <strong>Weekly English</strong>: a single sentence, used by every class from Grade 1 to Grade 6, organised each semester by grade level — 低年級 · 中年級 · 高年級.</p>
+        <p class="zh">對偏鄉小校來說，問題從來不是「孩子背了多少英文單字」——而是英文有沒有出現在這一週的日常裡。所以我們做了「<strong>每週英語</strong>」：每週一句，全校一年級到六年級通用，按學期整理，分低、中、高年級三欄。</p>
       </div>
     </article>
+
+    <!-- Semester PDF archive -->
+    <div class="sem-list">
+
+      <details class="sem" id="sem-114-1">
+        <summary class="sem__sum">
+          <div class="sem__info">
+            <span class="sem__tag">114學年 · 第一學期</span>
+            <div class="sem__name">English Sentence for the Week</div>
+            <div class="sem__meta-line">Sept 2025 – Jan 2026 &nbsp;·&nbsp; 第 1–20 週 &nbsp;·&nbsp; 低 / 中 / 高年級</div>
+          </div>
+          <span class="sem__caret" aria-hidden="true"></span>
+        </summary>
+        <div class="sem__body">
+          <div class="sem__actions">
+            <a class="sem__btn" href="weekly-english/114-s1-weekly-english.pdf" target="_blank" rel="noopener">在新分頁開啟 ↗</a>
+            <a class="sem__btn sem__btn--dl" href="weekly-english/114-s1-weekly-english.pdf" download>下載 PDF ↓</a>
+          </div>
+          <div class="sem__embed">
+            <iframe src="weekly-english/114-s1-weekly-english.pdf#toolbar=0&navpanes=0" title="114學年第一學期每週英語時間表" loading="lazy"></iframe>
+          </div>
+        </div>
+      </details>
+
+      <details class="sem" id="sem-113-2">
+        <summary class="sem__sum">
+          <div class="sem__info">
+            <span class="sem__tag">113學年 · 第二學期</span>
+            <div class="sem__name">English Sentence per Week Timetable</div>
+            <div class="sem__meta-line">Feb 2025 – Jun 2025 &nbsp;·&nbsp; 第 1–20 週 &nbsp;·&nbsp; Grade 1&amp;2 / 3&amp;4 / 5&amp;6</div>
+          </div>
+          <span class="sem__caret" aria-hidden="true"></span>
+        </summary>
+        <div class="sem__body">
+          <div class="sem__actions">
+            <a class="sem__btn" href="weekly-english/113-s2-weekly-english.pdf" target="_blank" rel="noopener">在新分頁開啟 ↗</a>
+            <a class="sem__btn sem__btn--dl" href="weekly-english/113-s2-weekly-english.pdf" download>下載 PDF ↓</a>
+          </div>
+          <div class="sem__embed">
+            <iframe src="weekly-english/113-s2-weekly-english.pdf#toolbar=0&navpanes=0" title="113學年第二學期每週英語時間表" loading="lazy"></iframe>
+          </div>
+        </div>
+      </details>
+
+      <details class="sem" id="sem-113-1">
+        <summary class="sem__sum">
+          <div class="sem__info">
+            <span class="sem__tag">113學年 · 第一學期</span>
+            <div class="sem__name">English Sentence for the Week</div>
+            <div class="sem__meta-line">Sept 2024 – Jan 2025 &nbsp;·&nbsp; 第 6–20 週 &nbsp;·&nbsp; 低 / 中 / 高年級</div>
+          </div>
+          <span class="sem__caret" aria-hidden="true"></span>
+        </summary>
+        <div class="sem__body">
+          <div class="sem__actions">
+            <a class="sem__btn" href="weekly-english/113-s1-weekly-english.pdf" target="_blank" rel="noopener">在新分頁開啟 ↗</a>
+            <a class="sem__btn sem__btn--dl" href="weekly-english/113-s1-weekly-english.pdf" download>下載 PDF ↓</a>
+          </div>
+          <div class="sem__embed">
+            <iframe src="weekly-english/113-s1-weekly-english.pdf#toolbar=0&navpanes=0" title="113學年第一學期每週英語時間表" loading="lazy"></iframe>
+          </div>
+        </div>
+      </details>
+
+    </div><!-- /sem-list -->
   </div>
 </section>
 
