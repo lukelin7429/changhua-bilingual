@@ -218,6 +218,38 @@
   .banner__logo{flex-shrink:0;align-self:flex-end;width:50px;height:50px;border-radius:11px;background:#fff;padding:3px;box-shadow:0 6px 20px -5px rgba(0,0,0,.5);}
   @media(min-width:720px){ .banner__logo{ width:66px;height:66px;padding:4px; } }
   .banner__logo img{width:100%;height:100%;border-radius:8px;display:block;object-fit:contain;}
+
+  /* === Six strategies === */
+  .strategies{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
+  @media(min-width:720px){ .strategies{ grid-template-columns:repeat(2,1fr);gap:22px; } }
+  @media(min-width:1080px){ .strategies{ grid-template-columns:repeat(3,1fr); } }
+  .strategy{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:26px 24px 28px;box-shadow:var(--shadow-sm);
+    border-top:4px solid var(--paddy);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .strategy:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .strategy__num{
+    font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;
+    color:var(--paddy-deep);opacity:.12;line-height:1;margin-bottom:-6px;
+  }
+  .strategy__tag{
+    display:inline-block;background:var(--paddy-soft);color:var(--paddy-deep);
+    font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:4px 12px;border-radius:99px;margin-bottom:10px;
+  }
+  .strategy__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:23px;font-weight:600;color:var(--paddy-deep);line-height:1.25;}
+  @media(min-width:720px){ .strategy__title{ font-size:25px; } }
+  .strategy__zh{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:4px;letter-spacing:.04em;line-height:1.6;}
+  @media(min-width:720px){ .strategy__zh{ font-size:16px; } }
+  .strategy__body{font-size:17px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  @media(min-width:720px){ .strategy__body{ font-size:18px; } }
+  .strategy__body-zh{
+    font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);
+    margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);line-height:1.75;
+  }
+  @media(min-width:720px){ .strategy__body-zh{ font-size:16px; } }
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -395,10 +427,91 @@
   </div>
 </section>
 
-<!-- ===== V. Five hearts ===== -->
+<!-- ===== V. Six strategies ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">PROMISE · 05</div>
+    <div class="sec__no">STRATEGY · 05</div>
+    <div class="sec__title">Six Ways to Raise a School</div>
+    <div class="sec__title-zh">辦學目標 ─ 六大策略</div>
+    <div class="sec__rule"></div>
+
+    <p style="font-size:19px;color:var(--ink);max-width:760px;line-height:1.7;">
+      Vision sets the direction; strategy does the work. Principal Cheng's six-part framework turns the S.H.E ideal into daily practice &mdash; one decision, one classroom, one child at a time.
+    </p>
+    <p style="font-size:18px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;max-width:760px;margin-top:14px;line-height:1.8;">
+      願景指引方向，策略讓理念落地。鄭校長的六大辦學策略，把 S.H.E 轉化為每日的校務實踐——每一個決定、每一間教室、每一個孩子。
+    </p>
+
+    <div class="strategies">
+
+      <article class="strategy">
+        <div class="strategy__num">1</div>
+        <div class="strategy__tag">Administration</div>
+        <div class="strategy__title">Administration That Learns
+          <div class="strategy__zh">創新三化行政</div>
+        </div>
+        <p class="strategy__body">Building a team that is professional, learning, and service-first &mdash; where serving the child comes before managing the office.</p>
+        <p class="strategy__body-zh">建構「專業化、學習化、服務化」行政團隊。服務先於領導，行政效能以學生需求為核心。</p>
+      </article>
+
+      <article class="strategy">
+        <div class="strategy__num">2</div>
+        <div class="strategy__tag">Teaching</div>
+        <div class="strategy__title">Teaching That Moves
+          <div class="strategy__zh">專業三感教務</div>
+        </div>
+        <p class="strategy__body">Developing teaching driven by motivation, participation, and a sense of accomplishment &mdash; for teachers as much as for students.</p>
+        <p class="strategy__body-zh">發展「動機感、參與感、成就感」的教學。推動公開觀課，組成教師學習社群，讓老師先感受到成就，學生才能跟上。</p>
+      </article>
+
+      <article class="strategy">
+        <div class="strategy__num">3</div>
+        <div class="strategy__tag">Student Life</div>
+        <div class="strategy__title">Three Qualities of Character
+          <div class="strategy__zh">多元三品學務</div>
+        </div>
+        <p class="strategy__body">Character in how one lives. Quality in how one works. Culture in how one sees the world. These three run through every club, every service project, every trip to the community.</p>
+        <p class="strategy__body-zh">做人有品德、做事有品質、生活有品味。多元社團、服務學習、走讀社區，讓三品在生活中自然長出來。</p>
+      </article>
+
+      <article class="strategy">
+        <div class="strategy__num">4</div>
+        <div class="strategy__tag">Campus</div>
+        <div class="strategy__title">A Campus Without Barriers
+          <div class="strategy__zh">優質三可總務</div>
+        </div>
+        <p class="strategy__body">Every corner of the campus should be reachable, enterable, and usable &mdash; physically and imaginatively. Beauty and safety, together.</p>
+        <p class="strategy__body-zh">可達、可進、可用——不只是無障礙設施，也是「讓孩子每走一步都感受到美」的校園美學追求。</p>
+      </article>
+
+      <article class="strategy">
+        <div class="strategy__num">5</div>
+        <div class="strategy__tag">Guidance</div>
+        <div class="strategy__title">Every Child, Held
+          <div class="strategy__zh">適性三級輔導</div>
+        </div>
+        <p class="strategy__body">From point to line to plane to volume &mdash; three tiers of support that surround every child without gaps. The school should feel like home.</p>
+        <p class="strategy__body-zh">三級輔導由「點的擴散」到「面的鋪陳」再到「美的形塑」——整合資源，讓每個孩子都得到照顧，學校充滿家的感覺。</p>
+      </article>
+
+      <article class="strategy">
+        <div class="strategy__num">6</div>
+        <div class="strategy__tag">Partnership</div>
+        <div class="strategy__title">When All Three Win
+          <div class="strategy__zh">合作三贏夥伴</div>
+        </div>
+        <p class="strategy__body">School, community, and families &mdash; not three separate parties, but one circle. When all three win, the child in the middle wins too.</p>
+        <p class="strategy__body-zh">學校、社區、家長，不是三個獨立角色，而是同一個圓。三贏，才能讓圓心那個孩子真正得益。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== VI. Five hearts ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">PROMISE · 06</div>
     <div class="sec__title">The Five-Hearted Pledge</div>
     <div class="sec__title-zh">五心承諾 ─ 校長對家長與社區的話</div>
     <div class="sec__rule"></div>
@@ -420,10 +533,10 @@
   </div>
 </section>
 
-<!-- ===== VI. Bio ===== -->
+<!-- ===== VII. Bio ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">PROFILE · 06</div>
+    <div class="sec__no">PROFILE · 07</div>
     <div class="sec__title">About the Principal</div>
     <div class="sec__title-zh">校長簡介</div>
     <div class="sec__rule"></div>
