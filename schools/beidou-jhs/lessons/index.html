@@ -39,21 +39,22 @@
 
   /* === Banner === */
   .banner{
-    background:linear-gradient(135deg,rgba(26,58,92,.72) 0%,rgba(45,95,138,.72) 50%,rgba(21,84,80,.72) 100%),url("../photos/campus/garden-path.jpg") center/cover no-repeat;
-    color:#fff;padding:56px 24px 72px;position:relative;overflow:hidden;text-align:center;
+    background:linear-gradient(135deg,#0d2b52 0%,#1a3a5c 45%,#0e4a42 100%);
+    color:#fff;padding:32px 24px 38px;position:relative;overflow:hidden;text-align:center;
   }
-  @media(min-width:720px){.banner{padding:80px 24px 100px;}}
-  .banner::before{content:'';position:absolute;top:-30px;right:-30px;width:240px;height:240px;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);opacity:.2;border-radius:50%;}
-  .banner::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,var(--teal) 0%,transparent 70%);opacity:.25;border-radius:50%;}
+  @media(min-width:720px){.banner{padding:44px 24px 50px;}}
+  .banner::before{content:'';position:absolute;top:-40px;right:-40px;width:260px;height:260px;background:radial-gradient(circle,var(--gold) 0%,transparent 65%);opacity:.18;border-radius:50%;}
+  .banner::after{content:'';position:absolute;bottom:-50px;left:-50px;width:220px;height:220px;background:radial-gradient(circle,var(--teal) 0%,transparent 65%);opacity:.22;border-radius:50%;}
   .banner__inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
-  .banner__eyebrow{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;color:#f5d99a;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
-  @media(min-width:720px){.banner__eyebrow{font-size:15px;}}
   .banner h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;letter-spacing:1px;line-height:1.1;}
-  @media(min-width:720px){.banner h1{font-size:76px;}}
-  .banner__zh{font-size:20px;color:#c9daea;margin-top:10px;font-weight:500;letter-spacing:2px;}
-  @media(min-width:720px){.banner__zh{font-size:26px;}}
-  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#fde8bb;margin-top:16px;line-height:1.5;font-weight:500;}
-  @media(min-width:720px){.banner__tagline{font-size:23px;}}
+  @media(min-width:720px){.banner h1{font-size:72px;}}
+  .banner__zh{font-size:19px;color:#c9daea;margin-top:8px;font-weight:500;letter-spacing:2px;}
+  @media(min-width:720px){.banner__zh{font-size:24px;}}
+  .banner__icons{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;margin-top:20px;}
+  .banner__icon{display:flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 16px;backdrop-filter:blur(4px);}
+  .banner__icon span:first-child{font-size:1.5rem;}
+  .banner__icon span:last-child{font-size:12px;color:rgba(255,255,255,.8);font-weight:600;letter-spacing:.5px;white-space:nowrap;}
+  @media(min-width:720px){.banner__icon span:first-child{font-size:1.8rem;}.banner__icon span:last-child{font-size:13px;}}
 
   /* === Section === */
   section{padding:64px 0;}
@@ -128,10 +129,15 @@
 
 <header class="banner">
   <div class="banner__inner">
-    <div class="banner__eyebrow">Beidou Junior High School</div>
     <h1>Bilingual Lessons</h1>
-    <div class="banner__zh">北斗國中 雙語課程</div>
-    <p class="banner__tagline">Choose a course. Learn English through every subject.</p>
+    <div class="banner__zh">雙語課程</div>
+    <div class="banner__icons">
+      <div class="banner__icon"><span>📖</span><span>Word of the Day</span></div>
+      <div class="banner__icon"><span>🚀</span><span>Bilingual Science</span></div>
+      <div class="banner__icon"><span>📢</span><span>Classroom English</span></div>
+      <div class="banner__icon"><span>🎙</span><span>Bilingual Broadcast</span></div>
+      <div class="banner__icon"><span>🎯</span><span>2000 Vocabulary</span></div>
+    </div>
   </div>
 </header>
 
