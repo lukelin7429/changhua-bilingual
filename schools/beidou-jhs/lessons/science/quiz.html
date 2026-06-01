@@ -29,14 +29,13 @@
   .wrap{max-width:860px;margin:0 auto;padding:0 20px;}
 
   /* Subnav */
-  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
-  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond',serif;font-size:19px;}
-  @media(min-width:720px){.subnav__inner{font-size:21px;}}
-  .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
-  .subnav a:hover{background:#fff;color:var(--gold-deep);}
-  .subnav a.is-active{background:var(--gold);color:#fff;}
-  .subnav__sep{color:var(--ink-soft);opacity:.4;}
-  @media(max-width:600px){.subnav__sep{display:none;}}
+  .school-nav{background:#e3edf8;border-bottom:1px solid #dde6ee;padding:14px 20px;position:sticky;top:0;z-index:50;}
+  .school-nav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:'Cormorant Garamond',serif;font-size:17px;max-width:1100px;margin:0 auto;}
+  .school-nav a{color:#1a3a5c;text-decoration:none;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .school-nav a:hover{background:#fff;color:#9b6508;}
+  .school-nav a.is-active{background:#c8870a;color:#fff;}
+  .school-nav__sep{color:#5a606e;opacity:.4;font-size:14px;}
+  @media(max-width:480px){.school-nav__sep{display:none;}}
 
   /* Festival hero */
   .fest-hero{
@@ -166,21 +165,17 @@
 </head>
 <body>
 
-<nav class="subnav">
-  <div class="wrap">
-    <div class="subnav__inner">
-      <a href="/schools/beidou-jhs/">Home</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/beidou-jhs/lessons/">Bilingual Lessons</a>
-      <span class="subnav__sep">·</span>
-      <a href="index.html">Science Course</a>
-      <span class="subnav__sep">·</span>
-      <a href="vocab.html">Vocabulary</a>
-      <span class="subnav__sep">·</span>
-      <a href="handout.html">Handout</a>
-      <span class="subnav__sep">·</span>
-      <a href="quiz.html" class="is-active">Quiz</a>
-    </div>
+<nav class="school-nav">
+  <div class="school-nav__inner">
+    <a href="../../">Home</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../principal/">Principal</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../bilingual-campus/">Bilingual Campus</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../" class="is-active">Bilingual Lessons</a>
+    <span class="school-nav__sep">·</span>
+    <a href="../../news/">News</a>
   </div>
 </nav>
 
