@@ -540,6 +540,18 @@ header p {
 .school-nav a.is-active{background:#c8870a;color:#fff;}
 .school-nav__sep{color:#5a606e;opacity:.4;}
 @media(max-width:600px){.school-nav__sep{display:none;}}
+
+  /* 2000 Vocabulary stage overview */
+  .v2k-overview{background:#2a3d2a;padding:22px 24px;margin:0;}
+  .v2k-overview__inner{max-width:1100px;margin:0 auto;}
+  .v2k-overview__title{font-family:'Cormorant Garamond','Georgia',serif;font-size:20px;font-weight:700;color:#FFD93D;margin-bottom:14px;}
+  @media(min-width:720px){.v2k-overview__title{font-size:24px;}}
+  .v2k-overview-stages{display:flex;flex-wrap:wrap;gap:10px;}
+  .v2k-overview-stage{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-top:4px solid #6BCB77;border-radius:12px;padding:12px 20px;color:#F2EDD7;font-size:15px;font-weight:600;transition:all .15s;display:flex;align-items:center;gap:10px;cursor:pointer;}
+  .v2k-overview-stage:nth-child(2){border-top-color:#74B9FF;}
+  .v2k-overview-stage:nth-child(3){border-top-color:#A29BFE;}
+  .v2k-overview-stage:nth-child(4){border-top-color:#FFD93D;}
+  .v2k-overview-stage:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);}
 </style>
 </head>
 <body>
@@ -567,6 +579,18 @@ header p {
 </header>
 
 <!-- ── 學習路線圖 Roadmap ── -->
+<div class="v2k-overview">
+  <div class="v2k-overview__inner">
+    <div class="v2k-overview__title">📚 國中2000單字 · 四階段學習計畫 Learning Roadmap</div>
+    <div class="v2k-overview-stages">
+      <div class="v2k-overview-stage" onclick="setStage(1)"><span>🌱</span>第一階段 Stage 1 · Survival</div>
+      <div class="v2k-overview-stage" onclick="setStage(2)"><span>📘</span>第二階段 Stage 2 · Core</div>
+      <div class="v2k-overview-stage" onclick="setStage(3)"><span>📗</span>第三階段 Stage 3 · Extended</div>
+      <div class="v2k-overview-stage" onclick="setStage(4)"><span>🏆</span>第四階段 Stage 4 · Advanced</div>
+    </div>
+  </div>
+</div>
+
 <div class="roadmap">
   <div class="roadmap-toggle" onclick="toggleRoadmap()">
     <span class="roadmap-toggle-title">📊 國中2000單字 · 四階段學習計畫 Learning Roadmap</span>
