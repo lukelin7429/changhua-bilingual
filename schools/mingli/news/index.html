@@ -95,10 +95,58 @@
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media(min-width:720px){footer{font-size:17px;}}
   footer .org{font-weight:600;color:var(--g-deep);}
+  /* ── Topbar ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar-brand{text-decoration:none;}
+  .topbar-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--g-deep);line-height:1.15;}
+  .topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:11.5px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{font-size:14.5px;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:7px 11px;border-radius:8px;transition:all .15s;}
+  .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--g-deep);background:var(--g-soft);}
+  @media(max-width:640px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:13.5px;padding:5px 8px;}}
+  /* ── Page Banner ── */
+  .page-banner{position:relative;overflow:hidden;height:168px;display:flex;align-items:flex-end;}
+  @media(min-width:720px){.page-banner{height:230px;}}
+  .page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,67,48,.72) 0%,rgba(26,67,48,.22) 60%,transparent 100%);}
+  .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .page-banner__inner{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px 26px;color:#fff;}
+  @media(min-width:720px){.page-banner__inner{padding:0 24px 34px;}}
+  .page-banner__eyebrow{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:5px;}
+  .page-banner__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;line-height:1.2;}
+  @media(min-width:720px){.page-banner__title{font-size:44px;}}
+  .page-banner__zh{font-size:16px;color:rgba(255,255,255,.88);margin-top:5px;font-weight:500;}
+  @media(min-width:720px){.page-banner__zh{font-size:20px;}}
+  .page-banner--grad{background:linear-gradient(135deg,var(--g-deep) 0%,var(--g) 60%,var(--g-light) 100%);}
+  .page-banner--grad::after{display:none;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
 <body>
+
+<nav class="topbar" role="navigation" aria-label="Site navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="../">
+      <div class="topbar-name">Mingli Elementary<small>彰化縣田中鎮明禮國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="../bilingual-campus/">English Life</a>
+      <a href="../lessons/">Lessons</a>
+      <a href="" class="is-active">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=mingli">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-banner page-banner--grad">
+  <div class="page-banner__inner">
+    <div class="page-banner__eyebrow">Mingli Elementary · 明禮國小</div>
+    <div class="page-banner__title">School News</div>
+    <div class="page-banner__zh">學校新聞 · 每一個精彩時刻</div>
+  </div>
+</div>
 
 <!-- ===== I. School News ===== -->
 <section>
