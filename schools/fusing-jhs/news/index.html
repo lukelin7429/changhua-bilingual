@@ -125,6 +125,56 @@
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
+  /* === Photo Hero Banner === */
+  .banner{
+    position:relative;
+    background:#000 url('../photos/campus-03.jpg') center 50%/cover;
+    min-height:260px;display:flex;align-items:flex-end;overflow:hidden;
+  }
+  @media (min-width:720px){ .banner{ min-height:340px; } }
+  @media (min-width:1080px){ .banner{ min-height:380px; } }
+  .banner::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 88% 18%, rgba(240,167,34,.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 8% 28%, rgba(201,201,32,.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(230,61,46,.55) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(26,71,145,.30) 0%, rgba(26,71,145,.78) 100%);
+    pointer-events:none;
+  }
+  .banner::after{
+    content:'';position:absolute;top:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg, var(--orange) 0%, var(--olive) 33%, var(--red) 66%, var(--blue) 100%);
+  }
+  .banner__inner{
+    position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;
+    padding:30px 24px 26px;color:#fff;
+  }
+  @media (min-width:720px){ .banner__inner{ padding:42px 36px 36px; } }
+  .banner__brand{
+    font-family:'Playfair Display',serif;
+    font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+    color:#fde6c2;font-weight:600;margin-bottom:10px;
+  }
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{
+    font-family:'Playfair Display',serif;
+    font-size:38px;font-weight:800;line-height:1.05;letter-spacing:.5px;
+    text-shadow:0 4px 20px rgba(0,0,0,.45);margin:0;color:#fff;
+  }
+  @media (min-width:720px){ .banner h1{ font-size:58px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:72px; } }
+  .banner__zh{
+    font-size:19px;color:#eef0f9;margin-top:6px;font-weight:500;letter-spacing:1.5px;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .banner__zh{ font-size:24px; } }
+  .banner__tagline{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:16px;color:#ffe7c8;margin-top:12px;line-height:1.45;
+    max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);
+  }
+  @media (min-width:720px){ .banner__tagline{ font-size:19px;margin-top:16px; } }
 </style>
 </head>
 <body>
@@ -136,18 +186,24 @@
       <span class="subnav__sep">·</span>
       <a href="../principal/">Principal</a>
       <span class="subnav__sep">·</span>
-      <a href="../lessons/">Classroom English</a>
+      <a href="../campus/">Campus</a>
       <span class="subnav__sep">·</span>
-      <a href="../bilingual-campus/">English Life</a>
-      <span class="subnav__sep">·</span>
-      <a href="./" class="is-active">News</a>
-      <span class="subnav__sep">·</span>
-      <a href="../announcements/">Announcements</a>
+      <a href="../news/" class="is-active">News</a>
       <span class="subnav__sep">·</span>
       <a href="https://changhua-bilingual.org/festivals/?from=fusing-jhs">Festivals</a>
     </div>
   </div>
 </nav>
+<!-- ===== Photo Hero Banner ===== -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__brand">School News · 校園新聞</div>
+    <h1>Stories from Fusing</h1>
+    <div class="banner__zh">校園新聞 · 一年裡的大事與日常</div>
+    <p class="banner__tagline">Bilingual coverage of campus events, taekwondo wins, international exchanges, and student honours.</p>
+  </div>
+</header>
+
 
 <section>
   <div class="wrap">
