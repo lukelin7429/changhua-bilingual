@@ -47,21 +47,19 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Photo Hero Banner === */
+  /* === Gradient Hero Banner === */
   .banner{
     position:relative;
-    background:#000 url('../photos/campus-04.jpg') center 50%/cover;
-    min-height:280px;display:flex;align-items:flex-end;overflow:hidden;
+    background:linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 70%, #5d7fc4 100%);
+    min-height:240px;display:flex;align-items:flex-end;overflow:hidden;
   }
-  @media (min-width:720px){ .banner{ min-height:360px; } }
-  @media (min-width:1080px){ .banner{ min-height:420px; } }
+  @media (min-width:720px){ .banner{ min-height:300px; } }
+  @media (min-width:1080px){ .banner{ min-height:340px; } }
   .banner::before{
     content:'';position:absolute;inset:0;
     background:
-      radial-gradient(ellipse at 88% 18%, rgba(240,167,34,.55) 0%, transparent 55%),
-      radial-gradient(ellipse at 8% 28%, rgba(201,201,32,.45) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 100%, rgba(230,61,46,.55) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(26,71,145,.30) 0%, rgba(26,71,145,.78) 100%);
+      radial-gradient(ellipse at 88% 22%, rgba(240,167,34,.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 12% 80%, rgba(201,201,32,.14) 0%, transparent 55%);
     pointer-events:none;
   }
   .banner::after{
