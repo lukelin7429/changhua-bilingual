@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/fusing-jhs/photos/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/fusing-jhs/photos/favicon-180.png">
 <link rel="shortcut icon" href="/schools/fusing-jhs/photos/favicon.ico">
-<meta name="description" content="Bilingual Life at Fusing Junior High — three daily English &amp; bilingual hubs in one place: Classroom English video curriculum by Sarah Thomas, bilingual school-wide announcements by Sarah and Susan, and the real-time official bulletin system. 福興國中雙語校園入口：課室英語影音、雙語廣播、即時公告系統。">
+<meta name="description" content="Bilingual Life at Fusing Junior High — Classroom English video curriculum by Sarah Thomas, bilingual campus announcements by Sarah and Susan, Japan/Singapore international exchanges, and the school's real-time official bulletin system. All in one page. 福興國中雙語校園入口：課室英語、廣播英語、國際交流、即時公告。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
   section:last-of-type{border-bottom:none;}
+  section.alt{background:var(--bg-soft);}
   .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
   @media (min-width:720px){ .sec__no{ font-size:25px; } }
   .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
@@ -91,42 +92,107 @@
   @media (min-width:720px){ .body .zh{ font-size:21px; } }
   .body strong{color:var(--blue-deep);font-weight:700;}
 
-  /* === Hub cards (3 pillars) === */
-  .hubs{display:grid;grid-template-columns:1fr;gap:24px;margin-top:14px;}
-  @media (min-width:880px){ .hubs{ grid-template-columns:1fr 1fr 1fr;gap:26px; } }
-  .hub{
-    background:#fff;border-radius:20px;border:1px solid var(--line);
-    box-shadow:var(--shadow-sm);overflow:hidden;
+  /* === In-page jump strip === */
+  .jump{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;margin-top:30px;}
+  @media (min-width:720px){ .jump{ grid-template-columns:repeat(4, 1fr);gap:14px; } }
+  .jump a{
+    background:#fff;border:1.5px solid var(--blue);color:var(--blue-deep);
+    border-radius:99px;padding:10px 14px;text-align:center;text-decoration:none;
+    font-family:'Playfair Display',serif;font-weight:700;font-size:16px;letter-spacing:.3px;
+    transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  @media (min-width:720px){ .jump a{ font-size:18px;padding:12px 18px; } }
+  .jump a:hover{background:var(--blue-deep);color:#fff;}
+  .jump__icon{font-size:18px;}
+
+  /* === Playlist embed === */
+  .playlist{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin-top:32px;}
+  .playlist__head{background:linear-gradient(135deg, var(--blue-deep), var(--blue));color:#fff;padding:24px 28px;}
+  @media (min-width:720px){ .playlist__head{ padding:30px 36px; } }
+  .playlist__head--olive{background:linear-gradient(135deg, var(--olive-deep), var(--olive));color:#3a3c08;}
+  .playlist__head--olive .playlist__zh{color:rgba(58,60,8,.85);}
+  .playlist__head--olive .playlist__meta{color:rgba(58,60,8,.85);}
+  .playlist__head--olive .playlist__meta b{color:#3a3c08;}
+  .playlist__head--olive .playlist__badge{background:rgba(58,60,8,.18);color:#3a3c08;}
+  .playlist__badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:99px;}
+  .playlist__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1.2;margin-top:10px;letter-spacing:.3px;}
+  @media (min-width:720px){ .playlist__title{ font-size:34px; } }
+  .playlist__zh{font-size:18px;color:#d2d6ec;margin-top:4px;font-weight:600;}
+  @media (min-width:720px){ .playlist__zh{ font-size:20px; } }
+  .playlist__meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:15px;color:#d2d6ec;}
+  @media (min-width:720px){ .playlist__meta{ font-size:17px; } }
+  .playlist__meta b{color:#fff;font-weight:700;}
+  .playlist__frame{position:relative;padding-bottom:56.25%;height:0;background:#000;}
+  .playlist__frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .playlist__foot{padding:18px 28px;background:var(--blue-soft);font-size:17px;color:var(--ink-soft);}
+  @media (min-width:720px){ .playlist__foot{ padding:20px 36px;font-size:19px; } }
+
+  /* === 10 scenario tiles === */
+  .scenarios{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit, minmax(180px,1fr));gap:10px;}
+  .scenario{background:var(--blue-soft);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--blue-deep);font-weight:600;}
+  @media (min-width:720px){ .scenario{ font-size:17px;padding:14px 16px; } }
+  .scenario b{display:block;font-family:'Playfair Display',serif;font-size:16px;}
+  @media (min-width:720px){ .scenario b{ font-size:18px; } }
+
+  /* === International pair cards === */
+  .pair{display:grid;grid-template-columns:1fr;gap:22px;margin-top:14px;}
+  @media (min-width:880px){ .pair{ grid-template-columns:1fr 1fr;gap:26px; } }
+  .pair__card{background:#fff;border-radius:18px;border:1px solid var(--line);padding:30px 28px;box-shadow:var(--shadow-sm);border-top:6px solid var(--blue);}
+  .pair__card:nth-child(2){border-top-color:var(--orange);}
+  .pair__icon{font-size:42px;line-height:1;margin-bottom:10px;}
+  @media (min-width:720px){ .pair__icon{ font-size:52px; } }
+  .pair__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);line-height:1.2;}
+  @media (min-width:720px){ .pair__title{ font-size:28px; } }
+  .pair__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+  @media (min-width:720px){ .pair__title-zh{ font-size:21px; } }
+  .pair__body{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.65;}
+  @media (min-width:720px){ .pair__body{ font-size:20px; } }
+
+  /* === Bulletin CTA === */
+  .primary-cta{
+    margin-top:36px;background:linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color:#fff;border-radius:24px;padding:36px 28px;box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    text-decoration:none;transition:transform .15s;
+  }
+  @media (min-width:720px){ .primary-cta{ padding:44px 40px;gap:28px; } }
+  .primary-cta:hover{transform:translateY(-3px);}
+  .primary-cta__left{flex:1;min-width:240px;}
+  .primary-cta__badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:99px;}
+  .primary-cta__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;line-height:1.15;margin-top:12px;}
+  @media (min-width:720px){ .primary-cta__title{ font-size:42px; } }
+  .primary-cta__zh{font-size:19px;color:#d2d6ec;margin-top:6px;font-weight:600;}
+  @media (min-width:720px){ .primary-cta__zh{ font-size:22px; } }
+  .primary-cta__hint{font-size:16px;color:#d2d6ec;margin-top:10px;font-style:italic;}
+  @media (min-width:720px){ .primary-cta__hint{ font-size:18px; } }
+  .primary-cta__arrow{font-size:42px;font-weight:700;color:var(--orange);flex-shrink:0;}
+  @media (min-width:720px){ .primary-cta__arrow{ font-size:58px; } }
+
+  .cats{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px;}
+  @media (min-width:720px){ .cats{ grid-template-columns:1fr 1fr;gap:20px; } }
+  @media (min-width:1000px){ .cats{ grid-template-columns:1fr 1fr 1fr; } }
+  .cat{
+    background:#fff;border-radius:16px;border:1px solid var(--line);
+    padding:22px 24px;box-shadow:var(--shadow-sm);
+    border-top:6px solid var(--blue);
     display:flex;flex-direction:column;text-decoration:none;color:inherit;
-    transition:transform .2s, box-shadow .2s;
+    transition:transform .15s, box-shadow .15s;
   }
-  .hub:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-  .hub__top{
-    height:160px;background:linear-gradient(135deg, var(--blue-deep), var(--blue));
-    display:flex;align-items:center;justify-content:center;color:#fff;
-    position:relative;overflow:hidden;
-  }
-  @media (min-width:720px){ .hub__top{ height:180px; } }
-  .hub:nth-child(2) .hub__top{background:linear-gradient(135deg, var(--olive-deep), var(--olive));color:#3a3c08;}
-  .hub:nth-child(3) .hub__top{background:linear-gradient(135deg, var(--orange-deep), var(--orange));color:#fff;}
-  .hub__icon{font-size:68px;line-height:1;}
-  @media (min-width:720px){ .hub__icon{ font-size:84px; } }
-  .hub__body{padding:28px 26px 30px;flex:1;display:flex;flex-direction:column;}
-  .hub__cat{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);}
-  @media (min-width:720px){ .hub__cat{ font-size:15px; } }
-  .hub__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:6px;}
-  @media (min-width:720px){ .hub__title{ font-size:30px; } }
-  .hub__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
-  @media (min-width:720px){ .hub__title-zh{ font-size:20px; } }
-  .hub__body p{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.6;flex:1;}
-  @media (min-width:720px){ .hub__body p{ font-size:19px; } }
-  .hub__cta{
-    margin-top:18px;display:inline-flex;align-items:center;gap:6px;
-    color:var(--blue-deep);font-weight:700;font-size:17px;
-  }
-  @media (min-width:720px){ .hub__cta{ font-size:19px; } }
-  .hub:hover .hub__cta{color:var(--red);}
-  .hub__cta-arrow{font-size:20px;}
+  .cat:nth-child(2){border-top-color:var(--olive);}
+  .cat:nth-child(3){border-top-color:var(--red);}
+  .cat:nth-child(4){border-top-color:var(--orange);}
+  .cat:nth-child(5){border-top-color:var(--blue);}
+  .cat:nth-child(6){border-top-color:var(--olive);}
+  .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .cat__icon{font-size:34px;line-height:1;}
+  .cat__title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:8px;}
+  @media (min-width:720px){ .cat__title{ font-size:24px; } }
+  .cat__title-zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
+  @media (min-width:720px){ .cat__title-zh{ font-size:18px; } }
+  .cat__body{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
+  @media (min-width:720px){ .cat__body{ font-size:17px; } }
+  .cat__link{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--blue-deep);}
+  @media (min-width:720px){ .cat__link{ font-size:16px; } }
 
   .quote{
     margin-top:36px;background:var(--olive-soft);border-left:6px solid var(--olive);
@@ -136,6 +202,8 @@
   @media (min-width:720px){ .quote__text{ font-size:30px; } }
   .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
   @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+  .quote--orange{background:var(--orange-soft);border-left-color:var(--orange);}
+  .quote--orange .quote__text{color:var(--orange-deep);}
 
   .back-link{display:inline-block;margin-top:30px;color:var(--blue-deep);text-decoration:none;font-weight:700;font-size:19px;border-bottom:2px solid var(--olive);padding-bottom:2px;}
   .back-link:hover{color:var(--red);border-color:var(--red);}
@@ -168,76 +236,244 @@
   <div class="banner__inner">
     <div class="banner__brand">Bilingual Hub · 雙語校園</div>
     <h1>Bilingual Life</h1>
-    <div class="banner__zh">雙語校園 · 英語教學・廣播・公告</div>
-    <p class="banner__tagline">English in the classroom, English on the air, and English in every campus update.</p>
+    <div class="banner__zh">雙語校園 · 英語教學・廣播・國際交流・公告</div>
+    <p class="banner__tagline">English in the classroom, English on the air, English with the world — and bilingual access to every campus update.</p>
   </div>
 </header>
 
-<!-- ===== I. Welcome ===== -->
+<!-- ===== I. Intro ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
     <h2 class="sec__title">Bilingual at Fusing</h2>
-    <div class="sec__title-zh">三條英語主軸合而為一</div>
+    <div class="sec__title-zh">福興雙語校園 · 一頁全覽</div>
     <div class="sec__rule"></div>
 
-    <div class="lead">Three English threads run through every day at Fusing — the English we teach, the English we broadcast, and the bilingual bulletins that keep our community connected.</div>
-    <div class="lead-zh">福興校園的每一天，由三條英語主軸交織而成——我們教的英語、我們播的英語，以及把社群串連起來的雙語公告。</div>
+    <div class="lead">At Fusing, English isn't just a subject — it's the classroom we teach in, the broadcast we wake up to, and the language we use to talk with friends in Japan and Singapore.</div>
+    <div class="lead-zh">在福興，英文不只是一個科目——它是我們上課的教室、早晨的廣播，以及與日本、新加坡朋友對話的共同語言。</div>
 
     <div class="body">
       <p>
-        This hub brings together <strong>three resources</strong> we treat as one: the <strong>Classroom English</strong> video series for teachers and students, the bilingual <strong>English Life</strong> announcements that ring through the campus, and the <strong>Announcements</strong> bulletin board that connects every family to school news in real time.
+        This single page brings together everything bilingual at Fusing — our <strong>Classroom English</strong> video curriculum, the bilingual <strong>Campus Announcements</strong>, our <strong>international exchanges</strong> with partner schools abroad, and a direct link to the school's <strong>real-time bulletin system</strong> for parents and students.
       </p>
       <p class="zh">
-        本頁匯整本校三條校園日常主軸：給師生的<strong>課室英語</strong>影音、響徹校園廣播的雙語<strong>英語生活</strong>，以及即時連結每位家長的<strong>校園公告</strong>系統——三者合而為一，呈現福興最真實的校園節奏。
+        本頁匯整福興所有雙語校園資源：<strong>課室英語</strong>影音、雙語<strong>校園廣播</strong>、與夥伴學校的<strong>國際交流</strong>，以及給家長與學生的<strong>即時公告</strong>入口——一頁全覽，免於跳轉。
       </p>
+    </div>
+
+    <div class="jump">
+      <a href="#classroom"><span class="jump__icon">🎬</span> Classroom English</a>
+      <a href="#broadcast"><span class="jump__icon">📻</span> Announcements</a>
+      <a href="#international"><span class="jump__icon">🌏</span> International</a>
+      <a href="#bulletins"><span class="jump__icon">📢</span> Bulletins</a>
     </div>
   </div>
 </section>
 
-<!-- ===== II. Three Hubs ===== -->
-<section>
+<!-- ===== II. Classroom English ===== -->
+<section class="alt" id="classroom">
   <div class="wrap">
     <div class="sec__no">II.</div>
-    <h2 class="sec__title">Three Hubs, One Voice</h2>
-    <div class="sec__title-zh">三大入口 · 一種雙語</div>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · Sarah Thomas 老師主講</div>
     <div class="sec__rule"></div>
 
-    <div class="hubs">
+    <div class="body">
+      <p>
+        Ten classroom moments — from morning roll-call to handing out homework — taught in English with light Chinese cues by <strong>Teacher Sarah Thomas</strong>. Designed for in-service teachers, but openly watchable for any student who wants to hear English used the way teachers actually use it.
+      </p>
+      <p class="zh">
+        十大課堂情境——從早晨的點名到分派作業——由 <strong>Sarah Thomas 老師</strong>以英文為主、中文為輔。為在職教師設計，但任何想聽見「老師如何真實使用英文」的學生也歡迎觀看。
+      </p>
+    </div>
 
-      <a class="hub" href="../lessons/">
-        <div class="hub__top"><div class="hub__icon">🎬</div></div>
-        <div class="hub__body">
-          <div class="hub__cat">Hub 01 · Learning</div>
-          <div class="hub__title">Classroom English</div>
-          <div class="hub__title-zh">課室英語</div>
-          <p>Ten classroom scenarios taught by <strong>Teacher Sarah Thomas</strong> — from morning roll-call to handing out homework. Open to every teacher, watchable by every student.</p>
-          <span class="hub__cta">Open the playlist <span class="hub__cta-arrow">→</span></span>
+    <div class="playlist">
+      <div class="playlist__head">
+        <div class="playlist__badge">Series 1 · 課室英語</div>
+        <h3 class="playlist__title">Classroom English with Sarah Thomas</h3>
+        <div class="playlist__zh">課室英語 · 在職教師研習影音</div>
+        <div class="playlist__meta">
+          <span><b>Teacher:</b> Sarah Thomas</span>
+          <span><b>Producer:</b> My Culture Connect</span>
+          <span><b>10 scenarios</b></span>
         </div>
-      </a>
+      </div>
+      <div class="playlist__frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+                title="Classroom English playlist · 課室英語影片清單"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="playlist__foot">
+        From greetings &amp; roll-call to wrapping up class — every recurring moment, covered.
+      </div>
+    </div>
 
-      <a class="hub" href="../bilingual-campus/">
-        <div class="hub__top"><div class="hub__icon">📻</div></div>
-        <div class="hub__body">
-          <div class="hub__cat">Hub 02 · Daily</div>
-          <div class="hub__title">English Life</div>
-          <div class="hub__title-zh">校園英語生活</div>
-          <p>The bilingual <strong>Announcements</strong> by Sarah and Susan, plus our cross-cultural exchanges with schools in <strong>Japan</strong> and <strong>Singapore</strong>. English in the air, not just on the page.</p>
-          <span class="hub__cta">Step into English Life <span class="hub__cta-arrow">→</span></span>
+    <div class="scenarios">
+      <div class="scenario"><b>01</b>Greetings &amp; Roll-call</div>
+      <div class="scenario"><b>02</b>Class Preparation</div>
+      <div class="scenario"><b>03</b>Explaining &amp; Lecturing</div>
+      <div class="scenario"><b>04</b>Warm-up Activities</div>
+      <div class="scenario"><b>05</b>Feedback, Praise, Correction</div>
+      <div class="scenario"><b>06</b>Classroom Management</div>
+      <div class="scenario"><b>07</b>Class Activities</div>
+      <div class="scenario"><b>08</b>Assigning Homework</div>
+      <div class="scenario"><b>09</b>Wrapping up Class</div>
+      <div class="scenario"><b>10</b>Exams</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Bilingual Announcements ===== -->
+<section id="broadcast">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">廣播英語 · 校園四處室自我介紹</div>
+    <div class="sec__rule"></div>
+
+    <div class="body">
+      <p>
+        Thirteen short episodes that introduce the school's four offices — Academic Affairs (5), Student Affairs (3), General Affairs, and Counselling — in both English and Chinese, hosted by <strong>Sarah Thomas and Susan Rose</strong>. Built for campus broadcasting, but equally useful as a quick orientation tour of any junior high.
+      </p>
+      <p class="zh">
+        13 集短片，由 <strong>Sarah Thomas 與 Susan Rose</strong>以英中雙語介紹學校四處室——教務處（5 集）、學務處（3 集）、總務處、輔導室。為校園廣播情境設計，但也是任何國中校園導覽的最佳起點。
+      </p>
+    </div>
+
+    <div class="playlist">
+      <div class="playlist__head playlist__head--olive">
+        <div class="playlist__badge">Series 2 · 廣播英語</div>
+        <h3 class="playlist__title">Bilingual Announcements</h3>
+        <div class="playlist__zh">廣播英語 · Sarah Thomas &amp; Susan Rose</div>
+        <div class="playlist__meta">
+          <span><b>Hosts:</b> Sarah Thomas &amp; Susan Rose</span>
+          <span><b>Producer:</b> My Culture Connect</span>
+          <span><b>13 episodes</b></span>
         </div>
-      </a>
+      </div>
+      <div class="playlist__frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+                title="Bilingual Announcements playlist · 廣播英語影片清單"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="playlist__foot">
+        Four offices, thirteen short pieces — the way a Taiwanese junior high actually sounds, in both English and Chinese.
+      </div>
+    </div>
 
-      <a class="hub" href="../announcements/">
-        <div class="hub__top"><div class="hub__icon">📢</div></div>
-        <div class="hub__body">
-          <div class="hub__cat">Hub 03 · Updates</div>
-          <div class="hub__title">Announcements</div>
-          <div class="hub__title-zh">校園公告</div>
-          <p>Official bulletins, admissions notices, scholarship calls, and teacher PD posts — published in real time on the school's official bulletin system, updated every weekday.</p>
-          <span class="hub__cta">Open the bulletin <span class="hub__cta-arrow">→</span></span>
-        </div>
-      </a>
+    <div class="quote quote--orange">
+      <div class="quote__text">"When English is in the air, it stops being a test."</div>
+      <div class="quote__zh">「當英文出現在空氣中，它就不再只是一場考試。」</div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== IV. International Partners ===== -->
+<section class="alt" id="international">
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">English with the World</h2>
+    <div class="sec__title-zh">出走校園 · 與國際夥伴學校交流</div>
+    <div class="sec__rule"></div>
+
+    <div class="body">
+      <p>
+        Putting English to use the way it was meant to be used — speaking with someone from another culture. Through both <strong>online live sessions</strong> and <strong>in-person visits</strong>, Fusing students build real friendships with peers in Japan and Singapore.
+      </p>
+      <p class="zh">
+        讓英文回到它最該被使用的地方：與不同文化的人對話。透過<strong>線上同步課程</strong>與<strong>實體出訪</strong>雙軌，福興學生與日本、新加坡夥伴學校的學生建立真正的友誼。
+      </p>
+    </div>
+
+    <div class="pair">
+      <article class="pair__card">
+        <div class="pair__icon">🇯🇵</div>
+        <div class="pair__title">Japan Partner Schools</div>
+        <div class="pair__title-zh">日本夥伴學校交流</div>
+        <div class="pair__body">Online live sessions and in-person school visits give Fusing students real conversation partners — and real reasons to keep speaking English after the lesson ends.</div>
+      </article>
+      <article class="pair__card">
+        <div class="pair__icon">🇸🇬</div>
+        <div class="pair__title">Singapore Partner Schools</div>
+        <div class="pair__title-zh">新加坡夥伴學校交流</div>
+        <div class="pair__body">A multicultural English-speaking neighbour — perfect for Fusing students to compare campus life, food, holidays, and study habits with peers their own age.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== V. Official Bulletins ===== -->
+<section id="bulletins">
+  <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Official Bulletins</h2>
+    <div class="sec__title-zh">校園即時公告 · 直連學校官網公告系統</div>
+    <div class="sec__rule"></div>
+
+    <div class="body">
+      <p>
+        For real-time bulletins, admissions notices, scholarship calls, and teacher PD posts, the source of truth is the school's <strong>official bulletin system</strong> — updated daily by our administrative staff. This bilingual hub points you straight there.
+      </p>
+      <p class="zh">
+        最新公告、招生通知、獎助學金、教師研習資訊——皆即時公布在學校<strong>官方公告系統</strong>，由行政人員每日更新。本雙語頁面是入口，點下方按鈕直接前往。
+      </p>
+    </div>
+
+    <a class="primary-cta" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+      <div class="primary-cta__left">
+        <div class="primary-cta__badge">Official source · 即時更新</div>
+        <div class="primary-cta__title">Open the Bulletin System</div>
+        <div class="primary-cta__zh">前往福興國中公告系統</div>
+        <div class="primary-cta__hint">fsjh.chc.edu.tw/posts — opens in a new tab</div>
+      </div>
+      <div class="primary-cta__arrow">↗</div>
+    </a>
+
+    <div class="cats">
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">📢</div>
+        <div class="cat__title">General Bulletins</div>
+        <div class="cat__title-zh">一般公告</div>
+        <div class="cat__body">School-wide announcements, schedule changes, weather closures, and other day-to-day notices.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">🎒</div>
+        <div class="cat__title">Student Activities</div>
+        <div class="cat__title-zh">學生活動</div>
+        <div class="cat__body">Field trips, competitions, club enrolment windows, and special programmes.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">🏆</div>
+        <div class="cat__title">Honour Roll</div>
+        <div class="cat__title-zh">榮譽榜</div>
+        <div class="cat__body">Individual and team awards — academic, athletic, artistic, and character recognitions.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">🎓</div>
+        <div class="cat__title">Admissions &amp; Enrolment</div>
+        <div class="cat__title-zh">升學 / 招生 / 報到</div>
+        <div class="cat__body">Senior-high entrance information, sports class admissions, new student enrolment.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">💰</div>
+        <div class="cat__title">Scholarships &amp; Grants</div>
+        <div class="cat__title-zh">獎助學金</div>
+        <div class="cat__body">School and external scholarship calls, application deadlines, and required documents.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
+      <a class="cat" href="https://fsjh.chc.edu.tw/posts" target="_blank" rel="noopener">
+        <div class="cat__icon">📚</div>
+        <div class="cat__title">Teacher PD</div>
+        <div class="cat__title-zh">研習訊息</div>
+        <div class="cat__body">Professional development workshops, conferences, and external training opportunities.</div>
+        <div class="cat__link">Open on official site ↗</div>
+      </a>
     </div>
 
     <div class="quote">
