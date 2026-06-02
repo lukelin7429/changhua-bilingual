@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>News &amp; Stories · 校園新聞 · Fusing Junior High</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a4791'/%3E%3Ctext x='32' y='44' font-size='42' text-anchor='middle' fill='%23f0a722' font-family='serif' font-weight='800'%3E%E7%A6%8F%3C/text%3E%3C/svg%3E">
-<meta name="description" content="News and stories from Fusing Junior High — campus events, student honours, taekwondo wins, international exchange highlights, and bilingual programme updates. 福興國中校園新聞、學生榮譽、跆拳道戰績、國際交流亮點與雙語課程動態。">
+<meta name="description" content="News and stories from Fusing Junior High — bilingual coverage of campus events, taekwondo championships, international exchanges, science camps, and student honours. 福興國中校園新聞、運動戰績、國際交流、科學營與學生榮譽雙語紀錄。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +15,8 @@
     --olive:#c9c920;--olive-deep:#8e8e10;--olive-soft:#f5f5cc;
     --red:#e63d2e;--red-deep:#b32619;--red-soft:#fde2dd;
     --orange:#f0a722;--orange-deep:#c08311;--orange-soft:#fce8c4;
+    --green:#5b9d5b;--green-deep:#3d7a3d;--green-soft:#e7f3e7;
+    --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
     --bg-soft:#f6f7fb;--line:#e3e6ee;--ink:#1f2530;--ink-soft:#5a606e;
     --shadow:0 14px 38px -16px rgba(26,71,145,.30);--shadow-sm:0 6px 16px -6px rgba(26,71,145,.18);
   }
@@ -22,12 +24,10 @@
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media (min-width:720px){ body{ font-size:23px; } }
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media (min-width:720px){ section{ padding:80px 0; } }
   section:last-of-type{border-bottom:none;}
-
   .sec__no{font-family:'Playfair Display',serif;color:var(--red);font-size:22px;font-weight:700;letter-spacing:5px;}
   @media (min-width:720px){ .sec__no{ font-size:25px; } }
   .sec__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
@@ -45,79 +45,87 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  .lead{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.35;}
-  @media (min-width:720px){ .lead{ font-size:36px; } }
-  .lead-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:12px;line-height:1.6;}
-  @media (min-width:720px){ .lead-zh{ font-size:24px; } }
-  .body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
-  @media (min-width:720px){ .body{ font-size:22px; } }
-  .body p{margin-top:16px;}
-  .body p:first-child{margin-top:0;}
-  .body .zh{color:var(--ink-soft);font-size:19px;margin-top:8px;line-height:1.65;}
-  @media (min-width:720px){ .body .zh{ font-size:21px; } }
-
-  /* === Placeholder / Coming soon === */
-  .placeholder{
-    background:linear-gradient(135deg, var(--blue-soft) 0%, var(--orange-soft) 100%);
-    border-radius:24px;padding:48px 32px;text-align:center;border:2px dashed var(--blue);
-    margin-top:30px;
+  .source-banner{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;display:flex;gap:14px;align-items:flex-start;
+    font-size:17px;color:var(--ink-soft);
   }
-  @media (min-width:720px){ .placeholder{ padding:64px 56px; } }
-  .placeholder__icon{font-size:64px;line-height:1;}
-  @media (min-width:720px){ .placeholder__icon{ font-size:84px; } }
-  .placeholder__title{
-    font-family:'Playfair Display',serif;
-    font-size:32px;font-weight:800;color:var(--blue-deep);margin-top:16px;line-height:1.2;
-  }
-  @media (min-width:720px){ .placeholder__title{ font-size:44px; } }
-  .placeholder__zh{font-size:20px;color:var(--ink-soft);margin-top:8px;font-weight:600;}
-  @media (min-width:720px){ .placeholder__zh{ font-size:24px; } }
-  .placeholder__body{font-size:18px;color:var(--ink);margin-top:18px;line-height:1.7;max-width:680px;margin-left:auto;margin-right:auto;}
-  @media (min-width:720px){ .placeholder__body{ font-size:21px; } }
+  @media (min-width:720px){ .source-banner{ font-size:19px; } }
+  .source-banner b{color:var(--blue-deep);}
+  .source-banner .icon{font-size:24px;flex-shrink:0;}
 
-  .placeholder__ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
-  .ph-cta{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--blue-deep);color:#fff;text-decoration:none;
-    padding:14px 24px;border-radius:12px;font-weight:700;font-size:18px;
-    transition:transform .15s, background .15s;
-  }
-  @media (min-width:720px){ .ph-cta{ font-size:20px;padding:16px 28px; } }
-  .ph-cta:hover{background:var(--red);transform:translateY(-2px);}
-  .ph-cta--fb{background:#1877f2;}
-  .ph-cta--fb:hover{background:#0c63d4;}
+  .cat-key{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 26px;font-family:'Playfair Display','PingFang TC',serif;font-size:15px;}
+  @media (min-width:720px){ .cat-key{ font-size:17px; } }
+  .cat-key span{padding:5px 12px;border-radius:6px;font-weight:700;}
+  .cat-key .k-international{background:var(--orange-soft);color:var(--orange-deep);}
+  .cat-key .k-student{background:var(--blue-soft);color:var(--blue-deep);}
+  .cat-key .k-local{background:var(--green-soft);color:var(--green-deep);}
+  .cat-key .k-reading{background:var(--purple-soft);color:var(--purple-deep);}
+  .cat-key .k-tech{background:var(--blue-soft);color:var(--blue-deep);}
+  .cat-key .k-sports{background:var(--red-soft);color:var(--red-deep);}
+  .cat-key .k-honor{background:var(--orange-soft);color:var(--orange-deep);}
 
-  /* === Story categories preview === */
-  .categories{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
-  @media (min-width:720px){ .categories{ grid-template-columns:1fr 1fr;gap:22px; } }
-  .cat{
-    background:#fff;border-radius:16px;border:1px solid var(--line);
-    padding:24px 26px;box-shadow:var(--shadow-sm);
-    border-left:6px solid var(--blue);
+  .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:760px){ .news-grid{ grid-template-columns:repeat(2,1fr);gap:28px; } }
+  @media (min-width:1000px){ .news-grid{ grid-template-columns:repeat(3,1fr); } }
+  .nc{
+    background:#fff;border-radius:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+    border-left:5px solid var(--blue);
+    text-decoration:none;color:inherit;
   }
-  .cat:nth-child(2){border-left-color:var(--olive);}
-  .cat:nth-child(3){border-left-color:var(--red);}
-  .cat:nth-child(4){border-left-color:var(--orange);}
-  .cat__icon{font-size:36px;line-height:1;}
-  .cat__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:8px;}
-  @media (min-width:720px){ .cat__title{ font-size:28px; } }
-  .cat__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
-  @media (min-width:720px){ .cat__title-zh{ font-size:21px; } }
-  .cat__body{font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.6;}
-  @media (min-width:720px){ .cat__body{ font-size:19px; } }
+  .nc:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .nc.cat--international{border-left-color:var(--orange);}
+  .nc.cat--student{border-left-color:var(--blue);}
+  .nc.cat--local{border-left-color:var(--green);}
+  .nc.cat--reading{border-left-color:var(--purple);}
+  .nc.cat--tech{border-left-color:var(--blue-deep);}
+  .nc.cat--sports{border-left-color:var(--red);}
+  .nc.cat--honor{border-left-color:var(--orange);}
 
-  .back-link{display:inline-block;margin-top:30px;color:var(--blue-deep);text-decoration:none;font-weight:700;font-size:19px;border-bottom:2px solid var(--olive);padding-bottom:2px;}
-  .back-link:hover{color:var(--red);border-color:var(--red);}
+  .nc__hero{
+    height:100px;display:flex;align-items:center;justify-content:center;
+    font-size:56px;background:var(--blue-soft);
+  }
+  @media (min-width:720px){ .nc__hero{ height:120px;font-size:68px; } }
+  .nc.cat--international .nc__hero{background:var(--orange-soft);}
+  .nc.cat--student .nc__hero{background:var(--blue-soft);}
+  .nc.cat--local .nc__hero{background:var(--green-soft);}
+  .nc.cat--reading .nc__hero{background:var(--purple-soft);}
+  .nc.cat--tech .nc__hero{background:var(--blue-soft);}
+  .nc.cat--sports .nc__hero{background:var(--red-soft);}
+  .nc.cat--honor .nc__hero{background:var(--orange-soft);}
+
+  .nc__body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .nc__body{ padding:26px 26px 28px; } }
+  .nc__cat{font-family:'Playfair Display',serif;font-size:13.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);}
+  @media (min-width:720px){ .nc__cat{ font-size:15px; } }
+  .nc.cat--international .nc__cat{color:var(--orange-deep);}
+  .nc.cat--local .nc__cat{color:var(--green-deep);}
+  .nc.cat--reading .nc__cat{color:var(--purple-deep);}
+  .nc.cat--sports .nc__cat{color:var(--red-deep);}
+  .nc.cat--honor .nc__cat{color:var(--orange-deep);}
+
+  .nc__date{font-size:15px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  @media (min-width:720px){ .nc__date{ font-size:16px; } }
+  .nc__title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--blue-deep);line-height:1.25;margin-top:10px;}
+  @media (min-width:720px){ .nc__title{ font-size:23px; } }
+  .nc__title-zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.4;}
+  @media (min-width:720px){ .nc__title-zh{ font-size:18px; } }
+
+  .back-cta{text-align:center;margin-top:36px;}
+  .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
+  .back-cta a:hover{background:var(--red);}
 
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
 </style>
-<script defer src="/analytics.js"></script>
 </head>
 <body>
 
-<!-- ===== Sub-nav ===== -->
 <nav class="subnav">
   <div class="wrap">
     <div class="subnav__inner">
@@ -138,74 +146,200 @@
   </div>
 </nav>
 
-<!-- ===== I. Intro ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">I.</div>
-    <h2 class="sec__title">News &amp; Stories</h2>
-    <div class="sec__title-zh">校園新聞 · 學生榮譽 · 雙語活動紀錄</div>
+    <div class="sec__no">School News</div>
+    <h2 class="sec__title">Stories from Fusing</h2>
+    <div class="sec__title-zh">校園新聞 · 一年裡的大事與日常</div>
     <div class="sec__rule"></div>
 
-    <div class="lead">A growing archive of moments worth remembering — student wins, classroom highlights, and the day-to-day stories that make Fusing more than a building.</div>
-    <div class="lead-zh">值得記住的瞬間，慢慢累積在這裡——學生的榮譽、課堂裡的亮點，以及那些讓福興不只是「一棟校舍」的日常故事。</div>
-
-    <div class="placeholder">
-      <div class="placeholder__icon">📰</div>
-      <div class="placeholder__title">Stories Coming Soon</div>
-      <div class="placeholder__zh">新聞素材整理中</div>
-      <div class="placeholder__body">
-        We're curating the most memorable Facebook posts from Fusing Junior High's official page into bilingual news cards — taekwondo wins, robotics finals, international exchanges, and more. Check back soon, or follow us on Facebook for the latest.
-        <br><br>
-        正在從福興國中官方臉書整理近期最值得保留的貼文，做成雙語新聞卡片——跆拳道戰績、機器人決賽、國際交流等。請稍後再回來瀏覽，或先到臉書關注最新動態。
-      </div>
-      <div class="placeholder__ctas">
-        <a class="ph-cta ph-cta--fb" href="https://www.facebook.com/fsjh.chc.edu.tw/" target="_blank" rel="noopener">
-          📘 Facebook · 福興國中粉絲頁
-        </a>
-        <a class="ph-cta" href="https://fsjh.chc.edu.tw/" target="_blank" rel="noopener">
-          🌐 Official Website ↗
-        </a>
+    <div class="source-banner">
+      <div class="icon">📰</div>
+      <div>
+        Stories below are <b>bilingual versions</b> of selected posts from <b>Fusing Junior High's official Facebook page</b>. For the very latest updates, follow the school's Facebook directly:
+        <a href="https://www.facebook.com/fsjh.chc.edu.tw/" target="_blank" rel="noopener" style="color:var(--blue-deep);">facebook.com/fsjh.chc.edu.tw</a> ↗<br>
+        <span style="font-size:.92em;">以下新聞節選自福興國中官方粉絲頁，整理為英中雙語版本。最新即時動態請追蹤學校臉書。</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== II. What stories belong here ===== -->
-<section>
-  <div class="wrap">
-    <div class="sec__no">II.</div>
-    <h2 class="sec__title">What You'll Find Here</h2>
-    <div class="sec__title-zh">新聞分類預告</div>
-    <div class="sec__rule"></div>
-
-    <div class="categories">
-      <article class="cat">
-        <div class="cat__icon">🥋</div>
-        <div class="cat__title">Sports &amp; Honours</div>
-        <div class="cat__title-zh">運動戰績與學生榮譽</div>
-        <div class="cat__body">Taekwondo championships, volleyball &amp; archery results, table tennis wins, and individual student honours that travel beyond Changhua.</div>
-      </article>
-      <article class="cat">
-        <div class="cat__icon">🤖</div>
-        <div class="cat__title">Technology &amp; Maker</div>
-        <div class="cat__title-zh">科技課程與自造教育</div>
-        <div class="cat__body">Robotics competitions, Maker Centre projects, digital learning highlights, and behind-the-scenes from Fusing's MOE Technology Education Flagship status.</div>
-      </article>
-      <article class="cat">
-        <div class="cat__icon">🌏</div>
-        <div class="cat__title">International Exchange</div>
-        <div class="cat__title-zh">國際交流紀錄</div>
-        <div class="cat__body">Online sessions with Japan and Singapore, in-person visits, and the cross-cultural conversations our students bring home.</div>
-      </article>
-      <article class="cat">
-        <div class="cat__icon">🎨</div>
-        <div class="cat__title">Arts &amp; Character</div>
-        <div class="cat__title-zh">藝術品格教育</div>
-        <div class="cat__body">Printmaking and drawing competition results, music performances, and stories from our Character Education Voyager work.</div>
-      </article>
+    <div class="cat-key">
+      <span class="k-sports">🥋 Sports · 運動</span>
+      <span class="k-tech">🤖 Technology · 科技</span>
+      <span class="k-international">🌏 International · 國際</span>
+      <span class="k-local">🚶 Local Culture · 在地</span>
+      <span class="k-honor">🏆 Honour · 榮譽</span>
+      <span class="k-reading">📚 Reading · 閱讀</span>
+      <span class="k-student">🎓 Student Activities · 學生活動</span>
     </div>
 
-    <a class="back-link" href="../">← Back to Home · 回首頁</a>
+    <div class="news-grid">
+      <a class="nc cat--honor" href="super-teacher-award/">
+        <div class="nc__hero">🏆</div>
+        <div class="nc__body">
+          <div class="nc__cat">🏆 Honour</div>
+          <div class="nc__date">May 12, 2026 · 115/5/12</div>
+          <h3 class="nc__title">Pride of Fusing! Ms. Wang Wins the SUPER Teacher Award</h3>
+          <div class="nc__title-zh">福中之光！王瓊霞老師榮獲彰化縣 SUPER 教師獎首獎</div>
+        </div>
+      </a>
+      <a class="nc cat--student" href="watermelon-mom/">
+        <div class="nc__hero">🍉</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎓 Student Activities</div>
+          <div class="nc__date">May 8, 2026 · 115/5/8</div>
+          <h3 class="nc__title">A Heavy but Sweet Burden: The &quot;Watermelon Mom&quot; Challenge</h3>
+          <div class="nc__title-zh">甜蜜又沉重的負擔！福興國中「西瓜媽媽」體驗活動，深刻感受母愛偉大</div>
+        </div>
+      </a>
+      <a class="nc cat--local" href="beach-cleanup/">
+        <div class="nc__hero">🌊</div>
+        <div class="nc__body">
+          <div class="nc__cat">🚶 Local Culture</div>
+          <div class="nc__date">April 25, 2026 · 115/4/25</div>
+          <h3 class="nc__title">Protecting Our Blue Ocean! Students and Parents Clean Up the Beach</h3>
+          <div class="nc__title-zh">守護蔚藍海岸！師生攜手淨灘，還給大海乾淨的面貌</div>
+        </div>
+      </a>
+      <a class="nc cat--tech" href="space-science-lecture/">
+        <div class="nc__hero">🛰️</div>
+        <div class="nc__body">
+          <div class="nc__cat">🤖 Technology</div>
+          <div class="nc__date">April 18, 2026 · 115/4/18</div>
+          <h3 class="nc__title">Space is Fun! When Snow White Meets Sun Wukong</h3>
+          <div class="nc__title-zh">太空科技變有趣！當白雪公主遇見孫悟空，開啟未來的「千里眼」</div>
+        </div>
+      </a>
+      <a class="nc cat--local" href="longshan-temple-tour/">
+        <div class="nc__hero">🏛️</div>
+        <div class="nc__body">
+          <div class="nc__cat">🚶 Local Culture</div>
+          <div class="nc__date">April 16, 2026 · 115/4/16</div>
+          <h3 class="nc__title">Ancient Temple Adventure: Exploring Longshan Temple</h3>
+          <div class="nc__title-zh">百年古蹟裡的驚喜交會：走讀龍山寺，巧遇國際新朋友！</div>
+        </div>
+      </a>
+      <a class="nc cat--student" href="hospitality-baking-workshop/">
+        <div class="nc__hero">🍞</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎓 Student Activities</div>
+          <div class="nc__date">April 8, 2026 · 115/4/8</div>
+          <h3 class="nc__title">Future Chefs in Action! Making Korean Bread at Sihu Senior High</h3>
+          <div class="nc__title-zh">我是小小烘焙師！前進溪湖高中體驗手作韓國麵包</div>
+        </div>
+      </a>
+      <a class="nc cat--international" href="dom-jones-visit/">
+        <div class="nc__hero">🌏</div>
+        <div class="nc__body">
+          <div class="nc__cat">🌏 International</div>
+          <div class="nc__date">April 7, 2026 · 115/4/7</div>
+          <h3 class="nc__title">Rain Can't Stop Our Passion: Fusing Welcomes Teacher Dom Jones</h3>
+          <div class="nc__title-zh">越在地越國際！福興國中攜手聯合國青年領袖，用在地特色實踐 SDGs</div>
+        </div>
+      </a>
+      <a class="nc cat--sports" href="volleyball-team/">
+        <div class="nc__hero">🏐</div>
+        <div class="nc__body">
+          <div class="nc__cat">🥋 Sports</div>
+          <div class="nc__date">March 26, 2026 · 115/3/26</div>
+          <h3 class="nc__title">Legacy of Passion: Fusing Volleyball Team</h3>
+          <div class="nc__title-zh">熱血傳承：福興國中排球隊，接住每一個挑戰，永不放棄！</div>
+        </div>
+      </a>
+      <a class="nc cat--sports" href="table-tennis-team/">
+        <div class="nc__hero">🏓</div>
+        <div class="nc__body">
+          <div class="nc__cat">🥋 Sports</div>
+          <div class="nc__date">March 26, 2026 · 115/3/26</div>
+          <h3 class="nc__title">Excellence in Both Academics and Athletics: Fusing Table Tennis Team</h3>
+          <div class="nc__title-zh">文武雙全：福興國中桌球隊，鍛鍊身心、迎向美好新局面！</div>
+        </div>
+      </a>
+      <a class="nc cat--sports" href="track-field-team/">
+        <div class="nc__hero">🏃</div>
+        <div class="nc__body">
+          <div class="nc__cat">🥋 Sports</div>
+          <div class="nc__date">March 26, 2026 · 115/3/26</div>
+          <h3 class="nc__title">Run for Glory: Join the Fusing Track and Field Team</h3>
+          <div class="nc__title-zh">超越自我：福興國中田徑隊，在賽道上淬鍊品格與勇氣</div>
+        </div>
+      </a>
+      <a class="nc cat--sports" href="taekwondo-team/">
+        <div class="nc__hero">🥋</div>
+        <div class="nc__body">
+          <div class="nc__cat">🥋 Sports</div>
+          <div class="nc__date">March 26, 2026 · 115/3/26</div>
+          <h3 class="nc__title">Champions in Action: Join Fusing's Legendary Taekwondo Team</h3>
+          <div class="nc__title-zh">榮耀福興：跆拳道隊締造連霸傳奇，邀你一起強身自保</div>
+        </div>
+      </a>
+      <a class="nc cat--tech" href="science-camp-day2/">
+        <div class="nc__hero">🧪</div>
+        <div class="nc__body">
+          <div class="nc__cat">🤖 Technology</div>
+          <div class="nc__date">February 3, 2026 · 115/2/3</div>
+          <h3 class="nc__title">2026 Science Camp Day 2: We are Science Magicians!</h3>
+          <div class="nc__title-zh">科學魔法師：永續科學營實作篇，玩出化學新視界！</div>
+        </div>
+      </a>
+      <a class="nc cat--tech" href="science-camp-day1/">
+        <div class="nc__hero">🔬</div>
+        <div class="nc__body">
+          <div class="nc__cat">🤖 Technology</div>
+          <div class="nc__date">February 2, 2026 · 115/2/2</div>
+          <h3 class="nc__title">2026 Science Camp Day 1: Learning to Save the Earth</h3>
+          <div class="nc__title-zh">彰化縣青少年永續發展科學營正式展開！</div>
+        </div>
+      </a>
+      <a class="nc cat--local" href="fubao-wetland-shrimps/">
+        <div class="nc__hero">🦐</div>
+        <div class="nc__body">
+          <div class="nc__cat">🚶 Local Culture</div>
+          <div class="nc__date">January 30, 2026 · 115/1/30</div>
+          <h3 class="nc__title">Nature Fun: Fusing Teachers Catch Mud Shrimps at Fubao</h3>
+          <div class="nc__title-zh">走進福寶濕地：福興國中親師體驗抓蝦猴趣</div>
+        </div>
+      </a>
+      <a class="nc cat--reading" href="mobile-library-bus/">
+        <div class="nc__hero">📚</div>
+        <div class="nc__body">
+          <div class="nc__cat">📚 Reading</div>
+          <div class="nc__date">January 30, 2026 · 115/1/30</div>
+          <h3 class="nc__title">Reading with Joy: The Traveling Library Visits Fusing</h3>
+          <div class="nc__title-zh">海鷗展翅，書香進校：雲水書車開啟福興國中閱覽新體驗</div>
+        </div>
+      </a>
+      <a class="nc cat--local" href="xishi-walking-tour/">
+        <div class="nc__hero">🚶</div>
+        <div class="nc__body">
+          <div class="nc__cat">🚶 Local Culture</div>
+          <div class="nc__date">January 23, 2026 · 115/1/23</div>
+          <h3 class="nc__title">Knowing Our Home: A Walking Tour of Xishi Community</h3>
+          <div class="nc__title-zh">家鄉的小旅行：福興國中七年級走讀西勢社區</div>
+        </div>
+      </a>
+      <a class="nc cat--student" href="freshman-experience-camp/">
+        <div class="nc__hero">🎓</div>
+        <div class="nc__body">
+          <div class="nc__cat">🎓 Student Activities</div>
+          <div class="nc__date">January 17, 2026 · 115/1/17</div>
+          <h3 class="nc__title">Fun and Learning: Fusing Hosts Future Students Camp</h3>
+          <div class="nc__title-zh">雙語與科學交織：福興國中舉辦國小新生體驗營</div>
+        </div>
+      </a>
+      <a class="nc cat--international" href="japan-online-exchange/">
+        <div class="nc__hero">🌏</div>
+        <div class="nc__body">
+          <div class="nc__cat">🌏 International</div>
+          <div class="nc__date">December 24, 2025 · 114/12/24</div>
+          <h3 class="nc__title">Making Friends Online: Fusing Connects with Japan</h3>
+          <div class="nc__title-zh">跨越國界的友誼：福興國中與日本清和台中學校視訊交流</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="back-cta">
+      <a href="../">← Back to Home · 回首頁</a>
+    </div>
   </div>
 </section>
 
