@@ -89,6 +89,44 @@
   .video-frame{margin-top:28px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
+  .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(330px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--gold);padding:64px 24px 46px;background-size:cover;background-position:center 42%;}
+  @media(min-width:720px){.pbanner{min-height:clamp(380px,52vh,540px);padding:84px 24px 56px;}}
+  .pbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(38,30,66,.10) 0%,rgba(38,30,66,0) 40%,rgba(38,30,66,.52) 74%,rgba(38,30,66,.9) 100%);}
+  .pbanner>.bn{position:relative;z-index:1;}
+  .pbanner .eyebrow{display:inline-block;font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:12px;text-shadow:0 1px 8px rgba(0,0,0,.55);}
+  .pbanner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(42px,7vw,70px);font-weight:600;line-height:1.07;text-shadow:0 2px 18px rgba(0,0,0,.6);}
+  .pbanner h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,25px);color:rgba(255,255,255,.94);font-weight:500;margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .bdiv{width:60px;height:2px;background:var(--gold);border:0;margin:20px auto 16px;}
+  .pbanner .lede{max-width:640px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,21px);color:rgba(255,255,255,.96);line-height:1.5;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .lede .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:19px;margin-top:8px;color:rgba(255,255,255,.86);}
+  .factstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:760px;margin:26px auto 0;position:relative;z-index:1;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:14px;backdrop-filter:blur(6px);overflow:hidden;}
+  .fact{flex:1 1 160px;padding:16px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .fact:last-child{border-right:0;}
+  .fact .fe{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  .fact .fz{font-size:16px;margin-top:5px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;}
+  @media(max-width:640px){.fact{flex:1 1 45%;border-bottom:1px solid rgba(255,255,255,.14);}.fact:nth-child(2n){border-right:0;}}
+
+  main{padding:56px 0 80px;}
+  .intro-card{background:linear-gradient(135deg,var(--plum-soft) 0%,var(--gold-soft) 100%);border-radius:22px;padding:32px 28px;margin-bottom:26px;}@media(min-width:720px){.intro-card{padding:40px 40px;}}
+  .intro-card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,34px);font-weight:600;color:var(--plum-deep);} .intro-card h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:8px;}
+  .intro-card p{font-size:20px;color:var(--ink);margin-top:16px;line-height:1.7;} .intro-card p .zh{display:block;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;font-size:19.5px;margin-top:8px;}
+  .jump{display:flex;flex-wrap:wrap;gap:12px;}
+  .jump a{flex:1 1 240px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow-sm);color:inherit;}
+  .jump a:hover{border-color:var(--plum);} .jump .no{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;} .jump .t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--plum-deep);display:block;margin-top:2px;} .jump .t .zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-left:8px;}
+  .band{margin-top:60px;scroll-margin-top:90px;}
+  .band__no{font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;}
+  .band__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(32px,5vw,48px);font-weight:600;color:var(--plum-deep);line-height:1.2;} .band__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(17px,2.2vw,20px);color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .band__hr{width:70px;height:3px;border:0;border-radius:2px;margin:16px 0 22px;}
+  .band__desc{color:var(--ink);font-size:20px;max-width:740px;line-height:1.7;margin-bottom:24px;} .band__desc .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19.5px;color:var(--ink-soft);margin-top:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 24px;}
+  .chip{font-size:17px;font-weight:600;padding:7px 14px;border-radius:20px;background:var(--plum-soft);color:var(--plum-deep);}
+  .player-box{border-radius:18px;padding:24px;margin-bottom:16px;}@media(min-width:720px){.player-box{padding:30px 34px;}}
+  .player-box__label{font-size:17px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;}
+  .video-frame{position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);} .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player-link{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-sm);color:inherit;} .player-link:hover{border-color:var(--plum);}
+  .player-link .pi{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;} .player-link strong{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--plum-deep);} .player-link span{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:3px;display:block;} .player-link .ar{margin-left:auto;font-size:22px;color:var(--gold);}
+  .footer{background:var(--plum-deep);color:rgba(255,255,255,.72);text-align:center;padding:42px 0 36px;font-size:18px;} .footer a{color:var(--gold-soft);} .footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;margin-bottom:10px;}
+
 </style>
 </head>
 <body>
@@ -97,7 +135,6 @@
   <div class="topbar-nav">
         <a href="../">Home</a>
         <a href="../principal/">Principal</a>
-        <a href="../bilingual-campus/">English Life</a>
         <a href="../lessons/" class="is-active">Lessons</a>
         <a href="../news/">News</a>
         <a href="https://changhua-bilingual.org/festivals/?from=hsinmin" target="_blank" rel="noopener">Festivals</a>
@@ -155,6 +192,32 @@
     <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8VAkdTkd9-7ZzFPC3DQLfZ5" title="新民國小影片播放清單" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
   </div>
 </div></section>
+
+<section style="background:linear-gradient(180deg,var(--plum-soft) 0%,#fff 100%);"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" style="color:var(--gold-deep);">Shared Resources · 共用資源</span><h2>Classroom English &amp; Announcements<span class="zh">課室英語 · 英文廣播</span></h2>
+    <p class="lede">Two free video libraries from My Culture Connect, shared across the Changhua Bilingual Hub — everyday classroom phrases and bilingual office announcements.</p></div>
+  <div class="band" id="classroom-english" style="margin-top:0;scroll-margin-top:80px;">
+    <div class="band__no" style="color:var(--plum);">課室英語</div>
+    <h2 class="band__title">Classroom English<span class="zh">課堂上每天都用得到的英文</span></h2>
+    <hr class="band__hr" style="background:var(--plum);">
+    <p class="band__desc">Short clips covering the <strong>phrases teachers use every day</strong> — instructions, class management, praise, and more. Hosted by Teacher Sarah Thomas.<span class="zh">老師課堂每天會用到的英文指令與互動語句，可課前預習或課堂投影。主講：Sarah Thomas 老師。</span></p>
+    <div class="chips"><span class="chip">Greetings</span><span class="chip">Pre-Class Prep</span><span class="chip">Explanations</span><span class="chip">Pre-Teaching</span><span class="chip">Praise &amp; Feedback</span><span class="chip">Classroom Mgmt</span><span class="chip">Lesson Activities</span><span class="chip">Homework</span><span class="chip">Wrap-Up</span><span class="chip">Exams</span></div>
+    <div class="player-box" style="background:var(--plum-soft);"><div class="player-box__label" style="color:var(--plum-deep);">▶ Classroom English Playlist</div>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener"><div class="pi" style="background:var(--plum-soft);">🎬</div><div><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist</span></div><span class="ar">→</span></a>
+  </div>
+  <div class="band" id="announcements" style="scroll-margin-top:80px;">
+    <div class="band__no" style="color:var(--teal);">英文廣播</div>
+    <h2 class="band__title">English Announcements<span class="zh">各處室雙語廣播介紹</span></h2>
+    <hr class="band__hr" style="background:var(--teal);">
+    <p class="band__desc">Short bilingual videos introducing each <strong>school office</strong> — Academic Affairs, Student Affairs, General Affairs, and Counselling. Hosted by Sarah Thomas &amp; Susan Rose.<span class="zh">以雙語短片介紹學校各行政處室，適合晨間廣播或家長參訪。主播：Sarah Thomas、Susan Rose。</span></p>
+    <div class="chips"><span class="chip" style="background:var(--teal-soft);color:var(--teal-deep);">Academic Affairs · 教務處 (5)</span><span class="chip" style="background:var(--teal-soft);color:var(--teal-deep);">Student Affairs · 學務處 (3)</span><span class="chip" style="background:var(--teal-soft);color:var(--teal-deep);">General Affairs · 總務處 (1)</span><span class="chip" style="background:var(--teal-soft);color:var(--teal-deep);">Counselling · 輔導室 (1)</span></div>
+    <div class="player-box" style="background:var(--teal-soft);"><div class="player-box__label" style="color:var(--teal-deep);">▶ English Announcements Playlist</div>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="English Announcements playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener"><div class="pi" style="background:var(--teal-soft);">📢</div><div><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist</span></div><span class="ar">→</span></a>
+  </div>
+</div></section>
+
 <footer style="background:var(--plum-deep);color:rgba(255,255,255,.74);padding:38px 0 34px;font-size:18.5px;border-top:4px solid var(--gold);">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;">
     <span>© 新民國小 Hsinmin Elementary School · 彰化縣田中鎮</span>
