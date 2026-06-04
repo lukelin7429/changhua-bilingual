@@ -86,7 +86,7 @@
   /* === Hero Banner (photo + warm overlay) === */
   .banner{
     position:relative;
-    background:#000 url('photos/campus-01.jpg') center 50%/cover;
+    background:#16284d url('photos/fx-gate.jpg') center 52%/cover;
     min-height:300px;display:flex;align-items:flex-end;overflow:hidden;
   }
   @media (min-width:720px){ .banner{ min-height:420px; } }
@@ -305,6 +305,29 @@
   @media (min-width:720px){ .tl-event{ font-size:23px; } }
   .tl-detail{font-size:18px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
   @media (min-width:720px){ .tl-detail{ font-size:20px; } }
+
+  /* === Campus gallery (福興美景) === */
+  .gallery{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:680px){ .gallery{ grid-template-columns:1fr 1fr; } }
+  @media (min-width:980px){ .gallery{ grid-template-columns:1fr 1fr 1fr;gap:20px; } }
+  .gphoto{
+    position:relative;border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow-sm);aspect-ratio:4/3;background:#16284d;
+    border:1px solid var(--line);
+  }
+  .gphoto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease;}
+  .gphoto:hover img{transform:scale(1.06);}
+  .gphoto__cap{
+    position:absolute;left:0;right:0;bottom:0;padding:34px 18px 15px;color:#fff;
+    background:linear-gradient(180deg, transparent 0%, rgba(15,28,56,.85) 100%);
+  }
+  .gphoto__en{
+    font-family:'Playfair Display',serif;font-size:21px;font-weight:700;line-height:1.15;
+    letter-spacing:.3px;text-shadow:0 2px 10px rgba(0,0,0,.55);
+  }
+  @media (min-width:720px){ .gphoto__en{ font-size:24px; } }
+  .gphoto__zh{font-size:15px;color:#e7ebf6;margin-top:3px;font-weight:500;letter-spacing:1px;}
+  @media (min-width:720px){ .gphoto__zh{ font-size:17px; } }
 
   /* === Contact === */
   .contact{
@@ -632,7 +655,49 @@
   </div>
 </section>
 
-<!-- ===== VI. Contact ===== -->
+<!-- ===== VI. Campus Gallery ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">VI.</div>
+    <h2 class="sec__title">Our Campus in Bloom</h2>
+    <div class="sec__title-zh">福興美景 · 海風中的校園風景</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__lead-zh" style="margin-bottom:34px;">
+      From golden trumpet trees in full bloom to a running track under a wide coastal sky — a walk through the campus our students call home.
+      從盛開的黃花風鈴木，到沿海藍天下的紅色跑道，走一趟福興孩子日日生活的校園。
+    </div>
+
+    <div class="gallery">
+      <figure class="gphoto">
+        <img src="photos/fx-gate-close.jpg" alt="The engraved entrance wall of Fusing Junior High · 福興國中校門名牌" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">The School Gate</div><div class="gphoto__zh">校門意象</div></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <img src="photos/fx-shangyi.jpg" alt="The colourful main teaching block under dramatic clouds · 尚毅樓教學主樓" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Shang-Yi Building</div><div class="gphoto__zh">尚毅樓 · 教學主樓</div></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <img src="photos/fx-plaza.jpg" alt="The running track and circular central plaza · 操場跑道與中庭司令台" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Track &amp; Central Plaza</div><div class="gphoto__zh">跑道與中庭廣場</div></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <img src="photos/fx-trumpet.jpg" alt="Golden trumpet trees in bloom by the student activity hall · 黃花風鈴木盛開" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Golden Trumpet Trees</div><div class="gphoto__zh">黃花風鈴木花開</div></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <img src="photos/fx-wave.jpg" alt="A curved façade decorated with an ocean-wave art banner · 海洋意象立面" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Ocean-Spirit Façade</div><div class="gphoto__zh">海洋意象立面</div></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <img src="photos/fx-herb.jpg" alt="Garden classroom plots beside a colourful campus building · 校園食農教育園圃" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Garden Classrooms</div><div class="gphoto__zh">食農教育園圃</div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
 <section>
   <div class="wrap">
     <div class="contact">
