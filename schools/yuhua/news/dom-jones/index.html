@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Day With Dom Jones · Yuhua Elementary · 育華國小</title>
+<meta name="description" content="On June 2, 2026, UN SDGs goodwill ambassador Dom Jones spent a day at Yuhua Elementary — taiko drums, a hands-on solar-energy class, an English Q&A, an ink-rubbing keepsake ceremony, and a tea ceremony. 聯合國 SDGs 親善大使 Dom Jones 蒞校交流紀實。">
+<meta property="og:title" content="A Day With Dom Jones · Yuhua Elementary">
+<meta property="og:type" content="article">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/yuhua/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/yuhua/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/yuhua/favicon-180.png">
+<link rel="shortcut icon" href="/schools/yuhua/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sea:#22638a;
+    --sea-deep:#0f3a55;
+    --sea-soft:#dceaf2;
+    --leaf:#3d7a3d;
+    --leaf-deep:#235024;
+    --leaf-soft:#dde8d4;
+    --sand:#caa056;
+    --sand-deep:#8b6a17;
+    --sand-soft:#f7eed9;
+    --cream:#ffffff;
+    --ink:#1a201f;
+    --ink-soft:#5a615f;
+    --line:#e3ddd0;
+    --max:1080px;
+    --shadow:0 14px 40px -16px rgba(15,58,85,.30);
+    --shadow-sm:0 4px 14px -4px rgba(15,58,85,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{font-size:23px;} }
+  img{max-width:100%;display:block;}
+  a{color:var(--sea);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--leaf-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--sea-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+  @media (min-width:720px){ .topbar-nav a{font-size:17px;} }
+  .topbar-nav a:hover{color:var(--sea);}
+  .topbar-nav a.is-active{color:var(--sea-deep);font-weight:700;}
+  @media (max-width:760px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
+
+  /* article hero banner */
+  .page-head{
+    position:relative;
+    background:#0f3a55 url('../../photos/dom-drums-perform.jpg') center 38%/cover;
+    min-height:320px;display:flex;align-items:flex-end;overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  @media (min-width:720px){ .page-head{ min-height:420px; } }
+  @media (min-width:1080px){ .page-head{ min-height:480px; } }
+  .page-head::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(15,58,85,.30) 0%, rgba(15,58,85,.82) 100%),
+      linear-gradient(90deg, rgba(15,58,85,.40) 0%, rgba(15,58,85,0) 55%);
+    pointer-events:none;
+  }
+  .page-head > .wrap{
+    position:relative;z-index:1;width:100%;
+    padding-top:46px;padding-bottom:36px;color:#fff;
+  }
+  @media (min-width:720px){ .page-head > .wrap{ padding-top:64px;padding-bottom:46px; } }
+  .page-head__eyebrow{
+    display:inline-block;font-size:14.5px;letter-spacing:.24em;
+    color:#f7eed9;font-weight:700;text-transform:uppercase;margin-bottom:14px;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .page-head__eyebrow{ font-size:16px; } }
+  .page-head h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(38px,6.4vw,66px);line-height:1.06;font-weight:700;letter-spacing:.01em;
+    color:#fff;
+    text-shadow:0 4px 22px rgba(0,0,0,.5);
+  }
+  .page-head h1 .zh{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:clamp(20px,2.7vw,26px);
+    color:#e4eef5;font-weight:500;margin-top:12px;letter-spacing:.06em;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  .page-head__meta{
+    margin-top:18px;font-size:17px;color:#fff5d9;letter-spacing:.05em;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  @media (min-width:720px){ .page-head__meta{ font-size:19px; } }
+
+  /* article body */
+  .article{padding:54px 0 76px;}
+  .article .wrap{max-width:860px;}
+  .article p{font-size:20px;line-height:1.8;margin-bottom:22px;}
+  @media (min-width:720px){ .article p{font-size:22px;} }
+  .article p strong{color:var(--sea-deep);}
+  .lede{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:26px !important;line-height:1.55 !important;color:var(--sea-deep);
+    border-left:4px solid var(--sand);padding-left:22px;margin-bottom:30px;
+  }
+  @media (min-width:720px){ .lede{font-size:30px !important;} }
+  .article-zh{
+    font-family:'PingFang TC',sans-serif;font-size:19px !important;color:var(--ink);
+    line-height:1.95 !important;background:var(--sea-soft);border-radius:14px;
+    padding:24px 26px;margin:8px 0 36px;
+  }
+  @media (min-width:720px){ .article-zh{font-size:20px !important;} }
+
+  .sec-label{
+    font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--sea-deep);
+    margin:14px 0 18px;
+  }
+  @media (min-width:720px){ .sec-label{font-size:36px;} }
+  .sec-label .zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);margin-left:10px;font-weight:600;}
+
+  /* activity strip */
+  .activities{
+    display:grid;grid-template-columns:1fr;gap:10px;margin:6px 0 40px;
+  }
+  @media (min-width:640px){ .activities{grid-template-columns:1fr 1fr;} }
+  .act-chip{
+    display:flex;align-items:baseline;gap:12px;
+    background:var(--sand-soft);border:1px solid var(--sand);border-radius:10px;
+    padding:14px 18px;font-size:18px;color:var(--ink);line-height:1.4;
+  }
+  @media (min-width:720px){ .act-chip{font-size:19px;} }
+  .act-chip .n{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--sand-deep);line-height:1;}
+  .act-chip .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:3px;}
+
+  /* photo gallery */
+  .gallery{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:6px 0 12px;
+  }
+  @media (min-width:680px){ .gallery{grid-template-columns:repeat(3,1fr);gap:18px;} }
+  .gphoto{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  }
+  .gphoto__img{aspect-ratio:4/3;overflow:hidden;background:var(--sea-soft);}
+  .gphoto__img img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+  .gphoto figcaption{padding:13px 15px 15px;font-size:16px;line-height:1.5;color:var(--ink);}
+  @media (min-width:720px){ .gphoto figcaption{font-size:17px;} }
+  .gphoto figcaption .zh{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.55;
+  }
+  @media (min-width:720px){ .gphoto figcaption .zh{font-size:16px;} }
+
+  .source-note{
+    margin-top:34px;font-size:17px;color:var(--ink-soft);font-style:italic;line-height:1.6;
+    border-top:1px solid var(--line);padding-top:22px;
+  }
+  @media (min-width:720px){ .source-note{font-size:18px;} }
+
+  .back-cta{text-align:center;margin-top:42px;}
+  .back-cta a{display:inline-block;background:var(--sea-deep);color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:20px;letter-spacing:.04em;}
+  @media (min-width:720px){ .back-cta a{font-size:22px;} }
+  .back-cta a:hover{background:var(--sand);color:#fff;}
+
+  /* footer */
+  footer{background:#0a1f2d;color:rgba(255,255,255,.65);padding:36px 0;font-size:18px;text-align:center;line-height:1.6;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--sand-soft);font-weight:600;}
+  footer .partner a{color:var(--sand-soft);border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:var(--sand-soft);}
+  @media (max-width:760px){ footer .wrap{flex-direction:column;text-align:center;} }
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <div class="topbar-name">
+        Yuhua Elementary
+        <small>彰化縣芳苑鄉育華國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../../">Home</a>
+      <a href="../../principal/">Principal</a>
+      <a href="../../bilingual-campus/">English Life</a>
+      <a href="../" class="is-active">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=yuhua">Festivals</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ARTICLE HERO -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-head__eyebrow">International Exchange · 國際交流</div>
+    <h1>A Day With Dom Jones
+      <span class="zh">跨國相遇：Dom Jones 與育華同行</span>
+    </h1>
+    <div class="page-head__meta">June 2, 2026 · 育華國小 · the world comes to a coastal village school</div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article">
+  <div class="wrap">
+
+    <p class="lede">
+      The world comes to a coastal village school &mdash; and every child is in the room for it.
+    </p>
+
+    <p>
+      On June 2, Yuhua Elementary welcomed <strong>Dom Jones</strong>, a United Nations SDGs goodwill ambassador, for a day full of international perspective and the spirit of sustainability. Thundering taiko drums opened the morning, showing off the confidence and energy of Yuhua's children. From there the day moved through a hands-on SDGs solar-energy class &mdash; where students used a solar oven to grill sausages, <em>tianbula</em>, and sweet potatoes, learning about green energy by doing.
+    </p>
+    <p>
+      Dom Jones then shared her own story with warmth and humour and ran an English question-and-answer session, encouraging the children to speak up, stay confident, and connect with the wider world. The afternoon held a medal presentation, autographs, and an ink-rubbing keepsake ceremony &mdash; and closed with a Taiwanese tea ceremony, a quiet show of local culture and hospitality. For a school of fewer than fifty children on Taiwan's western coast, days like this are how the world stops feeling far away.
+    </p>
+
+    <p class="article-zh">
+      6 月 2 日，育華國小迎來聯合國 SDGs 親善大使 Dom Jones 蒞校交流，帶來一場充滿國際視野與永續精神的精彩活動。活動由熱力十足的戰鼓表演揭開序幕，展現育華孩子的自信與活力。接著進行 SDGs 永續能源體驗課程，師生透過太陽能烤爐實作，親手烘烤香腸、甜不辣與地瓜，從做中學認識綠色能源與永續發展的重要性。<br><br>
+      Dom Jones 也以親切幽默的方式分享個人成長歷程，並與學生進行英語互動問答，鼓勵大家勇敢表達、自信與世界接軌。活動中安排授章、簽名及拓印留念，留下珍貴回憶；最後以茶道體驗展現臺灣的人文特色與熱情好客。透過此次交流活動，育華學子不僅深化 SDGs 理念，更以開放的心胸與世界連結，展現「世界在育華，每個孩子都成功」的教育成果。
+    </p>
+
+    <div class="sec-label">A day in five parts<span class="zh">一天，五段風景</span></div>
+    <div class="activities">
+      <div class="act-chip"><span class="n">1</span><span>Taiko drums open the day<span class="zh">戰鼓表演揭開序幕</span></span></div>
+      <div class="act-chip"><span class="n">2</span><span>SDGs solar-energy class<span class="zh">SDGs 永續能源體驗課</span></span></div>
+      <div class="act-chip"><span class="n">3</span><span>English sharing &amp; Q&amp;A<span class="zh">英語分享與互動問答</span></span></div>
+      <div class="act-chip"><span class="n">4</span><span>Medal, signing &amp; ink-rubbing<span class="zh">授章、簽名與拓印留念</span></span></div>
+      <div class="act-chip"><span class="n">5</span><span>A closing tea ceremony<span class="zh">茶道體驗收尾</span></span></div>
+    </div>
+
+    <div class="sec-label">In photographs<span class="zh">活動花絮</span></div>
+    <div class="gallery">
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-drums-perform.jpg" alt="Yuhua students performing on red taiko drums on the running track as the principal and Dom Jones watch from the stage"></div>
+        <figcaption>The taiko drum team opens the day on the running track.<span class="zh">戰鼓隊在運動場上揭開序幕。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-drums-circle.jpg" alt="Dom Jones and the school principal gather in a circle with the student drummers on the running track"></div>
+        <figcaption>Dom and the principal huddle with the drummers between pieces.<span class="zh">表演空檔，Dom 與校長和鼓隊圍圈交流。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-drums-closeup.jpg" alt="Yuhua students drumming up close, sticks raised high over the red taiko drums"></div>
+        <figcaption>Sticks high, full power &mdash; the drum team up close.<span class="zh">鼓棒高揚，全力擊鼓的戰鼓隊。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-drums-signs.jpg" alt="Group photo of students and teachers with the drums, holding I love YHES and Shiny placards"></div>
+        <figcaption>The whole group with the drums and &ldquo;I &hearts; YHES&rdquo; signs.<span class="zh">全體與戰鼓、「I♥YHES」字卡合影。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-welcome.jpg" alt="Students pose by a screen reading Welcome! Meet Teacher Dom in the classroom"></div>
+        <figcaption>&ldquo;Welcome! Meet Teacher Dom&rdquo; &mdash; the SDGs ambassador arrives.<span class="zh">「Welcome！Meet Teacher Dom」歡迎大使蒞校。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-solar-lesson.jpg" alt="Dom Jones teaching beside a screen titled Why is Solar AWESOME with children listening"></div>
+        <figcaption>&ldquo;Why is Solar AWESOME?&rdquo; &mdash; a clean-energy lesson.<span class="zh">太陽能課：「為什麼太陽能很棒？」</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-warmup.jpg" alt="Dom Jones talking and playing a warm-up game with students in front of a wall of red fu calligraphy cards"></div>
+        <figcaption>Dom shares her own story and warms up the children.<span class="zh">Dom 分享成長故事，與孩子暖身互動。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-rubbing-group.jpg" alt="Children holding their finished ink-rubbing prints reading Success, Peace and Happiness in Chinese"></div>
+        <figcaption>Ink-rubbing keepsakes: Success, Peace, Happiness.<span class="zh">拓印作品：成功、平安、幸福。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-rubbing-happiness.jpg" alt="A student holds up a Happiness ink-rubbing print while Dom Jones gives a thumbs up"></div>
+        <figcaption>A &ldquo;Happiness&rdquo; print &mdash; thumbs-up from Dom.<span class="zh">一幅「幸福」拓印，Dom 比讚。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-mural-group.jpg" alt="Students and Dom Jones pose in front of the hand-painted world-map mural holding craft signs"></div>
+        <figcaption>By the world-map mural, holding their craft signs.<span class="zh">在世界地圖壁畫前，舉著手作字卡。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-drums-group.jpg" alt="A large group of Yuhua students and teachers with the taiko drums on the running track"></div>
+        <figcaption>The drummers and friends, all in one frame.<span class="zh">戰鼓隊與全體師生大合照。</span></figcaption>
+      </figure>
+      <figure class="gphoto">
+        <div class="gphoto__img"><img src="../../photos/dom-tea.jpg" alt="Dom Jones and students seated around a long table for a Taiwanese tea ceremony"></div>
+        <figcaption>A quiet tea ceremony to close the day.<span class="zh">以茶道體驗為這一天溫柔收尾。</span></figcaption>
+      </figure>
+    </div>
+
+    <p class="source-note">
+      Source · 育華國小 Facebook · #SDGsInAction #國際教育 #世界在育華每個孩子都成功<br>
+      In partnership with 彰化縣人師教育協會 · My Culture Connect
+    </p>
+
+    <div class="back-cta">
+      <a href="../">&larr; Back to News &middot; 回到新聞列表</a>
+    </div>
+
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣芳苑鄉育華國民小學 · Yuhua Elementary School</div>
+    <div class="partner">Bilingual web by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.parent === window) return;
+  function report(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    window.parent.postMessage({type:'yuhua-iframe-height', height: h}, '*');
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  setTimeout(report, 300);
+  setTimeout(report, 1200);
+  setTimeout(report, 3000);
+  if ('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  Array.from(document.images).forEach(function(img){ if (!img.complete) img.addEventListener('load', report); });
+})();
+</script>
+</body>
+</html>
