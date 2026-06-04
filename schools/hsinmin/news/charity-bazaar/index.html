@@ -29,16 +29,16 @@
   img{max-width:100%;display:block;}
   a{color:var(--plum);text-decoration:none;transition:color .2s;}
   a:hover{color:var(--gold);}
-  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:9px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
   .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
-  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--plum-deep);line-height:1.1;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--plum-deep);line-height:1.1;padding:6px 0;}
   .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
-  .topbar-nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
-  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.03em;padding:9px 14px;border-radius:9px;line-height:1.2;transition:background .15s,color .15s;}
   @media(min-width:720px){.topbar-nav a{font-size:16.5px;}}
-  .topbar-nav a:hover{color:var(--plum);}
-  .topbar-nav a.is-active{color:var(--plum-deep);font-weight:700;}
-  @media(max-width:780px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:13px;justify-content:flex-start;}}
+  .topbar-nav a:hover{color:var(--plum-deep);background:var(--plum-soft);}
+  .topbar-nav a.is-active{color:var(--plum-deep);font-weight:700;background:var(--plum-soft);}
+  @media(max-width:780px){.topbar-inner{flex-direction:column;align-items:stretch;gap:6px;}.topbar-nav{gap:4px;justify-content:flex-start;width:100%;}.topbar-nav a{padding:11px 14px;font-size:17px;}}
 
 
   .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(330px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--gold);padding:64px 24px 46px;background-size:cover;background-position:center 42%;}
