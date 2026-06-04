@@ -7,7 +7,7 @@
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Lessons · 課程學習 · Mingli Elementary School</title>
-<meta name="description" content="English lessons from Mingli Elementary School — Summer Camp, themed topic lessons, and 9 units of school-life vocabulary. 明禮國小英語課程——夏日樂學、主題課程與九大詞彙單元。">
+<meta name="description" content="English lessons from Mingli Elementary School — Summer Camp, themed topic lessons, and a 77-word Word of the Day video series sorted into 9 campus themes. 明禮國小英語課程——夏日樂學、主題課程，與分成九大主題、77 個校園單字的每日一字影片系列。">
 <meta property="og:title" content="Lessons · 課程學習 · Mingli Elementary School">
 <meta property="og:type" content="website">
 
@@ -103,6 +103,38 @@
   @media(min-width:720px){.topic-card__zh{font-size:18px;}}
   .topic-card__desc{font-size:16px;color:var(--ink-soft);line-height:1.6;}
   @media(min-width:720px){.topic-card__desc{font-size:17px;}}
+
+  /* ── Word of the Day unit cards ── */
+  .wgrid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px;}
+  @media(min-width:720px){.wgrid{grid-template-columns:repeat(2,1fr);gap:28px;}}
+  @media(min-width:1000px){.wgrid{grid-template-columns:repeat(3,1fr);}}
+  .wcard{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .22s,box-shadow .22s;}
+  .wcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .wcard__hero{height:140px;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden;}
+  @media(min-width:720px){.wcard__hero{height:150px;font-size:84px;}}
+  .wcard__hero::before{content:"";position:absolute;top:-30%;right:-25%;width:150px;height:150px;background:radial-gradient(circle,rgba(255,255,255,.42) 0%,transparent 60%);border-radius:50%;}
+  .wcard__hero::after{content:"";position:absolute;bottom:-35%;left:-30%;width:160px;height:160px;background:radial-gradient(circle,rgba(255,255,255,.22) 0%,transparent 60%);border-radius:50%;}
+  .wcard__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
+  .wcard:hover .wcard__emoji{transform:scale(1.1) rotate(-3deg);}
+  .wcard__body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column;}
+  .wcard__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);}
+  .wcard__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--g-deep);line-height:1.2;margin-top:6px;}
+  @media(min-width:720px){.wcard__title{font-size:27px;}}
+  .wcard__zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:5px;}
+  @media(min-width:720px){.wcard__zh{font-size:19px;}}
+  .wcard__desc{font-size:16px;color:var(--ink-soft);margin-top:13px;line-height:1.6;flex:1;}
+  @media(min-width:720px){.wcard__desc{font-size:17px;}}
+  .wcard__cta{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);color:var(--gold-deep);font-family:'Playfair Display',serif;font-size:17px;font-weight:700;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  .wcard__cta .arrow{transition:transform .2s;}
+  .wcard:hover .wcard__cta .arrow{transform:translateX(4px);}
+  .wplaylist{margin-top:44px;background:linear-gradient(135deg,#f4faf4 0%,var(--g-soft) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 22px;}
+  @media(min-width:720px){.wplaylist{padding:44px 40px;}}
+  .wplaylist h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);text-align:center;}
+  @media(min-width:720px){.wplaylist h3{font-size:30px;}}
+  .wplaylist__zh{text-align:center;font-size:16px;color:var(--ink-soft);margin-top:6px;}
+  @media(min-width:720px){.wplaylist__zh{font-size:18px;}}
+  .wplaylist__frame{margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .wplaylist__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
   /* ── Unit accordion ── */
   .units{display:flex;flex-direction:column;gap:14px;}
@@ -397,216 +429,128 @@
   </div>
 </section>
 
-<!-- ===== III. Vocabulary Units ===== -->
+<!-- ===== III. Word of the Day ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">III.</div>
-    <h2 class="sec__title">Vocabulary Units</h2>
-    <div class="sec__title-zh">詞彙單元 · 9 個單元、從校園生活到在地特色</div>
+    <h2 class="sec__title">Word of the Day</h2>
+    <div class="sec__title-zh">每日一字 · 9 個主題單元、77 個校園單字</div>
     <div class="sec__rule"></div>
 
     <div class="sec__lead">
-      Nine vocabulary units covering everyday school life at Mingli — every word illustrated with a real video filmed right here on campus.
-      <div class="sec__lead-zh">九個詞彙單元涵蓋明禮的日常校園生活——每個字都有在校內實地拍攝的影片說明。</div>
+      77 short bilingual vocabulary videos, filmed right here on the Mingli campus and sorted into 9 themes — from eco-farming and pottery to sports day and the daily classroom. Pick a theme, press play, and learn the word in a real Mingli moment.
+      <div class="sec__lead-zh">77 段在明禮校園實地拍攝的雙語單字短片，依主題分成 9 個單元——從食農、陶藝到運動會與教室日常。挑一個主題、按下播放，在真實的明禮場景裡學會這個字。</div>
     </div>
 
-    <div class="units" id="units">
+    <div class="wgrid">
 
-      <div class="unit is-open">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">1</div>
-          <div class="unit__label">Unit 1 — School Events &amp; Traditions</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
+      <a class="wcard" href="word/unit-1/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#5fbf86 0%,#1a4330 100%);"><span class="wcard__emoji">🌾</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 01 · 13 words</div>
+          <div class="wcard__title">Farm, Garden &amp; Scarecrow</div>
+          <div class="wcard__zh">食農與稻草人</div>
+          <div class="wcard__desc">From rice seedlings to handmade scarecrows — the words of Mingli&#x27;s eco-farming classroom, where English grows right out of the soil.</div>
+          <div class="wcard__cta">Start Unit 1 <span class="arrow">→</span></div>
         </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">volunteer <span>志工</span></span>
-            <span class="word-pill">relay race <span>接力賽跑</span></span>
-            <span class="word-pill">tire pushing game <span>滾輪胎</span></span>
-            <span class="word-pill">dance exercise <span>健康操</span></span>
-            <span class="word-pill">anniversary <span>校慶</span></span>
-            <span class="word-pill">tea ceremony <span>茶道</span></span>
-            <span class="word-pill">dance <span>跳舞</span></span>
-            <span class="word-pill">baton <span>接力棒</span></span>
-            <span class="word-pill">put <span>放下</span></span>
-          </div>
+      </a>
+
+      <a class="wcard" href="word/unit-2/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#e3ac3e 0%,#7d5a0a 100%);"><span class="wcard__emoji">🎨</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 02 · 9 words</div>
+          <div class="wcard__title">Arts, Pottery &amp; Crafts</div>
+          <div class="wcard__zh">藝術與陶藝手作</div>
+          <div class="wcard__desc">Aroma stones, fluid paint, Tianzhong pottery, murals — the vocabulary of making something beautiful with your own hands.</div>
+          <div class="wcard__cta">Start Unit 2 <span class="arrow">→</span></div>
         </div>
+      </a>
+
+      <a class="wcard" href="word/unit-3/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#b06d92 0%,#5b3350 100%);"><span class="wcard__emoji">🎵</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 03 · 5 words</div>
+          <div class="wcard__title">Music, Tea &amp; Culture</div>
+          <div class="wcard__zh">音樂・茶道・藝文</div>
+          <div class="wcard__desc">The ocarina, the Chinese flute, a quiet tea ceremony, a hallway exhibit — the gentle, cultural side of campus English.</div>
+          <div class="wcard__cta">Start Unit 3 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-4/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#f0894d 0%,#b34a16 100%);"><span class="wcard__emoji">🏃</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 04 · 10 words</div>
+          <div class="wcard__title">Sports Day &amp; PE</div>
+          <div class="wcard__zh">運動會與體育</div>
+          <div class="wcard__desc">Relay batons, the 100-meter dash, tire-pushing, jump rope — every word you need on a Taiwan school sports day.</div>
+          <div class="wcard__cta">Start Unit 4 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-5/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#e0b84a 0%,#a8740c 100%);"><span class="wcard__emoji">🎉</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 05 · 8 words</div>
+          <div class="wcard__title">Celebrations &amp; Visitors</div>
+          <div class="wcard__zh">校慶與訪客</div>
+          <div class="wcard__desc">Mingli&#x27;s 80th anniversary, award ceremonies, guest sign-ins, story-telling volunteers — the people and moments that fill the campus.</div>
+          <div class="wcard__cta">Start Unit 5 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-6/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#3d9b8f 0%,#1c5048 100%);"><span class="wcard__emoji">📚</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 06 · 9 words</div>
+          <div class="wcard__title">In the Classroom</div>
+          <div class="wcard__zh">教室裡的英文</div>
+          <div class="wcard__desc">Blackboard, pencil case, worksheet, reward stamp — the everyday objects and habits of a Mingli classroom.</div>
+          <div class="wcard__cta">Start Unit 6 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-7/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#5b7fb0 0%,#2d4a72 100%);"><span class="wcard__emoji">💻</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 07 · 8 words</div>
+          <div class="wcard__title">Tech &amp; Numbers</div>
+          <div class="wcard__zh">數位與數學</div>
+          <div class="wcard__desc">iPads, QR codes, the desktop computer — plus addition, minus and times. The digital and math words of class.</div>
+          <div class="wcard__cta">Start Unit 7 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-8/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#6cbf7a 0%,#2d7a52 100%);"><span class="wcard__emoji">🩺</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 08 · 10 words</div>
+          <div class="wcard__title">Daily Routines &amp; Health</div>
+          <div class="wcard__zh">日常作息與健康</div>
+          <div class="wcard__desc">Eye tests, height checks, brushing teeth, the after-lunch nap — staying healthy and following the school-day routine.</div>
+          <div class="wcard__cta">Start Unit 8 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="wcard" href="word/unit-9/">
+        <div class="wcard__hero" style="background:linear-gradient(135deg,#b07a4a 0%,#6b4423 100%);"><span class="wcard__emoji">🙌</span></div>
+        <div class="wcard__body">
+          <div class="wcard__no">Unit 09 · 5 words</div>
+          <div class="wcard__title">Everyday Action Words</div>
+          <div class="wcard__zh">日常動作字</div>
+          <div class="wcard__desc">Put, carry, listen, read, pet the school cat — the simple action verbs that show up in every part of the school day.</div>
+          <div class="wcard__cta">Start Unit 9 <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="wplaylist">
+      <h3>Watch the full playlist on YouTube</h3>
+      <div class="wplaylist__zh">不想分單元的話，這裡是完整的明禮每日一字 YouTube 播放清單</div>
+      <div class="wplaylist__frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8V0WBX_Mdo-XKWJ7X-qdEwW&rel=0" title="Mingli Word of the Day · full playlist" loading="lazy" allowfullscreen></iframe>
       </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">2</div>
-          <div class="unit__label">Unit 2 — Agricultural Life</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">instruction <span>指示說明</span></span>
-            <span class="word-pill">carry <span>拿/背起</span></span>
-            <span class="word-pill">QR code <span>快速回應圖碼</span></span>
-            <span class="word-pill">pole <span>竹竿</span></span>
-            <span class="word-pill">listen <span>聽</span></span>
-            <span class="word-pill">read <span>看/讀</span></span>
-            <span class="word-pill">bake <span>烘烤</span></span>
-            <span class="word-pill">scarecrow <span>稻草人</span></span>
-            <span class="word-pill">hay <span>稻草</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">3</div>
-          <div class="unit__label">Unit 3 — Classroom Objects</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">security guard <span>警衛</span></span>
-            <span class="word-pill">exhibit <span>展覽</span></span>
-            <span class="word-pill">magnet <span>磁鐵</span></span>
-            <span class="word-pill">blackboard <span>黑板</span></span>
-            <span class="word-pill">pencil case <span>鉛筆盒</span></span>
-            <span class="word-pill">pencil sharpener <span>削鉛筆機</span></span>
-            <span class="word-pill">stamp <span>蓋章/點數</span></span>
-            <span class="word-pill">potted plants <span>盆栽</span></span>
-            <span class="word-pill">sink <span>洗手台</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">4</div>
-          <div class="unit__label">Unit 4 — Daily Routines</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">take a nap <span>午休</span></span>
-            <span class="word-pill">raise your hand <span>舉手</span></span>
-            <span class="word-pill">professional development <span>教師專業進修</span></span>
-            <span class="word-pill">upstairs / downstairs <span>上下樓梯</span></span>
-            <span class="word-pill">desktop computer <span>桌上型電腦</span></span>
-            <span class="word-pill">brush your teeth <span>刷牙</span></span>
-            <span class="word-pill">connect <span>連接</span></span>
-            <span class="word-pill">mural <span>壁畫</span></span>
-            <span class="word-pill">line up <span>排隊</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">5</div>
-          <div class="unit__label">Unit 5 — Health &amp; Learning Tools</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">eye test <span>視力檢查</span></span>
-            <span class="word-pill">height <span>身高</span></span>
-            <span class="word-pill">nurse <span>護士</span></span>
-            <span class="word-pill">vegetable <span>蔬菜</span></span>
-            <span class="word-pill">iPad <span>平板電腦</span></span>
-            <span class="word-pill">worksheet <span>學習單</span></span>
-            <span class="word-pill">observe <span>觀課/觀察</span></span>
-            <span class="word-pill">tour bus <span>遊覽車</span></span>
-            <span class="word-pill">catch <span>接（球）</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">6</div>
-          <div class="unit__label">Unit 6 — School Activities</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">mow <span>割草</span></span>
-            <span class="word-pill">workbook <span>習作本</span></span>
-            <span class="word-pill">repot <span>移植/換盆</span></span>
-            <span class="word-pill">sewing machine <span>縫紉機</span></span>
-            <span class="word-pill">check-in <span>檢核</span></span>
-            <span class="word-pill">sign <span>簽名</span></span>
-            <span class="word-pill">100 meter dash <span>百米短跑</span></span>
-            <span class="word-pill">award presentation <span>頒獎典禮</span></span>
-            <span class="word-pill">rehearsal <span>排練</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">7</div>
-          <div class="unit__label">Unit 7 — Arts, Math &amp; Culture</div>
-          <div class="unit__count">9 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">addition <span>加法</span></span>
-            <span class="word-pill">minus <span>減法</span></span>
-            <span class="word-pill">times <span>乘法</span></span>
-            <span class="word-pill">social studies <span>社會科</span></span>
-            <span class="word-pill">pottery <span>陶器</span></span>
-            <span class="word-pill">pottery wheel <span>陶輪</span></span>
-            <span class="word-pill">tea culture <span>茶文化</span></span>
-            <span class="word-pill">tour <span>參觀</span></span>
-            <span class="word-pill">balloon <span>氣球</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">8</div>
-          <div class="unit__label">Unit 8 — Nature &amp; Art</div>
-          <div class="unit__count">8 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">artist <span>藝術家</span></span>
-            <span class="word-pill">pet <span>撫摸</span></span>
-            <span class="word-pill">weed <span>除草</span></span>
-            <span class="word-pill">paint pouring <span>流體畫</span></span>
-            <span class="word-pill">basketball <span>籃球</span></span>
-            <span class="word-pill">seedling <span>秧苗</span></span>
-            <span class="word-pill">taro <span>芋頭</span></span>
-            <span class="word-pill">ocarina <span>陶笛</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="unit">
-        <div class="unit__header" onclick="toggleUnit(this)">
-          <div class="unit__no">9</div>
-          <div class="unit__label">Unit 9 — Farm, Music &amp; Craft</div>
-          <div class="unit__count">7 words</div>
-          <div class="unit__arrow">▾</div>
-        </div>
-        <div class="unit__body">
-          <div class="unit__words">
-            <span class="word-pill">Chinese flute <span>笛子</span></span>
-            <span class="word-pill">farm <span>種植/耕作</span></span>
-            <span class="word-pill">okra seedling <span>秋葵苗</span></span>
-            <span class="word-pill">bake <span>烘焙</span></span>
-            <span class="word-pill">aroma stone <span>擴香石</span></span>
-            <span class="word-pill">jump rope competition <span>跳繩比賽</span></span>
-            <span class="word-pill">tablet <span>平板</span></span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -616,11 +560,5 @@
   Bilingual page by <span class="org">My Culture Connect 人師教育協會</span>
 </footer>
 
-<script>
-function toggleUnit(header){
-  const unit = header.closest('.unit');
-  unit.classList.toggle('is-open');
-}
-</script>
 </body>
 </html>
