@@ -83,7 +83,7 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Hero Banner (photo + warm overlay) === */
+  /* === Hero Banner (clean photo + bottom scrim only) === */
   .banner{
     position:relative;
     background:#16284d url('photos/fx-gate.jpg') center 52%/cover;
@@ -91,14 +91,10 @@
   }
   @media (min-width:720px){ .banner{ min-height:420px; } }
   @media (min-width:1080px){ .banner{ min-height:480px; } }
-  /* Warm 4-layer overlay — Fusing palette: orange + olive + red + deep blue */
+  /* No full overlay — only a soft gradient at the very bottom for text legibility */
   .banner::before{
     content:'';position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse at 88% 18%, rgba(240,167,34,.55) 0%, transparent 55%),
-      radial-gradient(ellipse at 8% 28%, rgba(201,201,32,.45) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 100%, rgba(230,61,46,.55) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(26,71,145,.30) 0%, rgba(26,71,145,.78) 100%);
+    background:linear-gradient(180deg, transparent 0%, transparent 42%, rgba(10,20,42,.66) 100%);
     pointer-events:none;
   }
   .banner::after{
@@ -115,6 +111,7 @@
     font-family:'Playfair Display',serif;
     font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
     color:#fde6c2;font-weight:600;margin-bottom:12px;
+    text-shadow:0 1px 10px rgba(0,0,0,.5);
   }
   @media (min-width:720px){ .banner__brand{ font-size:16px; } }
   .banner h1{
