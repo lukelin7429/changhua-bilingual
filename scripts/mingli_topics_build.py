@@ -214,7 +214,7 @@ CSS = """
 """
 
 def subnav():
-    items=[("Home","../../../"),("Principal","../../../principal/"),("English Life","../../../bilingual-campus/"),
+    items=[("Home","../../../"),("Principal","../../../principal/"),
            ("Lessons","../../"),("News","../../../news/"),("Festivals","https://changhua-bilingual.org/festivals/?from=mingli")]
     return "\n".join(f'      <a href="{h}"{" class=\"is-active\"" if n=="Lessons" else ""}>{n}</a>' for n,h in items)
 
@@ -227,34 +227,36 @@ GRAD = {  # per-topic hero gradient (mingli earthy palette)
 
 def build_topic(t):
     c1,c2=GRAD[t['slug']]
-    # feature videos
+    # ── ALL videos grouped into one uniform grid: feature videos first, then per-word WOTD clips ──
+    videos=[(vid,cen,czh) for vid,cen,czh in t['features']]
+    for term,pos,zh,sents,vid in t['words']:
+        if vid: videos.append((vid, f"Word of the Day · {term}", zh))
     feat=""
-    if t['features']:
-        two=" two" if len(t['features'])>1 else ""
+    if videos:
+        two=" two" if len(videos)>1 else ""
         items=[]
-        for vid,cen,czh in t['features']:
+        for vid,cen,czh in videos:
             items.append(f"""      <div class="feat-item">
         <div class="feat-item__ratio"><iframe src="https://www.youtube-nocookie.com/embed/{vid}?rel=0" title="{esc(cen)}" loading="lazy" allowfullscreen></iframe></div>
         <div class="feat-item__cap"><b>{esc(cen)}</b><span class="zh">{esc(czh)}</span></div>
       </div>""")
         feat=f"""
   <h2 class="sec-h">Watch &amp; Learn</h2>
-  <div class="sec-h-zh">主題影片 · 看影片學主題英文</div>
+  <div class="sec-h-zh">{len(videos)} videos · {len(videos)} 部影片，看影片學主題英文</div>
   <div class="feat{two}">
 {chr(10).join(items)}
   </div>
 """
-    # vocab cards
+    # ── uniform vocab cards (no inline video) ──
     cards=[]
     for j,(term,pos,zh,sents,vid) in enumerate(t['words'],1):
-        video=f'\n      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/{vid}?rel=0" title="{esc(term)} · {esc(zh)}" loading="lazy" allowfullscreen></iframe></div>' if vid else ""
         exs="\n".join(f'          <div class="vc__ex"><div class="en">{bold(en,term)}</div><div class="zh">{esc(z)}</div></div>' for en,z in sents)
         cards.append(f"""    <article class="vc">
       <div class="vc__head">
         <div class="vc__num">Word {j:02d}</div>
         <div class="vc__term">{esc(term)} <span class="vc__pos">({POS.get(pos,pos+'.')})</span></div>
         <div class="vc__zh">{esc(zh)}</div>
-      </div>{video}
+      </div>
       <div class="vc__body">
         <div class="vc__exs">
 {exs}
