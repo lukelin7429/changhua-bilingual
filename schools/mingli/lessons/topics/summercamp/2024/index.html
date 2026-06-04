@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>2024 Summer Camp · Community Food Exploration · Mingli Elementary</title>
-<meta name="description" content="Mingli 2024 Summer Camp: students became community explorers — ordering food in English, buying tickets at Tianzhong HSR station, interviewing farmers, and learning Tianzhong pottery. 明禮 2024 夏日樂學——明禮E食代社區探索。">
+<meta name="description" content="Mingli 2024 Summer Camp: students explored their community while learning English — Little Field Coffee, the HSR station, a cucumber greenhouse, and Tianzhong pottery. 明禮 2024 夏日樂學——在探索社區的同時提升英語能力。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/mingli/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/mingli/favicon-180.png">
 <link rel="shortcut icon" href="/schools/mingli/favicon.ico">
@@ -55,9 +55,42 @@
   @media(min-width:720px){.lead p{font-size:20px;}}
   .lead p.zh{font-size:15px;color:var(--ink-soft);margin-top:10px;}
   @media(min-width:720px){.lead p.zh{font-size:17px;}}
-  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
-  .tag{font-size:14px;background:var(--g-soft);color:var(--g-deep);padding:6px 14px;border-radius:99px;font-weight:600;}
-  @media(min-width:720px){.tag{font-size:16px;}}
+  /* three themes */
+  .themes{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:820px){.themes{grid-template-columns:repeat(3,1fr);gap:22px;}}
+  .theme{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--g);}
+  .theme:nth-child(2){border-top-color:var(--gold);}
+  .theme:nth-child(3){border-top-color:var(--earth);}
+  .theme__head{padding:22px 24px 14px;}
+  .theme__no{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);}
+  .theme__en{font-family:'Playfair Display',serif;font-size:21px;font-weight:800;color:var(--g-deep);line-height:1.2;margin-top:5px;}
+  @media(min-width:720px){.theme__en{font-size:23px;}}
+  .theme__zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
+  @media(min-width:720px){.theme__zh{font-size:18px;}}
+  .theme__list{list-style:none;padding:6px 24px 24px;margin:0;}
+  .theme__list li{font-size:15px;color:var(--ink-soft);line-height:1.5;padding:8px 0 8px 22px;position:relative;border-top:1px dashed var(--line);}
+  @media(min-width:720px){.theme__list li{font-size:16px;}}
+  .theme__list li:first-child{border-top:none;}
+  .theme__list li::before{content:"·";position:absolute;left:6px;top:6px;color:var(--gold);font-weight:800;font-size:20px;}
+  .theme__list li b{color:var(--g-deep);font-weight:700;}
+  /* ordering dialogue */
+  .place{background:#f6faf6;border:1px solid var(--line);border-radius:18px;padding:24px 24px 26px;box-shadow:var(--shadow-sm);margin-top:6px;}
+  @media(min-width:720px){.place{padding:30px 32px 32px;}}
+  .place__name{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--g-deep);}
+  @media(min-width:720px){.place__name{font-size:26px;}}
+  .place p{font-size:16px;line-height:1.7;color:var(--ink);margin-top:12px;}
+  @media(min-width:720px){.place p{font-size:18px;}}
+  .place p.zh{font-size:14px;color:var(--ink-soft);}
+  @media(min-width:720px){.place p.zh{font-size:16px;}}
+  .dialogue{margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+  .line{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;border-left:4px solid var(--g);}
+  .line.staff{border-left-color:var(--gold);}
+  .line__who{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold-deep);}
+  .line.staff .line__who{color:var(--g);}
+  .line__en{font-size:17px;color:var(--ink);font-weight:600;line-height:1.5;margin-top:3px;}
+  @media(min-width:720px){.line__en{font-size:19px;}}
+  .line__zh{font-size:14px;color:var(--ink-soft);margin-top:3px;line-height:1.5;}
+  @media(min-width:720px){.line__zh{font-size:16px;}}
   .feat{display:grid;grid-template-columns:1fr;gap:24px;}
   @media(min-width:820px){.feat.two{grid-template-columns:1fr 1fr;}}
   .feat-item{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);}
@@ -95,7 +128,7 @@
   <div class="thero__emoji">🍱</div>
   <h1>Community Food Exploration</h1>
   <div class="thero__zh">明禮E食代社區探索</div>
-  <p class="thero__intro">In 2024, Mingli students became community explorers — visiting Little Field Coffee beside the rice paddies, ordering food in English, buying tickets at Tianzhong HSR station, interviewing local farmers, and learning Tianzhong pottery at the kiln.<span class="zh">2024 年，明禮的孩子成為社區探索者——走訪稻田旁的小田咖啡、用英語點餐、在田中高鐵站購票、採訪在地農夫，並到田中窯學陶藝。</span></p>
+  <p class="thero__intro">This summer, students at Mingli Elementary School joined the "Summer Fun Learning" camp, exploring their community while enhancing their English. They visited a café in the rice fields, the high-speed rail station, a cucumber greenhouse, and the pottery workshops at Tianzhong Pottery.<span class="zh">這個夏天，明禮國小的學生參加了夏日樂學營隊，在探索社區的同時也提升了英語能力——走訪稻田旁的咖啡館、高鐵站、小黃瓜溫室，以及田中窯的陶藝工坊。</span></p>
 </header>
 
 <div class="wrap">
@@ -104,17 +137,70 @@
     <a href="../../../">All Lessons · 回課程</a>
   </div>
 
-  <h2 class="sec-h">What We Explored</h2>
-  <div class="sec-h-zh">這一年，我們走進社區做了什麼</div>
-  <div class="lead">
-    <p>The whole town became the classroom. Students stepped out of the school gate to use real English in real places — a coffee shop, a train station, a farm, and a pottery studio — and came back as young reporters telling the story in English.</p>
-    <p class="zh">整個小鎮都是教室。孩子們走出校門，在真實場景裡用真實的英語——咖啡館、火車站、農田、陶藝工坊——再化身小記者，用英語把故事說出來。</p>
-    <div class="tags">
-      <span class="tag">點餐對話</span>
-      <span class="tag">高鐵購票</span>
-      <span class="tag">在地農夫採訪</span>
-      <span class="tag">田中窯陶藝</span>
-      <span class="tag">環保堆肥</span>
+  <h2 class="sec-h">Three Camp Themes</h2>
+  <div class="sec-h-zh">三大課程主軸 · 從食農、農藝到社區走讀</div>
+  <div class="themes">
+
+    <article class="theme">
+      <div class="theme__head">
+        <div class="theme__no">Theme 1</div>
+        <div class="theme__en">Good Food &amp; Farming</div>
+        <div class="theme__zh">三好食農 · 閱讀表達</div>
+      </div>
+      <ul class="theme__list">
+        <li><b>家事小達人</b> · Little Household Helper</li>
+        <li><b>三好熊愛家農場</b> · eco picture-book creation 環境教育繪本創作</li>
+        <li><b>英文 Happy Go!</b> · everyday English games</li>
+      </ul>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <div class="theme__no">Theme 2</div>
+        <div class="theme__en">Farming Magic</div>
+        <div class="theme__zh">農藝魔法探索</div>
+      </div>
+      <ul class="theme__list">
+        <li><b>我是小食神</b> · I'm a Little Food God</li>
+        <li><b>落葉堆肥</b> · leaf composting 節能減碳愛地球</li>
+        <li><b>開心農場</b> · Happy Little Farmer 快樂小農夫（在校園菜圃種玉米）</li>
+      </ul>
+    </article>
+
+    <article class="theme">
+      <div class="theme__head">
+        <div class="theme__no">Theme 3</div>
+        <div class="theme__en">Mingli, My Home</div>
+        <div class="theme__zh">社區走讀 · 明禮我的家</div>
+      </div>
+      <ul class="theme__list">
+        <li><b>藝起樂陶陶</b> · Tianzhong Pottery art feast 田中窯藝術饗宴</li>
+        <li><b>家鄉小田生活影像</b> · hometown life in pictures</li>
+        <li><b>行動背包客</b> · Action Backpacker</li>
+        <li><b>小小記者</b> · young reporters visit local farmers 參訪在地小農</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <h2 class="sec-h">Little Field Coffee</h2>
+  <div class="sec-h-zh">小田咖啡 · 在稻田旁用英語點餐</div>
+  <div class="place">
+    <div class="place__name">Little Field Coffee · 小田咖啡</div>
+    <p>Little Field Coffee is a cozy café started six years ago by parents of Mingli students. It sits next to a rice field and has a big lawn and tents for picnics, birthday parties, and friend gatherings. Its unique nature setting attracts many customers. Besides coffee, they also offer other drinks and snacks.</p>
+    <p class="zh">小田咖啡是一家六年前由明禮國小學生家長開設的溫馨咖啡店。咖啡店位於稻田旁，擁有大片草坪和帳篷，適合野餐、生日派對和朋友聚會。其獨特的自然環境吸引了許多顧客。除了咖啡，他們還提供其他飲料和點心。</p>
+
+    <div class="dialogue">
+      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Hi there! What would you like to order?</div><div class="line__zh">嗨！你們想點什麼？</div></div>
+      <div class="line"><div class="line__who">Student A 學生A</div><div class="line__en">Hi, I'd like an orange juice and French fries, please.</div><div class="line__zh">嗨，我想要一杯橙汁和薯條，謝謝。</div></div>
+      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Got it. One orange juice and French fries. And for you?</div><div class="line__zh">好的，一杯橙汁和薯條。你呢？</div></div>
+      <div class="line"><div class="line__who">Student B 學生B</div><div class="line__en">I'd like a milk tea and chicken nuggets, please.</div><div class="line__zh">我想要一杯奶茶和雞塊，謝謝。</div></div>
+      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Okay, one milk tea and chicken nuggets. And how about you?</div><div class="line__zh">好的，一杯奶茶和雞塊。那你呢？</div></div>
+      <div class="line"><div class="line__who">Student C 學生C</div><div class="line__en">I'd like a black coffee and chicken nuggets, please.</div><div class="line__zh">我想要一杯黑咖啡和雞塊，謝謝。</div></div>
+      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Alright, one black coffee and chicken nuggets. Is there anything else?</div><div class="line__zh">好的，一杯黑咖啡和雞塊。還有別的嗎？</div></div>
+      <div class="line"><div class="line__who">Students 學生們</div><div class="line__en">No, that's all, thank you.</div><div class="line__zh">沒有了，謝謝。</div></div>
+      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Great. Your total is 450 NTD. Please wait a moment for your order.</div><div class="line__zh">好的，你們的總共是 450 元新台幣。請稍等一下。</div></div>
+      <div class="line"><div class="line__who">Students 學生們</div><div class="line__en">Thank you!</div><div class="line__zh">謝謝！</div></div>
     </div>
   </div>
 
