@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Career Exploration · Learning by Doing · News · Hsinmin Elementary 新民國小</title>
+<meta name="description" content="Career Exploration · Learning by Doing 職業探索趣．動手做中學習. Hsinmin Elementary campus news.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#574a8f;--plum-deep:#332a5c;--plum-soft:#ebe7f6;
+    --gold:#b8862a;--gold-deep:#7c5a18;--gold-soft:#f7eccf;
+    --teal:#2f8c86;--teal-deep:#1c5650;--teal-soft:#d6ece9;
+    --rose:#c25a86;--rose-deep:#8a3560;--rose-soft:#fbe2ec;
+    --ember:#c2613a;--ember-deep:#8a3f20;--ember-soft:#f8e1d4;
+    --bronze:#9a7d4e;--bronze-deep:#5e4a2c;--bronze-soft:#f0e7d4;
+    --ink:#211f2b;--ink-soft:#5f5a6e;--line:#e4e0ec;--bg-soft:#f6f4fb;
+    --shadow:0 14px 38px -16px rgba(51,42,92,.30);--shadow-sm:0 6px 16px -6px rgba(51,42,92,.18);
+    --max:1140px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:22px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--plum);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--plum-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.03em;}
+  @media(min-width:720px){.topbar-nav a{font-size:16.5px;}}
+  .topbar-nav a:hover{color:var(--plum);}
+  .topbar-nav a.is-active{color:var(--plum-deep);font-weight:700;}
+  @media(max-width:780px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:13px;justify-content:flex-start;}}
+
+
+  .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(330px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--gold);padding:64px 24px 46px;background-size:cover;background-position:center 42%;}
+  @media(min-width:720px){.pbanner{min-height:clamp(380px,52vh,540px);padding:84px 24px 56px;}}
+  .pbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(38,30,66,.10) 0%,rgba(38,30,66,0) 40%,rgba(38,30,66,.52) 74%,rgba(38,30,66,.9) 100%);}
+  .pbanner>.bn{position:relative;z-index:1;}
+  .pbanner .eyebrow{display:inline-block;font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:12px;text-shadow:0 1px 8px rgba(0,0,0,.55);}
+  .pbanner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(42px,7vw,70px);font-weight:600;line-height:1.07;text-shadow:0 2px 18px rgba(0,0,0,.6);}
+  .pbanner h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,25px);color:rgba(255,255,255,.94);font-weight:500;margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .bdiv{width:60px;height:2px;background:var(--gold);border:0;margin:20px auto 16px;}
+  .pbanner .lede{max-width:640px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,21px);color:rgba(255,255,255,.96);line-height:1.5;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .lede .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16px;margin-top:8px;color:rgba(255,255,255,.86);}
+  .factstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:760px;margin:26px auto 0;position:relative;z-index:1;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:14px;backdrop-filter:blur(6px);overflow:hidden;}
+  .fact{flex:1 1 160px;padding:16px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .fact:last-child{border-right:0;}
+  .fact .fe{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  .fact .fz{font-size:13.5px;margin-top:5px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;}
+  @media(max-width:640px){.fact{flex:1 1 45%;border-bottom:1px solid rgba(255,255,255,.14);}.fact:nth-child(2n){border-right:0;}}
+
+  main{padding:0 0 60px;}
+  .article{max-width:780px;margin:0 auto;}
+  .lead-photo{margin:42px 0 6px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);} .lead-photo img{width:100%;display:block;}
+  .en-body p{font-size:18.5px;line-height:1.8;margin-top:18px;color:var(--ink);}
+  .ph{margin:28px 0 8px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);} .ph img{width:100%;display:block;}
+  .zhwrap{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
+  .zhwrap .zhlabel{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);background:var(--plum-soft);border-radius:20px;padding:5px 14px;margin-bottom:4px;}
+  .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17.5px;line-height:1.95;margin-top:16px;color:var(--ink);}
+  .lnav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:42px 0 0;flex-wrap:wrap;max-width:780px;margin:0 auto;}
+  .lnav a{padding:10px 18px;border-radius:10px;border:2px solid var(--line);font-weight:700;font-size:15px;color:var(--plum-deep);background:#fff;} .lnav a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
+  .lnav a.center{background:var(--plum-deep);color:#fff;border-color:var(--plum-deep);}
+  .footer{background:var(--plum-deep);color:rgba(255,255,255,.72);text-align:center;padding:40px 0 34px;font-size:15px;margin-top:56px;} .footer a{color:var(--gold-soft);} .footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:8px;}
+
+</style>
+</head>
+<body>
+<nav class="topbar" role="navigation"><div class="wrap"><div class="topbar-inner">
+  <a href="../../" class="topbar-name">Hsinmin Elementary<small>新民國民小學</small></a>
+  <div class="topbar-nav">
+        <a href="../../">Home</a>
+        <a href="../../principal/">Principal</a>
+        <a href="../../bilingual-campus/">English Life</a>
+        <a href="../../lessons/">Lessons</a>
+        <a href="../../news/" class="is-active">News</a>
+        <a href="https://changhua-bilingual.org/festivals/?from=hsinmin" target="_blank" rel="noopener">Festivals</a>
+  </div>
+</div></div></nav>
+<header class="pbanner" style="background-image:url('../../photos/corridor.jpg');min-height:clamp(250px,34vh,380px);">
+  <div class="bn"><span class="eyebrow">News &middot; 2026.06.02</span><h1>Career Exploration · Learning by Doing<span class="zh">職業探索趣．動手做中學習</span></h1></div>
+</header>
+<main><div class="wrap"><div class="article">
+  <div class="lead-photo"><img src="../../news-img/career-1.jpg" alt="Career Exploration · Learning by Doing"></div>
+  <div class="en-body">
+    <p>Hsinmin's Class 602 visited the Career Exploration Center at Chang'an Junior High today for a journey of knowledge and creativity. After an introduction to the center, the students were captivated by a 3D-printing robot demonstration — seeing how a computer design can be built up layer by layer into a real object, from everyday items to figurines and even machine parts, the magic of technology turning imagination into reality.</p>
+    <p>A teacher then introduced renewable energy, including wind power — using the wind's kinetic energy to spin blades and generate clean, renewable electricity — helping students understand the importance of sustainable energy and the close link between technology and environmental protection.</p>
+    <p>Next, Teacher Liang Kun-min from Xiushui Vocational High School led an exciting course, “Little Electrician: The Wonderful Journey of Circuits.” Students built their own remote-control walking robots — from recognising parts to assembling the structure and connecting the circuit — and watched their scattered materials become a robot that could move forward, to delighted smiles. A home-circuit session followed, introducing three-wire household wiring, switches, sockets, and fittings.</p>
+    <p>Thank you to the Chang'an JHS Career Exploration Center and Teacher Liang for the rich, professional, and fun lessons. We believe this rewarding learning journey will become an unforgettable pre-graduation memory for our children!</p>
+  </div>
+  <div class="ph"><img src="../../news-img/career-2.jpg" alt="Career Exploration · Learning by Doing photo 2" loading="lazy"></div>
+  <div class="zhwrap"><span class="zhlabel">中文原文 · Chinese</span>
+  <div class="zh-body">
+    <p>新民國小 602 班今日前往彰安國中職探中心，展開一場知識與創意的職業探索之旅。活動一開始，由主任帶領同學認識中心環境。其中最吸引大家目光的莫過於 3D 列印機器人展示——透過電腦設計圖檔，3D 列印機能將平面的創意逐層堆疊成真實物件，無論是生活用品、模型公仔，甚至機械零件都能製作，讓同學們深刻感受到科技將想像化為現實的神奇魅力。👾</p>
+    <p>緊接著老師介紹自然能源發電方式，其中風力發電利用風的動能推動葉片旋轉，再透過發電機轉換成電能，是一種潔淨且可再生的綠色能源。透過解說，同學們更加了解永續能源的重要性，也認識到科技與環境保護之間密不可分的關係。💨</p>
+    <p>隨後，由秀水高工梁棍閔老師帶來精彩課程——「小小水電工：電路的奇妙之旅」。同學們親手製作遙控走路機器人，從認識零件、組裝結構到連接電路，在老師耐心指導下，原本零散的材料逐漸組合成能前進移動的機器人，臉上都露出驚喜與滿足的笑容。接著的家庭電路實作課程，介紹家用三線式配線設計，認識開關、插座及器具之裝配，也透過動手實作了解電流如何流動。🪛🔧</p>
+    <p>感謝彰安國中職業探索中心精心安排豐富課程，以及秀水高工梁棍閔老師專業又有趣的教學，讓孩子們在探索與實作中開拓視野，體驗不同職業領域的魅力。相信這趟充實的學習之旅，將成為孩子們畢業前難忘的經驗與回憶！🫶</p>
+  </div></div>
+</div>
+<nav class="lnav"><a href="../graduation-banquet/">&larr; Dream · Chasing the Light · Graduation Banquet</a><a href="../" class="center">&uarr; All News · 回消息列表</a><a href="../principal-date/">A Date with the Principal &rarr;</a></nav>
+</div></main>
+<footer class="footer"><div class="footer-brand">Hsinmin Elementary · 新民國民小學</div><p>520022 彰化縣田中鎮公館路320號 · Tel (04) 8756-166</p></footer>
+</body>
+</html>
