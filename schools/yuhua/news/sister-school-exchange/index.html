@@ -62,27 +62,33 @@
     .topbar-nav a{font-size:13.5px;}
   }
 
-  /* article hero banner */
+  /* article hero banner — composite: crisp gradient + framed photo at native size */
   .page-head{
     position:relative;
-    background:#0f3a55 url('../../photos/exchange-hero.jpg') center 40%/cover;
-    min-height:320px;display:flex;align-items:flex-end;overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  @media (min-width:720px){ .page-head{ min-height:420px; } }
-  @media (min-width:1080px){ .page-head{ min-height:480px; } }
-  .page-head::before{
-    content:'';position:absolute;inset:0;
     background:
-      linear-gradient(180deg, rgba(15,58,85,.40) 0%, rgba(15,58,85,.86) 100%),
-      linear-gradient(90deg, rgba(15,58,85,.46) 0%, rgba(15,58,85,0) 55%);
-    pointer-events:none;
+      radial-gradient(1100px 380px at 88% 18%, rgba(202,160,86,.16) 0%, rgba(202,160,86,0) 60%),
+      linear-gradient(125deg, #0f3a55 0%, #15506e 52%, #1d6f67 100%);
+    overflow:hidden;border-bottom:1px solid var(--line);
   }
   .page-head > .wrap{
     position:relative;z-index:1;width:100%;
-    padding-top:46px;padding-bottom:36px;color:#fff;
+    padding-top:44px;padding-bottom:40px;color:#fff;
   }
-  @media (min-width:720px){ .page-head > .wrap{ padding-top:64px;padding-bottom:46px; } }
+  @media (min-width:720px){ .page-head > .wrap{ padding-top:60px;padding-bottom:56px; } }
+  .ph-layout{display:flex;flex-direction:column;gap:30px;align-items:flex-start;}
+  @media (min-width:860px){ .ph-layout{flex-direction:row;align-items:center;gap:44px;} }
+  .ph-text{flex:1;min-width:0;}
+  .ph-photo{flex:0 0 auto;width:100%;max-width:430px;align-self:center;margin:0;}
+  @media (min-width:860px){ .ph-photo{width:42%;max-width:450px;} }
+  .ph-photo img{
+    width:100%;height:auto;border-radius:14px;
+    border:4px solid rgba(255,255,255,.92);
+    box-shadow:0 20px 50px -18px rgba(0,0,0,.65);
+  }
+  .ph-photo figcaption{
+    margin-top:11px;font-size:14px;line-height:1.5;color:#dbe7ef;text-align:center;
+    font-family:'PingFang TC',sans-serif;letter-spacing:.02em;
+  }
   .page-head__eyebrow{
     display:inline-block;font-size:14.5px;letter-spacing:.24em;
     color:#f7eed9;font-weight:700;text-transform:uppercase;margin-bottom:14px;
@@ -215,11 +221,19 @@
 <!-- ARTICLE HERO -->
 <header class="page-head">
   <div class="wrap">
-    <div class="page-head__eyebrow">International Exchange · 國際交流</div>
-    <h1>Five Screens to the World
-      <span class="zh">五次視訊，連向世界：與菲律賓姐妹校的跨國交流</span>
-    </h1>
-    <div class="page-head__meta">A sister-school video exchange · Nov 2025 &ndash; May 28, 2026 · 育華國小 &times; St. Mary's College of Tagum</div>
+    <div class="ph-layout">
+      <div class="ph-text">
+        <div class="page-head__eyebrow">International Exchange · 國際交流</div>
+        <h1>Five Screens to the World
+          <span class="zh">五次視訊，連向世界：與菲律賓姐妹校的跨國交流</span>
+        </h1>
+        <div class="page-head__meta">A sister-school video exchange · Nov 2025 &ndash; May 28, 2026 · 育華國小 &times; St. Mary's College of Tagum</div>
+      </div>
+      <figure class="ph-photo">
+        <img src="../../photos/exchange-hero.jpg" alt="Yuhua Elementary's sixth-grade class gathered around laptops with Taiwan and Philippine flags after a video call with their sister school St. Mary's College of Tagum">
+        <figcaption>The whole class after the final video call · 最後一場視訊後的全班合影</figcaption>
+      </figure>
+    </div>
   </div>
 </header>
 
@@ -238,13 +252,13 @@
       For many, the first call was the hardest part. Faced with unfamiliar faces on the screen, some felt their legs shake and their minds go blank. But session by session, the nervousness wore off &mdash; from reading English in a whisper to speaking up with confidence, even adding hand gestures. Each time a child finished, the students and teachers in the Philippines broke into warm applause. As one child put it, <em>&ldquo;a round of applause is the best language.&rdquo;</em>
     </p>
     <p>
-      Under the guidance of their teachers, the children built a bridge of friendship with sincere smiles and growing confidence. Along the way they did more than practise English: they learned to respect and appreciate a different culture, and widened their view of the world. For a coastal school of fewer than fifty children, this was not only a stage for language learning &mdash; it was a first step into citizen diplomacy.
+      Guided by <strong>Teacher Cheng-hsiang (程翔老師)</strong> and <strong>Director Hui-min (惠閔主任)</strong>, and accompanied by <strong>Teacher Yi-ting (譯霆老師)</strong> and <strong>Teacher Shu-min (書民老師)</strong>, the children built a bridge of friendship with sincere smiles and growing confidence. Along the way they did more than practise English: they learned to respect and appreciate a different culture, and widened their view of the world. For a coastal school of fewer than fifty children, this was not only a stage for language learning &mdash; it was a first step into citizen diplomacy.
     </p>
 
     <p class="article-zh">
       延續 2025 年 11 月簽署的<a href="../sister-school-mou/">姐妹校合作備忘錄</a>，育華持續推動與菲律賓姐妹校 St. Mary's College of Tagum 的國際教育交流。透過五次跨國視訊互動，孩子們在真實情境中學習英語、認識多元文化。第一次面對鏡頭時，許多孩子難免緊張與害怕，但在一次次交流與練習中，逐漸克服陌生感，從小聲朗讀到自信表達，勇敢展現自我風采。<br><br>
       交流主題涵蓋自我介紹、戰鼓、新年、元宵節及臺灣便利商店等內容。學生透過英語簡報與分享，向國外友人介紹臺灣獨特的文化特色與生活樣貌，展現育華學子的創意與熱情。在互動過程中，孩子們不僅提升語言能力，也學習尊重與欣賞不同文化，拓展國際視野。這場跨國交流不只是語言學習的舞台，更是國民外交的起點。<br><br>
-      學生們在師長的指導與陪伴下，以真誠的笑容與自信的表現搭起友誼橋梁，促進國際理解與文化交流，培養放眼世界的胸懷與格局。相信這段珍貴的學習旅程，將成為孩子成長道路上最美好的回憶，也為未來接軌世界奠定良好基礎。
+      學生們在<strong>程翔老師、惠閔主任</strong>的指導，以及<strong>譯霆老師、書民老師</strong>的陪伴下，以真誠的笑容與自信的表現搭起友誼橋梁，促進國際理解與文化交流，培養放眼世界的胸懷與格局。相信這段珍貴的學習旅程，將成為孩子成長道路上最美好的回憶，也為未來接軌世界奠定良好基礎。
     </p>
 
     <div class="sec-label">Five sessions, six months<span class="zh">五次視訊，半年歷程</span></div>
