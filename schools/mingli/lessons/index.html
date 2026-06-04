@@ -53,7 +53,7 @@
   /* ── Summer Camp cards ── */
   .camp-grid{display:grid;grid-template-columns:1fr;gap:28px;}
   @media(min-width:720px){.camp-grid{grid-template-columns:1fr 1fr 1fr;gap:28px;}}
-  .camp-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .camp-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer;}
   .camp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
   .camp-card__header{padding:28px 26px 20px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line);}
   .camp-card__year{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:var(--g-soft);line-height:1;}
@@ -73,6 +73,10 @@
   .camp-tag{font-size:13px;background:var(--g-soft);color:var(--g-deep);padding:4px 10px;border-radius:99px;font-weight:600;}
   .camp-card:nth-child(2) .camp-tag{background:var(--gold-soft);color:var(--gold-deep);}
   .camp-card:nth-child(3) .camp-tag{background:var(--earth-soft);color:var(--earth);}
+  .camp-card__cta{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);color:var(--gold-deep);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  @media(min-width:720px){.camp-card__cta{font-size:17px;}}
+  .camp-card__cta .arrow{transition:transform .2s;}
+  .camp-card:hover .camp-card__cta .arrow{transform:translateX(4px);}
 
   /* ── Camp videos strip ── */
   .camp-videos{display:flex;flex-direction:column;gap:20px;margin-top:36px;}
@@ -293,7 +297,7 @@
 
     <div class="camp-grid">
 
-      <article class="camp-card">
+      <a class="camp-card" href="topics/summercamp/2025/">
         <div class="camp-card__header">
           <div class="camp-card__year">2025</div>
           <span class="camp-card__badge">E 農藝境</span>
@@ -309,10 +313,11 @@
             <span class="camp-tag">氣象站</span>
             <span class="camp-tag">高鐵站導覽</span>
           </div>
+          <div class="camp-card__cta">Open 2025 <span class="arrow">→</span></div>
         </div>
-      </article>
+      </a>
 
-      <article class="camp-card">
+      <a class="camp-card" href="topics/summercamp/2024/">
         <div class="camp-card__header">
           <div class="camp-card__year">2024</div>
           <span class="camp-card__badge">E 食代</span>
@@ -328,10 +333,11 @@
             <span class="camp-tag">田中窯陶藝</span>
             <span class="camp-tag">環保堆肥</span>
           </div>
+          <div class="camp-card__cta">Open 2024 <span class="arrow">→</span></div>
         </div>
-      </article>
+      </a>
 
-      <article class="camp-card">
+      <a class="camp-card" href="topics/summercamp/2023/">
         <div class="camp-card__header">
           <div class="camp-card__year">2023</div>
           <span class="camp-card__badge">田中穀倉</span>
@@ -339,76 +345,22 @@
           <div class="camp-card__zh">學習擔任田中穀倉英文代言人</div>
         </div>
         <div class="camp-card__body">
-          <p class="camp-card__desc">Students learned to be English ambassadors for Tianzhong — the "Rice Granary of Taiwan." Exploring the history of the 1937 granary building, Zhuoshui River rice culture, and the Pabao Rice brand, they practised presenting their hometown in English.</p>
+          <p class="camp-card__desc">Students learned to be English ambassadors for Tianzhong — the "Rice Granary of Taiwan." Exploring the history of the 1937 granary building, Zhuoshui River rice culture, and the Babaozun Rice brand, they practised presenting their hometown in English.</p>
           <div class="camp-card__tags">
             <span class="camp-tag">田中穀倉歷史</span>
             <span class="camp-tag">濁水溪米文化</span>
             <span class="camp-tag">米代言人練習</span>
           </div>
+          <div class="camp-card__cta">Open 2023 <span class="arrow">→</span></div>
         </div>
-      </article>
+      </a>
 
     </div>
 
-    <!-- 2025 Camp Videos -->
-    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:48px;margin-bottom:6px;">2025 Summer Camp Highlights</h3>
-    <p style="font-size:17px;color:var(--ink-soft);margin-bottom:20px;">夏日樂學精華影片</p>
-    <div class="camp-video-row">
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/4KSvq6qs8w0?rel=0" title="2025 Summer Camp — Sweet Twist Factory" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>2025 · 參觀寶大蜜麻花</b> — Sweet Twist Factory Visit</div>
-      </div>
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/qrTGple71XQ?rel=0" title="2025 Summer Camp — HSR Station Tour" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>2025 · 高鐵站導覽</b> — HSR Station Tour</div>
-      </div>
-    </div>
-    <div class="camp-video-row" style="margin-top:18px;">
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/fkzacIrK9ac?rel=0" title="2025 Summer Camp — Weather Station" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>2025 · 田中氣象站</b> — Tianzhong Weather Station</div>
-      </div>
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/GFj6043d_XU?rel=0" title="2024 Summer Camp English News Report" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>2024 · 英文新聞報導</b> — English News Report</div>
-      </div>
-    </div>
-
-    <!-- 2024 key videos -->
-    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:40px;margin-bottom:20px;">2024 Community Conversations</h3>
-    <div class="camp-video-row">
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/CvbsH5Ctm7I?rel=0" title="Ordering Food — Summer Camp 2024" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>點餐對話篇</b> — Ordering Food in English</div>
-      </div>
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/bvlQ7sUJw4M?rel=0" title="Buying Train Tickets — Summer Camp 2024" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>高鐵購票練習篇</b> — Buying Tickets at HSR Station</div>
-      </div>
-    </div>
-
-    <!-- 2023 key video -->
-    <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);margin-top:40px;margin-bottom:20px;">2023 Rice Granary Ambassador</h3>
-    <div style="max-width:580px;">
-      <div class="camp-video-item">
-        <div class="camp-video-item__ratio">
-          <iframe src="https://www.youtube-nocookie.com/embed/ukJRleBnnyY?rel=0" title="Tianzhong Rice Ambassador — student version" loading="lazy" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
-        </div>
-        <div class="camp-video-item__caption"><b>田中米的代言——學生版</b> — Tianzhong Rice Brand Ambassador</div>
-      </div>
-    </div>
+    <p style="font-size:17px;color:var(--ink-soft);margin-top:30px;">
+      Tap any year to open its full page — story, photos, key words and the camp videos.
+      <span style="display:block;font-size:15px;margin-top:4px;">點選任一年份，進入該年的完整頁面——故事、照片、關鍵字與夏日樂學影片。</span>
+    </p>
   </div>
 </section>
 
