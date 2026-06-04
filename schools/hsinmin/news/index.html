@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News · 校園消息 · Hsinmin Elementary School 新民國小</title>
+<meta name="description" content="Latest news and campus moments from Hsinmin Elementary School. 新民國小校園最新消息。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#574a8f;--plum-deep:#332a5c;--plum-soft:#ebe7f6;
+    --gold:#b8862a;--gold-deep:#7c5a18;--gold-soft:#f7eccf;
+    --teal:#2f8c86;--teal-deep:#1c5650;--teal-soft:#d6ece9;
+    --rose:#c25a86;--rose-deep:#8a3560;--rose-soft:#fbe2ec;
+    --ember:#c2613a;--ember-deep:#8a3f20;--ember-soft:#f8e1d4;
+    --bronze:#9a7d4e;--bronze-deep:#5e4a2c;--bronze-soft:#f0e7d4;
+    --ink:#211f2b;--ink-soft:#5f5a6e;--line:#e4e0ec;--bg-soft:#f6f4fb;
+    --shadow:0 14px 38px -16px rgba(51,42,92,.30);--shadow-sm:0 6px 16px -6px rgba(51,42,92,.18);
+    --max:1140px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:22px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--plum);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;font-weight:600;color:var(--plum-deep);line-height:1.1;}
+  .topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+  .topbar-nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.03em;}
+  @media(min-width:720px){.topbar-nav a{font-size:16.5px;}}
+  .topbar-nav a:hover{color:var(--plum);}
+  .topbar-nav a.is-active{color:var(--plum-deep);font-weight:700;}
+  @media(max-width:780px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}.topbar-nav{gap:13px;justify-content:flex-start;}}
+
+
+  .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(330px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--gold);padding:64px 24px 46px;background-size:cover;background-position:center 42%;}
+  @media(min-width:720px){.pbanner{min-height:clamp(380px,52vh,540px);padding:84px 24px 56px;}}
+  .pbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(38,30,66,.10) 0%,rgba(38,30,66,0) 40%,rgba(38,30,66,.52) 74%,rgba(38,30,66,.9) 100%);}
+  .pbanner>.bn{position:relative;z-index:1;}
+  .pbanner .eyebrow{display:inline-block;font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:12px;text-shadow:0 1px 8px rgba(0,0,0,.55);}
+  .pbanner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(42px,7vw,70px);font-weight:600;line-height:1.07;text-shadow:0 2px 18px rgba(0,0,0,.6);}
+  .pbanner h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,25px);color:rgba(255,255,255,.94);font-weight:500;margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .bdiv{width:60px;height:2px;background:var(--gold);border:0;margin:20px auto 16px;}
+  .pbanner .lede{max-width:640px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,21px);color:rgba(255,255,255,.96);line-height:1.5;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  .pbanner .lede .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:16px;margin-top:8px;color:rgba(255,255,255,.86);}
+  .factstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:760px;margin:26px auto 0;position:relative;z-index:1;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:14px;backdrop-filter:blur(6px);overflow:hidden;}
+  .fact{flex:1 1 160px;padding:16px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .fact:last-child{border-right:0;}
+  .fact .fe{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+  .fact .fz{font-size:13.5px;margin-top:5px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;}
+  @media(max-width:640px){.fact{flex:1 1 45%;border-bottom:1px solid rgba(255,255,255,.14);}.fact:nth-child(2n){border-right:0;}}
+
+  section{padding:74px 0;}
+  .sec-head{text-align:center;margin-bottom:48px;}
+  .sec-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px;color:var(--plum);}
+  .sec-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(34px,5vw,52px);font-weight:600;color:var(--plum-deep);line-height:1.2;}
+  .sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
+  .sec-head .lede{color:var(--ink-soft);font-size:18.5px;max-width:660px;margin:16px auto 0;line-height:1.7;}
+
+  .feat{display:grid;grid-template-columns:1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:40px;}
+  @media(min-width:820px){.feat{grid-template-columns:1.05fr 1fr;}}
+  .feat__img{aspect-ratio:16/11;background:var(--plum-soft);} .feat__img img{width:100%;height:100%;object-fit:cover;}
+  .feat__b{padding:34px 36px 38px;display:flex;flex-direction:column;justify-content:center;}
+  .feat__date{font-size:13.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);}
+  .feat__t{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,38px);font-weight:700;color:var(--plum-deep);margin-top:6px;line-height:1.2;} .feat__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
+  .feat__t .badge{display:inline-block;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--gold);border-radius:20px;padding:3px 12px;vertical-align:middle;margin-left:10px;}
+  .feat__p{font-size:17px;color:var(--ink);margin-top:16px;line-height:1.7;} .feat__p.zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);border-top:1px dashed var(--line);margin-top:14px;padding-top:14px;}
+  .news-grid{display:grid;grid-template-columns:1fr;gap:22px;}@media(min-width:600px){.news-grid{grid-template-columns:repeat(2,1fr);}}@media(min-width:920px){.news-grid{grid-template-columns:repeat(3,1fr);}}
+  .ncard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;}
+  .ncard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .ncard__img{aspect-ratio:16/11;background:var(--plum-soft);overflow:hidden;} .ncard__img img{width:100%;height:100%;object-fit:cover;}
+  .ncard__b{padding:18px 22px 22px;flex:1;display:flex;flex-direction:column;}
+  .ncard__date{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);}
+  .ncard__t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--plum-deep);line-height:1.2;margin-top:4px;} .ncard__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
+  .note{text-align:center;color:var(--ink-soft);font-size:15px;font-family:'PingFang TC',sans-serif;margin-top:40px;}
+  .note a{font-weight:600;}
+
+</style>
+</head>
+<body>
+<nav class="topbar" role="navigation"><div class="wrap"><div class="topbar-inner">
+  <a href="../" class="topbar-name">Hsinmin Elementary<small>新民國民小學</small></a>
+  <div class="topbar-nav">
+        <a href="../">Home</a>
+        <a href="../principal/">Principal</a>
+        <a href="../bilingual-campus/">English Life</a>
+        <a href="../lessons/">Lessons</a>
+        <a href="../news/" class="is-active">News</a>
+        <a href="https://changhua-bilingual.org/festivals/?from=hsinmin" target="_blank" rel="noopener">Festivals</a>
+  </div>
+</div></div></nav>
+<header class="pbanner" style="background-image:url('../photos/playground.jpg');">
+  <div class="bn"><span class="eyebrow">News · 校園消息</span><h1>Campus News<span class="zh">新民校園最新消息</span></h1>
+  <hr class="bdiv"><p class="lede">Moments from around the Hsinmin campus — straight from our Facebook page.<span class="zh">來自新民國小臉書的校園生活點滴</span></p></div>
+</header>
+<section><div class="wrap">
+  <div class="feat">
+    <div class="feat__img"><img src="../news-img/principal-date.jpg" alt="A Date with the Principal · 校長有約"></div>
+    <div class="feat__b">
+      <div class="feat__date">2026.06.01</div>
+      <div class="feat__t">A Date with the Principal <span class="badge">Featured</span><small>校長有約</small></div>
+      <p class="feat__p">The fifth- and sixth-graders gathered for the term's “A Date with the Principal.” The principal shared a story and a gentle reminder for life — to think good thoughts, speak kind words, and do good deeds, and to keep becoming a better version of oneself.</p>
+      <p class="feat__p zh">本學期五、六年級的「與校長有約」溫暖登場。校長透過故事勉勵孩子：存好心、說好話、做好事，珍惜每一段相遇，在人生路上持續遇見更好的自己。</p>
+    </div>
+  </div>
+  <div class="news-grid">
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/class-showcase.jpg" alt="Class Showcase Day · 班級成果分享" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.03</div><div class="ncard__t">Class Showcase Day<small>班級成果分享</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/graduation.jpg" alt="Graduation Banquet · 畢業盛宴" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.02</div><div class="ncard__t">Graduation Banquet<small>畢業盛宴</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/career.jpg" alt="Career Exploration · 職業探索" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.02</div><div class="ncard__t">Career Exploration<small>職業探索</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/bazaar.jpg" alt="Charity Bazaar · 愛心義賣" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.02</div><div class="ncard__t">Charity Bazaar<small>愛心義賣</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/story-time.jpg" alt="Library Story Time · 圖書館說故事" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.02</div><div class="ncard__t">Library Story Time<small>圖書館說故事</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/nine-grid.jpg" alt="Nine-Grid Throwing Contest · 九宮格投擲賽" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.02</div><div class="ncard__t">Nine-Grid Throwing Contest<small>九宮格投擲賽</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/choir.jpg" alt="Choir Practice · 合唱團" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.01</div><div class="ncard__t">Choir Practice<small>合唱團</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/water-safety.jpg" alt="Water Safety Education · 水域安全宣導" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.06.01</div><div class="ncard__t">Water Safety Education<small>水域安全宣導</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/family-day.jpg" alt="Family Day · 家庭日活動" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.05.31</div><div class="ncard__t">Family Day<small>家庭日活動</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/maker.jpg" alt="Maker Course · 創客課程" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.05.28</div><div class="ncard__t">Maker Course<small>創客課程</small></div></div></article>
+    <article class="ncard"><div class="ncard__img"><img src="../news-img/exchange.jpg" alt="School Exchange · 校際交流" loading="lazy"></div><div class="ncard__b"><div class="ncard__date">2026.05.14</div><div class="ncard__t">School Exchange<small>校際交流</small></div></div></article>
+  </div>
+  <p class="note">More updates on our <a href="https://www.facebook.com/smps520" target="_blank" rel="noopener">Facebook page ↗</a> · 更多消息請見新民國小臉書專頁</p>
+</div></section>
+<footer style="background:var(--plum-deep);color:rgba(255,255,255,.74);padding:38px 0 34px;font-size:15.5px;border-top:4px solid var(--gold);">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;">
+    <span>© 新民國小 Hsinmin Elementary School · 彰化縣田中鎮</span>
+    <span style="color:var(--gold-soft);font-weight:600;">Bilingual website by <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:var(--gold-soft);">My Culture Connect 人師教育協會</a></span>
+  </div>
+</footer>
+</body>
+</html>
