@@ -181,6 +181,37 @@
   @media (min-width:720px){ .story__src{font-size:18px;} }
   .story__src a{color:var(--sea);}
 
+  /* photo gallery inside featured story */
+  .story__gallery{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0 6px;
+  }
+  @media (min-width:680px){ .story__gallery{grid-template-columns:repeat(3,1fr);gap:16px;} }
+  .gphoto{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
+    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  }
+  .gphoto__img{aspect-ratio:4/3;overflow:hidden;background:var(--sea-soft);}
+  .gphoto__img img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+  .gphoto figcaption{padding:12px 14px 14px;font-size:16px;line-height:1.5;color:var(--ink);}
+  @media (min-width:720px){ .gphoto figcaption{font-size:17px;} }
+  .gphoto figcaption .zh{
+    display:block;font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);margin-top:4px;line-height:1.55;
+  }
+  @media (min-width:720px){ .gphoto figcaption .zh{font-size:16px;} }
+  .story__activities{
+    display:grid;grid-template-columns:1fr;gap:10px;margin:20px 0 4px;
+  }
+  @media (min-width:640px){ .story__activities{grid-template-columns:1fr 1fr;} }
+  .act-chip{
+    display:flex;align-items:baseline;gap:10px;
+    background:var(--sand-soft);border:1px solid var(--sand);border-radius:10px;
+    padding:12px 16px;font-size:18px;color:var(--ink);line-height:1.4;
+  }
+  @media (min-width:720px){ .act-chip{font-size:19px;} }
+  .act-chip .n{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--sand-deep);line-height:1;}
+  .act-chip .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:2px;}
+
   /* milestone timeline inside featured story */
   .story__timeline{
     display:flex;gap:0;margin:20px 0 6px;
@@ -277,6 +308,82 @@
   <div class="wrap">
     <div class="grid">
 
+      <!-- FEATURED: Dom Jones SDGs ambassador visit, June 2, 2026 -->
+      <article class="story is-featured">
+        <div class="story__img">
+          <img src="../photos/dom-drums-perform.jpg" alt="Yuhua Elementary students performing on Chinese taiko drums on the school running track to open the visit of UN SDGs ambassador Dom Jones, with the principal and guest watching from the stage">
+        </div>
+        <div class="story__body">
+          <div class="story__cat">International Exchange · 國際交流</div>
+          <div class="story__date">June 2, 2026 <span class="badge">FEATURED</span></div>
+          <h2>A Day With Dom Jones &mdash; the World Comes to Yuhua
+            <span class="zh">跨國相遇：Dom Jones 與育華同行</span>
+          </h2>
+          <p class="story__hook">
+            On June 2, Yuhua Elementary welcomed <strong>Dom Jones</strong>, a United Nations SDGs goodwill ambassador, for a day full of international perspective and the spirit of sustainability. Thundering taiko drums opened the morning; from there the children moved through a hands-on solar-energy class, an English question-and-answer session, an ink-rubbing keepsake ceremony, and a closing tea ceremony &mdash; learning, the whole way, that a small coastal village belongs to a very big world.
+          </p>
+          <div class="story__activities">
+            <div class="act-chip"><span class="n">1</span><span>Taiko drums open the day<span class="zh">戰鼓表演揭開序幕</span></span></div>
+            <div class="act-chip"><span class="n">2</span><span>SDGs solar-energy class<span class="zh">SDGs 永續能源體驗課</span></span></div>
+            <div class="act-chip"><span class="n">3</span><span>English sharing &amp; Q&amp;A<span class="zh">英語分享與互動問答</span></span></div>
+            <div class="act-chip"><span class="n">4</span><span>Medal, signing &amp; ink-rubbing<span class="zh">授章、簽名與拓印留念</span></span></div>
+            <div class="act-chip"><span class="n">5</span><span>A closing tea ceremony<span class="zh">茶道體驗收尾</span></span></div>
+          </div>
+          <p class="story__zh">
+            6 月 2 日，育華國小迎來聯合國 SDGs 親善大使 Dom Jones 蒞校交流，帶來一場充滿國際視野與永續精神的活動。活動由熱力十足的戰鼓表演揭開序幕，展現育華孩子的自信與活力；接著進行 SDGs 永續能源體驗課程，師生透過太陽能烤爐實作，親手烘烤香腸、甜不辣與地瓜，從做中學認識綠色能源。Dom Jones 也以親切幽默的方式分享個人成長歷程，並與學生英語互動問答，鼓勵大家勇敢表達、自信與世界接軌；活動中安排授章、簽名及拓印留念，最後以茶道體驗展現臺灣的人文特色與好客之情。透過這次交流，育華學子深化 SDGs 理念，更以開放的心胸與世界連結，展現「世界在育華，每個孩子都成功」的教育成果。
+          </p>
+
+          <div class="story__gallery">
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-drums-circle.jpg" alt="Dom Jones and the school principal gather in a circle with the student drummers on the running track"></div>
+              <figcaption>Dom and the principal huddle with the drummers between pieces.<span class="zh">表演空檔，Dom 與校長和鼓隊圍圈交流。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-drums-closeup.jpg" alt="Yuhua students drumming up close, sticks raised high over the red taiko drums"></div>
+              <figcaption>Sticks high, full power &mdash; the drum team up close.<span class="zh">鼓棒高揚，全力擊鼓的戰鼓隊。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-drums-signs.jpg" alt="Group photo of students and teachers with the drums, holding I love YHES and Shiny placards"></div>
+              <figcaption>The whole group with the drums and &ldquo;I &hearts; YHES&rdquo; signs.<span class="zh">全體與戰鼓、「I♥YHES」字卡合影。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-welcome.jpg" alt="Students pose by a screen reading Welcome! Meet Teacher Dom in the classroom"></div>
+              <figcaption>&ldquo;Welcome! Meet Teacher Dom&rdquo; &mdash; the SDGs ambassador arrives.<span class="zh">「Welcome！Meet Teacher Dom」歡迎大使蒞校。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-solar-lesson.jpg" alt="Dom Jones teaching beside a screen titled Why is Solar AWESOME with children listening"></div>
+              <figcaption>&ldquo;Why is Solar AWESOME?&rdquo; &mdash; a clean-energy lesson.<span class="zh">太陽能課：「為什麼太陽能很棒？」</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-warmup.jpg" alt="Dom Jones talking and playing a warm-up game with students in front of a wall of red fu calligraphy cards"></div>
+              <figcaption>Dom shares her own story and warms up the children.<span class="zh">Dom 分享成長故事，與孩子暖身互動。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-rubbing-group.jpg" alt="Children holding their finished ink-rubbing prints reading Success, Peace and Happiness in Chinese"></div>
+              <figcaption>Ink-rubbing keepsakes: Success, Peace, Happiness.<span class="zh">拓印作品：成功、平安、幸福。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-rubbing-happiness.jpg" alt="A student holds up a Happiness ink-rubbing print while Dom Jones gives a thumbs up"></div>
+              <figcaption>A &ldquo;Happiness&rdquo; print &mdash; thumbs-up from Dom.<span class="zh">一幅「幸福」拓印，Dom 比讚。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-mural-group.jpg" alt="Students and Dom Jones pose in front of the hand-painted world-map mural holding craft signs"></div>
+              <figcaption>By the world-map mural, holding their craft signs.<span class="zh">在世界地圖壁畫前，舉著手作字卡。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-drums-group.jpg" alt="A large group of Yuhua students and teachers with the taiko drums on the running track"></div>
+              <figcaption>The drummers and friends, all in one frame.<span class="zh">戰鼓隊與全體師生大合照。</span></figcaption>
+            </figure>
+            <figure class="gphoto">
+              <div class="gphoto__img"><img src="../photos/dom-tea.jpg" alt="Dom Jones and students seated around a long table for a Taiwanese tea ceremony"></div>
+              <figcaption>A quiet tea ceremony to close the day.<span class="zh">以茶道體驗為這一天溫柔收尾。</span></figcaption>
+            </figure>
+          </div>
+
+          <p class="story__src">Source · 育華國小 Facebook · #SDGsInAction #國際教育 #世界在育華每個孩子都成功 · In partnership with 彰化縣人師教育協會</p>
+        </div>
+      </article>
+
       <!-- FEATURED: Sister School MOU with SMCTI, Philippines -->
       <article class="story is-featured">
         <div class="story__img">
@@ -284,7 +391,7 @@
         </div>
         <div class="story__body">
           <div class="story__cat">International Partnership · 國際交流</div>
-          <div class="story__date">November 14, 2025 <span class="badge">FEATURED</span></div>
+          <div class="story__date">November 14, 2025</div>
           <h2>Sister School MOU Signed with the Philippines
             <span class="zh">與菲律賓聖瑪利亞學院正式簽署姊妹校合作備忘錄</span>
           </h2>
