@@ -114,6 +114,20 @@
   .feat .pt{font-size:16px;font-weight:600;padding:8px 15px;border-radius:22px;background:#fff;color:var(--leaf-deep);border:1px solid var(--line);}
   .feat img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:var(--shadow);}
 
+  /* ===== Video tour (vertical short) ===== */
+  .vtour{display:grid;grid-template-columns:1fr;gap:30px;align-items:center;}
+  @media(min-width:820px){.vtour{grid-template-columns:330px 1fr;gap:52px;}}
+  .vshort{position:relative;width:100%;max-width:330px;margin:0 auto;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#000;box-shadow:var(--shadow);border:6px solid #fff;}
+  .vshort iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vtour__text .kick{display:inline-block;color:var(--red);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:16px;}
+  .vtour__text h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(30px,4.6vw,46px);color:var(--leaf-deep);font-weight:700;margin-top:8px;line-height:1.14;}
+  .vtour__text h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .vtour__text p{font-size:20px;color:var(--ink);margin-top:16px;line-height:1.7;}
+  .vtour__text p .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);margin-top:8px;}
+  .vtour__link{margin-top:22px;display:inline-flex;align-items:center;gap:12px;padding:14px 24px;background:#fff;border:1.5px solid var(--line);border-radius:13px;text-decoration:none;color:var(--leaf-deep);font-weight:700;font-family:'Playfair Display',serif;font-size:19px;transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .vtour__link:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:var(--leaf);}
+  .vtour__link .yt{width:34px;height:24px;border-radius:5px;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;}
+
   /* ===== Life / campus cards ===== */
   .life-grid{display:grid;grid-template-columns:1fr;gap:24px;}@media(min-width:560px){.life-grid{grid-template-columns:repeat(2,1fr);}}@media(min-width:880px){.life-grid{grid-template-columns:repeat(4,1fr);}}
   .life-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;}
@@ -208,6 +222,21 @@
     </dl>
   </div>
 </div></div></section>
+
+<!-- ===== VIDEO TOUR ===== -->
+<section style="background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);"><div class="wrap">
+  <div class="vtour">
+    <div class="vshort">
+      <iframe src="https://www.youtube-nocookie.com/embed/oAcWqqa9gRQ?rel=0" title="Chung Hsing Elementary School — a short introduction" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="vtour__text">
+      <span class="kick">▶ Watch · 60 秒看中興</span>
+      <h2>See Chung Hsing in 60 Seconds<span class="zh">一分鐘，看見中興</span></h2>
+      <p>A short English introduction to our country campus — the rice fields, the heritage trees, the children, and the everyday life of a small school that thinks big.<span class="zh">一支英文介紹短片，帶你看見中興的稻田、老樹、孩子，與一所小校認真生活的日常。由人師教育協會製作。</span></p>
+      <a class="vtour__link" href="https://youtube.com/shorts/oAcWqqa9gRQ" target="_blank" rel="noopener"><span class="yt">▶</span>Watch on YouTube · 在 YouTube 觀看</a>
+    </div>
+  </div>
+</div></section>
 
 <!-- ===== PILLARS ===== -->
 <section style="background:linear-gradient(180deg,#fff 0%,var(--leaf-soft) 100%);"><div class="wrap">
