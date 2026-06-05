@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>2024 Summer Camp · Community Food Exploration · Mingli Elementary</title>
-<meta name="description" content="Mingli 2024 Summer Camp: students explored their community while learning English — Little Field Coffee, the HSR station, a cucumber greenhouse, and Tianzhong pottery. 明禮 2024 夏日樂學——在探索社區的同時提升英語能力。">
+<meta name="description" content="Mingli 2024 Summer Camp: students explored their community in English — Little Field Coffee and its menu, a cucumber greenhouse, planting corn, Tianzhong pottery, and the HSR station with full dialogues and vocabulary. 明禮 2024 夏日樂學——明禮E食代社區探索。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/mingli/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/mingli/favicon-180.png">
 <link rel="shortcut icon" href="/schools/mingli/favicon.ico">
@@ -46,15 +46,12 @@
   .tback a{color:var(--g-deep);text-decoration:none;font-weight:700;font-size:16px;padding:11px 20px;border-radius:10px;border:2px solid var(--line);background:#fff;transition:all .15s;display:inline-block;}
   @media(min-width:720px){.tback a{font-size:18px;}}
   .tback a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
-  .sec-h{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--g-deep);margin:48px 0 4px;line-height:1.2;}
+  .sec-h{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--g-deep);margin:50px 0 4px;line-height:1.2;}
   @media(min-width:720px){.sec-h{font-size:40px;}}
   .sec-h-zh{font-size:18px;color:var(--ink-soft);margin-bottom:26px;}
   @media(min-width:720px){.sec-h-zh{font-size:20px;}}
-  .lead{max-width:840px;}
-  .lead p{font-size:20px;line-height:1.75;color:var(--ink);}
-  @media(min-width:720px){.lead p{font-size:22px;}}
-  .lead p.zh{font-size:18px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
-  @media(min-width:720px){.lead p.zh{font-size:20px;}}
+  .block-label{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold-deep);margin:24px 0 12px;}
+  @media(min-width:720px){.block-label{font-size:20px;}}
   /* three themes */
   .themes{display:grid;grid-template-columns:1fr;gap:20px;}
   @media(min-width:820px){.themes{grid-template-columns:repeat(3,1fr);gap:22px;}}
@@ -73,8 +70,8 @@
   .theme__list li:first-child{border-top:none;}
   .theme__list li::before{content:"·";position:absolute;left:6px;top:7px;color:var(--gold);font-weight:800;font-size:22px;}
   .theme__list li b{color:var(--g-deep);font-weight:700;}
-  /* ordering dialogue */
-  .place{background:#f6faf6;border:1px solid var(--line);border-radius:18px;padding:26px 24px 28px;box-shadow:var(--shadow-sm);margin-top:6px;}
+  /* place / café */
+  .place{background:#f6faf6;border:1px solid var(--line);border-radius:18px;padding:26px 24px 28px;box-shadow:var(--shadow-sm);}
   @media(min-width:720px){.place{padding:32px 34px 34px;}}
   .place__name{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--g-deep);}
   @media(min-width:720px){.place__name{font-size:28px;}}
@@ -82,15 +79,66 @@
   @media(min-width:720px){.place p{font-size:20px;}}
   .place p.zh{font-size:17px;color:var(--ink-soft);}
   @media(min-width:720px){.place p.zh{font-size:19px;}}
-  .dialogue{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+  /* menu */
+  .menu{display:grid;grid-template-columns:1fr;gap:18px;margin-top:6px;}
+  @media(min-width:720px){.menu{grid-template-columns:1fr 1fr;gap:22px;}}
+  .menu-cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px 20px;box-shadow:var(--shadow-sm);border-top:5px solid var(--gold);}
+  .menu-cat:nth-child(2n){border-top-color:var(--g);}
+  .menu-cat:nth-child(3n){border-top-color:var(--earth);}
+  .menu-cat__h{font-family:'Playfair Display',serif;font-size:19px;font-weight:800;color:var(--g-deep);margin-bottom:8px;}
+  @media(min-width:720px){.menu-cat__h{font-size:21px;}}
+  .menu-cat ul{list-style:none;margin:0;padding:0;}
+  .menu-cat li{font-size:16px;color:var(--ink);line-height:1.5;padding:7px 0;border-top:1px dashed var(--line);}
+  @media(min-width:720px){.menu-cat li{font-size:17px;}}
+  .menu-cat li:first-child{border-top:none;}
+  .menu-cat li b{color:var(--g-deep);font-weight:700;}
+  .menu-cat li span{color:var(--ink-soft);}
+  /* dialogue */
+  .dialogue{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
   .line{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;border-left:4px solid var(--g);}
-  .line.staff{border-left-color:var(--gold);}
-  .line__who{font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold-deep);}
-  .line.staff .line__who{color:var(--g);}
+  .line.b{border-left-color:var(--gold);}
+  .line__who{font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--g);}
+  .line.b .line__who{color:var(--gold-deep);}
   .line__en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.55;margin-top:4px;}
   @media(min-width:720px){.line__en{font-size:21px;}}
   .line__zh{font-size:17px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
   @media(min-width:720px){.line__zh{font-size:19px;}}
+  /* story cards (places) */
+  .story{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:820px){.story{grid-template-columns:repeat(3,1fr);}}
+  .story-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden;border-top:8px solid var(--g);display:flex;flex-direction:column;}
+  .story-card:nth-child(2n){border-top-color:var(--gold);}
+  .story-card:nth-child(3n){border-top-color:var(--earth);}
+  .story-card__head{padding:22px 24px 0;}
+  .story-card__emoji{font-size:36px;line-height:1;}
+  .story-card__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--g-deep);line-height:1.2;margin-top:8px;}
+  @media(min-width:720px){.story-card__title{font-size:25px;}}
+  .story-card__zh-title{font-size:17px;color:var(--ink);font-weight:600;margin-top:3px;}
+  @media(min-width:720px){.story-card__zh-title{font-size:19px;}}
+  .story-card__body{padding:14px 24px 24px;}
+  .story-card__body p{font-size:17px;line-height:1.7;color:var(--ink);}
+  @media(min-width:720px){.story-card__body p{font-size:18px;}}
+  .story-card__body p.zh{font-size:16px;color:var(--ink-soft);margin-top:8px;}
+  @media(min-width:720px){.story-card__body p.zh{font-size:17px;}}
+  /* sentence bank */
+  .sentbank{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media(min-width:720px){.sentbank{grid-template-columns:1fr 1fr;gap:12px;}}
+  .sent{background:#f6faf6;border:1px solid var(--line);border-radius:12px;padding:13px 16px;border-left:4px solid var(--g-light);}
+  .sent__en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.sent__en{font-size:19px;}}
+  .sent__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;line-height:1.5;}
+  @media(min-width:720px){.sent__zh{font-size:18px;}}
+  /* vocab chips */
+  .words{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(min-width:720px){.words{grid-template-columns:repeat(5,1fr);gap:14px;}}
+  .word{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 14px;text-align:center;border-top:5px solid var(--g);}
+  .word:nth-child(2n){border-top-color:var(--gold);}
+  .word:nth-child(3n){border-top-color:var(--earth);}
+  .word__en{font-family:'Playfair Display',serif;font-size:19px;font-weight:800;color:var(--g-deep);line-height:1.15;}
+  @media(min-width:720px){.word__en{font-size:20px;}}
+  .word__zh{font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  @media(min-width:720px){.word__zh{font-size:17px;}}
+  /* videos */
   .feat{display:grid;grid-template-columns:1fr;gap:24px;}
   @media(min-width:820px){.feat.two{grid-template-columns:1fr 1fr;}}
   .feat-item{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);}
@@ -129,7 +177,7 @@
   <div class="thero__emoji">🍱</div>
   <h1>Community Food Exploration</h1>
   <div class="thero__zh">明禮E食代社區探索</div>
-  <p class="thero__intro">This summer, students at Mingli Elementary School joined the "Summer Fun Learning" camp, exploring their community while enhancing their English. They visited a café in the rice fields, the high-speed rail station, a cucumber greenhouse, and the pottery workshops at Tianzhong Pottery.<span class="zh">這個夏天，明禮國小的學生參加了夏日樂學營隊，在探索社區的同時也提升了英語能力——走訪稻田旁的咖啡館、高鐵站、小黃瓜溫室，以及田中窯的陶藝工坊。</span></p>
+  <p class="thero__intro">"This summer was very fun, because we visited cool places in our community and practiced using English to talk about them — a coffee shop in a rice field, the high-speed rail station, a cucumber greenhouse, and Tianzhong Pottery." — Vanessa, Mingli Elementary<span class="zh">這個夏天，明禮國小的學生參加了夏日樂學營隊，在探索社區的同時提升英語能力——走訪稻田旁的小田咖啡、高鐵站、小黃瓜溫室，以及田中窯的陶藝工坊。</span></p>
 </header>
 
 <div class="wrap">
@@ -164,7 +212,7 @@
       <ul class="theme__list">
         <li><b>我是小食神</b> · I'm a Little Food God</li>
         <li><b>落葉堆肥</b> · leaf composting 節能減碳愛地球</li>
-        <li><b>開心農場</b> · Happy Little Farmer 快樂小農夫（在校園菜圃種玉米）</li>
+        <li><b>開心農場</b> · Happy Little Farmer 快樂小農夫（種玉米）</li>
       </ul>
     </article>
 
@@ -191,17 +239,149 @@
     <p>Little Field Coffee is a cozy café started six years ago by parents of Mingli students. It sits next to a rice field and has a big lawn and tents for picnics, birthday parties, and friend gatherings. Its unique nature setting attracts many customers. Besides coffee, they also offer other drinks and snacks.</p>
     <p class="zh">小田咖啡是一家六年前由明禮國小學生家長開設的溫馨咖啡店。咖啡店位於稻田旁，擁有大片草坪和帳篷，適合野餐、生日派對和朋友聚會。其獨特的自然環境吸引了許多顧客。除了咖啡，他們還提供其他飲料和點心。</p>
 
+    <div class="block-label">The Menu · 英文菜單</div>
+    <div class="menu">
+      <div class="menu-cat">
+        <div class="menu-cat__h">☕ Coffee 咖啡</div>
+        <ul>
+          <li><b>Black Coffee</b> <span>黑咖啡（淺焙／中深焙）</span></li>
+          <li><b>Original Latte</b> <span>原味拿鐵</span></li>
+          <li><b>Osmanthus Honey Latte</b> <span>桂花蜜拿鐵</span></li>
+          <li><b>Caramel Latte</b> <span>焦糖拿鐵</span></li>
+          <li><b>Rose Latte</b> <span>玫瑰拿鐵</span></li>
+          <li><b>Lime Iced Coffee</b> <span>青檸冰咖啡</span></li>
+          <li><b>Pomelo Iced Coffee</b> <span>柚香冰咖啡</span></li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat__h">🥤 Drinks 飲品</div>
+        <ul>
+          <li><b>Midsummer Berry Sparkling Water</b> <span>仲夏野莓汽泡水</span></li>
+          <li><b>Pink Grapefruit Sparkling Water</b> <span>粉紅柚香汽泡水</span></li>
+          <li><b>Lemon Blossom Honey Sparkling Water</b> <span>檸檬百花蜜汽泡水</span></li>
+          <li><b>Mixed Berry Milk</b> <span>繽紛野莓鮮奶</span></li>
+          <li><b>Earl Grey Milk Tea</b> <span>伯爵鮮奶茶</span></li>
+          <li><b>Brown Sugar Milk</b> <span>黑糖鮮奶</span></li>
+          <li><b>Matcha Latte</b> <span>抹茶拿鐵</span></li>
+          <li><b>Hot Chocolate</b> <span>可可</span></li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat__h">🍟 Food 鹹食</div>
+        <ul>
+          <li><b>Honey Mustard / Original French Fries</b> <span>蜂蜜芥末／原味脆薯條</span></li>
+          <li><b>Golden Chicken Nuggets</b> <span>好吃黃金雞塊</span></li>
+          <li><b>Crispy Onion Rings</b> <span>酥炸洋蔥圈</span></li>
+          <li><b>Crunchy Pumpkin Sweet Cakes</b> <span>卡滋南瓜甜餅</span></li>
+        </ul>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat__h">🍰 Desserts 甜點</div>
+        <ul>
+          <li><b>Caramelized Basque Cheese</b> <span>焦香巴斯克乳酪</span></li>
+          <li><b>Earl Grey Cheese</b> <span>茶香伯爵生乳酪</span></li>
+          <li><b>Caramel Cocoa Cheese</b> <span>焦糖可可生乳酪</span></li>
+          <li><b>Lime Honey Cheese</b> <span>青檸蜜香生乳酪</span></li>
+          <li><b>Cream Sandwich Bread / Seasonal Fruit</b> <span>鮮奶油夾心麵包／季節水果</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block-label">Ordering in English · 點餐對話</div>
     <div class="dialogue">
-      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Hi there! What would you like to order?</div><div class="line__zh">嗨！你們想點什麼？</div></div>
+      <div class="line b"><div class="line__who">Café Staff 店員</div><div class="line__en">Hi there! What would you like to order?</div><div class="line__zh">嗨！你們想點什麼？</div></div>
       <div class="line"><div class="line__who">Student A 學生A</div><div class="line__en">Hi, I'd like an orange juice and French fries, please.</div><div class="line__zh">嗨，我想要一杯橙汁和薯條，謝謝。</div></div>
-      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Got it. One orange juice and French fries. And for you?</div><div class="line__zh">好的，一杯橙汁和薯條。你呢？</div></div>
+      <div class="line b"><div class="line__who">Café Staff 店員</div><div class="line__en">Got it. One orange juice and French fries. And for you?</div><div class="line__zh">好的，一杯橙汁和薯條。你呢？</div></div>
       <div class="line"><div class="line__who">Student B 學生B</div><div class="line__en">I'd like a milk tea and chicken nuggets, please.</div><div class="line__zh">我想要一杯奶茶和雞塊，謝謝。</div></div>
-      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Okay, one milk tea and chicken nuggets. And how about you?</div><div class="line__zh">好的，一杯奶茶和雞塊。那你呢？</div></div>
+      <div class="line b"><div class="line__who">Café Staff 店員</div><div class="line__en">Okay, one milk tea and chicken nuggets. And how about you?</div><div class="line__zh">好的，一杯奶茶和雞塊。那你呢？</div></div>
       <div class="line"><div class="line__who">Student C 學生C</div><div class="line__en">I'd like a black coffee and chicken nuggets, please.</div><div class="line__zh">我想要一杯黑咖啡和雞塊，謝謝。</div></div>
-      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Alright, one black coffee and chicken nuggets. Is there anything else?</div><div class="line__zh">好的，一杯黑咖啡和雞塊。還有別的嗎？</div></div>
+      <div class="line b"><div class="line__who">Café Staff 店員</div><div class="line__en">Alright. Is there anything else?</div><div class="line__zh">好的。還有別的嗎？</div></div>
       <div class="line"><div class="line__who">Students 學生們</div><div class="line__en">No, that's all, thank you.</div><div class="line__zh">沒有了，謝謝。</div></div>
-      <div class="line staff"><div class="line__who">Café Staff 店員</div><div class="line__en">Great. Your total is 450 NTD. Please wait a moment for your order.</div><div class="line__zh">好的，你們的總共是 450 元新台幣。請稍等一下。</div></div>
+      <div class="line b"><div class="line__who">Café Staff 店員</div><div class="line__en">Great. Your total is 450 NTD. Please wait a moment for your order.</div><div class="line__zh">好的，你們的總共是 450 元新台幣。請稍等一下。</div></div>
       <div class="line"><div class="line__who">Students 學生們</div><div class="line__en">Thank you!</div><div class="line__zh">謝謝！</div></div>
+    </div>
+  </div>
+
+  <h2 class="sec-h">Places We Explored</h2>
+  <div class="sec-h-zh">我們走訪的地方 · 從溫室到陶藝工坊與校園菜圃</div>
+  <div class="story">
+    <article class="story-card">
+      <div class="story-card__head">
+        <div class="story-card__emoji">🥒</div>
+        <div class="story-card__title">Cucumber Greenhouse</div>
+        <div class="story-card__zh-title">小黃瓜溫室</div>
+      </div>
+      <div class="story-card__body">
+        <p>We visited a cucumber greenhouse run by another student's parents and learned how cucumbers are grown and harvested. The owner told us the hardest part is the weather — last week a typhoon brought too much rain, and many plants died, but he saved most of them. Being a farmer is not easy!</p>
+        <p class="zh">我們參觀了另一位同學家長經營的小黃瓜溫室，學習小黃瓜如何種植與採收。老闆說最難的是天氣——上週颱風帶來太多雨水，許多植株枯死，但他救回了大部分。當農夫真的不容易！</p>
+      </div>
+    </article>
+    <article class="story-card">
+      <div class="story-card__head">
+        <div class="story-card__emoji">🌽</div>
+        <div class="story-card__title">Planting Corn</div>
+        <div class="story-card__zh-title">在校園菜圃種玉米</div>
+      </div>
+      <div class="story-card__body">
+        <p>In the school garden, students loosened the soil, then each child planted a corn seedling, carefully spacing them in rows. The teachers explained why rows help corn grow, and everyone watered their plants. We enjoyed getting our hands dirty and learning outside the classroom!</p>
+        <p class="zh">在學校的花園裡，學生們先鬆土，每人種下一株玉米幼苗，小心地成排間隔。老師解釋成排種植為什麼有助生長，大家替幼苗澆水。我們很享受弄髒雙手、在教室外學習的樂趣！</p>
+      </div>
+    </article>
+    <article class="story-card">
+      <div class="story-card__head">
+        <div class="story-card__emoji">🏺</div>
+        <div class="story-card__title">Tianzhong Pottery</div>
+        <div class="story-card__zh-title">田中窯陶藝</div>
+      </div>
+      <div class="story-card__body">
+        <p>Our last stop was Tianzhong Pottery. We got to play with clay and use the pottery wheels. It was so much fun to see the clay change into different shapes with the help of the wheel. Controlling the wheel was difficult at first, but after practicing, we got better and better.</p>
+        <p class="zh">最後一站是田中窯。我們玩陶土、使用拉坯機。看著陶土在轉盤上變成不同形狀真的很有趣。一開始控制轉盤很難，但練習之後就越來越上手了。</p>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="sec-h">High-Speed Rail Station</h2>
+  <div class="sec-h-zh">高鐵站 · 學生導覽、購票對話與車站單字</div>
+  <div class="place">
+    <div class="place__name">A Guided Tour · 學生導覽稿</div>
+    <p>Welcome to the High-Speed Rail Station, Changhua Station. Let me show you around. First, you can buy your ticket — use the ticket machines, or go to the ticket counter and tell the staff where you want to go. Next, take the elevator or the escalator to the ticket gate. If you want to go north, take Platform 1; if you want to go south, take Platform 2. I hope you enjoy your trip!</p>
+    <p class="zh">歡迎來到高鐵彰化站，讓我帶你參觀一下。首先，你可以買票——使用售票機，或到售票櫃檯告訴工作人員你要去哪裡。接著，搭電梯或手扶梯到驗票口。要往北請到第一月台，要往南請到第二月台。希望你旅途愉快！</p>
+
+    <div class="block-label">Buying a Ticket · 購票對話</div>
+    <div class="dialogue">
+      <div class="line b"><div class="line__who">Ticket Agent 售票員</div><div class="line__en">Good morning, may I help you?</div><div class="line__zh">早安，我可以幫你嗎？</div></div>
+      <div class="line"><div class="line__who">Passenger 乘客</div><div class="line__en">Yes, I'd like to buy a ticket to Taipei, please.</div><div class="line__zh">是的，我想買一張去台北的票。</div></div>
+      <div class="line b"><div class="line__who">Ticket Agent 售票員</div><div class="line__en">One-way or round-trip?</div><div class="line__zh">單程還是來回？</div></div>
+      <div class="line"><div class="line__who">Passenger 乘客</div><div class="line__en">One-way, please. I'd like to take the next available train.</div><div class="line__zh">單程，謝謝。我想搭乘下一班可用的火車。</div></div>
+      <div class="line b"><div class="line__who">Ticket Agent 售票員</div><div class="line__en">The next train to Taipei departs at 10:24 AM. That will be $800 NTD. How would you like to pay?</div><div class="line__zh">下一班去台北的火車在上午 10:24 出發。這樣是 800 元新台幣。您想怎麼付款？</div></div>
+      <div class="line"><div class="line__who">Passenger 乘客</div><div class="line__en">I'll pay with my credit card. Thank you very much.</div><div class="line__zh">我用信用卡付款。非常感謝。</div></div>
+      <div class="line b"><div class="line__who">Ticket Agent 售票員</div><div class="line__en">Here's your ticket. You're welcome. Have a great trip!</div><div class="line__zh">這是你的票。不客氣，祝你旅途愉快！</div></div>
+    </div>
+
+    <div class="block-label">Station Sentences · 車站例句</div>
+    <div class="sentbank">
+      <div class="sent"><div class="sent__en">Keep your ticket with you during your trip.</div><div class="sent__zh">旅途中請隨身保管好你的票。</div></div>
+      <div class="sent"><div class="sent__en">The train to Taipei leaves from Platform 1.</div><div class="sent__zh">開往台北的火車從第一月台出發。</div></div>
+      <div class="sent"><div class="sent__en">Check the departure time on the big screen.</div><div class="sent__zh">在大螢幕上查看出發時間。</div></div>
+      <div class="sent"><div class="sent__en">Our train will arrive in 20 minutes.</div><div class="sent__zh">我們的火車將在 20 分鐘後到達。</div></div>
+      <div class="sent"><div class="sent__en">Find your seat number on your ticket.</div><div class="sent__zh">在你的票上找到座位號碼。</div></div>
+      <div class="sent"><div class="sent__en">Ask the staff if you need help.</div><div class="sent__zh">如果你需要幫助，請詢問工作人員。</div></div>
+      <div class="sent"><div class="sent__en">Sometimes, trains are delayed due to weather.</div><div class="sent__zh">有時候，由於天氣原因，火車會延誤。</div></div>
+      <div class="sent"><div class="sent__en">We are now boarding the train. Please get ready.</div><div class="sent__zh">我們現在正要上車，請準備好。</div></div>
+    </div>
+
+    <div class="block-label">Key Words · 車站單字</div>
+    <div class="words">
+      <div class="word"><div class="word__en">ticket</div><div class="word__zh">車票</div></div>
+      <div class="word"><div class="word__en">platform</div><div class="word__zh">月台</div></div>
+      <div class="word"><div class="word__en">departure</div><div class="word__zh">出發</div></div>
+      <div class="word"><div class="word__en">arrive</div><div class="word__zh">抵達</div></div>
+      <div class="word"><div class="word__en">seat</div><div class="word__zh">座位</div></div>
+      <div class="word"><div class="word__en">information</div><div class="word__zh">資訊</div></div>
+      <div class="word"><div class="word__en">delay</div><div class="word__zh">延誤</div></div>
+      <div class="word"><div class="word__en">schedule</div><div class="word__zh">時刻表</div></div>
+      <div class="word"><div class="word__en">board</div><div class="word__zh">上車</div></div>
+      <div class="word"><div class="word__en">staff</div><div class="word__zh">工作人員</div></div>
     </div>
   </div>
 
