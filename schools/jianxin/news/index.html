@@ -54,9 +54,17 @@
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* Page head */
-  .page-head{background:linear-gradient(135deg, var(--carrot-deep) 0%, var(--carrot) 100%);color:#fff;padding:72px 0 84px;position:relative;overflow:hidden;}
-  .page-head::before{content:'';position:absolute;top:-100px;right:-80px;width:380px;height:380px;background:radial-gradient(circle, rgba(217,162,58,.32) 0%, transparent 70%);pointer-events:none;}
-  .page-head__inner{position:relative;}
+  .page-head{
+    position:relative;color:#fff;overflow:hidden;
+    min-height:300px;display:flex;align-items:flex-end;padding:120px 0 36px;
+    background:
+      linear-gradient(180deg, rgba(184,74,20,0) 0%, rgba(184,74,20,.40) 58%, rgba(184,74,20,.82) 100%),
+      url('../photos/banner-court.jpg') center 60%/cover;
+    background-color:var(--carrot-deep);
+  }
+  @media (min-width:720px){ .page-head{ min-height:400px;padding:160px 0 48px; } }
+  .page-head::before{display:none;}
+  .page-head__inner{position:relative;text-shadow:0 2px 14px rgba(0,0,0,.6);}
   .page-head__eyebrow{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
   @media (min-width:720px){ .page-head__eyebrow{ font-size:17px; } }
   .page-head h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:800;line-height:1.05;margin-top:14px;letter-spacing:.5px;text-shadow:0 3px 18px rgba(0,0,0,.4);}

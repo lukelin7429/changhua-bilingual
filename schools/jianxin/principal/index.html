@@ -55,10 +55,17 @@
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* Page head */
-  .page-head{background:linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 100%);color:#fff;padding:72px 0 84px;position:relative;overflow:hidden;}
-  .page-head::before{content:'';position:absolute;top:-100px;right:-80px;width:380px;height:380px;background:radial-gradient(circle, rgba(217,162,58,.28) 0%, transparent 70%);pointer-events:none;}
-  .page-head::after{content:'';position:absolute;bottom:-120px;left:-100px;width:340px;height:340px;background:radial-gradient(circle, rgba(230,106,43,.22) 0%, transparent 70%);pointer-events:none;}
-  .page-head__inner{position:relative;}
+  .page-head{
+    position:relative;color:#fff;overflow:hidden;
+    min-height:300px;display:flex;align-items:flex-end;padding:120px 0 36px;
+    background:
+      linear-gradient(180deg, rgba(31,77,107,0) 0%, rgba(31,77,107,.40) 58%, rgba(31,77,107,.82) 100%),
+      url('../photos/banner-gate.jpg') center 42%/cover;
+    background-color:var(--ocean-deep);
+  }
+  @media (min-width:720px){ .page-head{ min-height:400px;padding:160px 0 48px; } }
+  .page-head::before,.page-head::after{display:none;}
+  .page-head__inner{position:relative;text-shadow:0 2px 14px rgba(0,0,0,.6);}
   .page-head__eyebrow{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
   @media (min-width:720px){ .page-head__eyebrow{ font-size:17px; } }
   .page-head h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:800;line-height:1.05;margin-top:14px;letter-spacing:.5px;text-shadow:0 3px 18px rgba(0,0,0,.4);}
@@ -95,6 +102,11 @@
     display:flex;align-items:center;justify-content:center;
     color:#fff;font-family:'Playfair Display',serif;font-size:72px;font-weight:800;
     box-shadow:0 10px 28px -8px rgba(184,74,20,.45);
+  }
+  .portrait__photo{
+    width:188px;height:188px;border-radius:50%;margin:0 auto;display:block;
+    object-fit:cover;object-position:center 22%;
+    border:4px solid #fff;box-shadow:0 10px 28px -8px rgba(184,74,20,.45);
   }
   .portrait__name{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--carrot-deep);margin-top:20px;line-height:1.15;}
   .portrait__name-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
@@ -205,11 +217,11 @@
 
     <div class="welcome">
       <aside class="portrait">
-        <div class="portrait__placeholder">林</div>
+        <img class="portrait__photo" src="../photos/principal-lin.jpg" alt="Principal Lin Chia-hui · 林家惠校長" width="188" height="188">
         <div class="portrait__name">Lin Chia-hui</div>
         <div class="portrait__name-zh">林家惠 校長</div>
         <div class="portrait__role">Principal · 校長</div>
-        <p class="portrait__caption">An official portrait will be added once the school provides one.<br>正式校長照片由校方提供後更新。</p>
+        <p class="portrait__caption">Inaugurated August 2025 · Jianxin Elementary School<br>2025 年 8 月就任 · 建新國小校長</p>
       </aside>
 
       <div>
