@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Lessons · 廣興雙語課程 · Guangxing Elementary</title>
-<meta name="description" content="Guangxing's bilingual learning hub — Word of the Day videos, Photo Stories with audio, Classroom English broadcasts, and school announcements. 廣興國小雙語課程入口：每日一字、Photo Story、課室英語、廣播英語。">
+<meta name="description" content="Guangxing's bilingual learning hub — start with the welcome passage, then explore Word of the Day, Photo Stories, Classroom English and bilingual School Announcements. 廣興國小雙語課程：先看校介短文、再進入每日一字、Photo Story、課室英語與校園廣播英語。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/guangxing/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/guangxing/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/guangxing/favicon-180.png">
@@ -60,11 +60,48 @@
   /* Section base */
   section{padding:64px 0;}
   @media(min-width:720px){section{padding:84px 0;}}
-  .sec-head{text-align:center;margin-bottom:42px;}
-  .sec-head .eyebrow{display:inline-block;font-size:16px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px;color:var(--cane);}
-  .sec-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(33px,5vw,48px);font-weight:700;color:var(--cane-deep);line-height:1.18;}
-  .sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
-  .sec-head .lede{color:var(--ink-soft);font-size:20px;max-width:720px;margin:16px auto 0;line-height:1.7;}
+  .sec__no{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:14.5px;font-weight:700;letter-spacing:.34em;color:var(--terra);text-transform:uppercase;margin-bottom:12px;}
+  .sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(33px,5vw,48px);font-weight:700;color:var(--cane-deep);line-height:1.16;text-align:center;}
+  .sec__title-zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:6px;text-align:center;letter-spacing:.04em;}
+  .sec__rule{width:80px;height:4px;background:var(--gold);border-radius:3px;margin:20px auto 28px;}
+  .sec__head{text-align:center;margin-bottom:36px;}
+  .sec__lede{color:var(--ink-soft);font-size:20px;max-width:720px;margin:16px auto 0;line-height:1.7;}
+
+  .lead{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--cane-deep);margin:0 auto 6px;max-width:780px;line-height:1.45;}
+  @media(min-width:720px){.lead{font-size:26px;}}
+  .lead-zh{text-align:center;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);max-width:760px;margin:0 auto 28px;line-height:1.65;}
+
+  .body{max-width:760px;margin:0 auto 28px;}
+  .body p{font-size:19.5px;color:var(--ink);margin-bottom:14px;line-height:1.75;}
+  .body p.zh{font-family:'PingFang TC',sans-serif;color:var(--ink);font-size:19px;line-height:1.9;}
+  .body strong{color:var(--cane-deep);}
+
+  /* ===== START HERE: Welcome passage ===== */
+  .welcome{background:linear-gradient(135deg,var(--cane-soft) 0%,var(--gold-soft) 100%);border-radius:24px;border:1px solid var(--line);padding:32px 24px;box-shadow:var(--shadow);}
+  @media(min-width:720px){.welcome{padding:48px 44px;}}
+  .welcome-head{display:grid;grid-template-columns:1fr;gap:30px;align-items:center;margin-bottom:30px;}
+  @media(min-width:880px){.welcome-head{grid-template-columns:1.15fr .9fr;gap:48px;}}
+  .welcome-video{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;box-shadow:var(--shadow);border:4px solid #fff;}
+  .welcome-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .welcome-intro .kick{display:inline-block;color:var(--terra-deep);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:15px;}
+  .welcome-intro h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(30px,4.5vw,40px);color:var(--cane-deep);font-weight:700;line-height:1.15;margin-top:8px;}
+  .welcome-intro h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .welcome-intro p{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  .welcome-intro p .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18.5px;color:var(--ink-soft);margin-top:8px;}
+  .welcome-passage{display:grid;grid-template-columns:1fr;gap:24px;margin:30px 0;padding:24px;background:rgba(255,255,255,.78);border-radius:14px;border:1px solid rgba(255,255,255,.6);}
+  @media(min-width:860px){.welcome-passage{grid-template-columns:1fr 1fr;gap:36px;}}
+  .welcome-passage h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--cane-deep);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;}
+  .welcome-passage p{font-size:19px;line-height:1.78;color:var(--ink);}
+  .welcome-passage .zh-block p{font-family:'PingFang TC',sans-serif;font-size:18.5px;line-height:1.95;}
+  .vocab-head{margin-top:30px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--cane-deep);letter-spacing:.18em;text-transform:uppercase;text-align:center;}
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:16px;}
+  .vocab{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;display:flex;flex-direction:column;}
+  .vocab .en{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--cane-deep);line-height:1.2;}
+  .vocab .zh{font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:2px;}
+
+  .welcome-audio{margin-top:30px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:22px;}
+  .welcome-audio .label{font-family:'Cormorant Garamond',serif;font-size:14.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cane-deep);margin-bottom:12px;text-align:center;}
+  .welcome-audio iframe{display:block;width:100%;border:0;border-radius:8px;}
 
   /* Unit cards (WOTD + Photo Stories share style) */
   .units{display:grid;grid-template-columns:1fr;gap:22px;}
@@ -82,7 +119,6 @@
   .unit__hero.is-photo::before, .unit__hero.is-photo::after{display:none;}
   .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
   .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
-  /* Per-unit color theme */
   .u-1 .unit__hero{background:linear-gradient(135deg,#7dc47d 0%,#316821 100%);}
   .u-2 .unit__hero{background:linear-gradient(135deg,#4a90c2 0%,#2b6789 100%);}
   .u-3 .unit__hero{background:linear-gradient(135deg,#f06956 0%,#b32916 100%);}
@@ -90,7 +126,6 @@
   .u-5 .unit__hero{background:linear-gradient(135deg,#e5cb5a 0%,#8c8e0a 100%);}
   .u-6 .unit__hero{background:linear-gradient(135deg,#c89a3a 0%,#8a6818 100%);}
   .u-team .unit__hero{background:linear-gradient(135deg,#b85f33 0%,#834020 100%);}
-  /* Photo Story (purple/pink) */
   .ps-1 .unit__hero{background:linear-gradient(135deg,#a585c4 0%,#5b417d 100%);}
   .ps-2 .unit__hero{background:linear-gradient(135deg,#e899ba 0%,#a64475 100%);}
   .ps-3 .unit__hero{background:linear-gradient(135deg,#7dc47d 0%,#316821 100%);}
@@ -98,7 +133,6 @@
   .ps-5 .unit__hero{background:linear-gradient(135deg,#b85f33 0%,#834020 100%);}
   .ps-6 .unit__hero{background:linear-gradient(135deg,#c89a3a 0%,#8a6818 100%);}
   .ps-7 .unit__hero{background:linear-gradient(135deg,#5b9c3f 0%,#316821 100%);}
-
   .unit__body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;}
   .unit__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra-deep);}
   .unit__title{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:var(--cane-deep);line-height:1.2;margin-top:6px;}
@@ -112,22 +146,54 @@
   .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
   .unit:hover .unit__cta .arrow{transform:translateX(4px);}
 
-  /* Embedded playlist block */
-  .playlist-block{background:linear-gradient(135deg,var(--bg-soft) 0%,var(--cane-soft) 100%);border-radius:22px;padding:28px 22px;border:1px solid var(--line);}
-  @media(min-width:720px){.playlist-block{padding:42px 40px;}}
-  .playlist-block h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--cane-deep);text-align:center;}
-  @media(min-width:720px){.playlist-block h3{font-size:30px;}}
-  .playlist-block .zh{text-align:center;font-size:17px;color:var(--ink-soft);margin-top:6px;}
-  @media(min-width:720px){.playlist-block .zh{font-size:19px;}}
-  .video-frame{margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
-  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-  .player-link{display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:#fff;border:1.5px solid var(--line);color:var(--cane-deep);padding:12px 22px;border-radius:11px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;transition:all .2s;}
-  .player-link:hover{border-color:var(--cane);color:var(--cane-deep);transform:translateY(-2px);}
-  .pl-link-row{text-align:center;margin-top:18px;}
+  /* Credits row */
+  .credits{display:grid;grid-template-columns:1fr;gap:0;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:920px;margin:0 auto 28px;}
+  @media(min-width:640px){.credits{grid-template-columns:repeat(3,1fr);}}
+  .credits__cell{padding:18px 22px;border-bottom:1px solid var(--line);text-align:center;}
+  @media(min-width:640px){.credits__cell{border-bottom:0;border-right:1px solid var(--line);}.credits__cell:last-child{border-right:0;}}
+  .credits__label{font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:700;letter-spacing:.18em;color:var(--terra);text-transform:uppercase;}
+  .credits__value{font-size:18px;color:var(--ink);margin-top:6px;font-family:'PingFang TC',sans-serif;}
 
-  /* Player rows for two distinct embeds */
-  .twin{display:grid;grid-template-columns:1fr;gap:30px;}
-  @media(min-width:880px){.twin{grid-template-columns:1fr 1fr;}}
+  /* Embedded playlist player */
+  .player{max-width:920px;margin:0 auto;}
+  .player__ratio{position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player-link{display:flex;max-width:920px;margin:18px auto 0;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px 22px;transition:all .2s;color:inherit;}
+  .player-link:hover{border-color:var(--cane);transform:translateY(-2px);box-shadow:var(--shadow-sm);color:inherit;}
+  .player-link__icon{width:44px;height:44px;border-radius:50%;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .player-link__text{flex:1;display:flex;flex-direction:column;line-height:1.32;}
+  .player-link__text strong{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--cane-deep);}
+  .player-link__text span{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:2px;}
+  .player-link__arrow{font-size:22px;color:var(--terra);}
+
+  /* Topics grid (Classroom English 10 topics) */
+  .topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:1040px;margin:36px auto 0;}
+  .topic{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .topic:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--cane);}
+  .topic__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:.28em;color:var(--terra);}
+  .topic__en{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--cane-deep);line-height:1.2;}
+  .topic__zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);}
+
+  /* Offices breakdown (Announcements 4 offices) */
+  .offices{display:grid;grid-template-columns:1fr;gap:18px;max-width:1040px;margin:36px auto 0;}
+  @media(min-width:720px){.offices{grid-template-columns:repeat(2,1fr);}}
+  .office{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:13px;padding:22px 24px;}
+  .office:nth-child(2){border-left-color:var(--cane);}
+  .office:nth-child(3){border-left-color:var(--terra);}
+  .office:nth-child(4){border-left-color:var(--sky);}
+  .office__title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--cane-deep);}
+  .office__title-zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:2px;}
+  .office__list{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:7px;}
+  .office__list li{display:flex;align-items:baseline;gap:12px;font-size:16.5px;color:var(--ink);font-family:'PingFang TC',sans-serif;}
+  .office__list li .ep{font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:700;letter-spacing:.12em;color:var(--terra);background:var(--terra-soft);padding:3px 9px;border-radius:6px;flex-shrink:0;min-width:60px;text-align:center;}
+
+  /* Closing */
+  .closing{max-width:880px;margin:0 auto;text-align:center;}
+  .closing__eyebrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:14.5px;font-weight:700;letter-spacing:.32em;color:var(--terra);text-transform:uppercase;margin-bottom:14px;}
+  .closing__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(28px,4.4vw,40px);font-weight:700;color:var(--cane-deep);line-height:1.22;font-style:italic;}
+  .closing__title small{display:block;font-family:'PingFang TC',sans-serif;font-style:normal;font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:8px;}
+  .closing__body{font-size:20px;color:var(--ink);margin-top:24px;line-height:1.75;}
+  .closing__body .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);margin-top:10px;line-height:1.9;}
 
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
@@ -155,16 +221,78 @@
   <div class="bn">
     <span class="eyebrow">Guangxing Bilingual Curriculum</span>
     <h1>Lessons<span class="zh">廣興雙語課程</span></h1>
-    <p class="tag">Pick a unit. Press play. Learn English with us.</p>
+    <p class="tag">Watch · listen · read · learn — in two languages.</p>
   </div>
 </header>
 
-<!-- ===== Word of the Day ===== -->
+<!-- ===== I. START HERE — Welcome passage ===== -->
 <section><div class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">Word of the Day</span>
-    <h2>Word of the Day<span class="zh">每日一字 · 校園英語影片</span></h2>
-    <p class="lede">Short bilingual videos shot on the Guangxing campus — every word comes from something children actually do at school. Pick a unit to start.<span style="display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;">每日一字短片，每個詞都來自校園裡真實發生的事——選擇一個單元開始。</span></p>
+  <div class="sec__head">
+    <span class="sec__no">I. Start Here</span>
+    <h2 class="sec__title">Welcome to Guangxing</h2>
+    <div class="sec__title-zh">校介短文 · 讀一遍、聽一遍、學十三個單字</div>
+    <div class="sec__rule"></div>
+    <p class="lead">A 37-second introduction to our school — in English, with a Chinese translation, a vocabulary list, and an audio reading by Edwin.</p>
+    <p class="lead-zh">用 37 秒認識廣興：英文校介短片 + 中文對照 + 13 個關鍵字 + Edwin 老師朗讀音檔。</p>
+  </div>
+
+  <div class="welcome">
+    <div class="welcome-head">
+      <div class="welcome-video">
+        <iframe src="https://www.youtube-nocookie.com/embed/ywNl9spCtrk?rel=0" title="Welcome to Guangxing Elementary School — 37-second bilingual introduction" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="welcome-intro">
+        <span class="kick">▶ Watch · 一分鐘聽完校介</span>
+        <h3>Read along while you watch<span class="zh">邊看邊讀，效果最好</span></h3>
+        <p>Press play on the video. Read the English passage below as the narration speaks. When a word is unfamiliar, jump to the vocabulary list — it's right under the passage.<span class="zh">按下播放鍵、跟著朗讀邊看邊讀。遇到陌生字，往下捲到單字表——就在短文下方。</span></p>
+      </div>
+    </div>
+
+    <div class="welcome-passage">
+      <div class="en-block">
+        <h4>English Passage</h4>
+        <p>Welcome to Guanxing Elementary School. We're located in a quiet place in Erlin, surrounded by pretty farms. Our school is special because we make learning fun and creative. We want every student to be happy, kind, and smart. We learn about many things, like reading, math, art, dancing, and even how to grow plants. Our school is like a big family; teachers, kids, and parents all help each other. Come join us at Guanxing, where learning is exciting and fun!</p>
+      </div>
+      <div class="zh-block">
+        <h4>中文翻譯</h4>
+        <p>歡迎來到廣興國小。我們位於二林的一個安靜地方，周圍環繞著美麗的農田。我們的學校很特別，因為我們讓學習變得有趣且富有創意。我們希望每位學生都能快樂、善良、且聰明。我們學習許多事物，像是閱讀、數學、藝術、舞蹈，甚至是如何種植植物。我們的學校就像一個大家庭；老師、孩子們和家長們都互相幫助。來加入我們廣興吧，讓學習變得刺激且有趣！</p>
+      </div>
+    </div>
+
+    <div class="vocab-head">Vocabulary · 13 Key Words</div>
+    <div class="vocab-grid">
+      <div class="vocab"><span class="en">be located in</span><span class="zh">位於</span></div>
+      <div class="vocab"><span class="en">quiet</span><span class="zh">安靜的</span></div>
+      <div class="vocab"><span class="en">surround</span><span class="zh">環繞</span></div>
+      <div class="vocab"><span class="en">pretty</span><span class="zh">漂亮的</span></div>
+      <div class="vocab"><span class="en">creative</span><span class="zh">有創意的</span></div>
+      <div class="vocab"><span class="en">smart</span><span class="zh">聰明的</span></div>
+      <div class="vocab"><span class="en">math</span><span class="zh">數學</span></div>
+      <div class="vocab"><span class="en">art</span><span class="zh">藝術</span></div>
+      <div class="vocab"><span class="en">grow</span><span class="zh">種植</span></div>
+      <div class="vocab"><span class="en">plant</span><span class="zh">植物</span></div>
+      <div class="vocab"><span class="en">parent</span><span class="zh">父母親</span></div>
+      <div class="vocab"><span class="en">each other</span><span class="zh">彼此</span></div>
+      <div class="vocab"><span class="en">exciting</span><span class="zh">刺激的</span></div>
+    </div>
+
+    <div class="welcome-audio">
+      <div class="label">▶ Listen · 朗讀者 Edwin Schadewald</div>
+      <iframe scrolling="no" allow="autoplay" height="120"
+        src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Flukelin7429%2Fguangxinges&color=%23316821&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false&show_teaser=false"></iframe>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== II. Word of the Day ===== -->
+<section style="background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);"><div class="wrap">
+  <div class="sec__head">
+    <span class="sec__no">II. Word of the Day</span>
+    <h2 class="sec__title">Word of the Day</h2>
+    <div class="sec__title-zh">每日一字 · 校園英語影片</div>
+    <div class="sec__rule"></div>
+    <p class="lead">Short bilingual videos shot on the Guangxing campus.</p>
+    <p class="lead-zh">每個詞都來自校園裡真實發生的事——選擇一個單元開始。</p>
   </div>
 
   <div class="units">
@@ -248,26 +376,27 @@
 
   </div>
 
-  <div style="margin-top:48px;">
-    <div class="playlist-block">
-      <h3>Watch the full playlist on YouTube</h3>
-      <div class="zh">不分單元，這裡是完整 YouTube playlist</div>
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8XHjxkcdzIDBfipU0xmjAH5&rel=0" title="Guangxing Word of the Day — full playlist" loading="lazy" allowfullscreen></iframe>
-      </div>
-      <div class="pl-link-row">
-        <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8XHjxkcdzIDBfipU0xmjAH5" target="_blank" rel="noopener">▶ Open the full playlist on YouTube</a>
-      </div>
-    </div>
+  <div style="margin-top:46px;">
+    <div class="player"><div class="player__ratio">
+      <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8XHjxkcdzIDBfipU0xmjAH5&rel=0" title="Guangxing Word of the Day — full playlist" loading="lazy" allowfullscreen></iframe>
+    </div></div>
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8XHjxkcdzIDBfipU0xmjAH5" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text"><strong>Browse the full Word of the Day playlist on YouTube</strong><span>在 YouTube 開啟廣興完整 playlist · 53 部短影片任你選</span></span>
+      <span class="player-link__arrow">↗</span>
+    </a>
   </div>
 </div></section>
 
-<!-- ===== Photo Stories ===== -->
-<section style="background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);"><div class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">Photo Stories</span>
-    <h2>Photo Stories<span class="zh">校園 Photo Story · 圖文有聲版</span></h2>
-    <p class="lede">Seven campus moments told in two languages and read aloud — each story has a photo, an English narration, a Chinese translation, and a SoundCloud audio track.<span style="display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;">七個校園故事，每篇一張照片、雙語段落，加上 SoundCloud 朗讀音檔。</span></p>
+<!-- ===== III. Photo Stories ===== -->
+<section><div class="wrap">
+  <div class="sec__head">
+    <span class="sec__no">III. Photo Stories</span>
+    <h2 class="sec__title">Photo Stories</h2>
+    <div class="sec__title-zh">校園 Photo Story · 圖文有聲版</div>
+    <div class="sec__rule"></div>
+    <p class="lead">Seven campus moments told in two languages, read aloud by Edwin.</p>
+    <p class="lead-zh">每篇一張照片、雙語段落，加上 SoundCloud 朗讀音檔。</p>
   </div>
 
   <div class="units">
@@ -278,7 +407,7 @@
         <div class="unit__no">Story 01 · Photo</div>
         <div class="unit__title">First Graders</div>
         <div class="unit__title-zh">迎接一年級新生</div>
-        <div class="unit__desc">Balloon arches at the school gate make the first day extra special — and even our hallway is dressed up for them.</div>
+        <div class="unit__desc">Balloon arches at the school gate make the first day extra special.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -300,7 +429,7 @@
         <div class="unit__no">Story 03 · Photo</div>
         <div class="unit__title">Art Museum</div>
         <div class="unit__title-zh">參觀美術館</div>
-        <div class="unit__desc">A guided visit to an art museum — children listen carefully as the guide tells them about each piece on the wall.</div>
+        <div class="unit__desc">A guided visit to an art museum — children listen carefully as the guide tells them about each piece.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -311,7 +440,7 @@
         <div class="unit__no">Story 04 · Photo</div>
         <div class="unit__title">Coding</div>
         <div class="unit__title-zh">電腦課寫程式</div>
-        <div class="unit__desc">A very fun computer class — students try simple coding to create a spinning image of their own.</div>
+        <div class="unit__desc">A very fun computer class — students try simple coding to create a spinning image.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -322,7 +451,7 @@
         <div class="unit__no">Story 05 · Photo</div>
         <div class="unit__title">HIV &amp; AIDS Assembly</div>
         <div class="unit__title-zh">愛滋衛教講座</div>
-        <div class="unit__desc">A special school-wide presentation teaches students about disease transmission and the deadly immune disease HIV/AIDS.</div>
+        <div class="unit__desc">A special school-wide presentation teaches students about disease transmission and HIV/AIDS.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -333,7 +462,7 @@
         <div class="unit__no">Story 06 · Photo</div>
         <div class="unit__title">Parent-Teacher Meeting</div>
         <div class="unit__title-zh">親師座談會</div>
-        <div class="unit__desc">Teachers and parents meet in the school hall to discuss school matters, student progress and core values.</div>
+        <div class="unit__desc">Teachers and parents meet to discuss school matters, student progress and core values.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -344,7 +473,7 @@
         <div class="unit__no">Story 07 · Photo</div>
         <div class="unit__title">Trim</div>
         <div class="unit__title-zh">修剪校園樹木</div>
-        <div class="unit__desc">Before school begins, a local service uses special equipment to take care of overgrown branches and leaves.</div>
+        <div class="unit__desc">Before school begins, a local service uses special equipment to take care of overgrown branches.</div>
         <div class="unit__cta">Listen &amp; Read <span class="arrow">→</span></div>
       </div>
     </a>
@@ -352,38 +481,126 @@
   </div>
 </div></section>
 
-<!-- ===== Classroom English + Announcements ===== -->
-<section><div class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">Bilingual Campus</span>
-    <h2>Classroom English &amp; Announcements<span class="zh">課室英語 ‧ 廣播英語</span></h2>
-    <p class="lede">Two shared bilingual broadcasts used across all our partner schools — recorded by Sarah Thomas (Classroom English) and Sarah &amp; Susan (Announcements).<span style="display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;">兩條跨校共用的雙語廣播：Sarah Thomas 的課室英語、Sarah 與 Susan 的廣播英語。</span></p>
+<!-- ===== IV. Classroom English ===== -->
+<section style="background:linear-gradient(180deg,#fff 0%,var(--cane-soft) 100%);"><div class="wrap">
+  <div class="sec__head">
+    <span class="sec__no">IV. Classroom English</span>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · 給老師的口袋句庫（影片版）</div>
+    <div class="sec__rule"></div>
+    <p class="lead">The phrases teachers say between the lessons — taught on video.</p>
+    <p class="lead-zh">老師在課堂裡每天會用上的英文句子，這次有人示範給你看。</p>
   </div>
 
-  <div class="twin">
+  <div class="body">
+    <p>A practical video library covering the everyday English a Taiwanese teacher actually uses in class: <strong>greetings and roll call, pre-class set-up, instructions, praise and correction, classroom management, lesson activities, assigning homework, wrapping up, and exam directions.</strong> Each video isolates one situation so the phrases stick on first hearing.</p>
+    <p class="zh">這個影片教材庫涵蓋臺灣老師每天會用到的課堂英語——問候點名、課前準備、講解、回饋讚美、糾正、教室管理、課堂活動、分派作業、課堂收尾、考試指令。每支影片只處理一個情境，第一次聽就能記住。</p>
+  </div>
 
-    <div class="playlist-block">
-      <h3>Classroom English</h3>
-      <div class="zh">課室英語 · 老師對學生的常用英文指令</div>
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allowfullscreen></iframe>
-      </div>
-      <div class="pl-link-row">
-        <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">▶ Open on YouTube</a>
-      </div>
+  <div class="credits">
+    <div class="credits__cell"><div class="credits__label">Instructor</div><div class="credits__value">Sarah Thomas · Sarah 老師</div></div>
+    <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師教育協會</div></div>
+    <div class="credits__cell"><div class="credits__label">Audience</div><div class="credits__value">In-service teachers · 在職老師</div></div>
+  </div>
+
+  <div class="player"><div class="player__ratio">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allowfullscreen></iframe>
+  </div></div>
+  <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+    <span class="player-link__icon">▶</span>
+    <span class="player-link__text"><strong>Browse the full Classroom English playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支影片</span></span>
+    <span class="player-link__arrow">↗</span>
+  </a>
+
+  <div class="topics">
+    <div class="topic"><div class="topic__no">EP 01</div><div class="topic__en">Greetings &amp; Roll Call</div><div class="topic__zh">問候、點名</div></div>
+    <div class="topic"><div class="topic__no">EP 02</div><div class="topic__en">Pre-Class Preparation</div><div class="topic__zh">課前準備</div></div>
+    <div class="topic"><div class="topic__no">EP 03</div><div class="topic__en">Explanations</div><div class="topic__zh">講解</div></div>
+    <div class="topic"><div class="topic__no">EP 04</div><div class="topic__en">Pre-Teaching Activities</div><div class="topic__zh">課前教學活動</div></div>
+    <div class="topic"><div class="topic__no">EP 05</div><div class="topic__en">Feedback &amp; Praise</div><div class="topic__zh">回饋、讚美、糾正</div></div>
+    <div class="topic"><div class="topic__no">EP 06</div><div class="topic__en">Order &amp; Handouts</div><div class="topic__zh">教室管理、分發講義</div></div>
+    <div class="topic"><div class="topic__no">EP 07</div><div class="topic__en">Lesson Activities</div><div class="topic__zh">課堂教學活動</div></div>
+    <div class="topic"><div class="topic__no">EP 08</div><div class="topic__en">Assigning Homework</div><div class="topic__zh">分派作業</div></div>
+    <div class="topic"><div class="topic__no">EP 09</div><div class="topic__en">Class Conclusion</div><div class="topic__zh">課堂收尾</div></div>
+    <div class="topic"><div class="topic__no">EP 10</div><div class="topic__en">Examinations</div><div class="topic__zh">考試</div></div>
+  </div>
+</div></section>
+
+<!-- ===== V. Bilingual Announcements ===== -->
+<section><div class="wrap">
+  <div class="sec__head">
+    <span class="sec__no">V. Bilingual Announcements</span>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">雙語廣播 · 校園的英語之聲</div>
+    <div class="sec__rule"></div>
+    <p class="lead">The morning intercom in two languages — written and recorded by the offices that keep school life running.</p>
+    <p class="lead-zh">早上的校園廣播，雙語版本——由各處室共同寫稿、共同上鏡。</p>
+  </div>
+
+  <div class="body">
+    <p>A <strong>13-episode bilingual announcement series</strong>, organized by the school offices: <strong>Academic Affairs (教務處)</strong>, <strong>Student Affairs (學務處)</strong>, <strong>General Affairs (總務處)</strong>, and <strong>Counselling (輔導室)</strong>. Each office introduces what it does in both English and Chinese — turning the daily public-address routine into real-world bilingual exposure for every child in the corridors.</p>
+    <p class="zh">這是一個 13 集的雙語校園廣播系列，依處室分組：教務處、學務處、總務處、輔導室，由各組親自介紹自己的工作，雙語對照——把學校每天的廣播時間，變成全校學生在走廊上就能接收的英語浸潤。</p>
+  </div>
+
+  <div class="credits">
+    <div class="credits__cell"><div class="credits__label">Hosts</div><div class="credits__value">Sarah Thomas &amp; Susan Rose</div></div>
+    <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師教育協會</div></div>
+    <div class="credits__cell"><div class="credits__label">Episodes</div><div class="credits__value">13 集 · 涵蓋四大處室</div></div>
+  </div>
+
+  <div class="player"><div class="player__ratio">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist by Sarah Thomas & Susan Rose" loading="lazy" allowfullscreen></iframe>
+  </div></div>
+  <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+    <span class="player-link__icon">▶</span>
+    <span class="player-link__text"><strong>Browse the full Bilingual Announcements playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 13 集任你選擇</span></span>
+    <span class="player-link__arrow">↗</span>
+  </a>
+
+  <div class="offices">
+    <div class="office">
+      <div class="office__title">Academic Affairs</div>
+      <div class="office__title-zh">教務處 · 5 集</div>
+      <ul class="office__list">
+        <li><span class="ep">EP 1-1</span><span>Curriculum &amp; Instruction · 教學組</span></li>
+        <li><span class="ep">EP 1-2</span><span>Registrar · 註冊組</span></li>
+        <li><span class="ep">EP 1-3</span><span>Equipment &amp; Facilities · 設備組</span></li>
+        <li><span class="ep">EP 1-4</span><span>Library · 圖書室</span></li>
+        <li><span class="ep">EP 1-5</span><span>Information Technology · 資訊組</span></li>
+      </ul>
     </div>
-
-    <div class="playlist-block" style="background:linear-gradient(135deg,var(--bg-soft) 0%,var(--gold-soft) 100%);">
-      <h3>School Announcements</h3>
-      <div class="zh">廣播英語 · 校園廣播常用的英語句子</div>
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist by Sarah Thomas & Susan Rose" loading="lazy" allowfullscreen></iframe>
-      </div>
-      <div class="pl-link-row">
-        <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">▶ Open on YouTube</a>
-      </div>
+    <div class="office">
+      <div class="office__title">Student Affairs</div>
+      <div class="office__title-zh">學務處 · 3 集</div>
+      <ul class="office__list">
+        <li><span class="ep">EP 2-1</span><span>Discipline &amp; Activities · 訓育組</span></li>
+        <li><span class="ep">EP 2-2</span><span>Student Guidance · 生教組</span></li>
+        <li><span class="ep">EP 2-3</span><span>Physical Education · 體育組</span></li>
+      </ul>
     </div>
+    <div class="office">
+      <div class="office__title">General Affairs</div>
+      <div class="office__title-zh">總務處 · 校園後勤</div>
+      <ul class="office__list">
+        <li><span class="ep">EP 3-x</span><span>Documents, Cashier, Maintenance · 文書、出納、事務</span></li>
+      </ul>
+    </div>
+    <div class="office">
+      <div class="office__title">Counselling Office</div>
+      <div class="office__title-zh">輔導室 · 心理與生涯支持</div>
+      <ul class="office__list">
+        <li><span class="ep">EP 4-x</span><span>Student support &amp; guidance · 學生支持與輔導</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
 
+<!-- ===== VI. Why it matters ===== -->
+<section style="background:linear-gradient(180deg,var(--cane-soft) 0%,var(--bg-soft) 100%);"><div class="wrap">
+  <div class="closing">
+    <span class="closing__eyebrow">Why It Matters · 為什麼重要</span>
+    <h3 class="closing__title">A second language is learnt in the corridors, not only in the classroom.<small>第二語言是在走廊上學會的，不只是在教室裡。</small></h3>
+    <p class="closing__body">A timetabled English period is necessary, but never sufficient. Real fluency takes hold when the language steps out of the textbook and into the everyday — the hallway, the broadcast, the teacher's natural voice. That is what a bilingual campus quietly builds, one announcement and one classroom phrase at a time.<span class="zh">排進課表的英語課是必要的，但永遠不夠。真正的流利，是當語言走出課本、走進日常——走廊、廣播、老師自然的聲音。這就是雙語校園默默在做的事：一則廣播、一句課室英語，慢慢長成。</span></p>
   </div>
 </div></section>
 
