@@ -226,6 +226,33 @@
   @media(min-width:720px){.word-pill{font-size:17px;}}
   .word-pill span{color:var(--ink-soft);font-weight:400;font-size:.85em;}
 
+  /* ── Eco English featured card ── */
+  .eco-feature{display:block;text-decoration:none;color:inherit;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--g-deep) 0%,var(--g) 55%,var(--g-light) 100%);box-shadow:var(--shadow);border:1px solid var(--g);transition:transform .2s,box-shadow .2s;}
+  .eco-feature:hover{transform:translateY(-4px);box-shadow:0 22px 50px -18px rgba(26,67,48,.4);}
+  .eco-feature__inner{display:grid;grid-template-columns:1fr;gap:0;}
+  @media(min-width:760px){.eco-feature__inner{grid-template-columns:230px 1fr;align-items:stretch;}}
+  .eco-feature__art{background:rgba(255,255,255,.10);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:32px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,.18);}
+  @media(min-width:760px){.eco-feature__art{border-bottom:none;border-right:1px solid rgba(255,255,255,.18);}}
+  .eco-feature__emoji{font-size:78px;line-height:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));}
+  @media(min-width:720px){.eco-feature__emoji{font-size:96px;}}
+  .eco-feature__flag{font-size:13px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--gold);padding:5px 12px;border-radius:99px;}
+  .eco-feature__body{padding:30px 28px 32px;color:#fff;}
+  @media(min-width:720px){.eco-feature__body{padding:38px 40px;}}
+  .eco-feature__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ffe9b8;}
+  .eco-feature__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.eco-feature__title{font-size:40px;}}
+  .eco-feature__zh{font-size:18px;font-weight:600;color:#eaf6ee;margin-top:6px;}
+  @media(min-width:720px){.eco-feature__zh{font-size:21px;}}
+  .eco-feature__desc{font-size:17px;color:#e2f1e7;line-height:1.65;margin-top:14px;}
+  @media(min-width:720px){.eco-feature__desc{font-size:19px;}}
+  .eco-feature__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .eco-feature__tag{font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:99px;}
+  @media(min-width:720px){.eco-feature__tag{font-size:15px;}}
+  .eco-feature__cta{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--g-deep);background:var(--gold-soft);padding:12px 22px;border-radius:12px;}
+  @media(min-width:720px){.eco-feature__cta{font-size:20px;}}
+  .eco-feature__cta .arrow{transition:transform .2s;}
+  .eco-feature:hover .eco-feature__cta .arrow{transform:translateX(4px);}
+
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media(min-width:720px){footer{font-size:17px;}}
   footer .org{font-weight:600;color:var(--g-deep);}
@@ -288,6 +315,45 @@
     <div class="page-banner__zh">課程紀錄 · 夏日樂學與日常探索</div>
   </div>
 </div>
+
+<!-- ===== Featured: Eco English ===== -->
+<section style="background:linear-gradient(135deg,#f4faf4 0%,var(--g-soft) 100%);">
+  <div class="wrap">
+    <div class="sec__no">★</div>
+    <h2 class="sec__title">Eco English</h2>
+    <div class="sec__title-zh">綠旗六課 · 環境保護英語 · 慶祝臺美生態學校綠旗認證</div>
+    <div class="sec__rule"></div>
+
+    <div class="sec__lead">
+      To celebrate Mingli&#x27;s Taiwan-US Green Flag, we built a 6-lesson English course all about protecting our Earth — with a handout and a fun quiz for every lesson.
+      <div class="sec__lead-zh">為慶祝明禮通過臺美生態學校綠旗認證，我們設計了一套 6 課的環境保護英語——每一課都有講義與趣味測驗。</div>
+    </div>
+
+    <a class="eco-feature" href="eco-english/">
+      <div class="eco-feature__inner">
+        <div class="eco-feature__art">
+          <div class="eco-feature__emoji">🌿</div>
+          <span class="eco-feature__flag">Green Flag · 綠旗</span>
+        </div>
+        <div class="eco-feature__body">
+          <div class="eco-feature__no">6 Lessons · 環境保護英語</div>
+          <h3 class="eco-feature__title">Green Flag Lessons</h3>
+          <div class="eco-feature__zh">明禮生態英語 · 守護地球的六堂課</div>
+          <p class="eco-feature__desc">The Three R&#x27;s, sorting trash, saving water and energy, our green campus, and loving the Earth — simple, hands-on English for every young Earth helper at Mingli.</p>
+          <div class="eco-feature__tags">
+            <span class="eco-feature__tag">🔁 Three R&#x27;s</span>
+            <span class="eco-feature__tag">🗑️ Sort the Trash</span>
+            <span class="eco-feature__tag">💧 Save Water</span>
+            <span class="eco-feature__tag">💡 Save Energy</span>
+            <span class="eco-feature__tag">🌱 Green Campus</span>
+            <span class="eco-feature__tag">🌏 Love the Earth</span>
+          </div>
+          <span class="eco-feature__cta">Open the course · 進入課程 <span class="arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
 
 <!-- ===== I. Summer Camp ===== -->
 <section>

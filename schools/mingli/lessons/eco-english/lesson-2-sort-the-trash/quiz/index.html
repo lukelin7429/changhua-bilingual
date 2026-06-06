@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lesson 02 Quiz · Mingli Eco English</title>
+<meta name="description" content="Lesson 02 Quiz — Sort the Trash. 8 simple questions on the eco vocabulary and sentence patterns. Mingli Elementary's Eco English course.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a4330;--blue:#2d7a52;--blue-light:#52b788;--blue-soft:#d8f3dc;
+    --olive:#c8922a;--olive-soft:#fdf8e7;--olive-deep:#7d5a0a;
+    --red:#a0522d;--red-soft:#f5e6d8;
+    --sun:#e0a73a;--sun-soft:#fdf8e7;--sun-deep:#7d5a0a;
+    --green:#52b788;--green-soft:#e7f3e7;
+    --cream:#f4faf4;--cream-warm:#fdfdf6;
+    --ink:#1a2a1e;--ink-soft:#536653;--line:#d4e8d7;
+    --shadow:0 14px 38px -16px rgba(26,67,48,.30);
+    --shadow-sm:0 6px 16px -6px rgba(26,67,48,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{min-height:100%;background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ html,body{ font-size:25.5px; } }
+  .wrap{max-width:840px;margin:0 auto;padding:32px 22px 60px;min-height:100vh;display:flex;flex-direction:column;}
+  .head{background:var(--navy);color:#fff;border-radius:20px;padding:28px 28px;text-align:center;border-bottom:6px solid var(--olive);box-shadow:var(--shadow);}
+  .head__brand{font-size:14.5px;letter-spacing:3px;color:var(--olive);text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+  @media (min-width:720px){ .head__brand{ font-size:16.5px; } }
+  .head__title{font-family:'Playfair Display',serif;font-size:35px;font-weight:800;letter-spacing:.5px;line-height:1.1;}
+  @media (min-width:720px){ .head__title{ font-size:48px; } }
+  .head__sub{color:#cde6d6;font-size:17.5px;margin-top:8px;font-style:italic;}
+  @media (min-width:720px){ .head__sub{ font-size:21px; } }
+  .card{background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);padding:34px 30px;margin-top:26px;flex:1;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .card{ padding:48px 44px; } }
+  .progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .progress__no{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--red);letter-spacing:1.5px;}
+  @media (min-width:720px){ .progress__no{ font-size:24px; } }
+  .progress__bar{flex:1;margin-left:18px;height:8px;background:var(--cream-warm);border:1px solid var(--line);border-radius:99px;overflow:hidden;}
+  @media (min-width:720px){ .progress__bar{ height:10px; } }
+  .progress__fill{height:100%;background:var(--olive);border-radius:99px;transition:width .3s ease;width:0%;}
+  .question{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.4;margin-top:8px;letter-spacing:.2px;}
+  @media (min-width:720px){ .question{ font-size:38px; } }
+  .question__zh{font-size:18.5px;color:var(--ink-soft);line-height:1.55;margin-top:10px;}
+  @media (min-width:720px){ .question__zh{ font-size:22px; } }
+  .options{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .opt{background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px 20px;font-size:22px;font-family:inherit;font-weight:600;color:var(--ink);text-align:left;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:16px;line-height:1.4;}
+  @media (min-width:720px){ .opt{ font-size:26.5px;padding:22px 24px; } }
+  .opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-soft);transform:translateX(2px);}
+  .opt__mark{width:46px;height:46px;border-radius:50%;background:var(--blue-soft);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:20px;border:2px solid var(--line);font-family:'Playfair Display',serif;}
+  @media (min-width:720px){ .opt__mark{ width:52px;height:52px;font-size:22px; } }
+  .opt.is-correct{background:var(--green-soft);border-color:var(--green);color:#226644;}
+  .opt.is-correct .opt__mark{background:var(--green);color:#fff;border-color:var(--green);}
+  .opt.is-wrong{background:var(--red-soft);border-color:var(--red);color:#7a3c1e;}
+  .opt.is-wrong .opt__mark{background:var(--red);color:#fff;border-color:var(--red);}
+  .opt:disabled{cursor:default;}
+  .feedback{margin-top:22px;padding:14px 18px;border-radius:12px;font-size:18.5px;font-weight:600;text-align:center;line-height:1.5;min-height:0;opacity:0;transition:opacity .2s;}
+  @media (min-width:720px){ .feedback{ font-size:22px; } }
+  .feedback.show{opacity:1;}
+  .feedback--ok{background:var(--green-soft);color:#226644;border:1.5px solid var(--green);}
+  .feedback--ng{background:var(--red-soft);color:#7a3c1e;border:1.5px solid var(--red);}
+  .result{text-align:center;}
+  .result__emoji{font-size:80px;line-height:1;}
+  @media (min-width:720px){ .result__emoji{ font-size:106px; } }
+  .result__title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--navy);margin-top:14px;letter-spacing:.5px;}
+  @media (min-width:720px){ .result__title{ font-size:50px; } }
+  .result__score{font-family:'Playfair Display',serif;font-size:70px;font-weight:800;color:var(--red);margin:18px 0 6px;line-height:1;}
+  @media (min-width:720px){ .result__score{ font-size:96px; } }
+  .result__score small{font-size:30px;color:var(--ink-soft);font-weight:600;font-family:inherit;}
+  @media (min-width:720px){ .result__score small{ font-size:40px; } }
+  .result__msg{font-size:22px;color:var(--ink);line-height:1.6;margin-top:16px;max-width:580px;margin-left:auto;margin-right:auto;}
+  @media (min-width:720px){ .result__msg{ font-size:26px; } }
+  .result__zh{font-size:18px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .result__zh{ font-size:20px; } }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px 32px;font-size:22px;font-weight:700;font-family:inherit;letter-spacing:.5px;border:none;border-radius:14px;cursor:pointer;text-decoration:none;transition:transform .15s, box-shadow .15s, background .15s;}
+  @media (min-width:720px){ .btn{ font-size:24px;padding:20px 36px; } }
+  .btn:active{transform:scale(.97);}
+  .btn--primary{background:var(--olive);color:#fff;box-shadow:0 6px 18px -6px rgba(200,146,42,.5);}
+  .btn--primary:hover{background:var(--olive-deep);}
+  .btn--ghost{background:#fff;color:var(--navy);border:2px solid var(--line);}
+  .btn--ghost:hover{background:var(--blue-soft);border-color:var(--blue);}
+  .result__actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;align-items:center;}
+  @media (min-width:720px){ .result__actions{ flex-direction:row;justify-content:center;gap:16px; } }
+  .result__actions .btn{min-width:240px;}
+  .foot{text-align:center;font-size:14px;color:var(--ink-soft);font-style:italic;letter-spacing:.5px;margin-top:24px;}
+  @media (min-width:720px){ .foot{ font-size:16px; } }
+  .foot a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--olive);}
+
+  /* ── Mingli topbar ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar-brand{text-decoration:none;}
+  .topbar-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--g-deep,#1a4330);line-height:1.15;}
+  .topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:11.5px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{font-size:16.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 14px;border-radius:8px;transition:all .15s;}
+  .topbar-nav a:hover,.topbar-nav a.is-active{color:#1a4330;background:var(--blue-soft);}
+  @media(max-width:640px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:15.5px;padding:8px 12px;}}
+
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/mingli/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/mingli/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/mingli/favicon-180.png">
+<link rel="shortcut icon" href="/schools/mingli/favicon.ico">
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="topbar" role="navigation" aria-label="Site navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="/schools/mingli/">
+      <div class="topbar-name">Mingli Elementary<small>彰化縣田中鎮明禮國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="/schools/mingli/">Home</a>
+      <a href="/schools/mingli/principal/">Principal</a>
+      <a href="/schools/mingli/lessons/" class="is-active">Lessons</a>
+      <a href="/schools/mingli/news/">News</a>
+      <a href="https://changhua-bilingual.org/festivals/?from=mingli">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="head">
+    <div class="head__brand">Lesson 02 · Mingli Eco English</div>
+    <h1 class="head__title">Quiz · Sort the Trash</h1>
+    <div class="head__sub">8 questions · 共 8 題</div>
+  </header>
+
+  <main class="card" id="quiz-card">
+    <div class="progress">
+      <div class="progress__no" id="qno">Question 1 / 8</div>
+      <div class="progress__bar"><div class="progress__fill" id="bar"></div></div>
+    </div>
+    <div class="question" id="question">Loading…</div>
+    <div class="question__zh" id="question-zh"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback"></div>
+  </main>
+
+  <main class="card result" id="result-card" style="display:none;">
+    <div class="result__emoji" id="r-emoji">🎉</div>
+    <div class="result__title" id="r-title">Great job!</div>
+    <div class="result__score">
+      <span id="r-score">0</span> / <span id="r-total">8</span>
+      <small id="r-pct">(0%)</small>
+    </div>
+    <p class="result__msg" id="r-msg-en">You did great!</p>
+    <p class="result__zh" id="r-msg-zh">完成了！</p>
+    <div class="result__actions">
+      <button class="btn btn--primary" id="btn-restart">Try again · 再試一次</button>
+      <a class="btn btn--ghost" href="../">← Back to handout · 回講義</a>
+    </div>
+  </main>
+
+  <div class="foot">
+    Lesson 02 · Mingli Eco English &nbsp;·&nbsp;
+    <a href="../">View the lesson handout · 查看講義</a>
+  </div>
+</div>
+
+<script>
+const QUIZ = [
+  { q:'Where does an empty <strong>can</strong> go?', zh:'空的鐵鋁罐丟哪裡？',
+    options:['The food-waste bin','The recycling bin','The toy box','The school bag'], answer:1,
+    explain:'Cans can be recycled → recycling bin（回收桶）。' },
+  { q:'What is <strong>food waste</strong>?', zh:'"Food waste" 是什麼？',
+    options:['Clean paper','Leftover food like peels','A plastic toy','A glass window'], answer:1,
+    explain:'Food waste (n.) = leftover food（廚餘），例如果皮、剩飯。' },
+  { q:'What is a <strong>bin</strong>?', zh:'"Bin" 是什麼？',
+    options:['A pencil','A box for trash','A type of fruit','A window'], answer:1,
+    explain:'Bin (n.) = a box where we put trash（垃圾桶）。' },
+  { q:'A <strong>banana peel</strong> goes in the…', zh:'香蕉皮要丟進…',
+    options:['recycling bin','food-waste bin','plastic bag','pencil case'], answer:1,
+    explain:'Banana peel = food waste → food-waste bin（廚餘桶）。' },
+  { q:'Old clean <strong>paper</strong> goes in the…', zh:'乾淨的舊紙要丟進…',
+    options:['food-waste bin','recycling bin','water tap','tree'], answer:1,
+    explain:'Paper can be recycled → recycling bin（回收桶）。' },
+  { q:'Choose the best sentence:', zh:'選出最好的句子：',
+    options:['The paper goes in the recycling bin.','Paper bin the goes in.','Goes the paper bin in.','The bin goes in paper.'], answer:0,
+    explain:'句型：The + 東西 + goes in the + ___ bin。' },
+  { q:'Which question asks where trash goes?', zh:'哪一句在問垃圾丟哪裡？',
+    options:['What is your name?','Where does the can go?','How old are you?','Do you like cake?'], answer:1,
+    explain:'"Where does the can go?" = 這個罐子要丟哪裡？' },
+  { q:'Which one is made of <strong>plastic</strong>?', zh:'哪一個是塑膠做的？',
+    options:['A water bottle','A banana','A piece of rice','A leaf'], answer:0,
+    explain:'Plastic（塑膠）：例如塑膠水瓶。' },
+];
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+const state = { idx:0, score:0, answers:[] };
+
+function render(){
+  const q = QUIZ[state.idx];
+  $('#qno').textContent = `Question ${state.idx + 1} / ${QUIZ.length}`;
+  $('#bar').style.width = (state.idx / QUIZ.length * 100) + '%';
+  $('#question').innerHTML = q.q;
+  $('#question-zh').textContent = q.zh;
+  $('#feedback').textContent = '';
+  $('#feedback').className = 'feedback';
+  const box = $('#options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt__mark">${'ABCD'[i]}</span><span>${opt}</span>`;
+    btn.addEventListener('click', () => answer(i, btn));
+    box.appendChild(btn);
+  });
+  $('#question').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function answer(picked, btn){
+  const q = QUIZ[state.idx];
+  const ok = picked === q.answer;
+  state.answers.push({ q: state.idx, picked, correct: ok });
+  if(ok) state.score++;
+  $$('#options .opt').forEach((b, i) => {
+    b.disabled = true;
+    if(i === q.answer) b.classList.add('is-correct');
+    if(i === picked && !ok) b.classList.add('is-wrong');
+  });
+  const fb = $('#feedback');
+  fb.classList.add('show');
+  fb.classList.add(ok ? 'feedback--ok' : 'feedback--ng');
+  fb.innerHTML = ok
+    ? `✓ Correct! 答對了！<br><span style="font-weight:500;">${q.explain}</span>`
+    : `✗ The answer is: <b>${q.options[q.answer]}</b><br><span style="font-weight:500;">${q.explain}</span>`;
+  $('#bar').style.width = ((state.idx + 1) / QUIZ.length * 100) + '%';
+  setTimeout(() => {
+    state.idx++;
+    if(state.idx >= QUIZ.length) finish();
+    else render();
+  }, 2200);
+}
+
+function finish(){
+  const total = QUIZ.length;
+  const score = state.score;
+  const pct = Math.round(score / total * 100);
+  $('#r-score').textContent = score;
+  $('#r-total').textContent = total;
+  $('#r-pct').textContent = `(${pct}%)`;
+  let emoji, title, msgEn, msgZh;
+  if(pct === 100)      { emoji='🏆'; title='Perfect score!';  msgEn="You're a real Earth Helper!"; msgZh='你是真正的地球小幫手！'; }
+  else if(pct >= 80)   { emoji='🌟'; title='Excellent work!'; msgEn='Great job — keep helping the Earth.';        msgZh='做得很好！繼續愛護地球。'; }
+  else if(pct >= 60)   { emoji='👍'; title='Good effort!';    msgEn='Nice try — read the handout once more.';         msgZh='繼續加油！再回去看一次講義。'; }
+  else                 { emoji='🌱'; title='Keep going!';     msgEn="Don't give up — read the handout and try again!";  msgZh='不要放棄！回去再讀一次就會了。'; }
+  $('#r-emoji').textContent = emoji;
+  $('#r-title').textContent = title;
+  $('#r-msg-en').textContent = msgEn;
+  $('#r-msg-zh').textContent = msgZh;
+  $('#quiz-card').style.display = 'none';
+  $('#result-card').style.display = 'flex';
+  $('#result-card').style.flexDirection = 'column';
+  $('#result-card').style.alignItems = 'center';
+  $('#result-card').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+$('#btn-restart').addEventListener('click', () => {
+  state.idx = 0; state.score = 0; state.answers = [];
+  $('#result-card').style.display = 'none';
+  $('#quiz-card').style.display = 'flex';
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
