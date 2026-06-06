@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Art Museum · Photo Story · Guangxing Elementary</title>
+<meta name="description" content="Art Museum — a bilingual Photo Story from Guangxing Elementary School. Read in English, then Chinese, and listen to the narration.">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/guangxing/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/guangxing/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/guangxing/favicon-180.png">
+<link rel="shortcut icon" href="/schools/guangxing/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cane:#5b9c3f;--cane-deep:#316821;--cane-soft:#e3f1d6;
+    --gold:#c89a3a;--gold-deep:#8a6818;--gold-soft:#f6e8c4;
+    --terra:#b85f33;--terra-deep:#834020;--terra-soft:#f5dac9;
+    --ink:#2a2725;--ink-soft:#5a564f;--line:#e3e2d6;--bg-soft:#faf6ea;
+    --shadow:0 14px 38px -16px rgba(49,104,33,.30);
+    --shadow-sm:0 6px 16px -6px rgba(49,104,33,.18);
+    --max:920px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:21px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--cane-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--terra);}
+
+  .topbar{background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);padding:9px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1100px;margin:0 auto;padding:0 24px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:2px;border:1px solid var(--line);box-shadow:var(--shadow-sm);}
+  .brand-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:21px;font-weight:700;color:var(--cane-deep);line-height:1.1;}
+  .brand-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:14px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
+  .topbar-nav{display:flex;gap:3px;flex-wrap:wrap;}
+  .topbar-nav a{color:var(--ink);font-size:18px;font-weight:500;padding:9px 14px;border-radius:9px;}
+  .topbar-nav a:hover, .topbar-nav a.is-active{color:var(--cane-deep);background:var(--cane-soft);}
+  .topbar-nav a.is-active{font-weight:700;}
+  @media(max-width:820px){.topbar-inner{flex-direction:column;align-items:stretch;gap:6px;}.topbar-nav{gap:4px;justify-content:flex-start;width:100%;}.brand img{width:40px;height:40px;}}
+
+  /* Hero (photo banner) */
+  .hero{position:relative;height:clamp(280px,46vh,520px);overflow:hidden;background:#000;}
+  .hero img{width:100%;height:100%;object-fit:cover;opacity:.92;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,40,18,.05) 0%,rgba(20,40,18,0) 38%,rgba(20,40,18,.5) 74%,rgba(15,32,16,.86) 100%);}
+  .hero-cap{position:absolute;left:0;right:0;bottom:0;color:#fff;text-align:center;padding:36px 24px;z-index:1;}
+  .hero-cap .eyebrow{display:inline-block;font-size:14.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:10px;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+  .hero-cap h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(34px,5.5vw,52px);font-weight:700;line-height:1.08;text-shadow:0 2px 20px rgba(0,0,0,.6);}
+  .hero-cap h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(17px,2.3vw,22px);color:rgba(255,255,255,.95);font-weight:500;margin-top:8px;text-shadow:0 1px 12px rgba(0,0,0,.6);}
+
+  article.story{padding:56px 0 36px;}
+  article p{margin-bottom:18px;line-height:1.78;}
+  article p.zh{font-family:'PingFang TC',sans-serif;color:var(--ink);line-height:1.9;font-size:20px;}
+  article .en-block, article .zh-block{margin-bottom:30px;}
+
+  .audio-block{margin:32px 0 22px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .audio-block .label{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--cane-deep);text-transform:uppercase;letter-spacing:.16em;margin-bottom:12px;text-align:center;}
+  .audio-block iframe{display:block;width:100%;border:0;border-radius:8px;}
+
+  .credit{text-align:center;color:var(--ink-soft);font-size:15px;letter-spacing:.04em;margin-top:14px;font-family:'PingFang TC',sans-serif;}
+  .credit em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cane-deep);}
+
+  /* Prev/Next */
+  .nav-pn{display:flex;justify-content:space-between;align-items:stretch;gap:14px;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:32px;}
+  .nav-pn a{flex:1;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 22px;transition:all .2s;}
+  .nav-pn a:hover{border-color:var(--cane);transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+  .nav-pn .lbl{font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:700;color:var(--terra-deep);text-transform:uppercase;letter-spacing:.2em;}
+  .nav-pn .name{display:block;font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--cane-deep);font-weight:700;margin-top:4px;}
+  .nav-pn .right{text-align:right;}
+  .nav-pn .empty{visibility:hidden;}
+
+  footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
+  footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;max-width:1100px;}
+  footer.site a{color:var(--gold-soft);}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<nav class="topbar" role="navigation"><div class="topbar-inner">
+  <a class="brand" href="../../">
+    <img src="../../photos/logo.jpg" alt="Guangxing Elementary School logo 廣興國小校徽">
+    <div class="brand-name">Guangxing Elementary<small>彰化縣二林鎮廣興國民小學</small></div>
+  </a>
+  <div class="topbar-nav">
+    <a href="../../">Home</a>
+    <a href="../../principal/">Principal</a>
+    <a href="../" class="is-active">Lessons</a>
+    <a href="../../news/">News</a>
+    <a href="https://changhua-bilingual.org/festivals/?from=guangxing" target="_blank" rel="noopener">Festivals</a>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <img src="../../photos/lesson-art-museum.jpg" alt="Kids and guide at an art museum exhibition 美術館內導覽與學生">
+  <div class="hero-cap">
+    <span class="eyebrow">Story 03 · Photo</span>
+    <h1>Art Museum<span class="zh">參觀美術館</span></h1>
+  </div>
+</header>
+
+<article class="story"><div class="wrap">
+
+  <div class="en-block">
+    <p>Kids are visiting an art museum. There is a special exhibition of paintings by an artist. A guide is talking to the kids about the artwork. They listen carefully to learn more about the beautiful art on the walls.</p>
+  </div>
+
+  <div class="audio-block">
+    <div class="label">▶ Listen · 聆聽朗讀</div>
+    <iframe scrolling="no" allow="autoplay" height="120"
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Flukelin7429%2Fart-museum&color=%23316821&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false&show_teaser=false"></iframe>
+  </div>
+
+  <div class="zh-block">
+    <p class="zh">孩子們正在參觀一座藝術博物館。博物館裡有一位藝術家的特展。導覽員正在向孩子們介紹這些藝術作品。他們專心地聽著，學習更多關於牆上美麗藝術品的知識。</p>
+  </div>
+
+  <div class="credit">圖片描述 Art Museum · 朗讀者 Edwin Schadewald</div>
+
+  <nav class="nav-pn">
+    <a href="../ingredients/"><span class="lbl">← Previous</span><span class="name">Ingredients</span></a>
+    <a class="right" href="../coding/"><span class="lbl">Next →</span><span class="name">Coding</span></a>
+  </nav>
+
+</div></article>
+
+<footer class="site"><div class="wrap">
+  <div>© Guangxing Elementary School · 廣興國小</div>
+  <div>Bilingual website by <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></div>
+</div></footer>
+
+</body>
+</html>
