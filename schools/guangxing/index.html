@@ -108,6 +108,23 @@
   .pillar h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
   .pillar p{font-size:17px;color:var(--ink-soft);margin-top:12px;line-height:1.55;}
 
+  /* ===== Video tour (horizontal 16:9 intro) ===== */
+  .vtour{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+  @media(min-width:880px){.vtour{grid-template-columns:1.15fr .85fr;gap:48px;}}
+  .vembed{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:var(--shadow);border:4px solid #fff;}
+  .vembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vtour__text .kick{display:inline-block;color:var(--terra-deep);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:15.5px;}
+  .vtour__text h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(30px,4.6vw,44px);color:var(--cane-deep);font-weight:700;margin-top:8px;line-height:1.16;}
+  .vtour__text h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .vtour__text p{font-size:19px;color:var(--ink);margin-top:14px;line-height:1.7;}
+  .vtour__text p .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18.5px;color:var(--ink-soft);margin-top:8px;}
+  .vtour__links{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .vtour__link{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;background:#fff;border:1.5px solid var(--line);border-radius:11px;color:var(--cane-deep);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;transition:all .2s;}
+  .vtour__link:hover{transform:translateY(-2px);border-color:var(--cane);color:var(--cane-deep);}
+  .vtour__link .ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:18px;border-radius:4px;color:#fff;font-size:11px;font-weight:700;}
+  .vtour__link .ic.yt{background:#FF0000;}
+  .vtour__link .ic.sc{background:#FF5500;}
+
   /* ===== Feature card ===== */
   .feat{position:relative;display:grid;grid-template-columns:1fr;gap:28px;align-items:center;background:linear-gradient(135deg,var(--cane-soft) 0%,var(--gold-soft) 100%);border:1px solid var(--line);border-radius:24px;padding:32px 30px;box-shadow:var(--shadow);overflow:hidden;}
   @media(min-width:860px){.feat{grid-template-columns:1.05fr .95fr;gap:42px;padding:44px 46px;}}
@@ -229,6 +246,24 @@
     </dl>
   </div>
 </div></div></section>
+
+<!-- ===== VIDEO TOUR ===== -->
+<section style="background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);"><div class="wrap">
+  <div class="vtour">
+    <div class="vembed">
+      <iframe src="https://www.youtube-nocookie.com/embed/ywNl9spCtrk?rel=0" title="Welcome to Guangxing Elementary School — bilingual school introduction" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="vtour__text">
+      <span class="kick">▶ Watch · 一分鐘看見廣興</span>
+      <h2>See Guangxing in One Minute<span class="zh">用 37 秒，認識廣興國小</span></h2>
+      <p>"Welcome to Guangxing Elementary School. We're located in a quiet place in Erlin, surrounded by pretty farms. Our school is special because we make learning fun and creative. We want every student to be happy, kind, and smart."<span class="zh">「歡迎來到廣興國小。我們位於二林的一個安靜地方，周圍環繞著美麗的農田。我們的學校很特別——我們讓學習變得有趣且富有創意。我們希望每位學生都能快樂、善良、且聰明。」</span></p>
+      <div class="vtour__links">
+        <a class="vtour__link" href="https://www.youtube.com/watch?v=ywNl9spCtrk" target="_blank" rel="noopener"><span class="ic yt">▶</span>Watch on YouTube</a>
+        <a class="vtour__link" href="https://soundcloud.com/lukelin7429/guangxinges" target="_blank" rel="noopener"><span class="ic sc">♪</span>Listen on SoundCloud</a>
+      </div>
+    </div>
+  </div>
+</div></section>
 
 <!-- ===== FIVE ING PILLARS ===== -->
 <section style="background:linear-gradient(180deg,#fff 0%,var(--cane-soft) 100%);"><div class="wrap">
