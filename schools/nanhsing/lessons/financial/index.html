@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Financial Literacy · 金融教育 · Nanhsing Elementary</title>
-<meta name="description" content="Nanhsing Financial Literacy — six simple bilingual lessons for kids: money, wants vs needs, saving, banks, smart spending and borrowing. 南興金融教育六堂課。">
-<meta property="og:title" content="Financial Literacy · 金融教育 · Nanhsing Elementary">
+<title>Financial Literacy · Nanhsing Elementary</title>
+<meta name="description" content="Financial Literacy (金融教育 · 理財小達人 · 六堂課) — six simple bilingual lessons at Nanhsing Elementary.">
+<meta property="og:title" content="Financial Literacy · Nanhsing Elementary">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
@@ -302,6 +302,104 @@
   .topic__no{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--gold);flex-shrink:0;}
   .topic__en{font-weight:700;color:var(--g-deep);font-size:20px;line-height:1.25;}
   .topic__zh{font-size:17px;color:var(--ink-soft);margin-top:2px;}
+  /* big course feature rows (lessons landing) */
+  .course-list{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+  @media(min-width:760px){.course{grid-template-columns:340px 1fr;align-items:stretch;}}
+  .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
+  .course__emoji{font-size:110px;line-height:1;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));transition:transform .3s;}
+  @media(min-width:720px){.course__emoji{font-size:140px;}}
+  .course:hover .course__emoji{transform:scale(1.06) rotate(-3deg);}
+  .course__badge{font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 18px;border-radius:99px;}
+  .course__body{padding:36px 34px 38px;display:flex;flex-direction:column;justify-content:center;}
+  @media(min-width:720px){.course__body{padding:48px 52px;}}
+  .course__no{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
+  .course__title{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--g-deep);line-height:1.12;margin-top:8px;}
+  @media(min-width:720px){.course__title{font-size:50px;}}
+  .course__title-zh{font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media(min-width:720px){.course__title-zh{font-size:26px;}}
+  .course__desc{font-size:20px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
+  @media(min-width:720px){.course__desc{font-size:23px;}}
+  .course__cta{margin-top:26px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;background:var(--g);padding:15px 30px;border-radius:14px;box-shadow:0 8px 22px -8px rgba(43,90,160,.6);}
+  @media(min-width:720px){.course__cta{font-size:23px;}}
+  .course__cta .arrow{transition:transform .15s;}
+  .course:hover .course__cta .arrow{transform:translateX(6px);}
+  .course--2 .course__art{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);}
+  .course--2 .course__cta{background:var(--gold-deep);box-shadow:0 8px 22px -8px rgba(138,90,6,.6);}
+  .course--3 .course__art{background:linear-gradient(135deg,var(--g-light) 0%,var(--g) 100%);}
+  /* speak button */
+  .say{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:21px;cursor:pointer;transition:all .15s;line-height:1;}
+  .say:hover{background:var(--gold-soft);border-color:var(--gold);transform:scale(1.08);}
+  .say.is-speaking{background:var(--gold);border-color:var(--gold-deep);}
+  /* concept / big idea */
+  .bigidea{background:linear-gradient(135deg,var(--g-soft) 0%,#fff 82%);border:1px solid var(--line);border-left:8px solid var(--g);border-radius:18px;padding:28px 30px;margin-top:8px;}
+  @media(min-width:720px){.bigidea{padding:36px 40px;}}
+  .bigidea p{font-size:21px;line-height:1.75;color:var(--ink);}
+  @media(min-width:720px){.bigidea p{font-size:24px;}}
+  .bigidea p+p{margin-top:14px;}
+  .bigidea .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media(min-width:720px){.bigidea .zh{font-size:21px;}}
+  .bigidea strong{color:var(--g-deep);font-weight:700;}
+  /* vocabulary cards (with examples + audio) */
+  .words{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
+  @media(min-width:780px){.words{grid-template-columns:1fr 1fr;gap:24px;}}
+  .word{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:26px 28px;border-top:7px solid var(--g);}
+  .word:nth-child(2n){border-top-color:var(--gold);}
+  .word:nth-child(3n){border-top-color:var(--earth);}
+  .word:nth-child(4n){border-top-color:var(--g-light);}
+  .word__top{display:flex;align-items:center;gap:14px;}
+  .word__emoji{font-size:38px;line-height:1;}
+  .word__main{flex:1;min-width:0;}
+  .word__term{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--g-deep);line-height:1.12;}
+  @media(min-width:720px){.word__term{font-size:33px;}}
+  .word__zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:2px;}
+  @media(min-width:720px){.word__zh{font-size:23px;}}
+  .word__exs{margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+  .word__ex{background:var(--bg-soft);border-radius:12px;padding:14px 16px;border-left:4px solid var(--g);display:flex;align-items:center;gap:12px;}
+  .word__ex:nth-child(2){border-left-color:var(--gold);}
+  .word__ex .ex__txt{flex:1;min-width:0;}
+  .word__ex .en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.word__ex .en{font-size:20px;}}
+  .word__ex .en b{color:var(--g-deep);}
+  .word__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.word__ex .zh{font-size:18px;}}
+  /* dialogue */
+  .dialogue__scene{font-size:18px;color:var(--ink-soft);font-style:italic;margin-bottom:18px;padding:14px 18px;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:6px;line-height:1.55;}
+  @media(min-width:720px){.dialogue__scene{font-size:20px;}}
+  .dialogue{display:flex;flex-direction:column;gap:14px;}
+  .turn{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;}
+  @media(min-width:720px){.turn{padding:22px 26px;gap:18px;}}
+  .turn--a{border-left:7px solid var(--g);}
+  .turn--b{border-left:7px solid var(--gold);background:var(--bg-soft);}
+  .turn__who{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:23px;color:#fff;flex-shrink:0;}
+  @media(min-width:720px){.turn__who{width:56px;height:56px;font-size:27px;}}
+  .turn--a .turn__who{background:var(--g);}
+  .turn--b .turn__who{background:var(--gold-deep);}
+  .turn__main{min-width:0;}
+  .turn__en{font-size:21px;color:var(--ink);font-weight:600;line-height:1.45;}
+  @media(min-width:720px){.turn__en{font-size:25px;}}
+  .turn__zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.turn__zh{font-size:19px;}}
+  /* sentence of the week */
+  .sow{background:linear-gradient(135deg,var(--g-deep) 0%,var(--g) 100%);color:#fff;border-radius:24px;padding:40px 32px;box-shadow:var(--shadow);}
+  @media(min-width:720px){.sow{padding:54px 56px;}}
+  .sow__badge{display:inline-block;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g-deep);background:var(--gold);padding:7px 16px;border-radius:99px;}
+  .sow__en{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;line-height:1.25;margin-top:22px;}
+  @media(min-width:720px){.sow__en{font-size:46px;}}
+  .sow__zh{font-size:20px;color:#cfe0f5;margin-top:12px;line-height:1.5;}
+  @media(min-width:720px){.sow__zh{font-size:24px;}}
+  .sow__say{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.5);color:#fff;font-size:18px;font-weight:700;padding:12px 22px;border-radius:99px;cursor:pointer;transition:all .15s;}
+  .sow__say:hover{background:#fff;color:var(--g-deep);}
+  .sow__say.is-speaking{background:var(--gold);color:var(--g-deep);border-color:var(--gold);}
+  .sow-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px;}
+  @media(min-width:720px){.sow-list{grid-template-columns:1fr 1fr;gap:16px;}}
+  .sow-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:14px;}
+  .sow-item__txt{flex:1;min-width:0;}
+  .sow-item__en{font-size:19px;font-weight:700;color:var(--g-deep);line-height:1.4;}
+  @media(min-width:720px){.sow-item__en{font-size:21px;}}
+  .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
+  @media(min-width:720px){.sow-item__zh{font-size:18px;}}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -336,74 +434,68 @@
     <h2 class="sec__title">Financial Literacy</h2>
     <div class="sec__title-zh">金融教育 · 理財小達人 · 六堂課</div>
     <div class="sec__rule"></div>
-    <p class="sec__lede">Money is a life skill — so we made it simple and fun. Six short bilingual lessons help Nanhsing kids understand money, saving and spending wisely. No tests, just good habits for life. <span class="zh">理財是一種生活能力——所以我們把它變得簡單又有趣。六堂簡短的雙語課程，幫南興的孩子認識金錢、學會儲蓄與聰明消費。沒有考試，只有受用一生的好習慣。</span></p>
-    <div class="lessons-list" style="margin-top:36px;">
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">1</div><span class="lesson__emoji">🪙</span><div class="lesson__titles">
-          <div class="lesson__title">What Is Money?</div><div class="lesson__title-zh">認識金錢</div></div></div>
-        <div class="lesson__body">
-          <p>Money is what we use to trade for the things we need. Coins and bills come in different values. We learn to recognize them and understand that money is earned through work.</p>
-          <p class="zh">金錢是我們用來交換所需物品的東西。硬幣和紙鈔有不同的面額。我們學會認識它們，也明白金錢是靠工作賺來的。</p>
-          <div class="chips"><span class="chip">money <b>金錢</b></span><span class="chip">coin <b>硬幣</b></span><span class="chip">bill <b>紙鈔</b></span><span class="chip">earn <b>賺取</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Count the coins in your piggy bank and add up the total.<div class="zh">數數你撲滿裡的硬幣，把總額加起來。</div></div>
+    <p class="sec__lede">Six simple bilingual lessons that make money make sense — what money is, wants vs. needs, saving, banks, smart spending and borrowing wisely. Each lesson has a big idea, vocabulary with example sentences and audio, and a dialogue you can listen to. No tests, just good habits for life. <span class="zh">六堂簡單的雙語課，把理財講得清清楚楚——認識金錢、想要與需要、儲蓄、銀行、理性消費與有借有還。每一課都有核心觀念、含例句與發音的單字，以及可以聽的對話。沒有考試，只有受用一生的好習慣。</span></p>
+    <div class="units units--3" style="margin-top:32px;">
+      <a class="unit" href="lesson-1/">
+        <div class="unit__hero"><span class="unit__emoji">🪙</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 01</div>
+          <div class="unit__title">What Is Money?</div>
+          <div class="unit__title-zh">認識金錢</div>
+          <div class="unit__desc">Coins, bills and how we earn them — start your money journey here.</div>
+          <div class="unit__cta">Open Lesson 1 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">2</div><span class="lesson__emoji">🤔</span><div class="lesson__titles">
-          <div class="lesson__title">Want vs. Need</div><div class="lesson__title-zh">想要還是需要</div></div></div>
-        <div class="lesson__body">
-          <p>A need is something we must have, like food and clothes. A want is something nice to have, like toys and candy. Smart kids learn to tell the difference before they spend.</p>
-          <p class="zh">「需要」是我們一定要有的東西，例如食物和衣服；「想要」是有了會很開心的東西，例如玩具和糖果。聰明的孩子在花錢前會先分清楚。</p>
-          <div class="chips"><span class="chip">need <b>需要</b></span><span class="chip">want <b>想要</b></span><span class="chip">spend <b>花費</b></span><span class="chip">choose <b>選擇</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Before you buy something, ask: do I need it, or do I want it?<div class="zh">買東西前先問自己：這是需要，還是想要？</div></div>
+      </a>
+      <a class="unit unit--c2" href="lesson-2/">
+        <div class="unit__hero"><span class="unit__emoji">🤔</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 02</div>
+          <div class="unit__title">Want vs. Need</div>
+          <div class="unit__title-zh">想要還是需要</div>
+          <div class="unit__desc">A need keeps you healthy; a want is just nice to have. Learn the difference.</div>
+          <div class="unit__cta">Open Lesson 2 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">3</div><span class="lesson__emoji">📓</span><div class="lesson__titles">
-          <div class="lesson__title">Save First: Keep a Money Diary</div><div class="lesson__title-zh">記帳與儲蓄</div></div></div>
-        <div class="lesson__body">
-          <p>A simple rule: Income − Savings = Spending. Save a little first, then spend the rest. Keeping a money diary helps us see where our money goes.</p>
-          <p class="zh">一個簡單的原則：收入 − 儲蓄 = 支出。先存下一點，再花剩下的。記帳能幫我們看清楚錢花到哪裡去了。</p>
-          <div class="chips"><span class="chip">save <b>儲蓄</b></span><span class="chip">income <b>收入</b></span><span class="chip">record <b>記錄</b></span><span class="chip">budget <b>預算</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Write down everything you spend for one week.<div class="zh">把一週內花的每一筆錢都記下來。</div></div>
+      </a>
+      <a class="unit unit--c3" href="lesson-3/">
+        <div class="unit__hero"><span class="unit__emoji">📓</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 03</div>
+          <div class="unit__title">Save First</div>
+          <div class="unit__title-zh">記帳與儲蓄</div>
+          <div class="unit__desc">Income − Savings = Spending. Save a little first, then spend the rest.</div>
+          <div class="unit__cta">Open Lesson 3 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">4</div><span class="lesson__emoji">🏦</span><div class="lesson__titles">
-          <div class="lesson__title">Why Save in a Bank?</div><div class="lesson__title-zh">把錢存進銀行的好處</div></div></div>
-        <div class="lesson__body">
-          <p>A bank keeps our money safe and even pays us a little extra called interest. Saving in a bank helps our money grow over time instead of getting lost or spent too fast.</p>
-          <p class="zh">銀行能幫我們把錢安全保管，甚至會多給我們一點點，叫做「利息」。把錢存進銀行，能讓錢隨著時間慢慢長大，不會弄丟或太快花掉。</p>
-          <div class="chips"><span class="chip">bank <b>銀行</b></span><span class="chip">save <b>存錢</b></span><span class="chip">interest <b>利息</b></span><span class="chip">safe <b>安全</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Ask a grown-up how a savings account works.<div class="zh">問問大人，儲蓄帳戶是怎麼運作的。</div></div>
+      </a>
+      <a class="unit unit--c4" href="lesson-4/">
+        <div class="unit__hero"><span class="unit__emoji">🏦</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 04</div>
+          <div class="unit__title">Why Save in a Bank?</div>
+          <div class="unit__title-zh">把錢存進銀行的好處</div>
+          <div class="unit__desc">A bank keeps money safe — and even pays you a little interest.</div>
+          <div class="unit__cta">Open Lesson 4 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">5</div><span class="lesson__emoji">🛒</span><div class="lesson__titles">
-          <div class="lesson__title">Smart Spending</div><div class="lesson__title-zh">理性消費</div></div></div>
-        <div class="lesson__body">
-          <p>Our money is limited, but our wants can feel endless. Smart spenders compare prices, wait for what they really want, and don't buy just because something looks fun.</p>
-          <p class="zh">我們的錢是有限的，但「想要」卻好像沒有盡頭。聰明的消費者會比價、會為真正想要的東西等待，不會因為東西看起來好玩就買。</p>
-          <div class="chips"><span class="chip">price <b>價格</b></span><span class="chip">compare <b>比較</b></span><span class="chip">value <b>價值</b></span><span class="chip">wait <b>等待</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Next time you want something, wait one day before deciding.<div class="zh">下次想買東西時，先等一天再決定。</div></div>
+      </a>
+      <a class="unit unit--c5" href="lesson-5/">
+        <div class="unit__hero"><span class="unit__emoji">🛒</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 05</div>
+          <div class="unit__title">Smart Spending</div>
+          <div class="unit__title-zh">理性消費</div>
+          <div class="unit__desc">Money is limited but wants feel endless. Compare, value and wait.</div>
+          <div class="unit__cta">Open Lesson 5 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">6</div><span class="lesson__emoji">🤝</span><div class="lesson__titles">
-          <div class="lesson__title">Borrow Wisely</div><div class="lesson__title-zh">有借有還，再借不難</div></div></div>
-        <div class="lesson__body">
-          <p>Sometimes we borrow something we don't have. The golden rule: always return what you borrow, on time and in good shape. People who keep their word build trust — and good credit.</p>
-          <p class="zh">有時候我們會借用自己沒有的東西。黃金守則是：借來的東西一定要準時、完好地歸還。守信用的人能建立信任——也就是良好的「信用」。</p>
-          <div class="chips"><span class="chip">borrow <b>借入</b></span><span class="chip">return <b>歸還</b></span><span class="chip">trust <b>信任</b></span><span class="chip">credit <b>信用</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Borrow a book from the library and return it on time.<div class="zh">到圖書館借一本書，並準時歸還。</div></div>
+      </a>
+      <a class="unit unit--c2" href="lesson-6/">
+        <div class="unit__hero"><span class="unit__emoji">🤝</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 06</div>
+          <div class="unit__title">Borrow Wisely</div>
+          <div class="unit__title-zh">有借有還，再借不難</div>
+          <div class="unit__desc">Always return what you borrow — that's how trust and good credit grow.</div>
+          <div class="unit__cta">Open Lesson 6 <span class="arrow">→</span></div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

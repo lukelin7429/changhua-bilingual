@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>International Education · 國際教育 · Nanhsing Elementary</title>
-<meta name="description" content="Nanhsing International Education — six simple bilingual lessons: one world, countries, flags, world foods, greetings and a winter culture camp. 南興國際教育六堂課。">
-<meta property="og:title" content="International Education · 國際教育 · Nanhsing Elementary">
+<title>International Education · Nanhsing Elementary</title>
+<meta name="description" content="International Education (國際教育 · 世界一家親 · 六堂課) — six simple bilingual lessons at Nanhsing Elementary.">
+<meta property="og:title" content="International Education · Nanhsing Elementary">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
@@ -302,6 +302,104 @@
   .topic__no{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--gold);flex-shrink:0;}
   .topic__en{font-weight:700;color:var(--g-deep);font-size:20px;line-height:1.25;}
   .topic__zh{font-size:17px;color:var(--ink-soft);margin-top:2px;}
+  /* big course feature rows (lessons landing) */
+  .course-list{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+  @media(min-width:760px){.course{grid-template-columns:340px 1fr;align-items:stretch;}}
+  .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
+  .course__emoji{font-size:110px;line-height:1;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));transition:transform .3s;}
+  @media(min-width:720px){.course__emoji{font-size:140px;}}
+  .course:hover .course__emoji{transform:scale(1.06) rotate(-3deg);}
+  .course__badge{font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 18px;border-radius:99px;}
+  .course__body{padding:36px 34px 38px;display:flex;flex-direction:column;justify-content:center;}
+  @media(min-width:720px){.course__body{padding:48px 52px;}}
+  .course__no{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
+  .course__title{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--g-deep);line-height:1.12;margin-top:8px;}
+  @media(min-width:720px){.course__title{font-size:50px;}}
+  .course__title-zh{font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media(min-width:720px){.course__title-zh{font-size:26px;}}
+  .course__desc{font-size:20px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
+  @media(min-width:720px){.course__desc{font-size:23px;}}
+  .course__cta{margin-top:26px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;background:var(--g);padding:15px 30px;border-radius:14px;box-shadow:0 8px 22px -8px rgba(43,90,160,.6);}
+  @media(min-width:720px){.course__cta{font-size:23px;}}
+  .course__cta .arrow{transition:transform .15s;}
+  .course:hover .course__cta .arrow{transform:translateX(6px);}
+  .course--2 .course__art{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);}
+  .course--2 .course__cta{background:var(--gold-deep);box-shadow:0 8px 22px -8px rgba(138,90,6,.6);}
+  .course--3 .course__art{background:linear-gradient(135deg,var(--g-light) 0%,var(--g) 100%);}
+  /* speak button */
+  .say{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:21px;cursor:pointer;transition:all .15s;line-height:1;}
+  .say:hover{background:var(--gold-soft);border-color:var(--gold);transform:scale(1.08);}
+  .say.is-speaking{background:var(--gold);border-color:var(--gold-deep);}
+  /* concept / big idea */
+  .bigidea{background:linear-gradient(135deg,var(--g-soft) 0%,#fff 82%);border:1px solid var(--line);border-left:8px solid var(--g);border-radius:18px;padding:28px 30px;margin-top:8px;}
+  @media(min-width:720px){.bigidea{padding:36px 40px;}}
+  .bigidea p{font-size:21px;line-height:1.75;color:var(--ink);}
+  @media(min-width:720px){.bigidea p{font-size:24px;}}
+  .bigidea p+p{margin-top:14px;}
+  .bigidea .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media(min-width:720px){.bigidea .zh{font-size:21px;}}
+  .bigidea strong{color:var(--g-deep);font-weight:700;}
+  /* vocabulary cards (with examples + audio) */
+  .words{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
+  @media(min-width:780px){.words{grid-template-columns:1fr 1fr;gap:24px;}}
+  .word{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:26px 28px;border-top:7px solid var(--g);}
+  .word:nth-child(2n){border-top-color:var(--gold);}
+  .word:nth-child(3n){border-top-color:var(--earth);}
+  .word:nth-child(4n){border-top-color:var(--g-light);}
+  .word__top{display:flex;align-items:center;gap:14px;}
+  .word__emoji{font-size:38px;line-height:1;}
+  .word__main{flex:1;min-width:0;}
+  .word__term{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--g-deep);line-height:1.12;}
+  @media(min-width:720px){.word__term{font-size:33px;}}
+  .word__zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:2px;}
+  @media(min-width:720px){.word__zh{font-size:23px;}}
+  .word__exs{margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+  .word__ex{background:var(--bg-soft);border-radius:12px;padding:14px 16px;border-left:4px solid var(--g);display:flex;align-items:center;gap:12px;}
+  .word__ex:nth-child(2){border-left-color:var(--gold);}
+  .word__ex .ex__txt{flex:1;min-width:0;}
+  .word__ex .en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.word__ex .en{font-size:20px;}}
+  .word__ex .en b{color:var(--g-deep);}
+  .word__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.word__ex .zh{font-size:18px;}}
+  /* dialogue */
+  .dialogue__scene{font-size:18px;color:var(--ink-soft);font-style:italic;margin-bottom:18px;padding:14px 18px;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:6px;line-height:1.55;}
+  @media(min-width:720px){.dialogue__scene{font-size:20px;}}
+  .dialogue{display:flex;flex-direction:column;gap:14px;}
+  .turn{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;}
+  @media(min-width:720px){.turn{padding:22px 26px;gap:18px;}}
+  .turn--a{border-left:7px solid var(--g);}
+  .turn--b{border-left:7px solid var(--gold);background:var(--bg-soft);}
+  .turn__who{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:23px;color:#fff;flex-shrink:0;}
+  @media(min-width:720px){.turn__who{width:56px;height:56px;font-size:27px;}}
+  .turn--a .turn__who{background:var(--g);}
+  .turn--b .turn__who{background:var(--gold-deep);}
+  .turn__main{min-width:0;}
+  .turn__en{font-size:21px;color:var(--ink);font-weight:600;line-height:1.45;}
+  @media(min-width:720px){.turn__en{font-size:25px;}}
+  .turn__zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.turn__zh{font-size:19px;}}
+  /* sentence of the week */
+  .sow{background:linear-gradient(135deg,var(--g-deep) 0%,var(--g) 100%);color:#fff;border-radius:24px;padding:40px 32px;box-shadow:var(--shadow);}
+  @media(min-width:720px){.sow{padding:54px 56px;}}
+  .sow__badge{display:inline-block;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g-deep);background:var(--gold);padding:7px 16px;border-radius:99px;}
+  .sow__en{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;line-height:1.25;margin-top:22px;}
+  @media(min-width:720px){.sow__en{font-size:46px;}}
+  .sow__zh{font-size:20px;color:#cfe0f5;margin-top:12px;line-height:1.5;}
+  @media(min-width:720px){.sow__zh{font-size:24px;}}
+  .sow__say{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.5);color:#fff;font-size:18px;font-weight:700;padding:12px 22px;border-radius:99px;cursor:pointer;transition:all .15s;}
+  .sow__say:hover{background:#fff;color:var(--g-deep);}
+  .sow__say.is-speaking{background:var(--gold);color:var(--g-deep);border-color:var(--gold);}
+  .sow-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px;}
+  @media(min-width:720px){.sow-list{grid-template-columns:1fr 1fr;gap:16px;}}
+  .sow-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:14px;}
+  .sow-item__txt{flex:1;min-width:0;}
+  .sow-item__en{font-size:19px;font-weight:700;color:var(--g-deep);line-height:1.4;}
+  @media(min-width:720px){.sow-item__en{font-size:21px;}}
+  .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
+  @media(min-width:720px){.sow-item__zh{font-size:18px;}}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -336,79 +434,68 @@
     <h2 class="sec__title">International Education</h2>
     <div class="sec__title-zh">國際教育 · 世界一家親 · 六堂課</div>
     <div class="sec__rule"></div>
-    <p class="sec__lede">Nanhsing is home to an International Education Center and Changhua's first English Book Bank. This little six-lesson course opens a window to the world — countries, flags, foods and friends across cultures. No tests, just curiosity. <span class="zh">南興擁有國際教育中心與彰化首座英文愛的書庫。這套六堂的小課程，為孩子打開一扇看世界的窗——國家、國旗、美食與跨文化的朋友。沒有考試，只有好奇心。</span></p>
-    <div class="lessons-list" style="margin-top:36px;">
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">1</div><span class="lesson__emoji">🌍</span><div class="lesson__titles">
-          <div class="lesson__title">One World, One Family</div><div class="lesson__title-zh">世界一家親</div></div></div>
-        <div class="lesson__body">
-          <p>We all share one planet. At Nanhsing's International Education Center, children have welcomed visiting students from Japan, Australia and the USA. Different faces, different languages — but one big human family.</p>
-          <p class="zh">我們共享同一個地球。南興的國際教育中心曾接待來自日本、澳洲、美國的學生。不同的面孔、不同的語言，卻是同一個大家庭。</p>
-          <div class="chips"><span class="chip">world <b>世界</b></span><span class="chip">country <b>國家</b></span><span class="chip">culture <b>文化</b></span><span class="chip">friend <b>朋友</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Say hello to someone new and ask where they are from.<div class="zh">跟一個新朋友打招呼，問問他來自哪裡。</div></div>
+    <p class="sec__lede">Six simple bilingual lessons that open a window to the world — countries, flags, foods, greetings and friends across cultures. Each lesson has a big idea, vocabulary with example sentences and audio, and a dialogue you can listen to. No tests, just curiosity. <span class="zh">六堂簡單的雙語課，為孩子打開一扇看世界的窗——國家、國旗、美食、問候與跨文化的朋友。每一課都有核心觀念、含例句與發音的單字，以及可以聽的對話。沒有考試，只有好奇心。</span></p>
+    <div class="units units--3" style="margin-top:32px;">
+      <a class="unit" href="lesson-1/">
+        <div class="unit__hero"><span class="unit__emoji">🌍</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 01</div>
+          <div class="unit__title">One World, One Family</div>
+          <div class="unit__title-zh">世界一家親</div>
+          <div class="unit__desc">We all share one planet. Meet the idea that started Nanhsing's International Education.</div>
+          <div class="unit__cta">Open Lesson 1 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">2</div><span class="lesson__emoji">🗺️</span><div class="lesson__titles">
-          <div class="lesson__title">Countries on the Map</div><div class="lesson__title-zh">認識國家的位置</div></div></div>
-        <div class="lesson__body">
-          <p>Where in the world is Taiwan? Where is Japan, or the USA? We use a map and a globe to find countries and the seven continents, and learn that we are all neighbors on the same Earth.</p>
-          <p class="zh">台灣在世界的哪裡？日本、美國又在哪裡？我們用地圖和地球儀找出各國與七大洲，了解我們都是地球上的鄰居。</p>
-          <div class="chips"><span class="chip">map <b>地圖</b></span><span class="chip">globe <b>地球儀</b></span><span class="chip">continent <b>洲</b></span><span class="chip">ocean <b>海洋</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Find Taiwan on a map, then find one country you'd like to visit.<div class="zh">在地圖上找出台灣，再找一個你想去的國家。</div></div>
+      </a>
+      <a class="unit unit--c2" href="lesson-2/">
+        <div class="unit__hero"><span class="unit__emoji">🗺️</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 02</div>
+          <div class="unit__title">Countries on the Map</div>
+          <div class="unit__title-zh">認識國家的位置</div>
+          <div class="unit__desc">Where in the world is Taiwan? Find countries and continents on the map.</div>
+          <div class="unit__cta">Open Lesson 2 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">3</div><span class="lesson__emoji">🚩</span><div class="lesson__titles">
-          <div class="lesson__title">Flags Around the World</div><div class="lesson__title-zh">認識國家與國旗</div></div></div>
-        <div class="lesson__body">
-          <p>Every country has a flag, and every flag tells a story with its colors and shapes. We match flags to their countries and discover what the symbols mean.</p>
-          <p class="zh">每個國家都有國旗，每面國旗都用顏色和圖案說著故事。我們把國旗和國家配對，認識旗子上的符號代表什麼。</p>
-          <div class="chips"><span class="chip">flag <b>國旗</b></span><span class="chip">color <b>顏色</b></span><span class="chip">star <b>星星</b></span><span class="chip">stripe <b>條紋</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Draw the flag of a country you like and tell a friend one fact about it.<div class="zh">畫出你喜歡的國家的國旗，告訴朋友一個關於它的小知識。</div></div>
+      </a>
+      <a class="unit unit--c3" href="lesson-3/">
+        <div class="unit__hero"><span class="unit__emoji">🚩</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 03</div>
+          <div class="unit__title">Flags Around the World</div>
+          <div class="unit__title-zh">認識國家與國旗</div>
+          <div class="unit__desc">Every flag tells a story with its colors and shapes. Match flags to countries.</div>
+          <div class="unit__cta">Open Lesson 3 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">4</div><span class="lesson__emoji">🍜</span><div class="lesson__titles">
-          <div class="lesson__title">Foods Around the World</div><div class="lesson__title-zh">世界美食大不同</div></div></div>
-        <div class="lesson__body">
-          <p>Hamburgers from America, takoyaki from Japan, and popped rice and sweet-potato balls from Taiwan — food is a delicious way to meet a culture. We taste, name and compare foods from many places.</p>
-          <p class="zh">美國的漢堡、日本的章魚燒、台灣的爆米香和地瓜球——美食是認識文化最美味的方式。我們品嚐、命名並比較來自各地的食物。</p>
-          <div class="chips"><span class="chip">food <b>食物</b></span><span class="chip">delicious <b>美味的</b></span><span class="chip">taste <b>品嚐</b></span><span class="chip">hamburger <b>漢堡</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Name your favorite food and find out which country it comes from.<div class="zh">說出你最愛的食物，查查它來自哪個國家。</div></div>
+      </a>
+      <a class="unit unit--c4" href="lesson-4/">
+        <div class="unit__hero"><span class="unit__emoji">🍜</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 04</div>
+          <div class="unit__title">Foods Around the World</div>
+          <div class="unit__title-zh">世界美食大不同</div>
+          <div class="unit__desc">Hamburgers, takoyaki, sweet-potato balls — taste the world, one dish at a time.</div>
+          <div class="unit__cta">Open Lesson 4 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">5</div><span class="lesson__emoji">👋</span><div class="lesson__titles">
-          <div class="lesson__title">Hello in Many Languages</div><div class="lesson__title-zh">各國問候語</div></div></div>
-        <div class="lesson__body">
-          <p>Hello, Konnichiwa, Hello (USA), Nǐ hǎo! A friendly greeting is the first step to a new friend. We practice saying hello and thank you in several languages.</p>
-          <p class="zh">Hello、こんにちは、你好！一句友善的問候，是認識新朋友的第一步。我們練習用幾種語言說「你好」和「謝謝」。</p>
-          <div class="chips"><span class="chip">hello <b>你好</b></span><span class="chip">thank you <b>謝謝</b></span><span class="chip">goodbye <b>再見</b></span><span class="chip">welcome <b>歡迎</b></span></div>
-          
-          <div class="tip">💡 <b>Try this:</b> Greet your family in two different languages today.<div class="zh">今天用兩種不同的語言跟家人打招呼。</div></div>
+      </a>
+      <a class="unit unit--c5" href="lesson-5/">
+        <div class="unit__hero"><span class="unit__emoji">👋</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 05</div>
+          <div class="unit__title">Hello in Many Languages</div>
+          <div class="unit__title-zh">各國問候語</div>
+          <div class="unit__desc">Hello, Konnichiwa, Nǐ hǎo! A greeting is the first step to a new friend.</div>
+          <div class="unit__cta">Open Lesson 5 <span class="arrow">→</span></div>
         </div>
-      </div>
-      <div class="lesson">
-        <div class="lesson__head"><div class="lesson__no">6</div><span class="lesson__emoji">❄️</span><div class="lesson__titles">
-          <div class="lesson__title">Friends from Afar — Winter Camp</div><div class="lesson__title-zh">寒假國際交流營</div></div></div>
-        <div class="lesson__body">
-          <p>During winter break, Nanhsing's multicultural camp brings together local and overseas children to learn, play and celebrate culture together. Watch our friends from afar in action below.</p>
-          <p class="zh">寒假期間，南興的多元文化營隊把本地與海外的孩子聚在一起，一起學習、遊戲、體驗文化。一起看看遠道而來的朋友們吧。</p>
-          <div class="chips"><span class="chip">camp <b>營隊</b></span><span class="chip">exchange <b>交流</b></span><span class="chip">together <b>一起</b></span><span class="chip">celebrate <b>慶祝</b></span></div>
-          <div class="video-frame" style="margin-top:18px;border-radius:12px;"><iframe src="https://www.youtube-nocookie.com/embed/BUQKG_xHJaA?rel=0" title="Friends from Afar — Winter Camp" allowfullscreen loading="lazy"></iframe></div>
-          <div class="tip">💡 <b>Try this:</b> If a new friend came from far away, what would you show them at Nanhsing?<div class="zh">如果有遠方的新朋友來，你會帶他看南興的什麼？</div></div>
+      </a>
+      <a class="unit unit--c2" href="lesson-6/">
+        <div class="unit__hero"><span class="unit__emoji">❄️</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Lesson 06</div>
+          <div class="unit__title">Friends from Afar — Winter Camp</div>
+          <div class="unit__title-zh">寒假國際交流營</div>
+          <div class="unit__desc">At our winter culture camp, local and overseas kids learn and play together.</div>
+          <div class="unit__cta">Open Lesson 6 <span class="arrow">→</span></div>
         </div>
-      </div>
-    </div>
-    <div class="playlist-block" style="margin-top:34px;">
-      <h3>More: Winter Cultural Exchange</h3>
-      <div class="zh">延伸觀賞 · 寒假國際文化交流</div>
-      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/MWm4ah1Hw_U?rel=0" title="Nanhsing Winter Camp Cultural Exchange" allowfullscreen loading="lazy"></iframe></div>
+      </a>
     </div>
   </div>
 </section>
