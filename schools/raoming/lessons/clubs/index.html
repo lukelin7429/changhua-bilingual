@@ -4,24 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>School Clubs · 社團活動 · Raoming Elementary</title>
-<meta name="description" content="Raoming Elementary's after-school clubs — Lion Dance, Basketball, English, Smart Builder Blocks, Pop Dance and Board Games. 饒明國小社團活動：舞獅、籃球、英語、積木、流行舞蹈、桌遊。">
+<meta name="description" content="Raoming Elementary's after-school clubs with basic English — keywords, sentences and dialogues. 饒明國小社團活動，附基礎英語關鍵字、例句與對話練習。">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180.png">
 <link rel="shortcut icon" href="../../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --g-deep:#0e5a54; --g:#157a72; --g-light:#4db6ac; --g-soft:#d6efec;
-    --gold:#d99a1c; --gold-soft:#fdf6e4; --gold-deep:#8a5a06;
-    --earth:#cf6b4a; --earth-soft:#f7e4dc;
-    --ink:#1c2926; --ink-soft:#51635f; --line:#d2e6e3;
-    --bg-soft:#f4faf9;
-    --shadow:0 14px 38px -16px rgba(14,90,84,.28);
-    --shadow-sm:0 6px 16px -6px rgba(14,90,84,.16);
-  }
+  :root{--g-deep:#0e5a54;--g:#157a72;--g-light:#4db6ac;--g-soft:#d6efec;--gold:#d99a1c;--gold-soft:#fdf6e4;--gold-deep:#8a5a06;--earth:#cf6b4a;--earth-soft:#f7e4dc;--ink:#1c2926;--ink-soft:#51635f;--line:#d2e6e3;--bg-soft:#f4faf9;--shadow:0 14px 38px -16px rgba(14,90,84,.28);--shadow-sm:0 6px 16px -6px rgba(14,90,84,.16);}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
@@ -41,7 +32,6 @@
   @media(min-width:720px){.sec__lede{font-size:22px;}}
   .sec__lede .zh{display:block;color:var(--ink-soft);font-size:17px;margin-top:10px;line-height:1.7;}
   @media(min-width:720px){.sec__lede .zh{font-size:19px;}}
-  /* topbar */
   .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
   .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
   .topbar-brand{text-decoration:none;}
@@ -51,7 +41,6 @@
   .topbar-nav a{font-size:16.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
   .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--g-deep);background:var(--g-soft);}
   @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:15px;padding:8px 10px;}}
-  /* page banner */
   .page-banner{position:relative;overflow:hidden;height:360px;display:flex;align-items:center;justify-content:center;}
   @media(min-width:720px){.page-banner{height:460px;}}
   .page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 30%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.14) 68%,rgba(0,0,0,0) 86%);}
@@ -66,7 +55,6 @@
   .crumb{font-size:15px;color:var(--ink-soft);}
   .crumb a{color:var(--g);text-decoration:none;font-weight:600;}
   .crumb a:hover{text-decoration:underline;}
-  /* club rows */
   .club{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;}
   @media(min-width:820px){.club{grid-template-columns:1.45fr 1fr;gap:44px;}.club--flip{grid-template-columns:1fr 1.45fr;}.club--flip .club__media{order:2;}}
   .club__media{display:grid;grid-template-columns:1fr;gap:16px;}
@@ -84,6 +72,41 @@
   @media(min-width:720px){.club__desc .zh{font-size:18px;}}
   .club__link{display:inline-block;margin-top:16px;font-size:17px;font-weight:700;color:var(--gold-deep);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;}
   .club__link:hover{color:var(--g-deep);}
+  /* speak button */
+  .speak{width:44px;height:44px;border-radius:50%;border:none;background:var(--gold-soft);color:var(--gold-deep);font-size:19px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .15s,background .15s,color .15s;}
+  .speak:hover{background:var(--gold);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--gold);color:#fff;animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+  /* learn block */
+  .learn{margin-top:32px;background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;padding:26px 22px;}
+  @media(min-width:720px){.learn{padding:36px 40px;}}
+  .learn__head{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--g-deep);line-height:1.2;}
+  @media(min-width:720px){.learn__head{font-size:30px;}}
+  .learn__head span{display:block;font-family:'Inter','PingFang TC',sans-serif;font-size:15px;font-weight:600;color:var(--ink-soft);margin-top:5px;letter-spacing:.5px;}
+  .learn__sub{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-top:26px;margin-bottom:12px;}
+  .kw-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .kw{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--g);border-radius:12px;padding:9px 14px;}
+  .kw__w{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--g-deep);}
+  @media(min-width:720px){.kw__w{font-size:24px;}}
+  .kw__zh{color:var(--ink);font-weight:600;font-size:16px;}
+  .sents{display:flex;flex-direction:column;gap:10px;}
+  .sent{display:flex;align-items:center;gap:14px;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px;}
+  .sent__t b{display:block;font-size:18px;color:var(--ink);font-weight:600;line-height:1.4;}
+  @media(min-width:720px){.sent__t b{font-size:21px;}}
+  .sent__t span{color:var(--ink-soft);font-size:15.5px;}
+  @media(min-width:720px){.sent__t span{font-size:17px;}}
+  .dialogue{display:flex;flex-direction:column;gap:12px;}
+  .turn{display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;}
+  .turn--a{border-left:6px solid var(--g);}
+  .turn--b{border-left:6px solid var(--gold);background:#fffdf7;}
+  .turn__who{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:19px;color:#fff;}
+  .turn--a .turn__who{background:var(--g);}
+  .turn--b .turn__who{background:var(--gold);}
+  .turn__en{font-size:18px;font-weight:600;color:var(--ink);line-height:1.4;}
+  @media(min-width:720px){.turn__en{font-size:21px;}}
+  .turn__zh{font-size:15px;color:var(--ink-soft);margin-top:3px;}
+  @media(min-width:720px){.turn__zh{font-size:17px;}}
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media(min-width:720px){footer{font-size:17px;}}
   footer .org{font-weight:600;color:var(--g-deep);}
@@ -93,9 +116,7 @@
 
 <nav class="topbar" role="navigation" aria-label="Site navigation">
   <div class="topbar-inner">
-    <a class="topbar-brand" href="../../">
-      <div class="topbar-name">Raoming Elementary<small>彰化縣員林市饒明國民小學</small></div>
-    </a>
+    <a class="topbar-brand" href="../../"><div class="topbar-name">Raoming Elementary<small>彰化縣員林市饒明國民小學</small></div></a>
     <div class="topbar-nav">
       <a href="../../">Home</a>
       <a href="../../principal/">Principal</a>
@@ -123,140 +144,231 @@
     <div class="sec__title-zh">多元社團 · 盡情揮灑創意與活力</div>
     <div class="sec__rule"></div>
     <p class="sec__lede">
-      Raoming offers many after-school clubs so every child can be creative, active, and confident — from our award-winning Lion Dance Team to blocks, dance, English, basketball and board games.
-      <span class="zh">饒明國小積極推動多元社團，讓孩子在校園裡就能盡情揮灑創意與活力——從屢獲佳績的舞獅隊，到積木、舞蹈、英語、籃球與桌遊，總有一個適合你。</span>
+      Raoming offers many after-school clubs so every child can be creative, active, and confident — from our award-winning Lion Dance Team to blocks, dance, English, basketball and board games. Each club comes with some basic English to learn too!
+      <span class="zh">饒明國小積極推動多元社團，讓孩子在校園裡就能盡情揮灑創意與活力——從屢獲佳績的舞獅隊，到積木、舞蹈、英語、籃球與桌遊。每個社團還附上一點基礎英語，邊玩邊學！</span>
     </p>
   </div>
 </section>
 
-<!-- Lion Dance Team -->
 <section>
   <div class="wrap">
     <div class="club">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/liondance/1.jpg" alt="Raoming Lion Dance Team in a temple procession 饒明舞獅隊遶境">
-        <img src="/schools/raoming/photos/clubs/liondance/2.jpg" alt="Raoming Lion Dance Team performing on stage 饒明舞獅隊舞台演出">
+        <img src="/schools/raoming/photos/clubs/liondance/1.jpg" alt="Lion Dance Team · 舞獅隊 · 饒明的驕傲">
+        <img src="/schools/raoming/photos/clubs/liondance/2.jpg" alt="Lion Dance Team · 舞獅隊 · 饒明的驕傲">
       </div>
       <div class="club__text">
         <div class="club__emoji">🦁🥁</div>
         <div class="club__name">Lion Dance Team</div>
         <div class="club__zh">舞獅隊 · 饒明的驕傲</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          Raoming's proudest tradition. Our team are county champions — first place in the four-lion event — and they keep this folk art alive at temple festivals across the region.
-          <span class="zh">饒明最自豪的傳統。舞獅隊曾勇奪彰化縣縣長盃四獅冠軍，並到各地廟會節慶演出，讓傳統技藝向下紮根。歡迎對舞獅有興趣的孩子加入！</span>
-        </div>
+        <div class="club__desc">Raoming's proudest tradition. Our team are county champions — first place in the four-lion event — and they keep this folk art alive at temple festivals across the region.<span class="zh">饒明最自豪的傳統。舞獅隊曾勇奪彰化縣縣長盃四獅冠軍，並到各地廟會節慶演出，讓傳統技藝向下紮根。歡迎對舞獅有興趣的孩子加入！</span></div>
         <a class="club__link" href="../lion-dance/">Learn Lion Dance English · 進入舞獅英語課程 →</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- English Club -->
-<section class="club--flip" style="background:var(--bg-soft);">
+<section style="background:var(--bg-soft);">
   <div class="wrap">
     <div class="club club--flip">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/english/1.jpg" alt="English Club singing and moving with the teacher 英語社唱跳活動">
-        <img src="/schools/raoming/photos/clubs/english/2.jpg" alt="English Club students working on worksheets 英語社學習單書寫">
+        <img src="/schools/raoming/photos/clubs/english/1.jpg" alt="English Club · 英語社">
+        <img src="/schools/raoming/photos/clubs/english/2.jpg" alt="English Club · 英語社">
       </div>
       <div class="club__text">
         <div class="club__emoji">🔤🌏</div>
         <div class="club__name">English Club</div>
         <div class="club__zh">英語社</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          A fun, immersive space to practise speaking English. We break free from fixed topics, focus on talking more, and keep learning across subjects — a window to the wider world.
-          <span class="zh">提供孩子更多接觸英文的環境，打破主題限制、加強口語表達，不斷更新與跨領域學習，成為孩子們的世界之窗。</span>
-        </div>
+        <div class="club__desc">A fun, immersive space to practise speaking English. We break free from fixed topics, focus on talking more, and keep learning across subjects — a window to the wider world.<span class="zh">提供孩子更多接觸英文的環境，打破主題限制、加強口語表達，不斷更新與跨領域學習，成為孩子們的世界之窗。</span></div>
+      </div>
+    </div>
+    <div class="learn">
+      <div class="learn__head">🗣️ Learn the English<span>學英文 · 點 🔊 聽發音</span></div>
+      <div class="learn__sub">Key Words 關鍵字</div>
+      <div class="kw-row">
+        <div class="kw"><span class="kw__w">speak</span><span class="kw__zh">說</span><button class="speak" data-speak="speak" aria-label="Hear speak">🔊</button></div>
+        <div class="kw"><span class="kw__w">listen</span><span class="kw__zh">聽</span><button class="speak" data-speak="listen" aria-label="Hear listen">🔊</button></div>
+        <div class="kw"><span class="kw__w">sentence</span><span class="kw__zh">句子</span><button class="speak" data-speak="sentence" aria-label="Hear sentence">🔊</button></div>
+        <div class="kw"><span class="kw__w">practice</span><span class="kw__zh">練習</span><button class="speak" data-speak="practice" aria-label="Hear practice">🔊</button></div>
+        <div class="kw"><span class="kw__w">confident</span><span class="kw__zh">有自信的</span><button class="speak" data-speak="confident" aria-label="Hear confident">🔊</button></div>
+      </div>
+      <div class="learn__sub">Useful Sentences 實用例句</div>
+      <div class="sents">
+        <div class="sent"><div class="sent__t"><b>Let's practice speaking English!</b><span>我們來練習說英文！</span></div><button class="speak" data-speak="Let's practice speaking English!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>Can you say it again, please?</b><span>可以請你再說一次嗎？</span></div><button class="speak" data-speak="Can you say it again, please?" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>I can introduce myself in English.</b><span>我會用英文自我介紹。</span></div><button class="speak" data-speak="I can introduce myself in English." aria-label="Hear sentence">🔊</button></div>
+      </div>
+      <div class="learn__sub">Talk Together 對話練習</div>
+      <div class="dialogue">
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Hello! What is your name?</div><div class="turn__zh">你好！你叫什麼名字？</div></div><button class="speak" data-speak="Hello! What is your name?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Hi! My name is Mei. Nice to meet you!</div><div class="turn__zh">嗨！我叫小美。很高興認識你！</div></div><button class="speak" data-speak="Hi! My name is Mei. Nice to meet you!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Nice to meet you too! What do you like?</div><div class="turn__zh">我也很高興！你喜歡什麼？</div></div><button class="speak" data-speak="Nice to meet you too! What do you like?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">I like singing English songs!</div><div class="turn__zh">我喜歡唱英文歌！</div></div><button class="speak" data-speak="I like singing English songs!" aria-label="Hear line">🔊</button></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Smart Builder Blocks -->
 <section>
   <div class="wrap">
     <div class="club">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/blocks/1.jpg" alt="Smart Builder Blocks Club members with their creations 金頭腦積木社作品">
-        <img src="/schools/raoming/photos/clubs/blocks/2.jpg" alt="Students building with blocks 學生組裝積木">
+        <img src="/schools/raoming/photos/clubs/blocks/1.jpg" alt="Smart Builder Blocks Club · 金頭腦積木社">
+        <img src="/schools/raoming/photos/clubs/blocks/2.jpg" alt="Smart Builder Blocks Club · 金頭腦積木社">
       </div>
       <div class="club__text">
         <div class="club__emoji">🧩🤖</div>
         <div class="club__name">Smart Builder Blocks Club</div>
         <div class="club__zh">金頭腦積木社</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          Kids build robots, vehicles, dinosaurs and more from blocks of every shape — boosting imagination, spatial thinking, problem-solving and teamwork.
-          <span class="zh">孩子用各種形狀的積木發揮想像力，拼出機器人、工程車、恐龍、房子，全方位激發創造力、空間能力、社交與解決問題的能力。</span>
-        </div>
+        <div class="club__desc">Kids build robots, vehicles, dinosaurs and more from blocks of every shape — boosting imagination, spatial thinking, problem-solving and teamwork.<span class="zh">孩子用各種形狀的積木發揮想像力，拼出機器人、工程車、恐龍、房子，全方位激發創造力、空間能力、社交與解決問題的能力。</span></div>
+      </div>
+    </div>
+    <div class="learn">
+      <div class="learn__head">🗣️ Learn the English<span>學英文 · 點 🔊 聽發音</span></div>
+      <div class="learn__sub">Key Words 關鍵字</div>
+      <div class="kw-row">
+        <div class="kw"><span class="kw__w">block</span><span class="kw__zh">積木</span><button class="speak" data-speak="block" aria-label="Hear block">🔊</button></div>
+        <div class="kw"><span class="kw__w">build</span><span class="kw__zh">組裝</span><button class="speak" data-speak="build" aria-label="Hear build">🔊</button></div>
+        <div class="kw"><span class="kw__w">robot</span><span class="kw__zh">機器人</span><button class="speak" data-speak="robot" aria-label="Hear robot">🔊</button></div>
+        <div class="kw"><span class="kw__w">shape</span><span class="kw__zh">形狀</span><button class="speak" data-speak="shape" aria-label="Hear shape">🔊</button></div>
+        <div class="kw"><span class="kw__w">create</span><span class="kw__zh">創造</span><button class="speak" data-speak="create" aria-label="Hear create">🔊</button></div>
+      </div>
+      <div class="learn__sub">Useful Sentences 實用例句</div>
+      <div class="sents">
+        <div class="sent"><div class="sent__t"><b>Let's build a robot!</b><span>我們來組一個機器人！</span></div><button class="speak" data-speak="Let's build a robot!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>What shape do you need?</b><span>你需要什麼形狀？</span></div><button class="speak" data-speak="What shape do you need?" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>I can make a tall tower.</b><span>我可以做一座高塔。</span></div><button class="speak" data-speak="I can make a tall tower." aria-label="Hear sentence">🔊</button></div>
+      </div>
+      <div class="learn__sub">Talk Together 對話練習</div>
+      <div class="dialogue">
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">What are you building?</div><div class="turn__zh">你在組什麼？</div></div><button class="speak" data-speak="What are you building?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">I am building a dinosaur!</div><div class="turn__zh">我在組一隻恐龍！</div></div><button class="speak" data-speak="I am building a dinosaur!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Cool! Can I help you?</div><div class="turn__zh">好酷！我可以幫你嗎？</div></div><button class="speak" data-speak="Cool! Can I help you?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Sure! Pass me that blue block.</div><div class="turn__zh">當然！把那個藍色積木給我。</div></div><button class="speak" data-speak="Sure! Pass me that blue block." aria-label="Hear line">🔊</button></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Pop Dance Club -->
 <section style="background:var(--bg-soft);">
   <div class="wrap">
     <div class="club club--flip">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/dance/1.jpg" alt="Pop Dance Club students dancing outdoors 流行舞蹈社戶外熱舞">
-        <img src="/schools/raoming/photos/clubs/dance/2.jpg" alt="Teacher leading a dance warm-up 老師帶領暖身與教舞">
+        <img src="/schools/raoming/photos/clubs/dance/1.jpg" alt="Pop Dance Club · 流行舞蹈社">
+        <img src="/schools/raoming/photos/clubs/dance/2.jpg" alt="Pop Dance Club · 流行舞蹈社">
       </div>
       <div class="club__text">
         <div class="club__emoji">💃🎶</div>
         <div class="club__name">Pop Dance Club</div>
         <div class="club__zh">流行舞蹈社</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          Cool, cute, MV-style dancing! Starting from solid basics, every student learns to move with confidence and energy — no experience needed.
-          <span class="zh">帥氣又可愛的 MV 流行舞蹈！從扎實的基礎練起，讓每位學生自信展現魅力與活力。怕跟不上嗎？不用擔心～</span>
-        </div>
+        <div class="club__desc">Cool, cute, MV-style dancing! Starting from solid basics, every student learns to move with confidence and energy — no experience needed.<span class="zh">帥氣又可愛的 MV 流行舞蹈！從扎實的基礎練起，讓每位學生自信展現魅力與活力。怕跟不上嗎？不用擔心～</span></div>
+      </div>
+    </div>
+    <div class="learn">
+      <div class="learn__head">🗣️ Learn the English<span>學英文 · 點 🔊 聽發音</span></div>
+      <div class="learn__sub">Key Words 關鍵字</div>
+      <div class="kw-row">
+        <div class="kw"><span class="kw__w">dance</span><span class="kw__zh">跳舞</span><button class="speak" data-speak="dance" aria-label="Hear dance">🔊</button></div>
+        <div class="kw"><span class="kw__w">music</span><span class="kw__zh">音樂</span><button class="speak" data-speak="music" aria-label="Hear music">🔊</button></div>
+        <div class="kw"><span class="kw__w">move</span><span class="kw__zh">動作</span><button class="speak" data-speak="move" aria-label="Hear move">🔊</button></div>
+        <div class="kw"><span class="kw__w">step</span><span class="kw__zh">舞步</span><button class="speak" data-speak="step" aria-label="Hear step">🔊</button></div>
+        <div class="kw"><span class="kw__w">practice</span><span class="kw__zh">練習</span><button class="speak" data-speak="practice" aria-label="Hear practice">🔊</button></div>
+      </div>
+      <div class="learn__sub">Useful Sentences 實用例句</div>
+      <div class="sents">
+        <div class="sent"><div class="sent__t"><b>Let's dance to the music!</b><span>我們跟著音樂跳舞！</span></div><button class="speak" data-speak="Let's dance to the music!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>Follow my steps.</b><span>跟著我的舞步。</span></div><button class="speak" data-speak="Follow my steps." aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>One, two, three, move!</b><span>一、二、三，動起來！</span></div><button class="speak" data-speak="One, two, three, move!" aria-label="Hear sentence">🔊</button></div>
+      </div>
+      <div class="learn__sub">Talk Together 對話練習</div>
+      <div class="dialogue">
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Do you like this song?</div><div class="turn__zh">你喜歡這首歌嗎？</div></div><button class="speak" data-speak="Do you like this song?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Yes! Let's dance together!</div><div class="turn__zh">喜歡！我們一起跳吧！</div></div><button class="speak" data-speak="Yes! Let's dance together!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Watch my steps and follow me.</div><div class="turn__zh">看我的舞步，跟著我。</div></div><button class="speak" data-speak="Watch my steps and follow me." aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Okay! This is so much fun!</div><div class="turn__zh">好！這真好玩！</div></div><button class="speak" data-speak="Okay! This is so much fun!" aria-label="Hear line">🔊</button></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Board Game Club -->
 <section>
   <div class="wrap">
     <div class="club">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/boardgame/1.jpg" alt="Students playing a strategy board game 學生運用策略玩桌遊">
-        <img src="/schools/raoming/photos/clubs/boardgame/2.jpg" alt="Teacher explaining the game rules 老師講解遊戲規則">
+        <img src="/schools/raoming/photos/clubs/boardgame/1.jpg" alt="Board Game Club · 桌遊社">
+        <img src="/schools/raoming/photos/clubs/boardgame/2.jpg" alt="Board Game Club · 桌遊社">
       </div>
       <div class="club__text">
         <div class="club__emoji">🎲🧠</div>
         <div class="club__name">Board Game Club</div>
         <div class="club__zh">桌遊社</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          Following the spirit of the 108 Curriculum, we use over thirty board games to build autonomous action, communication and social participation — learning strategy and teamwork through play.
-          <span class="zh">呼應 108 課綱核心素養，運用三十多款桌遊培養「自主行動」「溝通互動」「社會參與」，在遊戲中學策略與合作，體驗不為考試而教學的樂趣。</span>
-        </div>
+        <div class="club__desc">Following the spirit of the 108 Curriculum, we use over thirty board games to build autonomous action, communication and social participation — learning strategy and teamwork through play.<span class="zh">呼應 108 課綱核心素養，運用三十多款桌遊培養「自主行動」「溝通互動」「社會參與」，在遊戲中學策略與合作，體驗不為考試而教學的樂趣。</span></div>
+      </div>
+    </div>
+    <div class="learn">
+      <div class="learn__head">🗣️ Learn the English<span>學英文 · 點 🔊 聽發音</span></div>
+      <div class="learn__sub">Key Words 關鍵字</div>
+      <div class="kw-row">
+        <div class="kw"><span class="kw__w">game</span><span class="kw__zh">遊戲</span><button class="speak" data-speak="game" aria-label="Hear game">🔊</button></div>
+        <div class="kw"><span class="kw__w">play</span><span class="kw__zh">玩</span><button class="speak" data-speak="play" aria-label="Hear play">🔊</button></div>
+        <div class="kw"><span class="kw__w">turn</span><span class="kw__zh">輪到</span><button class="speak" data-speak="turn" aria-label="Hear turn">🔊</button></div>
+        <div class="kw"><span class="kw__w">rule</span><span class="kw__zh">規則</span><button class="speak" data-speak="rule" aria-label="Hear rule">🔊</button></div>
+        <div class="kw"><span class="kw__w">win</span><span class="kw__zh">贏</span><button class="speak" data-speak="win" aria-label="Hear win">🔊</button></div>
+      </div>
+      <div class="learn__sub">Useful Sentences 實用例句</div>
+      <div class="sents">
+        <div class="sent"><div class="sent__t"><b>Let's play a board game!</b><span>我們來玩桌遊！</span></div><button class="speak" data-speak="Let's play a board game!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>It is your turn.</b><span>輪到你了。</span></div><button class="speak" data-speak="It is your turn." aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>I think I will win!</b><span>我想我會贏！</span></div><button class="speak" data-speak="I think I will win!" aria-label="Hear sentence">🔊</button></div>
+      </div>
+      <div class="learn__sub">Talk Together 對話練習</div>
+      <div class="dialogue">
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Whose turn is it?</div><div class="turn__zh">輪到誰了？</div></div><button class="speak" data-speak="Whose turn is it?" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">It is my turn. I roll the dice.</div><div class="turn__zh">輪到我，我來擲骰子。</div></div><button class="speak" data-speak="It is my turn. I roll the dice." aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">You got a six! Move six steps.</div><div class="turn__zh">你擲到六！走六步。</div></div><button class="speak" data-speak="You got a six! Move six steps." aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Yes! I am winning!</div><div class="turn__zh">耶！我快贏了！</div></div><button class="speak" data-speak="Yes! I am winning!" aria-label="Hear line">🔊</button></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Basketball Club -->
 <section style="background:var(--bg-soft);">
   <div class="wrap">
     <div class="club club--flip">
       <div class="club__media">
-        <img src="/schools/raoming/photos/clubs/basketball/1.jpg" alt="Basketball Club playing a game on the court 籃球社球場比賽">
-        <img src="/schools/raoming/photos/clubs/basketball/2.jpg" alt="Dribbling practice led by the coach 老師示範學生運球練習">
+        <img src="/schools/raoming/photos/clubs/basketball/1.jpg" alt="Basketball Club · 籃球社">
+        <img src="/schools/raoming/photos/clubs/basketball/2.jpg" alt="Basketball Club · 籃球社">
       </div>
       <div class="club__text">
         <div class="club__emoji">🏀</div>
         <div class="club__name">Basketball Club</div>
         <div class="club__zh">籃球社</div>
         <div class="club__rule"></div>
-        <div class="club__desc">
-          For students who love sport and ball games. Through basketball, members make friends, stay active in busy school life, and build teamwork and communication between older and younger students.
-          <span class="zh">為愛好運動、對球類有興趣的同學而設。藉由籃球創造共同話題、享受運動活力，增進情誼，也加深學長姊與學弟妹的互動與凝聚力。</span>
-        </div>
+        <div class="club__desc">For students who love sport and ball games. Through basketball, members make friends, stay active in busy school life, and build teamwork and communication between older and younger students.<span class="zh">為愛好運動、對球類有興趣的同學而設。藉由籃球創造共同話題、享受運動活力，增進情誼，也加深學長姊與學弟妹的互動與凝聚力。</span></div>
+      </div>
+    </div>
+    <div class="learn">
+      <div class="learn__head">🗣️ Learn the English<span>學英文 · 點 🔊 聽發音</span></div>
+      <div class="learn__sub">Key Words 關鍵字</div>
+      <div class="kw-row">
+        <div class="kw"><span class="kw__w">ball</span><span class="kw__zh">球</span><button class="speak" data-speak="ball" aria-label="Hear ball">🔊</button></div>
+        <div class="kw"><span class="kw__w">dribble</span><span class="kw__zh">運球</span><button class="speak" data-speak="dribble" aria-label="Hear dribble">🔊</button></div>
+        <div class="kw"><span class="kw__w">pass</span><span class="kw__zh">傳球</span><button class="speak" data-speak="pass" aria-label="Hear pass">🔊</button></div>
+        <div class="kw"><span class="kw__w">shoot</span><span class="kw__zh">投籃</span><button class="speak" data-speak="shoot" aria-label="Hear shoot">🔊</button></div>
+        <div class="kw"><span class="kw__w">team</span><span class="kw__zh">隊伍</span><button class="speak" data-speak="team" aria-label="Hear team">🔊</button></div>
+      </div>
+      <div class="learn__sub">Useful Sentences 實用例句</div>
+      <div class="sents">
+        <div class="sent"><div class="sent__t"><b>Pass me the ball!</b><span>把球傳給我！</span></div><button class="speak" data-speak="Pass me the ball!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>Let's shoot the ball!</b><span>我們來投籃！</span></div><button class="speak" data-speak="Let's shoot the ball!" aria-label="Hear sentence">🔊</button></div>
+        <div class="sent"><div class="sent__t"><b>Good game, everyone!</b><span>大家打得好！</span></div><button class="speak" data-speak="Good game, everyone!" aria-label="Hear sentence">🔊</button></div>
+      </div>
+      <div class="learn__sub">Talk Together 對話練習</div>
+      <div class="dialogue">
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Pass me the ball! I am open!</div><div class="turn__zh">傳球給我！我沒人守！</div></div><button class="speak" data-speak="Pass me the ball! I am open!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Here you go! Shoot it!</div><div class="turn__zh">給你！投籃！</div></div><button class="speak" data-speak="Here you go! Shoot it!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--a"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">I scored!</div><div class="turn__zh">我得分了！</div></div><button class="speak" data-speak="I scored!" aria-label="Hear line">🔊</button></div>
+        <div class="turn turn--b"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">Great shot! Good teamwork!</div><div class="turn__zh">好球！團隊合作真棒！</div></div><button class="speak" data-speak="Great shot! Good teamwork!" aria-label="Hear line">🔊</button></div>
       </div>
     </div>
   </div>
@@ -268,5 +380,16 @@
   Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:var(--g-deep);">Changhua Bilingual Hub</a>
 </footer>
 
+<script>
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1;
+  if(btn){ btn.classList.add('is-speaking'); u.onend = () => btn.classList.remove('is-speaking'); u.onerror = () => btn.classList.remove('is-speaking'); }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(b => b.addEventListener('click', () => speak(b.dataset.speak, b)));
+</script>
 </body>
 </html>
