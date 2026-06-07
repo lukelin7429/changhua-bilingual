@@ -302,6 +302,32 @@
   .topic__no{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--gold);flex-shrink:0;}
   .topic__en{font-weight:700;color:var(--g-deep);font-size:20px;line-height:1.25;}
   .topic__zh{font-size:17px;color:var(--ink-soft);margin-top:2px;}
+  /* big course feature rows (lessons landing) */
+  .course-list{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+  @media(min-width:760px){.course{grid-template-columns:340px 1fr;align-items:stretch;}}
+  .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
+  .course__emoji{font-size:110px;line-height:1;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));transition:transform .3s;}
+  @media(min-width:720px){.course__emoji{font-size:140px;}}
+  .course:hover .course__emoji{transform:scale(1.06) rotate(-3deg);}
+  .course__badge{font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 18px;border-radius:99px;}
+  .course__body{padding:36px 34px 38px;display:flex;flex-direction:column;justify-content:center;}
+  @media(min-width:720px){.course__body{padding:48px 52px;}}
+  .course__no{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
+  .course__title{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--g-deep);line-height:1.12;margin-top:8px;}
+  @media(min-width:720px){.course__title{font-size:50px;}}
+  .course__title-zh{font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media(min-width:720px){.course__title-zh{font-size:26px;}}
+  .course__desc{font-size:20px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
+  @media(min-width:720px){.course__desc{font-size:23px;}}
+  .course__cta{margin-top:26px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;background:var(--g);padding:15px 30px;border-radius:14px;box-shadow:0 8px 22px -8px rgba(43,90,160,.6);}
+  @media(min-width:720px){.course__cta{font-size:23px;}}
+  .course__cta .arrow{transition:transform .15s;}
+  .course:hover .course__cta .arrow{transform:translateX(6px);}
+  .course--2 .course__art{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);}
+  .course--2 .course__cta{background:var(--gold-deep);box-shadow:0 8px 22px -8px rgba(138,90,6,.6);}
+  .course--3 .course__art{background:linear-gradient(135deg,var(--g-light) 0%,var(--g) 100%);}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -337,35 +363,35 @@
     <div class="sec__rule"></div>
     <p class="sec__lede">Pick a path and press play. Every lesson is bilingual — English first, with Chinese support — and made for young learners at Nanhsing.
       <span class="zh">選一條路徑、按下播放。每一課都是雙語——英文為主、中文輔助——專為南興的孩子設計。</span></p>
-    <div class="units units--3">
-      <a class="unit" href="word/">
-        <div class="unit__hero"><span class="unit__emoji">📺</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Course 1</div>
-          <div class="unit__title">Word of the Day</div>
-          <div class="unit__title-zh">每日一字 · 28 字 · 5 主題</div>
-          <div class="unit__desc">28 short videos filmed around campus, sorted into 5 themed units — school life, arts, sports, subjects and festivals.</div>
-          <div class="unit__cta">Start the words <span class="arrow">→</span></div>
+    <div class="course-list">
+      <a class="course course--1" href="word/">
+        <div class="course__art"><span class="course__emoji">📺</span><span class="course__badge">28 words · 5 units</span></div>
+        <div class="course__body">
+          <div class="course__no">Course 1</div>
+          <div class="course__title">Word of the Day</div>
+          <div class="course__title-zh">每日一字 · 28 字 · 5 個主題單元</div>
+          <div class="course__desc">28 short bilingual videos filmed around campus, sorted into 5 themed units — school life, arts &amp; music, play &amp; sports, subjects &amp; nature, and festivals.<br><span style="color:var(--ink-soft);">28 支校園實拍雙語短片，分成 5 個主題單元：校園生活、藝術音樂、遊戲運動、學科自然、節慶國際。</span></div>
+          <span class="course__cta">Start the words <span class="arrow">→</span></span>
         </div>
       </a>
-      <a class="unit unit--c2" href="international/">
-        <div class="unit__hero"><span class="unit__emoji">🌏</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Course 2</div>
-          <div class="unit__title">International Education</div>
-          <div class="unit__title-zh">國際教育 · 六堂課</div>
-          <div class="unit__desc">One world, one family. Six simple lessons about countries, flags, world foods and making friends across cultures.</div>
-          <div class="unit__cta">Explore the world <span class="arrow">→</span></div>
+      <a class="course course--2" href="international/">
+        <div class="course__art"><span class="course__emoji">🌏</span><span class="course__badge">6 lessons · no test</span></div>
+        <div class="course__body">
+          <div class="course__no">Course 2</div>
+          <div class="course__title">International Education</div>
+          <div class="course__title-zh">國際教育 · 世界一家親 · 六堂課</div>
+          <div class="course__desc">One world, one family. Six simple lessons about countries, flags, world foods, greetings and making friends across cultures — plus our winter culture camp.<br><span style="color:var(--ink-soft);">世界一家親。六堂簡單的課：國家、國旗、世界美食、各國問候與跨文化交友，還有寒假文化營。</span></div>
+          <span class="course__cta">Explore the world <span class="arrow">→</span></span>
         </div>
       </a>
-      <a class="unit unit--c4" href="financial/">
-        <div class="unit__hero"><span class="unit__emoji">💰</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Course 3</div>
-          <div class="unit__title">Financial Literacy</div>
-          <div class="unit__title-zh">金融教育 · 六堂課</div>
-          <div class="unit__desc">Money smarts for kids. Six simple lessons on saving, wants vs. needs, banks, smart spending and borrowing wisely.</div>
-          <div class="unit__cta">Get money-smart <span class="arrow">→</span></div>
+      <a class="course course--3" href="financial/">
+        <div class="course__art"><span class="course__emoji">💰</span><span class="course__badge">6 lessons · no test</span></div>
+        <div class="course__body">
+          <div class="course__no">Course 3</div>
+          <div class="course__title">Financial Literacy</div>
+          <div class="course__title-zh">金融教育 · 理財小達人 · 六堂課</div>
+          <div class="course__desc">Money smarts for kids. Six simple lessons on money, wants vs. needs, saving, banks, smart spending and borrowing wisely.<br><span style="color:var(--ink-soft);">理財小達人。六堂簡單的課：認識金錢、想要與需要、儲蓄、銀行、理性消費與有借有還。</span></div>
+          <span class="course__cta">Get money-smart <span class="arrow">→</span></span>
         </div>
       </a>
     </div>
