@@ -126,11 +126,11 @@
   .topbar-nav a{font-size:16.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
   .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--g-deep);background:var(--g-soft);}
   @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:15px;padding:8px 10px;}}
-  .page-banner{position:relative;overflow:hidden;height:420px;display:flex;align-items:center;justify-content:center;}
-  @media(min-width:720px){.page-banner{height:560px;}}
-  .page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 30%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.14) 68%,rgba(0,0,0,0) 86%);}
-  .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;}
-  .page-banner__inner{position:relative;z-index:1;max-width:1080px;width:100%;margin:0 auto;padding:0 24px;color:#fff;text-align:center;}
+  .page-banner{position:relative;overflow:hidden;height:420px;display:flex;align-items:flex-end;justify-content:center;}
+  @media(min-width:720px){.page-banner{height:540px;}}
+  .page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,22,44,0) 0%,rgba(12,22,44,0) 50%,rgba(12,22,44,.34) 78%,rgba(12,22,44,.66) 100%);}
+  .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;}
+  .page-banner__inner{position:relative;z-index:1;max-width:1080px;width:100%;margin:0 auto;padding:0 24px 50px;color:#fff;text-align:center;}
   .page-banner__eyebrow{font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:10px;text-shadow:0 1px 8px rgba(0,0,0,.4);}
   @media(min-width:720px){.page-banner__eyebrow{font-size:15px;}}
   .page-banner__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;line-height:1.15;text-shadow:0 3px 12px rgba(0,0,0,.5);}
@@ -302,6 +302,104 @@
   .topic__no{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--gold);flex-shrink:0;}
   .topic__en{font-weight:700;color:var(--g-deep);font-size:20px;line-height:1.25;}
   .topic__zh{font-size:17px;color:var(--ink-soft);margin-top:2px;}
+  /* big course feature rows (lessons landing) */
+  .course-list{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+  @media(min-width:760px){.course{grid-template-columns:340px 1fr;align-items:stretch;}}
+  .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
+  .course__emoji{font-size:110px;line-height:1;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));transition:transform .3s;}
+  @media(min-width:720px){.course__emoji{font-size:140px;}}
+  .course:hover .course__emoji{transform:scale(1.06) rotate(-3deg);}
+  .course__badge{font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 18px;border-radius:99px;}
+  .course__body{padding:36px 34px 38px;display:flex;flex-direction:column;justify-content:center;}
+  @media(min-width:720px){.course__body{padding:48px 52px;}}
+  .course__no{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
+  .course__title{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--g-deep);line-height:1.12;margin-top:8px;}
+  @media(min-width:720px){.course__title{font-size:50px;}}
+  .course__title-zh{font-size:22px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media(min-width:720px){.course__title-zh{font-size:26px;}}
+  .course__desc{font-size:20px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
+  @media(min-width:720px){.course__desc{font-size:23px;}}
+  .course__cta{margin-top:26px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;background:var(--g);padding:15px 30px;border-radius:14px;box-shadow:0 8px 22px -8px rgba(43,90,160,.6);}
+  @media(min-width:720px){.course__cta{font-size:23px;}}
+  .course__cta .arrow{transition:transform .15s;}
+  .course:hover .course__cta .arrow{transform:translateX(6px);}
+  .course--2 .course__art{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);}
+  .course--2 .course__cta{background:var(--gold-deep);box-shadow:0 8px 22px -8px rgba(138,90,6,.6);}
+  .course--3 .course__art{background:linear-gradient(135deg,var(--g-light) 0%,var(--g) 100%);}
+  /* speak button */
+  .say{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:21px;cursor:pointer;transition:all .15s;line-height:1;}
+  .say:hover{background:var(--gold-soft);border-color:var(--gold);transform:scale(1.08);}
+  .say.is-speaking{background:var(--gold);border-color:var(--gold-deep);}
+  /* concept / big idea */
+  .bigidea{background:linear-gradient(135deg,var(--g-soft) 0%,#fff 82%);border:1px solid var(--line);border-left:8px solid var(--g);border-radius:18px;padding:28px 30px;margin-top:8px;}
+  @media(min-width:720px){.bigidea{padding:36px 40px;}}
+  .bigidea p{font-size:21px;line-height:1.75;color:var(--ink);}
+  @media(min-width:720px){.bigidea p{font-size:24px;}}
+  .bigidea p+p{margin-top:14px;}
+  .bigidea .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media(min-width:720px){.bigidea .zh{font-size:21px;}}
+  .bigidea strong{color:var(--g-deep);font-weight:700;}
+  /* vocabulary cards (with examples + audio) */
+  .words{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
+  @media(min-width:780px){.words{grid-template-columns:1fr 1fr;gap:24px;}}
+  .word{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:26px 28px;border-top:7px solid var(--g);}
+  .word:nth-child(2n){border-top-color:var(--gold);}
+  .word:nth-child(3n){border-top-color:var(--earth);}
+  .word:nth-child(4n){border-top-color:var(--g-light);}
+  .word__top{display:flex;align-items:center;gap:14px;}
+  .word__emoji{font-size:38px;line-height:1;}
+  .word__main{flex:1;min-width:0;}
+  .word__term{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--g-deep);line-height:1.12;}
+  @media(min-width:720px){.word__term{font-size:33px;}}
+  .word__zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:2px;}
+  @media(min-width:720px){.word__zh{font-size:23px;}}
+  .word__exs{margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+  .word__ex{background:var(--bg-soft);border-radius:12px;padding:14px 16px;border-left:4px solid var(--g);display:flex;align-items:center;gap:12px;}
+  .word__ex:nth-child(2){border-left-color:var(--gold);}
+  .word__ex .ex__txt{flex:1;min-width:0;}
+  .word__ex .en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.word__ex .en{font-size:20px;}}
+  .word__ex .en b{color:var(--g-deep);}
+  .word__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.word__ex .zh{font-size:18px;}}
+  /* dialogue */
+  .dialogue__scene{font-size:18px;color:var(--ink-soft);font-style:italic;margin-bottom:18px;padding:14px 18px;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:6px;line-height:1.55;}
+  @media(min-width:720px){.dialogue__scene{font-size:20px;}}
+  .dialogue{display:flex;flex-direction:column;gap:14px;}
+  .turn{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;}
+  @media(min-width:720px){.turn{padding:22px 26px;gap:18px;}}
+  .turn--a{border-left:7px solid var(--g);}
+  .turn--b{border-left:7px solid var(--gold);background:var(--bg-soft);}
+  .turn__who{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:23px;color:#fff;flex-shrink:0;}
+  @media(min-width:720px){.turn__who{width:56px;height:56px;font-size:27px;}}
+  .turn--a .turn__who{background:var(--g);}
+  .turn--b .turn__who{background:var(--gold-deep);}
+  .turn__main{min-width:0;}
+  .turn__en{font-size:21px;color:var(--ink);font-weight:600;line-height:1.45;}
+  @media(min-width:720px){.turn__en{font-size:25px;}}
+  .turn__zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  @media(min-width:720px){.turn__zh{font-size:19px;}}
+  /* sentence of the week */
+  .sow{background:linear-gradient(135deg,var(--g-deep) 0%,var(--g) 100%);color:#fff;border-radius:24px;padding:40px 32px;box-shadow:var(--shadow);}
+  @media(min-width:720px){.sow{padding:54px 56px;}}
+  .sow__badge{display:inline-block;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g-deep);background:var(--gold);padding:7px 16px;border-radius:99px;}
+  .sow__en{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;line-height:1.25;margin-top:22px;}
+  @media(min-width:720px){.sow__en{font-size:46px;}}
+  .sow__zh{font-size:20px;color:#cfe0f5;margin-top:12px;line-height:1.5;}
+  @media(min-width:720px){.sow__zh{font-size:24px;}}
+  .sow__say{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.5);color:#fff;font-size:18px;font-weight:700;padding:12px 22px;border-radius:99px;cursor:pointer;transition:all .15s;}
+  .sow__say:hover{background:#fff;color:var(--g-deep);}
+  .sow__say.is-speaking{background:var(--gold);color:var(--g-deep);border-color:var(--gold);}
+  .sow-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px;}
+  @media(min-width:720px){.sow-list{grid-template-columns:1fr 1fr;gap:16px;}}
+  .sow-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:14px;}
+  .sow-item__txt{flex:1;min-width:0;}
+  .sow-item__en{font-size:19px;font-weight:700;color:var(--g-deep);line-height:1.4;}
+  @media(min-width:720px){.sow-item__en{font-size:21px;}}
+  .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
+  @media(min-width:720px){.sow-item__zh{font-size:18px;}}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -391,10 +489,52 @@
   </div>
 </section>
 
-<!-- III. Explore -->
+<!-- III. English & the World -->
 <section>
   <div class="wrap">
     <div class="sec__no">III.</div>
+    <h2 class="sec__title">English &amp; the World</h2>
+    <div class="sec__title-zh">重視英語 · 連結世界</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">At Nanhsing, English is part of everyday life and international education is at the heart of who we are. We are home to <strong style="color:var(--g-deep);">Changhua County's first English Book Bank</strong> and an <strong style="color:var(--g-deep);">International Education Center</strong>, and we are proud to learn every day with dedicated foreign English teachers from the Philippines. Step by step, we help every child speak with confidence and reach out to the world.
+      <span class="zh">在南興，英語是生活的一部分，國際教育更是我們的核心。我們擁有<strong style="color:var(--g-deep);">彰化縣首座「英文愛的書庫」</strong>與<strong style="color:var(--g-deep);">國際教育中心</strong>，更與來自菲律賓、認真用心的英語外師每天一起學習。我們陪每個孩子一步步建立自信，勇敢走向世界。</span></p>
+
+    <div class="units" style="margin-top:34px;">
+      <div class="unit" style="cursor:default;">
+        <div style="background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);padding:30px 0;display:flex;justify-content:center;">
+          <img src="photos/teacher-gladys.jpg" alt="Teacher Gladys · 外師 Gladys" style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:var(--shadow);">
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">English Teacher · 英語外師</div>
+          <div class="unit__title">Teacher Gladys</div>
+          <div class="unit__title-zh">Gladys Mabute</div>
+          <div class="unit__desc">A dedicated English teacher from the Philippines with many years of teaching experience, Teacher Gladys helps Nanhsing children find their voice in English.<br><span style="color:var(--ink-soft);">來自菲律賓、擁有多年教學經驗的認真老師，帶著南興的孩子勇敢開口說英文。</span></div>
+          <a class="unit__cta" href="https://sites.google.com/twrses.org/gladysmabute" target="_blank" rel="noopener" style="text-decoration:none;">Visit teaching site <span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="unit unit--c2" style="cursor:default;">
+        <div style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);padding:30px 0;display:flex;justify-content:center;">
+          <img src="photos/teacher-mary.jpg" alt="Teacher Mary · 外師 Mary" style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:var(--shadow);">
+        </div>
+        <div class="unit__body">
+          <div class="unit__no">English Teacher · 英語外師</div>
+          <div class="unit__title">Teacher Mary</div>
+          <div class="unit__title-zh">Mary (Mariquis)</div>
+          <div class="unit__desc">Also from the Philippines, Teacher Mary brings years of experience and endless encouragement to every English lesson at Nanhsing.<br><span style="color:var(--ink-soft);">同樣來自菲律賓，把多年的教學經驗與滿滿的鼓勵，帶進南興的每一堂英語課。</span></div>
+          <a class="unit__cta" href="https://sites.google.com/mycultureconnect.org/mariquis" target="_blank" rel="noopener" style="text-decoration:none;">Visit teaching site <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:26px;text-align:center;">
+      <a href="lessons/" style="display:inline-flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;background:var(--g);padding:15px 30px;border-radius:14px;text-decoration:none;box-shadow:0 8px 22px -8px rgba(43,90,160,.6);">See our English lessons · 看看我們的英語課程 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- IV. Explore -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Explore Our School</h2>
     <div class="sec__title-zh">逛逛南興的雙語校園</div>
     <div class="sec__rule"></div>
