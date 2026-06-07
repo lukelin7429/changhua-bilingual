@@ -67,11 +67,10 @@
   .crumb a{color:var(--g);text-decoration:none;font-weight:600;}
   .crumb a:hover{text-decoration:underline;}
   /* club rows */
-  .club{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;}
-  @media(min-width:820px){.club{grid-template-columns:1.05fr 1fr;gap:44px;}.club--flip .club__media{order:2;}}
-  .club__media{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .club__media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;box-shadow:var(--shadow-sm);display:block;}
-  .club__media img:only-child{grid-column:1/-1;aspect-ratio:16/9;}
+  .club{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;}
+  @media(min-width:820px){.club{grid-template-columns:1.45fr 1fr;gap:44px;}.club--flip{grid-template-columns:1fr 1.45fr;}.club--flip .club__media{order:2;}}
+  .club__media{display:grid;grid-template-columns:1fr;gap:16px;}
+  .club__media img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:var(--shadow);}
   .club__emoji{font-size:40px;line-height:1;}
   @media(min-width:720px){.club__emoji{font-size:50px;}}
   .club__name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--g-deep);line-height:1.18;margin-top:8px;}
