@@ -8,9 +8,31 @@
 <title>Moved to English Life · 雙語校園 · Houliao Elementary</title>
 <meta name="robots" content="noindex">
 <script>location.replace('../bilingual-campus/');</script>
-<style>body{font-family:'PingFang TC',sans-serif;background:#fff;color:#1c211e;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;}a{color:#1f5e6e;}</style>
+<style>body{font-family:'PingFang TC',sans-serif;background:#fff;color:#1c211e;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;}a{color:#1f5e6e;}  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
 </head>
 <body>
 <p>Bilingual Announcements now lives on the <a href="../bilingual-campus/">English Life · 雙語校園</a> page.<br>雙語廣播已併入「英語校園生活」頁面。</p>
+<script>
+/* reveal-fx */
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>

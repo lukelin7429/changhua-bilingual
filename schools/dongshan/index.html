@@ -334,6 +334,10 @@
     margin-top:20px;font-size:17px;color:rgba(255,255,255,.55);
     letter-spacing:.08em;
   }
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -533,6 +537,24 @@
 </section>
 
 <!-- ===== Footer ===== -->
+<script>
+/* reveal-fx */
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 <footer class="foot">
   <div class="wrap">
     <div class="foot__brand">Dongshan Elementary School</div>

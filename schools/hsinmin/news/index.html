@@ -88,6 +88,10 @@
   .ncard__cta{margin-top:auto;padding-top:14px;color:var(--gold);font-weight:700;font-size:18px;}
   .note{text-align:center;color:var(--ink-soft);font-size:18px;font-family:'PingFang TC',sans-serif;margin-top:40px;} .note a{font-weight:600;}
 
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 </head>
 <body>
@@ -129,6 +133,24 @@
   </div>
   <p class="note">More on our <a href="https://www.facebook.com/smps520" target="_blank" rel="noopener">Facebook page &nearr;</a> &middot; 更多消息請見新民國小臉書專頁</p>
 </div></section>
+<script>
+/* reveal-fx */
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 <footer style="background:var(--plum-deep);color:rgba(255,255,255,.74);padding:38px 0 34px;font-size:18.5px;border-top:4px solid var(--gold);">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;">
     <span>© 新民國小 Hsinmin Elementary School · 彰化縣田中鎮</span>

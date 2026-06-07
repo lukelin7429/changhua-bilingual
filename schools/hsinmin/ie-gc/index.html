@@ -101,6 +101,10 @@
   .contact-iegc h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;} .contact-iegc h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;color:rgba(255,255,255,.78);margin-top:6px;}
   .contact-iegc dl{margin-top:18px;display:grid;gap:14px;} .contact-iegc dt{font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;} .contact-iegc dd{font-family:'PingFang TC',sans-serif;font-size:21px;color:#fff;margin-top:3px;} .contact-iegc dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);}
 
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 </head>
 <body>
@@ -201,6 +205,24 @@
   </div>
 </div></section>
 
+<script>
+/* reveal-fx */
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 <footer style="background:var(--plum-deep);color:rgba(255,255,255,.74);padding:38px 0 34px;font-size:18.5px;border-top:4px solid var(--gold);">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;">
     <span>© 新民國小 Hsinmin Elementary School · 彰化縣田中鎮</span>
