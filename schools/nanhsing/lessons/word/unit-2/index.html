@@ -146,10 +146,11 @@
   @media(min-width:980px){.units--3{grid-template-columns:1fr 1fr 1fr;}}
   .unit{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
   .unit:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
-  .unit__hero{height:130px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
-  @media(min-width:720px){.unit__hero{height:160px;}}
-  .unit__emoji{font-size:62px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.18));}
-  @media(min-width:720px){.unit__emoji{font-size:78px;}}
+  .unit__hero{height:150px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--g) 0%,var(--g-deep) 100%);}
+  @media(min-width:720px){.unit__hero{height:190px;}}
+  .unit__emoji{font-size:78px;line-height:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.2));transition:transform .3s;}
+  @media(min-width:720px){.unit__emoji{font-size:104px;}}
+  .unit:hover .unit__emoji{transform:scale(1.08) rotate(-3deg);}
   .unit__body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1;}
   .unit__no{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;}
   .unit__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--g-deep);line-height:1.2;margin-top:6px;}
@@ -221,28 +222,29 @@
   .lesson:nth-child(2n){border-left-color:var(--gold);}
   .lesson:nth-child(3n){border-left-color:var(--earth);}
   .lesson:nth-child(4n){border-left-color:var(--g-light);}
-  .lesson__head{display:flex;align-items:center;gap:18px;padding:26px 28px 6px;}
-  .lesson__no{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--g-light);line-height:1;flex-shrink:0;}
-  @media(min-width:720px){.lesson__no{font-size:50px;}}
-  .lesson__emoji{font-size:42px;line-height:1;}
+  .lesson__head{display:flex;align-items:center;gap:20px;padding:30px 32px 8px;}
+  .lesson__no{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:var(--g-light);line-height:1;flex-shrink:0;}
+  @media(min-width:720px){.lesson__no{font-size:66px;}}
+  .lesson__emoji{font-size:54px;line-height:1;}
+  @media(min-width:720px){.lesson__emoji{font-size:62px;}}
   .lesson__titles{flex:1;}
-  .lesson__title{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:var(--g-deep);line-height:1.2;}
-  @media(min-width:720px){.lesson__title{font-size:30px;}}
-  .lesson__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:3px;}
-  @media(min-width:720px){.lesson__title-zh{font-size:20px;}}
-  .lesson__body{padding:14px 28px 28px;}
-  .lesson__body p{font-size:18px;line-height:1.7;margin-top:12px;}
-  @media(min-width:720px){.lesson__body p{font-size:20px;}}
-  .lesson__body .zh{color:var(--ink-soft);font-size:16.5px;margin-top:6px;line-height:1.6;}
-  @media(min-width:720px){.lesson__body .zh{font-size:18px;}}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
-  .chip{background:var(--g-soft);color:var(--g-deep);border-radius:99px;padding:8px 16px;font-size:16px;font-weight:600;}
-  @media(min-width:720px){.chip{font-size:17px;}}
+  .lesson__title{font-family:'Playfair Display',serif;font-size:29px;font-weight:800;color:var(--g-deep);line-height:1.2;}
+  @media(min-width:720px){.lesson__title{font-size:36px;}}
+  .lesson__title-zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:4px;}
+  @media(min-width:720px){.lesson__title-zh{font-size:23px;}}
+  .lesson__body{padding:16px 32px 32px;}
+  .lesson__body p{font-size:21px;line-height:1.75;margin-top:14px;}
+  @media(min-width:720px){.lesson__body p{font-size:24px;}}
+  .lesson__body .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
+  @media(min-width:720px){.lesson__body .zh{font-size:21px;}}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+  .chip{background:var(--g-soft);color:var(--g-deep);border-radius:99px;padding:10px 20px;font-size:19px;font-weight:600;}
+  @media(min-width:720px){.chip{font-size:21px;}}
   .chip b{color:var(--gold-deep);}
-  .tip{margin-top:18px;background:var(--gold-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--gold);font-size:17px;color:var(--ink);line-height:1.6;}
-  @media(min-width:720px){.tip{font-size:18px;}}
-  .tip .zh{color:var(--ink-soft);font-size:15.5px;margin-top:4px;}
-  @media(min-width:720px){.tip .zh{font-size:17px;}}
+  .tip{margin-top:22px;background:var(--gold-soft);border-radius:14px;padding:18px 22px;border-left:5px solid var(--gold);font-size:19px;color:var(--ink);line-height:1.65;}
+  @media(min-width:720px){.tip{font-size:21px;}}
+  .tip .zh{color:var(--ink-soft);font-size:17px;margin-top:5px;}
+  @media(min-width:720px){.tip .zh{font-size:19px;}}
   /* news cards */
   .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
   @media(min-width:620px){.news-grid{grid-template-columns:1fr 1fr;}}
@@ -276,6 +278,30 @@
   .back{margin-top:40px;}
   .back a{color:var(--g);font-weight:700;text-decoration:none;}
   .back a:hover{text-decoration:underline;}
+  /* classroom english / announcements */
+  .credits{display:grid;grid-template-columns:1fr;gap:0;margin:0 0 22px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-soft);}
+  @media(min-width:640px){.credits{grid-template-columns:1fr 1fr 1fr;}}
+  .credits__cell{padding:18px 22px;border-bottom:1px solid var(--line);}
+  @media(min-width:640px){.credits__cell{border-bottom:none;border-right:1px solid var(--line);}.credits__cell:last-child{border-right:none;}}
+  .credits__label{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-deep);}
+  .credits__value{font-size:19px;font-weight:600;color:var(--g-deep);margin-top:4px;line-height:1.4;}
+  @media(min-width:720px){.credits__value{font-size:20px;}}
+  .yt-link{display:flex;align-items:center;gap:14px;margin-top:20px;padding:18px 24px;background:var(--g-soft);border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--g-deep);transition:transform .15s,background .15s;}
+  .yt-link:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .yt-link__icon{font-size:22px;color:var(--earth);flex-shrink:0;}
+  .yt-link__text{flex:1;line-height:1.4;}
+  .yt-link__text strong{display:block;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;}
+  @media(min-width:720px){.yt-link__text strong{font-size:22px;}}
+  .yt-link__text span{font-size:16px;color:var(--ink-soft);}
+  @media(min-width:720px){.yt-link__text span{font-size:18px;}}
+  .yt-link__arrow{font-size:24px;font-weight:700;color:var(--gold-deep);flex-shrink:0;}
+  .topics{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;}
+  @media(min-width:560px){.topics{grid-template-columns:1fr 1fr;}}
+  @media(min-width:880px){.topics{grid-template-columns:1fr 1fr 1fr;}}
+  .topic{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-sm);}
+  .topic__no{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--gold);flex-shrink:0;}
+  .topic__en{font-weight:700;color:var(--g-deep);font-size:20px;line-height:1.25;}
+  .topic__zh{font-size:17px;color:var(--ink-soft);margin-top:2px;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -304,7 +330,7 @@
   <div class="wrap">
     <div class="unit-nav">
       <a href="../unit-1/">← Prev</a>
-      <a class="center" href="../../">All units · 回單元總覽</a>
+      <a class="center" href="../">All units · 回單元總覽</a>
       <a href="../unit-3/">Next →</a>
     </div>
     <div class="vocabs">
@@ -409,7 +435,7 @@
     </div>
     <div class="unit-nav">
       <a href="../unit-1/">← Prev</a>
-      <a class="center" href="../../">All units · 回單元總覽</a>
+      <a class="center" href="../">All units · 回單元總覽</a>
       <a href="../unit-3/">Next →</a>
     </div>
   </div>
