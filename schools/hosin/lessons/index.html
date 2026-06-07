@@ -44,7 +44,7 @@
   /* PAGE BANNER */
   .page-head{
     position:relative;text-align:center;color:#fff;padding:80px 0 64px;
-    background:linear-gradient(180deg, rgba(13,53,34,.30) 0%, rgba(13,53,34,.18) 48%, rgba(13,53,34,.55) 100%),
+    background:linear-gradient(180deg, rgba(13,53,34,0) 0%, rgba(13,53,34,0) 48%, rgba(13,53,34,.55) 100%),
       url('../photos/campus-03.jpg') center 55% / cover no-repeat;text-shadow:0 1px 2px rgba(0,0,0,.5),0 2px 14px rgba(0,0,0,.45);/*scrim-shadow*/
     border-bottom:5px solid var(--amber);
   }
@@ -128,6 +128,43 @@
   .video-frame{margin-top:28px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
   .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
+  /* BILINGUAL CAMPUS (merged) */
+  #bilingual-campus{scroll-margin-top:90px;}
+  .bc-intro{font-size:17px;color:var(--ink);line-height:1.7;max-width:720px;margin:0 auto;text-align:center;}
+  @media (min-width:720px){.bc-intro{font-size:18.5px;}}
+  .bc-intro .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:8px;}
+  .bc-playlists{display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px;}
+  @media (min-width:900px){.bc-playlists{grid-template-columns:repeat(2,1fr);gap:26px;}}
+  .bc-block{background:var(--forest-soft);border-radius:20px;padding:26px 24px;border:1px solid var(--line);display:flex;flex-direction:column;}
+  @media (min-width:720px){.bc-block{padding:30px 28px;}}
+  .bc-block.is-water{background:var(--water-soft);}
+  .bc-block__label{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:6px;}
+  .bc-block.is-water .bc-block__label{color:var(--water-deep);}
+  .bc-block h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest-deep);line-height:1.2;}
+  @media (min-width:720px){.bc-block h3{font-size:30px;}}
+  .bc-block h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:5px;}
+  .bc-block p{font-size:16.5px;color:var(--ink);line-height:1.65;margin-top:12px;}
+  @media (min-width:720px){.bc-block p{font-size:17.5px;}}
+  .bc-block .video-frame{margin-top:18px;border-radius:12px;}
+  .bc-link{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 18px;box-shadow:var(--shadow-sm);margin-top:16px;transition:transform .2s,border-color .2s;color:inherit;}
+  .bc-link:hover{transform:translateY(-2px);border-color:var(--forest);}
+  .bc-link .ic{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .bc-link .tx strong{display:block;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--forest-deep);}
+  .bc-link .tx span{font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:3px;display:block;line-height:1.5;}
+  .bc-link .ar{margin-left:auto;font-size:20px;color:var(--amber);transition:transform .2s;}
+  .bc-link:hover .ar{transform:translateX(4px);}
+  .fet-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:40px;}
+  .fet-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start;}
+  .fet-card .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--forest) 0%,var(--water) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .fet-card .info .name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--forest-deep);}
+  .fet-card .info .origin{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:4px;}
+  .fet-card .info a{color:var(--water);font-size:15px;display:inline-block;margin-top:8px;font-weight:600;}
+  .fet-card .info a:hover{color:var(--amber);}
+  .fet-head{text-align:center;margin-top:52px;}
+  .fet-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+  .fet-head h3{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--forest-deep);}
+  .fet-head .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:6px;}
+
   /* FOOTER */
   .footer{background:var(--forest-deep);color:rgba(255,255,255,.72);text-align:center;padding:42px 0 36px;font-size:15px;}
   .footer a{color:var(--amber-soft);}
@@ -155,7 +192,7 @@
         <a href="../">Home</a>
         <a href="../principal/">Principal</a>
         <a href="../lessons/" class="is-active">Lessons</a>
-        <a href="../bilingual-campus/">Bilingual Campus</a>
+        <a href="../lessons/#bilingual-campus">Bilingual Campus</a>
         <a href="../news/">News</a>
         <a href="https://changhua-bilingual.org/festivals/?from=hosin" target="_blank" rel="noopener">Festivals</a>
       </div>
@@ -339,6 +376,110 @@
         </iframe>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BILINGUAL CAMPUS (merged from former Bilingual Campus page) -->
+<section id="bilingual-campus" style="background:linear-gradient(180deg,#fff 0%,var(--forest-soft) 100%);" aria-labelledby="bc-heading">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--forest);">Bilingual Campus · 雙語校園</span>
+      <h2 id="bc-heading" style="color:var(--forest-deep);">English on Campus
+        <span class="zh">課室英語 · 英文廣播</span>
+      </h2>
+      <div class="rule" style="background:var(--forest);"></div>
+      <p class="bc-intro">Two free video libraries produced by <strong>My Culture Connect</strong> and shared across the Changhua Bilingual Hub — Classroom English covers the everyday phrases a teacher uses in class, while English Announcements introduces each school office in bilingual format.
+        <span class="zh">由人師教育協會製作、彰化各雙語學校共用的兩套免費影片庫：課室英語收錄課堂常用語，英文廣播以雙語介紹學校各行政處室。</span>
+      </p>
+    </div>
+
+    <div class="bc-playlists">
+
+      <!-- Classroom English -->
+      <div class="bc-block">
+        <div class="bc-block__label">▶ Section 01 · 課室英語</div>
+        <h3>Classroom English
+          <span class="zh">課堂上每天都用得到的英文</span>
+        </h3>
+        <p>Short clips covering the phrases teachers use every day — giving instructions, managing the class, and encouraging students. Watch before class or project on screen during the lesson.
+          <span class="zh" style="display:block;font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:15px;margin-top:8px;">涵蓋課堂指令與互動語句，可課前預習或直接投影使用。</span>
+        </p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0"
+            title="Classroom English playlist"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <a class="bc-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+          <div class="ic">🎬</div>
+          <div class="tx">
+            <strong>Browse the full playlist on YouTube</strong>
+            <span>在 YouTube 開啟完整 playlist</span>
+          </div>
+          <span class="ar">→</span>
+        </a>
+      </div>
+
+      <!-- English Announcements -->
+      <div class="bc-block is-water">
+        <div class="bc-block__label">▶ Section 02 · 英文廣播</div>
+        <h3>English Announcements
+          <span class="zh">各處室雙語廣播介紹</span>
+        </h3>
+        <p>Short bilingual videos introducing each school office — Academic Affairs, Student Affairs, General Affairs, the Library, and more. Great for morning announcements and parent visits.
+          <span class="zh" style="display:block;font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:15px;margin-top:8px;">以雙語短片介紹教務處、學務處、總務處、圖書館等各處室，適合晨間廣播與家長參訪。</span>
+        </p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
+            title="English Announcements playlist"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <a class="bc-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+          <div class="ic">📢</div>
+          <div class="tx">
+            <strong>Browse the full playlist on YouTube</strong>
+            <span>在 YouTube 開啟完整 playlist</span>
+          </div>
+          <span class="ar">→</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- FET TEACHERS -->
+    <div class="fet-head">
+      <span class="eyebrow">Foreign English Teachers · 外籍英語教師</span>
+      <h3>Meet the FETs</h3>
+      <p class="zh">兩位外師與合興師生一同打造雙語校園環境</p>
+    </div>
+    <div class="fet-row">
+      <div class="fet-card">
+        <div class="avatar">🇵🇭</div>
+        <div class="info">
+          <div class="name">Karla Roflo</div>
+          <div class="origin">Philippines · Cebu · 菲律賓宿霧</div>
+          <div class="origin" style="margin-top:4px;">TESOL certified · 8 yrs teaching experience</div>
+          <a href="https://sites.google.com/mycultureconnect.org/karla-roflo/home" target="_blank" rel="noopener">Visit Karla's Teaching Site →</a>
+        </div>
+      </div>
+      <div class="fet-card">
+        <div class="avatar">🇮🇳</div>
+        <div class="info">
+          <div class="name">Amandeep Kaur</div>
+          <div class="origin">India · Rajasthan · 印度拉賈斯坦邦</div>
+          <div class="origin" style="margin-top:4px;">"Learning happens when students feel safe, respected, and heard."</div>
+          <a href="https://sites.google.com/twrses.org/amandeepkaur/home" target="_blank" rel="noopener">Visit Amandeep's Teaching Site →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
