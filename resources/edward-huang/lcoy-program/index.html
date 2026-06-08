@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LCOY Taiwan School Sustainability Program · Edward Huang · Changhua Bilingual Hub</title>
+  <meta name="description" content="LCOY Taiwan 校園永續教育導入計畫 — a UNFCCC YOUNGO-recognized, K-16 sustainability and English education framework that schools can plug into their existing curriculum. Proposed by Edward Huang / Youth Network.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="LCOY Taiwan School Sustainability Program · Changhua Bilingual Hub">
+  <meta property="og:image" content="/partners/edward-huang/photos/edward-portrait.jpg">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <link rel="stylesheet" href="/assets/css/resources.css">
+  <style>
+    /* ── LCOY program page-local styles ── */
+    .lcoy-section-lede {
+      color: var(--hub-ink-soft);
+      max-width: 66ch;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .lcoy-section-lede-zh {
+      color: var(--hub-ink-soft);
+      max-width: 66ch;
+      margin-bottom: 24px;
+      font-size: .96rem;
+      line-height: 1.8;
+    }
+
+    /* Chips (mirrors parent Edward Huang page) */
+    .lcoy-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 4px; }
+    .lcoy-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px;
+      background: #eaf3f8;
+      color: var(--hub-primary-deep, #1c4d7e);
+      border-radius: 999px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .01em;
+    }
+    .lcoy-chip.gold  { background: #fbf3dc; color: #8a6a0a; }
+    .lcoy-chip.green { background: #e7f4ec; color: #1e5f33; }
+
+    /* "What it is" intro card */
+    .lcoy-intro {
+      margin-top: 28px;
+      background: linear-gradient(135deg, #f3f9f9 0%, #e7f4ec 130%);
+      border: 1px solid #c9e6db;
+      border-radius: 16px;
+      padding: 26px 28px;
+    }
+    .lcoy-intro p { color: var(--hub-ink); line-height: 1.8; font-size: 1.0rem; margin: 0 0 12px; }
+    .lcoy-intro p:last-child { margin-bottom: 0; }
+    .lcoy-intro p.hub-zh { color: var(--hub-ink-soft); font-size: .95rem; line-height: 1.85; }
+    .lcoy-intro strong { color: var(--hub-ink); font-weight: 700; }
+
+    /* Stat band */
+    .lcoy-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin: 28px 0 0;
+    }
+    .lcoy-stat {
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      text-align: center;
+    }
+    .lcoy-stat-num {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 2.0rem; font-weight: 700; line-height: 1;
+      color: var(--hub-primary-deep, #155454);
+      margin-bottom: 8px;
+    }
+    .lcoy-stat-label { font-size: .86rem; color: var(--hub-ink-soft); line-height: 1.45; }
+
+    /* K-16 stage ladder */
+    .lcoy-stages { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 12px 0 8px; }
+    @media (min-width: 760px) { .lcoy-stages { grid-template-columns: repeat(2, 1fr); } }
+    .lcoy-stage {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 16px;
+      padding: 22px 24px 24px;
+      border-top: 4px solid var(--st-c, #155454);
+      transition: box-shadow .15s, transform .15s;
+    }
+    .lcoy-stage:hover { box-shadow: 0 12px 30px -16px rgba(0,0,0,.22); transform: translateY(-2px); }
+    .lcoy-stage-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+    .lcoy-stage-icon { font-size: 1.6rem; line-height: 1; }
+    .lcoy-stage-level {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.25rem; font-weight: 700; color: var(--hub-ink);
+    }
+    .lcoy-stage-level small { font-family: var(--hub-zh-font), sans-serif; font-size: .66em; color: var(--hub-ink-soft); font-weight: 500; margin-left: 4px; }
+    .lcoy-stage-tag {
+      display: inline-block;
+      margin-left: auto;
+      padding: 4px 11px;
+      background: var(--st-soft, #e7f4ec);
+      color: var(--st-c, #155454);
+      border-radius: 999px;
+      font-size: .76rem; font-weight: 700; letter-spacing: .02em;
+    }
+    .lcoy-stage-tag-zh { font-size: .72rem; color: var(--hub-ink-soft); margin: 2px 0 12px; }
+    .lcoy-stage ul { margin: 0; padding-left: 1.15em; }
+    .lcoy-stage li { color: var(--hub-ink); line-height: 1.6; font-size: .94rem; margin-bottom: 9px; }
+    .lcoy-stage li:last-child { margin-bottom: 0; }
+    .lcoy-stage li .zh { display: block; color: var(--hub-ink-soft); font-size: .86rem; margin-top: 2px; }
+
+    /* Stage color themes */
+    .st-elem { --st-c: #1e7f5c; --st-soft: #e3f3ea; }
+    .st-jhs  { --st-c: #1f6e9c; --st-soft: #e6f1f8; }
+    .st-shs  { --st-c: #9a6a12; --st-soft: #fbf1d8; }
+    .st-uni  { --st-c: #8a3d8a; --st-soft: #f5e8f5; }
+
+    /* Benefits */
+    .lcoy-benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 12px 0 8px;
+    }
+    @media (min-width: 820px) { .lcoy-benefits { grid-template-columns: repeat(3, 1fr); } }
+    .lcoy-benefit {
+      background: #fff;
+      border: 1px solid var(--hub-line);
+      border-radius: 14px;
+      padding: 22px 22px 24px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .lcoy-benefit:hover { border-color: var(--c-orange); box-shadow: 0 8px 22px -12px rgba(0,0,0,.18); }
+    .lcoy-benefit-num {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.0rem; font-weight: 700; color: var(--c-orange, #d97818);
+      margin-bottom: 8px;
+    }
+    .lcoy-benefit h3 { font-size: 1.05rem; color: var(--hub-ink); margin: 0 0 4px; line-height: 1.3; }
+    .lcoy-benefit h3 small { display: block; font-family: var(--hub-zh-font), sans-serif; font-size: .8rem; color: var(--hub-ink-soft); font-weight: 500; margin-top: 3px; }
+    .lcoy-benefit p { color: var(--hub-ink-soft); line-height: 1.7; font-size: .92rem; margin: 10px 0 0; }
+
+    /* "How it works" / model row */
+    .lcoy-model {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 12px 0 0;
+    }
+    @media (min-width: 720px) { .lcoy-model { grid-template-columns: repeat(3, 1fr); } }
+    .lcoy-model-step {
+      background: #f5f8fa;
+      border-radius: 14px;
+      padding: 20px 22px;
+    }
+    .lcoy-model-step .icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+    .lcoy-model-step h4 { font-size: .98rem; color: var(--hub-ink); margin: 0 0 4px; }
+    .lcoy-model-step h4 small { display:block; font-family: var(--hub-zh-font), sans-serif; font-weight: 500; font-size: .8rem; color: var(--hub-ink-soft); margin-top: 2px; }
+    .lcoy-model-step p { color: var(--hub-ink-soft); font-size: .9rem; line-height: 1.6; margin: 8px 0 0; }
+
+    /* Certificate callout */
+    .lcoy-cert {
+      margin-top: 28px;
+      background: linear-gradient(135deg, #fffdf6 0%, #fff5d6 100%);
+      border: 1px solid #f0d97a;
+      border-radius: 16px;
+      padding: 24px 28px;
+    }
+    .lcoy-cert h3 {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.25rem; color: #6b4f0a; margin: 0 0 6px;
+    }
+    .lcoy-cert h3 small { font-family: var(--hub-zh-font), sans-serif; font-size: .72em; color: #8a6a0a; font-weight: 500; margin-left: 10px; }
+    .lcoy-cert p { color: #5a4413; line-height: 1.75; font-size: .98rem; margin: 6px 0 0; }
+    .lcoy-cert .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .lcoy-cert .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px; background: #fff; border: 1px solid #ecd58a;
+      border-radius: 999px; font-size: .84rem; font-weight: 700; color: #8a6a0a;
+    }
+
+    /* Contact / next step */
+    .lcoy-contact {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      background: var(--hub-primary-deep, #155454);
+      color: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    @media (min-width: 760px) { .lcoy-contact { grid-template-columns: 1.3fr 1fr; } }
+    .lcoy-contact-text { padding: 28px 30px; }
+    .lcoy-contact-text h3 {
+      font-family: var(--hub-serif, 'Playfair Display', serif);
+      font-size: 1.4rem; margin: 0 0 8px; color: #fff;
+    }
+    .lcoy-contact-text p { color: #d6ebe8; line-height: 1.75; font-size: .98rem; margin: 0 0 8px; }
+    .lcoy-contact-card {
+      padding: 28px 30px;
+      background: rgba(255,255,255,.06);
+      border-left: 1px solid rgba(255,255,255,.12);
+    }
+    .lcoy-contact-card .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 2px; }
+    .lcoy-contact-card .role { color: #b9ddd8; font-size: .85rem; margin-bottom: 16px; }
+    .lcoy-contact-card dl { margin: 0; }
+    .lcoy-contact-card dt { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: #9ccfc8; margin-top: 12px; }
+    .lcoy-contact-card dd { margin: 2px 0 0; font-size: .96rem; }
+    .lcoy-contact-card dd a { color: #fff; border-bottom: 1px solid rgba(255,255,255,.4); }
+    .lcoy-contact-card dd a:hover { color: #ffe9c7; }
+
+    .lcoy-disclaimer {
+      margin-top: 24px;
+      font-size: .84rem;
+      color: var(--hub-ink-faint);
+      line-height: 1.7;
+      border-left: 3px solid var(--hub-line);
+      padding-left: 14px;
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/" aria-current="page">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="hub-section">
+  <p class="hub-eyebrow">Resources · <a href="/resources/edward-huang/" style="color:inherit;border-bottom:1px solid var(--c-orange)">Edward Huang 黃雋翔</a> · Program Proposal</p>
+  <h1 class="hub-h1">LCOY Taiwan in your school.</h1>
+  <p class="lcoy-section-lede">
+    A <strong>UNFCCC-recognized, K-16 sustainability and English education framework</strong> — designed so a school can plug it into the curriculum, clubs, and activities it already runs. From basic climate literacy in elementary classrooms to youth-led climate action at university, LCOY Taiwan turns a UN-recognized platform into a structured campus program.
+  </p>
+  <p class="lcoy-section-lede-zh hub-zh">
+    「LCOY Taiwan 校園永續教育導入計畫」是一套經 <strong>UNFCCC（聯合國氣候變化綱要公約）官方青年組織 YOUNGO 認可</strong>的永續教育架構，結合<strong>英語永續教育、專題導向學習（PBL）與國際青年氣候平台</strong>。由 Youth Network（青年網）提供完整課程架構、活動設計與培訓資源，學校僅需依既有課程或活動進行整合即可導入實施。
+  </p>
+
+  <div class="lcoy-chips">
+    <span class="lcoy-chip">UNFCCC YOUNGO Recognized</span>
+    <span class="lcoy-chip gold">K-16 Framework · 小學至大學</span>
+    <span class="lcoy-chip green">English-led · Project-Based Learning</span>
+    <span class="lcoy-chip">SDGs 永續發展目標</span>
+  </div>
+
+  <div class="lcoy-intro">
+    <p><strong>What is LCOY?</strong> The Local Conference of Youth (LCOY) is a national-level youth climate conference officially recognized by <strong>YOUNGO</strong>, the UNFCCC's official youth constituency. Youth perspectives and climate declarations gathered at each LCOY are carried up to the global Conference of Youth (COY) and the UN climate summit (COP).</p>
+    <p class="hub-zh">LCOY（Local Conference of Youth，在地青年氣候論壇）是 YOUNGO 官方認可的國家級青年氣候會議，彙整各國青年觀點與氣候宣言，提交至 Conference of Youth（COY）與聯合國氣候變化大會（COP）等國際平臺。</p>
+    <p><strong>Youth Network 青年網</strong> is the sole UNFCCC-recognized hosting team for <strong>LCOY Taiwan</strong>, working alongside <strong>PAC (People Achievement Consulting)</strong> on youth sustainability and international education exchange.</p>
+    <p class="hub-zh">Youth Network 為 YOUNGO 所認可之 <strong>LCOY Taiwan 唯一主辦團隊</strong>，並與 PAC（People Achievement Consulting）共同推動青年永續發展及國際教育交流。</p>
+  </div>
+
+  <div class="lcoy-stats">
+    <div class="lcoy-stat">
+      <div class="lcoy-stat-num">113</div>
+      <div class="lcoy-stat-label">countries &amp; regions with 2026 LCOY hosting rights<br><span class="hub-zh">取得 2026 LCOY 主辦資格</span></div>
+    </div>
+    <div class="lcoy-stat">
+      <div class="lcoy-stat-num">4</div>
+      <div class="lcoy-stat-label">stages from elementary to university<br><span class="hub-zh">小學至大學四階段架構</span></div>
+    </div>
+    <div class="lcoy-stat">
+      <div class="lcoy-stat-num">COY31</div>
+      <div class="lcoy-stat-label">Antalya, Türkiye · 2026 youth climate forum<br><span class="hub-zh">土耳其安塔利亞 國際青年氣候論壇</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">How the model works <small>導入模式</small></h2>
+  <p class="lcoy-section-lede">Schools don't build a new course from scratch — they integrate a ready-made framework into what they already do.</p>
+  <p class="lcoy-section-lede-zh hub-zh">學校無需從零設計課程，僅需將現成架構整合進既有的課程、社團與課外活動。</p>
+
+  <div class="lcoy-model">
+    <div class="lcoy-model-step">
+      <span class="icon">📦</span>
+      <h4>Youth Network provides <small>主辦團隊提供</small></h4>
+      <p>Full curriculum framework, activity design, and teacher / youth training resources.<br><span class="hub-zh">完整課程架構、活動設計與師生培訓資源。</span></p>
+    </div>
+    <div class="lcoy-model-step">
+      <span class="icon">🔗</span>
+      <h4>The school integrates <small>學校整合</small></h4>
+      <p>Plug the framework into existing lessons, PE / extracurricular activities, and clubs.<br><span class="hub-zh">融入既有課程、體育或課外活動及社團。</span></p>
+    </div>
+    <div class="lcoy-model-step">
+      <span class="icon">🌐</span>
+      <h4>Students connect globally <small>學生對接國際</small></h4>
+      <p>Project-based learning links to the UN youth climate platform and global summits.<br><span class="hub-zh">以專題學習對接聯合國青年氣候平台與國際峰會。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Four-stage ladder ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">The K-16 ladder <small>四階段成長路徑</small></h2>
+  <p class="lcoy-section-lede">One continuous pathway — climate awareness in elementary school grows into youth climate leadership and real policy contribution by university.</p>
+  <p class="lcoy-section-lede-zh hub-zh">一條連貫的成長路徑：從小學的氣候啟蒙，逐步發展為高中、大學的青年領導與實質政策貢獻。</p>
+
+  <div class="lcoy-stages">
+
+    <!-- Elementary -->
+    <div class="lcoy-stage st-elem">
+      <div class="lcoy-stage-head">
+        <span class="lcoy-stage-icon">🌱</span>
+        <span class="lcoy-stage-level">Elementary <small>小學</small></span>
+        <span class="lcoy-stage-tag">Awareness</span>
+      </div>
+      <div class="lcoy-stage-tag-zh hub-zh">基礎啟蒙階段</div>
+      <ul>
+        <li>Online or in-person lessons build basic awareness of sustainability, the environment, and climate change through everyday observation and simple expression.
+          <span class="zh hub-zh">透過線上或線下課程，以生活觀察與簡易表達，建立永續、環境與氣候變遷的基本認識。</span></li>
+        <li>Sustainability-themed projects tie into PE or other extracurricular activities — showing the seven core sustainability concepts apply across subjects.
+          <span class="zh hub-zh">結合體育或課外活動設計永續主題專題，認識永續七大概念的跨領域應用。</span></li>
+      </ul>
+    </div>
+
+    <!-- Junior High -->
+    <div class="lcoy-stage st-jhs">
+      <div class="lcoy-stage-head">
+        <span class="lcoy-stage-icon">🧭</span>
+        <span class="lcoy-stage-level">Junior High <small>國中</small></span>
+        <span class="lcoy-stage-tag">Exploration</span>
+      </div>
+      <div class="lcoy-stage-tag-zh hub-zh">探索發展階段</div>
+      <ul>
+        <li>The SDGs are introduced fully in English, building an international outlook and a first understanding of environmental and climate issues.
+          <span class="zh hub-zh">以全英語導入聯合國永續發展目標（SDGs），培養國際視野。</span></li>
+        <li>Students form their own LCOY Taiwan learning communities or clubs, explore local issues, and develop project designs and solutions.
+          <span class="zh hub-zh">自主發展 LCOY Taiwan 學習社群／社團，探索在地議題並完成專題設計與解決方案。</span></li>
+        <li>Continued lessons and cross-subject projects deepen the link between the environment and daily behavior.
+          <span class="zh hub-zh">持續以課程與跨領域專題深化環境與日常行為的連結。</span></li>
+      </ul>
+    </div>
+
+    <!-- Senior High -->
+    <div class="lcoy-stage st-shs">
+      <div class="lcoy-stage-head">
+        <span class="lcoy-stage-icon">🚀</span>
+        <span class="lcoy-stage-level">Senior High <small>高中</small></span>
+        <span class="lcoy-stage-tag">Leadership</span>
+      </div>
+      <div class="lcoy-stage-tag-zh hub-zh">領導培育階段</div>
+      <ul>
+        <li>Students learn how UN forums work — including <strong>COY31 (Antalya, Türkiye, 2026)</strong> — and, in the spirit of the MOE's overseas dream-fund program, gain real cross-border learning experience.
+          <span class="zh hub-zh">認識聯合國國際論壇機制（含 2026 COY31），呼應教育部「青年百億海外圓夢基金計畫」，實際出國培養國際視野。</span></li>
+        <li>Students connect the SDGs with their own interests — tech, art, business, sport, social issues — to develop a personal sustainability action idea.
+          <span class="zh hub-zh">將 SDGs 與個人興趣（科技／藝術／商業／運動／社會議題）結合，發展具個人特色的永續行動構想。</span></li>
+        <li>Students found and lead LCOY Taiwan clubs, taking on real organizing roles and building youth leadership and public communication skills.
+          <span class="zh hub-zh">獨立創辦並帶領 LCOY Taiwan 社團，承擔推廣與組織角色，培養青年領導與公共溝通能力。</span></li>
+      </ul>
+    </div>
+
+    <!-- University -->
+    <div class="lcoy-stage st-uni">
+      <div class="lcoy-stage-head">
+        <span class="lcoy-stage-icon">🌍</span>
+        <span class="lcoy-stage-level">University <small>大學</small></span>
+        <span class="lcoy-stage-tag">Impact</span>
+      </div>
+      <div class="lcoy-stage-tag-zh hub-zh">影響力實踐階段</div>
+      <ul>
+        <li>After workshop training, students run university-level LCOY Taiwan climate workshops, draft a youth climate report, and submit policy recommendations to local government.
+          <span class="zh hub-zh">完成工作坊培訓後，舉辦大學層級氣候行動工作坊，彙整青年氣候報告書並提交地方政府參考。</span></li>
+        <li>Multiple international exchange and on-site opportunities — including COY31 — build global citizenship and international action capacity.
+          <span class="zh hub-zh">透過多元國際交流與實地參與（含 COY31）培養全球公民素養與國際行動能力。</span></li>
+        <li>Internship matching and industry-academia links with ESG organizations, integrated with the university's USR office.
+          <span class="zh hub-zh">串連企業及 ESG 機構，透過實習媒合與產學合作，結合大學 USR（大學社會責任）資源。</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Benefits to schools ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">What schools gain <small>對學校的三大效益</small></h2>
+
+  <div class="lcoy-benefits">
+    <div class="lcoy-benefit">
+      <div class="lcoy-benefit-num">01</div>
+      <h3>Innovation &amp; English<small>教育創新與英語能力發展</small></h3>
+      <p>An English-led sustainability curriculum gives students an internationalized learning experience and strengthens real-context English comprehension and expression.</p>
+      <p class="hub-zh">以英語為導向的永續課程，提供國際化學習體驗，在真實議題情境中提升英語理解與表達。</p>
+    </div>
+    <div class="lcoy-benefit">
+      <div class="lcoy-benefit-num">02</div>
+      <h3>Learning-portfolio value<small>升學與學習歷程強化</small></h3>
+      <p>Project-based learning and international youth climate participation become strong evidence in students' learning portfolios. PAC's career-exploration and SEL tools support students, parents, and internship matching.</p>
+      <p class="hub-zh">PBL 與國際青年氣候參與可納入學習歷程檔案；整合 PAC 生涯探索測驗與家長 SEL 問卷工具。</p>
+    </div>
+    <div class="lcoy-benefit">
+      <div class="lcoy-benefit-num">03</div>
+      <h3>ESG &amp; global standing<small>國際競爭力與 ESG 影響力</small></h3>
+      <p>The school builds a concrete, measurable record of sustainability education and campus climate action — raising its profile in education rankings and ESG evaluation.</p>
+      <p class="hub-zh">建立可量化的永續教育成果與校園氣候行動紀錄，提升教育評比與 ESG 競爭力。</p>
+    </div>
+  </div>
+
+  <!-- Certificate callout -->
+  <div class="lcoy-cert">
+    <h3>UN-recognized certificates <small>聯合國認可證書</small></h3>
+    <p>Depending on their level of participation, students receive recognition certificates associated with the <strong>UNFCCC</strong> and <strong>UNESCO</strong> — a formal record of their international learning and project work.</p>
+    <p class="hub-zh">參與學生將依實際參與程度，獲得 UNFCCC（聯合國氣候變化綱要公約）與 UNESCO（聯合國教科文組織）相關認可證書，作為國際學習與專題參與的正式佐證。</p>
+    <div class="badges">
+      <span class="badge">🇺🇳 UNFCCC</span>
+      <span class="badge">🎓 UNESCO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact / next step ===== -->
+<section class="hub-section" style="padding-top:24px">
+  <h2 class="resources-h2">Next step <small>後續合作</small></h2>
+  <div class="lcoy-contact">
+    <div class="lcoy-contact-text">
+      <h3>Invite a briefing for your school</h3>
+      <p>Youth Network welcomes a face-to-face meeting or seminar to walk through the LCOY Taiwan campus model, how it integrates with your existing curriculum, and a concrete rollout plan for your school.</p>
+      <p class="hub-zh">Youth Network 誠摯邀請貴校安排面對面交流或座談，說明 LCOY Taiwan 校園導入模式、課程整合方式與實際執行規劃，共同研議推動方向。</p>
+    </div>
+    <div class="lcoy-contact-card">
+      <div class="name">黃雋翔 Edward Huang</div>
+      <div class="role">2026 UNFCCC YOUNGO · LCOY Taiwan 青年代表</div>
+      <dl>
+        <dt>Email</dt>
+        <dd><a href="mailto:youthnetworkteam12@gmail.com">youthnetworkteam12@gmail.com</a></dd>
+        <dt>Taiwan 臺灣</dt>
+        <dd><a href="tel:+886919477212">0919-477-212</a></dd>
+        <dt>USA 美國</dt>
+        <dd><a href="tel:+19493753605">+1 (949) 375-3605</a></dd>
+      </dl>
+    </div>
+  </div>
+
+  <p class="lcoy-disclaimer">
+    This page summarizes the “LCOY Taiwan 校園永續教育導入計畫” proposal submitted by Youth Network / Edward Huang. The program is offered by Youth Network and PAC; participation terms, scheduling, and any costs are arranged directly with the proposing organization.
+    <br><span class="hub-zh">本頁為 Youth Network／黃雋翔提出之「LCOY Taiwan 校園永續教育導入計畫」內容摘要；實際參與方式、時程與相關事宜請直接與主辦單位洽談。</span>
+  </p>
+
+  <p style="margin-top:40px;color:var(--hub-ink-faint);font-size:.92rem">
+    <a href="/resources/edward-huang/">← Back to Edward Huang</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+</body>
+</html>
