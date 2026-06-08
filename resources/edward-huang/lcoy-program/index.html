@@ -19,31 +19,35 @@
   <link rel="stylesheet" href="/assets/css/hub.css">
   <link rel="stylesheet" href="/assets/css/resources.css">
   <style>
-    /* ── LCOY program page-local styles ── */
+    /* ── LCOY program page-local styles ──
+       Typography follows the Yangming JHS rule: absolute px (no rem),
+       body ≥20px mobile / ≥23px desktop, any readable text ≥17/19px,
+       720px breakpoint; only decorative eyebrow/badge sit at 12–14px. */
+
     .lcoy-section-lede {
       color: var(--hub-ink-soft);
       max-width: 66ch;
       margin-bottom: 8px;
-      font-size: 1.02rem;
+      font-size: 20px;
       line-height: 1.7;
     }
     .lcoy-section-lede-zh {
       color: var(--hub-ink-soft);
       max-width: 66ch;
       margin-bottom: 24px;
-      font-size: .96rem;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.85;
     }
 
-    /* Chips (mirrors parent Edward Huang page) */
+    /* Chips — decorative badges */
     .lcoy-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 4px; }
     .lcoy-chip {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px;
+      padding: 7px 14px;
       background: #eaf3f8;
       color: var(--hub-primary-deep, #1c4d7e);
       border-radius: 999px;
-      font-size: .82rem; font-weight: 600; letter-spacing: .01em;
+      font-size: 14px; font-weight: 600; letter-spacing: .01em;
     }
     .lcoy-chip.gold  { background: #fbf3dc; color: #8a6a0a; }
     .lcoy-chip.green { background: #e7f4ec; color: #1e5f33; }
@@ -56,15 +60,15 @@
       border-radius: 16px;
       padding: 26px 28px;
     }
-    .lcoy-intro p { color: var(--hub-ink); line-height: 1.8; font-size: 1.0rem; margin: 0 0 12px; }
+    .lcoy-intro p { color: var(--hub-ink); line-height: 1.75; font-size: 20px; margin: 0 0 14px; }
     .lcoy-intro p:last-child { margin-bottom: 0; }
-    .lcoy-intro p.hub-zh { color: var(--hub-ink-soft); font-size: .95rem; line-height: 1.85; }
+    .lcoy-intro p.hub-zh { color: var(--hub-ink-soft); font-size: 18px; line-height: 1.85; }
     .lcoy-intro strong { color: var(--hub-ink); font-weight: 700; }
 
     /* Stat band */
     .lcoy-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 14px;
       margin: 28px 0 0;
     }
@@ -72,51 +76,50 @@
       background: #fff;
       border: 1px solid var(--hub-line);
       border-radius: 14px;
-      padding: 20px 22px;
+      padding: 22px 22px;
       text-align: center;
     }
     .lcoy-stat-num {
       font-family: var(--hub-serif, 'Playfair Display', serif);
-      font-size: 2.0rem; font-weight: 700; line-height: 1;
+      font-size: 34px; font-weight: 700; line-height: 1;
       color: var(--hub-primary-deep, #155454);
       margin-bottom: 8px;
     }
-    .lcoy-stat-label { font-size: .86rem; color: var(--hub-ink-soft); line-height: 1.45; }
+    .lcoy-stat-label { font-size: 17px; color: var(--hub-ink-soft); line-height: 1.5; }
 
     /* K-16 stage ladder */
     .lcoy-stages { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 12px 0 8px; }
-    @media (min-width: 760px) { .lcoy-stages { grid-template-columns: repeat(2, 1fr); } }
     .lcoy-stage {
       position: relative;
       background: #fff;
       border: 1px solid var(--hub-line);
       border-radius: 16px;
-      padding: 22px 24px 24px;
+      padding: 24px 26px 26px;
       border-top: 4px solid var(--st-c, #155454);
       transition: box-shadow .15s, transform .15s;
     }
     .lcoy-stage:hover { box-shadow: 0 12px 30px -16px rgba(0,0,0,.22); transform: translateY(-2px); }
     .lcoy-stage-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
-    .lcoy-stage-icon { font-size: 1.6rem; line-height: 1; }
+    .lcoy-stage-icon { font-size: 30px; line-height: 1; }
     .lcoy-stage-level {
       font-family: var(--hub-serif, 'Playfair Display', serif);
-      font-size: 1.25rem; font-weight: 700; color: var(--hub-ink);
+      font-size: 23px; font-weight: 700; color: var(--hub-ink);
     }
-    .lcoy-stage-level small { font-family: var(--hub-zh-font), sans-serif; font-size: .66em; color: var(--hub-ink-soft); font-weight: 500; margin-left: 4px; }
+    .lcoy-stage-level small { font-family: var(--hub-zh-font), sans-serif; font-size: 17px; color: var(--hub-ink-soft); font-weight: 500; margin-left: 6px; }
     .lcoy-stage-tag {
       display: inline-block;
       margin-left: auto;
-      padding: 4px 11px;
+      padding: 5px 12px;
       background: var(--st-soft, #e7f4ec);
       color: var(--st-c, #155454);
       border-radius: 999px;
-      font-size: .76rem; font-weight: 700; letter-spacing: .02em;
+      font-size: 14px; font-weight: 700; letter-spacing: .02em;
     }
-    .lcoy-stage-tag-zh { font-size: .72rem; color: var(--hub-ink-soft); margin: 2px 0 12px; }
+    .lcoy-stage-tag-zh { font-size: 16px; color: var(--hub-ink-soft); margin: 2px 0 14px; }
     .lcoy-stage ul { margin: 0; padding-left: 1.15em; }
-    .lcoy-stage li { color: var(--hub-ink); line-height: 1.6; font-size: .94rem; margin-bottom: 9px; }
+    .lcoy-stage li { color: var(--hub-ink); line-height: 1.6; font-size: 19px; margin-bottom: 12px; }
     .lcoy-stage li:last-child { margin-bottom: 0; }
-    .lcoy-stage li .zh { display: block; color: var(--hub-ink-soft); font-size: .86rem; margin-top: 2px; }
+    .lcoy-stage li .zh { display: block; color: var(--hub-ink-soft); font-size: 17px; line-height: 1.6; margin-top: 4px; }
 
     /* Stage color themes */
     .st-elem { --st-c: #1e7f5c; --st-soft: #e3f3ea; }
@@ -131,23 +134,22 @@
       gap: 16px;
       margin: 12px 0 8px;
     }
-    @media (min-width: 820px) { .lcoy-benefits { grid-template-columns: repeat(3, 1fr); } }
     .lcoy-benefit {
       background: #fff;
       border: 1px solid var(--hub-line);
       border-radius: 14px;
-      padding: 22px 22px 24px;
+      padding: 24px 24px 26px;
       transition: border-color .15s, box-shadow .15s;
     }
     .lcoy-benefit:hover { border-color: var(--c-orange); box-shadow: 0 8px 22px -12px rgba(0,0,0,.18); }
     .lcoy-benefit-num {
       font-family: var(--hub-serif, 'Playfair Display', serif);
-      font-size: 1.0rem; font-weight: 700; color: var(--c-orange, #d97818);
+      font-size: 16px; font-weight: 700; color: var(--c-orange, #d97818);
       margin-bottom: 8px;
     }
-    .lcoy-benefit h3 { font-size: 1.05rem; color: var(--hub-ink); margin: 0 0 4px; line-height: 1.3; }
-    .lcoy-benefit h3 small { display: block; font-family: var(--hub-zh-font), sans-serif; font-size: .8rem; color: var(--hub-ink-soft); font-weight: 500; margin-top: 3px; }
-    .lcoy-benefit p { color: var(--hub-ink-soft); line-height: 1.7; font-size: .92rem; margin: 10px 0 0; }
+    .lcoy-benefit h3 { font-size: 21px; color: var(--hub-ink); margin: 0 0 4px; line-height: 1.3; }
+    .lcoy-benefit h3 small { display: block; font-family: var(--hub-zh-font), sans-serif; font-size: 17px; color: var(--hub-ink-soft); font-weight: 500; margin-top: 4px; }
+    .lcoy-benefit p { color: var(--hub-ink-soft); line-height: 1.7; font-size: 19px; margin: 12px 0 0; }
 
     /* "How it works" / model row */
     .lcoy-model {
@@ -156,16 +158,15 @@
       gap: 14px;
       margin: 12px 0 0;
     }
-    @media (min-width: 720px) { .lcoy-model { grid-template-columns: repeat(3, 1fr); } }
     .lcoy-model-step {
       background: #f5f8fa;
       border-radius: 14px;
-      padding: 20px 22px;
+      padding: 22px 24px;
     }
-    .lcoy-model-step .icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
-    .lcoy-model-step h4 { font-size: .98rem; color: var(--hub-ink); margin: 0 0 4px; }
-    .lcoy-model-step h4 small { display:block; font-family: var(--hub-zh-font), sans-serif; font-weight: 500; font-size: .8rem; color: var(--hub-ink-soft); margin-top: 2px; }
-    .lcoy-model-step p { color: var(--hub-ink-soft); font-size: .9rem; line-height: 1.6; margin: 8px 0 0; }
+    .lcoy-model-step .icon { font-size: 28px; display: block; margin-bottom: 8px; }
+    .lcoy-model-step h4 { font-size: 20px; color: var(--hub-ink); margin: 0 0 4px; }
+    .lcoy-model-step h4 small { display:block; font-family: var(--hub-zh-font), sans-serif; font-weight: 500; font-size: 17px; color: var(--hub-ink-soft); margin-top: 3px; }
+    .lcoy-model-step p { color: var(--hub-ink-soft); font-size: 18px; line-height: 1.6; margin: 10px 0 0; }
 
     /* Certificate callout */
     .lcoy-cert {
@@ -173,19 +174,19 @@
       background: linear-gradient(135deg, #fffdf6 0%, #fff5d6 100%);
       border: 1px solid #f0d97a;
       border-radius: 16px;
-      padding: 24px 28px;
+      padding: 26px 28px;
     }
     .lcoy-cert h3 {
       font-family: var(--hub-serif, 'Playfair Display', serif);
-      font-size: 1.25rem; color: #6b4f0a; margin: 0 0 6px;
+      font-size: 23px; color: #6b4f0a; margin: 0 0 6px;
     }
-    .lcoy-cert h3 small { font-family: var(--hub-zh-font), sans-serif; font-size: .72em; color: #8a6a0a; font-weight: 500; margin-left: 10px; }
-    .lcoy-cert p { color: #5a4413; line-height: 1.75; font-size: .98rem; margin: 6px 0 0; }
-    .lcoy-cert .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .lcoy-cert h3 small { font-family: var(--hub-zh-font), sans-serif; font-size: 17px; color: #8a6a0a; font-weight: 500; margin-left: 10px; }
+    .lcoy-cert p { color: #5a4413; line-height: 1.75; font-size: 20px; margin: 8px 0 0; }
+    .lcoy-cert .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     .lcoy-cert .badge {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 13px; background: #fff; border: 1px solid #ecd58a;
-      border-radius: 999px; font-size: .84rem; font-weight: 700; color: #8a6a0a;
+      padding: 7px 14px; background: #fff; border: 1px solid #ecd58a;
+      border-radius: 999px; font-size: 15px; font-weight: 700; color: #8a6a0a;
     }
 
     /* Contact / next step */
@@ -199,33 +200,69 @@
       border-radius: 16px;
       overflow: hidden;
     }
-    @media (min-width: 760px) { .lcoy-contact { grid-template-columns: 1.3fr 1fr; } }
     .lcoy-contact-text { padding: 28px 30px; }
     .lcoy-contact-text h3 {
       font-family: var(--hub-serif, 'Playfair Display', serif);
-      font-size: 1.4rem; margin: 0 0 8px; color: #fff;
+      font-size: 25px; margin: 0 0 8px; color: #fff;
     }
-    .lcoy-contact-text p { color: #d6ebe8; line-height: 1.75; font-size: .98rem; margin: 0 0 8px; }
+    .lcoy-contact-text p { color: #d6ebe8; line-height: 1.75; font-size: 19px; margin: 0 0 10px; }
     .lcoy-contact-card {
       padding: 28px 30px;
       background: rgba(255,255,255,.06);
-      border-left: 1px solid rgba(255,255,255,.12);
+      border-top: 1px solid rgba(255,255,255,.12);
     }
-    .lcoy-contact-card .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 2px; }
-    .lcoy-contact-card .role { color: #b9ddd8; font-size: .85rem; margin-bottom: 16px; }
+    .lcoy-contact-card .name { font-weight: 700; font-size: 20px; margin-bottom: 2px; }
+    .lcoy-contact-card .role { color: #b9ddd8; font-size: 16px; margin-bottom: 16px; }
     .lcoy-contact-card dl { margin: 0; }
-    .lcoy-contact-card dt { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: #9ccfc8; margin-top: 12px; }
-    .lcoy-contact-card dd { margin: 2px 0 0; font-size: .96rem; }
+    .lcoy-contact-card dt { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: #9ccfc8; margin-top: 12px; }
+    .lcoy-contact-card dd { margin: 3px 0 0; font-size: 19px; }
     .lcoy-contact-card dd a { color: #fff; border-bottom: 1px solid rgba(255,255,255,.4); }
     .lcoy-contact-card dd a:hover { color: #ffe9c7; }
 
     .lcoy-disclaimer {
       margin-top: 24px;
-      font-size: .84rem;
+      font-size: 16px;
       color: var(--hub-ink-faint);
       line-height: 1.7;
       border-left: 3px solid var(--hub-line);
       padding-left: 14px;
+    }
+
+    /* ── Desktop (≥720px) ── */
+    @media (min-width: 720px) {
+      .lcoy-section-lede { font-size: 23px; }
+      .lcoy-section-lede-zh { font-size: 20px; }
+      .lcoy-intro p { font-size: 23px; }
+      .lcoy-intro p.hub-zh { font-size: 19px; }
+      .lcoy-stat-num { font-size: 38px; }
+      .lcoy-stat-label { font-size: 19px; }
+      .lcoy-stages { grid-template-columns: repeat(2, 1fr); }
+      .lcoy-stage-icon { font-size: 32px; }
+      .lcoy-stage-level { font-size: 25px; }
+      .lcoy-stage-level small { font-size: 19px; }
+      .lcoy-stage-tag-zh { font-size: 19px; }
+      .lcoy-stage li { font-size: 20px; }
+      .lcoy-stage li .zh { font-size: 19px; }
+      .lcoy-benefit h3 { font-size: 22px; }
+      .lcoy-benefit h3 small { font-size: 19px; }
+      .lcoy-benefit p { font-size: 20px; }
+      .lcoy-model { grid-template-columns: repeat(3, 1fr); }
+      .lcoy-model-step h4 { font-size: 21px; }
+      .lcoy-model-step h4 small { font-size: 19px; }
+      .lcoy-model-step p { font-size: 19px; }
+      .lcoy-cert h3 { font-size: 25px; }
+      .lcoy-cert h3 small { font-size: 19px; }
+      .lcoy-cert p { font-size: 22px; }
+      .lcoy-contact { grid-template-columns: 1.3fr 1fr; }
+      .lcoy-contact-card { border-top: 0; border-left: 1px solid rgba(255,255,255,.12); }
+      .lcoy-contact-text h3 { font-size: 27px; }
+      .lcoy-contact-text p { font-size: 20px; }
+      .lcoy-contact-card .name { font-size: 21px; }
+      .lcoy-contact-card dd { font-size: 20px; }
+      .lcoy-disclaimer { font-size: 17px; }
+    }
+    @media (min-width: 820px) {
+      .lcoy-benefits { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
@@ -462,7 +499,7 @@
     <br><span class="hub-zh">本頁為 Youth Network／黃雋翔提出之「LCOY Taiwan 校園永續教育導入計畫」內容摘要；實際參與方式、時程與相關事宜請直接與主辦單位洽談。</span>
   </p>
 
-  <p style="margin-top:40px;color:var(--hub-ink-faint);font-size:.92rem">
+  <p style="margin-top:40px;color:var(--hub-ink-faint);font-size:17px">
     <a href="/resources/edward-huang/">← Back to Edward Huang</a>
   </p>
 </section>
