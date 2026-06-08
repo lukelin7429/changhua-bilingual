@@ -103,6 +103,34 @@
   .gallery figure{margin:0;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);background:var(--accSoft);}
   .gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
 
+  /* vocab */
+  .vocab-section{padding:8px 0 56px;}
+  .vocab-section h3{font-family:'Cormorant Garamond',serif;color:var(--teal-deep);font-size:26px;font-weight:700;}
+  @media (min-width:720px){ .vocab-section h3{font-size:30px;} }
+  .vocab-section .h3-zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:18px;font-weight:600;margin-top:4px;margin-bottom:22px;}
+  @media (min-width:720px){ .vocab-section .h3-zh{font-size:20px;} }
+  .vocab-list{display:flex;flex-direction:column;gap:14px;}
+  .vocab{background:#fff;border:1px solid var(--line);border-left:6px solid var(--acc);border-radius:14px;padding:20px 22px;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .vocab{grid-template-columns:76px 1fr auto;gap:22px;padding:24px 28px;} }
+  .vocab__emoji{font-size:38px;line-height:1;text-align:center;}
+  @media (min-width:720px){ .vocab__emoji{font-size:56px;} }
+  .vocab__main{min-width:0;}
+  .vocab__word{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;color:var(--teal-deep);border-bottom:3px solid var(--acc);display:inline-block;line-height:1.1;}
+  @media (min-width:720px){ .vocab__word{font-size:38px;} }
+  .vocab__pos{font-size:16px;color:var(--ink-soft);margin-top:6px;}
+  @media (min-width:720px){ .vocab__pos{font-size:18px;} }
+  .vocab__pos b{color:var(--ink);font-weight:600;}
+  .vocab__ex{font-style:italic;color:var(--gold-deep);font-size:16px;margin-top:10px;line-height:1.5;padding:9px 14px;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:4px;}
+  @media (min-width:720px){ .vocab__ex{font-size:19px;} }
+  .vocab__ex .ex-zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:15px;margin-top:4px;}
+  @media (min-width:720px){ .vocab__ex .ex-zh{font-size:17px;} }
+  .speak{width:46px;height:46px;border-radius:50%;border:none;background:var(--accSoft);color:var(--acc);font-size:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s,background .15s,color .15s;flex-shrink:0;}
+  .speak:hover{background:var(--acc);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--acc);color:#fff;animation:pulse 1s infinite;}
+  @media (min-width:720px){ .speak{width:56px;height:56px;font-size:25px;} }
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
   .src{margin-top:30px;font-size:16px;color:var(--ink-soft);font-style:italic;}
   @media (min-width:720px){ .src{font-size:17px;} }
   .back-cta{text-align:center;margin-top:36px;padding-bottom:8px;}
@@ -169,6 +197,92 @@
   <h3>Photo Gallery</h3><div class="h3-zh">活動照片</div>
   <div class="gallery"><figure><img src="photo-3.jpg" alt="Teacher Dom Visits Houliao — character education lesson on perseverance" loading="lazy"></figure><figure><img src="photo.jpg" alt="Teacher Dom Visits Houliao — tea ceremony in the library" loading="lazy"></figure><figure><img src="photo-2.jpg" alt="Teacher Dom Visits Houliao — tea ceremony class in the hall" loading="lazy"></figure><figure><img src="photo-5.jpg" alt="Teacher Dom Visits Houliao — principal presents a certificate of thanks to Teacher Dom" loading="lazy"></figure><figure><img src="photo-4.jpg" alt="Teacher Dom Visits Houliao — certificate of thanks with My Culture Connect" loading="lazy"></figure></div>
 </div></section>
+<section class="vocab-section"><div class="wrap">
+  <h3>Words to Learn</h3><div class="h3-zh">關鍵字學習 · 點 🔊 聽英文例句</div>
+  <div class="vocab-list">
+
+    <div class="vocab">
+      <div class="vocab__emoji">🌊</div>
+      <div class="vocab__main">
+        <div class="vocab__word">remote</div>
+        <div class="vocab__pos">/rɪˈmoʊt/ · (adj.) · <b>偏遠的</b></div>
+        <div class="vocab__ex">"Houliao is a remote school by the sea."<span class="ex-zh">後寮是一所靠海的偏遠小學。</span></div>
+      </div>
+      <button class="speak" data-speak="remote. Houliao is a remote school by the sea." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">🎯</div>
+      <div class="vocab__main">
+        <div class="vocab__word">self-discipline</div>
+        <div class="vocab__pos">/ˌsɛlf ˈdɪsəplɪn/ · (n.) · <b>自律</b></div>
+        <div class="vocab__ex">"Self-discipline means doing what you should do."<span class="ex-zh">自律就是做你應該做的事。</span></div>
+      </div>
+      <button class="speak" data-speak="self-discipline. Self-discipline means doing what you should do." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">📚</div>
+      <div class="vocab__main">
+        <div class="vocab__word">diligence</div>
+        <div class="vocab__pos">/ˈdɪlɪdʒəns/ · (n.) · <b>勤奮</b></div>
+        <div class="vocab__ex">"Diligence means working hard every day."<span class="ex-zh">勤奮就是每天努力不懈。</span></div>
+      </div>
+      <button class="speak" data-speak="diligence. Diligence means working hard every day." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">🔥</div>
+      <div class="vocab__main">
+        <div class="vocab__word">perseverance</div>
+        <div class="vocab__pos">/ˌpɜːrsəˈvɪərəns/ · (n.) · <b>毅力</b></div>
+        <div class="vocab__ex">"Perseverance means you never give up."<span class="ex-zh">毅力就是永不放棄。</span></div>
+      </div>
+      <button class="speak" data-speak="perseverance. Perseverance means you never give up." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">🧭</div>
+      <div class="vocab__main">
+        <div class="vocab__word">guide</div>
+        <div class="vocab__pos">/ɡaɪd/ · (v.) · <b>帶領、導覽</b></div>
+        <div class="vocab__ex">"The students guided Teacher Dom around the school."<span class="ex-zh">學生帶著 Dom 老師參觀學校。</span></div>
+      </div>
+      <button class="speak" data-speak="guide. The students guided Teacher Dom around the school." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">🎵</div>
+      <div class="vocab__main">
+        <div class="vocab__word">perform</div>
+        <div class="vocab__pos">/pərˈfɔːrm/ · (v.) · <b>表演</b></div>
+        <div class="vocab__ex">"The children performed a song on the harmonica."<span class="ex-zh">孩子們用口琴表演了一首歌。</span></div>
+      </div>
+      <button class="speak" data-speak="perform. The children performed a song on the harmonica." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">🍵</div>
+      <div class="vocab__main">
+        <div class="vocab__word">mindfulness</div>
+        <div class="vocab__pos">/ˈmaɪndfəlnəs/ · (n.) · <b>靜心、專注</b></div>
+        <div class="vocab__ex">"Tea ceremony teaches us mindfulness."<span class="ex-zh">茶道教我們靜心與專注。</span></div>
+      </div>
+      <button class="speak" data-speak="mindfulness. Tea ceremony teaches us mindfulness." aria-label="Listen">🔊</button>
+    </div>
+
+    <div class="vocab">
+      <div class="vocab__emoji">✍️</div>
+      <div class="vocab__main">
+        <div class="vocab__word">autograph</div>
+        <div class="vocab__pos">/ˈɔːtəɡræf/ · (n.) · <b>簽名</b></div>
+        <div class="vocab__ex">"Some children asked Teacher Dom for her autograph."<span class="ex-zh">有些孩子請 Dom 老師簽名。</span></div>
+      </div>
+      <button class="speak" data-speak="autograph. Some children asked Teacher Dom for her autograph." aria-label="Listen">🔊</button>
+    </div>
+
+  </div>
+</div></section>
 <div class="wrap"><div class="back-cta"><a href="../">← Back to all news · 回校園新聞</a></div></div>
 <script>
 /* reveal-fx */
@@ -194,6 +308,31 @@
     <div class="partner">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a> · Part of the <a href="https://changhua.mycultureconnect.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
   </div>
 </footer>
+<script>
+/* vocab text-to-speech */
+(function(){
+  if(!('speechSynthesis' in window)) return;
+  var enVoice=null;
+  function loadVoices(){
+    var vs=speechSynthesis.getVoices();
+    enVoice=vs.find(function(v){return /en[-_]US/i.test(v.lang)&&/samantha|female|google us english|aria|jenny/i.test(v.name);})
+         || vs.find(function(v){return /en[-_]US/i.test(v.lang);})
+         || vs.find(function(v){return /^en/i.test(v.lang);}) || null;
+  }
+  loadVoices();
+  speechSynthesis.onvoiceschanged=loadVoices;
+  function speak(text,btn){
+    speechSynthesis.cancel();
+    document.querySelectorAll('.speak.is-speaking').forEach(function(b){b.classList.remove('is-speaking');});
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US';u.rate=0.9;u.pitch=1;
+    if(enVoice) u.voice=enVoice;
+    if(btn){btn.classList.add('is-speaking');u.onend=function(){btn.classList.remove('is-speaking');};u.onerror=function(){btn.classList.remove('is-speaking');};}
+    speechSynthesis.speak(u);
+  }
+  document.querySelectorAll('[data-speak]').forEach(function(b){b.addEventListener('click',function(){speak(b.dataset.speak,b);});});
+})();
+</script>
 <script>
 (function(){
   if (window.parent === window) return;
