@@ -46,13 +46,18 @@
     .dom-portrait-caption {
       position: absolute;
       left: 0; right: 0; bottom: 0;
-      padding: 14px 16px;
-      background: linear-gradient(to top, rgba(10,31,92,.94) 0%, rgba(10,31,92,.7) 60%, transparent 100%);
+      padding: 12px 16px 13px;
+      /* Light bottom scrim only — keep the photo visible, not a full-frame wash.
+         Fixed px (NOT rem): caption must not scale with the Hub type bump, or it
+         wraps and the gradient swallows the portrait. */
+      background: linear-gradient(to top, rgba(10,31,92,.80) 0%, rgba(10,31,92,.38) 48%, transparent 82%);
       color: #fff;
-      font-size: .82rem;
+      font-size: 13px;
+      line-height: 1.4;
       letter-spacing: .02em;
+      text-shadow: 0 1px 6px rgba(10,31,92,.55);
     }
-    .dom-portrait-caption strong { display: block; font-size: .95rem; font-weight: 700; margin-bottom: 2px; }
+    .dom-portrait-caption strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 1px; white-space: nowrap; }
 
     /* Dom-with-students featured strip — match .playlist-wrap width */
     .dom-feature-photo {
