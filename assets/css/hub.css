@@ -34,15 +34,21 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Typography scale matched to the school sites (yangming-jhs baseline):
+   the rem root drives every fixed-rem text size across the Hub, so raising it
+   here lifts all reading text + labels uniformly. Headings use clamp()+vw and
+   stay viewport-driven. Body base mirrors yangming exactly: 20px → 23px. */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 18px; }
+@media (min-width: 720px) { html { font-size: 20px; } }
 body {
   margin: 0;
   font-family: var(--hub-en-font), var(--hub-zh-font);
   color: var(--hub-ink);
   background: var(--hub-bg);
   line-height: 1.65;
-  font-size: 18px;
+  font-size: 20px;
 }
+@media (min-width: 720px) { body { font-size: 23px; } }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--hub-primary); text-decoration: none; }
 a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
@@ -980,6 +986,13 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
     padding: 56px 20px 48px;
   }
   .hub-section { padding: 48px 20px; }
+  .hub-footer-inner { grid-template-columns: 1fr; }
+}
+
+/* Nav collapses to a hamburger earlier than the layout breakpoint:
+   the larger (yangming-scale) nav labels would otherwise wrap in the
+   ~800–1000px band. */
+@media (max-width: 1000px) {
   .hub-nav-inner { padding: 12px 20px; }
   .hub-nav ul.hub-nav-list {
     position: absolute; top: 100%; right: 0; left: 0;
@@ -995,5 +1008,4 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
     border-radius: 8px; background: #fff; cursor: pointer;
   }
   .hub-nav-toggle svg { width: 20px; height: 20px; }
-  .hub-footer-inner { grid-template-columns: 1fr; }
 }
