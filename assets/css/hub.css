@@ -1009,3 +1009,27 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   }
   .hub-nav-toggle svg { width: 20px; height: 20px; }
 }
+
+/* ===== Motion: scroll-reveal + hover micro-interactions =====
+   Shared across all Hub pages (driven by hub.js). Elements fade/rise into view
+   on scroll with a staggered delay; honors prefers-reduced-motion. The .rvl
+   class is added by JS, so with JS disabled content stays fully visible. */
+.rvl { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+.rvl.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rvl { opacity: 1 !important; transform: none !important; }
+}
+
+/* Fill-in hover lift for resources cards that don't already define one
+   (.sdg/.lesson/.dom-card/.hub-card already have their own hover). */
+.about-card, .theme, .bllc-card, .ce-card, .about-stat, .dom-role, .how__step {
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.about-card:hover, .theme:hover, .bllc-card:hover, .ce-card:hover,
+.about-stat:hover, .dom-role:hover, .how__step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hub-shadow-hover);
+}
+/* Emoji / icon flourish on hover where cards expose an icon span */
+.theme__icon, .about-card-icon, .dom-role-icon { transition: transform .3s cubic-bezier(.2,.7,.2,1); display: inline-block; }
+.theme:hover .theme__icon, .about-card:hover .about-card-icon, .dom-role:hover .dom-role-icon { transform: scale(1.12) rotate(-6deg); }

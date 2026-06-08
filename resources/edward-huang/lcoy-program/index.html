@@ -228,12 +228,7 @@
       padding-left: 14px;
     }
 
-    /* ── Motion: scroll-reveal (matches Nanhsing) ── */
-    .rvl { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
-    .rvl.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .rvl { opacity: 1 !important; transform: none !important; } }
-
-    /* ── Motion: hover micro-interactions ── */
+    /* ── Motion: hover micro-interactions (scroll-reveal is shared via hub.css/hub.js) ── */
     .lcoy-stage-icon, .lcoy-model-step .icon { transition: transform .3s cubic-bezier(.2,.7,.2,1); display: inline-block; }
     .lcoy-stage:hover .lcoy-stage-icon { transform: scale(1.14) rotate(-6deg); }
     .lcoy-model-step { transition: transform .2s, box-shadow .2s; }
@@ -545,36 +540,5 @@
   <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
 </footer>
 <script src="/assets/js/hub.js"></script>
-<script>
-/* reveal-fx — scroll-triggered fade/rise with staggered delay.
-   getBoundingClientRect-based so it works without IntersectionObserver and
-   never leaves content stuck hidden; honors prefers-reduced-motion. */
-(function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.hub-h1,.lcoy-section-lede,.lcoy-section-lede-zh,.lcoy-chips,.lcoy-intro,.lcoy-stat,.resources-h2,.lcoy-model-step,.lcoy-stage,.lcoy-benefit,.lcoy-cert,.lcoy-contact';
-  var els=[].slice.call(document.querySelectorAll(sel));
-  if(!els.length)return;
-  els.forEach(function(el){el.classList.add('rvl');});
-  function reveal(el){
-    var sibs=[].slice.call(el.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    el.style.transitionDelay=(Math.max(0,sibs.indexOf(el))*80)+'ms';
-    el.classList.add('in');
-  }
-  var ticking=false;
-  function check(){
-    ticking=false;
-    var vh=window.innerHeight||document.documentElement.clientHeight;
-    for(var i=els.length-1;i>=0;i--){
-      if(els[i].getBoundingClientRect().top<vh*0.92){reveal(els[i]);els.splice(i,1);}
-    }
-  }
-  function onScroll(){if(!ticking){ticking=true;setTimeout(check,60);}}
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll,{passive:true});
-  check();                                  /* reveal hero immediately */
-  window.addEventListener('load',check);    /* re-check after images/fonts settle */
-  setTimeout(check,250);                     /* safety net */
-})();
-</script>
 </body>
 </html>

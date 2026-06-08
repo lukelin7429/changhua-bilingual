@@ -5,6 +5,57 @@
 (function () {
   'use strict';
 
+  // Reveal-all hook, assigned by initReveal(); called by search filters so a
+  // matched-but-not-yet-revealed card is never left invisible.
+  var revealRemaining = function () {};
+
+  // ----- Scroll reveal (fade / rise with staggered delay) -----
+  // getBoundingClientRect + scroll based (not IntersectionObserver/rAF) so it
+  // works in every environment and never leaves content stuck hidden.
+  function initReveal() {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var sel = [
+      'main .hub-h1', 'main .hub-h2', 'main .resources-h2',
+      'main .hub-card', 'main .about-card', 'main .about-stat', 'main .sdg',
+      'main .ce-card', 'main .theme', 'main .how__step', 'main .lesson',
+      'main .dom-card', 'main .dom-role', 'main .dom-pillar',
+      'main .dom-section-lede', 'main .dom-section-lede-zh',
+      'main .bllc-card', 'main .bllc-stat', 'main .bllc-rule', 'main .bc-activity',
+      'main .eh-hero-text', 'main .eh-portrait', 'main .eh-changhua', 'main .eh-role',
+      'main .eh-vocab', 'main .eh-photo', 'main .eh-chips',
+      'main .eh-section-lede', 'main .eh-section-lede-zh',
+      'main .lcoy-intro', 'main .lcoy-stat', 'main .lcoy-stage', 'main .lcoy-benefit',
+      'main .lcoy-model-step', 'main .lcoy-cert', 'main .lcoy-contact', 'main .lcoy-chips',
+      'main .lcoy-section-lede', 'main .lcoy-section-lede-zh'
+    ].join(',');
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    if (!els.length) return;
+    els.forEach(function (el) { el.classList.add('rvl'); });
+
+    function reveal(el) {
+      var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (n) {
+        return n.classList.contains('rvl');
+      });
+      el.style.transitionDelay = (Math.max(0, sibs.indexOf(el)) * 80) + 'ms';
+      el.classList.add('in');
+    }
+    var ticking = false;
+    function check() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for (var i = els.length - 1; i >= 0; i--) {
+        if (els[i].getBoundingClientRect().top < vh * 0.92) { reveal(els[i]); els.splice(i, 1); }
+      }
+    }
+    function onScroll() { if (!ticking) { ticking = true; setTimeout(check, 60); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    check();                                 // reveal anything already in view
+    window.addEventListener('load', check);  // re-check after images/fonts settle
+    setTimeout(check, 250);                   // safety net
+    revealRemaining = function () { els.slice().forEach(reveal); els.length = 0; };
+  }
+
   // ----- Mobile nav toggle -----
   document.querySelectorAll('.hub-nav').forEach(function (nav) {
     var toggle = nav.querySelector('.hub-nav-toggle');
@@ -195,6 +246,7 @@
     var emptyEl = document.getElementById('resources-search-empty');
 
     function filter() {
+      revealRemaining(); // ensure no reveal-hidden card stays invisible after filtering
       var q = input.value.trim().toLowerCase();
       var anyVisible = false;
       cards.forEach(function (card) {
@@ -218,6 +270,7 @@
     bindSearch();
     bindFetsSearch();
     bindResourcesSearch();
+    initReveal();
   }
 
   if (document.readyState === 'loading') {
