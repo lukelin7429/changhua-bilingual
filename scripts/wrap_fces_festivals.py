@@ -202,3 +202,10 @@ if shared.exists():
     if not any(shared.iterdir()):
         shared.rmdir()
         print(f"  removed empty _shared/")
+# Sweep: also absolutize assets/ paths so external CSS/JS load from any depth
+import re as _re
+for f in (REPO / "festivals").rglob("*.html"):
+    t = f.read_text()
+    t = _re.sub(r'\b(href|src)="assets/', r'\1="/assets/', t)
+    f.write_text(t)
+print("  also absolutized assets/ paths in wrapped pages")
