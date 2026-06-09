@@ -32,9 +32,11 @@ FEST_META = {slug:(e,en,zh) for slug,e,en,zh in FEST_LIST}
 TOPBAR_PATTERNS = [
     # subnav (dajuang, jianxin, dongshan, etc.)
     r'<nav class="subnav">.*?</nav>',
-    # yangming-jhs uses <div class="ymj-topbar">
-    r'<div[^>]*class="[^"]*ymj-topbar[^"]*"[^>]*>.*?</div>\s*</div>',
-    r'<header[^>]*class="[^"]*ymj-topbar[^"]*"[^>]*>.*?</header>',
+    # Any "<prefix>-topbar" wrapper div containing a <nav> (matches ymj-topbar,
+    # wj-topbar, dcj-topbar, and any future <abbr>-topbar pattern).
+    # MUST come before the bare "topbar" patterns below so we win on prefix matches.
+    r'<div[^>]*class="[a-z][a-z0-9-]*-topbar[^"]*"[^>]*>.*?<nav[^>]*>.*?</nav>\s*</div>\s*</div>',
+    r'<header[^>]*class="[a-z][a-z0-9-]*-topbar[^"]*"[^>]*>.*?</header>',
     # dongfang-style nav (just topbar-nav inside larger wrapper)
     r'<nav class="topbar"[^>]*>.*?</nav>',
     # "topbar" <div> pattern — has nested <nav>
