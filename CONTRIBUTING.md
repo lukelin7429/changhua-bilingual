@@ -10,10 +10,11 @@
 
 ## 一、你的角色與權限
 
-- 你被加為這個 repo 的 **collaborator (Write 權限)**
-- 你**可以**：開分支、推 commit、開 Pull Request、修改自己負責的學校資料夾
-- 你**不需要也不要**：動 CNAME、動 GitHub Pages 設定、動 apps-script/、動 .github/、改其他學校資料夾、merge 自己的 PR
-- 所有 PR 由 Luke review 後 merge，merge 後約 1–2 分鐘自動上線
+- 你被加為這個 repo 的 **collaborator（Write 權限）**，可以從自己的電腦**直接 push 到 `main`**。push 後約 1–2 分鐘，頁面就自動上線到 changhua-bilingual.org。
+- 我們**不走 PR 審核**：沒有人會在你上線前幫你把關。所以「自己負責的學校自己顧到好」就是你的責任——第三節的兩條安全紀律（開工前先 pull、上線前先本機預覽）請務必照做，它們就是用來取代審核關卡的。
+- 你**可以**：clone repo、直接 push 到 `main`、修改**自己負責的**學校資料夾。
+- 你**不要碰**：`CNAME`、GitHub Pages 設定、`apps-script/`、`.github/`、根目錄檔案（`index.html`、`build.py`、`sitemap.xml` 等），**以及別人學校的資料夾**——即使你覺得可以順手改。
+- 你用 **Claude Code** 在這個資料夾工作時，repo 內的 `CLAUDE.md` 會自動載入，三大設計鐵律 Claude 會自己遵守、自己自檢。這是我們把「設計品質」下放給每個人 Claude 把關的方式。
 
 ---
 
@@ -33,39 +34,51 @@ https://changhua-bilingual.org/schools/<學校slug>/bilingual-campus/
 
 ---
 
-## 三、工作流程
+## 三、工作流程（用 Claude Code）
 
-### 1. 一次性設定
+我們全隊都用 **Claude Code** 在本機工作：你不用背 git 指令，把要做的事用中文告訴 Claude，clone / pull / commit / push 都交給 Claude 做。你的責任是「指揮」和「驗收」，不是記指令。
 
-```bash
-git clone https://github.com/lukelin7429/changhua-bilingual.git
-cd changhua-bilingual
-```
+### 1. 一次性設定（每台電腦只做一次）
 
-### 2. 每次做新學校或修改
+1. 申請一個 GitHub 帳號，把帳號名稱給 Luke，請他把你加為 collaborator；再到 email 收 GitHub 邀請信、按 **Accept**。
+2. 安裝 Claude Code（裝過就跳過）。
+3. 開一個終端機，把 repo 抓下來：
+   ```bash
+   git clone https://github.com/lukelin7429/changhua-bilingual.git
+   cd changhua-bilingual
+   ```
+4. 設定你的 git 身分（讓 commit 掛你名下）：
+   ```bash
+   git config user.name "你的名字"
+   git config user.email "你的GitHub email"
+   ```
+5. 在 `changhua-bilingual` 這個資料夾裡啟動 Claude Code。之後每次工作都從這個資料夾開——這樣 `CLAUDE.md` 的設計鐵律才會自動載入。
 
-```bash
-# 從最新的 main 開分支
-git checkout main
-git pull
-git checkout -b school/<學校slug>
+### 2. 每次開工的標準節奏（五步，每次都一樣）
 
-# 做你的修改 ...
+> 把這五步當口訣。第 1 步和第 3 步是**安全紀律**，不能省——它們取代了「Luke 審核」那道關。
 
-git add schools/<學校slug>
-git commit -m "Add <學校名> bilingual campus page"
-git push -u origin school/<學校slug>
-```
+1. **先同步**（紀律）：開工第一句話跟 Claude 說「**先幫我 git pull 拿最新版**」。
+   永遠先 pull 再動工——別人可能剛上線新東西，不 pull 你會做在舊版上。
+2. **指揮**：告訴 Claude 你要做哪一間學校、哪一頁、改什麼。例：
+   「幫我把 `schools/<你的學校>/` 首頁的 banner 換成這張照片」。
+3. **本機驗收**（紀律）：改完先說「**先在本機預覽給我看**」，自己用手機尺寸從頭滑到尾，對照 `CLAUDE.md` 的交付前自檢清單。**沒看過、沒滑過，不要上線。**
+4. **上線**：確認 OK 後說「**沒問題了，commit 並 push 到 main**」。Claude 會寫好 commit message、推上去。
+5. **確認上線**：等 1–2 分鐘，打開 `https://changhua-bilingual.org/schools/<你的學校>/` 重新整理，確認真的更新了。
 
-然後到 GitHub 上開 Pull Request，target 是 `main`。Luke 會 review。
+### 3. 撞車了怎麼辦（很少見，但會遇到）
 
-### 3. 不要做的事
+如果 push 被擋下來（畫面出現 `rejected` / `non-fast-forward`），代表有人比你先推。**不要慌、不要 force push**，直接跟 Claude 說：
+「**我 push 被擋了，幫我 pull --rebase 之後再 push**」。
+因為大家各做各的學校資料夾，rebase 幾乎都會乾淨完成。
 
-- ❌ 不要直接 push 到 `main`
-- ❌ 不要 force push (`git push -f`)
-- ❌ 不要 `git add .` 或 `git add -A`，請只 add 你自己學校的資料夾
-- ❌ 不要 commit `.env`、Google API key、家長/老師個資、薪資資料、簽名圖片
-- ❌ 不要動別人學校的檔案，即使你覺得可以順手改
+### 4. 絕對不要做的事
+
+- ❌ 不要 force push（`git push -f`）——會洗掉別人推上去的東西。
+- ❌ 不要 `git add .` 或 `git add -A`，只 add 你自己學校的資料夾（叫 Claude「只 add `schools/<你的學校>/`」）。
+- ❌ 不要動別人學校的檔案，即使你覺得可以順手改。
+- ❌ 不要 commit `.env`、Google API key、家長/老師個資、薪資資料、簽名圖片（見第十一節）。
+- ❌ 沒在本機預覽過就 push（跳過第 2 節第 3 步）。
 
 ---
 
