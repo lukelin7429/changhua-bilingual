@@ -78,70 +78,40 @@
   .foot a:hover{color:var(--navy);}
 </style>
 <script defer src="/analytics.js"></script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/schools/taihe/style.css?v=2">
 <style>
-/* === Tai-He chrome — namespaced .th-* to avoid clashing with hub festival CSS === */
-.th-topbar{background:rgba(255,255,255,.96);border-bottom:1px solid #ebe5d6;padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
-.th-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
-.th-topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.th-topbar__logo{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:3px;box-shadow:0 4px 10px -2px rgba(31,58,110,.18);border:1px solid #ebe5d6;display:block;}
-.th-topbar__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:#1f3a6e;line-height:1.1;}
-.th-topbar__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:#5a606e;margin-top:3px;letter-spacing:.04em;}
-.th-topbar__nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
-.th-topbar__nav a{color:#1f2530;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:color .2s;}
-.th-topbar__nav a:hover{color:#a52836;}
-.th-topbar__nav a.is-active{color:#a52836;font-weight:700;}
-@media (max-width:620px){
-  .th-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .th-topbar__nav{gap:14px;justify-content:flex-start;}
-  .th-topbar__nav a{font-size:13.5px;}
-}
-
-.th-hero{position:relative;color:#fff;overflow:hidden;min-height:260px;padding:44px 0 36px;display:flex;align-items:center;background:linear-gradient(135deg,#a52836 0%,#8e1f2c 55%,#1f3a6e 100%);}
-@media (min-width:720px){ .th-hero{min-height:340px;padding:64px 0 48px;} }
-.th-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#a52836 0%,#c4334a 30%,#d89a3c 60%,#2d52a0 100%);pointer-events:none;z-index:2;}
-.th-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;position:relative;z-index:1;}
-@media (max-width:680px){ .th-hero__inner{grid-template-columns:1fr;gap:18px;} }
-.th-hero__emoji{font-size:96px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
-@media (min-width:720px){ .th-hero__emoji{font-size:128px;} }
-.th-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#d89a3c;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(216,154,60,.40);border-radius:99px;}
-.th-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(34px,5vw,52px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:.005em;text-shadow:0 2px 6px rgba(0,0,0,.45);}
-.th-hero .th-h1-zh{font-size:clamp(16px,2vw,21px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
-.th-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
-.th-hero__crumb a{color:#d89a3c;text-decoration:none;border-bottom:1px dashed rgba(216,154,60,.55);}
-.th-hero__crumb a:hover{color:#fff;}
-
-.th-footer{background:#1f3a6e;color:#fff;padding:48px 0 32px;margin-top:48px;}
-.th-footer__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
-@media (min-width:760px){ .th-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;} }
-.th-footer__brand{display:flex;align-items:flex-start;gap:14px;}
-.th-footer__brand img{width:60px;height:60px;border-radius:50%;background:#fff;object-fit:contain;padding:5px;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 16px -4px rgba(0,0,0,.30);}
-.th-footer__brand h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.15;}
-.th-footer__brand .name-zh{font-size:14px;color:rgba(255,255,255,.78);font-weight:500;margin-top:3px;}
-.th-footer__addr{margin-top:10px;font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;}
-.th-footer__col h5{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#d89a3c;margin-bottom:14px;}
-.th-footer__col ul{list-style:none;padding:0;margin:0;}
-.th-footer__col li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,.85);}
-.th-footer__col a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(216,154,60,.5);transition:color .2s;}
-.th-footer__col a:hover{color:#d89a3c;}
-.th-footer__bottom{max-width:1080px;margin:32px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.6);text-align:center;line-height:1.7;}
-.th-footer__bottom a{color:#d89a3c;text-decoration:none;}
+.hero{--banner-img:url("/schools/taihe/photos/banner-home.jpg");--banner-pos:center 45%;}
+</style>
+<style>
+/* Festival hero — sits below school's native topbar */
+.th-fest-hero{position:relative;color:#fff;overflow:hidden;min-height:240px;padding:36px 0 32px;display:flex;align-items:center;background:linear-gradient(135deg,#a52836 0%,#1f3a6e 100%);}
+@media (min-width:720px){ .th-fest-hero{min-height:320px;padding:56px 0 44px;} }
+.th-fest-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#a52836 0%,#1f3a6e 50%,#d89a3c 100%);pointer-events:none;z-index:2;}
+.th-fest-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;z-index:1;}
+@media (max-width:680px){ .th-fest-hero__inner{grid-template-columns:1fr;gap:16px;} }
+.th-fest-hero__emoji{font-size:84px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
+@media (min-width:720px){ .th-fest-hero__emoji{font-size:120px;} }
+.th-fest-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#d89a3c;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.20);border-radius:99px;}
+.th-fest-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(32px,4.8vw,50px);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 2px 6px rgba(0,0,0,.45);}
+.th-fest-hero .th-fest-hero__zh{font-size:clamp(15px,1.9vw,20px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
+.th-fest-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
+.th-fest-hero__crumb a{color:#d89a3c;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.40);}
+.th-fest-hero__crumb a:hover{color:#fff;}
 </style>
 
-<link rel="icon" type="image/png" sizes="32x32" href="/schools/taihe/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/schools/taihe/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/schools/taihe/favicon-180.png">
-<link rel="shortcut icon" href="/schools/taihe/favicon.ico">
 </head>
 <body>
-<div class="th-topbar">
-  <div class="th-topbar__inner">
-    <a class="th-topbar__brand" href="/schools/taihe/">
-      <img class="th-topbar__logo" src="/schools/taihe/photos/logo.png" alt="Tai-He Elementary School logo">
-      <div class="th-topbar__name">Tai-He Elementary<small>彰化縣彰化市泰和國民小學</small></div>
+<div class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/schools/taihe/">
+      <img class="topbar__logo" src="photos/logo.png" alt="Tai-He Elementary School logo">
+      <div class="topbar__name">Tai-He Elementary<small>彰化縣彰化市泰和國民小學</small></div>
     </a>
-    <nav class="th-topbar__nav">
-      <a href="/schools/taihe/">Home</a>
+    <nav class="topbar__nav">
+      <a href="/schools/taihe/" >Home</a>
       <a href="/schools/taihe/principal/">Principal</a>
       <a href="/schools/taihe/lessons/">Lessons</a>
       <a href="/schools/taihe/news/">News</a>
@@ -149,14 +119,14 @@
     </nav>
   </div>
 </div>
-<header class="th-hero">
-  <div class="th-hero__inner">
-    <div class="th-hero__emoji">🐉</div>
+<header class="th-fest-hero">
+  <div class="th-fest-hero__inner">
+    <div class="th-fest-hero__emoji">🐉</div>
     <div>
-      <span class="th-hero__eyebrow">Quiz · 小測驗</span>
+      <span class="th-fest-hero__eyebrow">Quiz · 小測驗</span>
       <h1>Quiz · Dragon Boat Festival</h1>
-      <div class="th-h1-zh">端午節 小測驗</div>
-      <div class="th-hero__crumb">
+      <div class="th-fest-hero__zh">端午節 小測驗</div>
+      <div class="th-fest-hero__crumb">
         <a href="../">← Back to lesson · 回講義</a>
         &nbsp;&middot;&nbsp; Festival 08 · Festival English Series
       </div>
@@ -334,35 +304,6 @@ $('#btn-restart').addEventListener('click', () => {
 
 render();
 </script>
-<footer class="th-footer">
-  <div class="th-footer__inner">
-    <div class="th-footer__brand">
-      <img src="/schools/taihe/photos/logo.png" alt="Tai-He Elementary School logo">
-      <div>
-        <h4>Tai-He Elementary School</h4>
-        <div class="name-zh">彰化縣彰化市泰和國民小學</div>
-        <div class="th-footer__addr">No. 1, Lane 145, Sec. 2, Taihe Rd.<br>Changhua City 500 · Taiwan<br>Tel · +886 4 7222 433</div>
-      </div>
-    </div>
-    <div class="th-footer__col"><h5>This Site</h5><ul>
-      <li><a href="/schools/taihe/">Home</a></li>
-      <li><a href="/schools/taihe/principal/">Principal</a></li>
-      <li><a href="/schools/taihe/lessons/">Lessons</a></li>
-      <li><a href="/schools/taihe/news/">News</a></li>
-      <li><a href="/schools/taihe/festivals/">Festivals</a></li>
-    </ul></div>
-    <div class="th-footer__col"><h5>Related</h5><ul>
-      <li><a href="https://thps.chc.edu.tw/" target="_blank" rel="noopener">Official site 官網</a></li>
-      <li><a href="https://sites.google.com/twrses.org/rochellesansano-taihe/home" target="_blank" rel="noopener">Teacher Rochelle's site</a></li>
-      <li><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></li>
-    </ul></div>
-  </div>
-  <div class="th-footer__bottom">
-    &copy; 彰化縣彰化市泰和國民小學 &middot; Tai-He Elementary School &nbsp;&middot;&nbsp;
-    Bilingual website by My Culture Connect 人師教育協會 &nbsp;&middot;&nbsp;
-    Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
-  </div>
-</footer>
 
 </body>
 </html>
