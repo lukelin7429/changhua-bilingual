@@ -181,6 +181,9 @@ for fslug, emoji, en, zh in FEST_LIST:
         h = strip_hub_chrome(h)
         h = re.sub(r'<header class="head">.*?</header>\s*', '', h, count=1, flags=re.DOTALL)
         h = re.sub(r'<div class="foot">.*?</div>\s*', '', h, count=1, flags=re.DOTALL)
+            # Rename quiz outer .wrap to .quiz-wrap (avoids collision with school topbar's internal .wrap)
+            h = re.sub(r'\.wrap\{max-width:840px;[^}]*min-height:100vh[^}]*\}', lambda mt: mt.group(0).replace('.wrap', '.quiz-wrap', 1), h, count=1)
+            h = re.sub(r'<div class="wrap">(\s*<main class="card")', r'<div class="quiz-wrap">\1', h, count=1)
         inject = school_links + "\n" + school_styles + "\n" + HERO_CSS
         h = h.replace('</head>', inject + '\n</head>', 1)
         chrome = topbar + '\n' + hero_quiz(emoji, en, zh, fno)

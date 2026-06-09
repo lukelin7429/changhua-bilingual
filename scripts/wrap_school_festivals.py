@@ -236,6 +236,9 @@ def wrap_for_school(slug, meta):
             h = strip_hub_chrome(h)
             h = re.sub(r'<header class="head">.*?</header>\s*', '', h, count=1, flags=re.DOTALL)
             h = re.sub(r'<div class="foot">.*?</div>\s*', '', h, count=1, flags=re.DOTALL)
+            # Rename quiz outer .wrap to .quiz-wrap (avoids collision with school topbar's internal .wrap)
+            h = re.sub(r'\.wrap\{max-width:840px;[^}]*min-height:100vh[^}]*\}', lambda mt: mt.group(0).replace('.wrap', '.quiz-wrap', 1), h, count=1)
+            h = re.sub(r'<div class="wrap">(\s*<main class="card")', r'<div class="quiz-wrap">\1', h, count=1)
             inject = school_ext_links + "\n" + school_styles + "\n" + hero_css
             h = h.replace('</head>', inject + "\n</head>", 1)
             hero = festival_hero(emoji, en, zh, fno, primary, secondary, accent, folder, "quiz")
