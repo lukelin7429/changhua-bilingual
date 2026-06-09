@@ -137,63 +137,13 @@
 <body>
 
 <div id="back-strip" class="back-strip">
-  <a href="/resources/" style="margin-right:auto;padding:8px 18px;border-radius:99px;background:#fff;border:1.5px solid #c9c920;color:#2a2725;text-decoration:none;font-weight:600;font-size:.95em">← Resources · 教學資源</a>
-  <a id="back-link" href="#">
-    <span class="arrow">←</span>
-    <span id="back-text">Back to school</span>
-  </a>
+  <a href="/resources/" style="padding:8px 18px;border-radius:99px;background:#fff;border:1.5px solid #c9c920;color:#2a2725;text-decoration:none;font-weight:600;font-size:.95em">← Resources · 教學資源</a>
 </div>
-
-<script>
-/* Show "Back to <school>" strip when arrived via ?from=<slug> OR when
- * sessionStorage has a previously-captured slug (so the strip persists
- * across festival subpages within the same tab). */
-(function(){
-  var p = new URLSearchParams(window.location.search);
-  var from = p.get('from');
-  /* If URL has ?from=, persist it for the rest of this tab session */
-  if(from){ try{ sessionStorage.setItem('cb_from_school', from); }catch(e){} }
-  /* Otherwise fall back to the persisted value */
-  if(!from){ try{ from = sessionStorage.getItem('cb_from_school'); }catch(e){} }
-  if(!from) return;
-  /* school slug -> display name (extend as more schools come online) */
-  var schools = {
-    'dajuang':    { en: 'Dajuang Elementary',    zh: '大莊國小' },
-    'hsinmin':    { en: 'Hsinmin Elementary',    zh: '新民國小' },
-    'dacheng':    { en: 'Dacheng Elementary',    zh: '大城國小' },
-    'dacheng-jh': { en: 'Dacheng JHS',           zh: '大城國中' },
-    'sigang':     { en: 'Sigang Elementary',     zh: '西港國小' },
-    'yangming':   { en: 'Yangming JHS',          zh: '陽明國中' },
-    'huatan':     { en: 'Huatan Elementary',     zh: '花壇國小' },
-    'hualong':    { en: 'Hualong Elementary',    zh: '華龍國小' },
-    'houliao':    { en: 'Houliao Elementary',    zh: '後寮國小' },
-    'jianxin':    { en: 'Jianxin Elementary',    zh: '建新國小' },
-    'zhongzheng': { en: 'Zhongzheng Elementary', zh: '中正國小' },
-    'siangtian':  { en: 'Siangtian Elementary',  zh: '香田國小' },
-    'yuhua':      { en: 'Yuhua Elementary',      zh: '育華國小' },
-    'yude':       { en: 'Yude Elementary',       zh: '育德國小' },
-    'hubei':      { en: 'Hu Bei Elementary',     zh: '湖北國小' },
-    'luoqing':    { en: 'Luoqing Elementary',    zh: '螺青國小' },
-    'wanshing-jh':{ en: 'Wanshing JHS',           zh: '萬興國中' },
-    'sijhou':     { en: 'Sijhou Elementary',     zh: '溪州國小' },
-    'nanjhou':    { en: 'Nanjhou Elementary',    zh: '南州國小' },
-    'dongshan':   { en: 'Dongshan Elementary',   zh: '東山國小' },
-    'cundong':    { en: 'Cundong Elementary',    zh: '村東國小' }
-  };
-  var sch = schools[from] || { en: from, zh: '回到學校' };
-  var strip = document.getElementById('back-strip');
-  var link  = document.getElementById('back-link');
-  var text  = document.getElementById('back-text');
-  link.href = '/schools/' + encodeURIComponent(from) + '/';
-  text.textContent = 'Back to ' + sch.en;
-  strip.hidden = false;
-})();
-</script>
 
 <header class="head">
   <div class="head__brand">Changhua Bilingual Hub · For Every Partner School</div>
   <h1 class="head__title">Festival English</h1>
-  <div class="head__zh">節慶英文 · 跨校通用課程入口</div>
+  <div class="head__zh">節慶英文 · 16 個節慶 · 講義與小考</div>
   <div class="head__sub">A full year of festivals — vocabulary, traditions, and roleplay in one place.</div>
 </header>
 
