@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>團隊協作指南 · 彰化雙語資源網</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font: 'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    --ink:#1a1c2e; --ink-soft:#4b4f6b; --line:#e6e8f2;
+    --indigo:#5b5bd6; --indigo-d:#4444c4; --indigo-l:#eef0ff;
+    --green:#16a34a; --green-l:#e7f8ee;
+    --red:#dc2626; --red-l:#fdecec;
+    --amber:#d97706; --amber-l:#fff5e6;
+    --blue:#2563eb; --blue-l:#e8f0ff;
+    --teal:#0d9488; --teal-l:#e3f6f3;
+    --violet:#7c3aed; --violet-l:#f1e9ff;
+    --radius:18px;
+    --shadow:0 8px 30px rgba(30,30,80,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:78px}
+  body{
+    font-family:var(--font); color:var(--ink); line-height:1.7;
+    font-size:19px; -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1200px 500px at 80% -10%, #f0eaff 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, #e6f6ff 0%, transparent 55%),
+      #fbfbff;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+  /* ── top nav ── */
+  .nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(10px);
+    background:rgba(255,255,255,.82);border-bottom:1px solid var(--line);
+  }
+  .nav-in{max-width:1040px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .nav-brand{font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px;color:var(--indigo-d)}
+  .nav-links{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+  .nav-links a{
+    font-size:15px;font-weight:600;color:var(--ink-soft);text-decoration:none;
+    padding:6px 12px;border-radius:999px;transition:.15s;
+  }
+  .nav-links a:hover{background:var(--indigo-l);color:var(--indigo-d)}
+
+  /* ── hero ── */
+  .hero{padding:64px 0 30px;text-align:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;
+    background:var(--indigo);color:#fff;padding:8px 18px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(91,91,214,.35);letter-spacing:.3px;
+  }
+  .hero h1{font-size:clamp(34px,6vw,54px);line-height:1.15;margin:22px 0 12px;font-weight:900;letter-spacing:-.5px}
+  .hero h1 em{font-style:normal;color:var(--indigo)}
+  .hero p.lede{font-size:21px;color:var(--ink-soft);max-width:680px;margin:0 auto}
+  .hero .meta{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;
+    background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;color:var(--ink-soft);
+  }
+  .chip code{background:var(--indigo-l);color:var(--indigo-d);padding:2px 8px;border-radius:6px;font-size:14px}
+
+  /* ── section base ── */
+  section{padding:42px 0}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .sec-ico{
+    width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:28px;
+    flex:0 0 auto;box-shadow:var(--shadow);
+  }
+  .sec-head h2{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.3px}
+  .sec-head p{font-size:16px;color:var(--ink-soft);margin-top:2px}
+
+  /* ── the 5-step rhythm (centerpiece) ── */
+  .rhythm-band{
+    background:linear-gradient(135deg,#5b5bd6 0%,#7c3aed 55%,#9333ea 100%);
+    border-radius:28px;padding:40px 30px;color:#fff;box-shadow:0 20px 50px rgba(91,91,214,.32);
+    position:relative;overflow:hidden;
+  }
+  .rhythm-band::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(400px 200px at 10% 0%,rgba(255,255,255,.18),transparent 60%);pointer-events:none}
+  .rhythm-band .kicker{font-weight:700;font-size:15px;opacity:.9;letter-spacing:1px;text-transform:uppercase}
+  .rhythm-band h3{font-size:clamp(22px,3.5vw,30px);font-weight:900;margin:6px 0 26px}
+  .steps{display:grid;gap:14px}
+  .step{
+    display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+    padding:18px 20px;border-radius:16px;backdrop-filter:blur(2px);
+  }
+  .step-n{
+    width:46px;height:46px;border-radius:50%;background:#fff;color:var(--violet);
+    display:grid;place-items:center;font-weight:900;font-size:22px;box-shadow:0 4px 12px rgba(0,0,0,.18)
+  }
+  .step h4{font-size:20px;font-weight:800;margin-bottom:3px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .step p{font-size:16.5px;opacity:.95;line-height:1.6}
+  .lock{
+    font-size:12.5px;font-weight:800;background:#ffd84d;color:#5a3d00;
+    padding:3px 10px;border-radius:999px;letter-spacing:.3px;white-space:nowrap;
+  }
+  .step .say{
+    display:inline-block;margin-top:7px;background:rgba(0,0,0,.28);color:#fff;
+    padding:7px 13px;border-radius:10px;font-size:15.5px;font-weight:600;border:1px dashed rgba(255,255,255,.35)
+  }
+  .step .say::before{content:"🗣 ";}
+
+  /* ── cards grid ── */
+  .grid{display:grid;gap:18px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px;box-shadow:var(--shadow);
+  }
+  .card h3{font-size:19px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+  .card .ic{font-size:22px}
+  .card p,.card li{font-size:16.5px;color:var(--ink-soft)}
+  .card ul{list-style:none;display:grid;gap:9px;margin-top:6px}
+  .card li{position:relative;padding-left:20px}
+  .card li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--indigo)}
+
+  /* tinted variants */
+  .t-green{border-color:#bfe9cf;background:var(--green-l)} .t-green li::before{background:var(--green)}
+  .t-red{border-color:#f4c5c5;background:var(--red-l)} .t-red li::before{background:var(--red)}
+  .t-amber{border-color:#f3d9a6;background:var(--amber-l)} .t-amber li::before{background:var(--amber)}
+  .t-blue{border-color:#c6d8fb;background:var(--blue-l)} .t-blue li::before{background:var(--blue)}
+
+  .pill-head{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;
+    padding:6px 14px;border-radius:999px;margin-bottom:14px}
+  .ph-green{background:var(--green);color:#fff}
+  .ph-red{background:var(--red);color:#fff}
+  .ph-amber{background:var(--amber);color:#fff}
+
+  /* can / cannot two-up */
+  .doublewide{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* code blocks */
+  code.inl{background:#eef0ff;color:var(--indigo-d);padding:2px 7px;border-radius:6px;font-size:.92em;font-weight:600}
+  pre{
+    background:#1a1c2e;color:#e6e8f8;border-radius:14px;padding:16px 18px;overflow-x:auto;
+    font-size:15px;line-height:1.55;margin-top:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace
+  }
+  pre .c{color:#8a90c8}
+  pre .g{color:#7fe7a8}
+
+  /* highlight callout */
+  .callout{
+    display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:center;
+    background:linear-gradient(135deg,#e3f6f3,#e8f0ff);border:1px solid #bfe2e0;
+    border-radius:20px;padding:24px 26px;box-shadow:var(--shadow)
+  }
+  .callout .big{font-size:46px}
+  .callout h3{font-size:21px;font-weight:800;margin-bottom:4px}
+  .callout p{font-size:17px;color:var(--ink-soft)}
+  .callout strong{color:var(--teal)}
+
+  /* conflict flow */
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+  .flow .fc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+  .flow .fc .n{font-size:30px;display:block;margin-bottom:6px}
+  .flow .fc b{display:block;font-size:16px;margin-bottom:3px}
+  .flow .fc span{font-size:15px;color:var(--ink-soft)}
+
+  /* footer */
+  footer{margin-top:30px;padding:40px 0 60px;border-top:1px solid var(--line);text-align:center}
+  footer .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+  footer a.btn{
+    text-decoration:none;font-weight:700;font-size:16px;padding:12px 22px;border-radius:12px;
+    background:var(--indigo);color:#fff;box-shadow:0 6px 18px rgba(91,91,214,.3);transition:.15s
+  }
+  footer a.btn:hover{transform:translateY(-2px)}
+  footer a.btn.ghost{background:#fff;color:var(--indigo-d);border:1px solid var(--line);box-shadow:none}
+  footer p{color:var(--ink-soft);font-size:15px}
+
+  .note{font-size:14.5px;color:var(--ink-soft);margin-top:10px}
+
+  @media(max-width:760px){
+    body{font-size:18px}
+    .grid-2,.grid-3,.doublewide,.flow{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .step{grid-template-columns:46px 1fr;gap:12px}
+    .callout{grid-template-columns:1fr;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <span class="nav-brand">🤝 團隊協作指南</span>
+    <div class="nav-links">
+      <a href="#setup">一次性設定</a>
+      <a href="#rhythm">五步口訣</a>
+      <a href="#perms">權限</a>
+      <a href="#conflict">撞車</a>
+      <a href="#dont">禁止</a>
+      <a href="#design">設計鐵律</a>
+      <a href="#rules">其他規則</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="badge">🔒 內部文件 · 給協作團隊</span>
+  <h1>一起編輯<br><em>彰化雙語資源網</em>的方法</h1>
+  <p class="lede">這份指南教大家怎麼用 Claude Code 安全地一起改學校網站。第一次加入請完整看一遍。</p>
+  <div class="meta">
+    <span class="chip">🌐 <code>changhua-bilingual.org</code></span>
+    <span class="chip">📦 <code>lukelin7429/changhua-bilingual</code></span>
+    <span class="chip">👤 主理人 林吉祥 Luke</span>
+  </div>
+</header>
+
+<!-- ───────── ONE-TIME SETUP ───────── -->
+<section id="setup" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--teal-l);color:var(--teal)">🛠️</div>
+    <div><h2>一次性設定</h2><p>每台電腦只做一次</p></div>
+  </div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3><span class="ic">①</span> 加入 repo</h3>
+      <ul>
+        <li>申請一個 GitHub 帳號，把帳號名稱給 Luke</li>
+        <li>Luke 把你加為 collaborator 後，到 email 收 GitHub 邀請信，按 <strong>Accept</strong></li>
+        <li>安裝 <strong>Claude Code</strong>（裝過就跳過）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="ic">②</span> 把網站抓下來、設定身分</h3>
+      <pre><span class="c"># 把整個網站 clone 到你電腦</span>
+git clone https://github.com/lukelin7429/changhua-bilingual.git
+cd changhua-bilingual
+
+<span class="c"># 設定你的身分，commit 才會掛你名下</span>
+git config user.name <span class="g">"你的名字"</span>
+git config user.email <span class="g">"你的GitHub email"</span></pre>
+      <p class="note">之後每次工作，都在 <code class="inl">changhua-bilingual</code> 這個資料夾裡開 Claude Code —— 這樣設計鐵律（<code class="inl">CLAUDE.md</code>）才會自動載入。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 5-STEP RHYTHM ───────── -->
+<section id="rhythm" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--violet-l);color:var(--violet)">🎯</div>
+    <div><h2>每次開工的五步口訣</h2><p>不用背 git 指令 —— 用中文指揮 Claude，它幫你做完所有 git 動作</p></div>
+  </div>
+  <div class="rhythm-band">
+    <div class="kicker">每次都一樣 · 把它當口訣</div>
+    <h3>Pull → 指揮 → 預覽 → 上線 → 確認</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <h4>先同步 <span class="lock">🔒 安全紀律</span></h4>
+          <p>永遠先拿最新版再動工，別人可能剛上線新東西，不 pull 你會做在舊版上。</p>
+          <span class="say">先幫我 git pull 拿最新版</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <h4>指揮 Claude</h4>
+          <p>告訴 Claude 你要做哪一間學校、哪一頁、改什麼。</p>
+          <span class="say">幫我把 schools/&lt;學校&gt;/ 首頁的 banner 換成這張照片</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <h4>本機驗收 <span class="lock">🔒 安全紀律</span></h4>
+          <p>改完先預覽，自己用手機尺寸從頭滑到尾，對照 <code style="background:rgba(0,0,0,.25);padding:1px 6px;border-radius:5px">CLAUDE.md</code> 自檢清單。<strong>沒看過、沒滑過，不要上線。</strong>這一步取代了「Luke 審核」那道關。</p>
+          <span class="say">先在本機預覽給我看</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div>
+          <h4>上線</h4>
+          <p>確認 OK 後叫 Claude 推上去，它會寫好 commit message。</p>
+          <span class="say">沒問題了，commit 並 push 到 main</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">5</div>
+        <div>
+          <h4>確認上線</h4>
+          <p>等 1–2 分鐘，打開 <code style="background:rgba(0,0,0,.25);padding:1px 6px;border-radius:5px">changhua-bilingual.org/schools/&lt;學校&gt;/</code> 重新整理，確認真的更新了。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PERMISSIONS ───────── -->
+<section id="perms" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--indigo-l);color:var(--indigo)">🔑</div>
+    <div><h2>你的權限</h2><p>每個人都能改每一間學校</p></div>
+  </div>
+
+  <div class="callout" style="margin-bottom:20px">
+    <div class="big">🏫</div>
+    <div>
+      <h3>每個人都能改每一間學校</h3>
+      <p>權限上<strong>沒有「這間是你的、那間是別人的」</strong>之分 —— 誰有空就誰做。<code class="inl">schools/</code> 底下任何學校你都可以改、直接 push 到 main，約 1–2 分鐘自動上線。</p>
+    </div>
+  </div>
+
+  <div class="doublewide">
+    <div class="card t-green">
+      <span class="pill-head ph-green">✅ 你可以</span>
+      <ul>
+        <li>clone repo 到自己電腦</li>
+        <li>修改 <code class="inl">schools/</code> 底下<strong>任何</strong>學校的資料夾</li>
+        <li>直接 push 到 <code class="inl">main</code>（我們不走 PR 審核）</li>
+      </ul>
+    </div>
+    <div class="card t-red">
+      <span class="pill-head ph-red">⛔ 不要碰</span>
+      <ul>
+        <li><code class="inl">CNAME</code>、GitHub Pages 設定</li>
+        <li><code class="inl">apps-script/</code>、<code class="inl">.github/</code></li>
+        <li>根目錄檔案（<code class="inl">index.html</code>、<code class="inl">build.py</code>、<code class="inl">sitemap.xml</code> 等）</li>
+        <li><code class="inl">schools/</code> 以外的東西要動，<strong>先問 Luke</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CONFLICT ───────── -->
+<section id="conflict" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--amber-l);color:var(--amber)">🚦</div>
+    <div><h2>怎麼避免「撞車」</h2><p>人人可改任何學校，所以這段要懂</p></div>
+  </div>
+
+  <div class="card t-amber" style="margin-bottom:18px">
+    <p style="color:var(--ink);font-size:17px">只有一種情況會撞車：<strong>兩個人同時改到「同一間學校的同一個檔案」</strong>。改不同學校、或同校不同檔案，<strong>都不會</strong>撞車。預防三招：</p>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card">
+      <h3><span class="ic">🔄</span> 開工前先 pull</h3>
+      <p>第一步永遠拿最新版（口訣第 1 步），就是這個用意。</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">⚡</span> 做完盡快 push</h3>
+      <p>不要把改動囤在自己電腦好幾天，越早上線越不會跟別人撞。</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">💬</span> 動別人剛碰的學校先講一聲</h3>
+      <p>群組說「我來改 X 校首頁」，避免兩人同時改同一頁。</p>
+    </div>
+  </div>
+
+  <div class="card t-blue" style="margin-top:18px">
+    <h3 style="color:var(--blue)"><span class="ic">🛟</span> 真的撞到了怎麼辦？別慌，<u>絕不要 force push</u></h3>
+    <p style="margin:8px 0 0">如果 push 被擋下來（出現 <code class="inl">rejected</code> / <code class="inl">non-fast-forward</code>），代表有人比你先推。直接跟 Claude 說：</p>
+    <pre style="background:#11254a"><span class="g">我 push 被擋了，幫我 pull --rebase 之後再 push</span></pre>
+    <p style="margin-top:10px">只要沒有人 force push，<strong style="color:var(--blue)">沒有人的東西會憑空消失</strong> —— 最壞就是重推一次、慢一兩分鐘。</p>
+  </div>
+</section>
+
+<!-- ───────── DON'T ───────── -->
+<section id="dont" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--red-l);color:var(--red)">🚫</div>
+    <div><h2>絕對不要做的事</h2><p>記住這四條就好</p></div>
+  </div>
+  <div class="grid grid-2">
+    <div class="card t-red">
+      <h3 style="color:var(--red)">💥 不要 force push</h3>
+      <p><code class="inl">git push -f</code> 是唯一會洗掉別人成果的動作，<strong>絕對禁止</strong>。撞車時用 <code class="inl">pull --rebase</code>，不要 force。</p>
+    </div>
+    <div class="card t-red">
+      <h3 style="color:var(--red)">📦 不要 <code class="inl">git add .</code></h3>
+      <p>不要 <code class="inl">git add .</code> 或 <code class="inl">-A</code>。只 add 你這次真的有改的學校：叫 Claude「只 add <code class="inl">schools/&lt;slug&gt;/</code>」。</p>
+    </div>
+    <div class="card t-red">
+      <h3 style="color:var(--red)">🔐 不要 commit 隱私 / 金鑰</h3>
+      <p>不要 commit <code class="inl">.env</code>、Google API key、家長/老師個資、薪資、簽名圖片。</p>
+    </div>
+    <div class="card t-red">
+      <h3 style="color:var(--red)">👀 沒預覽過不要 push</h3>
+      <p>跳過「本機驗收」就上線 = 沒有人把關。一定要先預覽、滑過再推。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── DESIGN RULES ───────── -->
+<section id="design" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--violet-l);color:var(--violet)">🎨</div>
+    <div><h2>三大設計鐵律</h2><p>在 repo 裡開 Claude Code，這三條 Claude 會自動遵守、自動自檢</p></div>
+  </div>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3><span class="ic">🖼️</span> Banner 不蓋全幅遮罩</h3>
+      <p>照片清晰時不要蓋整片暗化/染色（會「髒髒的」）。文字可讀性只用<strong>底部單一漸層 scrim</strong> + 字陰影。</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🔠</span> 字級以 yangming-jhs 為母版</h3>
+      <p>第一個動作：複製 <code class="inl">schools/yangming-jhs/</code> 的 <code class="inl">:root</code> 色票與字型。<strong>絕對 px、禁 rem</strong>；body ≥ 20/23px、次要文字 ≥ 17/19px。</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🗂️</span> WOTD / Lessons 以 dajuang 為母版</h3>
+      <p>落地頁複製大莊的「主題色卡片網格」，個別單元用 <code class="inl">.vc</code> vocab card，每單元 9 字。</p>
+    </div>
+  </div>
+  <p class="note">💡 完整自檢清單與細節都在 repo 的 <code class="inl">CLAUDE.md</code>，Claude 會自動讀；你只要在預覽時對照它從頭滑一遍。</p>
+</section>
+
+<!-- ───────── OTHER RULES ───────── -->
+<section id="rules" class="wrap">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--blue-l);color:var(--blue)">📋</div>
+    <div><h2>其他內容規則（速查）</h2><p>細節以 <code class="inl">CONTRIBUTING.md</code> 為準</p></div>
+  </div>
+  <div class="grid grid-3">
+    <div class="card t-blue">
+      <h3><span class="ic">🔤</span> 網址 slug</h3>
+      <p>小寫英文、用學校官方羅馬拼音（和美 = <code class="inl">homei</code>）。<strong>開新學校前先跟 Luke 確認 slug</strong>，上線後不能改。</p>
+    </div>
+    <div class="card t-blue">
+      <h3><span class="ic">🧭</span> Sub-nav 七連結（固定序）</h3>
+      <p>Home · Lessons · Bilingual Campus · Teachers · About · Contact · <strong>Festivals（永遠最後）</strong>。Festivals 用絕對 URL，不要在校資料夾建 <code class="inl">festivals/</code>。</p>
+    </div>
+    <div class="card t-blue">
+      <h3><span class="ic">🎧</span> Bilingual Campus 嵌兩條 playlist</h3>
+      <p>課室英語 + 廣播英語。URL 跟 Luke 索取最新版，<strong>不要自己上 YouTube 找替代</strong>。</p>
+    </div>
+    <div class="card t-blue">
+      <h3><span class="ic">❓</span> 測驗 Quiz</h3>
+      <p>自製 HTML + Apps Script（不用 Google Forms）。<strong>選項一律純英文</strong>，中文只在提示與作答後解說。</p>
+    </div>
+    <div class="card t-blue">
+      <h3><span class="ic">⬜</span> 設計基調</h3>
+      <p>全頁純白底 <code class="inl">#fff</code>；繁中用系統字體（禁 Google Fonts 中文）；banner 不放會變動的數字；只列校長、不列主任；全 inline 不彈新分頁；不寫學費。</p>
+    </div>
+    <div class="card t-blue">
+      <h3><span class="ic">🙋</span> 不清楚就問 Luke</h3>
+      <p>特殊設計需求、加表單收家長資料、嵌 Google Map/Calendar、未公開學生照、要動根目錄檔案 —— <strong>寧可多問一次</strong>。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p style="font-size:18px;color:var(--ink)">📖 這頁是友善摘要，<strong>完整且最權威的規則</strong>在這兩份文件：</p>
+  <div class="links">
+    <a class="btn" href="https://github.com/lukelin7429/changhua-bilingual/blob/main/CONTRIBUTING.md">CONTRIBUTING.md 完整協作指南</a>
+    <a class="btn ghost" href="https://github.com/lukelin7429/changhua-bilingual/blob/main/CLAUDE.md">CLAUDE.md 設計鐵律</a>
+  </div>
+  <p>彰化雙語資源網 · 人師教育協會 My Culture Connect · 主理人 林吉祥 Luke</p>
+</footer>
+
+</body>
+</html>
