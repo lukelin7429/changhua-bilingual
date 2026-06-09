@@ -78,105 +78,642 @@
   .foot a:hover{color:var(--navy);}
 </style>
 <script defer src="/analytics.js"></script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* === School chrome — namespaced .th-* to avoid clashing with hub festival CSS === */
-.th-topbar{background:rgba(255,255,255,.96);border-bottom:1px solid #ebe5d6;padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
-.th-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
-.th-topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.th-topbar__logo{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:3px;box-shadow:0 4px 10px -2px rgba(0,0,0,.18);border:1px solid #ebe5d6;display:block;}
-.th-topbar__badge{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#1d4d70 0%,#1f6e47 100%);color:#fff;font-family:'Playfair Display',serif;font-size:21px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px -2px rgba(0,0,0,.18);}
-.th-topbar__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:#1d4d70;line-height:1.1;}
-.th-topbar__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:#5a606e;margin-top:3px;letter-spacing:.04em;}
-.th-topbar__nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
-.th-topbar__nav a{color:#1f2530;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:color .2s;}
-.th-topbar__nav a:hover{color:#1d4d70;}
-.th-topbar__nav a.is-active{color:#1d4d70;font-weight:700;}
-@media (max-width:620px){
-  .th-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .th-topbar__nav{gap:14px;justify-content:flex-start;}
-  .th-topbar__nav a{font-size:13.5px;}
-}
+  :root{
+    /* Palette derived directly from Hu Bei's school crest */
+    --blue:#3B95C7;        /* crest blue petal */
+    --blue-deep:#1d4d70;
+    --blue-soft:#e3f0f8;
+    --green:#4CAE7E;       /* crest green petal */
+    --green-deep:#1f6e47;
+    --green-soft:#e0f1e8;
+    --orange:#E08B41;      /* crest orange petal */
+    --orange-deep:#9c5212;
+    --orange-soft:#fbeada;
+    --gold:#D4A52E;        /* crest gold (Chinese name calligraphy) */
+    --gold-deep:#8a6a16;
+    --gold-soft:#fbf2d8;
 
-.th-hero{position:relative;color:#fff;overflow:hidden;min-height:260px;padding:44px 0 36px;display:flex;align-items:center;background:linear-gradient(135deg,#1d4d70 0%,#1f6e47 100%);}
-@media (min-width:720px){ .th-hero{min-height:340px;padding:64px 0 48px;} }
-.th-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1d4d70 0%,#1f6e47 50%,#d4a52e 100%);pointer-events:none;z-index:2;}
-.th-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;position:relative;z-index:1;}
-@media (max-width:680px){ .th-hero__inner{grid-template-columns:1fr;gap:18px;} }
-.th-hero__emoji{font-size:96px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
-@media (min-width:720px){ .th-hero__emoji{font-size:128px;} }
-.th-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#d4a52e;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.20);border-radius:99px;}
-.th-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(34px,5vw,52px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:.005em;text-shadow:0 2px 6px rgba(0,0,0,.45);}
-.th-hero .th-h1-zh{font-size:clamp(16px,2vw,21px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
-.th-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
-.th-hero__crumb a{color:#d4a52e;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.40);}
-.th-hero__crumb a:hover{color:#fff;}
+    --ink:#1c1810;
+    --ink-soft:#5a534a;
+    --line:#e6dfd1;
 
-.th-footer{background:#1d4d70;color:#fff;padding:48px 0 32px;margin-top:48px;}
-.th-footer__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
-@media (min-width:760px){ .th-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;} }
-.th-footer__brand{display:flex;align-items:flex-start;gap:14px;}
-.th-footer__brand img{width:60px;height:60px;border-radius:50%;background:#fff;object-fit:contain;padding:5px;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 16px -4px rgba(0,0,0,.30);}
-.th-footer__brand .badge{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.7) 100%);color:#1d4d70;font-family:'Playfair Display',serif;font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.th-footer__brand h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.15;}
-.th-footer__brand .name-zh{font-size:14px;color:rgba(255,255,255,.78);font-weight:500;margin-top:3px;}
-.th-footer__col h5{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#d4a52e;margin-bottom:14px;}
-.th-footer__col ul{list-style:none;padding:0;margin:0;}
-.th-footer__col li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,.85);}
-.th-footer__col a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.30);transition:color .2s;}
-.th-footer__col a:hover{color:#d4a52e;}
-.th-footer__bottom{max-width:1080px;margin:32px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.6);text-align:center;line-height:1.7;}
-.th-footer__bottom a{color:#d4a52e;text-decoration:none;}
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(29,77,112,.28);
+    --shadow-sm:0 4px 14px -4px rgba(29,77,112,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--blue-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--orange-deep);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 
-/* Landing-page extras */
-.th-landing-section{padding:56px 24px;background:#fff;}
-@media (min-width:720px){ .th-landing-section{padding:80px 24px;} }
-.th-landing-section .wrap{max-width:1080px;margin:0 auto;}
-.th-sec-head{text-align:center;margin-bottom:40px;}
-.th-sec-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;color:#1f6e47;}
-.th-sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.4vw,46px);font-weight:700;color:#1d4d70;line-height:1.18;}
-.th-sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:#5a606e;font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
-.th-sec-head .lede{color:#5a606e;font-size:18px;max-width:680px;margin:16px auto 0;line-height:1.7;}
-.fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-@media (min-width:680px){ .fgrid{grid-template-columns:repeat(3,1fr);gap:22px;} }
-@media (min-width:1000px){ .fgrid{grid-template-columns:repeat(4,1fr);} }
-.fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid #ebe5d6;border-radius:20px;padding:30px 18px;box-shadow:0 6px 16px -6px rgba(0,0,0,.15);transition:transform .2s, box-shadow .2s;color:inherit;text-decoration:none;}
-.fcard:hover{transform:translateY(-5px);box-shadow:0 14px 32px -12px rgba(0,0,0,.25);}
-.fcard .em{font-size:54px;line-height:1;transition:transform .25s;}
-.fcard:hover .em{transform:scale(1.1) rotate(-4deg);}
-.fcard .t{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#1d4d70;margin-top:12px;line-height:1.15;}
-.fcard .z{font-family:'PingFang TC',sans-serif;font-size:16px;color:#5a606e;margin-top:4px;}
-.fcard .go{margin-top:12px;font-size:14px;font-weight:700;color:#1f6e47;font-family:'Playfair Display',serif;letter-spacing:.4px;}
+  /* ============ TOPBAR ============ */
+  .topbar{
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:14px;}
+  .topbar-brand img{
+    width:42px;height:42px;object-fit:contain;
+  }
+  .topbar-name{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:19px;font-weight:600;
+    color:var(--blue-deep);
+    line-height:1.1;
+  }
+  .topbar-name small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:12.5px;font-weight:500;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;
+  }
+  .topbar-nav{
+    display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;
+  }
+  .topbar-nav a{
+    color:var(--ink);font-size:14.5px;font-weight:500;
+    letter-spacing:.04em;text-decoration:none;
+  }
+  .topbar-nav a:hover{color:var(--blue);}
+  .topbar-nav a.is-active{color:var(--blue-deep);font-weight:700;}
+  @media (max-width:560px){
+    .topbar-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    .topbar-nav{gap:14px;justify-content:flex-start;}
+    .topbar-nav a{font-size:13.5px;}
+  }
 
-/* Base body on landing page only */
-.th-landing body{background:#fff;color:#1f2530;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  /* ============ TITLE (campus building hero with EDGE wordmark) ============ */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(15,42,63,0) 0%, rgba(15,42,63,0) 48%, rgba(15,42,63,.55) 100%),
+      url('photos/campus-hero.jpg') center 55% / cover no-repeat,
+      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%);text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);/*scrim-shadow*/
+    padding:104px 0 96px;
+    text-align:center;
+    color:#fff;
+    border-bottom:5px solid var(--blue);
+    overflow:hidden;
+  }
+  .title::before{
+    /* faint giant glyph echoing the school's identity, like dacheng-jh */
+    content:"湖";
+    position:absolute;top:50%;right:-3%;
+    transform:translateY(-50%) rotate(-6deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(58vw,460px);font-weight:600;
+    color:rgba(255,255,255,.06);
+    line-height:1;pointer-events:none;user-select:none;z-index:0;
+  }
+  .title::after{
+    content:"";position:absolute;
+    inset:0;background:transparent;
+    pointer-events:none;z-index:0;
+  }
+  /* rainbow stripe at bottom (echoing the school's signature PU track colors) */
+  .title__rainbow{
+    position:absolute;bottom:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg, var(--blue) 0%, var(--green) 35%, var(--gold) 60%, var(--orange) 85%, #d6486a 100%);
+    pointer-events:none;z-index:2;
+  }
+  .title > .wrap{position:relative;z-index:1;}
+  .title__eyebrow{
+    display:inline-block;
+    font-size:13.5px;letter-spacing:.28em;
+    color:rgba(255,236,196,.95);font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(42px,7.2vw,68px);
+    line-height:1.04;font-weight:600;letter-spacing:.005em;
+    color:#fff;
+    margin-bottom:6px;
+    text-shadow:0 2px 18px rgba(0,0,0,.45);
+  }
+  .title .h1-zh{
+    font-size:clamp(20px,2.6vw,26px);
+    font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.9);
+    margin-top:14px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .title__divider{
+    width:60px;height:2px;
+    background:var(--orange);
+    margin:28px auto 22px;
+    border:0;
+  }
+  .title__edge{
+    display:flex;justify-content:center;align-items:baseline;
+    gap:clamp(14px,3.5vw,38px);
+    margin:18px 0 10px;
+    flex-wrap:wrap;
+  }
+  .title__edge .letter{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+  }
+  .title__edge .big{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,6vw,58px);
+    font-weight:700;
+    line-height:1;
+    background:linear-gradient(135deg,#fff,#ffeac4);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 16px rgba(0,0,0,.3);
+  }
+  .title__edge .word{
+    font-size:13px;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(255,255,255,.85);
+  }
+  .title__edge .e .big{color:#bfe2f4;background:none;-webkit-text-fill-color:#bfe2f4;text-shadow:0 2px 12px rgba(59,149,199,.6);}
+  .title__edge .d .big{color:#cdeedb;background:none;-webkit-text-fill-color:#cdeedb;text-shadow:0 2px 12px rgba(76,174,126,.6);}
+  .title__edge .g .big{color:#ffd9b0;background:none;-webkit-text-fill-color:#ffd9b0;text-shadow:0 2px 12px rgba(224,139,65,.6);}
+  .title__edge .c .big{color:#ffe8a3;background:none;-webkit-text-fill-color:#ffe8a3;text-shadow:0 2px 12px rgba(212,165,46,.6);}
+  .title__tagline{
+    max-width:640px;margin:18px auto 0;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:rgba(255,255,255,.95);
+    line-height:1.55;
+  }
+  .title__tagline .tagline-zh{
+    display:block;
+    font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:16.5px;
+    margin-top:8px;
+    color:rgba(255,255,255,.78);
+    letter-spacing:.06em;
+  }
+
+  /* ============ Section base ============ */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;
+    color:var(--green-deep);font-size:14.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(38px,5.8vw,58px);
+    font-weight:600;color:var(--blue-deep);line-height:1.2;
+    margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{
+    color:var(--ink-soft);font-size:19px;
+    max-width:640px;margin:18px auto 0;
+  }
+
+  /* ============ About ============ */
+  .about{background:#fff;}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:center;
+  }
+  .about-text h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:36px;color:var(--blue-deep);
+    line-height:1.25;margin-bottom:18px;font-weight:600;
+  }
+  .about-text .en{font-size:19.5px;color:var(--ink);margin-bottom:18px;line-height:1.7;}
+  .about-text .zh-divider{
+    height:1px;background:var(--line);
+    margin:24px 0;
+    position:relative;
+  }
+  .about-text .zh-divider::before{
+    content:"中文 / 中文";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    padding:0 14px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .about-text .zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:19px;color:var(--ink);line-height:1.85;
+  }
+  .about-text .zh p + p{margin-top:14px;}
+
+  /* 20th anniversary card */
+  .anniversary{
+    background:linear-gradient(180deg,var(--blue-soft) 0%,#fff 100%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:38px 32px 30px;
+    box-shadow:var(--shadow-sm);
+    text-align:center;
+  }
+  .anniversary__img{
+    max-width:280px;margin:0 auto 18px;
+  }
+  .anniversary__num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:96px;line-height:1;font-weight:700;
+    background:linear-gradient(135deg,var(--orange) 0%,var(--gold) 40%,var(--green) 70%,var(--blue) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    letter-spacing:-.02em;
+  }
+  .anniversary__num small{
+    font-size:34px;font-weight:600;vertical-align:super;
+    margin-left:2px;
+  }
+  .anniversary__label{
+    margin-top:6px;
+    font-size:13px;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--blue-deep);
+  }
+  .anniversary__line{
+    margin-top:14px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:18px;color:var(--ink);line-height:1.55;
+  }
+  .anniversary__line .zh{
+    display:block;font-style:normal;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15.5px;color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .anniversary__milestones{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    margin-top:22px;padding-top:22px;
+    border-top:1px dashed var(--line);
+    gap:10px;
+  }
+  .anniversary__milestone{
+    flex:1;text-align:center;
+  }
+  .anniversary__milestone .year{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-weight:700;
+    color:var(--blue-deep);
+  }
+  .anniversary__milestone .label{
+    font-size:12px;color:var(--ink-soft);font-weight:600;
+    letter-spacing:.06em;margin-top:2px;line-height:1.35;
+  }
+
+  /* ============ EDGE 4 visions (pillars) ============ */
+  .visions{
+    background:linear-gradient(180deg,#fff 0%,var(--blue-soft) 100%);
+  }
+  .visions__heading-edge{
+    display:inline-flex;gap:6px;align-items:baseline;
+    margin-bottom:14px;
+    color:var(--blue-deep);
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;font-size:16px;letter-spacing:.04em;
+  }
+  .visions__heading-edge .l{
+    display:inline-block;padding:0 6px;border-radius:6px;
+    color:#fff;
+  }
+  .visions__heading-edge .l.e{background:var(--blue);}
+  .visions__heading-edge .l.d{background:var(--green);}
+  .visions__heading-edge .l.g{background:var(--orange);}
+  .visions__heading-edge .l.c{background:var(--gold);}
+  .pillars{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:22px;
+  }
+  .pillar{
+    background:#fff;border-radius:18px;
+    padding:36px 26px 30px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .pillar::before{
+    content:"";position:absolute;
+    top:0;left:0;right:0;height:5px;
+    background:var(--blue);
+  }
+  .pillar:nth-child(2)::before{background:var(--green);}
+  .pillar:nth-child(3)::before{background:var(--orange);}
+  .pillar:nth-child(4)::before{background:var(--gold);}
+  .pillar:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+  }
+  .pillar .letter{
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;line-height:1;font-weight:700;
+    color:var(--blue);
+    margin-bottom:6px;
+  }
+  .pillar:nth-child(2) .letter{color:var(--green);}
+  .pillar:nth-child(3) .letter{color:var(--orange);}
+  .pillar:nth-child(4) .letter{color:var(--gold);}
+  .pillar .vision-en{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;font-weight:600;color:var(--ink);
+    line-height:1.15;margin-bottom:2px;
+  }
+  .pillar .vision-zh{
+    font-family:'PingFang TC',sans-serif;
+    font-size:17px;color:var(--ink-soft);
+    font-weight:500;letter-spacing:.04em;
+    margin-bottom:18px;
+  }
+  .pillar .vision-tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15.5px;color:var(--blue-deep);
+    margin-bottom:14px;line-height:1.5;
+  }
+  .pillar:nth-child(2) .vision-tagline{color:var(--green-deep);}
+  .pillar:nth-child(3) .vision-tagline{color:var(--orange-deep);}
+  .pillar:nth-child(4) .vision-tagline{color:var(--gold-deep);}
+  .pillar .vision-body{
+    font-size:15px;color:var(--ink);line-height:1.7;
+  }
+  .pillar .vision-body .zh{
+    font-family:'PingFang TC',sans-serif;
+    display:block;margin-top:10px;
+    font-size:14.5px;color:var(--ink-soft);line-height:1.8;
+    padding-top:10px;border-top:1px dashed var(--line);
+  }
+
+  /* ============ Principal ============ */
+  .principal{background:#fff;}
+  .principal-card{
+    display:grid;
+    grid-template-columns:.85fr 1.4fr;
+    gap:50px;align-items:center;
+    background:#fff;border-radius:22px;
+    padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    max-width:1000px;margin:0 auto;
+  }
+  .principal-photo{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    aspect-ratio:3/4;
+    box-shadow:var(--shadow-sm);
+    background:linear-gradient(135deg,var(--blue-soft) 0%,#fff 60%,var(--green-soft) 100%);
+  }
+  .principal-photo img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 25%;
+  }
+  .principal-text .role{
+    color:var(--green-deep);font-size:14px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .principal-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;font-weight:600;color:var(--blue-deep);
+    line-height:1.15;margin-bottom:6px;
+  }
+  .principal-text h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;color:var(--ink-soft);
+    font-weight:500;margin-top:6px;
+  }
+  .principal-text .since{
+    font-size:14.5px;color:var(--ink-soft);
+    font-style:italic;margin-top:8px;
+  }
+  .principal-text blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:22px;color:var(--ink);
+    line-height:1.55;margin:26px 0 14px;
+    padding-left:22px;
+    border-left:3px solid var(--orange);
+  }
+  .principal-text .zh-quote{
+    font-family:'PingFang TC',sans-serif;
+    font-style:normal;
+    font-size:19px;color:var(--ink);
+    line-height:1.85;
+    padding-left:22px;
+    border-left:3px solid var(--green);
+    margin-top:18px;
+  }
+  .principal-cta{
+    margin-top:24px;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border:1.5px solid var(--blue);
+    border-radius:99px;color:var(--blue-deep);
+    font-weight:600;font-size:15px;letter-spacing:.04em;
+    transition:background .2s,color .2s;
+  }
+  .principal-cta:hover{background:var(--blue);color:#fff;}
+
+  /* ============ Student Life ============ */
+  .life{background:linear-gradient(180deg,var(--blue-soft) 0%,#fff 100%);}
+  .life-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .life-card{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .life-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+  }
+  .life-card__img{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:var(--blue-soft);
+  }
+  .life-card__img img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .life-card__body{padding:24px 26px 28px;}
+  .life-card .tag{
+    display:inline-block;
+    font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:6px;
+  }
+  .life-card h3{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:23px;color:var(--blue-deep);
+    line-height:1.25;font-weight:600;margin-bottom:2px;
+  }
+  .life-card h3 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:15.5px;color:var(--ink-soft);
+    font-weight:500;margin-top:4px;letter-spacing:.04em;
+  }
+  .life-card .en-text{
+    font-size:15.5px;color:var(--ink);margin:12px 0 8px;
+    line-height:1.65;
+  }
+  .life-card .zh-text{
+    font-family:'PingFang TC',sans-serif;
+    font-size:15px;color:var(--ink-soft);line-height:1.75;
+    padding-top:10px;border-top:1px dashed var(--line);
+    margin-top:10px;
+  }
+
+  /* ============ Visit ============ */
+  .visit{background:var(--blue-deep);color:#fff;padding:80px 0;}
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:50px;align-items:start;
+  }
+  .visit h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;font-weight:600;line-height:1.15;
+    margin-bottom:6px;
+  }
+  .visit h2 small{
+    display:block;
+    font-family:'PingFang TC',sans-serif;
+    font-size:22px;font-weight:500;
+    color:rgba(255,255,255,.75);margin-top:8px;
+  }
+  .visit p{font-size:18.5px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:17.5px;}
+  .contact{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:28px 30px;
+    backdrop-filter:blur(8px);
+  }
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{
+    font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    color:#ffeac4;font-weight:700;
+    margin-bottom:4px;
+  }
+  .contact dd{
+    font-size:19px;color:#fff;
+    font-family:'PingFang TC',sans-serif;
+    line-height:1.55;
+  }
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:#ffeac4;border-color:#ffeac4;}
+
+  /* ============ Footer ============ */
+  footer{
+    background:#0a1c2a;color:rgba(255,255,255,.62);
+    padding:36px 0;font-size:15.5px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+  }
+  footer .partner{color:#ffeac4;font-weight:600;}
+  footer .partner a{color:#ffeac4;border-bottom:1px solid transparent;}
+  footer .partner a:hover{border-bottom-color:#ffeac4;}
+
+  /* ============ Mobile ============ */
+  @media (max-width: 880px) {
+    .title{padding:60px 0 50px;}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
+    .principal-photo{max-width:240px;margin:0 auto;aspect-ratio:1/1;}
+    .life-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+  @media (max-width: 540px){
+    .pillars{grid-template-columns:1fr;}
+    .anniversary__num{font-size:72px;}
+    .anniversary__num small{font-size:26px;}
+  }
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
+<style>
+/* Festival hero — sits below school's native topbar */
+.th-fest-hero{position:relative;color:#fff;overflow:hidden;min-height:240px;padding:36px 0 32px;display:flex;align-items:center;background:linear-gradient(135deg,#1d4d70 0%,#1f6e47 100%);}
+@media (min-width:720px){ .th-fest-hero{min-height:320px;padding:56px 0 44px;} }
+.th-fest-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1d4d70 0%,#1f6e47 50%,#d4a52e 100%);pointer-events:none;z-index:2;}
+.th-fest-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;z-index:1;}
+@media (max-width:680px){ .th-fest-hero__inner{grid-template-columns:1fr;gap:16px;} }
+.th-fest-hero__emoji{font-size:84px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
+@media (min-width:720px){ .th-fest-hero__emoji{font-size:120px;} }
+.th-fest-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#d4a52e;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.20);border-radius:99px;}
+.th-fest-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(32px,4.8vw,50px);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 2px 6px rgba(0,0,0,.45);}
+.th-fest-hero .th-fest-hero__zh{font-size:clamp(15px,1.9vw,20px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
+.th-fest-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
+.th-fest-hero__crumb a{color:#d4a52e;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.40);}
+.th-fest-hero__crumb a:hover{color:#fff;}
 </style>
 
 </head>
 <body>
-<div class="th-topbar">
-  <div class="th-topbar__inner">
-    <a class="th-topbar__brand" href="/schools/hubei/">
-      <img class="th-topbar__logo" src="/schools/hubei/photos/logo.png" alt="Hubei logo">
-      <div class="th-topbar__name">Hubei<small>湖北國小</small></div>
-    </a>
-    <nav class="th-topbar__nav">
-      <a href="/schools/hubei/">Home</a>
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <img src="photos/logo.png" alt="Hu Bei Elementary crest">
+      <div class="topbar-name">
+        Hu Bei Elementary
+        <small>彰化縣溪湖鎮湖北國民小學</small>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="/schools/hubei/" >Home</a>
       <a href="/schools/hubei/principal/">Principal</a>
-      <a href="/schools/hubei/lessons/">Lessons</a>
       <a href="/schools/hubei/news/">News</a>
+      <a href="/schools/hubei/bilingual-campus/">Bilingual Campus</a>
       <a href="/schools/hubei/festivals/" class="is-active">Festivals</a>
     </nav>
   </div>
 </div>
-<header class="th-hero">
-  <div class="th-hero__inner">
-    <div class="th-hero__emoji">🎃</div>
+<header class="th-fest-hero">
+  <div class="th-fest-hero__inner">
+    <div class="th-fest-hero__emoji">🎃</div>
     <div>
-      <span class="th-hero__eyebrow">Quiz · 小測驗</span>
+      <span class="th-fest-hero__eyebrow">Quiz · 小測驗</span>
       <h1>Quiz · Halloween</h1>
-      <div class="th-h1-zh">萬聖節 小測驗</div>
-      <div class="th-hero__crumb">
+      <div class="th-fest-hero__zh">萬聖節 小測驗</div>
+      <div class="th-fest-hero__crumb">
         <a href="../">← Back to lesson · 回講義</a>
         &nbsp;&middot;&nbsp; Festival 12 · Festival English Series
       </div>
@@ -354,34 +891,6 @@ $('#btn-restart').addEventListener('click', () => {
 
 render();
 </script>
-
-<footer class="th-footer">
-  <div class="th-footer__inner">
-    <div class="th-footer__brand">
-      <img src="/schools/hubei/photos/logo.png" alt="Hubei logo">
-      <div>
-        <h4>Hubei</h4>
-        <div class="name-zh">湖北國小</div>
-      </div>
-    </div>
-    <div class="th-footer__col"><h5>This Site</h5><ul>
-      <li><a href="/schools/hubei/">Home</a></li>
-      <li><a href="/schools/hubei/principal/">Principal</a></li>
-      <li><a href="/schools/hubei/lessons/">Lessons</a></li>
-      <li><a href="/schools/hubei/news/">News</a></li>
-      <li><a href="/schools/hubei/festivals/">Festivals</a></li>
-    </ul></div>
-    <div class="th-footer__col"><h5>Related</h5><ul>
-      <li><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></li>
-      <li><a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></li>
-    </ul></div>
-  </div>
-  <div class="th-footer__bottom">
-    &copy; 湖北國小 &middot; Hubei &nbsp;&middot;&nbsp;
-    Bilingual website by My Culture Connect 人師教育協會 &nbsp;&middot;&nbsp;
-    Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
-  </div>
-</footer>
 
 </body>
 </html>

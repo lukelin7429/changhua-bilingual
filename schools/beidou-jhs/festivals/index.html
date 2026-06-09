@@ -7,167 +7,329 @@
 <meta name="description" content="Celebrate the world's festivals in English with Beidou JH — Christmas, Lunar New Year, Mid-Autumn, Halloween and more, from the Changhua Bilingual Hub.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* === School chrome — namespaced .th-* to avoid clashing with hub festival CSS === */
-.th-topbar{background:rgba(255,255,255,.96);border-bottom:1px solid #ebe5d6;padding:14px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
-.th-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
-.th-topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.th-topbar__logo{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:3px;box-shadow:0 4px 10px -2px rgba(0,0,0,.18);border:1px solid #ebe5d6;display:block;}
-.th-topbar__badge{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#1a3a5c 0%,#9b6508 100%);color:#fff;font-family:'Playfair Display',serif;font-size:21px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px -2px rgba(0,0,0,.18);}
-.th-topbar__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:#1a3a5c;line-height:1.1;}
-.th-topbar__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:#5a606e;margin-top:3px;letter-spacing:.04em;}
-.th-topbar__nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
-.th-topbar__nav a{color:#1f2530;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:color .2s;}
-.th-topbar__nav a:hover{color:#1a3a5c;}
-.th-topbar__nav a.is-active{color:#1a3a5c;font-weight:700;}
-@media (max-width:620px){
-  .th-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .th-topbar__nav{gap:14px;justify-content:flex-start;}
-  .th-topbar__nav a{font-size:13.5px;}
-}
+  :root{
+    --navy-deep:#1a3a5c;
+    --navy:#2d5f8a;
+    --navy-soft:#e3edf8;
+    --gold:#c8870a;
+    --gold-deep:#9b6508;
+    --gold-soft:#fef0d4;
+    --green:#3d7a52;
+    --green-deep:#2a5638;
+    --green-soft:#e5f2ea;
+    --teal:#1e6e68;
+    --teal-deep:#155450;
+    --teal-soft:#e0f0ef;
+    --bg-soft:#f5f8fb;
+    --line:#dde6ee;
+    --ink:#1f2530;
+    --ink-soft:#5a606e;
+    --shadow:0 14px 38px -16px rgba(26,58,92,.30);
+    --shadow-sm:0 6px 16px -6px rgba(26,58,92,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:22px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  @media (min-width:720px){ body{ font-size:23px; } }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:'Cormorant Garamond','PingFang TC',serif;}
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:80px 0; } }
+  section:last-of-type{border-bottom:none;}
+  .sec__no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
+  .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .sec__title{ font-size:60px; } }
+  .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
+  .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
 
-.th-hero{position:relative;color:#fff;overflow:hidden;min-height:260px;padding:44px 0 36px;display:flex;align-items:center;background:linear-gradient(135deg,#1a3a5c 0%,#9b6508 100%);}
-@media (min-width:720px){ .th-hero{min-height:340px;padding:64px 0 48px;} }
-.th-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1a3a5c 0%,#9b6508 50%,#c8870a 100%);pointer-events:none;z-index:2;}
-.th-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;position:relative;z-index:1;}
-@media (max-width:680px){ .th-hero__inner{grid-template-columns:1fr;gap:18px;} }
-.th-hero__emoji{font-size:96px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
-@media (min-width:720px){ .th-hero__emoji{font-size:128px;} }
-.th-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#c8870a;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.20);border-radius:99px;}
-.th-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(34px,5vw,52px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:.005em;text-shadow:0 2px 6px rgba(0,0,0,.45);}
-.th-hero .th-h1-zh{font-size:clamp(16px,2vw,21px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
-.th-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
-.th-hero__crumb a{color:#c8870a;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.40);}
-.th-hero__crumb a:hover{color:#fff;}
+  /* === Sub-nav === */
+  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--gold-deep);}
+  .subnav a.is-active{background:var(--gold);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
 
-.th-footer{background:#1a3a5c;color:#fff;padding:48px 0 32px;margin-top:48px;}
-.th-footer__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
-@media (min-width:760px){ .th-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;} }
-.th-footer__brand{display:flex;align-items:flex-start;gap:14px;}
-.th-footer__brand img{width:60px;height:60px;border-radius:50%;background:#fff;object-fit:contain;padding:5px;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 16px -4px rgba(0,0,0,.30);}
-.th-footer__brand .badge{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.7) 100%);color:#1a3a5c;font-family:'Playfair Display',serif;font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.th-footer__brand h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.15;}
-.th-footer__brand .name-zh{font-size:14px;color:rgba(255,255,255,.78);font-weight:500;margin-top:3px;}
-.th-footer__col h5{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c8870a;margin-bottom:14px;}
-.th-footer__col ul{list-style:none;padding:0;margin:0;}
-.th-footer__col li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,.85);}
-.th-footer__col a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.30);transition:color .2s;}
-.th-footer__col a:hover{color:#c8870a;}
-.th-footer__bottom{max-width:1080px;margin:32px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.6);text-align:center;line-height:1.7;}
-.th-footer__bottom a{color:#c8870a;text-decoration:none;}
+  /* === Hero Banner === */
+  .banner{position:relative;background:linear-gradient(180deg, rgba(12,34,64,0) 0%, rgba(12,34,64,0) 48%, rgba(12,34,64,.55) 100%),url("photos/campus/admin-building.jpg") center/cover no-repeat;text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);/*scrim-shadow*/min-height:260px;display:flex;align-items:flex-end;overflow:hidden;}
+  @media (min-width:720px){ .banner{ min-height:360px; } }
+  @media (min-width:1080px){ .banner{ min-height:420px; } }
+  .banner::before{content:'';position:absolute;inset:0;background:transparent;pointer-events:none;}
+  /* Stars */
+  .banner::after{content:'★ ✦ ★ ✦ ★ ✦ ★';position:absolute;top:16px;right:24px;font-size:13px;letter-spacing:8px;color:rgba(255,220,120,.45);font-family:serif;}
+  @media (min-width:720px){ .banner::after{ font-size:16px;letter-spacing:12px; } }
+  .banner__inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:32px 24px 28px;color:#fff;display:flex;align-items:flex-end;gap:18px;}
+  @media (min-width:720px){ .banner__inner{ padding:48px 36px 40px;gap:24px; } }
+  .banner__text{flex:1;min-width:0;}
+  .banner__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#f5d99a;font-weight:600;margin-bottom:12px;}
+  @media (min-width:720px){ .banner__brand{ font-size:16px; } }
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;line-height:1.0;letter-spacing:.5px;text-shadow:0 4px 20px rgba(0,0,0,.5);}
+  @media (min-width:720px){ .banner h1{ font-size:74px; } }
+  @media (min-width:1080px){ .banner h1{ font-size:92px; } }
+  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:6px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 12px rgba(0,0,0,.45);}
+  @media (min-width:720px){ .banner__zh{ font-size:28px; } }
+  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#fde8bb;margin-top:14px;line-height:1.45;max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
+  .banner__gtrs{position:absolute;top:22px;left:24px;display:flex;gap:10px;}
+  @media (min-width:720px){ .banner__gtrs{ top:28px;left:36px;gap:14px; } }
+  .gtrs-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:5px 10px;text-align:center;backdrop-filter:blur(4px);}
+  @media (min-width:720px){ .gtrs-pill{ padding:7px 14px; } }
+  .gtrs-pill .letter{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fde8bb;line-height:1;}
+  @media (min-width:720px){ .gtrs-pill .letter{ font-size:26px; } }
+  .gtrs-pill .word{font-size:9px;color:rgba(255,255,255,.7);display:block;letter-spacing:.5px;margin-top:2px;}
+  @media (min-width:720px){ .gtrs-pill .word{ font-size:11px; } }
 
-/* Landing-page extras */
-.th-landing-section{padding:56px 24px;background:#fff;}
-@media (min-width:720px){ .th-landing-section{padding:80px 24px;} }
-.th-landing-section .wrap{max-width:1080px;margin:0 auto;}
-.th-sec-head{text-align:center;margin-bottom:40px;}
-.th-sec-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;color:#9b6508;}
-.th-sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.4vw,46px);font-weight:700;color:#1a3a5c;line-height:1.18;}
-.th-sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:#5a606e;font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
-.th-sec-head .lede{color:#5a606e;font-size:18px;max-width:680px;margin:16px auto 0;line-height:1.7;}
-.fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-@media (min-width:680px){ .fgrid{grid-template-columns:repeat(3,1fr);gap:22px;} }
-@media (min-width:1000px){ .fgrid{grid-template-columns:repeat(4,1fr);} }
-.fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid #ebe5d6;border-radius:20px;padding:30px 18px;box-shadow:0 6px 16px -6px rgba(0,0,0,.15);transition:transform .2s, box-shadow .2s;color:inherit;text-decoration:none;}
-.fcard:hover{transform:translateY(-5px);box-shadow:0 14px 32px -12px rgba(0,0,0,.25);}
-.fcard .em{font-size:54px;line-height:1;transition:transform .25s;}
-.fcard:hover .em{transform:scale(1.1) rotate(-4deg);}
-.fcard .t{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#1a3a5c;margin-top:12px;line-height:1.15;}
-.fcard .z{font-family:'PingFang TC',sans-serif;font-size:16px;color:#5a606e;margin-top:4px;}
-.fcard .go{margin-top:12px;font-size:14px;font-weight:700;color:#9b6508;font-family:'Playfair Display',serif;letter-spacing:.4px;}
+  /* === About === */
+  .about__lead{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--navy-deep);line-height:1.35;letter-spacing:.3px;}
+  @media (min-width:720px){ .about__lead{ font-size:38px; } }
+  .about__lead-zh{font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
+  @media (min-width:720px){ .about__lead-zh{ font-size:25px; } }
+  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
+  @media (min-width:720px){ .about__body{ font-size:22px; } }
+  .about__body p{margin-top:16px;}
+  .about__body p:first-child{margin-top:0;}
+  .about__body .zh{color:var(--ink-soft);font-size:20px;margin-top:8px;line-height:1.65;}
+  .about__body strong{color:var(--navy-deep);font-weight:700;}
+  .quote{margin-top:36px;background:var(--gold-soft);border-left:6px solid var(--gold);padding:24px 28px;border-radius:0 12px 12px 0;}
+  .quote__text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold-deep);line-height:1.4;font-style:italic;}
+  @media (min-width:720px){ .quote__text{ font-size:32px; } }
+  .quote__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.55;}
+  @media (min-width:720px){ .quote__zh{ font-size:20px; } }
+  .quote--green{background:var(--green-soft);border-left-color:var(--green);}
+  .quote--green .quote__text{color:var(--green-deep);}
+  .quote--teal{background:var(--teal-soft);border-left-color:var(--teal);}
+  .quote--teal .quote__text{color:var(--teal-deep);}
 
-/* Base body on landing page only */
-.th-landing body{background:#fff;color:#1f2530;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  /* === Pillars === */
+  .pillars{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media (min-width:720px){ .pillars{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .pillar{background:#fff;border-radius:20px;border:1px solid var(--line);padding:32px 28px;box-shadow:var(--shadow-sm);border-top:8px solid var(--navy);transition:transform .2s, box-shadow .2s;}
+  @media (min-width:720px){ .pillar{ padding:40px 36px; } }
+  .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .pillar:nth-child(2){border-top-color:var(--green);}
+  .pillar:nth-child(3){border-top-color:var(--gold);}
+  .pillar:nth-child(4){border-top-color:var(--teal);}
+  .pillar__no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:20px;font-weight:700;letter-spacing:3px;}
+  .pillar__icon{font-size:52px;line-height:1;margin:6px 0 12px;}
+  @media (min-width:720px){ .pillar__icon{ font-size:64px; } }
+  .pillar__title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy-deep);line-height:1.2;border-bottom:3px solid var(--gold);padding-bottom:6px;display:inline-block;}
+  @media (min-width:720px){ .pillar__title{ font-size:34px; } }
+  .pillar__title-zh{font-size:21px;color:var(--ink);font-weight:600;margin-top:10px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .pillar__title-zh{ font-size:25px; } }
+  .pillar__body{font-size:20px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
+
+  /* === Spotlight === */
+  .spotlight{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--green-soft) 100%);border-radius:24px;padding:40px 30px;border:2px solid var(--navy);box-shadow:var(--shadow);}
+  @media (min-width:720px){ .spotlight{ padding:56px 48px; } }
+  .spotlight__badge{display:inline-block;background:var(--gold);color:#fff;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:99px;}
+  .spotlight__big{font-family:'Cormorant Garamond',serif;font-size:84px;font-weight:700;color:var(--navy-deep);line-height:1;margin-top:18px;letter-spacing:-1px;text-align:center;}
+  @media (min-width:720px){ .spotlight__big{ font-size:130px; } }
+  .spotlight__big small{font-size:.4em;font-weight:600;color:var(--gold-deep);}
+  .spotlight__title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy-deep);line-height:1.3;margin-top:6px;text-align:center;}
+  @media (min-width:720px){ .spotlight__title{ font-size:38px; } }
+  .spotlight__zh{font-size:21px;color:var(--ink);font-weight:600;margin-top:8px;text-align:center;}
+  @media (min-width:720px){ .spotlight__zh{ font-size:23px; } }
+  .spotlight__body{font-size:20px;color:var(--ink-soft);margin-top:22px;line-height:1.7;max-width:760px;margin-left:auto;margin-right:auto;text-align:center;}
+  .spotlight__cta{margin-top:30px;text-align:center;}
+  .spotlight__cta a{display:inline-block;background:var(--navy-deep);color:#fff;padding:16px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:.5px;transition:transform .15s;}
+  .spotlight__cta a:hover{background:var(--gold);transform:translateY(-2px);}
+
+  /* === Programs === */
+  .programs{display:flex;flex-direction:column;gap:24px;}
+  .program{background:#fff;border-radius:18px;border:1px solid var(--line);padding:30px 28px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;}
+  @media (min-width:720px){ .program{ grid-template-columns:120px 1fr;gap:36px;padding:38px 36px; } }
+  .program__icon{font-size:58px;line-height:1;text-align:center;background:var(--navy-soft);border-radius:14px;padding:14px 0;color:var(--navy-deep);}
+  @media (min-width:720px){ .program__icon{ font-size:80px;padding:20px 0; } }
+  .program:nth-child(2) .program__icon{background:var(--green-soft);color:var(--green-deep);}
+  .program:nth-child(3) .program__icon{background:var(--gold-soft);color:var(--gold-deep);}
+  .program:nth-child(4) .program__icon{background:var(--teal-soft);color:var(--teal-deep);}
+  .program:nth-child(5) .program__icon{background:var(--navy-soft);color:var(--navy-deep);}
+  .program__title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy-deep);line-height:1.2;}
+  @media (min-width:720px){ .program__title{ font-size:36px; } }
+  .program__title-zh{font-size:21px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .program__title-zh{ font-size:23px; } }
+  .program__body{font-size:21px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .program__body{ font-size:22px; } }
+  .program__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .program__zh{ font-size:20px; } }
+  .program__honor{margin-top:12px;display:inline-block;background:var(--gold-soft);color:var(--gold-deep);font-size:16px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .program__honor{ font-size:18px; } }
+
+  /* === FET (Foreign English Teacher) === */
+  .fet-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1fr;}
+  @media (min-width:720px){ .fet-card{ grid-template-columns:300px 1fr; } }
+  .fet-card__photo{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--teal-soft);}
+  @media (min-width:720px){ .fet-card__photo{ height:100%;aspect-ratio:auto; } }
+  .fet-card__body{padding:30px 28px;}
+  @media (min-width:720px){ .fet-card__body{ padding:40px 40px; } }
+  .fet-card__flag{font-size:30px;line-height:1;}
+  .fet-card__name{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:8px;}
+  @media (min-width:720px){ .fet-card__name{ font-size:42px; } }
+  .fet-card__origin{font-size:18px;color:var(--teal-deep);font-weight:600;margin-top:6px;letter-spacing:.3px;}
+  @media (min-width:720px){ .fet-card__origin{ font-size:20px; } }
+  .fet-card__bio{font-size:21px;color:var(--ink);margin-top:18px;line-height:1.65;}
+  @media (min-width:720px){ .fet-card__bio{ font-size:22px; } }
+  .fet-card__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .fet-card__zh{ font-size:20px; } }
+  .fet-card__link{margin-top:22px;display:inline-flex;align-items:center;gap:12px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:30px;font-size:18px;transition:background .15s;}
+  .fet-card__link:hover{background:var(--teal-deep);}
+  .fet-card__link .arrow{font-size:20px;}
+
+  /* === Timeline === */
+  .timeline{position:relative;padding-left:42px;}
+  .timeline::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;background:linear-gradient(180deg,var(--navy) 0%,var(--gold) 100%);border-radius:2px;}
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-34px;top:8px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--gold);box-shadow:0 0 0 4px var(--bg-soft);}
+  .tl-year{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--gold-deep);line-height:1;letter-spacing:.5px;}
+  @media (min-width:720px){ .tl-year{ font-size:38px; } }
+  .tl-event{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .tl-event{ font-size:23px; } }
+  .tl-detail{font-size:19px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (min-width:720px){ .tl-detail{ font-size:21px; } }
+
+  /* === Contact === */
+  .contact{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);color:#fff;border-radius:24px;padding:48px 36px;box-shadow:var(--shadow);}
+  @media (min-width:720px){ .contact{ padding:64px 56px; } }
+  .contact__title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;line-height:1.15;letter-spacing:.5px;}
+  @media (min-width:720px){ .contact__title{ font-size:50px; } }
+  .contact__zh{font-size:21px;color:#c9daea;margin-top:8px;}
+  .contact__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:20px 0 28px;}
+  .contact__grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
+  @media (min-width:720px){ .contact__grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .contact__row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);}
+  .contact__icon{font-size:24px;flex-shrink:0;margin-top:2px;color:var(--gold);}
+  @media (min-width:720px){ .contact__icon{ font-size:28px; } }
+  .contact__label{font-size:15px;color:#c9daea;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+  .contact__value{font-size:20px;color:#fff;font-weight:600;margin-top:2px;line-height:1.45;}
+  .contact__value a{color:#fff;text-decoration:none;border-bottom:1.5px dashed var(--gold);}
+  .contact__value a:hover{color:var(--gold);}
+  .contact__ctas{margin-top:32px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:720px){ .contact__ctas{ grid-template-columns:1fr 1fr;gap:16px; } }
+  .official-cta{background:var(--gold);color:#fff;border-radius:14px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;transition:transform .15s, background .15s;box-shadow:0 8px 22px -8px rgba(200,135,10,.5);}
+  @media (min-width:720px){ .official-cta{ padding:24px 30px; } }
+  .official-cta:hover{background:#fff;color:var(--navy-deep);transform:translateY(-3px);}
+  .official-cta--fb{background:#1877f2;box-shadow:0 8px 22px -8px rgba(24,119,242,.5);}
+  .official-cta--fb:hover{background:#fff;color:#0c63d4;}
+  .official-cta__title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.2;}
+  @media (min-width:720px){ .official-cta__title{ font-size:24px; } }
+  .official-cta__zh{font-size:16px;margin-top:4px;font-weight:600;opacity:.92;}
+  @media (min-width:720px){ .official-cta__zh{ font-size:19px; } }
+  .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
+
+  /* === Awards chips === */
+  .awards{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .award-chip{background:#fff;border:1.5px solid var(--gold);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;font-size:16px;color:var(--ink);font-weight:600;box-shadow:var(--shadow-sm);}
+  @media (min-width:720px){ .award-chip{ font-size:17px; } }
+  .award-chip .icon{font-size:24px;}
+
+  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:19px; } }
+  footer .org{font-weight:600;color:var(--navy-deep);}
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
+<style>
+/* Festival hero — sits below school's native topbar */
+.th-fest-hero{position:relative;color:#fff;overflow:hidden;min-height:240px;padding:36px 0 32px;display:flex;align-items:center;background:linear-gradient(135deg,#1a3a5c 0%,#9b6508 100%);}
+@media (min-width:720px){ .th-fest-hero{min-height:320px;padding:56px 0 44px;} }
+.th-fest-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1a3a5c 0%,#9b6508 50%,#c8870a 100%);pointer-events:none;z-index:2;}
+.th-fest-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;z-index:1;}
+@media (max-width:680px){ .th-fest-hero__inner{grid-template-columns:1fr;gap:16px;} }
+.th-fest-hero__emoji{font-size:84px;line-height:1;text-align:center;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));}
+@media (min-width:720px){ .th-fest-hero__emoji{font-size:120px;} }
+.th-fest-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;color:#c8870a;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding:5px 14px;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.20);border-radius:99px;}
+.th-fest-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(32px,4.8vw,50px);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 2px 6px rgba(0,0,0,.45);}
+.th-fest-hero .th-fest-hero__zh{font-size:clamp(15px,1.9vw,20px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.45);}
+.th-fest-hero__crumb{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
+.th-fest-hero__crumb a{color:#c8870a;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.40);}
+.th-fest-hero__crumb a:hover{color:#fff;}
 </style>
 
+<style>
+.th-fest-section{padding:56px 24px;background:#fff;}
+@media (min-width:720px){ .th-fest-section{padding:80px 24px;} }
+.th-fest-section .wrap{max-width:1080px;margin:0 auto;}
+.th-fest-sec-head{text-align:center;margin-bottom:40px;}
+.th-fest-sec-head .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;color:#9b6508;}
+.th-fest-sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.4vw,46px);font-weight:700;color:#1a3a5c;line-height:1.18;}
+.th-fest-sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:#5a606e;font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
+.th-fest-sec-head .lede{color:#5a606e;font-size:18px;max-width:680px;margin:16px auto 0;line-height:1.7;}
+.th-fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media (min-width:680px){ .th-fgrid{grid-template-columns:repeat(3,1fr);gap:22px;} }
+@media (min-width:1000px){ .th-fgrid{grid-template-columns:repeat(4,1fr);} }
+.th-fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid #ebe5d6;border-radius:20px;padding:30px 18px;box-shadow:0 6px 16px -6px rgba(0,0,0,.15);transition:transform .2s, box-shadow .2s;color:inherit;text-decoration:none;}
+.th-fcard:hover{transform:translateY(-5px);box-shadow:0 14px 32px -12px rgba(0,0,0,.25);}
+.th-fcard .em{font-size:54px;line-height:1;transition:transform .25s;}
+.th-fcard:hover .em{transform:scale(1.1) rotate(-4deg);}
+.th-fcard .t{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#1a3a5c;margin-top:12px;line-height:1.15;}
+.th-fcard .z{font-family:'PingFang TC',sans-serif;font-size:16px;color:#5a606e;margin-top:4px;}
+.th-fcard .go{margin-top:12px;font-size:14px;font-weight:700;color:#9b6508;font-family:'Playfair Display',serif;letter-spacing:.4px;}
+</style>
 <style>body{background:#fff;color:#1f2530;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;margin:0;padding:0;}</style>
 <script defer src="/analytics.js"></script>
 </head>
 <body>
-<div class="th-topbar">
-  <div class="th-topbar__inner">
-    <a class="th-topbar__brand" href="/schools/beidou-jhs/">
-      <img class="th-topbar__logo" src="/schools/beidou-jhs/favicon-180.png" alt="Beidou JH logo">
-      <div class="th-topbar__name">Beidou JH<small>北斗國中</small></div>
-    </a>
-    <nav class="th-topbar__nav">
-      <a href="/schools/beidou-jhs/">Home</a>
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="/schools/beidou-jhs/" >Home</a>
+      <span class="subnav__sep">·</span>
       <a href="/schools/beidou-jhs/principal/">Principal</a>
-      <a href="/schools/beidou-jhs/lessons/">Lessons</a>
+      <span class="subnav__sep">·</span>
+      <a href="/schools/beidou-jhs/bilingual-campus/">Bilingual Campus</a>
+      <span class="subnav__sep">·</span>
+      <a href="/schools/beidou-jhs/lessons/">Bilingual Lessons</a>
+      <span class="subnav__sep">·</span>
       <a href="/schools/beidou-jhs/news/">News</a>
-      <a href="/schools/beidou-jhs/festivals/" class="is-active">Festivals</a>
-    </nav>
+    </div>
   </div>
-</div>
-
-<header class="th-hero">
-  <div class="th-hero__inner">
-    <div class="th-hero__emoji">🎊</div>
+<a href="/schools/beidou-jhs/festivals/" class="is-active">Festivals</a></nav>
+<header class="th-fest-hero">
+  <div class="th-fest-hero__inner">
+    <div class="th-fest-hero__emoji">🎊</div>
     <div>
-      <span class="th-hero__eyebrow">Festivals · 節慶英語</span>
+      <span class="th-fest-hero__eyebrow">Festivals · 節慶英語</span>
       <h1>Festivals Around the World</h1>
-      <div class="th-h1-zh">世界節慶英語 · 北斗國中</div>
-      <div class="th-hero__crumb">Every festival is a doorway into another culture · 每一個節慶，都是通往另一種文化的門</div>
+      <div class="th-fest-hero__zh">世界節慶英語 · 北斗國中</div>
+      <div class="th-fest-hero__crumb">Every festival is a doorway into another culture · 每一個節慶，都是通往另一種文化的門</div>
     </div>
   </div>
 </header>
-
-<section class="th-landing-section">
+<section class="th-fest-section">
   <div class="wrap">
-    <div class="th-sec-head">
+    <div class="th-fest-sec-head">
       <span class="eyebrow">Bilingual Festival Learning</span>
       <h2>Learn the world, one festival at a time<span class="zh">用節慶認識世界</span></h2>
       <p class="lede">From Lunar New Year to Christmas, each festival opens a window into another culture's customs, foods and stories. Sixteen bilingual festival lessons — produced and shared across the Changhua Bilingual Hub.</p>
     </div>
-    <div class="fgrid">
-      <a class="fcard" href="/schools/beidou-jhs/festivals/new-years-day/"><div class="em">🎆</div><div class="t">New Year's Day</div><div class="z">元旦</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/chinese-new-year/"><div class="em">🧧</div><div class="t">Lunar New Year</div><div class="z">農曆新年</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/lantern-festival/"><div class="em">🏮</div><div class="t">Lantern Festival</div><div class="z">元宵節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/tomb-sweeping-day/"><div class="em">🌳</div><div class="t">Tomb-Sweeping Day</div><div class="z">清明節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/easter/"><div class="em">🐰</div><div class="t">Easter</div><div class="z">復活節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/earth-day/"><div class="em">🌏</div><div class="t">Earth Day</div><div class="z">地球日</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/world-book-day/"><div class="em">📚</div><div class="t">World Book Day</div><div class="z">世界閱讀日</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/mothers-day/"><div class="em">💐</div><div class="t">Mother's Day</div><div class="z">母親節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/dragon-boat-festival/"><div class="em">🐉</div><div class="t">Dragon Boat Festival</div><div class="z">端午節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/childrens-day-international/"><div class="em">🎈</div><div class="t">Children's Day</div><div class="z">兒童節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/fathers-day/"><div class="em">👔</div><div class="t">Father's Day</div><div class="z">父親節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/teachers-day/"><div class="em">🍎</div><div class="t">Teachers' Day</div><div class="z">教師節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/mid-autumn-festival/"><div class="em">🥮</div><div class="t">Mid-Autumn Festival</div><div class="z">中秋節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/halloween/"><div class="em">🎃</div><div class="t">Halloween</div><div class="z">萬聖節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/thanksgiving/"><div class="em">🦃</div><div class="t">Thanksgiving</div><div class="z">感恩節</div><div class="go">Explore →</div></a>
-      <a class="fcard" href="/schools/beidou-jhs/festivals/christmas/"><div class="em">🎄</div><div class="t">Christmas</div><div class="z">聖誕節</div><div class="go">Explore →</div></a>
+    <div class="th-fgrid">
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/new-years-day/"><div class="em">🎆</div><div class="t">New Year's Day</div><div class="z">元旦</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/chinese-new-year/"><div class="em">🧧</div><div class="t">Lunar New Year</div><div class="z">農曆新年</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/lantern-festival/"><div class="em">🏮</div><div class="t">Lantern Festival</div><div class="z">元宵節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/tomb-sweeping-day/"><div class="em">🌳</div><div class="t">Tomb-Sweeping Day</div><div class="z">清明節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/easter/"><div class="em">🐰</div><div class="t">Easter</div><div class="z">復活節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/earth-day/"><div class="em">🌏</div><div class="t">Earth Day</div><div class="z">地球日</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/world-book-day/"><div class="em">📚</div><div class="t">World Book Day</div><div class="z">世界閱讀日</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/mothers-day/"><div class="em">💐</div><div class="t">Mother's Day</div><div class="z">母親節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/dragon-boat-festival/"><div class="em">🐉</div><div class="t">Dragon Boat Festival</div><div class="z">端午節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/childrens-day-international/"><div class="em">🎈</div><div class="t">Children's Day</div><div class="z">兒童節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/fathers-day/"><div class="em">👔</div><div class="t">Father's Day</div><div class="z">父親節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/teachers-day/"><div class="em">🍎</div><div class="t">Teachers' Day</div><div class="z">教師節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/mid-autumn-festival/"><div class="em">🥮</div><div class="t">Mid-Autumn Festival</div><div class="z">中秋節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/halloween/"><div class="em">🎃</div><div class="t">Halloween</div><div class="z">萬聖節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/thanksgiving/"><div class="em">🦃</div><div class="t">Thanksgiving</div><div class="z">感恩節</div><div class="go">Explore →</div></a>
+      <a class="th-fcard" href="/schools/beidou-jhs/festivals/christmas/"><div class="em">🎄</div><div class="t">Christmas</div><div class="z">聖誕節</div><div class="go">Explore →</div></a>
     </div>
   </div>
 </section>
-<footer class="th-footer">
-  <div class="th-footer__inner">
-    <div class="th-footer__brand">
-      <img src="/schools/beidou-jhs/favicon-180.png" alt="Beidou JH logo">
-      <div>
-        <h4>Beidou JH</h4>
-        <div class="name-zh">北斗國中</div>
-      </div>
-    </div>
-    <div class="th-footer__col"><h5>This Site</h5><ul>
-      <li><a href="/schools/beidou-jhs/">Home</a></li>
-      <li><a href="/schools/beidou-jhs/principal/">Principal</a></li>
-      <li><a href="/schools/beidou-jhs/lessons/">Lessons</a></li>
-      <li><a href="/schools/beidou-jhs/news/">News</a></li>
-      <li><a href="/schools/beidou-jhs/festivals/">Festivals</a></li>
-    </ul></div>
-    <div class="th-footer__col"><h5>Related</h5><ul>
-      <li><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></li>
-      <li><a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect 人師教育協會</a></li>
-    </ul></div>
-  </div>
-  <div class="th-footer__bottom">
-    &copy; 北斗國中 &middot; Beidou JH &nbsp;&middot;&nbsp;
-    Bilingual website by My Culture Connect 人師教育協會 &nbsp;&middot;&nbsp;
-    Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a>
-  </div>
-</footer>
-
 </body>
 </html>
