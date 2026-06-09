@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lessons · 課程 · Dongfang Elementary School</title>
+<meta name="description" content="Dongfang's bilingual learning hub — Word of the Day videos filmed around campus, Teacher Nel's animated English lessons, and summer-camp highlights. 東芳國小雙語課程入口。">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/dongfang/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/dongfang/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/dongfang/favicon-180.png">
+<link rel="shortcut icon" href="/schools/dongfang/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --grass:#2f9e44;--grass-deep:#1c6b34;--grass-soft:#e7f4ea;
+    --sun:#e8980c;--sun-deep:#a86a00;--sun-soft:#fdf1d4;
+    --flame:#e8472b;--flame-deep:#b62f1a;--flame-soft:#fde3dd;
+    --sky:#2f7fc4;--sky-deep:#1f5a91;--sky-soft:#e2eef8;
+    --ink:#1f2a26;--ink-soft:#566b62;--line:#e2e8e2;--bg-soft:#f4f8f4;
+    --shadow:0 14px 38px -16px rgba(28,77,40,.30);--shadow-sm:0 6px 16px -6px rgba(28,77,40,.18);
+    --max:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:21px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  @media(min-width:720px){body{font-size:23px;}}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--grass-deep);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--sun-deep);}
+  .serif{font-family:'Fraunces','PingFang TC',serif;}
+
+  /* topbar */
+  .topbar{background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);padding:8px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:2px;border:1px solid var(--line);box-shadow:var(--shadow-sm);flex-shrink:0;}
+  .brand-name{font-family:'Fraunces','PingFang TC',serif;font-size:21px;font-weight:600;color:var(--grass-deep);line-height:1.1;}
+  .brand-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:14px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+  .topbar-nav a{color:var(--ink);font-size:18.5px;font-weight:500;letter-spacing:.02em;padding:9px 13px;border-radius:9px;line-height:1.2;transition:background .15s,color .15s;}
+  .topbar-nav a:hover{color:var(--grass-deep);background:var(--grass-soft);}
+  .topbar-nav a.is-active{color:var(--grass-deep);font-weight:700;background:var(--grass-soft);}
+  @media(max-width:820px){.topbar-inner{flex-direction:column;align-items:stretch;gap:6px;}.topbar-nav{gap:4px;justify-content:flex-start;width:100%;}.topbar-nav a{padding:10px 12px;font-size:18px;}.brand img{width:40px;height:40px;}}
+
+  /* photo banner */
+  .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(320px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--sun);padding:64px 24px 44px;background-size:cover;background-position:center 46%;}
+  @media(min-width:720px){.pbanner{min-height:clamp(380px,52vh,540px);padding:84px 24px 54px;}}
+  .pbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,40,24,.06) 0%,rgba(20,40,24,0) 40%,rgba(20,40,24,.5) 74%,rgba(16,36,20,.9) 100%);}
+  .pbanner>.bn{position:relative;z-index:1;}
+  .pbanner .eyebrow{display:inline-block;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:var(--sun-soft);font-weight:700;margin-bottom:12px;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+  .pbanner h1{font-family:'Fraunces','PingFang TC',serif;font-size:clamp(40px,7vw,68px);font-weight:600;line-height:1.06;text-shadow:0 2px 18px rgba(0,0,0,.6);}
+  .pbanner h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(18px,2.4vw,25px);color:rgba(255,255,255,.95);font-weight:500;margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 12px rgba(0,0,0,.6);}
+  .pbanner .bdiv{width:60px;height:2px;background:var(--sun);border:0;margin:20px auto 16px;}
+  .pbanner .lede{max-width:660px;margin:0 auto;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:rgba(255,255,255,.97);line-height:1.5;text-shadow:0 1px 12px rgba(0,0,0,.6);}
+  .pbanner .lede .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:18px;margin-top:8px;color:rgba(255,255,255,.88);}
+  .factstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:820px;margin:26px auto 0;position:relative;z-index:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;backdrop-filter:blur(6px);overflow:hidden;}
+  .fact{flex:1 1 170px;padding:15px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .fact:last-child{border-right:0;}
+  .fact .fe{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.45);}
+  .fact .fz{font-size:15px;margin-top:5px;color:var(--sun-soft);font-family:'PingFang TC',sans-serif;}
+  @media(max-width:640px){.fact{flex:1 1 45%;border-bottom:1px solid rgba(255,255,255,.14);}.fact:nth-child(2n){border-right:0;}}
+
+  section{padding:64px 0;}
+  @media(min-width:720px){section{padding:76px 0;}}
+  .sec-head{text-align:center;margin-bottom:46px;}
+  .sec-head .eyebrow{display:inline-block;font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;color:var(--grass);}
+  .sec-head h2{font-family:'Fraunces','PingFang TC',serif;font-size:clamp(33px,5vw,50px);font-weight:600;color:var(--grass-deep);line-height:1.18;}
+  .sec-head h2 .zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:500;display:block;margin-top:6px;letter-spacing:.04em;}
+  .sec-head .lede{color:var(--ink-soft);font-size:20px;max-width:680px;margin:16px auto 0;line-height:1.7;}
+
+  footer.site{background:var(--grass-deep);color:#fff;padding:46px 0 30px;text-align:center;}
+  footer.site .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  footer.site img{width:54px;height:54px;border-radius:50%;background:#fff;padding:4px;margin-bottom:6px;}
+  footer.site .fn{font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+  footer.site .fz{font-size:15px;color:rgba(255,255,255,.8);}
+  footer.site .fmeta{font-size:14px;color:rgba(255,255,255,.7);margin-top:10px;line-height:1.7;}
+  footer.site a{color:var(--sun-soft);border-bottom:1px dashed rgba(232,152,12,.6);}
+
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+  .lintro{text-align:center;max-width:760px;margin:0 auto;}
+  .lintro p{font-size:20px;color:var(--ink);line-height:1.7;}
+  .lintro p .zh{display:block;font-size:17px;color:var(--ink-soft);margin-top:8px;}
+  .units{display:grid;grid-template-columns:1fr;gap:24px;margin-top:42px;}
+  @media(min-width:720px){.units{grid-template-columns:repeat(2,1fr);gap:30px;}}
+  @media(min-width:1080px){.units{grid-template-columns:repeat(3,1fr);}}
+  .unit{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;text-decoration:none;color:inherit;}
+  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(28,77,40,.35);}
+  .unit__hero{height:160px;display:flex;align-items:center;justify-content:center;font-size:84px;position:relative;overflow:hidden;}
+  @media(min-width:720px){.unit__hero{height:180px;font-size:104px;}}
+  .unit__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 60%);border-radius:50%;}
+  .unit__hero::after{content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 60%);border-radius:50%;}
+  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+  .u-clean .unit__hero{background:linear-gradient(135deg,#7dc47d 0%,#2f9e44 100%);}
+  .u-sport .unit__hero{background:linear-gradient(135deg,#5aa9e0 0%,#1f5a91 100%);}
+  .u-art .unit__hero{background:linear-gradient(135deg,#f0795a 0%,#b62f1a 100%);}
+  .u-day .unit__hero{background:linear-gradient(135deg,#f3b13f 0%,#a86a00 100%);}
+  .u-anim .unit__hero{background:linear-gradient(135deg,#9b7ad1 0%,#5b417d 100%);}
+  .u-camp .unit__hero{background:linear-gradient(135deg,#3fb1a0 0%,#1c6b5e 100%);}
+  .unit__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column;}
+  .unit__no{font-family:'Fraunces',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sun-deep);}
+  .unit__title{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--grass-deep);line-height:1.2;margin-top:6px;}
+  @media(min-width:720px){.unit__title{font-size:30px;}}
+  .unit__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  .unit__desc{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.65;flex:1;}
+  @media(min-width:720px){.unit__desc{font-size:19px;}}
+  .unit__cta{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);color:var(--sun-deep);font-family:'Fraunces',serif;font-size:18px;font-weight:700;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
+  .unit__cta .arrow{transition:transform .2s;}
+  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+  .soccer-clip{background:linear-gradient(135deg,var(--grass-deep),#155028);color:#fff;border-radius:24px;padding:32px 26px;box-shadow:var(--shadow);}
+  @media(min-width:720px){.soccer-clip{padding:44px 44px;}}
+  .soccer-clip h3{font-family:'Fraunces',serif;font-size:28px;font-weight:600;}
+  .soccer-clip h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:rgba(255,255,255,.82);font-weight:500;margin-top:6px;}
+  .soccer-clip p{font-size:18px;color:rgba(255,255,255,.9);margin-top:12px;line-height:1.65;max-width:760px;}
+  .vframe{margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .playlist-block{background:linear-gradient(135deg,var(--bg-soft) 0%,var(--sky-soft) 100%);border-radius:22px;padding:32px 22px;border:1px solid var(--line);text-align:center;}
+  @media(min-width:720px){.playlist-block{padding:46px 40px;}}
+  .playlist-block h3{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--grass-deep);}
+  .playlist-block .zh{font-size:17px;color:var(--ink-soft);margin-top:6px;}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+<nav class="topbar"><div class="wrap"><div class="topbar-inner">
+  <a class="brand" href="/schools/dongfang/">
+    <img src="/schools/dongfang/photos/logo.png" alt="Dongfang Elementary School logo">
+    <span class="brand-name">Dongfang Elementary<small>彰化市東芳國民小學</small></span>
+  </a>
+  <div class="topbar-nav"><a href="/schools/dongfang/">Home</a><a href="/schools/dongfang/principal/">Principal</a><a href="/schools/dongfang/lessons/" class="is-active">Lessons</a><a href="/schools/dongfang/news/">News</a><a href="/schools/dongfang/festivals/">Festivals</a></div>
+</div></div></nav>
+<header class="pbanner" style="background-image:url('/schools/dongfang/photos/lessons-hero.jpg');">
+  <div class="bn">
+    <span class="eyebrow">Bilingual Curriculum · 雙語課程</span>
+    <h1>Lessons<span class="zh">東芳雙語課程入口</span></h1>
+    <hr class="bdiv">
+    <p class="lede">Pick a unit. Press play. Learn English with us.<span class="zh">選一個單元，按下播放，和我們一起學英文</span></p>
+  </div>
+  
+</header>
+<section><div class="wrap">
+  <div class="lintro"><p>Everything our children learn in English, in one place — short <strong>Word of the Day</strong> videos filmed right here on campus, <strong>Teacher Nel's animated lessons</strong>, and highlights from our <strong>English summer camps</strong>.<span class="zh">孩子們的英語學習都在這裡——校園實拍的每日一字、外師 Teacher Nel 的動畫英語課，以及英語夏令營的精華。</span></p></div>
+  <div class="units">
+    <a class="unit u-clean" href="/schools/dongfang/lessons/word/unit-1/"><div class="unit__hero"><span class="unit__emoji">🧹</span></div><div class="unit__body"><div class="unit__no">Word of the Day · Unit 01</div><div class="unit__title">Daily Duties</div><div class="unit__title-zh">校園打掃與值日</div><div class="unit__desc">Cleaning, sweeping, mopping and serving lunch — the words for keeping our campus tidy together.</div><div class="unit__cta">6 words · 開始 <span class="arrow">→</span></div></div></a>
+    <a class="unit u-sport" href="/schools/dongfang/lessons/word/unit-2/"><div class="unit__hero"><span class="unit__emoji">⚽</span></div><div class="unit__body"><div class="unit__no">Word of the Day · Unit 02</div><div class="unit__title">Sports &amp; Play</div><div class="unit__title-zh">運動與下課</div><div class="unit__desc">Soccer, badminton, dodgeball and recess games — the words for moving, playing and having fun.</div><div class="unit__cta">7 words · 開始 <span class="arrow">→</span></div></div></a>
+    <a class="unit u-art" href="/schools/dongfang/lessons/word/unit-3/"><div class="unit__hero"><span class="unit__emoji">🎨</span></div><div class="unit__body"><div class="unit__no">Word of the Day · Unit 03</div><div class="unit__title">Arts &amp; Hands-on</div><div class="unit__title-zh">美勞手作</div><div class="unit__desc">Clay, calligraphy, shadow puppets and baking — making things with our hands, in English.</div><div class="unit__cta">7 words · 開始 <span class="arrow">→</span></div></div></a>
+    <a class="unit u-day" href="/schools/dongfang/lessons/word/unit-4/"><div class="unit__hero"><span class="unit__emoji">📚</span></div><div class="unit__body"><div class="unit__no">Word of the Day · Unit 04</div><div class="unit__title">A School Day</div><div class="unit__title-zh">校園作息</div><div class="unit__desc">Reading, exams, naps and healthy habits — the rhythm of a day at Dongfang.</div><div class="unit__cta">7 words · 開始 <span class="arrow">→</span></div></div></a>
+    <a class="unit u-anim" href="/schools/dongfang/lessons/animations/"><div class="unit__hero"><span class="unit__emoji">🎬</span></div><div class="unit__body"><div class="unit__no">Teacher Nel · Special</div><div class="unit__title">Animated Lessons</div><div class="unit__title-zh">動畫英語課</div><div class="unit__desc">Seven animated English lessons made by Teacher Nel — schedules, foods, directions, schools around the world and more.</div><div class="unit__cta">7 lessons · 觀看 <span class="arrow">→</span></div></div></a>
+    <a class="unit u-camp" href="/schools/dongfang/lessons/camps/"><div class="unit__hero"><span class="unit__emoji">🏕️</span></div><div class="unit__body"><div class="unit__no">English Camps</div><div class="unit__title">Summer Camp English</div><div class="unit__title-zh">英語夏令營</div><div class="unit__desc">Highlights from Dongfang's English summer camps — learning, games and friendship in English.</div><div class="unit__cta">Watch · 觀看 <span class="arrow">→</span></div></div></a>
+  </div>
+</div></section>
+
+<section style="padding-top:0;"><div class="wrap">
+  <div class="soccer-clip">
+    <h3>⚽ Soccer English — on the turf<small>足球英語 · 在綠茵場上學英文</small></h3>
+    <p>True to our signature sport: Teacher Nel teaches soccer vocabulary right on the field — cleats, shin guards, kick, pass, shoot.</p>
+    <div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/U64P6ZAqaRo?rel=0" title="Soccer English" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0;"><div class="wrap">
+  <div class="playlist-block">
+    <h3>Watch the full playlist</h3>
+    <div class="zh">不想分單元的話，這是完整 YouTube 播放清單</div>
+    <div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8X0K_NlPtrEP9mgvItyDhSk&rel=0" title="Dongfang playlist" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+</div></section>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.pillar,.unit,.vc,.feat,.ncard,.fcard,.scard,.about-photo,.quote,.playlist-block,.campcard,.spotlight';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var r=e.target.getBoundingClientRect();
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*70)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<footer class="site"><div class="wrap">
+  <img src="/schools/dongfang/photos/logo.png" alt="Dongfang Elementary School logo">
+  <div class="fn">Dongfang Elementary School</div>
+  <div class="fz">彰化縣彰化市東芳國民小學 · No. 45, Changma Rd., Changhua City</div>
+  <div class="fmeta">Bilingual website by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect · 人師教育協會</a><br>Part of the <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub</a></div>
+</div></footer>
+</body></html>
