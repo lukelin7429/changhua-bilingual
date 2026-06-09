@@ -10,10 +10,11 @@
 
 ## 一、你的角色與權限
 
-- 你被加為這個 repo 的 **collaborator（Write 權限）**，可以從自己的電腦**直接 push 到 `main`**。push 後約 1–2 分鐘，頁面就自動上線到 changhua-bilingual.org。
-- 我們**不走 PR 審核**：沒有人會在你上線前幫你把關。所以「自己負責的學校自己顧到好」就是你的責任——第三節的兩條安全紀律（開工前先 pull、上線前先本機預覽）請務必照做，它們就是用來取代審核關卡的。
-- 你**可以**：clone repo、直接 push 到 `main`、修改**自己負責的**學校資料夾。
-- 你**不要碰**：`CNAME`、GitHub Pages 設定、`apps-script/`、`.github/`、根目錄檔案（`index.html`、`build.py`、`sitemap.xml` 等），**以及別人學校的資料夾**——即使你覺得可以順手改。
+- 你被加為這個 repo 的 **collaborator（Write 權限）**：你可以從自己的電腦修改 `schools/` 底下**任何一間學校**，直接 push 到 `main`。push 後約 1–2 分鐘自動上線到 changhua-bilingual.org。
+- **每個人都能改每一間學校**——權限上沒有「這間是你的、那間是別人的」之分，誰有空就誰做。
+- 我們**不走 PR 審核**：沒有人會在你上線前幫你把關。所以第三節的兩條安全紀律（開工前先 pull、上線前先本機預覽）請務必照做，它們就是用來取代審核關卡的。
+- 你**可以**：clone repo、直接 push 到 `main`、修改 `schools/` 底下任何學校的資料夾。
+- 你**不要碰**：`CNAME`、GitHub Pages 設定、`apps-script/`、`.github/`、根目錄檔案（`index.html`、`build.py`、`sitemap.xml` 等）。`schools/` 以外的東西要動，先問 Luke。
 - 你用 **Claude Code** 在這個資料夾工作時，repo 內的 `CLAUDE.md` 會自動載入，三大設計鐵律 Claude 會自己遵守、自己自檢。這是我們把「設計品質」下放給每個人 Claude 把關的方式。
 
 ---
@@ -66,17 +67,24 @@ https://changhua-bilingual.org/schools/<學校slug>/bilingual-campus/
 4. **上線**：確認 OK 後說「**沒問題了，commit 並 push 到 main**」。Claude 會寫好 commit message、推上去。
 5. **確認上線**：等 1–2 分鐘，打開 `https://changhua-bilingual.org/schools/<你的學校>/` 重新整理，確認真的更新了。
 
-### 3. 撞車了怎麼辦（很少見，但會遇到）
+### 3. 怎麼避免「撞車」（人人可改任何學校，所以這段要懂）
+
+每個人都能改任何一間學校，所以理論上有可能兩個人同時改到**同一間學校的同一個檔案**。預防很簡單：
+
+- **開工前先 pull**（第 2 節第 1 步），永遠拿最新版再動工。
+- **做完盡快 push**，不要把改動囤在自己電腦好幾天。
+- **要動別人最近剛做的那間學校之前，群組講一聲**：「我來改 X 校首頁」。改不同學校、或同校不同檔案，都不會撞車。
+
+#### 真的撞到了怎麼辦
 
 如果 push 被擋下來（畫面出現 `rejected` / `non-fast-forward`），代表有人比你先推。**不要慌、不要 force push**，直接跟 Claude 說：
 「**我 push 被擋了，幫我 pull --rebase 之後再 push**」。
-因為大家各做各的學校資料夾，rebase 幾乎都會乾淨完成。
+只要沒有人 force push，**沒有人的東西會憑空消失**，最壞就是重推一次、慢一兩分鐘。
 
 ### 4. 絕對不要做的事
 
-- ❌ 不要 force push（`git push -f`）——會洗掉別人推上去的東西。
-- ❌ 不要 `git add .` 或 `git add -A`，只 add 你自己學校的資料夾（叫 Claude「只 add `schools/<你的學校>/`」）。
-- ❌ 不要動別人學校的檔案，即使你覺得可以順手改。
+- ❌ 不要 force push（`git push -f`）——這是唯一會洗掉別人成果的動作，絕對禁止。
+- ❌ 不要 `git add .` 或 `git add -A`，只 add 你這次真的有改的學校資料夾（叫 Claude「只 add `schools/<學校slug>/`」）。
 - ❌ 不要 commit `.env`、Google API key、家長/老師個資、薪資資料、簽名圖片（見第十一節）。
 - ❌ 沒在本機預覽過就 push（跳過第 2 節第 3 步）。
 
