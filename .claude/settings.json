@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && { git pull --rebase --autostash -q 2>/tmp/cb-autopull.log || echo '{\"systemMessage\": \"⚠ changhua-bilingual 自動 git pull 失敗，請先手動 git pull --rebase 再開工（詳見 /tmp/cb-autopull.log）\"}'; } || true",
+            "timeout": 30,
+            "statusMessage": "Syncing changhua-bilingual to latest…"
+          }
+        ]
+      }
+    ]
+  }
+}
