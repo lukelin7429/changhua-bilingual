@@ -109,6 +109,17 @@
   @media(min-width:720px){footer{font-size:18px;}}
   footer .org{font-weight:600;color:var(--g-deep);}
   footer a{color:var(--g-deep);}
+  /* 🔊 speak buttons */
+  .speak{flex-shrink:0;border:none;border-radius:50%;background:var(--gold-soft);color:var(--gold-deep);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s,background .15s,color .15s;}
+  .speak:hover{background:var(--gold);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--gold);color:#fff;animation:say-pulse 1s infinite;}
+  @keyframes say-pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,146,42,.5);}50%{box-shadow:0 0 0 7px rgba(200,146,42,0);}}
+  .word__top .speak{width:34px;height:34px;font-size:17px;margin-left:auto;}
+  @media(min-width:720px){.word__top .speak{width:38px;height:38px;font-size:19px;}}
+  .line{position:relative;padding-right:56px;}
+  .line .speak{position:absolute;top:12px;right:12px;width:38px;height:38px;font-size:18px;}
+  @media(min-width:720px){.line{padding-right:64px;}.line .speak{width:44px;height:44px;font-size:21px;}}
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -164,16 +175,16 @@
     <h2 class="sec-h">10 Key Words</h2>
     <div class="sec-h-zh">本則新聞 10 個練習單字 · 試著大聲念念看</div>
     <div class="words">
-      <div class="word"><div class="word__top"><span class="word__emoji">🎓</span><span class="word__en">graduate</span></div><div class="word__pos">(n.) 畢業生</div><div class="word__zh">畢業生</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🏅</span><span class="word__en">award</span></div><div class="word__pos">(n.) 獎項</div><div class="word__zh">獎項</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🎉</span><span class="word__en">ceremony</span></div><div class="word__pos">(n.) 典禮</div><div class="word__zh">典禮</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🏛️</span><span class="word__en">magistrate</span></div><div class="word__pos">(n.) 縣長</div><div class="word__zh">縣長</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">♻️</span><span class="word__en">recycle</span></div><div class="word__pos">(v.) 回收</div><div class="word__zh">回收再利用</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌱</span><span class="word__en">sustainable</span></div><div class="word__pos">(adj.) 永續的</div><div class="word__zh">永續的</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌍</span><span class="word__en">environment</span></div><div class="word__pos">(n.) 環境</div><div class="word__zh">環境</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">💡</span><span class="word__en">creative</span></div><div class="word__pos">(adj.) 有創意的</div><div class="word__zh">有創意的</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌟</span><span class="word__en">milestone</span></div><div class="word__pos">(n.) 里程碑</div><div class="word__zh">里程碑</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">😊</span><span class="word__en">proud</span></div><div class="word__pos">(adj.) 驕傲的</div><div class="word__zh">感到驕傲的</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🎓</span><span class="word__en">graduate</span><button class="speak" data-speak="graduate" aria-label="Say graduate">🔊</button></div><div class="word__pos">(n.) 畢業生</div><div class="word__zh">畢業生</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🏅</span><span class="word__en">award</span><button class="speak" data-speak="award" aria-label="Say award">🔊</button></div><div class="word__pos">(n.) 獎項</div><div class="word__zh">獎項</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🎉</span><span class="word__en">ceremony</span><button class="speak" data-speak="ceremony" aria-label="Say ceremony">🔊</button></div><div class="word__pos">(n.) 典禮</div><div class="word__zh">典禮</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🏛️</span><span class="word__en">magistrate</span><button class="speak" data-speak="magistrate" aria-label="Say magistrate">🔊</button></div><div class="word__pos">(n.) 縣長</div><div class="word__zh">縣長</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">♻️</span><span class="word__en">recycle</span><button class="speak" data-speak="recycle" aria-label="Say recycle">🔊</button></div><div class="word__pos">(v.) 回收</div><div class="word__zh">回收再利用</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌱</span><span class="word__en">sustainable</span><button class="speak" data-speak="sustainable" aria-label="Say sustainable">🔊</button></div><div class="word__pos">(adj.) 永續的</div><div class="word__zh">永續的</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌍</span><span class="word__en">environment</span><button class="speak" data-speak="environment" aria-label="Say environment">🔊</button></div><div class="word__pos">(n.) 環境</div><div class="word__zh">環境</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">💡</span><span class="word__en">creative</span><button class="speak" data-speak="creative" aria-label="Say creative">🔊</button></div><div class="word__pos">(adj.) 有創意的</div><div class="word__zh">有創意的</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌟</span><span class="word__en">milestone</span><button class="speak" data-speak="milestone" aria-label="Say milestone">🔊</button></div><div class="word__pos">(n.) 里程碑</div><div class="word__zh">里程碑</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">😊</span><span class="word__en">proud</span><button class="speak" data-speak="proud" aria-label="Say proud">🔊</button></div><div class="word__pos">(adj.) 驕傲的</div><div class="word__zh">感到驕傲的</div></div>
     </div>
 
     <h2 class="sec-h">Talk Zone · 對話專區</h2>
@@ -181,14 +192,14 @@
     <div class="talkzone">
       <p class="talkzone__intro">A visitor walks up to the Mingli booth at the <b>ceremony</b>. A student is the friendly guide. Try reading both parts out loud with a friend!<br><span style="color:var(--ink-soft);font-size:.9em;">情境：頒獎典禮上，一位民眾走到明禮的展攤前，學生當起親切的小小導覽員。和同學一人一角，大聲念念看！</span></p>
       <div class="dialogue">
-        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">Hello! What a lively booth. What is your school showing today?</div><div class="line__zh">你好！這個展攤好熱鬧。你們學校今天在展示什麼呢？</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Welcome! Our theme is "green and <b>sustainable</b>" living. Everything here is good for the <b>environment</b>.</div><div class="line__zh">歡迎！我們的主題是「綠色永續」生活。這裡的每樣東西都對環境很友善。</div></div>
-        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">Wow! Did you make this little artwork yourselves?</div><div class="line__zh">哇！這個小作品是你們自己做的嗎？</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! We <b>recycle</b> old paper and bottles to make it. It's fun to be <b>creative</b> with rubbish!</div><div class="line__zh">對！我們把舊紙和瓶子回收再利用來做的。用垃圾發揮創意很好玩！</div></div>
-        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">That's wonderful. I heard the <b>magistrate</b> visited your booth too.</div><div class="line__zh">太棒了。我聽說縣長也來過你們的展攤呢。</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! He came during the <b>award</b> <b>ceremony</b> and tried our activities. We were so <b>proud</b>!</div><div class="line__zh">對！他在頒獎典禮的時候來體驗我們的活動，我們好驕傲！</div></div>
-        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">You should be! Congratulations to all the <b>graduates</b>.</div><div class="line__zh">你們應該感到驕傲！恭喜所有的畢業生。</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Thank you! Graduation is a big <b>milestone</b>, and we will keep protecting the Earth!</div><div class="line__zh">謝謝您！畢業是重要的里程碑，我們會繼續守護地球！</div></div>
+        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">Hello! What a lively booth. What is your school showing today?</div><button class="speak" data-speak="Hello! What a lively booth. What is your school showing today?" aria-label="Say this line">🔊</button><div class="line__zh">你好！這個展攤好熱鬧。你們學校今天在展示什麼呢？</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Welcome! Our theme is "green and <b>sustainable</b>" living. Everything here is good for the <b>environment</b>.</div><button class="speak" data-speak="Welcome! Our theme is &quot;green and sustainable&quot; living. Everything here is good for the environment." aria-label="Say this line">🔊</button><div class="line__zh">歡迎！我們的主題是「綠色永續」生活。這裡的每樣東西都對環境很友善。</div></div>
+        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">Wow! Did you make this little artwork yourselves?</div><button class="speak" data-speak="Wow! Did you make this little artwork yourselves?" aria-label="Say this line">🔊</button><div class="line__zh">哇！這個小作品是你們自己做的嗎？</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! We <b>recycle</b> old paper and bottles to make it. It's fun to be <b>creative</b> with rubbish!</div><button class="speak" data-speak="Yes! We recycle old paper and bottles to make it. It's fun to be creative with rubbish!" aria-label="Say this line">🔊</button><div class="line__zh">對！我們把舊紙和瓶子回收再利用來做的。用垃圾發揮創意很好玩！</div></div>
+        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">That's wonderful. I heard the <b>magistrate</b> visited your booth too.</div><button class="speak" data-speak="That's wonderful. I heard the magistrate visited your booth too." aria-label="Say this line">🔊</button><div class="line__zh">太棒了。我聽說縣長也來過你們的展攤呢。</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! He came during the <b>award</b> <b>ceremony</b> and tried our activities. We were so <b>proud</b>!</div><button class="speak" data-speak="Yes! He came during the award ceremony and tried our activities. We were so proud!" aria-label="Say this line">🔊</button><div class="line__zh">對！他在頒獎典禮的時候來體驗我們的活動，我們好驕傲！</div></div>
+        <div class="line"><div class="line__who">Visitor 民眾</div><div class="line__en">You should be! Congratulations to all the <b>graduates</b>.</div><button class="speak" data-speak="You should be! Congratulations to all the graduates." aria-label="Say this line">🔊</button><div class="line__zh">你們應該感到驕傲！恭喜所有的畢業生。</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Thank you! Graduation is a big <b>milestone</b>, and we will keep protecting the Earth!</div><button class="speak" data-speak="Thank you! Graduation is a big milestone, and we will keep protecting the Earth!" aria-label="Say this line">🔊</button><div class="line__zh">謝謝您！畢業是重要的里程碑，我們會繼續守護地球！</div></div>
       </div>
     </div>
 
@@ -199,6 +210,24 @@
   </div>
 </section>
 
+<script>
+/* 🔊 pronunciation — Web Speech API */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1;
+  if(btn){
+    btn.classList.add('is-speaking');
+    u.onend = function(){ btn.classList.remove('is-speaking'); };
+    u.onerror = function(){ btn.classList.remove('is-speaking'); };
+  }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click', function(){ speak(b.dataset.speak, b); });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

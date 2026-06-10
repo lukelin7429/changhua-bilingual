@@ -109,6 +109,17 @@
   @media(min-width:720px){footer{font-size:18px;}}
   footer .org{font-weight:600;color:var(--g-deep);}
   footer a{color:var(--g-deep);}
+  /* 🔊 speak buttons */
+  .speak{flex-shrink:0;border:none;border-radius:50%;background:var(--gold-soft);color:var(--gold-deep);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s,background .15s,color .15s;}
+  .speak:hover{background:var(--gold);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--gold);color:#fff;animation:say-pulse 1s infinite;}
+  @keyframes say-pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,146,42,.5);}50%{box-shadow:0 0 0 7px rgba(200,146,42,0);}}
+  .word__top .speak{width:34px;height:34px;font-size:17px;margin-left:auto;}
+  @media(min-width:720px){.word__top .speak{width:38px;height:38px;font-size:19px;}}
+  .line{position:relative;padding-right:56px;}
+  .line .speak{position:absolute;top:12px;right:12px;width:38px;height:38px;font-size:18px;}
+  @media(min-width:720px){.line{padding-right:64px;}.line .speak{width:44px;height:44px;font-size:21px;}}
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -164,16 +175,16 @@
     <h2 class="sec-h">10 Key Words</h2>
     <div class="sec-h-zh">本則新聞 10 個練習單字 · 試著大聲念念看</div>
     <div class="words">
-      <div class="word"><div class="word__top"><span class="word__emoji">🛏️</span><span class="word__en">pillow</span></div><div class="word__pos">(n.) 枕頭</div><div class="word__zh">枕頭</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">😴</span><span class="word__en">nap</span></div><div class="word__pos">(n.) 小睡</div><div class="word__zh">午睡</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌿</span><span class="word__en">herb</span></div><div class="word__pos">(n.) 香草</div><div class="word__zh">香草植物</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌾</span><span class="word__en">rice husk</span></div><div class="word__pos">(n.) 稻殼</div><div class="word__zh">粗糠（稻殼）</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🍃</span><span class="word__en">mint</span></div><div class="word__pos">(n.) 薄荷</div><div class="word__zh">薄荷</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">🌱</span><span class="word__en">lemongrass</span></div><div class="word__pos">(n.) 香茅</div><div class="word__zh">香茅</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">💧</span><span class="word__en">natural</span></div><div class="word__pos">(adj.) 天然的</div><div class="word__zh">天然的</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">💨</span><span class="word__en">breathable</span></div><div class="word__pos">(adj.) 透氣的</div><div class="word__zh">透氣的</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">😌</span><span class="word__en">relax</span></div><div class="word__pos">(v.) 放鬆</div><div class="word__zh">放鬆</div></div>
-      <div class="word"><div class="word__top"><span class="word__emoji">♻️</span><span class="word__en">recycle</span></div><div class="word__pos">(v.) 回收</div><div class="word__zh">回收再利用</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🛏️</span><span class="word__en">pillow</span><button class="speak" data-speak="pillow" aria-label="Say pillow">🔊</button></div><div class="word__pos">(n.) 枕頭</div><div class="word__zh">枕頭</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">😴</span><span class="word__en">nap</span><button class="speak" data-speak="nap" aria-label="Say nap">🔊</button></div><div class="word__pos">(n.) 小睡</div><div class="word__zh">午睡</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌿</span><span class="word__en">herb</span><button class="speak" data-speak="herb" aria-label="Say herb">🔊</button></div><div class="word__pos">(n.) 香草</div><div class="word__zh">香草植物</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌾</span><span class="word__en">rice husk</span><button class="speak" data-speak="rice husk" aria-label="Say rice husk">🔊</button></div><div class="word__pos">(n.) 稻殼</div><div class="word__zh">粗糠（稻殼）</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🍃</span><span class="word__en">mint</span><button class="speak" data-speak="mint" aria-label="Say mint">🔊</button></div><div class="word__pos">(n.) 薄荷</div><div class="word__zh">薄荷</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">🌱</span><span class="word__en">lemongrass</span><button class="speak" data-speak="lemongrass" aria-label="Say lemongrass">🔊</button></div><div class="word__pos">(n.) 香茅</div><div class="word__zh">香茅</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">💧</span><span class="word__en">natural</span><button class="speak" data-speak="natural" aria-label="Say natural">🔊</button></div><div class="word__pos">(adj.) 天然的</div><div class="word__zh">天然的</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">💨</span><span class="word__en">breathable</span><button class="speak" data-speak="breathable" aria-label="Say breathable">🔊</button></div><div class="word__pos">(adj.) 透氣的</div><div class="word__zh">透氣的</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">😌</span><span class="word__en">relax</span><button class="speak" data-speak="relax" aria-label="Say relax">🔊</button></div><div class="word__pos">(v.) 放鬆</div><div class="word__zh">放鬆</div></div>
+      <div class="word"><div class="word__top"><span class="word__emoji">♻️</span><span class="word__en">recycle</span><button class="speak" data-speak="recycle" aria-label="Say recycle">🔊</button></div><div class="word__pos">(v.) 回收</div><div class="word__zh">回收再利用</div></div>
     </div>
 
     <h2 class="sec-h">Talk Zone · 對話專區</h2>
@@ -181,14 +192,14 @@
     <div class="talkzone">
       <p class="talkzone__intro">A <b>4-H Club</b> teacher is helping a Mingli student make a <b>herbal nap pillow</b>. Try reading both parts out loud with a friend!<br><span style="color:var(--ink-soft);font-size:.9em;">情境：四健會老師正在教明禮學生做植萃午安枕。和同學一人一角，大聲念念看！</span></p>
       <div class="dialogue">
-        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Today we will make a <b>natural</b> <b>nap</b> <b>pillow</b>. Are you ready?</div><div class="line__zh">今天我們要做一個天然的午安枕。準備好了嗎？</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! But what is inside the pillow? It looks like rice.</div><div class="line__zh">準備好了！但枕頭裡面是什麼？看起來像米。</div></div>
-        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Good eyes! It is <b>rice husk</b>. Farmers usually throw it away, so we <b>recycle</b> it.</div><div class="line__zh">眼睛真利！這是粗糠。農夫通常會把它丟掉，所以我們把它回收再利用。</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Wow, it feels light and <b>breathable</b>. What smells so fresh?</div><div class="line__zh">哇，摸起來很輕又很透氣。是什麼這麼清新？</div></div>
-        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">That is <b>mint</b> and <b>lemongrass</b> — two natural <b>herbs</b>. They help you <b>relax</b>.</div><div class="line__zh">那是薄荷和香茅——兩種天然香草，可以幫助你放鬆。</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">It smells like a forest! I can't wait to use it at nap time.</div><div class="line__zh">聞起來像森林！我等不及午睡時間拿來用了。</div></div>
-        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Great! Now sew it up carefully. You just made something good for you and the Earth.</div><div class="line__zh">太好了！現在小心地把它縫起來。你做出了一個對自己、也對地球都好的東西。</div></div>
-        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Thank you, Teacher! I will share it with my family at home.</div><div class="line__zh">謝謝老師！我要帶回家和家人分享。</div></div>
+        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Today we will make a <b>natural</b> <b>nap</b> <b>pillow</b>. Are you ready?</div><button class="speak" data-speak="Today we will make a natural nap pillow. Are you ready?" aria-label="Say this line">🔊</button><div class="line__zh">今天我們要做一個天然的午安枕。準備好了嗎？</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Yes! But what is inside the pillow? It looks like rice.</div><button class="speak" data-speak="Yes! But what is inside the pillow? It looks like rice." aria-label="Say this line">🔊</button><div class="line__zh">準備好了！但枕頭裡面是什麼？看起來像米。</div></div>
+        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Good eyes! It is <b>rice husk</b>. Farmers usually throw it away, so we <b>recycle</b> it.</div><button class="speak" data-speak="Good eyes! It is rice husk. Farmers usually throw it away, so we recycle it." aria-label="Say this line">🔊</button><div class="line__zh">眼睛真利！這是粗糠。農夫通常會把它丟掉，所以我們把它回收再利用。</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Wow, it feels light and <b>breathable</b>. What smells so fresh?</div><button class="speak" data-speak="Wow, it feels light and breathable. What smells so fresh?" aria-label="Say this line">🔊</button><div class="line__zh">哇，摸起來很輕又很透氣。是什麼這麼清新？</div></div>
+        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">That is <b>mint</b> and <b>lemongrass</b> — two natural <b>herbs</b>. They help you <b>relax</b>.</div><button class="speak" data-speak="That is mint and lemongrass — two natural herbs. They help you relax." aria-label="Say this line">🔊</button><div class="line__zh">那是薄荷和香茅——兩種天然香草，可以幫助你放鬆。</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">It smells like a forest! I can't wait to use it at nap time.</div><button class="speak" data-speak="It smells like a forest! I can't wait to use it at nap time." aria-label="Say this line">🔊</button><div class="line__zh">聞起來像森林！我等不及午睡時間拿來用了。</div></div>
+        <div class="line"><div class="line__who">Teacher 老師</div><div class="line__en">Great! Now sew it up carefully. You just made something good for you and the Earth.</div><button class="speak" data-speak="Great! Now sew it up carefully. You just made something good for you and the Earth." aria-label="Say this line">🔊</button><div class="line__zh">太好了！現在小心地把它縫起來。你做出了一個對自己、也對地球都好的東西。</div></div>
+        <div class="line b"><div class="line__who">Student 學生</div><div class="line__en">Thank you, Teacher! I will share it with my family at home.</div><button class="speak" data-speak="Thank you, Teacher! I will share it with my family at home." aria-label="Say this line">🔊</button><div class="line__zh">謝謝老師！我要帶回家和家人分享。</div></div>
       </div>
     </div>
 
@@ -199,6 +210,24 @@
   </div>
 </section>
 
+<script>
+/* 🔊 pronunciation — Web Speech API */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1;
+  if(btn){
+    btn.classList.add('is-speaking');
+    u.onend = function(){ btn.classList.remove('is-speaking'); };
+    u.onerror = function(){ btn.classList.remove('is-speaking'); };
+  }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click', function(){ speak(b.dataset.speak, b); });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){
