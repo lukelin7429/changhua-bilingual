@@ -239,6 +239,31 @@
   .vc__ex .en b{color:var(--g-deep);}
   .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
   @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
+  /* feature: international exchange */
+  .feature{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+  @media(min-width:820px){.feature{grid-template-columns:1.05fr 1fr;}}
+  .feature:hover{transform:translateY(-5px);box-shadow:0 22px 50px -18px rgba(14,90,84,.36);}
+  .feature__img{position:relative;min-height:260px;background:var(--g-soft);}
+  @media(min-width:820px){.feature__img{min-height:100%;}}
+  .feature__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .feature__flags{position:absolute;left:16px;bottom:16px;display:flex;gap:8px;font-size:24px;background:rgba(255,255,255,.9);padding:6px 12px;border-radius:99px;box-shadow:var(--shadow-sm);}
+  .feature__b{padding:34px 30px 36px;display:flex;flex-direction:column;}
+  @media(min-width:820px){.feature__b{padding:48px 48px 50px;}}
+  .feature__eyebrow{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
+  @media(min-width:720px){.feature__eyebrow{font-size:15px;}}
+  .feature__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--g-deep);line-height:1.18;margin-top:10px;}
+  @media(min-width:720px){.feature__title{font-size:40px;}}
+  .feature__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:.5px;}
+  @media(min-width:720px){.feature__zh{font-size:22px;}}
+  .feature__desc{font-size:17px;color:var(--ink-soft);margin-top:16px;line-height:1.68;}
+  @media(min-width:720px){.feature__desc{font-size:19px;}}
+  .feature__desc .zh{display:block;font-size:15.5px;margin-top:8px;line-height:1.6;}
+  @media(min-width:720px){.feature__desc .zh{font-size:17px;}}
+  .feature__cta{margin-top:22px;align-self:flex-start;background:var(--gold);color:var(--g-deep);font-weight:700;font-size:17px;padding:14px 26px;border-radius:12px;box-shadow:0 8px 22px -8px rgba(217,154,28,.5);transition:transform .15s,background .15s;}
+  @media(min-width:720px){.feature__cta{font-size:19px;}}
+  .feature:hover .feature__cta{background:var(--g-deep);color:#fff;}
+  .feature__cta .arrow{display:inline-block;transition:transform .15s;}
+  .feature:hover .feature__cta .arrow{transform:translateX(5px);}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -329,6 +354,29 @@
         <div class="pillar__body">Energetic classmates and caring teachers make Raoming feel less like a school and more like a big, warm family.</div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ===== Featured: International Exchange ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no" style="color:var(--earth);">★ Featured</div>
+    <h2 class="sec__title">Reaching Out to the World</h2>
+    <div class="sec__title-zh">饒明重視國際教育 · 與世界交朋友</div>
+    <div class="sec__rule" style="background:var(--earth);"></div>
+    <a class="feature" href="international-exchange/">
+      <div class="feature__img">
+        <img src="/schools/raoming/photos/exchange/mascots-together.jpg" alt="Raoming's lion dance mascot beside Windship Middle School's pirate banana slug · 饒明舞獅與美國 Windship 海盜香蕉蛞蝓吉祥物">
+        <div class="feature__flags">🇹🇼 <span>🇺🇸</span></div>
+      </div>
+      <div class="feature__b">
+        <div class="feature__eyebrow">International Exchange · 國際交流</div>
+        <div class="feature__title">A Friendship Across the Pacific</div>
+        <div class="feature__zh">跨越太平洋的友誼</div>
+        <div class="feature__desc">Raoming has become exchange partners with <strong>Windship Middle School</strong> in California, USA. The two schools swapped mascots — our hand-sewn lion dancer and their pirate banana slug — and take them travelling to share their hometowns.<span class="zh">饒明與美國加州 <strong>Windship Middle School</strong> 結為交流夥伴，兩校互換吉祥物——我們手縫的舞獅與他們的海盜香蕉蛞蝓——並帶著對方旅行，分享彼此的家鄉。</span></div>
+        <span class="feature__cta">Read the story <span class="arrow">→</span></span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -435,7 +483,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.feature,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
