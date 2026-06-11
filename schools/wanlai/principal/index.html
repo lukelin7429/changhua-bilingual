@@ -6,7 +6,7 @@
 <title>Principal · Wanlai Elementary School 萬來國小校長室</title>
 <meta property="og:title" content="Principal · Wanlai Elementary School 萬來國小校長室">
 <meta property="og:type" content="website">
-<meta name="description" content="A welcome to the Wanlai family from the principal of Wanlai Elementary School, Beidou Township, Changhua County. 彰化縣北斗鎮萬來國民小學校長室。">
+<meta name="description" content="A welcome from Principal Chen Jing-ting of Wanlai Elementary School, Beidou Township, Changhua County. 彰化縣北斗鎮萬來國民小學校長室 — 陳靜婷校長。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media(min-width:720px){body{font-size:23px;}}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-  .wrap--narrow{max-width:880px;}
+  .wrap--narrow{max-width:900px;}
   .serif{font-family:'Playfair Display','PingFang TC',serif;}
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   @media(min-width:720px){section{padding:80px 0;}}
@@ -37,16 +37,28 @@
   .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:10px;letter-spacing:1px;}
   @media(min-width:720px){.sec__title-zh{font-size:24px;}}
   .sec__rule{width:96px;height:6px;background:var(--gold);border-radius:3px;margin:22px 0 36px;}
-  .about__lead{font-family:'Playfair Display',serif;font-size:29px;font-weight:700;color:var(--p-deep);line-height:1.35;}
-  @media(min-width:720px){.about__lead{font-size:37px;}}
-  .about__lead-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:14px;line-height:1.55;}
-  @media(min-width:720px){.about__lead-zh{font-size:24px;}}
-  .about__body{margin-top:24px;font-size:20px;color:var(--ink);line-height:1.75;}
-  @media(min-width:720px){.about__body{font-size:22px;}}
-  .about__body p{margin-top:16px;}.about__body p:first-child{margin-top:0;}
-  .about__body .zh{color:var(--ink-soft);font-size:18px;margin-top:8px;line-height:1.65;}
-  @media(min-width:720px){.about__body .zh{font-size:20px;}}
-  .about__body strong{color:var(--p-deep);font-weight:700;}
+  /* bio */
+  .bio{display:grid;grid-template-columns:1fr;gap:30px;align-items:start;}
+  @media(min-width:760px){.bio{grid-template-columns:300px 1fr;gap:44px;}}
+  .bio__photo{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow);}
+  .bio__photo img{width:100%;height:auto;display:block;border-radius:12px;}
+  .bio__photo figcaption{text-align:center;font-size:16px;color:var(--ink-soft);margin-top:12px;line-height:1.4;padding-bottom:4px;}
+  @media(min-width:720px){.bio__photo figcaption{font-size:17px;}}
+  .bio__photo figcaption b{color:var(--p-deep);}
+  .bio__name{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:var(--p-deep);line-height:1.12;}
+  @media(min-width:720px){.bio__name{font-size:44px;}}
+  .bio__name-zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media(min-width:720px){.bio__name-zh{font-size:23px;}}
+  .bio__rows{margin-top:24px;display:flex;flex-direction:column;gap:2px;}
+  .bio__row{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line);}
+  .bio__row:last-child{border-bottom:none;}
+  .bio__k{flex-shrink:0;width:96px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-deep);padding-top:4px;}
+  @media(min-width:720px){.bio__k{width:118px;font-size:14px;}}
+  .bio__v{font-size:18px;color:var(--ink);line-height:1.55;font-weight:500;}
+  @media(min-width:720px){.bio__v{font-size:20px;}}
+  .bio__v .zh{display:block;color:var(--ink-soft);font-size:16px;margin-top:3px;}
+  @media(min-width:720px){.bio__v .zh{font-size:18px;}}
+  .bio__v b{color:var(--p-deep);font-weight:700;}
   .quote{margin-top:36px;background:var(--gold-soft);border-left:6px solid var(--gold);padding:24px 28px;border-radius:0 12px 12px 0;}
   .quote__text{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:var(--gold-deep);line-height:1.4;font-style:italic;}
   @media(min-width:720px){.quote__text{font-size:31px;}}
@@ -54,14 +66,7 @@
   @media(min-width:720px){.quote__zh{font-size:20px;}}
   .quote__by{font-size:16px;color:var(--ink-soft);margin-top:14px;font-weight:600;}
   @media(min-width:720px){.quote__by{font-size:18px;}}
-  /* principal identity card */
-  .pcard{display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:7px solid var(--p);border-radius:18px;padding:26px 28px;box-shadow:var(--shadow-sm);margin-top:8px;}
-  .pcard__badge{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,var(--p) 0%,var(--p-deep) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;box-shadow:var(--shadow-sm);}
-  .pcard__name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--p-deep);line-height:1.15;}
-  @media(min-width:720px){.pcard__name{font-size:34px;}}
-  .pcard__role{font-size:17px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
-  @media(min-width:720px){.pcard__role{font-size:19px;}}
-  /* values grid */
+  /* values */
   .vals{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
   @media(min-width:720px){.vals{grid-template-columns:1fr 1fr 1fr;gap:24px;}}
   .val{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--shadow-sm);border-top:7px solid var(--p);}
@@ -81,8 +86,6 @@
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
   .video-cap{font-size:16px;color:var(--ink-soft);margin-top:14px;line-height:1.55;text-align:center;}
   @media(min-width:720px){.video-cap{font-size:18px;}}
-  .note{font-size:15px;color:var(--ink-soft);font-style:italic;margin-top:28px;line-height:1.6;padding:14px 18px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:12px;}
-  @media(min-width:720px){.note{font-size:17px;}}
   footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
   @media(min-width:720px){footer{font-size:17px;}}
   footer .org{font-weight:600;color:var(--p-deep);}
@@ -96,16 +99,18 @@
   .topbar-nav a{font-size:16.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
   .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--p-deep);background:var(--p-soft);}
   @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:15px;padding:8px 10px;}}
-  /* color banner (no photo) */
-  .page-banner{position:relative;overflow:hidden;height:300px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--p-deep) 0%,var(--p) 58%,var(--p-light) 100%);}
-  @media(min-width:720px){.page-banner{height:360px;}}
-  .page-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 18%,rgba(255,255,255,.16),transparent 42%);}
-  .page-banner__inner{position:relative;z-index:1;max-width:1080px;width:100%;margin:0 auto;padding:0 24px;color:#fff;text-align:center;}
-  .page-banner__eyebrow{font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:10px;}
+  /* photo banner */
+  .page-banner{position:relative;overflow:hidden;height:340px;display:flex;align-items:flex-end;justify-content:center;}
+  @media(min-width:720px){.page-banner{height:420px;}}
+  .page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,14,.62) 0%,rgba(20,8,14,.32) 28%,rgba(20,8,14,.06) 50%,rgba(20,8,14,0) 66%);}
+  .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;}
+  .page-banner__inner{position:relative;z-index:1;max-width:1080px;width:100%;margin:0 auto;padding:0 24px 38px;color:#fff;text-align:center;}
+  @media(min-width:720px){.page-banner__inner{padding-bottom:52px;}}
+  .page-banner__eyebrow{font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.6);}
   @media(min-width:720px){.page-banner__eyebrow{font-size:15px;}}
-  .page-banner__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;line-height:1.15;text-shadow:0 3px 12px rgba(0,0,0,.28);}
+  .page-banner__title{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;line-height:1.15;text-shadow:0 2px 14px rgba(0,0,0,.6);}
   @media(min-width:720px){.page-banner__title{font-size:60px;}}
-  .page-banner__zh{font-size:20px;color:rgba(255,255,255,.95);margin-top:8px;font-weight:600;}
+  .page-banner__zh{font-size:20px;color:#fff;margin-top:8px;font-weight:600;text-shadow:0 2px 12px rgba(0,0,0,.65);}
   @media(min-width:720px){.page-banner__zh{font-size:26px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
@@ -131,6 +136,7 @@
 </nav>
 
 <div class="page-banner">
+  <img src="/schools/wanlai/photos/banner-principal.jpg" alt="Wanlai Elementary School main building and green field · 萬來國小逸志堂與綠地">
   <div class="page-banner__inner">
     <div class="page-banner__eyebrow">Wanlai Elementary · 萬來國小</div>
     <div class="page-banner__title">From the Principal</div>
@@ -138,35 +144,54 @@
   </div>
 </div>
 
-<!-- ===== Welcome ===== -->
+<!-- ===== Welcome + bio ===== -->
 <section>
   <div class="wrap wrap--narrow">
     <div class="sec__no">★</div>
     <h2 class="sec__title">Welcome to Wanlai</h2>
-    <div class="sec__title-zh">歡迎來到萬來</div>
+    <div class="sec__title-zh">校長的話 · 歡迎來到萬來</div>
     <div class="sec__rule"></div>
 
-    <div class="pcard">
-      <div class="pcard__badge">🎓</div>
+    <div class="bio">
+      <figure class="bio__photo">
+        <img src="/schools/wanlai/photos/principal.jpg" alt="Principal Chen Jing-ting of Wanlai Elementary School · 萬來國小校長陳靜婷">
+        <figcaption><b>Principal Chen Jing-ting</b><br>陳靜婷 校長</figcaption>
+      </figure>
       <div>
-        <div class="pcard__name">Principal Chen Jing-ting</div>
-        <div class="pcard__role">陳靜婷 校長 · 萬來國小第 7 任校長</div>
+        <div class="bio__name">Chen Jing-ting</div>
+        <div class="bio__name-zh">陳靜婷 · 萬來國小校長（第 7 任）</div>
+        <div class="bio__rows">
+          <div class="bio__row">
+            <div class="bio__k">Education</div>
+            <div class="bio__v">Ph.D. in Language Education, National Taichung University of Education
+              <span class="zh">國立臺中教育大學 語文教育學系 博士</span>
+            </div>
+          </div>
+          <div class="bio__row">
+            <div class="bio__k">Experience</div>
+            <div class="bio__v">Principal, <b>Shuiwei</b> Elementary School · Principal, <b>Chenggong</b> Elementary School
+              <span class="zh">曾任 彰化縣水尾國小校長、彰化縣成功國小校長</span>
+            </div>
+          </div>
+          <div class="bio__row">
+            <div class="bio__k">Now</div>
+            <div class="bio__v">Principal, <b>Wanlai</b> Elementary School
+              <span class="zh">現任 彰化縣萬來國小校長</span>
+            </div>
+          </div>
+          <div class="bio__row">
+            <div class="bio__k">Belief</div>
+            <div class="bio__v">Student-centered — "lift up every single child."
+              <span class="zh">以學生為本，「帶好每一位學生」。</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="about__lead" style="margin-top:34px;">A school where every child is known, valued, and encouraged to shine.</div>
-    <div class="about__lead-zh">一所看見每個孩子、珍視每個孩子、鼓勵每個孩子發光的學校。</div>
-
-    <div class="about__body">
-      <p>On behalf of our whole school family, welcome to <strong>Wanlai Elementary School</strong>. We are a small school in Beidou Township, and that is our strength — here, every teacher knows every child by name, and every child has the space to find their own voice.</p>
-      <p class="zh">謹代表全校大家庭，歡迎您來到<strong>萬來國小</strong>。我們是北斗鎮的一所小學校，而「小」正是我們的優勢——在這裡，每位老師都叫得出每個孩子的名字，每個孩子都有找到自我聲音的空間。</p>
-      <p>We believe a good education grows from <strong>care</strong>. Our children read widely, speak English a little more confidently each week, play the moon lute and share it with their community, and welcome friends from many cultures. These are the everyday ways we help them grow into kind, curious, and confident people.</p>
-      <p class="zh">我們相信，好的教育源於<strong>關懷</strong>。萬來的孩子廣泛閱讀、每週更有自信地開口說英語、學習月琴並把樂音分享給社區、歡迎來自不同文化的朋友——這些日常，正是我們陪伴孩子長成善良、好奇而自信的人的方式。</p>
-    </div>
-
     <div class="quote">
-      <div class="quote__text">"At Wanlai, we grow good people first — and everything good grows from there."</div>
-      <div class="quote__zh">「在萬來，我們先培養好的人——一切美好，都從這裡生長。」</div>
+      <div class="quote__text">"To light a lamp, to carry a lamp, to pass the lamp on."</div>
+      <div class="quote__zh">「做好點燈、提燈、傳燈的教育傳承者。」</div>
       <div class="quote__by">— Principal Chen Jing-ting · 陳靜婷 校長</div>
     </div>
   </div>
@@ -182,21 +207,21 @@
     <div class="vals">
       <article class="val">
         <div class="val__icon">🌱</div>
-        <div class="val__title">Care First</div>
-        <div class="val__zh">關懷為先</div>
-        <div class="val__body">In a small school, no child is a stranger. We know each learner, and we meet them where they are.</div>
+        <div class="val__title">Lift Up Every Child</div>
+        <div class="val__zh">帶好每一位學生</div>
+        <div class="val__body">In a small school, no child is a stranger. We know each learner by name, and we help every one of them move forward.</div>
+      </article>
+      <article class="val">
+        <div class="val__icon">🏮</div>
+        <div class="val__title">Light · Carry · Pass On</div>
+        <div class="val__zh">點燈・提燈・傳燈</div>
+        <div class="val__body">We light a love of learning, carry it alongside our children, and pass it on — teaching as a quiet act of handing the lamp forward.</div>
       </article>
       <article class="val">
         <div class="val__icon">🌏</div>
-        <div class="val__title">Open to the World</div>
-        <div class="val__zh">放眼世界</div>
-        <div class="val__body">Through English, music, and a multicultural campus, our children learn that the world is wide — and theirs to explore.</div>
-      </article>
-      <article class="val">
-        <div class="val__icon">🪕</div>
-        <div class="val__title">Rooted at Home</div>
-        <div class="val__zh">扎根家鄉</div>
-        <div class="val__body">From the moon lute to Beidou's own stories, we help children love where they come from as they reach outward.</div>
+        <div class="val__title">Rooted, Yet Open</div>
+        <div class="val__zh">扎根家鄉・放眼世界</div>
+        <div class="val__body">From the moon lute to everyday English, our children grow proud of where they come from while reaching out to the wider world.</div>
       </article>
     </div>
   </div>
@@ -211,12 +236,10 @@
     <div class="sec__rule"></div>
     <div class="video-wrap">
       <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/v2g8g5WnAA4?rel=0" title="Principal of Wanlai Elementary — English self-introduction" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/v2g8g5WnAA4?rel=0" title="Principal Chen of Wanlai Elementary — English self-introduction" allowfullscreen loading="lazy"></iframe>
       </div>
-      <div class="video-cap">Principal Chen introduces herself in English — part of Wanlai's bilingual video series.<br>校長以英語自我介紹，萬來雙語影片系列之一。</div>
+      <div class="video-cap">Principal Chen introduces herself in English — part of Wanlai's bilingual video series.<br>陳靜婷校長以英語自我介紹，萬來雙語影片系列之一。</div>
     </div>
-
-    <div class="note">A fuller principal profile — background, experience, and educational vision — will be added here soon, in partnership with the school. 校長詳細學經歷與辦學理念將與校方合作後補上。</div>
   </div>
 </section>
 
@@ -224,7 +247,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.pcard,.quote,.val,.video-wrap,.note';
+  var sel='.bio,.quote,.val,.video-wrap';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});

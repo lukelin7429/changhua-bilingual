@@ -242,6 +242,8 @@
 /* Festival hero — sits below school's native topbar */
 .th-fest-hero{position:relative;color:#fff;overflow:hidden;min-height:240px;padding:36px 0 32px;display:flex;align-items:center;background:linear-gradient(135deg,#6d2440 0%,#8a5a06 100%);}
 @media (min-width:720px){ .th-fest-hero{min-height:320px;padding:56px 0 44px;} }
+.th-fest-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;z-index:0;}
+.th-fest-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(109,36,64,.62) 0%,rgba(74,30,8,.50) 100%);z-index:0;}
 .th-fest-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#6d2440 0%,#8a5a06 50%,#d99a1c 100%);pointer-events:none;z-index:2;}
 .th-fest-hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;z-index:1;}
 @media (max-width:680px){ .th-fest-hero__inner{grid-template-columns:1fr;gap:16px;} }
@@ -294,6 +296,7 @@
   </div>
 </nav>
 <header class="th-fest-hero">
+  <img class="th-fest-hero__bg" src="/schools/wanlai/photos/banner-festivals.jpg" alt="Children's artwork on the Wanlai Elementary School corridor wall · 萬來國小學生畫作牆">
   <div class="th-fest-hero__inner">
     <div class="th-fest-hero__emoji">🎊</div>
     <div>
