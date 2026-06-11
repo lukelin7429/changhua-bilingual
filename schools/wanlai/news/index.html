@@ -39,6 +39,27 @@
   @media(min-width:720px){.sec__lede{font-size:22px;}}
   .sec__lede .zh{display:block;color:var(--ink-soft);font-size:17px;margin-top:8px;}
   @media(min-width:720px){.sec__lede .zh{font-size:19px;}}
+  /* featured international story */
+  .intl-feature{background:#fff;border:1px solid var(--line);border-top:8px solid var(--indigo);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);margin-top:34px;}
+  .intl-feature__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .intl-feature__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .intl-feature__body{padding:28px 26px 32px;}
+  @media(min-width:720px){.intl-feature__body{padding:38px 44px 42px;}}
+  .intl-feature__top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .intl-feature__flag{font-size:13px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--indigo);padding:6px 14px;border-radius:99px;}
+  .intl-feature__date{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--gold-deep);background:var(--gold-soft);padding:6px 12px;border-radius:99px;}
+  .intl-feature__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--p-deep);line-height:1.12;margin-top:14px;}
+  @media(min-width:720px){.intl-feature__title{font-size:40px;}}
+  .intl-feature__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media(min-width:720px){.intl-feature__zh{font-size:21px;}}
+  .intl-feature__p{font-size:17px;color:var(--ink-soft);line-height:1.7;margin-top:14px;}
+  @media(min-width:720px){.intl-feature__p{font-size:19px;}}
+  .intl-feature__p .zh{display:block;font-size:15.5px;margin-top:6px;}
+  @media(min-width:720px){.intl-feature__p .zh{font-size:17px;}}
+  .intl-feature__p b{color:var(--p-deep);}
+  .intl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .intl-tag{font-size:14px;font-weight:600;color:var(--indigo);background:var(--indigo-soft);padding:6px 13px;border-radius:99px;}
+  @media(min-width:720px){.intl-tag{font-size:15px;}}
   /* news cards */
   .news-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:34px;}
   @media(min-width:640px){.news-grid{grid-template-columns:1fr 1fr;}}
@@ -130,6 +151,27 @@
       A few favorite moments from life at Wanlai — performances, sports, and the everyday joys of a small school by the river.
       <span class="zh">萬來校園生活的精彩片刻——表演、運動，以及一所河畔小學的日常喜悅。</span>
     </p>
+
+    <div class="intl-feature">
+      <div class="intl-feature__video">
+        <iframe src="https://www.youtube-nocookie.com/embed/Tyay3E_ASK8?rel=0" title="Little Diplomats Winter Camp · 小小外交官冬令營" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="intl-feature__body">
+        <div class="intl-feature__top"><span class="intl-feature__date">Winter 2025 · 寒假</span><span class="intl-feature__flag">🌏 International Education · 國際教育</span></div>
+        <div class="intl-feature__title">Little Diplomats Winter Camp</div>
+        <div class="intl-feature__zh">小小外交官冬令營 · 探索印尼文化</div>
+        <p class="intl-feature__p">At Wanlai, learning about the world is part of growing up. In our <b>Little Diplomats Winter Camp</b>, children spent five fun-filled days exploring the culture of <b>Indonesia</b> with our wonderful teacher, <b>Miss Yayati</b> — painting <b>shadow puppets</b>, making their own <b>masks</b>, and cooking Indonesian pineapple tarts called <b>nastar</b>. The adventure continued in <b>Taipei</b>, riding the high-speed train and visiting <b>Taipei 101</b>.
+          <span class="zh">在萬來，認識世界是成長的一部分。在「小小外交官」冬令營，孩子們和優秀的 Yayati 老師一起，用五天快樂地探索<b>印尼</b>文化——彩繪皮影戲偶、製作面具、做印尼鳳梨酥「nastar」；旅程還延伸到<b>台北</b>，搭高鐵、登上<b>台北 101</b>。</span>
+        </p>
+        <div class="intl-tags">
+          <span class="intl-tag">🎭 Shadow Puppets</span>
+          <span class="intl-tag">🪅 Masks</span>
+          <span class="intl-tag">🍍 Nastar Tarts</span>
+          <span class="intl-tag">🚄 High-Speed Train</span>
+          <span class="intl-tag">🏙️ Taipei 101</span>
+        </div>
+      </div>
+    </div>
 
     <div class="news-grid">
 
@@ -283,7 +325,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.ncard,.news-foot';
+  var sel='.intl-feature,.ncard,.news-foot';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
