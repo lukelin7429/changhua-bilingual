@@ -3066,7 +3066,37 @@ def build_sdg_quiz(n, icon, en, zh, group_en, group_zh, color, en_sum, zh_sum):
     return page_shell(f"SDG {n:02d} Quiz · {en}", page, "/resources/", extra)
 
 
+SITE = "https://changhua-bilingual.org"
+_CANONICAL_RX = re.compile(r'rel=["\']canonical["\']', re.I)
+_VIEWPORT_RX = re.compile(r'(<meta\s+name=["\']viewport["\'][^>]*>)', re.I)
+
+
+def _with_canonical(path, html):
+    """Inject a self-referencing canonical based on the output path.
+
+    Mirrors scripts/add_canonical.py so generated index pages keep their
+    canonical on rebuild — keep the two in sync. Prevents tracking-param
+    duplicates (?from=, ?fbclid=, ?utm_) being flagged "Duplicate without
+    user-selected canonical" in Search Console.
+    """
+    if _CANONICAL_RX.search(html):
+        return html
+    p = path.lstrip("/")
+    if p == "index.html":
+        url = SITE + "/"
+    elif p.endswith("/index.html"):
+        url = SITE + "/" + p[: -len("index.html")]
+    else:
+        url = SITE + "/" + p
+    m = _VIEWPORT_RX.search(html)
+    if not m:
+        return html
+    i = m.end()
+    return html[:i] + f'\n  <link rel="canonical" href="{url}">' + html[i:]
+
+
 def write(path, html):
+    html = _with_canonical(path, html)
     p = ROOT / path.lstrip("/")
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(html, encoding="utf-8")
