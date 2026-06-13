@@ -121,6 +121,23 @@ section:last-of-type{border-bottom:none;}
 .news-card__hook{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.65;}
 .news-card__hook-zh{font-size:16px;color:var(--ink-soft);margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);line-height:1.7;}
 
+/* ===== Official-site mini news cards ===== */
+.ofeed{display:grid;grid-template-columns:1fr;gap:14px;}
+@media(min-width:720px){.ofeed{grid-template-columns:1fr 1fr;}}
+.ocard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow-sm);border-left:6px solid var(--rice);}
+.ocard:nth-child(3n+2){border-left-color:var(--ember);}.ocard:nth-child(3n){border-left-color:var(--leaf);}
+.ocard .tag{font:700 13px/1 'Inter';letter-spacing:.1em;text-transform:uppercase;color:var(--rice-deep);}
+.ocard h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--ember-deep);font-weight:700;margin-top:8px;line-height:1.25;}
+.ocard h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
+.ocard .date{font-size:14px;color:var(--ink-soft);margin-top:8px;}
+.ncard{cursor:pointer;}
+.ncard .news-card__cta{margin-top:14px;font-family:'Playfair Display',serif;color:var(--ember);font-weight:700;font-size:16px;}
+.ncard .news-card__cta::after{content:" →";}
+
+/* ===== Inline playlist (Classroom English / Announcements) ===== */
+.playlist{position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:8px;}
+.playlist iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
 /* ===== Photo-essay (photo lessons) ===== */
 .intro{max-width:880px;margin:40px auto 6px;text-align:center;}
 .intro .en{font-size:clamp(19px,2vw,22px);color:var(--ink);}
