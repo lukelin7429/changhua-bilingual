@@ -62,6 +62,22 @@
   .ph{margin:28px 0 8px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);} .ph img{width:100%;display:block;}
   .vid{margin:28px 0 8px;position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);background:#000;}
   .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  /* photo carousel */
+  .carousel{position:relative;margin:42px 0 6px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#100c20;touch-action:pan-y;}
+  .car-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+  .car-slide{min-width:100%;}
+  .car-slide img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;}
+  @media(max-width:640px){.car-slide img{aspect-ratio:4/3;}}
+  .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.86);color:var(--plum-deep);font-size:23px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:background .2s,transform .2s;z-index:3;}
+  .car-btn:hover{background:#fff;transform:translateY(-50%) scale(1.09);}
+  .car-prev{left:14px;} .car-next{right:14px;}
+  @media(max-width:640px){.car-btn{width:40px;height:40px;font-size:20px;}.car-prev{left:9px;}.car-next{right:9px;}}
+  .car-count{position:absolute;top:14px;right:16px;background:rgba(16,12,32,.62);color:#fff;font-size:15px;font-weight:600;letter-spacing:.05em;padding:5px 13px;border-radius:20px;z-index:3;backdrop-filter:blur(5px);}
+  .car-dots{position:absolute;bottom:13px;left:0;right:0;display:flex;justify-content:center;gap:7px;z-index:3;flex-wrap:wrap;padding:0 46px;}
+  .car-dot{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+  .car-dot.on{background:var(--gold);transform:scale(1.35);}
+  .car-note{max-width:780px;margin:10px auto 0;text-align:center;font-size:16px;color:var(--ink-soft);}
+  .car-note b{color:var(--plum-deep);font-weight:600;}
   .zhwrap{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
   .zhwrap .zhlabel{display:inline-block;font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);background:var(--plum-soft);border-radius:20px;padding:5px 14px;margin-bottom:4px;}
   .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.95;margin-top:16px;color:var(--ink);}
@@ -91,62 +107,29 @@
   <div class="bn"><span class="eyebrow">News &middot; 2026.06.13</span><h1>Taiwan–US Student Exchange · Music Without Borders<span class="zh">台美學生交流｜國際領航・在地共好</span></h1></div>
 </header>
 <main><div class="wrap"><div class="article">
-  <div class="lead-photo"><img src="../../news-img/taiwan-us-exchange-1.jpg" alt="Taiwan–US Student Exchange · Music Without Borders"></div>
+  <div class="carousel" aria-roledescription="carousel">
+    <div class="car-track"><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-1.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 1"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-2.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 2" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-3.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 3" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-4.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 4" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-5.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 5" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-6.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 6" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-7.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 7" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-8.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 8" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-9.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 9" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-10.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 10" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-11.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 11" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-12.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 12" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-13.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 13" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-14.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 14" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-15.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 15" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-16.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 16" loading="lazy"></div><div class="car-slide"><img src="../../news-img/taiwan-us-exchange-17.jpg" alt="Taiwan–US Student Exchange · Music Without Borders &middot; photo 17" loading="lazy"></div></div>
+    <button class="car-btn car-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="car-btn car-next" aria-label="Next photo">&#8250;</button>
+    <div class="car-count"><b>1</b> / 17</div>
+    <div class="car-dots"><button class="car-dot on" aria-label="Go to photo 1"></button><button class="car-dot" aria-label="Go to photo 2"></button><button class="car-dot" aria-label="Go to photo 3"></button><button class="car-dot" aria-label="Go to photo 4"></button><button class="car-dot" aria-label="Go to photo 5"></button><button class="car-dot" aria-label="Go to photo 6"></button><button class="car-dot" aria-label="Go to photo 7"></button><button class="car-dot" aria-label="Go to photo 8"></button><button class="car-dot" aria-label="Go to photo 9"></button><button class="car-dot" aria-label="Go to photo 10"></button><button class="car-dot" aria-label="Go to photo 11"></button><button class="car-dot" aria-label="Go to photo 12"></button><button class="car-dot" aria-label="Go to photo 13"></button><button class="car-dot" aria-label="Go to photo 14"></button><button class="car-dot" aria-label="Go to photo 15"></button><button class="car-dot" aria-label="Go to photo 16"></button><button class="car-dot" aria-label="Go to photo 17"></button></div>
+  </div>
+  <p class="car-note">&#128248; Two days of music, culture &amp; friendship &middot; <b>17 photos</b> &mdash; 兩天活動花絮，可左右滑動或點選瀏覽</p>
   <div class="en-body">
     <p>The moment the music began, language, nationality and distance all seemed to melt away. Over two days, students and parents from Taipei American School visited three of our partner schools — Hsinmin Elementary, Wenxing High School and Ershui Junior High — for a Taiwan–US student exchange filled with music, culture and friendship. Through performing, making and sharing together, the children came to know one another, and discovered the same passion and dreams shining across very different cultural backgrounds.</p>
     <p>We warmly welcomed the visiting students and families from Taipei American School: Morgan Emmie Lin, Tracey Chen, Athena Chang, Evangeline Chang, Emma DeMelo, Apryl Song, Jianni Song, David Lo and Emily Fisher.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-2.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 2" loading="lazy"></div>
-  <div class="en-body">
     <p>On the morning of June 12, the exchange opened here at Hsinmin Elementary. With warm, professional hosting from Director Cai-yun, students, teachers and parents from different cultures quickly settled into the spirit of the day. Our Dance Club opened with “Golden,” bursting with confidence and energy; the String Ensemble played “Contentment (知足),” a gentle melody carrying gratitude; and the Choir sang “Sing for Peace,” lifting voices for peace and hope.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-3.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 3" loading="lazy"></div>
-  <div class="en-body">
     <p>The most moving moment came with a full ensemble of “A Million Dreams” and the Taiwanese classic “Hot Rice Dumplings (燒肉粽).” Though it was the children&#x27;s first time performing together — with almost no rehearsal — they built an instant rapport through the music and completed this rare cross-cultural performance side by side. Director Yi-liang joined the players and Director Guan-yu accompanied on piano, building a bridge of friendship note by note.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-4.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 4" loading="lazy"></div>
-  <div class="en-body">
     <p>Hands-on culture followed the music. In the Maker class, led by Teacher Yi-jun, visitors crafted their own personalised seals using laser engraving — and, touchingly, several of our sixth-grade graduates returned to campus to act as little teachers, guiding the guests through each step. In the calligraphy class led by Teacher Xin-mei, the children took up the brush themselves and stamped their finished works with their own hand-carved seals, completing a one-of-a-kind cultural keepsake. Thanks too to Teacher Xuan-qi for handling photography, sound and translation throughout.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-5.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 5" loading="lazy"></div>
-  <div class="en-body">
     <p>In the afternoon the group moved on to Wenxing High School, warmly received by Principal Huang Shu-mei and her administrative team. The Wenxing String Ensemble and flute performed “I Only Care About You (我只在乎你)” with elegant, refined musicianship — and many of the performers were in fact Hsinmin graduates, now studying there. Once again the combined “A Million Dreams” and “Hot Rice Dumplings” rang out, connecting children from different schools and cultures through a shared song.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-6.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 6" loading="lazy"></div>
-  <div class="en-body">
     <p>The students also tried a corn-husk doll handicraft, showing real creativity and care in their making, and toured Wenxing&#x27;s school history room to learn about the school&#x27;s founding story and its educational ideals.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-7.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 7" loading="lazy"></div>
-  <div class="en-body">
     <p>That evening, teachers and students stayed at Ershui Junior High, beginning another leg of the journey full of surprises. Principal Wu Jian-zhong thoughtfully arranged accommodation and dinner, so the visiting students and parents felt warmly cared for after their long day.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-8.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 8" loading="lazy"></div>
-  <div class="en-body">
     <p>A highlight of the evening was a stargazing lesson. Principal Wu Bing-lian of Beidou Junior High personally brought professional astronomy equipment to Ershui to teach, leading the children to explore the vast night sky through telescopes and sharing a wealth of astronomical knowledge and a spirit of discovery. Under the starlight the children learned not only science, but also witnessed the warmth and generosity of educators collaborating across schools.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-9.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 9" loading="lazy"></div>
-  <div class="en-body">
     <p>On the morning of June 13, the exchange continued at Ershui Junior High. The children handcrafted “bamboo-frame night lamps (籠仔篙小夜燈),” a craft rich in local character, and learned about the history of the Bage Canal — the wisdom of the early settlers who opened the land and built its waterways — feeling the depth of Changhua&#x27;s cultural heritage.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-10.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 10" loading="lazy"></div>
-  <div class="en-body">
     <p>Hsinmin once again offered “Contentment,” and the combined “Hot Rice Dumplings” with the American School students rang out one more time — the signature shared melody of the whole journey. The Ershui Junior High wind band then brought lively favourites including the “Doraemon” theme and “Until the End of the World” from Slam Dunk, drawing enthusiastic applause.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-11.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 11" loading="lazy"></div>
-  <div class="en-body">
     <p>Musical exchange has no full stop. The children have already promised to play strings and winds together again in the future, keeping alive the friendship that music has begun. This precious journey grew from a wonderful connection brought about by Principal Huai-xuan — and what we saw was far more than a single visit; it was a learning stage built by a community of educators working together for the children.</p>
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-12.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 12" loading="lazy"></div>
-  <div class="en-body">
     <p>Music knows no borders, yet in a single second it can connect heart to heart. Education can cross national lines — letting the world walk into our campus, and letting our children walk out into the world. We look forward to continuing this partnership, so that more children can see the world through exchange, and so that the world can see Taiwan.</p>
   </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-13.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 13" loading="lazy"></div>
-  <div class="en-body">
-  </div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-14.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 14" loading="lazy"></div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-15.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 15" loading="lazy"></div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-16.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 16" loading="lazy"></div>
-  <div class="ph"><img src="../../news-img/taiwan-us-exchange-17.jpg" alt="Taiwan–US Student Exchange · Music Without Borders photo 17" loading="lazy"></div>
   <div class="zhwrap"><span class="zhlabel">中文原文 · Chinese</span>
   <div class="zh-body">
     <p>音樂響起的那一刻，語言、國籍與距離，彷彿都消失了。感謝台北美國學校學生與家長蒞臨新民國小、文興高中、二水國中，展開一場充滿音樂、文化與友誼的台美學生交流之旅。</p>
@@ -188,6 +171,32 @@
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var track=c.querySelector('.car-track');
+    var n=track.children.length;
+    var dots=[].slice.call(c.querySelectorAll('.car-dot'));
+    var count=c.querySelector('.car-count b');
+    var i=0,timer=null;
+    function go(k){i=(k%n+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';
+      dots.forEach(function(d,j){d.classList.toggle('on',j===i);});
+      if(count)count.textContent=(i+1);}
+    function start(){if(reduce)return;timer=setInterval(function(){go(i+1);},4800);}
+    function reset(){if(timer)clearInterval(timer);start();}
+    c.querySelector('.car-next').addEventListener('click',function(){go(i+1);reset();});
+    c.querySelector('.car-prev').addEventListener('click',function(){go(i-1);reset();});
+    dots.forEach(function(d,j){d.addEventListener('click',function(){go(j);reset();});});
+    c.addEventListener('mouseenter',function(){if(timer)clearInterval(timer);});
+    c.addEventListener('mouseleave',function(){start();});
+    var x0=null;
+    c.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    c.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(dx<0?i+1:i-1);reset();}x0=null;});
+    go(0);start();
+  });
 })();
 </script>
 <footer class="footer"><div class="footer-brand">Hsinmin Elementary · 新民國民小學</div><p>520022 彰化縣田中鎮公館路320號 · Tel (04) 8756-166</p></footer>
