@@ -336,3 +336,18 @@ section:last-of-type{border-bottom:none;}
 .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
 .rvl.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+/* ===== Speaker / text-to-speech buttons (learning content) ===== */
+.say{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;border:none;border-radius:50%;background:var(--ember-soft);color:var(--ember-deep);font-size:15px;line-height:1;cursor:pointer;vertical-align:middle;margin-left:8px;flex:0 0 auto;transition:transform .15s,background .15s,color .15s;-webkit-tap-highlight-color:transparent;}
+.say:hover{background:var(--ember);color:#fff;transform:scale(1.12);}
+.say:active{transform:scale(.95);}
+.say.saying{background:var(--rice);color:#fff;animation:saypulse 1s ease-in-out infinite;}
+@keyframes saypulse{0%,100%{box-shadow:0 0 0 0 rgba(200,146,47,.5);}50%{box-shadow:0 0 0 6px rgba(200,146,47,0);}}
+@media(prefers-reduced-motion:reduce){.say.saying{animation:none;}}
+.vc__term .say{width:32px;height:32px;font-size:16px;}
+.vc__ex .say{width:26px;height:26px;font-size:13px;background:var(--leaf-soft);color:var(--leaf-deep);}
+.vc__ex .say:hover{background:var(--leaf);color:#fff;}
+.vchip{position:relative;padding-right:46px;}
+.vchip .say{position:absolute;top:12px;right:12px;margin:0;}
+.scap .en .say{width:28px;height:28px;font-size:14px;}
+.reading .en .say{width:30px;height:30px;}
