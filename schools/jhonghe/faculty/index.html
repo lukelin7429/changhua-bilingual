@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/jhonghe/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/jhonghe/favicon-180.png">
 <link rel="shortcut icon" href="/schools/jhonghe/favicon.ico">
-<meta name="description" content="The Jhonghe team in their own voices — Principal Ou, three department heads, the personnel director, two section leaders, the foreign English teacher, specialised teachers, and every homeroom teacher introducing themselves in English. 中和國小校長、主管、組長、外師、專任與各年級級任老師親自用英文自我介紹。">
+<meta name="description" content="Meet Principal Ou Hsiao-wen and Academic Director Li Li-fang of Jhonghe Elementary, plus a continuous-play reel of the wider faculty introducing themselves in English. 認識中和國小校長歐曉玟與教導主任李麗芳，以及全體教職員英文自我介紹連續播放。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,6 @@
     --orange:#d97818;--orange-deep:#a85a0c;--orange-soft:#fce7d0;
     --green:#5b9d5b;--green-deep:#3d7a3d;--green-soft:#e7f3e7;
     --purple:#7e5fa3;--purple-deep:#5b417d;--purple-soft:#ece4f4;
-    --pink:#d96b9a;--pink-deep:#a64475;--pink-soft:#fbe2ec;
-    --gold:#e5cb5a;--gold-deep:#8c8e0a;--gold-soft:#fbf3c8;
     --cream:#fbf7e8;--ink:#1f2530;--ink-soft:#5a606e;--line:#dde6ee;
     --shadow:0 14px 38px -16px rgba(28,77,126,.30);
     --shadow-sm:0 6px 16px -6px rgba(28,77,126,.18);
@@ -31,7 +29,7 @@
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media (min-width:720px){ body{ font-size:23px; } }
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
   .subnav{background:var(--blue-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
   .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;}
@@ -42,7 +40,7 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* ===== Pure-color banner ===== */
+  /* ===== Banner ===== */
   .banner{
     background:
       radial-gradient(circle at 78% 28%, rgba(217,120,24,.30) 0%, transparent 55%),
@@ -51,159 +49,129 @@
     color:#fff;padding:56px 24px 72px;position:relative;overflow:hidden;text-align:center;
   }
   @media (min-width:720px){ .banner{ padding:92px 24px 110px; } }
-  .banner__eyebrow{
-    font-family:'Playfair Display',serif;font-size:14px;letter-spacing:5px;
-    color:var(--orange-soft);text-transform:uppercase;font-weight:600;
-  }
+  .banner__eyebrow{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:5px;color:var(--orange-soft);text-transform:uppercase;font-weight:600;}
   @media (min-width:720px){ .banner__eyebrow{ font-size:17px; } }
-  .banner h1{
-    font-family:'Playfair Display',serif;
-    font-size:44px;font-weight:800;line-height:1.05;letter-spacing:.5px;margin-top:14px;
-  }
+  .banner h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:.5px;margin-top:14px;}
   @media (min-width:720px){ .banner h1{ font-size:74px; } }
   .banner__zh{font-size:21px;color:#dde5f0;margin-top:14px;font-weight:500;letter-spacing:2px;}
   @media (min-width:720px){ .banner__zh{ font-size:26px; } }
-  .banner__tagline{
-    font-family:'Playfair Display',serif;font-style:italic;
-    font-size:19px;color:#ffe1c2;margin-top:20px;line-height:1.55;font-weight:500;
-    max-width:720px;margin-left:auto;margin-right:auto;
-  }
+  .banner__tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#ffe1c2;margin-top:20px;line-height:1.55;font-weight:500;max-width:720px;margin-left:auto;margin-right:auto;}
   @media (min-width:720px){ .banner__tagline{ font-size:23px; } }
 
-  section{padding:52px 0;}
-  @media (min-width:720px){ section{ padding:80px 0; } }
+  section{padding:48px 0;}
+  @media (min-width:720px){ section{ padding:72px 0; } }
 
-  /* ===== Principal centrepiece ===== */
-  .principal{
+  /* ===== Featured card (Principal + Academic Director) ===== */
+  .feat{
     background:linear-gradient(180deg, #fff 0%, var(--cream) 100%);
     border-radius:28px;border:1px solid var(--line);
     box-shadow:var(--shadow);
-    padding:32px 24px 36px;
-    text-align:center;
+    padding:32px 24px 36px;text-align:center;
   }
-  @media (min-width:720px){ .principal{ padding:56px 56px 64px; } }
+  @media (min-width:720px){ .feat{ padding:56px 56px 64px; } }
 
-  .principal__role-en{
+  .feat__role-en{
     font-family:'Playfair Display',serif;
     font-size:14px;font-weight:700;letter-spacing:5px;
     color:var(--orange-deep);text-transform:uppercase;
   }
-  @media (min-width:720px){ .principal__role-en{ font-size:17px; } }
-  .principal__role-zh{
+  @media (min-width:720px){ .feat__role-en{ font-size:17px; } }
+  .feat__role-zh{
     font-size:17px;color:var(--blue-deep);font-weight:600;margin-top:4px;letter-spacing:2px;
   }
-  @media (min-width:720px){ .principal__role-zh{ font-size:20px; } }
+  @media (min-width:720px){ .feat__role-zh{ font-size:20px; } }
 
-  /* Big serif name — but reasonably sized (Luke: 校長中文字體太大) */
-  .principal__name{
+  .feat__name{
     font-family:'Playfair Display','PingFang TC',serif;
     font-size:36px;font-weight:800;color:var(--blue-deep);
     line-height:1.05;letter-spacing:4px;margin-top:12px;
     display:inline-block;padding-bottom:8px;
     border-bottom:5px solid var(--orange);
   }
-  @media (min-width:720px){ .principal__name{ font-size:60px;letter-spacing:8px;padding-bottom:12px;border-bottom-width:6px; } }
-  .principal__name-en{
+  @media (min-width:720px){ .feat__name{ font-size:60px;letter-spacing:8px;padding-bottom:12px;border-bottom-width:6px; } }
+  .feat__name-en{
     font-family:'Playfair Display',serif;
     font-size:18px;font-weight:600;color:var(--ink);
     margin-top:14px;font-style:italic;letter-spacing:.5px;
   }
-  @media (min-width:720px){ .principal__name-en{ font-size:24px;margin-top:18px; } }
+  @media (min-width:720px){ .feat__name-en{ font-size:24px;margin-top:18px; } }
 
-  .principal__intro-label{
+  .feat__intro-label{
     margin-top:24px;display:inline-block;
     background:var(--blue-deep);color:#fff;
     font-family:'Playfair Display','PingFang TC',serif;
     font-size:14px;font-weight:700;letter-spacing:1.5px;
     padding:7px 18px;border-radius:99px;text-transform:uppercase;
   }
-  @media (min-width:720px){ .principal__intro-label{ font-size:16px;padding:8px 22px; } }
+  @media (min-width:720px){ .feat__intro-label{ font-size:16px;padding:8px 22px; } }
 
-  .principal__video{
+  .feat__video{
     position:relative;width:100%;padding-bottom:56.25%;
     margin-top:20px;border-radius:16px;overflow:hidden;
     background:#000;box-shadow:var(--shadow);
   }
-  .principal__video iframe{
-    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
-  }
+  .feat__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-  .principal__since{
+  .feat__since{
     margin-top:20px;display:inline-block;
     background:var(--orange-soft);color:var(--orange-deep);
     font-size:15px;font-weight:700;letter-spacing:1px;
     padding:7px 18px;border-radius:99px;
   }
-  @media (min-width:720px){ .principal__since{ font-size:17px;padding:8px 22px; } }
+  @media (min-width:720px){ .feat__since{ font-size:17px;padding:8px 22px; } }
 
-  /* ===== Group section header ===== */
-  .gh{margin-top:16px;}
-  .gh__label{
-    display:inline-block;font-family:'Playfair Display',serif;
-    font-size:14px;font-weight:700;color:#fff;background:var(--blue-deep);
-    padding:6px 16px;border-radius:99px;letter-spacing:2px;text-transform:uppercase;
+  /* ===== Continuous-play reel ===== */
+  .reel{
+    background:linear-gradient(135deg, var(--blue-soft) 0%, var(--cream) 100%);
+    border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow);
+    padding:32px 24px 36px;text-align:center;
   }
-  @media (min-width:720px){ .gh__label{ font-size:16px;padding:7px 20px; } }
-  .gh__label--orange{background:var(--orange-deep);}
-  .gh__label--green{background:var(--green-deep);}
-  .gh__label--purple{background:var(--purple-deep);}
-  .gh__label--pink{background:var(--pink-deep);}
-  .gh__heading{
+  @media (min-width:720px){ .reel{ padding:56px 56px 64px; } }
+
+  .reel__eyebrow{
+    font-family:'Playfair Display',serif;font-size:14px;font-weight:700;
+    letter-spacing:5px;color:var(--orange-deep);text-transform:uppercase;
+  }
+  @media (min-width:720px){ .reel__eyebrow{ font-size:17px; } }
+  .reel h3{
     font-family:'Playfair Display',serif;
     font-size:30px;font-weight:700;color:var(--blue-deep);
-    line-height:1.2;margin-top:12px;
+    line-height:1.15;margin-top:10px;letter-spacing:.5px;
   }
-  @media (min-width:720px){ .gh__heading{ font-size:42px; } }
-  .gh__heading-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:1px;}
-  @media (min-width:720px){ .gh__heading-zh{ font-size:22px; } }
-  .gh__rule{width:64px;height:5px;background:var(--orange);border-radius:3px;margin:16px 0 28px;}
+  @media (min-width:720px){ .reel h3{ font-size:46px; } }
+  .reel__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:8px;letter-spacing:1px;}
+  @media (min-width:720px){ .reel__zh{ font-size:23px; } }
+  .reel__intro{
+    font-size:18px;color:var(--ink);margin-top:20px;line-height:1.7;
+    max-width:680px;margin-left:auto;margin-right:auto;
+  }
+  @media (min-width:720px){ .reel__intro{ font-size:21px; } }
+  .reel__intro .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .reel__intro .zh{ font-size:18px; } }
+  .reel__video{
+    position:relative;width:100%;padding-bottom:56.25%;
+    margin-top:24px;border-radius:16px;overflow:hidden;
+    background:#000;box-shadow:var(--shadow);
+  }
+  .reel__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-  /* ===== Staff video cards grid ===== */
-  .staffgrid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:8px;}
-  @media (min-width:720px){ .staffgrid{ grid-template-columns:repeat(2,1fr);gap:26px; } }
-  @media (min-width:1000px){ .staffgrid{ grid-template-columns:repeat(3,1fr); } }
-  .staffgrid--2{grid-template-columns:1fr;}
-  @media (min-width:720px){ .staffgrid--2{ grid-template-columns:repeat(2,1fr); } }
-
-  .sc{
-    background:#fff;border:1px solid var(--line);border-radius:18px;
-    box-shadow:var(--shadow-sm);overflow:hidden;
-    display:flex;flex-direction:column;
-    border-top:6px solid var(--blue);
-    transition:transform .2s, box-shadow .2s;
+  .reel__meta{
+    margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
   }
-  .sc:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-  .sc--orange{border-top-color:var(--orange);}
-  .sc--green{border-top-color:var(--green);}
-  .sc--purple{border-top-color:var(--purple);}
-  .sc--pink{border-top-color:var(--pink);}
-
-  .sc__head{padding:18px 22px 12px;}
-  @media (min-width:720px){ .sc__head{ padding:22px 26px 14px; } }
-  .sc__role-en{
-    font-family:'Playfair Display',serif;
-    font-size:13px;font-weight:700;letter-spacing:2.5px;
-    color:var(--orange-deep);text-transform:uppercase;
-  }
-  @media (min-width:720px){ .sc__role-en{ font-size:15px; } }
-  .sc__role-zh{
-    font-size:20px;color:var(--blue-deep);font-weight:700;margin-top:4px;letter-spacing:1px;
-    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
-  }
-  @media (min-width:720px){ .sc__role-zh{ font-size:24px; } }
-  .sc__name{
+  .reel__chip{
+    background:#fff;color:var(--blue-deep);
     font-family:'Playfair Display','PingFang TC',serif;
-    font-size:22px;font-weight:700;color:var(--ink);
-    margin-top:8px;letter-spacing:1px;
+    font-size:14px;font-weight:700;letter-spacing:1px;
+    padding:7px 16px;border-radius:99px;border:1px solid var(--line);
   }
-  @media (min-width:720px){ .sc__name{ font-size:26px; } }
-  .sc__name--pending{color:var(--ink-soft);font-style:italic;font-size:18px;}
-  @media (min-width:720px){ .sc__name--pending{ font-size:20px; } }
+  @media (min-width:720px){ .reel__chip{ font-size:16px;padding:8px 18px; } }
+  .reel__chip--orange{background:var(--orange);color:#fff;border-color:var(--orange);}
 
-  .sc__video{
-    position:relative;width:100%;padding-bottom:56.25%;background:#000;
+  .reel__note{
+    margin-top:18px;font-size:15px;color:var(--ink-soft);font-style:italic;line-height:1.55;
+    max-width:560px;margin-left:auto;margin-right:auto;
   }
-  .sc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  @media (min-width:720px){ .reel__note{ font-size:17px; } }
 
   /* ===== Contact card ===== */
   .contactcard{
@@ -230,7 +198,6 @@
   @media (min-width:720px){ footer{ font-size:17px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
 
-  /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -257,268 +224,82 @@
   <div class="banner__eyebrow">Faculty · 教職員</div>
   <h1>Meet the Team</h1>
   <div class="banner__zh">中和國小教職員</div>
-  <p class="banner__tagline">Every teacher and office leader at Jhonghe, introducing themselves — in English.</p>
+  <p class="banner__tagline">Every teacher at Jhonghe — introducing themselves in English.</p>
 </header>
 
-<!-- ===== Principal centrepiece ===== -->
+<!-- ===== Principal ===== -->
 <section style="padding-top:36px;">
   <div class="wrap">
-    <div class="principal">
-      <div class="principal__role-en">Principal</div>
-      <div class="principal__role-zh">中和國小校長</div>
+    <div class="feat">
+      <div class="feat__role-en">Principal</div>
+      <div class="feat__role-zh">中和國小校長</div>
 
-      <h2 class="principal__name">歐曉玟</h2>
-      <div class="principal__name-en">Ms. Ou Hsiao-wen</div>
+      <h2 class="feat__name">歐曉玟</h2>
+      <div class="feat__name-en">Ms. Ou Hsiao-wen</div>
 
-      <span class="principal__intro-label">Self-introduction · 校長親自介紹</span>
+      <span class="feat__intro-label">Self-introduction · 校長親自介紹</span>
 
-      <div class="principal__video">
+      <div class="feat__video">
         <iframe src="https://www.youtube-nocookie.com/embed/8KtCe2GOFuA?rel=0" title="校長歐曉玟 英文自我介紹" allowfullscreen></iframe>
       </div>
 
-      <span class="principal__since">📅 Serving Jhonghe since Aug 2019 · 自 2019 年 8 月任職至今</span>
+      <span class="feat__since">📅 Serving Jhonghe since Aug 2019 · 自 2019 年 8 月任職至今</span>
     </div>
   </div>
 </section>
 
-<!-- ===== Office Heads ===== -->
+<!-- ===== Academic Director ===== -->
 <section style="padding-top:0;">
   <div class="wrap">
-    <div class="gh">
-      <span class="gh__label gh__label--orange">Office Heads</span>
-      <h3 class="gh__heading">Department Directors</h3>
-      <div class="gh__heading-zh">處室主管 · 教導／總務／輔導／人事</div>
-      <div class="gh__rule"></div>
-    </div>
+    <div class="feat">
+      <div class="feat__role-en">Academic Director</div>
+      <div class="feat__role-zh">教導主任</div>
 
-    <div class="staffgrid">
+      <h3 class="feat__name">李麗芳</h3>
+      <div class="feat__name-en">Ms. Li Li-fang</div>
 
-      <article class="sc sc--orange">
-        <div class="sc__head">
-          <div class="sc__role-en">Academic &amp; Student Affairs Director</div>
-          <div class="sc__role-zh">教導主任</div>
-          <div class="sc__name">李麗芳</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/jzuRAK7vB1U?rel=0" title="教導主任 李麗芳 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
+      <span class="feat__intro-label">Self-introduction · 主任親自介紹</span>
 
-      <article class="sc sc--orange">
-        <div class="sc__head">
-          <div class="sc__role-en">General Affairs Director</div>
-          <div class="sc__role-zh">總務主任</div>
-          <div class="sc__name">鐘萬財</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/OBaXtaLhIYs?rel=0" title="總務主任 鐘萬財 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc sc--orange">
-        <div class="sc__head">
-          <div class="sc__role-en">Guidance &amp; Counselling Director</div>
-          <div class="sc__role-zh">輔導室主任</div>
-          <div class="sc__name">黃郁雯</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ETcjFZ2dxQM?rel=0" title="輔導室主任 黃郁雯 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc sc--orange">
-        <div class="sc__head">
-          <div class="sc__role-en">Personnel Director</div>
-          <div class="sc__role-zh">人事主任</div>
-          <div class="sc__name sc__name--pending">姓名待補</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3buuGbOaxkw?rel=0" title="人事主任 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
+      <div class="feat__video">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/jzuRAK7vB1U?rel=0" title="教導主任 李麗芳 英文自我介紹" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Section Leaders ===== -->
+<!-- ===== Other Faculty · continuous play ===== -->
 <section style="padding-top:0;">
   <div class="wrap">
-    <div class="gh">
-      <span class="gh__label gh__label--green">Section Leaders</span>
-      <h3 class="gh__heading">Group Leaders</h3>
-      <div class="gh__heading-zh">組長 · 教務／訓導</div>
-      <div class="gh__rule"></div>
-    </div>
+    <div class="reel">
+      <div class="reel__eyebrow">Other Faculty</div>
+      <h3>The Whole Team, One Press of Play</h3>
+      <div class="reel__zh">其他教職員 · 依序自我介紹</div>
 
-    <div class="staffgrid staffgrid--2">
+      <p class="reel__intro">
+        Hit play once — the next teacher's introduction begins automatically when the previous one finishes. From department directors to homeroom teachers, the rest of the Jhonghe team in their own voices.
+        <span class="zh">點一下播放，每位老師依序自我介紹——從處室同仁到各年級級任老師。</span>
+      </p>
 
-      <article class="sc sc--green">
-        <div class="sc__head">
-          <div class="sc__role-en">Academic Section Leader</div>
-          <div class="sc__role-zh">教務組長</div>
-          <div class="sc__name">葉怡萱</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/gn4rQdzJ87U?rel=0" title="教務組長 葉怡萱 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
+      <div class="reel__video">
+        <iframe loading="lazy"
+                src="https://www.youtube-nocookie.com/embed/OBaXtaLhIYs?playlist=ETcjFZ2dxQM,3buuGbOaxkw,gn4rQdzJ87U,2JC7BOWIano,7wEBrMNtKcE,TinKKq7Q4_I,3dr1tLDaR9g,XSMWmLyX-18,kJIOITKXzsw,7NoIkkyn42k,9YHYbFF-yU0,OGoXe4N3mW4,dqHgCcfoFYA,BrPWzgCfhYk,sFUK1F24j5c,UmC7HIHE0ug&rel=0"
+                title="中和國小教職員自我介紹連續播放" allowfullscreen></iframe>
+      </div>
 
-      <article class="sc sc--green">
-        <div class="sc__head">
-          <div class="sc__role-en">Student Affairs Section Leader</div>
-          <div class="sc__role-zh">訓導組長</div>
-          <div class="sc__name">黃文俊</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/2JC7BOWIano?rel=0" title="訓導組長 黃文俊 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
+      <div class="reel__meta">
+        <span class="reel__chip reel__chip--orange">▶ 17 videos · 17 部影片</span>
+        <span class="reel__chip">Auto-advance · 依序自動播放</span>
+      </div>
 
+      <p class="reel__note">
+        Roles may have shifted since these were recorded — the school rotates positions every year or two. Names and faces remain.<br>
+        <span style="opacity:.85;">影片錄製後職務可能已輪調，名字與面孔不變。</span>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ===== Foreign English Teacher ===== -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="gh">
-      <span class="gh__label gh__label--purple">FET</span>
-      <h3 class="gh__heading">Foreign English Teacher</h3>
-      <div class="gh__heading-zh">外籍英語教師</div>
-      <div class="gh__rule"></div>
-    </div>
-
-    <div class="staffgrid staffgrid--2">
-      <article class="sc sc--purple">
-        <div class="sc__head">
-          <div class="sc__role-en">Foreign English Teacher</div>
-          <div class="sc__role-zh">外師</div>
-          <div class="sc__name">Cloudette Ofalla Delfin</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/IOfXsyWwJ7E?rel=0" title="外師 Cloudette Ofalla Delfin 自我介紹" allowfullscreen></iframe></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Specialised Teachers ===== -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="gh">
-      <span class="gh__label gh__label--pink">Specialised</span>
-      <h3 class="gh__heading">Specialist Teachers &amp; Nurse</h3>
-      <div class="gh__heading-zh">專任老師與護理師</div>
-      <div class="gh__rule"></div>
-    </div>
-
-    <div class="staffgrid">
-
-      <article class="sc sc--pink">
-        <div class="sc__head">
-          <div class="sc__role-en">English Teacher</div>
-          <div class="sc__role-zh">英文老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/7wEBrMNtKcE?rel=0" title="英文老師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc sc--pink">
-        <div class="sc__head">
-          <div class="sc__role-en">Social Studies Teacher</div>
-          <div class="sc__role-zh">社會老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TinKKq7Q4_I?rel=0" title="社會老師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc sc--pink">
-        <div class="sc__head">
-          <div class="sc__role-en">School Nurse</div>
-          <div class="sc__role-zh">護理師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3dr1tLDaR9g?rel=0" title="護理師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== Homeroom Teachers by Grade ===== -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="gh">
-      <span class="gh__label">Homeroom</span>
-      <h3 class="gh__heading">Homeroom Teachers by Grade</h3>
-      <div class="gh__heading-zh">各年級級任老師</div>
-      <div class="gh__rule"></div>
-    </div>
-
-    <div class="staffgrid">
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 1 Homeroom</div>
-          <div class="sc__role-zh">一年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/XSMWmLyX-18?rel=0" title="一年級老師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 2 Homeroom · A</div>
-          <div class="sc__role-zh">二年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kJIOITKXzsw?rel=0" title="二年級老師 (A) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 2 Homeroom · B</div>
-          <div class="sc__role-zh">二年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/7NoIkkyn42k?rel=0" title="二年級老師 (B) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 3 Homeroom · A</div>
-          <div class="sc__role-zh">三年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9YHYbFF-yU0?rel=0" title="三年級老師 (A) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 3 Homeroom · B</div>
-          <div class="sc__role-zh">三年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/OGoXe4N3mW4?rel=0" title="三年級老師 (B) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 4 Homeroom</div>
-          <div class="sc__role-zh">四年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dqHgCcfoFYA?rel=0" title="四年級老師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 5 Homeroom</div>
-          <div class="sc__role-zh">五年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/BrPWzgCfhYk?rel=0" title="五年級老師 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 6 Homeroom · A</div>
-          <div class="sc__role-zh">六年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/sFUK1F24j5c?rel=0" title="六年級老師 (A) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-      <article class="sc">
-        <div class="sc__head">
-          <div class="sc__role-en">Grade 6 Homeroom · B</div>
-          <div class="sc__role-zh">六年級老師</div>
-        </div>
-        <div class="sc__video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/UmC7HIHE0ug?rel=0" title="六年級老師 (B) 英文自我介紹" allowfullscreen></iframe></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== Contact card ===== -->
+<!-- ===== Contact ===== -->
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="contactcard">
@@ -536,7 +317,7 @@
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.principal,.sc,.contactcard';
+  var sel='.feat,.reel,.contactcard';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
