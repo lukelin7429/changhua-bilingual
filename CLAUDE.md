@@ -42,6 +42,21 @@
 
 ---
 
+## 🔴 Footer 標準署名（全縣統一，每校每頁都要）
+
+每校**每一頁最底部**（`</body>` 前、`</footer>` 之外）放一條自帶樣式的標準署名條 `class="cb-credit"`，深色底 `#241f1b`、金色連結 `#e6c179`，內容**三行、各自連結**：
+
+```
+Site by  <My Culture Connect→www.mycultureconnect.org>  <人師教育協會→www.twrses.org>
+Guided by  <CIEETRC 彰化縣國際教育暨英語教育資源中心→www.cieetrc.chc.edu.tw>
+<Changhua Bilingual Hub 彰化雙語資源網→changhua-bilingual.org>
+```
+
+- **不要**在各校自己的 footer 裡再寫「Bilingual website by… / Guided by CIEETRC… / Part of the Changhua Bilingual Hub」舊署名——只留 ©、地址、校名、校網連結、計數器；署名統一由這條 cb-credit 負責。
+- 母版＝竹塘（jhutang 的 `.ft__bottom` 原生含這三行；其他校用附加的 cb-credit 條）。
+- 連結務必用 **www.twrses.org**、**www.mycultureconnect.org**（無 www 連不上）。
+- 2026-06 全量 rollout 腳本：`/tmp/add_credit_strip.py`（加條）、`/tmp/clean_old_credits.py`（清舊署名）；細節 memory `project_zhutang_site`。
+
 ## 其他常踩規則（速查，細節在 memory）
 - 每頁都要 banner，禁純文字白底標題；子頁 banner 不重用首頁那張
 - banner 用校門/校舍/校徽/地景，不用人物照；不放會變動的數字
