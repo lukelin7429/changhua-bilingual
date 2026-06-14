@@ -80,12 +80,9 @@
   .nc{
     background:#fff;border-radius:20px;border:1px solid var(--line);
     box-shadow:var(--shadow-sm);overflow:hidden;
-    display:grid;grid-template-columns:1fr;
+    display:flex;flex-direction:column;
     border-left:8px solid var(--orange);
     transition:transform .25s, box-shadow .25s;
-  }
-  @media (min-width:880px){
-    .nc{grid-template-columns:minmax(280px,40%) 1fr;}
   }
   .nc:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
   .nc:nth-child(2n){border-left-color:var(--purple);}
@@ -93,11 +90,12 @@
   .nc:nth-child(4n){border-left-color:var(--blue);}
   .nc:nth-child(5n){border-left-color:var(--pink);}
 
-  .nc__media{position:relative;background:#000;min-height:260px;display:flex;align-items:stretch;}
-  .nc__media img{width:100%;height:100%;object-fit:cover;display:block;}
-  @media (min-width:880px){ .nc__media{ min-height:340px; } }
-  .nc__media-stack{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#000;width:100%;}
-  .nc__media-stack img{width:100%;height:100%;object-fit:cover;display:block;}
+  /* Photos are landscape — stack vertically (full width each) so all the
+     faces and the framing stay visible. Never side-by-side. */
+  .nc__media{background:#000;display:block;}
+  .nc__media img{width:100%;height:auto;display:block;}
+  .nc__media-stack{display:flex;flex-direction:column;gap:3px;background:#000;width:100%;}
+  .nc__media-stack img{width:100%;height:auto;display:block;}
 
   .nc__body{padding:28px 28px 32px;display:flex;flex-direction:column;}
   @media (min-width:720px){ .nc__body{ padding:34px 38px 38px; } }
