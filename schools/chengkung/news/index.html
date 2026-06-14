@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="canonical" href="https://changhua-bilingual.org/schools/chengkung/news/">
 <title>News · 新聞與榮譽 · Chenggong Elementary School</title>
-<meta name="description" content="News from Chenggong Elementary — bilingual video stories from campus life plus recent honors, told in English with Chinese support. 成功國小校園紀事與榮譽，英文為主、中文輔助。">
+<meta name="description" content="News from Chenggong Elementary — bilingual video reports, real campus stories from our students, and recent honors, told in English with Chinese support. 成功國小校園紀事與榮譽，英文為主、中文輔助。">
 <meta property="og:title" content="School News · 新聞與榮譽 · Chenggong Elementary">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,12 @@
 <link rel="stylesheet" href="/schools/chengkung/style.css">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/chengkung/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/schools/chengkung/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/schools/chengkung/favicon-180.png"><link rel="icon" type="image/svg+xml" href="/schools/chengkung/favicon.svg"><link rel="shortcut icon" href="/schools/chengkung/favicon.ico">
 <style>
-  /* Video news cards */
+  .sec__lede{font-size:18px;color:var(--ink);line-height:1.7;max-width:780px;}
+  @media (min-width:720px){ .sec__lede{ font-size:21px; } }
+  .sec__lede .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .sec__lede .zh{ font-size:18px; } }
+
+  /* Feature video stories (2-up) */
   .vnews{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px;}
   @media (min-width:860px){ .vnews{ grid-template-columns:1fr 1fr; } }
   .vcard{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;}
@@ -27,27 +32,51 @@
   @media (min-width:720px){ .vcard__title{ font-size:29px; } }
   .vcard__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:600;margin-top:4px;}
   @media (min-width:720px){ .vcard__title .zh{ font-size:19px; } }
-  .vcard__hook{font-size:17px;color:var(--ink);line-height:1.65;margin-top:14px;flex:1;}
+  .vcard__hook{font-size:17px;color:var(--ink);line-height:1.7;margin-top:14px;flex:1;}
   @media (min-width:720px){ .vcard__hook{ font-size:18px; } }
-  .vcard__hook-zh{font-size:15px;color:var(--ink-soft);line-height:1.65;margin-top:8px;}
+  .vcard__hook-zh{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-top:8px;}
   @media (min-width:720px){ .vcard__hook-zh{ font-size:16px; } }
-  /* Official feed */
-  .ofeed{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px;}
-  @media (min-width:680px){ .ofeed{ grid-template-columns:1fr 1fr; } }
-  .ocard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow-sm);border-left:6px solid var(--olive);}
-  .ocard:nth-child(2n){border-left-color:var(--red);}
-  .ocard:nth-child(3n){border-left-color:var(--blue);}
-  .ocard .tag{font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--olive-deep);text-transform:uppercase;}
+
+  /* Story cards (campus moments, 3-up) */
+  .stories{display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px;}
+  @media (min-width:640px){ .stories{ grid-template-columns:1fr 1fr; } }
+  @media (min-width:1000px){ .stories{ grid-template-columns:repeat(3,1fr); } }
+  .story{background:#fff;border-radius:20px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;}
+  .story:hover{transform:translateY(-5px);box-shadow:0 24px 44px -18px rgba(44,95,58,.30);}
+  .story__thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#000;text-decoration:none;}
+  .story__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+  .story:hover .story__thumb img{transform:scale(1.06);}
+  .story__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .story__play span{width:52px;height:52px;border-radius:50%;background:rgba(192,85,42,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:21px;padding-left:3px;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:transform .2s;}
+  .story__thumb:hover .story__play span{transform:scale(1.12);}
+  .story__body{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column;}
+  .story__tag{align-self:flex-start;background:var(--olive-soft);color:var(--olive-deep);font-size:12.5px;font-weight:700;letter-spacing:.5px;padding:4px 11px;border-radius:6px;}
+  .story__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:11px;}
+  @media (min-width:720px){ .story__title{ font-size:24px; } }
+  .story__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
+  @media (min-width:720px){ .story__title .zh{ font-size:17px; } }
+  .story__hook{font-size:16px;color:var(--ink);line-height:1.65;margin-top:12px;flex:1;}
+  @media (min-width:720px){ .story__hook{ font-size:17px; } }
+  .story__hook-zh{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-top:7px;}
+  @media (min-width:720px){ .story__hook-zh{ font-size:15px; } }
+  .story__watch{margin-top:14px;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--red);text-decoration:none;}
+
+  /* Honors feed (2-up, with context) */
+  .ofeed{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
+  @media (min-width:760px){ .ofeed{ grid-template-columns:1fr 1fr; } }
+  .ocard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px 26px;box-shadow:var(--shadow-sm);border-left:6px solid var(--olive);}
+  .ocard:nth-child(3n+1){border-left-color:var(--red);}
+  .ocard:nth-child(3n+2){border-left-color:var(--blue);}
+  .ocard:nth-child(3n){border-left-color:var(--olive);}
+  .ocard .tag{font-size:12.5px;font-weight:700;letter-spacing:.5px;color:var(--olive-deep);text-transform:uppercase;}
   .ocard h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blue-deep);line-height:1.25;margin-top:8px;}
   @media (min-width:720px){ .ocard h3{ font-size:25px; } }
   .ocard h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:4px;}
   @media (min-width:720px){ .ocard h3 .zh{ font-size:18px; } }
-  .ocard .date{font-size:15px;color:var(--ink-soft);margin-top:10px;}
-  @media (min-width:720px){ .ocard .date{ font-size:16px; } }
-  .sec__lede{font-size:18px;color:var(--ink);line-height:1.7;max-width:760px;}
-  @media (min-width:720px){ .sec__lede{ font-size:21px; } }
-  .sec__lede .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
-  @media (min-width:720px){ .sec__lede .zh{ font-size:18px; } }
+  .ocard .body{font-size:15.5px;color:var(--ink-soft);line-height:1.65;margin-top:12px;max-width:none;}
+  @media (min-width:720px){ .ocard .body{ font-size:16.5px; } }
+  .ocard .date{font-size:14px;color:var(--ink-soft);margin-top:12px;font-weight:600;letter-spacing:.3px;}
+  @media (min-width:720px){ .ocard .date{ font-size:15px; } }
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -64,9 +93,7 @@
       <a href="/schools/chengkung/">Home</a>
       <a href="/schools/chengkung/principal/">Principal</a>
       <a href="/schools/chengkung/lessons/">Lessons</a>
-      <a href="/schools/chengkung/bilingual-campus/">Bilingual Campus</a>
       <a href="/schools/chengkung/news/" class="is-active">News</a>
-      <a href="/schools/chengkung/festivals/">Festivals</a>
     </nav>
   </div>
 </div>
@@ -82,16 +109,16 @@
   </div>
 </header>
 
-<!-- ===== I. Campus Stories (video) ===== -->
+<!-- ===== I. Featured video reports ===== -->
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
-    <h2 class="sec__title">Campus Stories</h2>
-    <div class="sec__title-zh">校園紀事 · 英文新聞影片</div>
+    <h2 class="sec__title">In the Spotlight</h2>
+    <div class="sec__title-zh">校園焦點 · 學生主播的英文新聞影片</div>
     <div class="sec__rule"></div>
     <p class="sec__lede">
-      Real moments from Chenggong and our Xipan Branch — reported by our students, in English.
-      <span class="zh">來自成功與西畔分校的真實時刻，由學生用英文報導。</span>
+      At Chenggong, the news is read by the children themselves. Our students step up to the camera and report real campus events — in English — turning every school happening into a chance to practise speaking to the world.
+      <span class="zh">在成功，新聞由孩子親自播報。學生站上鏡頭，用英文報導校園裡真實發生的事——把每一場校園活動，變成一次面向世界開口說英語的機會。</span>
     </p>
 
     <div class="vnews">
@@ -102,8 +129,8 @@
         <div class="vcard__body">
           <span class="vcard__tag">Campus Life · 校園生活</span>
           <h3 class="vcard__title">A Thank-You for Teachers' Day<span class="zh">教師節感恩活動</span></h3>
-          <p class="vcard__hook">Chenggong and Xipan Branch held a warm Teachers' Day event. Students designed and made their own gifts and cards, writing heartfelt messages to thank their teachers — then took happy photos together. One student wrote: &ldquo;Thank you, teacher, for teaching me math every day — and your smile is the best.&rdquo;</p>
-          <p class="vcard__hook-zh">成功與西畔分校舉辦溫馨的教師節活動。學生親手設計、製作禮物與卡片，寫下感謝與祝福的話，再與老師開心合影。一位學生寫道：「謝謝老師每天教我數學，您的笑容最美。」</p>
+          <p class="vcard__hook">Chenggong and the Xipan Branch held a warm Teachers' Day celebration that filled the whole school with gratitude. Students designed and made their own gifts and cards by hand, carefully writing heartfelt messages to thank their teachers and wish them well. One child wrote simply, &ldquo;Thank you, teacher, for teaching me math every day — and your smile is the best.&rdquo; After handing over their gifts, students and teachers took happy photos together, capturing the warm friendship at the heart of our small school.</p>
+          <p class="vcard__hook-zh">成功與西畔分校舉辦溫馨的教師節活動，讓整所學校充滿感謝。學生親手設計、製作禮物與卡片，仔細寫下感謝與祝福；一位孩子寫著：「謝謝老師每天教我數學，您的笑容最美。」送禮後，師生開心合影，記錄下這所小學最珍貴的情誼。</p>
         </div>
       </article>
 
@@ -114,62 +141,175 @@
         <div class="vcard__body">
           <span class="vcard__tag">Campus Life · 校園生活</span>
           <h3 class="vcard__title">A Joyful First Day for New Students<span class="zh">新生開學日</span></h3>
-          <p class="vcard__hook">Our new students had a wonderful first day. They took photos with the principal, received a welcome gift and a storybook, played at fun game stations with a foreign teacher, and learned to wash their hands the right way. At the Xipan Branch, new students walked through the &ldquo;learning gate&rdquo; and &ldquo;safe gate,&rdquo; struck a big drum, and were warmly helped by older students.</p>
-          <p class="vcard__hook-zh">新生度過美好的第一天：與校長合影、領到迎新禮物與故事書、和外師一起闖關遊戲、學習正確洗手。西畔分校的新生走過「學習門」與「平安門」、敲響大鼓，並由學長姐熱情協助。</p>
+          <p class="vcard__hook">Our newest students had a wonderful first day at school. They took photos with the principal, received a welcome gift and a storybook to spark a love of reading and imagination, played at fun game stations with a foreign teacher, and learned to wash their hands the right way to stay healthy. At the Xipan Branch, the new children walked through the &ldquo;learning gate&rdquo; and the &ldquo;safe gate,&rdquo; struck a big drum for good luck, and were warmly guided by their older schoolmates — a joyful, unforgettable welcome.</p>
+          <p class="vcard__hook-zh">新生度過美好的第一天：與校長合影、領到迎新禮物與故事書（點燃閱讀與想像）、和外師一起闖關遊戲、學習正確洗手保健康。西畔分校的新生走過「學習門」與「平安門」、敲響大鼓祈福，並由學長姐熱情帶領——是歡樂又難忘的迎新。</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===== II. Honors & Official News ===== -->
-<section style="border-bottom:none;">
+<!-- ===== II. Campus moments ===== -->
+<section>
   <div class="wrap">
     <div class="sec__no">II.</div>
-    <h2 class="sec__title">Honors &amp; Notices</h2>
-    <div class="sec__title-zh">榮譽與官網最新消息</div>
+    <h2 class="sec__title">Around the Campus</h2>
+    <div class="sec__title-zh">校園紀事 · 一學期裡的真實時刻</div>
     <div class="sec__rule"></div>
     <p class="sec__lede">
-      Recent honors and announcements from the school's official site.
-      <span class="zh">學校官網近期的榮譽與重要公告摘要。</span>
+      From a sixth-grade charity sale to a Tuesday-morning Hakka lesson, here are real moments from a semester at Chenggong and the Xipan Branch — each one filmed on campus and told in simple English.
+      <span class="zh">從六年級的義賣，到週二朝會的客語課——這些都是成功與西畔分校一學期裡的真實時刻，每一則都在校園實地拍攝、用簡單英文說給世界聽。</span>
+    </p>
+
+    <div class="stories">
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=tQ9qqoVe6SQ" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/tQ9qqoVe6SQ/hqdefault.jpg" alt="Charity sale" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Student Life · 義賣</span>
+          <h3 class="story__title">A Charity Sale for the Graduation Trip<span class="zh">六年級義賣籌旅費</span></h3>
+          <p class="story__hook">Our sixth-graders rolled up their sleeves and ran their own charity sale, selling drinks and desserts from a booth to raise money for their graduation trip. It was a lesson in teamwork, money, and serving customers — all at once.</p>
+          <p class="story__hook-zh">六年級學生捲起袖子，親自經營義賣攤位，賣飲料與甜點為畢業旅行籌措經費。一場活動，同時學會了團隊合作、金錢管理與待客之道。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=tQ9qqoVe6SQ" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=OgRNIQNzFfA" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/OgRNIQNzFfA/hqdefault.jpg" alt="Singing contest" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Music · 歌唱比賽</span>
+          <h3 class="story__title">Brave Voices on Stage<span class="zh">歌唱比賽勇敢開唱</span></h3>
+          <p class="story__hook">Students climbed onto the stage and sang their hearts out in the school singing contest. Standing in front of the judges takes real courage — and our young performers showed plenty of it, filling the hall with music.</p>
+          <p class="story__hook-zh">學生站上舞台，在校內歌唱比賽中盡情高歌。在評審面前演出需要十足的勇氣，而我們的小歌手毫不怯場，讓全場充滿歌聲。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=OgRNIQNzFfA" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=ZG7LpZ909HI" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/ZG7LpZ909HI/hqdefault.jpg" alt="Jump rope competition" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Sport · 跳繩比賽</span>
+          <h3 class="story__title">Skipping into Action<span class="zh">全校跳繩比賽</span></h3>
+          <p class="story__hook">Ropes whirled across the playground as students from every class joined the school jump-rope competition. It is one of the liveliest days of the term — equal parts fitness, rhythm, and friendly rivalry.</p>
+          <p class="story__hook-zh">繩子在操場上飛舞，各班學生齊聚參加全校跳繩比賽。這是學期裡最熱鬧的日子之一——體能、節奏與良性競爭，缺一不可。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=ZG7LpZ909HI" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=OQ9UJKfRgXA" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/OQ9UJKfRgXA/hqdefault.jpg" alt="Hakka lesson" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Culture · 客家文化</span>
+          <h3 class="story__title">A Hakka Sentence Every Tuesday<span class="zh">週二朝會學客語</span></h3>
+          <p class="story__hook">Hakka culture is part of daily life at Chenggong. At the Tuesday morning assembly, the whole school learns a new Hakka sentence and a Hakka proverb together — keeping the local language alive, one week at a time.</p>
+          <p class="story__hook-zh">客家文化是成功的日常。每週二朝會，全校一起學一句新客語和一句客家諺語——讓在地語言，一週一週地傳承下去。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=OQ9UJKfRgXA" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=FhcjEMrmfXE" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/FhcjEMrmfXE/hqdefault.jpg" alt="Parent-teacher meeting" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Community · 親師</span>
+          <h3 class="story__title">Families and Teachers, Side by Side<span class="zh">新學期親師座談會</span></h3>
+          <p class="story__hook">At the start of the new semester, teachers and parents gathered for the class parent-teacher meeting to learn about the year's curriculum together. It is how Chenggong builds the home-and-school partnership at the heart of its philosophy.</p>
+          <p class="story__hook-zh">新學期之初，老師與家長齊聚班級親師座談會，一起認識這一年的課程。這正是成功實踐「親師社區合作」辦學理念的方式。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=FhcjEMrmfXE" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <a class="story__thumb" href="https://www.youtube.com/watch?v=vpWt_i5CbYg" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/vpWt_i5CbYg/hqdefault.jpg" alt="SH150 fitness program" loading="lazy">
+          <span class="story__play"><span>▶</span></span>
+        </a>
+        <div class="story__body">
+          <span class="story__tag">Wellness · 體適能</span>
+          <h3 class="story__title">Moving Every Day with SH150<span class="zh">SH150 天天運動</span></h3>
+          <p class="story__hook">Through the SH150 program, students stretch and run every day to build the habit of regular exercise. A small rural school, big on healthy bodies — fitness woven right into the daily timetable.</p>
+          <p class="story__hook-zh">透過 SH150 方案，學生每天伸展、跑步，養成規律運動的習慣。偏鄉小校，卻把體適能扎實地編進每天的課表裡。</p>
+          <a class="story__watch" href="https://www.youtube.com/watch?v=vpWt_i5CbYg" target="_blank" rel="noopener">Watch the report →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Honors & achievements ===== -->
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Honors &amp; Achievements</h2>
+    <div class="sec__title-zh">榮譽榜 · 近年肯定</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      A small school by the river, recognised again and again — for reading, for Hakka language, and for the quality of its school life.
+      <span class="zh">濁水溪畔的一所小學，因閱讀、因客語、因辦學品質，一次又一次被看見。</span>
     </p>
 
     <div class="ofeed">
       <div class="ocard">
         <div class="tag">Honor · 校務評鑑</div>
         <h3>School Evaluation: Excellent<span class="zh">114 學年度國中小校務評鑑「優等」</span></h3>
+        <div class="body">Chenggong earned an &ldquo;Excellent&rdquo; rating — the top tier — in the Changhua County school-affairs evaluation, a county-wide review of how well a school is run, from teaching and curriculum to administration and student care.</div>
         <div class="date">Jun 2026 · 2026 年 6 月</div>
       </div>
+
       <div class="ocard">
         <div class="tag">Honor · 教育部</div>
-        <h3>Reading Cornerstone Award<span class="zh">榮獲教育部閱讀磐石獎</span></h3>
+        <h3>Ministry of Education Reading Cornerstone Award<span class="zh">教育部閱讀磐石獎</span></h3>
+        <div class="body">One of the nation's most respected reading honors, the Reading Cornerstone Award recognises schools that build a genuine culture of reading. Chenggong's reading corners, camps, and book activities helped earn this distinction.</div>
         <div class="date">Ministry of Education · 教育部</div>
       </div>
+
       <div class="ocard">
         <div class="tag">Honor · 客語教學</div>
-        <h3>Xipan Branch — Top Hakka Curriculum<span class="zh">西畔分校 · 客語融入校本課程「特優」</span></h3>
+        <h3>Xipan Branch — Top Hakka Curriculum<span class="zh">西畔分校 · 客語融入課程獲客委會「特優」</span></h3>
+        <div class="body">Our Xipan Branch won the top &ldquo;Excellent&rdquo; rating from the Hakka Affairs Council for its school-based curriculum that weaves the Hakka language into everyday lessons — a flagship of the school's Hakka-culture mission.</div>
         <div class="date">2024–25 · 113 學年度</div>
       </div>
+
+      <div class="ocard">
+        <div class="tag">Achievement · 語文競賽</div>
+        <h3>Strong Results at the County Language Arts Finals<span class="zh">114 年度語文競賽國小組複賽獲佳績</span></h3>
+        <div class="body">Chenggong students reached the county finals of the Language Arts Competition and brought home strong results — a proud showing for a small rural school competing across the whole of Changhua County.</div>
+        <div class="date">2025 · 114 年度</div>
+      </div>
+
+      <div class="ocard">
+        <div class="tag">Achievement · 語文競賽</div>
+        <h3>First Place — Team Progress Award<span class="zh">112 年度語文競賽國小組團體精進獎第一名</span></h3>
+        <div class="body">Chenggong took first place in the county Team Progress Award for Language Arts — recognition not just of talent, but of how far the whole team grew together over the year.</div>
+        <div class="date">2023 · 112 年度</div>
+      </div>
+
       <div class="ocard">
         <div class="tag">Curriculum · 課程</div>
         <h3>2025–26 School Curriculum Plan Approved<span class="zh">114 學年度學校課程計畫審核通過</span></h3>
+        <div class="body">The county education authority approved Chenggong's school-based curriculum plan for the 2025–26 year, confirming the two-pillar design of International Language Learning and Hakka Culture for another year.</div>
         <div class="date">Aug 2025 · 2025 年 8 月</div>
-      </div>
-      <div class="ocard">
-        <div class="tag">Language · 本土語文</div>
-        <h3>Hakka &amp; Local-Language Reader's Theater<span class="zh">本土語文讀者劇場競賽</span></h3>
-        <div class="date">2026 · 115 年度</div>
-      </div>
-      <div class="ocard">
-        <div class="tag">Sustainability · 永續</div>
-        <h3>&ldquo;My Sustainable Action Diary&rdquo;<span class="zh">永續行動日記閱讀活動</span></h3>
-        <div class="date">Jun 2026 · 2026 年 6 月</div>
       </div>
     </div>
 
-    <div class="quote" style="margin-top:40px;">
+    <div class="quote" style="margin-top:42px;">
       <div class="quote__text">"Local roots, global eyes — one campus story at a time."</div>
-      <div class="quote__zh">「扎根在地、放眼國際——一則一則校園故事累積而成。」</div>
+      <div class="quote__zh">「扎根在地、放眼國際——一則一則校園故事，慢慢累積而成。」</div>
     </div>
   </div>
 </section>
@@ -178,7 +318,7 @@
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.vcard,.ocard,.quote'));
+  var els=[].slice.call(document.querySelectorAll('.vcard,.story,.ocard,.quote'));
   if(!els.length)return;els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*70)+'ms';e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
@@ -200,13 +340,12 @@
       </div>
     </div>
     <div class="ymj-footer__col">
-      <h5>Explore</h5>
+      <h5>Lessons</h5>
       <ul>
-        <li><a href="/schools/chengkung/">Home · 首頁</a></li>
-        <li><a href="/schools/chengkung/principal/">Principal · 校長室</a></li>
-        <li><a href="/schools/chengkung/lessons/">Lessons · 課程</a></li>
-        <li><a href="/schools/chengkung/bilingual-campus/">Bilingual Campus · 雙語校園</a></li>
+        <li><a href="/schools/chengkung/lessons/word/">Word of the Day · 每日一字</a></li>
         <li><a href="/schools/chengkung/festivals/">Festivals · 節慶英語</a></li>
+        <li><a href="/schools/chengkung/lessons/classroom-english/">Classroom English · 課室英語</a></li>
+        <li><a href="/schools/chengkung/lessons/announcements/">Announcements · 雙語廣播</a></li>
       </ul>
     </div>
     <div class="ymj-footer__col">
@@ -215,7 +354,6 @@
         <li><a href="https://cges.chc.edu.tw/" target="_blank" rel="noopener">Official site · 官網</a></li>
         <li><a href="https://www.facebook.com/xipan8802179/" target="_blank" rel="noopener">Facebook · 粉絲專頁</a></li>
         <li><a href="https://www.youtube.com/@mycultureconnect7429" target="_blank" rel="noopener">YouTube · 影片頻道</a></li>
-        <li>My Culture Connect · 人師教育協會</li>
       </ul>
     </div>
   </div>
