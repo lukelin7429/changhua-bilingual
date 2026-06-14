@@ -201,10 +201,24 @@ section:last-of-type{border-bottom:none;}
 .ymj-topbar__nav a.is-active{color:var(--red);font-weight:700;}
 @media (max-width:640px){.ymj-topbar__inner{flex-direction:column;align-items:flex-start;gap:10px;}.ymj-topbar__nav{gap:14px;justify-content:flex-start;}.ymj-topbar__nav a{font-size:13.5px;}}
 
-.ymj-hero{position:relative;color:#fff;overflow:hidden;background:var(--blue-deep) center/cover no-repeat;}
-.ymj-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,28,14,.12) 0%, transparent 42%, rgba(7,26,13,.78) 100%);pointer-events:none;}
-.ymj-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg, var(--blue-light) 0%, var(--olive) 40%, var(--red) 75%, var(--sun) 100%);pointer-events:none;z-index:2;}
-.ymj-hero__inner{max-width:1080px;margin:0 auto;padding:175px 24px 42px;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;}
+.ymj-hero{position:relative;color:#fff;overflow:hidden;background:var(--blue-deep);}
+.ymj-hero__bg{position:absolute;inset:0;background:var(--blue-deep) center/cover no-repeat;z-index:0;will-change:transform;transform:scale(1.05);animation:kenburns 26s ease-in-out infinite alternate;}
+@keyframes kenburns{from{transform:scale(1.05) translate(0,0);}to{transform:scale(1.15) translate(-1.4%,-1.6%);}}
+.ymj-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(8,28,14,.12) 0%, transparent 42%, rgba(7,26,13,.78) 100%);pointer-events:none;}
+.ymj-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg, var(--blue-light) 0%, var(--olive) 40%, var(--red) 75%, var(--sun) 100%);pointer-events:none;z-index:3;}
+.ymj-hero__inner{max-width:1080px;margin:0 auto;padding:175px 24px 42px;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;}
+/* hero content entrance (staggered) */
+@keyframes heroIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.ymj-hero__eyebrow,.ymj-hero h1,.ymj-hero .h1-zh,.ymj-hero__tagline,.ymj-hero__pills{opacity:0;animation:heroIn .7s cubic-bezier(.2,.7,.2,1) forwards;}
+.ymj-hero__eyebrow{animation-delay:.05s;}
+.ymj-hero h1{animation-delay:.16s;}
+.ymj-hero .h1-zh{animation-delay:.27s;}
+.ymj-hero__tagline{animation-delay:.38s;}
+.ymj-hero__pills{animation-delay:.5s;}
+@media (prefers-reduced-motion:reduce){
+  .ymj-hero__bg{animation:none;transform:scale(1.05);}
+  .ymj-hero__eyebrow,.ymj-hero h1,.ymj-hero .h1-zh,.ymj-hero__tagline,.ymj-hero__pills{opacity:1;animation:none;}
+}
 @media (min-width:720px){.ymj-hero__inner{padding:240px 24px 56px;}}
 .ymj-hero--page .ymj-hero__inner{padding:120px 24px 32px;}
 @media (min-width:720px){.ymj-hero--page .ymj-hero__inner{padding:155px 24px 44px;}}
@@ -243,3 +257,20 @@ img.ymj-topbar__logo{width:46px;height:46px;border-radius:50%;background:#fff;ob
 /* cb-credit ribbon */
 .cb-credit{background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;}
 .cb-credit a{color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);}
+
+/* ===== Extra motion ===== */
+/* animated nav underline */
+.ymj-topbar__nav a{position:relative;}
+.ymj-topbar__nav a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .26s cubic-bezier(.2,.7,.2,1);}
+.ymj-topbar__nav a:hover::after,.ymj-topbar__nav a.is-active::after{transform:scaleX(1);}
+/* gentle idle float on decorative emoji */
+@keyframes floaty{from{transform:translateY(0);}to{transform:translateY(-7px);}}
+.pillar__icon,.program__icon,.honor__icon{animation:floaty 3.4s ease-in-out infinite alternate;}
+.program__icon{animation-duration:4s;}
+.honor__icon{animation-duration:3s;}
+/* hero pill hover */
+.ymj-hero__pills .pill{transition:transform .18s, background .18s;}
+.ymj-hero__pills .pill:hover{transform:translateY(-2px);background:rgba(192,85,42,.5);}
+@media (prefers-reduced-motion:reduce){
+  .pillar__icon,.program__icon,.honor__icon{animation:none;}
+}
