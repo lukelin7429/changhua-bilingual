@@ -154,16 +154,39 @@
   }
   @media (min-width:720px){ .unit__meta{ font-size:16px; } }
 
-  /* ===== Full playlist embed ===== */
+  /* ===== Shared / Full playlist blocks ===== */
   .playlist-block{
     background:linear-gradient(135deg, var(--bg-soft) 0%, var(--blue-soft) 100%);
     border-radius:22px;padding:32px 22px;border:1px solid var(--line);
   }
   @media (min-width:720px){ .playlist-block{ padding:48px 40px; } }
-  .playlist-block h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);text-align:center;}
+  .playlist-block--green{background:linear-gradient(135deg, var(--green-soft) 0%, #fff 100%);border-color:var(--green-soft);}
+  .playlist-block--purple{background:linear-gradient(135deg, var(--purple-soft) 0%, #fff 100%);border-color:var(--purple-soft);}
+  .playlist-block__eyebrow{
+    text-align:center;font-family:'Playfair Display',serif;
+    font-size:14px;font-weight:700;letter-spacing:5px;
+    color:var(--orange-deep);text-transform:uppercase;
+  }
+  @media (min-width:720px){ .playlist-block__eyebrow{ font-size:16px; } }
+  .playlist-block h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);text-align:center;margin-top:8px;}
   @media (min-width:720px){ .playlist-block h3{ font-size:36px; } }
   .playlist-block .zh{text-align:center;font-size:17px;color:var(--ink-soft);margin-top:6px;}
   @media (min-width:720px){ .playlist-block .zh{ font-size:19px; } }
+  .playlist-block__lede{
+    text-align:center;font-size:17px;color:var(--ink);line-height:1.65;
+    margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto;
+  }
+  @media (min-width:720px){ .playlist-block__lede{ font-size:19px; } }
+  .playlist-block__chips{
+    margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  }
+  .playlist-block__chip{
+    background:#fff;border:1px solid var(--line);color:var(--blue-deep);
+    font-family:'Playfair Display','PingFang TC',serif;
+    font-size:13px;font-weight:700;letter-spacing:1px;
+    padding:5px 14px;border-radius:99px;
+  }
+  @media (min-width:720px){ .playlist-block__chip{ font-size:15px; } }
   .video-frame{
     margin-top:24px;position:relative;width:100%;padding-bottom:56.25%;
     background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
@@ -200,7 +223,7 @@
   <div class="banner__eyebrow">Jhonghe Bilingual Curriculum</div>
   <h1>Lessons</h1>
   <div class="banner__zh">中和雙語課程入口</div>
-  <p class="banner__tagline">Pick a unit. Press play. Learn English from a small Pitou school.</p>
+  <p class="banner__tagline">Word of the Day · Classroom English · Bilingual Announcements — three series, one press of play.</p>
 </header>
 
 <!-- ===== Word of the Day ===== -->
@@ -304,12 +327,63 @@
   </div>
 </section>
 
-<!-- ===== Full playlist embed ===== -->
+<!-- ===== Classroom English (shared cross-school playlist) ===== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="playlist-block playlist-block--green">
+      <div class="playlist-block__eyebrow">For Teachers · 在職教師</div>
+      <h3>Classroom English</h3>
+      <div class="zh">課室英語 · 課堂用語十大情境</div>
+      <p class="playlist-block__lede">
+        Ten classroom situations every teacher needs in English — greetings &amp; roll call, pre-class prep, giving instructions, feedback &amp; praise, classroom management, group activities, assigning homework, wrapping up, tests, and more. Led by <b>Sarah Thomas</b>.
+        <br><span style="color:var(--ink-soft);font-size:.88em;">問候點名／課前準備／講解／課前活動／回饋讚美糾正／教室管理／課堂活動／分派作業／課堂收尾／考試。Sarah Thomas 老師主講。</span>
+      </p>
+      <div class="playlist-block__chips">
+        <span class="playlist-block__chip">Sarah Thomas</span>
+        <span class="playlist-block__chip">10 situations · 10 個情境</span>
+        <span class="playlist-block__chip">By MCC 人師教育協會</span>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English 課室英語 · Sarah Thomas" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Bilingual Announcements (shared cross-school playlist) ===== -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="playlist-block playlist-block--purple">
+      <div class="playlist-block__eyebrow">Campus Broadcast · 校園廣播</div>
+      <h3>Bilingual Announcements</h3>
+      <div class="zh">廣播英語 · 四大處室自我介紹</div>
+      <p class="playlist-block__lede">
+        Thirteen short bilingual broadcasts introducing the four school offices — Academic Affairs (5), Student Affairs (3), General Affairs, and Counselling — for the whole-school PA system. Voiced by <b>Sarah Thomas</b> and <b>Susan Rose</b>.
+        <br><span style="color:var(--ink-soft);font-size:.88em;">13 集校園雙語廣播：教務處 5 集、學務處 3 集、總務處、輔導室。Sarah Thomas、Susan Rose 雙人主講。</span>
+      </p>
+      <div class="playlist-block__chips">
+        <span class="playlist-block__chip">Sarah Thomas · Susan Rose</span>
+        <span class="playlist-block__chip">13 episodes · 13 集</span>
+        <span class="playlist-block__chip">By MCC 人師教育協會</span>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements 廣播英語 · Sarah Thomas + Susan Rose" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Jhonghe's own Word-of-the-Day full playlist ===== -->
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="playlist-block">
-      <h3>Watch the full playlist on YouTube</h3>
-      <div class="zh">不想分單元？整支 playlist 在這裡</div>
+      <div class="playlist-block__eyebrow">Jhonghe Campus · 中和實拍</div>
+      <h3>Jhonghe's Word of the Day · Full Playlist</h3>
+      <div class="zh">中和國小每日一字 · 完整 YouTube playlist</div>
+      <p class="playlist-block__lede">
+        All 55 Words of the Day filmed on the Jhonghe campus, in one continuous reel — autoplays through every video back to back.
+        <br><span style="color:var(--ink-soft);font-size:.88em;">所有 55 部中和校園實拍的 Word of the Day，整支 playlist 依序播放。</span>
+      </p>
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8WLwXHI8eQXhMcPAgF7hFFU&rel=0" title="Jhonghe Word of the Day · full playlist" allowfullscreen></iframe>
       </div>
