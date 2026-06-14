@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="canonical" href="https://changhua-bilingual.org/schools/chengkung/lessons/">
 <title>Lessons · 課程 · Chenggong Elementary School</title>
-<meta name="description" content="Bilingual lessons at Chenggong Elementary — Word of the Day videos, Festival English, Classroom English, and bilingual school Announcements. 成功國小雙語課程入口：每日一字、節慶英語、課室英語、雙語廣播。">
+<meta name="description" content="Bilingual lessons at Chenggong Elementary, all on one page — Word of the Day videos, Festival English, Classroom English, and bilingual school Announcements. 成功國小雙語課程：每日一字、節慶英語、課室英語、雙語廣播，一頁到底。">
 <meta property="og:title" content="Lessons · 課程 · Chenggong Elementary">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,38 +15,125 @@
 <link rel="stylesheet" href="/schools/chengkung/style.css">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/chengkung/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/schools/chengkung/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/schools/chengkung/favicon-180.png"><link rel="icon" type="image/svg+xml" href="/schools/chengkung/favicon.svg"><link rel="shortcut icon" href="/schools/chengkung/favicon.ico">
 <style>
-  .sec__lede{font-size:18px;color:var(--ink);line-height:1.7;max-width:760px;}
+  .sec__lede{font-size:18px;color:var(--ink);line-height:1.7;max-width:780px;}
   @media (min-width:720px){ .sec__lede{ font-size:21px; } }
   .sec__lede .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
   @media (min-width:720px){ .sec__lede .zh{ font-size:18px; } }
-  .units{display:grid;grid-template-columns:1fr;gap:24px;margin-top:42px;}
-  @media (min-width:720px){ .units{ grid-template-columns:repeat(2,1fr);gap:30px; } }
-  .unit{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;text-decoration:none;color:inherit;}
-  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(44,95,58,.32);}
-  .unit__hero{height:170px;display:flex;align-items:center;justify-content:center;font-size:88px;position:relative;overflow:hidden;}
-  @media (min-width:720px){ .unit__hero{ height:190px;font-size:104px; } }
-  .unit__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:170px;height:170px;background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 60%);border-radius:50%;}
-  .unit__hero::after{content:'';position:absolute;bottom:-40%;left:-40%;width:190px;height:190px;background:radial-gradient(circle, rgba(255,255,255,.25) 0%, transparent 60%);border-radius:50%;}
-  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
-  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
-  .unit.u-1 .unit__hero{background:linear-gradient(135deg, #4a8c57 0%, #2c5f3a 100%);}
-  .unit.u-2 .unit__hero{background:linear-gradient(135deg, #e0962f 0%, #9a5e12 100%);}
-  .unit.u-3 .unit__hero{background:linear-gradient(135deg, #c0552a 0%, #8a3a18 100%);}
-  .unit.u-4 .unit__hero{background:linear-gradient(135deg, #d8a43a 0%, #9c7415 100%);}
-  .unit__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column;}
-  @media (min-width:720px){ .unit__body{ padding:30px 30px 34px; } }
-  .unit__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);}
-  @media (min-width:720px){ .unit__no{ font-size:14px; } }
-  .unit__title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:6px;}
-  @media (min-width:720px){ .unit__title{ font-size:32px; } }
-  .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
-  @media (min-width:720px){ .unit__title-zh{ font-size:20px; } }
-  .unit__desc{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.65;flex:1;}
-  @media (min-width:720px){ .unit__desc{ font-size:19px; } }
-  .unit__cta{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);color:var(--red);font-family:'Playfair Display',serif;font-size:17px;font-weight:700;letter-spacing:.5px;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
-  @media (min-width:720px){ .unit__cta{ font-size:19px; } }
-  .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
-  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+  section[id]{scroll-margin-top:80px;}
+
+  /* In-page jump nav */
+  .jump{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
+  .jump__inner{max-width:1080px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:8px 10px;justify-content:center;}
+  .jump a{font-size:14px;font-weight:600;color:var(--blue-deep);text-decoration:none;padding:7px 15px;border-radius:99px;border:1px solid var(--line);background:#fff;transition:background .15s, color .15s, transform .15s;}
+  .jump a:hover{background:var(--blue-deep);color:#fff;transform:translateY(-1px);}
+  @media (min-width:720px){ .jump a{ font-size:15.5px; } }
+
+  /* WOTD card grid */
+  .wgrid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px;}
+  @media (min-width:620px){ .wgrid{ grid-template-columns:repeat(2,1fr);gap:26px; } }
+  @media (min-width:1000px){ .wgrid{ grid-template-columns:repeat(3,1fr); } }
+  .wcard{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;}
+  .wcard:hover{transform:translateY(-6px);box-shadow:0 28px 50px -18px rgba(44,95,58,.32);}
+  .wcard__thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#000;text-decoration:none;}
+  .wcard__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+  .wcard:hover .wcard__thumb img{transform:scale(1.06);}
+  .wcard__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .wcard__play span{width:58px;height:58px;border-radius:50%;background:rgba(192,85,42,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:transform .2s, background .2s;}
+  .wcard__thumb:hover .wcard__play span{transform:scale(1.12);background:var(--red);}
+  .wcard__no{position:absolute;top:12px;left:12px;background:rgba(36,31,27,.78);color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:99px;}
+  .wcard__body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column;}
+  .wcard__word{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;color:var(--blue-deep);line-height:1.15;}
+  @media (min-width:720px){ .wcard__word{ font-size:31px; } }
+  .wcard__word .pos{font-size:.6em;color:var(--red);font-style:italic;font-weight:600;margin-left:4px;}
+  .wcard__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+  @media (min-width:720px){ .wcard__zh{ font-size:20px; } }
+  .wcard__ex{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);font-size:17px;color:var(--ink);line-height:1.55;flex:1;}
+  @media (min-width:720px){ .wcard__ex{ font-size:18px; } }
+  .wcard__ex-zh{font-size:15px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media (min-width:720px){ .wcard__ex-zh{ font-size:16px; } }
+  .say{margin-top:14px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--blue-soft);color:var(--blue-deep);border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s, transform .15s;}
+  @media (min-width:720px){ .say{ font-size:16px; } }
+  .say:hover{background:var(--olive-soft);transform:translateY(-1px);}
+  .say:active{transform:scale(.97);}
+
+  /* Hakka highlight */
+  .hl{margin-top:36px;background:var(--red-soft);border-left:6px solid var(--red);border-radius:0 14px 14px 0;padding:26px 28px;}
+  @media (min-width:720px){ .hl{ padding:32px 36px; } }
+  .hl__title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--red);line-height:1.2;}
+  @media (min-width:720px){ .hl__title{ font-size:28px; } }
+  .hl__body{font-size:17px;color:var(--ink);margin-top:10px;line-height:1.7;}
+  @media (min-width:720px){ .hl__body{ font-size:19px; } }
+  .hl__body .zh{color:var(--ink-soft);font-size:.92em;}
+
+  /* Festival grid */
+  .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px;}
+  @media (min-width:680px){ .fgrid{ grid-template-columns:repeat(3,1fr);gap:18px; } }
+  @media (min-width:1000px){ .fgrid{ grid-template-columns:repeat(4,1fr); } }
+  .fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 16px;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s, box-shadow .2s;}
+  .fcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .fcard .em{font-size:48px;line-height:1;transition:transform .25s;}
+  .fcard:hover .em{transform:scale(1.15) rotate(-5deg);}
+  .fcard .t{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--blue-deep);margin-top:12px;line-height:1.15;}
+  .fcard .z{font-size:15px;color:var(--ink-soft);margin-top:4px;}
+  .fcard .go{margin-top:10px;font-size:13.5px;font-weight:700;color:var(--red);font-family:'Playfair Display',serif;}
+
+  /* Players + topic/office grids (陽明 style) */
+  .credits{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 28px;padding:18px 24px;border-radius:12px;background:var(--olive-soft);border-left:6px solid var(--olive);max-width:820px;}
+  .credits.is-broadcast{background:var(--sun-soft);border-left-color:var(--sun);}
+  .credits__cell{display:flex;flex-direction:column;}
+  .credits__label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--olive-deep);}
+  @media (min-width:720px){ .credits__label{ font-size:13px; } }
+  .credits.is-broadcast .credits__label{color:var(--sun-deep);}
+  .credits__value{font-size:17px;color:var(--ink);font-weight:600;margin-top:2px;}
+  @media (min-width:720px){ .credits__value{ font-size:19px; } }
+  .player{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);}
+  @media (min-width:720px){ .player{ padding:18px; } }
+  .player__ratio{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+  .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player-link{margin-top:14px;display:flex;align-items:center;gap:14px;padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;text-decoration:none;color:var(--blue-deep);transition:transform .2s, box-shadow .2s, border-color .2s;}
+  .player-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:var(--blue);}
+  .player-link__icon{flex-shrink:0;width:42px;height:30px;border-radius:6px;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;}
+  .player-link__text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .player-link__text strong{font-family:'Playfair Display',serif;font-size:18px;color:var(--blue-deep);font-weight:700;line-height:1.3;}
+  .player-link__text span{font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;}
+  .player-link__arrow{font-size:22px;color:var(--red);flex-shrink:0;}
+  .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px;}
+  @media (min-width:720px){ .topics{ grid-template-columns:repeat(3,1fr);gap:16px; } }
+  @media (min-width:1000px){ .topics{ grid-template-columns:repeat(5,1fr); } }
+  .topic{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-sm);border-top:4px solid var(--blue);}
+  .topic:nth-child(2n){border-top-color:var(--olive-deep);}
+  .topic:nth-child(3n){border-top-color:var(--red);}
+  .topic:nth-child(5n){border-top-color:var(--sun);}
+  .topic__no{font-family:'Playfair Display',serif;color:var(--red);font-weight:800;font-size:14px;letter-spacing:2px;}
+  .topic__en{margin-top:4px;font-size:14px;font-weight:700;color:var(--blue-deep);line-height:1.35;}
+  @media (min-width:720px){ .topic__en{ font-size:15px; } }
+  .topic__zh{margin-top:3px;font-size:12px;color:var(--ink-soft);line-height:1.4;}
+  @media (min-width:720px){ .topic__zh{ font-size:13px; } }
+  .offices{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
+  @media (min-width:720px){ .offices{ grid-template-columns:1fr 1fr;gap:24px; } }
+  .office{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px 26px;box-shadow:var(--shadow-sm);border-left:6px solid var(--blue);}
+  @media (min-width:720px){ .office{ padding:28px 30px 30px; } }
+  .office:nth-child(2){border-left-color:var(--red);}
+  .office:nth-child(3){border-left-color:var(--olive-deep);}
+  .office:nth-child(4){border-left-color:var(--sun);}
+  .office__title{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--blue-deep);line-height:1.2;}
+  @media (min-width:720px){ .office__title{ font-size:28px; } }
+  .office__title-zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .office__title-zh{ font-size:19px; } }
+  .office__list{list-style:none;margin-top:14px;}
+  .office__list li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;color:var(--ink);line-height:1.5;display:flex;gap:10px;align-items:baseline;}
+  @media (min-width:720px){ .office__list li{ font-size:17px; } }
+  .office__list li:last-child{border-bottom:none;}
+  .office__list .ep{flex:0 0 auto;font-family:'Playfair Display',serif;color:var(--red);font-weight:700;font-size:13px;letter-spacing:1.5px;}
+  @media (min-width:720px){ .office__list .ep{ font-size:14px; } }
+  /* full playlist block */
+  .playlist-block{background:linear-gradient(135deg, var(--cream) 0%, var(--blue-soft) 100%);border-radius:22px;padding:32px 22px;border:1px solid var(--line);margin-top:36px;}
+  @media (min-width:720px){ .playlist-block{ padding:44px 40px; } }
+  .playlist-block h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);text-align:center;}
+  @media (min-width:720px){ .playlist-block h3{ font-size:30px; } }
+  .playlist-block .zh{text-align:center;font-size:16px;color:var(--ink-soft);margin-top:6px;}
+  .video-frame{margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -75,81 +162,367 @@
     <div>
       <span class="ymj-hero__eyebrow">Bilingual Lessons</span>
       <h1>Lessons</h1>
-      <div class="h1-zh">雙語課程入口 · 四大學習區</div>
+      <div class="h1-zh">雙語課程 · 每日一字、節慶英語、課室英語、雙語廣播</div>
     </div>
   </div>
 </header>
 
-<!-- ===== Lessons hub ===== -->
-<section style="border-bottom:none;">
+<!-- In-page jump nav -->
+<nav class="jump">
+  <div class="jump__inner">
+    <a href="#word">🗣️ Word of the Day</a>
+    <a href="#festivals">🎊 Festivals</a>
+    <a href="#classroom-english">🍎 Classroom English</a>
+    <a href="#announcements">📣 Announcements</a>
+  </div>
+</nav>
+
+<!-- ===== I. Word of the Day ===== -->
+<section id="word">
   <div class="wrap">
-    <div class="sec__no">·</div>
-    <h2 class="sec__title">Four Ways to Learn</h2>
-    <div class="sec__title-zh">四大學習區 · 每日一字、節慶英語、課室英語、雙語廣播</div>
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Word of the Day</h2>
+    <div class="sec__title-zh">每日一字 · 來自成功與西畔分校的真實校園時刻</div>
     <div class="sec__rule"></div>
     <p class="sec__lede">
-      Chenggong's bilingual learning, all in one place — pick an area and press play.
-      <span class="zh">成功的雙語學習，全都在這裡——選一區，按下播放。</span>
+      Ten short bilingual videos, each built from a real moment around our campus. Tap a card to watch on YouTube — and tap <strong>🔊 Listen</strong> to hear the example sentence read aloud.
+      <span class="zh">十支短短的雙語影片，每一支都來自校園的真實情境。點卡片到 YouTube 看影片，點「🔊 Listen」就能聽例句朗讀。</span>
     </p>
 
-    <div class="units">
+    <div class="wgrid">
 
-      <a class="unit u-1" href="/schools/chengkung/lessons/word/">
-        <div class="unit__hero"><span class="unit__emoji">🗣️</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Area 01 · Video</div>
-          <div class="unit__title">Word of the Day</div>
-          <div class="unit__title-zh">每日一字</div>
-          <div class="unit__desc">Ten short bilingual videos built from real moments around our campus and Xipan Branch — each with an example sentence you can tap to hear.</div>
-          <div class="unit__cta">Open Word of the Day <span class="arrow">→</span></div>
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=5FOGpVB7RXM" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/5FOGpVB7RXM/hqdefault.jpg" alt="Word of the Day: film crew" loading="lazy">
+          <span class="wcard__no">WOTD 01</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">film crew <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">攝影團隊</div>
+          <div class="wcard__ex">"The students show their best talents to the film crew."
+            <div class="wcard__ex-zh">學生們向攝影團隊展現他們最好的才華。</div>
+          </div>
+          <button class="say" data-say="The students show their best talents to the film crew.">🔊 Listen</button>
         </div>
-      </a>
+      </div>
 
-      <a class="unit u-2" href="/schools/chengkung/festivals/">
-        <div class="unit__hero"><span class="unit__emoji">🎊</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Area 02 · Culture</div>
-          <div class="unit__title">Festivals English</div>
-          <div class="unit__title-zh">節慶英語</div>
-          <div class="unit__desc">Sixteen bilingual festival lessons, from Lunar New Year to Christmas — each with a handout-style reading and a short quiz.</div>
-          <div class="unit__cta">Open Festivals <span class="arrow">→</span></div>
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=t95SHv6ZEsU" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/t95SHv6ZEsU/hqdefault.jpg" alt="Word of the Day: sentence" loading="lazy">
+          <span class="wcard__no">WOTD 02</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">sentence <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">句子</div>
+          <div class="wcard__ex">"The students chat with the foreign teacher to practice the weekly sentence."
+            <div class="wcard__ex-zh">學生們透過與外籍老師交談，來練習「每週一句」。</div>
+          </div>
+          <button class="say" data-say="The students chat with the foreign teacher to practice the weekly sentence.">🔊 Listen</button>
         </div>
-      </a>
+      </div>
 
-      <a class="unit u-3" href="/schools/chengkung/lessons/classroom-english/">
-        <div class="unit__hero"><span class="unit__emoji">🍎</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Area 03 · Video</div>
-          <div class="unit__title">Classroom English</div>
-          <div class="unit__title-zh">課室英語</div>
-          <div class="unit__desc">A teacher's pocket phrasebook on video — the everyday English a teacher actually uses in class, one situation per clip.</div>
-          <div class="unit__cta">Open Classroom English <span class="arrow">→</span></div>
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=OgRNIQNzFfA" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/OgRNIQNzFfA/hqdefault.jpg" alt="Word of the Day: singing contest" loading="lazy">
+          <span class="wcard__no">WOTD 03</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">singing contest <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">歌唱比賽</div>
+          <div class="wcard__ex">"They are brave on the stage in front of the judges during the singing contest."
+            <div class="wcard__ex-zh">在歌唱比賽中，他們在評審面前的舞台上表現得非常勇敢。</div>
+          </div>
+          <button class="say" data-say="They are brave on the stage in front of the judges during the singing contest.">🔊 Listen</button>
         </div>
-      </a>
+      </div>
 
-      <a class="unit u-4" href="/schools/chengkung/lessons/announcements/">
-        <div class="unit__hero"><span class="unit__emoji">📣</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Area 04 · Video</div>
-          <div class="unit__title">Bilingual Announcements</div>
-          <div class="unit__title-zh">雙語廣播</div>
-          <div class="unit__desc">The morning intercom in two languages — a 13-episode series where each school office introduces what it does, in English and Chinese.</div>
-          <div class="unit__cta">Open Announcements <span class="arrow">→</span></div>
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=tQ9qqoVe6SQ" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/tQ9qqoVe6SQ/hqdefault.jpg" alt="Word of the Day: charity sale" loading="lazy">
+          <span class="wcard__no">WOTD 04</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">charity sale <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">義賣</div>
+          <div class="wcard__ex">"The sixth-grade students held a charity sale to raise money for their graduation trip."
+            <div class="wcard__ex-zh">六年級的學生們舉辦了一場義賣，為畢業旅行籌集資金。</div>
+          </div>
+          <button class="say" data-say="The sixth-grade students held a charity sale to raise money for their graduation trip.">🔊 Listen</button>
         </div>
-      </a>
+      </div>
 
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=ZG7LpZ909HI" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/ZG7LpZ909HI/hqdefault.jpg" alt="Word of the Day: jump rope competition" loading="lazy">
+          <span class="wcard__no">WOTD 05</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">jump rope competition <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">跳繩比賽</div>
+          <div class="wcard__ex">"Many students participate in the jump rope competition."
+            <div class="wcard__ex-zh">許多學生參加跳繩比賽。</div>
+          </div>
+          <button class="say" data-say="Many students participate in the jump rope competition.">🔊 Listen</button>
+        </div>
+      </div>
+
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=FhcjEMrmfXE" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/FhcjEMrmfXE/hqdefault.jpg" alt="Word of the Day: meeting" loading="lazy">
+          <span class="wcard__no">WOTD 06</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">meeting <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">會議</div>
+          <div class="wcard__ex">"Teachers and parents attend the Class Parent-Teacher Meeting for the new semester."
+            <div class="wcard__ex-zh">老師和家長們參加了新學期的班級親師座談會。</div>
+          </div>
+          <button class="say" data-say="Teachers and parents attend the Class Parent-Teacher Meeting for the new semester.">🔊 Listen</button>
+        </div>
+      </div>
+
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=vpWt_i5CbYg" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/vpWt_i5CbYg/hqdefault.jpg" alt="Word of the Day: SH150 program" loading="lazy">
+          <span class="wcard__no">WOTD 07</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">SH150 program <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">SH150 方案</div>
+          <div class="wcard__ex">"The goal of the SH150 program is to promote regular exercise and better fitness for students."
+            <div class="wcard__ex-zh">SH150 方案的目標是促進學生的規律運動與更好的體適能。</div>
+          </div>
+          <button class="say" data-say="The goal of the SH150 program is to promote regular exercise and better fitness for students.">🔊 Listen</button>
+        </div>
+      </div>
+
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=kK7S5EzBJuk" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/kK7S5EzBJuk/hqdefault.jpg" alt="Word of the Day: swimming class" loading="lazy">
+          <span class="wcard__no">WOTD 08</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">swimming class <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">游泳課</div>
+          <div class="wcard__ex">"The students learn how to swim in swimming class."
+            <div class="wcard__ex-zh">同學們在游泳課時學習如何游泳。</div>
+          </div>
+          <button class="say" data-say="The students learn how to swim in swimming class.">🔊 Listen</button>
+        </div>
+      </div>
+
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=z1cbk-NU2eo" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/z1cbk-NU2eo/hqdefault.jpg" alt="Word of the Day: game" loading="lazy">
+          <span class="wcard__no">WOTD 09</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">game <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">遊戲</div>
+          <div class="wcard__ex">"The teacher uses a game to make English class fun and engaging."
+            <div class="wcard__ex-zh">老師用遊戲讓英語課變得有趣又吸引人。</div>
+          </div>
+          <button class="say" data-say="The teacher uses a game to make English class fun and engaging.">🔊 Listen</button>
+        </div>
+      </div>
+
+      <div class="wcard">
+        <a class="wcard__thumb" href="https://www.youtube.com/watch?v=OQ9UJKfRgXA" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/OQ9UJKfRgXA/hqdefault.jpg" alt="Word of the Day: Hakka" loading="lazy">
+          <span class="wcard__no">WOTD 10</span><span class="wcard__play"><span>▶</span></span>
+        </a>
+        <div class="wcard__body">
+          <div class="wcard__word">Hakka <span class="pos">(n.)</span></div>
+          <div class="wcard__zh">客家語</div>
+          <div class="wcard__ex">"The students learn Hakka proverbs and a new sentence at the Tuesday morning assembly."
+            <div class="wcard__ex-zh">學生們在每週二的朝會上，學習一句新的客語和客家諺語。</div>
+          </div>
+          <button class="say" data-say="The students learn Hakka proverbs and a new sentence at the Tuesday morning assembly.">🔊 Listen</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hl">
+      <div class="hl__title">🪕 A Hakka sentence every Tuesday</div>
+      <div class="hl__body">At Chenggong, Hakka isn't only a word on a screen. Every Tuesday morning assembly, students learn a new Hakka sentence and a Hakka proverb — and the school's English &ldquo;weekly sentence&rdquo; is practised in real conversations with our foreign teacher.<span class="zh"><br>在成功，客語不只是螢幕上的一個字。每週二朝會，學生會學一句新客語和一句客家諺語；而英語「每週一句」則透過與外師的真實對話來練習。</span></div>
+    </div>
+
+    <div class="playlist-block">
+      <h3>Watch the full Word-of-the-Day playlist</h3>
+      <div class="zh">完整 YouTube 播放清單，一次看到底</div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8VmLjVbvBunTytjKX0fmhof&rel=0" title="Chenggong Word of the Day · full playlist" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Festivals ===== -->
+<section id="festivals">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
+    <h2 class="sec__title">Festivals English</h2>
+    <div class="sec__title-zh">節慶英語 · 用節慶認識世界</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      Sixteen bilingual festival lessons, from Lunar New Year to Christmas — each with a handout-style reading and a short quiz. Pick a festival to open its lesson.
+      <span class="zh">十六個節慶英語單元，從農曆新年到聖誕節，每個都有講義式閱讀與小測驗。點一個節慶就能打開該課。</span>
+    </p>
+
+    <div class="fgrid">
+      <a class="fcard" href="/schools/chengkung/festivals/new-years-day/"><div class="em">🎆</div><div class="t">New Year's Day</div><div class="z">元旦</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/chinese-new-year/"><div class="em">🧧</div><div class="t">Lunar New Year</div><div class="z">農曆新年</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/lantern-festival/"><div class="em">🏮</div><div class="t">Lantern Festival</div><div class="z">元宵節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/tomb-sweeping-day/"><div class="em">🌳</div><div class="t">Tomb-Sweeping Day</div><div class="z">清明節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/easter/"><div class="em">🐰</div><div class="t">Easter</div><div class="z">復活節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/earth-day/"><div class="em">🌏</div><div class="t">Earth Day</div><div class="z">地球日</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/world-book-day/"><div class="em">📚</div><div class="t">World Book Day</div><div class="z">世界閱讀日</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/mothers-day/"><div class="em">💐</div><div class="t">Mother's Day</div><div class="z">母親節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/dragon-boat-festival/"><div class="em">🐉</div><div class="t">Dragon Boat Festival</div><div class="z">端午節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/childrens-day-international/"><div class="em">🎈</div><div class="t">Children's Day</div><div class="z">兒童節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/fathers-day/"><div class="em">👔</div><div class="t">Father's Day</div><div class="z">父親節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/teachers-day/"><div class="em">🍎</div><div class="t">Teachers' Day</div><div class="z">教師節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/mid-autumn-festival/"><div class="em">🥮</div><div class="t">Mid-Autumn Festival</div><div class="z">中秋節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/halloween/"><div class="em">🎃</div><div class="t">Halloween</div><div class="z">萬聖節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/thanksgiving/"><div class="em">🦃</div><div class="t">Thanksgiving</div><div class="z">感恩節</div><div class="go">Open →</div></a>
+      <a class="fcard" href="/schools/chengkung/festivals/christmas/"><div class="em">🎄</div><div class="t">Christmas</div><div class="z">聖誕節</div><div class="go">Open →</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Classroom English ===== -->
+<section id="classroom-english">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · 給老師的口袋句庫（影片版）</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      The everyday English a teacher actually uses in class — greetings and roll call, instructions, praise, classroom management, homework, and exam directions. Each video isolates one situation so the phrases stick on first hearing.
+      <span class="zh">老師在課堂裡每天會用上的英文——問候點名、講解、讚美、教室管理、分派作業、考試指令。每支影片只處理一個情境，第一次聽就記住。</span>
+    </p>
+
+    <div class="credits">
+      <div class="credits__cell"><div class="credits__label">Instructor</div><div class="credits__value">Sarah Thomas &middot; Sarah Thomas 老師</div></div>
+      <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect &middot; 人師</div></div>
+      <div class="credits__cell"><div class="credits__label">Audience</div><div class="credits__value">In-service teachers &middot; 在職教師</div></div>
+    </div>
+
+    <div class="player">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支</span></span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
+    <div class="topics">
+      <div class="topic"><div class="topic__no">01</div><div class="topic__en">Greetings &amp; Roll Call</div><div class="topic__zh">問候、點名</div></div>
+      <div class="topic"><div class="topic__no">02</div><div class="topic__en">Pre-Class Preparation</div><div class="topic__zh">課前準備</div></div>
+      <div class="topic"><div class="topic__no">03</div><div class="topic__en">Explanations</div><div class="topic__zh">講解</div></div>
+      <div class="topic"><div class="topic__no">04</div><div class="topic__en">Pre-Teaching Activities</div><div class="topic__zh">課前教學活動</div></div>
+      <div class="topic"><div class="topic__no">05</div><div class="topic__en">Feedback &amp; Praise</div><div class="topic__zh">回饋、讚美、糾正</div></div>
+      <div class="topic"><div class="topic__no">06</div><div class="topic__en">Order &amp; Handouts</div><div class="topic__zh">教室管理、分發講義</div></div>
+      <div class="topic"><div class="topic__no">07</div><div class="topic__en">Lesson Activities</div><div class="topic__zh">課堂教學活動</div></div>
+      <div class="topic"><div class="topic__no">08</div><div class="topic__en">Assigning Homework</div><div class="topic__zh">分派作業</div></div>
+      <div class="topic"><div class="topic__no">09</div><div class="topic__en">Class Conclusion</div><div class="topic__zh">課堂收尾</div></div>
+      <div class="topic"><div class="topic__no">10</div><div class="topic__en">Examinations</div><div class="topic__zh">考試</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IV. Bilingual Announcements ===== -->
+<section id="announcements" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">雙語廣播 · 校園的英語之聲</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      A 13-episode bilingual announcement series, organized by the school's four offices — Academic Affairs, Student Affairs, General Affairs, and Counselling. Each office introduces what it does, in English and Chinese, turning the daily intercom into real bilingual exposure.
+      <span class="zh">13 集的雙語校園廣播，依教務、學務、總務、輔導四處室分組，各自雙語介紹工作內容，把每天的廣播變成全校的英語浸潤。</span>
+    </p>
+
+    <div class="credits is-broadcast">
+      <div class="credits__cell"><div class="credits__label">Hosts</div><div class="credits__value">Sarah Thomas &amp; Susan Rose</div></div>
+      <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect &middot; 人師</div></div>
+      <div class="credits__cell"><div class="credits__label">Episodes</div><div class="credits__value">13 · 涵蓋四個處室</div></div>
+    </div>
+
+    <div class="player">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 13 集任你選擇</span></span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+
+    <div class="offices">
+      <div class="office">
+        <div class="office__title">Academic Affairs</div>
+        <div class="office__title-zh">教務處 · 5 集</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 1-1</span><span>Curriculum &amp; Instruction · 教學組</span></li>
+          <li><span class="ep">EP 1-2</span><span>Registrar · 註冊組</span></li>
+          <li><span class="ep">EP 1-3</span><span>Equipment &amp; Facilities · 設備組</span></li>
+          <li><span class="ep">EP 1-4</span><span>Library · 圖書室</span></li>
+          <li><span class="ep">EP 1-5</span><span>Information Technology · 資訊組</span></li>
+        </ul>
+      </div>
+      <div class="office">
+        <div class="office__title">Student Affairs</div>
+        <div class="office__title-zh">學務處 · 學生事務</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 2-1</span><span>Discipline &amp; Activities · 訓育組</span></li>
+          <li><span class="ep">EP 2-2</span><span>Student Guidance · 生教組</span></li>
+          <li><span class="ep">EP 2-3</span><span>Physical Education · 體育組</span></li>
+        </ul>
+      </div>
+      <div class="office">
+        <div class="office__title">General Affairs</div>
+        <div class="office__title-zh">總務處 · 校園後勤</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 3-x</span><span>Documents, Cashier, Maintenance · 文書、出納、事務</span></li>
+        </ul>
+      </div>
+      <div class="office">
+        <div class="office__title">Counselling Office</div>
+        <div class="office__title-zh">輔導室 · 心理與生涯支持</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 4-x</span><span>Student support &amp; career guidance · 學生支持與生涯輔導</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <script>
+  /* Web Speech — read example sentences aloud */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.say');if(!b)return;
+    var t=b.getAttribute('data-say');if(!t||!('speechSynthesis'in window))return;
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.92;
+    speechSynthesis.speak(u);
+  });
+</script>
+<script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.unit'));
+  var els=[].slice.call(document.querySelectorAll('.wcard,.fcard,.topic,.office,.player,.credits,.player-link,.hl,.playlist-block'));
   if(!els.length)return;els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*60)+'ms';e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
 })();
 </script>
@@ -170,10 +543,10 @@
     <div class="ymj-footer__col">
       <h5>Lessons</h5>
       <ul>
-        <li><a href="/schools/chengkung/lessons/word/">Word of the Day · 每日一字</a></li>
-        <li><a href="/schools/chengkung/festivals/">Festivals · 節慶英語</a></li>
-        <li><a href="/schools/chengkung/lessons/classroom-english/">Classroom English · 課室英語</a></li>
-        <li><a href="/schools/chengkung/lessons/announcements/">Announcements · 雙語廣播</a></li>
+        <li><a href="/schools/chengkung/lessons/#word">Word of the Day · 每日一字</a></li>
+        <li><a href="/schools/chengkung/lessons/#festivals">Festivals · 節慶英語</a></li>
+        <li><a href="/schools/chengkung/lessons/#classroom-english">Classroom English · 課室英語</a></li>
+        <li><a href="/schools/chengkung/lessons/#announcements">Announcements · 雙語廣播</a></li>
       </ul>
     </div>
     <div class="ymj-footer__col">
