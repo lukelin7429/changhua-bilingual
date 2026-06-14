@@ -95,10 +95,12 @@
   .nc:nth-child(5n){border-left-color:var(--pink);}
 
   /* Photos are landscape — inside the left media column they stack
-     vertically (top + bottom) at full column width, NOT side by side. */
-  .nc__media{background:#000;display:flex;flex-direction:column;}
+     vertically (top + bottom) at full column width, NOT side by side.
+     align-self:start so a tall body column doesn't pull the media
+     to full card height and expose empty space below the photos. */
+  .nc__media{display:flex;flex-direction:column;align-self:start;}
   .nc__media img{width:100%;height:auto;display:block;}
-  .nc__media-stack{display:flex;flex-direction:column;gap:3px;background:#000;width:100%;}
+  .nc__media-stack{display:flex;flex-direction:column;gap:3px;width:100%;}
   .nc__media-stack img{width:100%;height:auto;display:block;}
 
   .nc__body{padding:28px 28px 32px;display:flex;flex-direction:column;}
