@@ -35,6 +35,27 @@
 .honor__txt .zh{display:block;font-size:15px;color:var(--ink-soft);margin-top:3px;font-weight:400;}
 @media (min-width:720px){ .honor__txt .zh{font-size:16.5px;} }
 .honor--star{border-left-color:var(--red-deep);}
+/* CV — education & career */
+.cv{display:grid;grid-template-columns:1fr;gap:22px;margin-top:8px;}
+@media (min-width:760px){ .cv{grid-template-columns:1fr 1fr;gap:28px;} }
+.cv__col{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px;box-shadow:var(--shadow-sm);border-top:8px solid var(--blue-deep);}
+.cv__col--career{border-top-color:var(--red-deep);}
+.cv__h{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--blue-deep);line-height:1.2;}
+@media (min-width:720px){ .cv__h{font-size:28px;} }
+.cv__col--career .cv__h{color:var(--red-deep);}
+.cv__hz{font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:2px;letter-spacing:1.5px;}
+.cv__list{list-style:none;margin:18px 0 0;padding:0;}
+.cv__item{position:relative;padding:0 0 16px 22px;font-size:18px;color:var(--ink);line-height:1.5;font-weight:500;}
+@media (min-width:720px){ .cv__item{font-size:20px;} }
+.cv__item:last-child{padding-bottom:0;}
+.cv__item::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--blue-deep);}
+.cv__col--career .cv__item::before{background:var(--red-deep);}
+.cv__item .en{display:block;}
+.cv__item .zh{display:block;font-size:15.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;line-height:1.45;}
+@media (min-width:720px){ .cv__item .zh{font-size:17px;} }
+.cv__item .yr{color:var(--gold-deep);font-weight:700;font-size:.92em;}
+.cv__item--now{font-weight:700;}
+.cv__item--now .en{color:var(--red-deep);}
 </style>
 </head>
 <body>
@@ -83,7 +104,7 @@
         <div class="pr-role">Principal · 校長</div>
         <div class="pr-name-en">Hung-Chang Chang</div>
         <div class="pr-name-zh">張 鴻章 校長</div>
-        <div class="pr-meta">Took office · 2025-08-01<br>Dacheng Elementary School, Changhua City<br>National Hualien Teachers College · National Chiayi University · NCNU (Ed. Policy &amp; Administration, doctoral)</div>
+        <div class="pr-meta">Took office · 2025-08-01<br>Dacheng Elementary School, Changhua City<br>30+ years in Changhua &amp; Taoyuan classrooms and principals' offices</div>
       </div>
     </div>
 
@@ -105,6 +126,32 @@
       <p class="zh rvl">
         我相信，教育是<em>一種以生命感動生命的志業</em>。這也是為什麼，在大成，創新、母語與英語、閱讀、藝文、科技與全人發展，從來不是附加品，而是孩子每一天學習的本體。以下六大方向，是大成每天怎麼運作的底色。
       </p>
+    </div>
+
+    <div class="sec__title-zh" style="margin-top:48px;font-weight:700;color:var(--blue-deep);font-size:24px;">Education &amp; Career · 學歷與經歷</div>
+    <div class="sec__rule"></div>
+
+    <div class="cv">
+      <div class="cv__col rvl">
+        <div class="cv__h">Education</div>
+        <div class="cv__hz">學歷</div>
+        <ul class="cv__list">
+          <li class="cv__item"><span class="en">National Hualien Teachers College — Dept. of Language Education</span><span class="zh">國立花蓮師範學院 語文教育學系</span></li>
+          <li class="cv__item"><span class="en">National Chiayi University — Graduate Institute of Elementary Education</span><span class="zh">國立嘉義大學 國民教育研究所</span></li>
+          <li class="cv__item"><span class="en">National Chi Nan University — Educational Policy &amp; Administration (doctoral programme)</span><span class="zh">國立暨南國際大學 教育政策與行政學系 博士班</span></li>
+        </ul>
+      </div>
+      <div class="cv__col cv__col--career rvl">
+        <div class="cv__h">Career</div>
+        <div class="cv__hz">經歷</div>
+        <ul class="cv__list">
+          <li class="cv__item"><span class="en">Zhongxing Elementary School, Taoyuan <span class="yr">· 6 yrs</span></span><span class="zh">桃園縣中興國小（6 年）</span></li>
+          <li class="cv__item"><span class="en">Minsheng Elementary School, Changhua City <span class="yr">· 11 yrs</span></span><span class="zh">彰化市民生國小（11 年）</span></li>
+          <li class="cv__item"><span class="en">Principal · Luoyang Elementary School, Changhua <span class="yr">· 6 yrs</span></span><span class="zh">彰化縣螺陽國小 校長（6 年）</span></li>
+          <li class="cv__item"><span class="en">Pinghe Elementary School, Changhua City <span class="yr">· 8 yrs</span></span><span class="zh">彰化市平和國小（8 年）</span></li>
+          <li class="cv__item cv__item--now"><span class="en">Principal · Dacheng Elementary School, Changhua City <span class="yr">· since Aug 2025</span></span><span class="zh">現任 彰化市大成國小 校長（2025 年 8 月起）</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
