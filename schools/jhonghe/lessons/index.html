@@ -90,31 +90,45 @@
     text-decoration:none;color:inherit;position:relative;
   }
   .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(28,77,126,.35);}
+  /* Hero is a real video thumbnail (background-image set inline per unit)
+     with a play-button overlay — so each card looks like a video preview
+     plucked out of the unit. Fallback colour while the thumb loads. */
   .unit__hero{
-    height:160px;display:flex;align-items:center;justify-content:center;
-    font-size:84px;position:relative;overflow:hidden;
+    height:180px;position:relative;overflow:hidden;
+    background-size:cover;background-position:center;
+    background-color:var(--blue-deep);
+    transition:filter .25s;
   }
-  @media (min-width:720px){ .unit__hero{ height:180px;font-size:104px; } }
-  .unit__hero::before{
-    content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;
-    background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 60%);
-    border-radius:50%;
-  }
+  @media (min-width:720px){ .unit__hero{ height:220px; } }
+  /* gentle bottom scrim so the play button always has contrast */
   .unit__hero::after{
-    content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;
-    background:radial-gradient(circle, rgba(255,255,255,.25) 0%, transparent 60%);
-    border-radius:50%;
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, transparent 0%, transparent 55%, rgba(0,0,0,.28) 100%);
   }
-  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
-  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+  .unit:hover .unit__hero{filter:brightness(1.05);}
 
-  /* Per-unit color theme — Jhonghe palette */
-  .unit.u-1 .unit__hero{background:linear-gradient(135deg, #f4a04d 0%, #a85a0c 100%);}   /* track 跑道橘 */
-  .unit.u-2 .unit__hero{background:linear-gradient(135deg, #7dc47d 0%, #3d7a3d 100%);}   /* PE 操場綠 */
-  .unit.u-3 .unit__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}   /* arts 戲服紫 */
-  .unit.u-4 .unit__hero{background:linear-gradient(135deg, #4a90c2 0%, #1c4d7e 100%);}   /* day 制服藍 */
-  .unit.u-5 .unit__hero{background:linear-gradient(135deg, #f0c84a 0%, #8c8e0a 100%);}   /* class 書桌金 */
-  .unit.u-6 .unit__hero{background:linear-gradient(135deg, #e899ba 0%, #a64475 100%);}   /* campus 校園粉 */
+  /* Per-unit fallback colour matches the unit theme */
+  .unit.u-1 .unit__hero{background-color:#a85a0c;}   /* track 跑道橘 */
+  .unit.u-2 .unit__hero{background-color:#3d7a3d;}   /* PE 操場綠 */
+  .unit.u-3 .unit__hero{background-color:#5b417d;}   /* arts 戲服紫 */
+  .unit.u-4 .unit__hero{background-color:#1c4d7e;}   /* day 制服藍 */
+  .unit.u-5 .unit__hero{background-color:#8c8e0a;}   /* class 書桌金 */
+  .unit.u-6 .unit__hero{background-color:#a64475;}   /* campus 校園粉 */
+
+  /* Round play button */
+  .unit__play{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:74px;height:74px;border-radius:50%;
+    background:rgba(255,255,255,.96);color:var(--blue-deep);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 28px -8px rgba(0,0,0,.55);
+    z-index:1;transition:transform .25s ease, background .15s;
+  }
+  @media (min-width:720px){ .unit__play{ width:88px;height:88px; } }
+  .unit__play svg{width:30px;height:30px;margin-left:4px;}
+  @media (min-width:720px){ .unit__play svg{ width:36px;height:36px; } }
+  .unit:hover .unit__play{transform:translate(-50%,-50%) scale(1.12);background:#fff;}
 
   .unit__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column;}
   @media (min-width:720px){ .unit__body{ padding:30px 30px 34px; } }
@@ -203,7 +217,9 @@
     <div class="units">
 
       <a class="unit u-1" href="word/unit-1/">
-        <div class="unit__hero"><span class="unit__emoji">🏃</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/3ka_qnFaMXI/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 01 · Video</div>
           <div class="unit__title">Track Team English</div>
@@ -215,7 +231,9 @@
       </a>
 
       <a class="unit u-2" href="word/unit-2/">
-        <div class="unit__hero"><span class="unit__emoji">⚽</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/pTg3Tsn6u54/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 02 · Video</div>
           <div class="unit__title">PE &amp; Sports</div>
@@ -227,7 +245,9 @@
       </a>
 
       <a class="unit u-3" href="word/unit-3/">
-        <div class="unit__hero"><span class="unit__emoji">🎻</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/aUYPhVhNgIs/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 03 · Video</div>
           <div class="unit__title">Arts, Music &amp; Crafts</div>
@@ -239,7 +259,9 @@
       </a>
 
       <a class="unit u-4" href="word/unit-4/">
-        <div class="unit__hero"><span class="unit__emoji">🏫</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/g6sQoMQnUKo/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 04 · Video</div>
           <div class="unit__title">A Day at Jhonghe</div>
@@ -251,7 +273,9 @@
       </a>
 
       <a class="unit u-5" href="word/unit-5/">
-        <div class="unit__hero"><span class="unit__emoji">📚</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/f5IKFcG0lEE/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 05 · Video</div>
           <div class="unit__title">Inside the Classroom</div>
@@ -263,7 +287,9 @@
       </a>
 
       <a class="unit u-6" href="word/unit-6/">
-        <div class="unit__hero"><span class="unit__emoji">🎁</span></div>
+        <div class="unit__hero" style="background-image:url('https://i.ytimg.com/vi/TFvscmJmuNQ/hqdefault.jpg');">
+          <div class="unit__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
         <div class="unit__body">
           <div class="unit__no">Unit 06 · Video</div>
           <div class="unit__title">Around Campus &amp; Celebrations</div>
