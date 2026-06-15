@@ -64,6 +64,7 @@ Guided by  <CIEETRC 彰化縣國際教育暨英語教育資源中心→www.cieet
 - 雙語頁全 inline single-page，痛恨 click-out
 - 卡片左上角不放單一中文字徽章；只列校長不列主任
 - 不建議 Google Forms（嵌站測驗自製 HTML + Apps Script pipeline）
+- 🔴 **小考正解要平均分散在 A/B/C/D**，嚴禁老是 A/B（Luke 實測糾正）。四個選項都要用到，交付前用 grep 驗 `data-ok` 落點。學習區四段標準＝關鍵字＋例句＋對話(▶整段播放)＋五題小考，全部加 🔊（Web Speech）；選項純英文，中文只在 zh 提示與答後解析。範本＝schools/hsinmin/news/shadow-puppet/。
 - 每校客製，不複用模板
 - 🔴 **每頁都要有動感**（Luke 明確要求）。Hub 頁面分兩套動效引擎，新頁務必其一：
   - 套 hub chrome 的頁（首頁、`resources/*`）已吃 `assets/js/hub.js`（reveal selector 在 `initReveal()`，新類名要加進去）。
