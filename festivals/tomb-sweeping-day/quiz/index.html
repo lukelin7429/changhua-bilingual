@@ -77,22 +77,40 @@
   @media (min-width:720px){ .foot{ font-size:16.5px; } }
   .foot a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--olive);}
   .foot a:hover{color:var(--navy);}
+
+/* Festival sticky topbar */
+.fest-topbar{background:rgba(255,252,239,.97);border-bottom:2.5px solid var(--olive);padding:11px 0;position:sticky;top:0;z-index:200;backdrop-filter:blur(8px);}
+.fest-topbar__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.fest-topbar__brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0;}
+.fest-topbar__icon{font-size:26px;line-height:1;}
+.fest-topbar__name{font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.1;}
+@media(min-width:720px){.fest-topbar__name{font-size:17px;}}
+.fest-topbar__name small{display:block;font-family:'Inter','PingFang TC',sans-serif;font-size:10.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+.fest-topbar__nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+.fest-topbar__nav a{color:var(--ink);font-size:14px;font-weight:500;letter-spacing:.03em;text-decoration:none;transition:color .2s;padding:3px 0;border-bottom:2px solid transparent;}
+@media(min-width:720px){.fest-topbar__nav a{font-size:15px;}}
+.fest-topbar__nav a:hover{color:var(--olive-deep);border-bottom-color:var(--olive);}
+.fest-topbar__nav a.is-active{color:var(--red);font-weight:700;border-bottom-color:var(--red);}
+@media(max-width:500px){.fest-topbar__name small{display:none;}.fest-topbar__nav{gap:13px;}.fest-topbar__nav a{font-size:13px;}}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
-<style>
-.cb-back-strip-fallback{background:#fffcef;border-bottom:2px solid #c9c920;padding:14px 24px;display:flex;justify-content:center;align-items:center;gap:12px;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;font-weight:600;flex-wrap:wrap;}
-@media (min-width:720px){.cb-back-strip-fallback{font-size:19px;padding:18px 24px;gap:16px;}}
-.cb-back-strip-fallback a{color:#2a2725;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:#fff;border:1.5px solid #c9c920;transition:all .15s;}
-.cb-back-strip-fallback a:hover{background:#c9c920;color:#2a2725;transform:translateX(-2px);}
-.cb-back-strip-fallback .arrow{font-size:1.2em;}
-</style>
-<div class="cb-back-strip-fallback">
-  <a href="/resources/"><span class="arrow">←</span><span>Hub Resources</span></a>
-  <a href="/festivals/"><span class="arrow">←</span><span>All Festivals</span></a>
-</div>
+<nav class="fest-topbar">
+  <div class="fest-topbar__inner">
+    <a class="fest-topbar__brand" href="/festivals/">
+      <span class="fest-topbar__icon">🎊</span>
+      <div class="fest-topbar__name">Festival English<small>節慶英語 · Changhua Bilingual Hub</small></div>
+    </a>
+    <div class="fest-topbar__nav">
+      <a href="/">Hub</a>
+      <a href="/festivals/">Festivals</a>
+      <a href="../">Handout</a>
+      <a href="./" class="is-active">Quiz</a>
+    </div>
+  </div>
+</nav>
 
 
 <div class="wrap">
