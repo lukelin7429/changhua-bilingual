@@ -58,10 +58,12 @@ a:hover{color:var(--jade);}
 .hero__tagline .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:15.5px;margin-top:7px;color:rgba(255,255,255,.76);letter-spacing:.06em;}
 
 /* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);}
-.stat{padding:28px 20px;text-align:center;border-right:1px solid var(--line);}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);}
+.stat{padding:28px 20px;text-align:center;border-right:1px solid var(--line);transition:background .25s;cursor:default;}
+.stat:hover{background:rgba(200,146,10,.06);}
 .stat:last-child{border-right:none;}
-.stat__num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--mango-deep);line-height:1;}
+.stat__num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--mango-deep);line-height:1;display:inline-block;transition:transform .2s;}
+.stat:hover .stat__num{transform:scale(1.1);}
 .stat__label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-top:6px;}
 .stat__zh{font-size:14px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:3px;}
 @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:none;}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);};}
@@ -202,7 +204,6 @@ section{padding:88px 0;}
 <div class="stats">
   <div class="stat"><div class="stat__num">1957</div><div class="stat__label">Established</div><div class="stat__zh">創校年份</div></div>
   <div class="stat"><div class="stat__num">6</div><div class="stat__label">Classes</div><div class="stat__zh">班級數</div></div>
-  <div class="stat"><div class="stat__num">58</div><div class="stat__label">Students</div><div class="stat__zh">在學人數</div></div>
   <div class="stat"><div class="stat__num">69</div><div class="stat__label">Years Strong</div><div class="stat__zh">校齡</div></div>
 </div>
 
@@ -411,6 +412,36 @@ section{padding:88px 0;}
   window.addEventListener('load',report);window.addEventListener('resize',report);
   setTimeout(report,300);setTimeout(report,1200);setTimeout(report,3000);
   if('ResizeObserver'in window)new ResizeObserver(report).observe(document.body);
+})();
+</script>
+
+<script>
+(function(){
+  var nums = document.querySelectorAll('.stat__num');
+  var targets = Array.from(nums).map(function(el){ return parseInt(el.textContent, 10); });
+  nums.forEach(function(el){ el.textContent = '0'; });
+  var done = false;
+  function run(){
+    if(done) return;
+    var rect = document.querySelector('.stats').getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.92){
+      done = true;
+      nums.forEach(function(el, i){
+        var target = targets[i];
+        var start = performance.now();
+        var dur = target > 100 ? 1600 : 900;
+        function step(now){
+          var p = Math.min((now - start) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(ease * target);
+          if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll', run, {passive:true});
+  run();
 })();
 </script>
 </body>
