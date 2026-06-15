@@ -1,5 +1,5 @@
 /* =====================================================================
-   Hu Bei Elementary — shared motion engine  (motion.js)
+   Hubei Elementary — shared motion engine  (motion.js)
    - scroll progress bar + back-to-top
    - hero entrance + drifting ambient orbs
    - scroll-reveal with varied directions & stagger

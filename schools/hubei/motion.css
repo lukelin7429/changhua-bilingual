@@ -1,5 +1,5 @@
 /* =====================================================================
-   Hu Bei Elementary — shared motion layer  (motion.css)
+   Hubei Elementary — shared motion layer  (motion.css)
    Loaded on every page. Adds scroll-reveal, hero life, micro-interactions.
    All initial-hidden states are applied by motion.js ONLY, so if JS is
    absent the page renders fully visible. Honors prefers-reduced-motion.
@@ -48,6 +48,16 @@
   50%{transform:translate(var(--dx,30px),var(--dy,-26px)) scale(1.2);}
   100%{transform:translate(0,0) scale(1);}
 }
+
+/* ---- canonical top bar: pixel-identical on EVERY page ----------
+   The per-page inline styles had drifted (.wrap was 1080px on some
+   pages, 1140px on others; logo 38px vs 42px), so the bar jumped
+   sideways when navigating. These rules load last and win, locking
+   the bar to one geometry everywhere. ------------------------------ */
+.topbar .topbar-inner{max-width:1140px;margin:0 auto;padding:0 24px;min-height:46px;}
+.topbar .topbar-brand{gap:14px;}
+.topbar .topbar-brand img{width:42px;height:42px;object-fit:contain;}
+.topbar .topbar-name{font-size:19px;line-height:1.1;}
 
 /* ---- top nav: animated underline -------------------------------- */
 .topbar-nav a{position:relative;}
