@@ -129,10 +129,33 @@
   .contact dt{font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-top:14px;} .contact dt:first-child{margin-top:0;}
   .contact dd{font-size:21px;color:#fff;font-family:'PingFang TC',sans-serif;margin-top:3px;} .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);}
 
+  /* === motion === */
+  /* hero Ken Burns slow zoom */
+  .pbanner{animation:kenburns 28s ease-in-out infinite alternate;will-change:background-size,background-position;}
+  @keyframes kenburns{0%{background-size:116%;background-position:center 38%;}100%{background-size:134%;background-position:center 54%;}}
+  /* hero content staggered entrance */
+  .pbanner .eyebrow{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both;}
+  .pbanner h1{animation:heroIn 1s .12s cubic-bezier(.2,.7,.2,1) both;}
+  .pbanner .bdiv{animation:heroDiv .9s .26s cubic-bezier(.2,.7,.2,1) both;}
+  .pbanner .lede{animation:heroIn 1s .36s cubic-bezier(.2,.7,.2,1) both;}
+  .pbanner .factstrip{animation:heroIn 1s .52s cubic-bezier(.2,.7,.2,1) both;}
+  @keyframes heroIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+  @keyframes heroDiv{from{opacity:0;transform:scaleX(0);}to{opacity:1;transform:none;}}
+  /* drifting music notes */
+  .notes{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none;}
+  .notes span{position:absolute;bottom:-8%;color:rgba(255,255,255,.5);text-shadow:0 2px 12px rgba(0,0,0,.45);animation:floatUp linear infinite;}
+  @keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0;}12%{opacity:.75;}88%{opacity:.55;}100%{transform:translateY(-78vh) rotate(28deg);opacity:0;}}
+  /* pillar icons gently bob */
+  .pillar .icon{animation:bob 3.6s ease-in-out infinite;}
+  .pillar:nth-child(2) .icon{animation-delay:.5s;} .pillar:nth-child(3) .icon{animation-delay:1s;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  /* fact cards lift on hover */
+  .fact{transition:background .25s,transform .25s;} .fact:hover{background:rgba(255,255,255,.18);transform:translateY(-3px);}
+
   /* reveal-fx */
-  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}.pbanner,.pbanner *,.notes span,.pillar .icon{animation:none!important;}}
 </style>
 </head>
 <body>
@@ -147,6 +170,15 @@
   </div>
 </div></div></nav>
 <header class="pbanner" style="background-image:url('photos/hero.jpg');">
+  <div class="notes" aria-hidden="true">
+    <span style="left:8%;font-size:30px;animation-duration:13s;animation-delay:0s;">♪</span>
+    <span style="left:20%;font-size:22px;animation-duration:17s;animation-delay:3s;">♩</span>
+    <span style="left:34%;font-size:36px;animation-duration:15s;animation-delay:6s;">♫</span>
+    <span style="left:48%;font-size:24px;animation-duration:19s;animation-delay:1.5s;">♬</span>
+    <span style="left:62%;font-size:30px;animation-duration:14s;animation-delay:8s;">♪</span>
+    <span style="left:76%;font-size:26px;animation-duration:18s;animation-delay:4.5s;">♩</span>
+    <span style="left:88%;font-size:34px;animation-duration:16s;animation-delay:10s;">♫</span>
+  </div>
   <div class="bn">
     <span class="eyebrow">Tianzhong · Changhua · Est. 2003</span>
     <h1>Hsinmin Elementary School<span class="zh">彰化縣田中鎮新民國民小學</span></h1>
@@ -250,21 +282,32 @@
   </dl></div>
 </div></div></section>
 <script>
-/* reveal-fx */
+/* reveal-fx — getBoundingClientRect engine (fires on real scroll) */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.sec-head,.about-photo,.about-text,.quick,.pillar,.iegc-feat,.life-card,.exp,.visit>div,.contact,.course,.unit,.card,.lesson,.news-grid>a,.gallery img';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
-  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
-  els.forEach(function(el){io.observe(el);});
+  function reveal(){
+    var h=window.innerHeight||document.documentElement.clientHeight;
+    els.forEach(function(el){
+      if(el.classList.contains('in'))return;
+      var r=el.getBoundingClientRect();
+      if(r.top<h*0.9&&r.bottom>0){
+        var sibs=[].slice.call(el.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+        el.style.transitionDelay=(Math.max(0,sibs.indexOf(el))*90)+'ms';
+        el.classList.add('in');
+      }
+    });
+  }
+  reveal();
+  window.addEventListener('scroll',reveal,{passive:true});
+  window.addEventListener('resize',reveal);
+  window.addEventListener('load',reveal);
+  setTimeout(reveal,400);
+  /* safety: never leave content hidden */
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},4000);
 })();
 </script>
 <footer style="background:var(--plum-deep);color:rgba(255,255,255,.74);padding:38px 0 34px;font-size:18.5px;border-top:4px solid var(--gold);">
