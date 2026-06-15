@@ -71,6 +71,52 @@
   .lnav a.center{background:var(--plum-deep);color:#fff;border-color:var(--plum-deep);}
   .footer{background:var(--plum-deep);color:rgba(255,255,255,.72);text-align:center;padding:40px 0 34px;font-size:18px;margin-top:56px;} .footer a{color:var(--gold-soft);} .footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:8px;}
 
+  /* ===== English Learning Corner ===== */
+  .lz{margin:48px auto 0;max-width:780px;background:linear-gradient(180deg,var(--plum-soft),#fff 58%);border:1px solid var(--line);border-radius:22px;padding:34px 24px 40px;box-shadow:var(--shadow-sm);}
+  @media(min-width:720px){.lz{padding:42px 38px 48px;}}
+  .lz__eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--plum);background:#fff;border:1px solid var(--plum-soft);border-radius:20px;padding:5px 15px;margin-bottom:14px;}
+  .lz__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(28px,4.4vw,40px);font-weight:700;color:var(--plum-deep);line-height:1.15;}
+  .lz__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .lz__sub{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  .lz__sectlabel{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:var(--plum-deep);margin:34px 0 3px;}
+  .lz__sectlabel .num{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;font-size:16px;font-family:'Inter',sans-serif;}
+  .lz__sectlabel-zh{font-size:16px;color:var(--ink-soft);margin:0 0 18px 40px;}
+  .speak{flex-shrink:0;border:0;cursor:pointer;background:var(--plum-soft);color:var(--plum-deep);border-radius:50%;width:42px;height:42px;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s,background .15s;}
+  .speak:hover{background:var(--gold-soft);transform:scale(1.08);}
+  .speak.is-speaking{background:var(--gold);color:#fff;animation:pulse 1s infinite;}
+  .speak--sm{width:34px;height:34px;font-size:16px;}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,134,42,.5);}50%{box-shadow:0 0 0 7px rgba(184,134,42,0);}}
+  .kw-grid{display:grid;grid-template-columns:1fr;gap:14px;}@media(min-width:600px){.kw-grid{grid-template-columns:1fr 1fr;}}
+  .kw{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow-sm);}
+  .kw__top{display:flex;align-items:center;gap:12px;}
+  .kw__num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;}
+  .kw__word{flex:1;}
+  .kw__en{font-size:22px;font-weight:700;color:var(--plum-deep);}
+  .kw__pos{font-size:14px;font-weight:500;color:var(--ink-soft);margin-left:6px;}
+  .kw__zh{font-size:16px;color:var(--ink-soft);margin-top:1px;}
+  .kw__eg{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .kw__eg-txt{flex:1;}
+  .kw__eg-en{font-size:17px;color:var(--ink);line-height:1.45;}
+  .kw__eg-zh{font-size:15px;color:var(--ink-soft);margin-top:2px;}
+  .quiz{display:flex;flex-direction:column;gap:18px;}
+  .qz{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);}
+  .qz__q{display:flex;align-items:flex-start;gap:9px;font-size:19px;font-weight:600;color:var(--ink);line-height:1.5;}
+  .qz__q .num{flex-shrink:0;color:var(--gold-deep);font-weight:700;}
+  .qz__q .speak{margin-left:auto;}
+  .qz__zh{font-size:15px;color:var(--ink-soft);margin:5px 0 14px;}
+  .qz__opts{display:grid;grid-template-columns:1fr;gap:9px;}@media(min-width:520px){.qz__opts{grid-template-columns:1fr 1fr;}}
+  .opt{display:flex;align-items:center;gap:9px;text-align:left;font-family:inherit;font-size:17px;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer;transition:border-color .15s,background .15s;}
+  .opt:hover:not(:disabled){border-color:var(--plum);background:var(--plum-soft);}
+  .opt .key{flex-shrink:0;width:24px;height:24px;border-radius:6px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:700;color:var(--plum-deep);display:inline-flex;align-items:center;justify-content:center;}
+  .opt.is-correct{border-color:#2f8c5a;background:#e3f5ea;color:#1c6b40;} .opt.is-correct .key{background:#2f8c5a;color:#fff;border-color:#2f8c5a;}
+  .opt.is-wrong{border-color:#c2493a;background:#fbe4e1;color:#8a2f24;} .opt.is-wrong .key{background:#c2493a;color:#fff;border-color:#c2493a;}
+  .opt:disabled{cursor:default;}
+  .qz__fb{display:none;margin-top:12px;font-size:16px;line-height:1.6;border-radius:10px;padding:11px 14px;}
+  .qz__fb.show{display:block;}
+  .qz__fb.ok{background:#e3f5ea;color:#1c6b40;} .qz__fb.no{background:#fbe4e1;color:#8a2f24;}
+  .qz__fb b{font-weight:700;}
+  .qz__score{margin-top:18px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:var(--plum-deep);min-height:30px;}
+
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -112,8 +158,184 @@
     <p>🌟每一個影子，都留下了學習的足跡。</p>
   </div></div>
 </div>
+
+<section class="lz">
+  <span class="lz__eyebrow">English Learning Corner</span>
+  <h2 class="lz__title">Light &amp; Shadow · Words to Learn<span class="zh">英語學習角 · 光與影的小單字</span></h2>
+  <p class="lz__sub">Eight key words from the shadow puppet show, each with an example sentence — then a five-question quiz. Tap 🔊 to listen.<br><span style="color:var(--ink-soft)">八個皮影戲關鍵字，每個字配一個例句，最後有五題小考。點 🔊 聽發音。</span></p>
+
+  <div class="lz__sectlabel"><span class="num">1</span>Key Words</div>
+  <div class="lz__sectlabel-zh">關鍵字 · 點 🔊 聽單字，再點小喇叭聽整句</div>
+  <div class="kw-grid">
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">1</span>
+        <div class="kw__word"><div class="kw__en">shadow<span class="kw__pos">(n.)</span></div><div class="kw__zh">影子</div></div>
+        <button class="speak" data-speak="shadow" aria-label="Listen to shadow">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The puppets make a shadow on the screen.</div><div class="kw__eg-zh">戲偶在布幕上投出影子。</div></div>
+        <button class="speak speak--sm" data-speak="The puppets make a shadow on the screen." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">2</span>
+        <div class="kw__word"><div class="kw__en">light<span class="kw__pos">(n.)</span></div><div class="kw__zh">光</div></div>
+        <button class="speak" data-speak="light" aria-label="Listen to light">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">We need a bright light for the show.</div><div class="kw__eg-zh">表演需要明亮的光。</div></div>
+        <button class="speak speak--sm" data-speak="We need a bright light for the show." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">3</span>
+        <div class="kw__word"><div class="kw__en">puppet<span class="kw__pos">(n.)</span></div><div class="kw__zh">戲偶</div></div>
+        <button class="speak" data-speak="puppet" aria-label="Listen to puppet">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The children made their own puppets.</div><div class="kw__eg-zh">孩子們親手做了自己的戲偶。</div></div>
+        <button class="speak speak--sm" data-speak="The children made their own puppets." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">4</span>
+        <div class="kw__word"><div class="kw__en">screen<span class="kw__pos">(n.)</span></div><div class="kw__zh">布幕</div></div>
+        <button class="speak" data-speak="screen" aria-label="Listen to screen">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The puppets move behind the white screen.</div><div class="kw__eg-zh">戲偶在白色布幕後面移動。</div></div>
+        <button class="speak speak--sm" data-speak="The puppets move behind the white screen." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">5</span>
+        <div class="kw__word"><div class="kw__en">stage<span class="kw__pos">(n.)</span></div><div class="kw__zh">舞台</div></div>
+        <button class="speak" data-speak="stage" aria-label="Listen to stage">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The second-graders stood on the stage.</div><div class="kw__eg-zh">二年級小朋友站上了舞台。</div></div>
+        <button class="speak speak--sm" data-speak="The second-graders stood on the stage." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">6</span>
+        <div class="kw__word"><div class="kw__en">line<span class="kw__pos">(n.)</span></div><div class="kw__zh">台詞</div></div>
+        <button class="speak" data-speak="line" aria-label="Listen to line">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Each child practiced their lines.</div><div class="kw__eg-zh">每個孩子都練習自己的台詞。</div></div>
+        <button class="speak speak--sm" data-speak="Each child practiced their lines." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">7</span>
+        <div class="kw__word"><div class="kw__en">perform<span class="kw__pos">(v.)</span></div><div class="kw__zh">表演</div></div>
+        <button class="speak" data-speak="perform" aria-label="Listen to perform">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">They performed a shadow puppet show.</div><div class="kw__eg-zh">他們表演了一齣皮影戲。</div></div>
+        <button class="speak speak--sm" data-speak="They performed a shadow puppet show." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+    <div class="kw">
+      <div class="kw__top"><span class="kw__num">8</span>
+        <div class="kw__word"><div class="kw__en">teamwork<span class="kw__pos">(n.)</span></div><div class="kw__zh">團隊合作</div></div>
+        <button class="speak" data-speak="teamwork" aria-label="Listen to teamwork">🔊</button>
+      </div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Good teamwork made the show wonderful.</div><div class="kw__eg-zh">良好的團隊合作讓演出很精彩。</div></div>
+        <button class="speak speak--sm" data-speak="Good teamwork made the show wonderful." aria-label="Listen to the sentence">🔊</button></div>
+    </div>
+  </div>
+
+  <div class="lz__sectlabel"><span class="num">2</span>Quick Quiz</div>
+  <div class="lz__sectlabel-zh">五題小考 · 選出最合適的英文單字，點 🔊 可聽題目</div>
+  <div class="quiz">
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q1.</span><span>In the show, the children made their own ______.</span><button class="speak speak--sm" data-speak="In the show, the children made their own blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">在演出中，孩子們親手做了自己的______。</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>puppets</button>
+        <button class="opt"><span class="key">B</span>bikes</button>
+        <button class="opt"><span class="key">C</span>cakes</button>
+        <button class="opt"><span class="key">D</span>shoes</button>
+      </div>
+      <div class="qz__fb"><b>puppets</b> 戲偶 ✓ — The children made their own puppets by hand. 孩子們親手製作戲偶。</div>
+    </div>
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q2.</span><span>A shadow puppet show needs ______ to make shadows.</span><button class="speak speak--sm" data-speak="A shadow puppet show needs blank to make shadows." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">皮影戲需要______才能投出影子。</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>light</button>
+        <button class="opt"><span class="key">B</span>rain</button>
+        <button class="opt"><span class="key">C</span>snow</button>
+        <button class="opt"><span class="key">D</span>wind</button>
+      </div>
+      <div class="qz__fb"><b>light</b> 光 ✓ — Without light, there are no shadows. 沒有光就沒有影子。</div>
+    </div>
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q3.</span><span>The performers moved the puppets behind the ______.</span><button class="speak speak--sm" data-speak="The performers moved the puppets behind the blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">表演者在______後面操作戲偶。</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>screen</button>
+        <button class="opt"><span class="key">B</span>tree</button>
+        <button class="opt"><span class="key">C</span>wall</button>
+        <button class="opt"><span class="key">D</span>door</button>
+      </div>
+      <div class="qz__fb"><b>screen</b> 布幕 ✓ — The puppets move behind the white screen. 戲偶在白色布幕後方移動。</div>
+    </div>
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q4.</span><span>Before the show, the children practiced their ______.</span><button class="speak speak--sm" data-speak="Before the show, the children practiced their blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">演出前，孩子們練習了他們的______。</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>lines</button>
+        <button class="opt"><span class="key">B</span>lunch</button>
+        <button class="opt"><span class="key">C</span>beds</button>
+        <button class="opt"><span class="key">D</span>cars</button>
+      </div>
+      <div class="qz__fb"><b>lines</b> 台詞 ✓ — Each child practiced their lines before the show. 每個孩子演出前都練習台詞。</div>
+    </div>
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q5.</span><span>Finishing the show together needs good ______.</span><button class="speak speak--sm" data-speak="Finishing the show together needs good blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">一起完成演出需要良好的______。</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>teamwork</button>
+        <button class="opt"><span class="key">B</span>homework</button>
+        <button class="opt"><span class="key">C</span>weather</button>
+        <button class="opt"><span class="key">D</span>traffic</button>
+      </div>
+      <div class="qz__fb"><b>teamwork</b> 團隊合作 ✓ — A good show needs everyone to work together. 一場好演出需要大家合作。</div>
+    </div>
+  </div>
+  <div class="qz__score" id="qzScore"></div>
+</section>
+
 <nav class="lnav"><span></span><a href="../" class="center">&uarr; All News &middot; 回消息列表</a><a href="../taiwan-us-exchange/">Taiwan–US Student Exchange · Music Without Borders &rarr;</a></nav>
 </div></main>
+<script>
+/* ===== Text-to-speech (🔊) + Quiz ===== */
+(function(){
+  var voices=[];
+  function load(){voices=(window.speechSynthesis?speechSynthesis.getVoices():[])||[];}
+  load(); if(typeof speechSynthesis!=='undefined') speechSynthesis.onvoiceschanged=load;
+  function pick(){ if(!voices.length) return null;
+    return voices.find(function(v){return /en[-_]US/i.test(v.lang)&&/samantha|female|google us english|aria|jenny/i.test(v.name);})
+      ||voices.find(function(v){return /en[-_]US/i.test(v.lang);})
+      ||voices.find(function(v){return /^en/i.test(v.lang);})||voices[0]; }
+  function speak(text,btn){
+    if(!('speechSynthesis' in window)) return;
+    speechSynthesis.cancel();
+    document.querySelectorAll('.speak.is-speaking').forEach(function(b){b.classList.remove('is-speaking');});
+    var u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=0.85; u.pitch=1.05;
+    var v=pick(); if(v) u.voice=v;
+    if(btn){ btn.classList.add('is-speaking'); u.onend=function(){btn.classList.remove('is-speaking');}; u.onerror=function(){btn.classList.remove('is-speaking');}; }
+    speechSynthesis.speak(u);
+  }
+  document.querySelectorAll('[data-speak]').forEach(function(b){ b.addEventListener('click',function(){ speak(b.getAttribute('data-speak'),b); }); });
+
+  /* Quiz */
+  var qzs=[].slice.call(document.querySelectorAll('.qz')); var total=qzs.length, answered=0, correct=0;
+  var scoreEl=document.getElementById('qzScore');
+  qzs.forEach(function(q){
+    var opts=[].slice.call(q.querySelectorAll('.opt')); var fb=q.querySelector('.qz__fb'); var done=false;
+    opts.forEach(function(o){
+      o.addEventListener('click',function(){
+        if(done) return; done=true; answered++;
+        if(o.hasAttribute('data-ok')){ correct++; o.classList.add('is-correct'); fb.classList.add('ok'); }
+        else{ o.classList.add('is-wrong'); opts.forEach(function(x){ if(x.hasAttribute('data-ok')) x.classList.add('is-correct'); }); fb.classList.add('no'); }
+        fb.classList.add('show');
+        opts.forEach(function(x){ x.disabled=true; });
+        if(answered===total && scoreEl){ scoreEl.textContent='🎉 '+correct+' / '+total+(correct===total?' — Perfect! 全對！':''); }
+      });
+    });
+  });
+})();
+</script>
 <script>
 /* reveal-fx */
 (function(){
