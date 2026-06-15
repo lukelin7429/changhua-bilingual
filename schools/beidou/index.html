@@ -54,6 +54,19 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   .serif{font-family:'Playfair Display','PingFang TC',serif;}
 
+  /* ===== Top Bar ===== */
+  .subnav{background:var(--green-soft);padding:16px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+  .subnav a{color:var(--green-deep);text-decoration:none;font-weight:700;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap;}
+  .subnav a:hover{background:#fff;color:var(--red);}
+  .subnav a.is-active{background:var(--green);color:#fff;}
+  .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
+  .unit[href]{text-decoration:none;color:inherit;}
+  .unit__desc{font-size:17px;color:var(--ink-soft);line-height:1.6;margin-top:10px;}
+  .unit__go{display:inline-block;margin-top:14px;color:var(--red);font-weight:700;font-size:17px;}
+
   /* ===== Banner (badge + brand gradient, no people, no muddy overlay) ===== */
   .banner{
     position:relative;min-height:300px;display:flex;align-items:center;
@@ -214,6 +227,15 @@
 </head>
 <body>
 
+<nav class="subnav">
+  <div class="wrap"><div class="subnav__inner">
+    <a href="./" class="is-active">Home</a><span class="subnav__sep">·</span>
+    <a href="principal/">Principal</a><span class="subnav__sep">·</span>
+    <a href="news/">News</a><span class="subnav__sep">·</span>
+    <a href="lessons/">Lessons</a>
+  </div></div>
+</nav>
+
 <!-- ===== Banner ===== -->
 <header class="banner">
   <div class="banner__inner">
@@ -263,205 +285,41 @@
   </div>
 </section>
 
-<!-- ===== Eco-School ===== -->
-<section id="eco" style="background:var(--cream)">
+<!-- ===== Explore ===== -->
+<section id="explore" style="background:var(--cream)">
   <div class="wrap">
     <div class="sec__no serif">02</div>
-    <h2 class="sec__title serif">Taiwan-American Eco-School</h2>
-    <div class="sec__title-zh">臺美生態學校 · A Model for Sustainability</div>
+    <h2 class="sec__title serif">Explore Beidou</h2>
+    <div class="sec__title-zh">探索北斗 · 校長室、最新消息、雙語課程</div>
     <div class="sec__rule"></div>
-
-    <div class="prose">
-      <p class="en">Beidou Elementary promotes sustainability through its Taiwan-American Eco-School Initiative, focusing on sustainable food practices and waste reduction. By integrating the United Nations Sustainable Development Goals (SDGs) into everyday learning, the school is shaping a greener future and inspiring young minds to become responsible global citizens.</p>
-      <p class="zh">北斗國小透過臺美生態學校計畫推動永續，聚焦永續食物與廢棄物減量兩大主題，將聯合國永續發展目標（SDGs）融入日常學習，打造更綠色的未來，培養學生成為負責任的全球公民。</p>
-    </div>
-
-    <div class="block">
-      <div class="block__h serif">Sustainable Food: Local Ingredients<span class="bz">永續食物：在地好食材（SDG 2 &amp; 12）</span></div>
-      <div class="prose">
-        <p class="en">Students and teachers grow coriander, strawberries, bok choy, and cherry tomatoes, gaining hands-on experience in food production. The school also promotes food appreciation and waste reduction — encouraging students to avoid picky eating and to take home leftover lunch food.</p>
-        <p class="zh">師生共同種植香菜、草莓、小白菜與小番茄，從做中學了解食物來源。學校也提倡珍惜食物與減少浪費，鼓勵學生不偏食，並將午餐剩食打包帶回家。</p>
-      </div>
-      <div class="tagrow"><span class="tag">SDG 2 消除飢餓 Zero Hunger</span><span class="tag">SDG 12 負責任消費 Responsible Consumption</span></div>
-    </div>
-
-    <div class="block">
-      <div class="block__h serif">Waste Reduction &amp; Recycling<span class="bz">廢棄物減量與回收：小行動，大影響（SDG 11 &amp; 13）</span></div>
-      <div class="prose">
-        <p class="en">The school organizes waste sorting and recycling and promotes a plastic-free lifestyle. To deepen environmental education, Beidou partners with local groups — the Tzu Chi Foundation teaches students to reuse packing straps, and the Maple Eco-School offers lessons on making eco-friendly soap.</p>
-        <p class="zh">學校定期舉辦垃圾分類與資源回收，並推廣減塑生活。為深化環境教育，北斗與在地團體合作——慈濟基金會教導學生重複利用打包帶，楓樹環保小學堂教授製作環保皂。</p>
-      </div>
-      <div class="tagrow"><span class="tag">SDG 11 永續城鄉</span><span class="tag">SDG 13 氣候行動</span></div>
-    </div>
-
-    <div class="block">
-      <div class="block__h serif">Silver Certification<span class="bz">榮獲生態學校銀牌認證</span></div>
-      <div class="prose">
-        <p class="en">Thanks to the dedication of teachers, students, parents, and community volunteers, Beidou earned <strong>Silver Certification</strong> in the Taiwan-American Eco-School Initiative in 2024. Here, sustainability is more than a concept — it is a way of life.</p>
-        <p class="zh">在老師、學生、家長與社區志工的共同努力下，北斗國小於 2024 年獲得臺美生態學校<strong>銀牌認證</strong>。在北斗，永續不只是理念，而是一種生活方式。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Disaster Preparedness ===== -->
-<section id="safety">
-  <div class="wrap">
-    <div class="sec__no serif">03</div>
-    <h2 class="sec__title serif">Learning Safety Through Play</h2>
-    <div class="sec__title-zh">防災教育 · Disaster Preparedness</div>
-    <div class="sec__rule"></div>
-
-    <div class="block">
-      <div class="block__h serif">🔥 Fire Safety<span class="bz">火災安全</span></div>
-      <div class="prose">
-        <p class="en">Fire safety is specialized knowledge, yet fire scenarios are diverse and variable. Through a fun, gamified approach, students improve their fire-escape knowledge and learn to choose the right response.</p>
-        <p class="zh">火災安全是一項專業知識，但火災情境多樣多變。我們透過遊戲化的方式，讓學生在輕鬆有趣中增進火災逃生知識，學會正確應變。</p>
-      </div>
-    </div>
-    <div class="block">
-      <div class="block__h serif">⛈️ Thunderstorm Safety<span class="bz">雷雨安全</span></div>
-      <div class="prose">
-        <p class="en">Thunderstorms develop quickly and are hard to predict. Using realistic simulations, students learn how to assess risks and make the safest decisions when a storm strikes.</p>
-        <p class="zh">雷雨發生迅速且難以預測。我們透過模擬真實情境的遊戲，讓學生學會判斷風險，在雷雨來襲時做出最安全的應變。</p>
-      </div>
-    </div>
-    <div class="block">
-      <div class="block__h serif">🌏 Earthquake Safety<span class="bz">地震安全</span></div>
-      <div class="prose">
-        <p class="en">Earthquakes cannot be precisely predicted, but an early-warning system buys precious seconds. Through gamified scenarios, students learn the correct actions to take the moment a warning sounds.</p>
-        <p class="zh">地震無法精準預測，但地震預警系統能爭取寶貴的幾秒鐘。我們透過遊戲化情境，讓學生學會在預警響起時做出最正確的反應。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Winter Camp ===== -->
-<section id="camp" style="background:var(--cream)">
-  <div class="wrap">
-    <div class="sec__no serif">04</div>
-    <h2 class="sec__title serif">Winter Camp with Teacher Anna</h2>
-    <div class="sec__title-zh">英語冬令營 · Cooking &amp; Eco-Vocabulary</div>
-    <div class="sec__rule"></div>
-
-    <div class="prose">
-      <p class="en">In our English Winter Camp, a foreign teacher leads students through hands-on activities — including cooking the Filipino dessert <strong>bilo-bilo</strong> — while picking up everyday English and eco-vocabulary along the way.</p>
-      <p class="zh">在英語冬令營中，外師帶領學生動手做菲律賓甜點 <strong>bilo-bilo</strong>，一邊烹飪一邊學習生活英語與環保詞彙。</p>
-    </div>
-
-    <div class="block">
-      <div class="block__h serif">🌱 Eco-Vocabulary<span class="bz">環保詞彙小教室</span></div>
-      <div class="prose">
-        <p class="en"><strong>Recycle</strong> — things like bottles, paper, or cans that you would normally throw away, turned into new things that can be used again.</p>
-        <p class="zh"><strong>回收 Recycle</strong>——瓶子、紙張或罐頭之類本來會丟掉的東西，把它們變成可以再次使用的新東西。</p>
-        <p class="en"><strong>Garbage / Trash</strong> — things you don't want anymore and throw away; not useful anymore.</p>
-        <p class="zh"><strong>垃圾 Garbage</strong>——不再想要、丟掉的東西，不再有用了。</p>
-      </div>
-      <div class="tagrow"><span class="tag gold">🍡 bilo-bilo 甜點</span><span class="tag">♻️ recycle 回收</span><span class="tag red">🗑️ garbage 垃圾</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Vocabulary Units ===== -->
-<section id="words">
-  <div class="wrap">
-    <div class="sec__no serif">05</div>
-    <h2 class="sec__title serif">Words From School Life</h2>
-    <div class="sec__title-zh">雙語詞彙 · Vocabulary From Everyday Learning</div>
-    <div class="sec__rule"></div>
-
     <div class="units">
-      <div class="unit u1">
-        <div class="unit__hero">🏫</div>
+      <a class="unit u1" href="principal/">
+        <div class="unit__hero">👩‍💼</div>
         <div class="unit__body">
-          <div class="unit__tag">Unit 01 · Campus</div>
-          <div class="unit__title serif">School Life<span class="uz">校園生活</span></div>
-          <div class="vc">
-            <span><b>playground</b><i>遊樂場</i></span>
-            <span><b>magician</b><i>魔術師</i></span>
-            <span><b>graduation</b><i>畢業典禮</i></span>
-            <span><b>ceremony</b><i>儀式</i></span>
-            <span><b>perform</b><i>表演</i></span>
-            <span><b>cross the street</b><i>過馬路</i></span>
-          </div>
+          <div class="unit__tag">Principal · 校長室</div>
+          <div class="unit__title serif">Meet the Principal<span class="uz">認識校長</span></div>
+          <div class="unit__desc">游美雯校長的學經歷與辦學願景。<br>Principal Yu Mei-wen’s background and vision.</div>
+          <span class="unit__go">Learn more →</span>
         </div>
-      </div>
-      <div class="unit u2">
-        <div class="unit__hero">🛡️</div>
+      </a>
+      <a class="unit u2" href="news/">
+        <div class="unit__hero">📰</div>
         <div class="unit__body">
-          <div class="unit__tag">Unit 02 · Safety</div>
-          <div class="unit__title serif">Drills &amp; Contests<span class="uz">防災與競賽</span></div>
-          <div class="vc">
-            <span><b>earthquake drill</b><i>地震演練</i></span>
-            <span><b>cover heads</b><i>遮蓋頭部</i></span>
-            <span><b>animal protection</b><i>動物保育</i></span>
-            <span><b>cilantro</b><i>香菜</i></span>
-            <span><b>farm to table</b><i>農場到餐桌</i></span>
-          </div>
+          <div class="unit__tag">News · 最新消息</div>
+          <div class="unit__title serif">News &amp; Stories<span class="uz">校園的精彩時刻</span></div>
+          <div class="unit__desc">愛心義賣、生態銀牌、食農參訪、學生獲獎…<br>Charity, eco-certification, visits and awards.</div>
+          <span class="unit__go">Read the news →</span>
         </div>
-      </div>
-      <div class="unit u3">
-        <div class="unit__hero">🏮</div>
+      </a>
+      <a class="unit u4" href="lessons/">
+        <div class="unit__hero">📚</div>
         <div class="unit__body">
-          <div class="unit__tag">Unit 03 · Community</div>
-          <div class="unit__title serif">Community Walk<span class="uz">社區走讀</span></div>
-          <div class="vc">
-            <span><b>neighborhood</b><i>社區</i></span>
-            <span><b>volunteers</b><i>志工</i></span>
-            <span><b>popcorn</b><i>爆米花</i></span>
-            <span><b>calligraphy brushes</b><i>毛筆</i></span>
-            <span><b>red envelopes</b><i>紅包</i></span>
-            <span><b>togetherness</b><i>團圓</i></span>
-          </div>
+          <div class="unit__tag">Lessons · 雙語課程</div>
+          <div class="unit__title serif">Bilingual Lessons<span class="uz">從生活學英語</span></div>
+          <div class="unit__desc">詞彙、生態學校、防災、冬令營、節慶、課室英語與廣播。<br>Vocabulary, eco, safety, festivals, classroom English &amp; broadcasts.</div>
+          <span class="unit__go">Start learning →</span>
         </div>
-      </div>
-      <div class="unit u4">
-        <div class="unit__hero">♻️</div>
-        <div class="unit__body">
-          <div class="unit__tag">Unit 04 · Sustainability</div>
-          <div class="unit__title serif">Charity &amp; Reuse<span class="uz">義賣與環保</span></div>
-          <div class="vc">
-            <span><b>second hand</b><i>二手</i></span>
-            <span><b>donate</b><i>捐助</i></span>
-            <span><b>flea market</b><i>跳蚤市場</i></span>
-            <span><b>building blocks</b><i>積木</i></span>
-            <span><b>reuse resources</b><i>循環再利用</i></span>
-            <span><b>carbon emissions</b><i>碳排放</i></span>
-          </div>
-        </div>
-      </div>
-      <div class="unit u5">
-        <div class="unit__hero">🍲</div>
-        <div class="unit__body">
-          <div class="unit__tag">Unit 05 · Daily Life</div>
-          <div class="unit__title serif">Food &amp; Life<span class="uz">美食與生活</span></div>
-          <div class="vc">
-            <span><b>cilantro hot pot</b><i>香菜火鍋</i></span>
-            <span><b>chef</b><i>廚師</i></span>
-            <span><b>gift exchange</b><i>交換禮物</i></span>
-            <span><b>aquatic animals</b><i>水生生物</i></span>
-            <span><b>tug-of-war</b><i>拔河</i></span>
-            <span><b>teamwork</b><i>團隊合作</i></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Charity ===== -->
-<section id="charity" style="background:var(--cream)">
-  <div class="wrap">
-    <div class="sec__no serif">06</div>
-    <h2 class="sec__title serif">A Market Full of Love</h2>
-    <div class="sec__title-zh">愛心義賣市集 · Second-Hand Charity Fair</div>
-    <div class="sec__rule"></div>
-
-    <div class="prose">
-      <p class="en">With a loud gong, Beidou Elementary opened its second-hand charity fair. Students ran booths filled with toys, school supplies, and daily items — and a special highlight was the English-speaking booths run by foreign teachers, where every transaction was conducted in English. The Principal, parents, and local leaders struck the "love gong" to open the fair, which began with a string-music performance.</p>
-      <p class="zh">隨著一聲響亮的鑼聲，北斗國小的二手愛心義賣市集熱鬧開幕。學生們經營著擺滿玩具、文具與日常用品的攤位，特別的亮點是外師負責的英語攤位，所有交易都以英語完成。校長、家長與地方領袖一同敲響「愛的鑼聲」揭幕，活動以弦樂表演揭開序幕。</p>
-      <p class="en">The proceeds were donated to World Vision to support children in need, and the Parent Association sold gift boxes to raise funds for disadvantaged students. The fair taught students to value resources, care for others, and make thoughtful spending decisions.</p>
-      <p class="zh">義賣所得捐給世界展望會，幫助需要幫助的孩子；家長會也販售禮盒，為校內弱勢學生籌款。這場市集教導學生珍惜資源、關懷他人，並培養明智的消費觀念。</p>
+      </a>
     </div>
   </div>
 </section>
