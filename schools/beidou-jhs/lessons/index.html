@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="canonical" href="https://changhua-bilingual.org/schools/beidou-jhs/lessons/">
-<title>Bilingual Lessons · Beidou Junior High School</title>
-<meta name="description" content="Beidou JHS Bilingual Lessons — 6 courses: Word of the Day, Bilingual Science, Classroom English, Bilingual Broadcast, 2000 Vocabulary, Drone English. 北斗國中雙語課程入口：每日一字、雙語科學、課室英語、廣播英語、國中2000單字、無人機英語。">
+<title>Lessons · Beidou Junior High School</title>
+<meta name="description" content="Beidou JHS Lessons hub — courses (Word of the Day, Bilingual Science, Classroom English, Bilingual Broadcast, 2000 Vocabulary, Drone English), bilingual campus tours, and 16 world-festival lessons, all in one place. 北斗國中雙語學習中心：課程、雙語校園導覽、節慶英語，集中一站。">
 <link rel="icon" type="image/x-icon" href="/schools/beidou-jhs/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/beidou-jhs/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/beidou-jhs/favicon-192.png">
@@ -46,22 +46,33 @@
   @media(min-width:720px){.banner{padding:44px 24px 50px;}}
   .banner::before{content:'';position:absolute;top:-40px;right:-40px;width:260px;height:260px;background:radial-gradient(circle,var(--gold) 0%,transparent 65%);opacity:.18;border-radius:50%;}
   .banner::after{content:'';position:absolute;bottom:-50px;left:-50px;width:220px;height:220px;background:radial-gradient(circle,var(--teal) 0%,transparent 65%);opacity:.22;border-radius:50%;}
-  .banner__inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+  .banner__inner{position:relative;z-index:1;max-width:820px;margin:0 auto;}
   .banner h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;letter-spacing:1px;line-height:1.1;}
   @media(min-width:720px){.banner h1{font-size:72px;}}
   .banner__zh{font-size:19px;color:#c9daea;margin-top:8px;font-weight:500;letter-spacing:2px;}
   @media(min-width:720px){.banner__zh{font-size:24px;}}
+  .banner__lede{font-size:17px;color:#aec6de;margin-top:14px;line-height:1.6;}
+  @media(min-width:720px){.banner__lede{font-size:19px;}}
+
+  /* === Quick jump chips === */
+  .jump{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:16px 0;}
+  .jump__inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .jump a{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:9px 18px;text-decoration:none;color:var(--navy-deep);font-weight:700;font-size:16px;transition:all .15s;}
+  @media(min-width:720px){.jump a{font-size:18px;}}
+  .jump a:hover{border-color:var(--gold);background:var(--gold-soft);color:var(--gold-deep);}
 
   /* === Section === */
-  section{padding:64px 0;}
+  section{padding:56px 0;}
+  @media(min-width:720px){section{padding:72px 0;}}
   .sec__title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--navy-deep);line-height:1.15;text-align:center;letter-spacing:.5px;}
   @media(min-width:720px){.sec__title{font-size:52px;}}
   .sec__title-zh{font-size:20px;color:var(--ink-soft);font-weight:500;margin-top:8px;text-align:center;}
   @media(min-width:720px){.sec__title-zh{font-size:24px;}}
   .sec__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:18px auto 44px;}
+  .sec--soft{background:var(--bg-soft);}
 
   /* === Course cards — horizontal compact list === */
-  .courses{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);}
+  .courses{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);background:#fff;}
   .course{display:flex;flex-direction:row;align-items:stretch;background:#fff;border:none;border-radius:0;box-shadow:none;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .18s;min-height:160px;}
   .course:last-child{border-bottom:none;}
   .course:hover{background:var(--bg-soft);}
@@ -99,6 +110,34 @@
     .course__cta .arrow{font-size:22px;}
   }
 
+  /* === Campus hub cards === */
+  .hub-cards{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:720px){.hub-cards{grid-template-columns:1fr 1fr;gap:26px;}}
+  .hub-card{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;border-top:6px solid var(--teal);}
+  .hub-card:nth-child(2){border-top-color:var(--navy);}
+  .hub-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .hub-card:hover .hub-card__emoji{transform:scale(1.1);}
+  .hub-card__emoji{font-size:52px;line-height:1;flex-shrink:0;transition:transform .25s;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));}
+  @media(min-width:720px){.hub-card__emoji{font-size:60px;}}
+  .hub-card__t{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy-deep);line-height:1.15;}
+  @media(min-width:720px){.hub-card__t{font-size:32px;}}
+  .hub-card__zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:3px;}
+  @media(min-width:720px){.hub-card__zh{font-size:19px;}}
+  .hub-card__d{font-size:16px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
+  @media(min-width:720px){.hub-card__d{font-size:17px;}}
+  .hub-card__go{display:inline-block;font-size:15px;font-weight:700;color:var(--gold-deep);margin-top:12px;font-family:'Cormorant Garamond',serif;letter-spacing:.5px;}
+
+  /* === Festival cards === */
+  .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(min-width:680px){.fgrid{grid-template-columns:repeat(3,1fr);gap:20px;}}
+  @media(min-width:1000px){.fgrid{grid-template-columns:repeat(4,1fr);}}
+  .fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 16px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;color:inherit;text-decoration:none;}
+  .fcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .fcard .em{font-size:52px;line-height:1;transition:transform .25s;}
+  .fcard:hover .em{transform:scale(1.1) rotate(-4deg);}
+  .fcard .t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--navy-deep);margin-top:12px;line-height:1.15;}
+  .fcard .z{font-size:16px;color:var(--ink-soft);margin-top:4px;}
+  .fcard .go{margin-top:12px;font-size:14px;font-weight:700;color:var(--gold-deep);font-family:'Cormorant Garamond',serif;letter-spacing:.4px;}
 
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
   @media(min-width:720px){footer{font-size:19px;}}
@@ -119,9 +158,7 @@
       <span class="subnav__sep">·</span>
       <a href="../principal/">Principal</a>
       <span class="subnav__sep">·</span>
-      <a href="../bilingual-campus/">Bilingual Campus</a>
-      <span class="subnav__sep">·</span>
-      <a href="./" class="is-active">Bilingual Lessons</a>
+      <a href="./" class="is-active">Lessons</a>
       <span class="subnav__sep">·</span>
       <a href="../news/">News</a>
     </div>
@@ -130,15 +167,27 @@
 
 <header class="banner">
   <div class="banner__inner">
-    <h1>Bilingual Lessons</h1>
-    <div class="banner__zh">雙語課程</div>
+    <h1>Lessons</h1>
+    <div class="banner__zh">雙語學習中心</div>
+    <p class="banner__lede">Courses, campus tours in English, and festivals from around the world — choose a card and start learning.<br>課程、英文校園導覽、世界節慶英語，選一張卡片就開始。</p>
   </div>
 </header>
 
-<section>
+<div class="jump">
   <div class="wrap">
-    <h2 class="sec__title">All Courses</h2>
-    <div class="sec__title-zh">全部 6 門課程 · 點選進入學習</div>
+    <div class="jump__inner">
+      <a href="#courses">📚 Courses · 課程</a>
+      <a href="#campus">🏫 Campus · 雙語校園</a>
+      <a href="#festivals">🎊 Festivals · 節慶</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Courses ===== -->
+<section id="courses">
+  <div class="wrap">
+    <h2 class="sec__title">Courses</h2>
+    <div class="sec__title-zh">雙語課程 · 6 門課，點選進入學習</div>
     <div class="sec__rule"></div>
 
     <div class="courses">
@@ -150,7 +199,7 @@
           <div class="course__tag">Course 01 · Vocabulary</div>
           <div class="course__title">Word of the Day</div>
           <div class="course__title-zh">北斗國中每日一字 · 自製雙語詞彙影片</div>
-          <p class="course__desc">29 bilingual vocabulary videos made by Beidou JHS, organized into five themed units. Pick a unit, press play, and add one word to your day.</p>
+          <p class="course__desc">29 bilingual vocabulary videos made by Beidou JHS, organized into five themed units.</p>
           <div class="course__pills">
             <span class="course__pill">🏃 Sports</span>
             <span class="course__pill">🏫 Campus</span>
@@ -186,7 +235,7 @@
           <div class="course__tag">Course 03 · Teacher Resources</div>
           <div class="course__title">Classroom English</div>
           <div class="course__title-zh">課室英語 · 老師的口袋句庫</div>
-          <p class="course__desc">36 bilingual classroom phrases organized into 11 situations — greetings, roll call, explanations, feedback, management, exams and more. Practical English for every teacher, every day.</p>
+          <p class="course__desc">36 bilingual classroom phrases organized into 11 situations — greetings, roll call, explanations, feedback, management, exams and more.</p>
           <div class="course__pills">
             <span class="course__pill">📢 36 Videos</span>
             <span class="course__pill">🗂 11 Situations</span>
@@ -203,7 +252,7 @@
           <div class="course__tag">Course 04 · School Announcements</div>
           <div class="course__title">Bilingual Broadcast</div>
           <div class="course__title-zh">廣播英語 · 四處室雙語廣播全系列</div>
-          <p class="course__desc">13 episodes of bilingual school announcements — Academic Affairs, Student Affairs, General Affairs, and Counselling. When the school bell rings in two languages.</p>
+          <p class="course__desc">13 episodes of bilingual school announcements — Academic Affairs, Student Affairs, General Affairs, and Counselling.</p>
           <div class="course__pills">
             <span class="course__pill">🎙 13 Episodes</span>
             <span class="course__pill">🏫 4 Offices</span>
@@ -220,7 +269,7 @@
           <div class="course__tag">Course 05 · Vocabulary Practice</div>
           <div class="course__title">2000 Vocabulary</div>
           <div class="course__title-zh">國中2000單字練習 · 互動式單字卡與測驗</div>
-          <p class="course__desc">Interactive flashcards and quizzes based on Taiwan's Ministry of Education 2000-word list. Flip cards, answer multiple-choice questions, and earn stars — 1,658 words across 4 stages — all ready to practice now.</p>
+          <p class="course__desc">Interactive flashcards and quizzes based on Taiwan's Ministry of Education 2000-word list — 1,658 words across 4 stages.</p>
           <div class="course__pills">
             <span class="course__pill">🃏 Flashcards</span>
             <span class="course__pill">🎯 Quiz</span>
@@ -251,7 +300,65 @@
       </a>
 
     </div>
+  </div>
+</section>
 
+<!-- ===== Bilingual Campus ===== -->
+<section id="campus" class="sec--soft">
+  <div class="wrap">
+    <h2 class="sec__title">Bilingual Campus</h2>
+    <div class="sec__title-zh">雙語校園 · 用英文認識北斗國中</div>
+    <div class="sec__rule"></div>
+
+    <div class="hub-cards">
+      <a class="hub-card" href="../bilingual-campus/">
+        <div class="hub-card__emoji">🏫</div>
+        <div>
+          <div class="hub-card__t">Campus Tour</div>
+          <div class="hub-card__zh">英文校園導覽</div>
+          <div class="hub-card__d">5 bilingual videos walk you through Beidou JHS in English — the school gate, the turtle pond, the tree-climbing club, the Principal's Office, and a full school introduction.</div>
+          <span class="hub-card__go">Explore →</span>
+        </div>
+      </a>
+
+      <a class="hub-card" href="../bilingual-campus/#teacher">
+        <div class="hub-card__emoji">👩‍🏫</div>
+        <div>
+          <div class="hub-card__t">Teacher Aileen's Hub</div>
+          <div class="hub-card__zh">外師英語教學中心</div>
+          <div class="hub-card__d">Meet Teacher Aileen Sim, our Foreign English Teacher from the Philippines, and explore her bilingual teaching resources, worksheets and self-introduction.</div>
+          <span class="hub-card__go">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Festivals ===== -->
+<section id="festivals">
+  <div class="wrap">
+    <h2 class="sec__title">Festivals</h2>
+    <div class="sec__title-zh">節慶英語 · 用節慶認識世界，16 個雙語節慶</div>
+    <div class="sec__rule"></div>
+
+    <div class="fgrid">
+      <a class="fcard" href="/schools/beidou-jhs/festivals/new-years-day/"><div class="em">🎆</div><div class="t">New Year's Day</div><div class="z">元旦</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/chinese-new-year/"><div class="em">🧧</div><div class="t">Lunar New Year</div><div class="z">農曆新年</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/lantern-festival/"><div class="em">🏮</div><div class="t">Lantern Festival</div><div class="z">元宵節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/tomb-sweeping-day/"><div class="em">🌳</div><div class="t">Tomb-Sweeping Day</div><div class="z">清明節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/easter/"><div class="em">🐰</div><div class="t">Easter</div><div class="z">復活節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/earth-day/"><div class="em">🌏</div><div class="t">Earth Day</div><div class="z">地球日</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/world-book-day/"><div class="em">📚</div><div class="t">World Book Day</div><div class="z">世界閱讀日</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/mothers-day/"><div class="em">💐</div><div class="t">Mother's Day</div><div class="z">母親節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/dragon-boat-festival/"><div class="em">🐉</div><div class="t">Dragon Boat Festival</div><div class="z">端午節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/childrens-day-international/"><div class="em">🎈</div><div class="t">Children's Day</div><div class="z">兒童節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/fathers-day/"><div class="em">👔</div><div class="t">Father's Day</div><div class="z">父親節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/teachers-day/"><div class="em">🍎</div><div class="t">Teachers' Day</div><div class="z">教師節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/mid-autumn-festival/"><div class="em">🥮</div><div class="t">Mid-Autumn Festival</div><div class="z">中秋節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/halloween/"><div class="em">🎃</div><div class="t">Halloween</div><div class="z">萬聖節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/thanksgiving/"><div class="em">🦃</div><div class="t">Thanksgiving</div><div class="z">感恩節</div><div class="go">Explore →</div></a>
+      <a class="fcard" href="/schools/beidou-jhs/festivals/christmas/"><div class="em">🎄</div><div class="t">Christmas</div><div class="z">聖誕節</div><div class="go">Explore →</div></a>
+    </div>
   </div>
 </section>
 
@@ -259,7 +366,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.hub-card,.fcard,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
@@ -279,4 +386,3 @@
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 </body>
 </html>
-
