@@ -33,11 +33,11 @@
     document.body.appendChild(toTop);
 
     /* ---------- HERO: entrance + ambient orbs ---------- */
-    var hero=document.querySelector('.banner,.title,.page-banner,.th-fest-hero,.unit-hero');
+    var hero=document.querySelector('.banner,.page-hero,.title,.page-banner,.th-fest-hero,.unit-hero');
     if(hero){
       if(getComputedStyle(hero).position==='static') hero.style.position='relative';
 
-      var inner=hero.querySelector(':scope > .wrap, :scope > .banner__inner, :scope > .th-fest-hero__inner') || hero;
+      var inner=hero.querySelector(':scope > .wrap, :scope > .banner__inner, :scope > .page-hero__inner, :scope > .th-fest-hero__inner') || hero;
       var kids=[].slice.call(inner.children);          /* capture BEFORE adding orbs */
       inner.classList.add('mo-hero');
       kids.forEach(function(c,i){ c.style.animationDelay=(0.14+i*0.13)+'s'; });
