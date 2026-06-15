@@ -81,25 +81,28 @@ section:last-of-type{border-bottom:none;}
 .prog-card .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);line-height:1.85;padding-top:12px;border-top:1px dashed var(--line);margin-top:10px;}
 .prog-card .grades{display:inline-block;margin-top:12px;padding:4px 12px;background:var(--amber-soft);color:var(--amber-deep);font-size:13px;font-weight:700;border-radius:99px;letter-spacing:.06em;}
 
-/* --- PART B: FESTIVAL ENGLISH --- */
+/* --- PART B: FESTIVAL ENGLISH (16-festival mini-card grid) --- */
 .festival{background:linear-gradient(180deg,var(--jade-soft) 0%,#fff 80%);}
-.fest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-@media(max-width:720px){.fest-grid{grid-template-columns:1fr;}}
-.fest-card{background:#fff;border-radius:16px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .22s,box-shadow .22s;}
-.fest-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-.fest-card__img{aspect-ratio:4/3;overflow:hidden;background:var(--jade-soft);}
-.fest-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
-.fest-card:hover .fest-card__img img{transform:scale(1.04);}
-.fest-card__body{padding:22px 22px 24px;}
-.fest-card .season{font-size:28px;margin-bottom:8px;}
-.fest-card h3{font-family:'Playfair Display','PingFang TC',serif;font-size:26px;font-weight:600;color:var(--jade);line-height:1.2;margin-bottom:4px;}
-.fest-card h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
-.fest-card .en{font-size:16px;color:var(--ink);line-height:1.72;margin:12px 0 8px;}
-.fest-card .zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);line-height:1.85;padding-top:10px;border-top:1px dashed var(--line);margin-top:8px;}
-.fest-network{background:var(--jade-soft);border:1px solid var(--jade);border-radius:12px;padding:16px 20px;margin-top:28px;display:flex;align-items:flex-start;gap:14px;}
-.fest-network .badge{flex-shrink:0;background:var(--jade);color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:6px;margin-top:2px;}
-.fest-network p{font-size:16px;color:var(--jade);line-height:1.65;}
-.fest-network p .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:4px;}
+.fest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+@media(min-width:680px){.fest-grid{grid-template-columns:repeat(3,1fr);gap:18px;}}
+@media(min-width:1000px){.fest-grid{grid-template-columns:repeat(4,1fr);}}
+.fest-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 14px 18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;text-align:center;border-top:4px solid var(--jade);transition:transform .2s,box-shadow .2s;}
+.fest-card:nth-child(4n+2){border-top-color:var(--mango);}
+.fest-card:nth-child(4n+3){border-top-color:var(--amber);}
+.fest-card:nth-child(4n+4){border-top-color:var(--mango-deep);}
+.fest-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.fc-em{font-size:44px;line-height:1;}
+.fc-t{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--mango-deep);margin-top:10px;line-height:1.25;}
+@media(min-width:720px){.fc-t{font-size:17px;}}
+.fc-zh{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+@media(min-width:720px){.fc-zh{font-size:14px;}}
+.fc-btns{display:flex;gap:7px;margin-top:14px;width:100%;}
+.fc-btn{flex:1;padding:9px 5px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700;text-align:center;display:block;transition:all .15s;letter-spacing:.2px;}
+@media(min-width:720px){.fc-btn{font-size:13.5px;padding:10px 6px;}}
+.fc-btn--h{background:var(--amber-soft);color:var(--amber-deep);border:1px solid var(--amber);}
+.fc-btn--h:hover{background:var(--amber);color:#fff;}
+.fc-btn--q{background:var(--jade);color:#fff;}
+.fc-btn--q:hover{background:var(--mango);}
 
 /* --- PART C/D: CLASSROOM ENGLISH & ANNOUNCEMENTS (yangming-style) --- */
 .sec__no{font-family:'Playfair Display',serif;color:var(--mango);font-size:22px;font-weight:700;letter-spacing:5px;}
@@ -294,70 +297,30 @@ section:last-of-type{border-bottom:none;}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" style="color:var(--jade);">Part B · 乙</div>
-      <h2>Festival English Courses</h2>
-      <div class="h2-zh">節慶英語主題課程</div>
+      <h2>Festival English</h2>
+      <div class="h2-zh">節慶英語 · 16 個節慶，從元旦到聖誕節</div>
       <div class="rule" style="background:var(--jade);"></div>
-      <p class="lede">Holidays become classrooms. Each season brings English vocabulary, storytelling, games, and a whole lot of fun.
-        <span class="zh">每個節日都是一間教室。隨著四季更迭，學生在英語詞彙、故事、遊戲中迎接每個節慶。</span>
+      <p class="lede">From New Year's Day to Christmas — sixteen bilingual festival lessons with handouts and quizzes, produced by My Culture Connect and shared across Changhua's partner schools.
+        <span class="zh">從元旦到聖誕節——十六個雙語節慶單元，附講義與測驗，人師教育協會製作，彰化縣各合作學校共用。</span>
       </p>
     </div>
     <div class="fest-grid">
-
-      <article class="fest-card rvl">
-        <div class="fest-card__img">
-          <img src="../photos/lesson-halloween.jpg" alt="Halloween English quest activity" loading="lazy">
-        </div>
-        <div class="fest-card__body">
-          <div class="season">🎃</div>
-          <h3>Halloween English Quest<small>萬聖節英語闖關</small></h3>
-          <p class="en">Ghost hunts in the library, spooky missions in the hallways — students earn stamps by speaking English and reading Halloween-themed books. <em>Trick or Treat</em> becomes their most-practised sentence of October.</p>
-          <p class="zh">「圖書館找鬼趣」與「假鬼假怪任務」——學生用英語闖關蓋章，閱讀鬼怪主題書籍，在遊戲中自然說出英語。十月裡練習最多的句子，就是 Trick or Treat！</p>
-        </div>
-      </article>
-
-      <article class="fest-card rvl">
-        <div class="fest-card__img">
-          <img src="../photos/lesson-christmas.jpg" alt="Christmas English activity with teacher giving cards" loading="lazy">
-        </div>
-        <div class="fest-card__body">
-          <div class="season">🎄</div>
-          <h3>Christmas English<small>聖誕節英語活動</small></h3>
-          <p class="en">Cards, carols, and classroom vocabulary — Christmas turns our school into an English-speaking world for a week. Teachers in festive sweaters, students practising holiday greetings, and English word walls decorating every classroom.</p>
-          <p class="zh">卡片、歌曲與英語詞彙——聖誕節讓校園變成一週的英語世界。老師穿著節慶毛衣，學生練習節日問候語，每間教室的英文單字牆也換上了聖誕主題。</p>
-        </div>
-      </article>
-
-      <article class="fest-card rvl">
-        <div class="fest-card__img" style="background:linear-gradient(135deg,#fff5e0 0%,#ffe4cc 100%);display:flex;align-items:center;justify-content:center;">
-          <div style="text-align:center;font-size:64px;line-height:1.2;">🐣<br><span style="font-size:20px;font-family:'PingFang TC',sans-serif;color:var(--ink-soft);">Coming in Spring</span></div>
-        </div>
-        <div class="fest-card__body">
-          <div class="season">🌸</div>
-          <h3>Spring &amp; Valentine's English<small>春季英語節慶課程</small></h3>
-          <p class="en">Valentine's Day cards written in English, Easter egg hunts with clues in English — spring term brings lighter lessons that weave warmth and language together naturally.</p>
-          <p class="zh">用英語寫情人節卡片、用英語讀復活節彩蛋的線索——春季課程讓語言學習變得溫暖輕盈，在節慶氛圍中自然融入英語。</p>
-        </div>
-      </article>
-
-      <article class="fest-card rvl">
-        <div class="fest-card__img" style="background:linear-gradient(135deg,#fff0e0 0%,#ffe8d0 100%);display:flex;align-items:center;justify-content:center;">
-          <div style="text-align:center;font-size:64px;line-height:1.2;">🍂<br><span style="font-size:20px;font-family:'PingFang TC',sans-serif;color:var(--ink-soft);">Autumn Term</span></div>
-        </div>
-        <div class="fest-card__body">
-          <div class="season">🦃</div>
-          <h3>Thanksgiving &amp; Year-End English<small>感恩節與年終英語課程</small></h3>
-          <p class="en">Gratitude in two languages — students write thank-you notes in English and share what they are grateful for. A calm end to the year that ties language learning to life's most important lesson.</p>
-          <p class="zh">用兩種語言表達感謝——學生用英語寫感謝小卡，分享自己感恩的事。在年末的寧靜中，語言學習與人生最重要的課題相遇。</p>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="fest-network">
-      <span class="badge">Network</span>
-      <p>These festival courses are part of the <strong>Changhua Bilingual Schools Festival English Series</strong> — a shared cross-school programme that connects students from over 89 schools across Changhua County through the same seasonal English themes.
-        <span class="zh">以上節慶課程是「彰化縣雙語學校節慶英語系列」的一部分——這是一個跨校共用的課程平台，讓彰化縣 89 所以上的學校學生，透過相同的節慶主題學習英語、相互連結。</span>
-      </p>
+      <div class="fest-card rvl"><div class="fc-em">🎆</div><div class="fc-t">New Year's Day</div><div class="fc-zh">元旦</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/new-years-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/new-years-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🧧</div><div class="fc-t">Lunar New Year</div><div class="fc-zh">農曆新年</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/chinese-new-year/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/chinese-new-year/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🏮</div><div class="fc-t">Lantern Festival</div><div class="fc-zh">元宵節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/lantern-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/lantern-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🌳</div><div class="fc-t">Tomb-Sweeping Day</div><div class="fc-zh">清明節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/tomb-sweeping-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/tomb-sweeping-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🐰</div><div class="fc-t">Easter</div><div class="fc-zh">復活節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/easter/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/easter/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🌏</div><div class="fc-t">Earth Day</div><div class="fc-zh">地球日</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/earth-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/earth-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">📚</div><div class="fc-t">World Book Day</div><div class="fc-zh">世界閱讀日</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/world-book-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/world-book-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">💐</div><div class="fc-t">Mother's Day</div><div class="fc-zh">母親節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/mothers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/mothers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🐉</div><div class="fc-t">Dragon Boat Festival</div><div class="fc-zh">端午節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/dragon-boat-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/dragon-boat-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎈</div><div class="fc-t">Children's Day</div><div class="fc-zh">兒童節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/childrens-day-international/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/childrens-day-international/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">👔</div><div class="fc-t">Father's Day</div><div class="fc-zh">父親節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/fathers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/fathers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🍎</div><div class="fc-t">Teachers' Day</div><div class="fc-zh">教師節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/teachers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/teachers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🥮</div><div class="fc-t">Mid-Autumn Festival</div><div class="fc-zh">中秋節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/mid-autumn-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/mid-autumn-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎃</div><div class="fc-t">Halloween</div><div class="fc-zh">萬聖節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/halloween/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/halloween/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🦃</div><div class="fc-t">Thanksgiving</div><div class="fc-zh">感恩節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/thanksgiving/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/thanksgiving/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎄</div><div class="fc-t">Christmas</div><div class="fc-zh">聖誕節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/christmas/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/christmas/quiz/">📝 Quiz</a></div></div>
     </div>
   </div>
 </section>
