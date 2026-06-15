@@ -28,7 +28,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+@media(min-width:720px){body{font-size:23px;}}
 img{max-width:100%;display:block;}
 a{color:var(--mango);text-decoration:none;transition:color .2s;}
 a:hover{color:var(--jade);}
@@ -48,7 +49,7 @@ a:hover{color:var(--jade);}
 @media(max-width:560px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:9px;}.topbar-nav{gap:14px;}.topbar-nav a{font-size:13px;}}
 
 /* HERO */
-.hero{position:relative;background:linear-gradient(180deg,rgba(143,48,16,0) 0%,rgba(143,48,16,.08) 45%,rgba(143,48,16,.68) 100%),url('photos/campus-phoenix.png') center/cover no-repeat;padding:70px 0 58px;text-align:center;color:#fff;border-bottom:4px solid var(--amber);}
+.hero{position:relative;background:url('photos/campus-phoenix.png') center/cover no-repeat;padding:70px 0 58px;text-align:center;color:#fff;border-bottom:4px solid var(--amber);}
 .hero__eyebrow{display:inline-block;font-size:13px;letter-spacing:.28em;color:var(--amber-soft);font-weight:700;text-transform:uppercase;margin-bottom:16px;}
 .hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(40px,7vw,64px);line-height:1.06;font-weight:600;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45);}
 .hero .h1-zh{font-size:clamp(18px,2.4vw,24px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.88);margin-top:10px;font-family:'PingFang TC',sans-serif;text-shadow:0 1px 6px rgba(0,0,0,.4);}
@@ -140,10 +141,22 @@ section{padding:88px 0;}
 @media(max-width:860px){.visit-grid{grid-template-columns:1fr;gap:30px;}}
 
 /* FOOTER */
-footer{background:#1a0f08;color:rgba(255,255,255,.6);padding:34px 0;font-size:15px;border-top:1px solid rgba(255,255,255,.07);}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-footer .partner{color:var(--amber-soft);font-weight:600;}
-footer .partner a{color:var(--amber-soft);}
+.sch-footer{background:var(--mango-deep);color:#fff;padding:48px 0 32px;}
+.sch-footer__inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
+@media(min-width:760px){.sch-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;}}
+.sch-footer__brand{display:flex;align-items:flex-start;gap:14px;}
+.sch-footer__logo{width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.sch-footer__brand h4{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.15;}
+.sch-footer__brand .name-zh{font-size:13px;color:rgba(255,255,255,.78);font-weight:500;margin-top:3px;}
+.sch-footer__addr{margin-top:10px;font-size:13px;color:rgba(255,255,255,.70);line-height:1.7;}
+.sch-footer__col h5{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.sch-footer__col ul{list-style:none;padding:0;}
+.sch-footer__col li{margin-bottom:8px;font-size:14px;color:rgba(255,255,255,.85);}
+.sch-footer__col a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(200,146,10,.5);transition:color .2s;}
+.sch-footer__col a:hover{color:var(--amber);}
+.cb-credit{background:#1a0f08;color:rgba(255,255,255,.58);text-align:center;padding:18px 22px 22px;font-size:13px;line-height:1.9;letter-spacing:.02em;}
+.cb-credit a{color:var(--amber);text-decoration:none;border-bottom:1px dashed rgba(200,146,10,.40);}
+.cb-credit a:hover{color:var(--amber-soft);}
 
 /* reveal-fx */
 .rvl{opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1);}
@@ -342,12 +355,41 @@ footer .partner a{color:var(--amber-soft);}
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div>© 2026 彰化縣埔心鄉鳳霞國民小學 · Fengshya Elementary School</div>
-    <div class="partner">Bilingual website by <a href="/">Changhua Bilingual Schools Network</a></div>
+<footer class="sch-footer">
+  <div class="sch-footer__inner">
+    <div class="sch-footer__brand">
+      <img class="sch-footer__logo" src="favicon-192.png" alt="Fengshya Elementary emblem">
+      <div>
+        <h4>Fengshya Elementary School</h4>
+        <div class="name-zh">彰化縣埔心鄉鳳霞國民小學</div>
+        <div class="sch-footer__addr">
+          彰化縣埔心鄉二重村五通南路 82 號<br>
+          No. 82, Wutong S. Rd., Erchong Vil., Pushin Twp., Changhua 513<br>
+          Phone · 電話：(04) 8294072
+        </div>
+      </div>
+    </div>
+    <div class="sch-footer__col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/schools/fengshya/principal/">Principal · 校長室</a></li>
+        <li><a href="/schools/fengshya/lessons/">Lessons · 課程</a></li>
+        <li><a href="/schools/fengshya/lessons/#classroom-english">Classroom English · 課室英語</a></li>
+        <li><a href="/schools/fengshya/lessons/#announcements">Announcements · 雙語廣播</a></li>
+        <li><a href="/schools/fengshya/news/">News · 新聞</a></li>
+      </ul>
+    </div>
+    <div class="sch-footer__col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.sfsps.chc.edu.tw/" target="_blank" rel="noopener">Official site · 官網</a></li>
+        <li><a href="https://www.youtube.com/@mycultureconnect7429" target="_blank" rel="noopener">YouTube · 影片頻道</a></li>
+        <li>My Culture Connect · 人師教育協會</li>
+      </ul>
+    </div>
   </div>
 </footer>
+<div class="cb-credit">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 
 <script>
 (function(){
