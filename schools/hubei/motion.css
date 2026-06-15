@@ -1,0 +1,94 @@
+/* =====================================================================
+   Hu Bei Elementary — shared motion layer  (motion.css)
+   Loaded on every page. Adds scroll-reveal, hero life, micro-interactions.
+   All initial-hidden states are applied by motion.js ONLY, so if JS is
+   absent the page renders fully visible. Honors prefers-reduced-motion.
+   ===================================================================== */
+
+/* ---- scroll progress bar ---------------------------------------- */
+#mo-progress{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:300;
+  background:linear-gradient(90deg,var(--blue-deep,#1d4d70),var(--green,#4CAE7E) 55%,var(--gold,#D4A52E));
+  box-shadow:0 0 12px rgba(59,149,199,.55);
+  transition:width .12s linear;pointer-events:none;
+}
+
+/* ---- scroll-reveal: base + directional variants ----------------- */
+.mo{
+  opacity:0;will-change:opacity,transform,filter;
+  transition:opacity .72s cubic-bezier(.2,.7,.2,1),
+             transform .72s cubic-bezier(.2,.7,.2,1),
+             filter .72s ease;
+}
+.mo-up{transform:translateY(38px);}
+.mo-left{transform:translateX(-46px);}
+.mo-right{transform:translateX(46px);}
+.mo-zoom{transform:scale(.9);}
+.mo-blur{filter:blur(11px);transform:translateY(22px);}
+.mo.mo-in{opacity:1;transform:none;filter:none;}
+
+/* ---- hero: staggered entrance of headline content --------------- */
+.mo-hero{position:relative;z-index:2;}
+.mo-hero > *:not(.mo-orbs){
+  position:relative;z-index:1;
+  opacity:0;transform:translateY(28px);filter:blur(7px);
+  animation:moHeroIn .95s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes moHeroIn{to{opacity:1;transform:none;filter:none;}}
+
+/* ---- hero: drifting ambient orbs (pure decoration) -------------- */
+.mo-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.mo-orb{
+  position:absolute;border-radius:50%;filter:blur(34px);opacity:.55;
+  mix-blend-mode:screen;          /* only ADD light — never muddy/darken the photo */
+  animation:moDrift ease-in-out infinite;
+}
+@keyframes moDrift{
+  0%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(var(--dx,30px),var(--dy,-26px)) scale(1.2);}
+  100%{transform:translate(0,0) scale(1);}
+}
+
+/* ---- top nav: animated underline -------------------------------- */
+.topbar-nav a{position:relative;}
+.topbar-nav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--blue,#3B95C7),var(--green,#4CAE7E));
+  transition:right .3s cubic-bezier(.2,.7,.2,1);
+}
+.topbar-nav a:hover::after,
+.topbar-nav a.is-active::after{right:0;}
+
+/* ---- card hover lift (generic across page families) ------------- */
+.pillar,.life-card,.card,.th-fcard,.fest-card,.lcard,.unit,.vc,.course,.feature,.info-card,.topic,.office{
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;
+}
+.pillar:hover,.life-card:hover,.card:hover,.th-fcard:hover,.fest-card:hover,.lcard:hover,
+.unit:hover,.vc:hover,.course:hover,.feature:hover,.info-card:hover{
+  transform:translateY(-6px);
+}
+
+/* ---- back-to-top floating button -------------------------------- */
+#mo-top{
+  position:fixed;right:22px;bottom:22px;z-index:200;
+  width:48px;height:48px;border:0;cursor:pointer;border-radius:50%;
+  background:var(--blue-deep,#1d4d70);color:#fff;
+  font-size:23px;line-height:46px;text-align:center;font-family:inherit;
+  box-shadow:0 10px 26px -8px rgba(0,0,0,.55);
+  opacity:0;transform:translateY(22px) scale(.6);pointer-events:none;
+  transition:opacity .3s,transform .3s,background .25s;
+}
+#mo-top.mo-show{opacity:.96;transform:none;pointer-events:auto;}
+#mo-top:hover{background:var(--green-deep,#1f6e47);transform:translateY(-3px) scale(1.05);}
+
+/* ---- speak / pronunciation buttons: pulse while playing --------- */
+.speak.mo-playing,.ln__speak.mo-playing,.say.mo-playing{animation:moPulse .85s ease infinite;}
+@keyframes moPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.16);}}
+
+/* ---- reduced motion: disable everything ------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .mo{opacity:1!important;transform:none!important;filter:none!important;}
+  .mo-hero > *:not(.mo-orbs){animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+  .mo-orb{animation:none!important;}
+  #mo-progress,#mo-top{display:none!important;}
+}

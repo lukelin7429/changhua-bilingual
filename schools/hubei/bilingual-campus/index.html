@@ -303,6 +303,7 @@
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 <script defer src="/analytics.js"></script>
+  <link rel="stylesheet" href="/schools/hubei/motion.css">
 </head>
 <body>
 
@@ -325,6 +326,52 @@
     </nav>
   </div>
 </div>
+
+<!-- ============ PAGE BANNER ============ -->
+<style>
+  .page-banner{
+    position:relative;overflow:hidden;text-align:center;color:#fff;
+    padding:84px 0 76px;border-bottom:5px solid var(--blue);
+    background:
+      linear-gradient(180deg, rgba(15,42,63,0) 0%, rgba(15,42,63,0) 44%, rgba(15,42,63,.62) 100%),
+      url('../photos/campus-2.jpg') center 46% / cover no-repeat,
+      linear-gradient(135deg,#0f2a3f 0%,#1d4d70 50%,#3B95C7 100%);
+    text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);
+  }
+  .page-banner::before{
+    content:"課";position:absolute;top:50%;right:-3%;
+    transform:translateY(-50%) rotate(-6deg);
+    font-family:'PingFang TC','Microsoft JhengHei',serif;
+    font-size:min(50vw,380px);font-weight:600;
+    color:rgba(255,255,255,.06);line-height:1;pointer-events:none;user-select:none;z-index:0;
+  }
+  .page-banner > .wrap{position:relative;z-index:1;}
+  .page-banner__eyebrow{
+    display:inline-block;font-size:13px;letter-spacing:.26em;text-transform:uppercase;
+    font-weight:700;color:rgba(255,236,196,.95);margin-bottom:14px;
+  }
+  .page-banner h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.05;letter-spacing:.005em;
+    color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45);
+  }
+  .page-banner .h1-zh{
+    display:block;font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:clamp(19px,2.4vw,24px);font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.92);margin-top:13px;text-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .page-banner__rainbow{
+    position:absolute;bottom:0;left:0;right:0;height:6px;z-index:2;pointer-events:none;
+    background:linear-gradient(90deg,var(--blue) 0%,var(--green) 35%,var(--gold) 60%,var(--orange) 85%,#d6486a 100%);
+  }
+</style>
+<header class="page-banner">
+  <div class="wrap">
+    <span class="page-banner__eyebrow">Hu Bei Elementary · 湖北國小</span>
+    <h1>Lessons<span class="h1-zh">課室英語 · 雙語廣播 · 節慶英語</span></h1>
+  </div>
+  <div class="page-banner__rainbow"></div>
+</header>
 
 <!-- ===== I. About Bilingual Campus ===== -->
 <section>
@@ -598,5 +645,6 @@
 </footer>
 
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<script defer src="/schools/hubei/motion.js"></script>
 </body>
 </html>
