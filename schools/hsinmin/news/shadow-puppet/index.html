@@ -98,6 +98,22 @@
   .kw__eg-txt{flex:1;}
   .kw__eg-en{font-size:17px;color:var(--ink);line-height:1.45;}
   .kw__eg-zh{font-size:15px;color:var(--ink-soft);margin-top:2px;}
+  .dlg-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+  .dlg-scene{background:var(--gold-soft);border:1px solid #efdcb4;border-radius:12px;padding:14px 18px;font-size:17px;color:var(--ink);margin-bottom:18px;line-height:1.6;} .dlg-scene b{color:var(--gold-deep);}
+  @media(min-width:720px){.dlg-scene{font-size:18px;}}
+  .playall{border:0;background:var(--plum-deep);color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;padding:11px 22px;border-radius:99px;cursor:pointer;transition:background .15s,transform .15s;letter-spacing:.03em;}
+  .playall:hover{background:var(--plum);transform:translateY(-1px);}
+  .dlg{display:flex;flex-direction:column;gap:12px;}
+  .line{display:flex;gap:12px;align-items:flex-start;background:var(--plum-soft);border-radius:14px;padding:14px 16px;border-left:5px solid var(--plum);}
+  .line.b{background:var(--rose-soft);border-left-color:var(--rose);}
+  .line.is-speaking{outline:3px solid var(--gold);outline-offset:2px;}
+  .line__who{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--plum-deep);flex-shrink:0;width:28px;font-size:24px;}
+  .line.b .line__who{color:var(--rose-deep);}
+  .line__txt{flex:1;}
+  .line__en{font-weight:600;font-size:19px;line-height:1.45;color:var(--ink);}
+  @media(min-width:720px){.line__en{font-size:20px;}}
+  .line__zh{font-size:16px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media(min-width:720px){.line__zh{font-size:17px;}}
   .quiz{display:flex;flex-direction:column;gap:18px;}
   .qz{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);}
   .qz__q{display:flex;align-items:flex-start;gap:9px;font-size:19px;font-weight:600;color:var(--ink);line-height:1.5;}
@@ -233,7 +249,44 @@
     </div>
   </div>
 
-  <div class="lz__sectlabel"><span class="num">2</span>Quick Quiz</div>
+  <div class="lz__sectlabel"><span class="num">2</span>Try the Conversation</div>
+  <div class="lz__sectlabel-zh">對話練習 · 兩個人一組，A 和 B 輪流唸；點 ▶ 可整段播放</div>
+  <div class="dlg-head"><button class="playall" id="playAll">▶ Play the whole conversation</button></div>
+  <div class="dlg-scene">🎬 <b>Scene</b> · After the show, two classmates talk about the shadow puppet play.<br>情境：演出結束後，兩位同學聊起這場皮影戲。</div>
+  <div class="dlg" id="dlg">
+    <div class="line" data-say="Wow, the shadow puppet show was so cool!">
+      <div class="line__who">A</div>
+      <div class="line__txt"><div class="line__en">Wow, the shadow puppet show was so cool!</div><div class="line__zh">哇，皮影戲表演好酷喔！</div></div>
+      <button class="speak speak--sm" data-speak="Wow, the shadow puppet show was so cool!" aria-label="Listen to this line">🔊</button>
+    </div>
+    <div class="line b" data-say="Thanks! We made all the puppets ourselves.">
+      <div class="line__who">B</div>
+      <div class="line__txt"><div class="line__en">Thanks! We made all the puppets ourselves.</div><div class="line__zh">謝謝！這些戲偶都是我們自己做的。</div></div>
+      <button class="speak speak--sm" data-speak="Thanks! We made all the puppets ourselves." aria-label="Listen to this line">🔊</button>
+    </div>
+    <div class="line" data-say="How do the puppets make shadows?">
+      <div class="line__who">A</div>
+      <div class="line__txt"><div class="line__en">How do the puppets make shadows?</div><div class="line__zh">戲偶怎麼會有影子呢？</div></div>
+      <button class="speak speak--sm" data-speak="How do the puppets make shadows?" aria-label="Listen to this line">🔊</button>
+    </div>
+    <div class="line b" data-say="We put a bright light behind the screen.">
+      <div class="line__who">B</div>
+      <div class="line__txt"><div class="line__en">We put a bright light behind the screen.</div><div class="line__zh">我們在布幕後面放了一盞亮亮的光。</div></div>
+      <button class="speak speak--sm" data-speak="We put a bright light behind the screen." aria-label="Listen to this line">🔊</button>
+    </div>
+    <div class="line" data-say="You remembered all your lines, too!">
+      <div class="line__who">A</div>
+      <div class="line__txt"><div class="line__en">You remembered all your lines, too!</div><div class="line__zh">你的台詞也都記得耶！</div></div>
+      <button class="speak speak--sm" data-speak="You remembered all your lines, too!" aria-label="Listen to this line">🔊</button>
+    </div>
+    <div class="line b" data-say="We practiced a lot, and good teamwork helped.">
+      <div class="line__who">B</div>
+      <div class="line__txt"><div class="line__en">We practiced a lot, and good teamwork helped.</div><div class="line__zh">我們練習很多次，團隊合作也幫了大忙。</div></div>
+      <button class="speak speak--sm" data-speak="We practiced a lot, and good teamwork helped." aria-label="Listen to this line">🔊</button>
+    </div>
+  </div>
+
+  <div class="lz__sectlabel"><span class="num">3</span>Quick Quiz</div>
   <div class="lz__sectlabel-zh">五題小考 · 選出最合適的英文單字，點 🔊 可聽題目</div>
   <div class="quiz">
     <div class="qz">
@@ -317,6 +370,25 @@
     speechSynthesis.speak(u);
   }
   document.querySelectorAll('[data-speak]').forEach(function(b){ b.addEventListener('click',function(){ speak(b.getAttribute('data-speak'),b); }); });
+
+  /* Dialogue "Play All" */
+  var playBtn=document.getElementById('playAll');
+  if(playBtn){
+    var playing=false;
+    playBtn.addEventListener('click',function(){
+      var lines=[].slice.call(document.querySelectorAll('#dlg .line'));
+      if(playing){ speechSynthesis.cancel(); playing=false; playBtn.textContent='▶ Play the whole conversation'; lines.forEach(function(l){l.classList.remove('is-speaking');}); return; }
+      playing=true; playBtn.textContent='■ Stop'; var i=0;
+      var next=function(){
+        lines.forEach(function(l){l.classList.remove('is-speaking');});
+        if(!playing || i>=lines.length){ playing=false; playBtn.textContent='▶ Play the whole conversation'; return; }
+        var line=lines[i++]; line.classList.add('is-speaking'); line.scrollIntoView({behavior:'smooth',block:'center'});
+        var u=new SpeechSynthesisUtterance(line.getAttribute('data-say')); u.lang='en-US'; u.rate=0.85; u.pitch=1.05;
+        var v=pick(); if(v) u.voice=v; u.onend=next; u.onerror=next; speechSynthesis.speak(u);
+      };
+      speechSynthesis.cancel(); next();
+    });
+  }
 
   /* Quiz */
   var qzs=[].slice.call(document.querySelectorAll('.qz')); var total=qzs.length, answered=0, correct=0;
