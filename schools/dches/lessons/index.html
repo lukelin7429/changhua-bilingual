@@ -84,6 +84,27 @@
 .credits__label{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
 .credits__value{font-family:'Playfair Display',serif;font-size:19.5px;color:var(--blue-deep);font-weight:700;margin-top:4px;}
 .credits__value .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:2px;font-weight:500;}
+/* ===== 16-festival mini-card grid ===== */
+.fest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px;}
+@media (min-width:680px){ .fest-grid{grid-template-columns:repeat(3,1fr);gap:18px;} }
+@media (min-width:1000px){ .fest-grid{grid-template-columns:repeat(4,1fr);} }
+.fest-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 14px 18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;text-align:center;border-top:4px solid var(--blue-deep);transition:transform .2s,box-shadow .2s;}
+.fest-card:nth-child(4n+2){border-top-color:var(--red-deep);}
+.fest-card:nth-child(4n+3){border-top-color:var(--gold-deep);}
+.fest-card:nth-child(4n+4){border-top-color:var(--blue);}
+.fest-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.fc-em{font-size:44px;line-height:1;}
+.fc-t{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--blue-deep);margin-top:10px;line-height:1.25;}
+@media (min-width:720px){ .fc-t{font-size:18px;} }
+.fc-zh{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+@media (min-width:720px){ .fc-zh{font-size:14.5px;} }
+.fc-btns{display:flex;gap:7px;margin-top:14px;width:100%;}
+.fc-btn{flex:1;padding:9px 5px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700;text-align:center;display:block;transition:all .15s;letter-spacing:.2px;}
+@media (min-width:720px){ .fc-btn{font-size:13.5px;padding:10px 6px;} }
+.fc-btn--h{background:var(--gold);color:var(--ink);}
+.fc-btn--h:hover{background:var(--gold-deep);color:#fff;}
+.fc-btn--q{background:var(--blue-deep);color:#fff;}
+.fc-btn--q:hover{background:var(--red-deep);}
 </style>
 </head>
 <body>
@@ -242,6 +263,25 @@
         <div class="onecard__cta">Explore <span class="arrow">→</span></div>
       </div>
     </a>
+
+    <div class="fest-grid">
+      <div class="fest-card rvl"><div class="fc-em">🎆</div><div class="fc-t">New Year's Day</div><div class="fc-zh">元旦</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/new-years-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/new-years-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🧧</div><div class="fc-t">Lunar New Year</div><div class="fc-zh">農曆新年</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/chinese-new-year/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/chinese-new-year/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🏮</div><div class="fc-t">Lantern Festival</div><div class="fc-zh">元宵節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/lantern-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/lantern-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🌳</div><div class="fc-t">Tomb-Sweeping Day</div><div class="fc-zh">清明節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/tomb-sweeping-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/tomb-sweeping-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🐰</div><div class="fc-t">Easter</div><div class="fc-zh">復活節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/easter/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/easter/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🌏</div><div class="fc-t">Earth Day</div><div class="fc-zh">地球日</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/earth-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/earth-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">📚</div><div class="fc-t">World Book Day</div><div class="fc-zh">世界閱讀日</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/world-book-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/world-book-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">💐</div><div class="fc-t">Mother's Day</div><div class="fc-zh">母親節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/mothers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/mothers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🐉</div><div class="fc-t">Dragon Boat Festival</div><div class="fc-zh">端午節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/dragon-boat-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/dragon-boat-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎈</div><div class="fc-t">Children's Day</div><div class="fc-zh">兒童節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/childrens-day-international/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/childrens-day-international/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">👔</div><div class="fc-t">Father's Day</div><div class="fc-zh">父親節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/fathers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/fathers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🍎</div><div class="fc-t">Teachers' Day</div><div class="fc-zh">教師節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/teachers-day/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/teachers-day/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🥮</div><div class="fc-t">Mid-Autumn Festival</div><div class="fc-zh">中秋節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/mid-autumn-festival/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/mid-autumn-festival/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎃</div><div class="fc-t">Halloween</div><div class="fc-zh">萬聖節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/halloween/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/halloween/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🦃</div><div class="fc-t">Thanksgiving</div><div class="fc-zh">感恩節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/thanksgiving/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/thanksgiving/quiz/">📝 Quiz</a></div></div>
+      <div class="fest-card rvl"><div class="fc-em">🎄</div><div class="fc-t">Christmas</div><div class="fc-zh">聖誕節</div><div class="fc-btns"><a class="fc-btn fc-btn--h" href="/festivals/christmas/">📖 Handout</a><a class="fc-btn fc-btn--q" href="/festivals/christmas/quiz/">📝 Quiz</a></div></div>
+    </div>
   </div>
 </section>
 
