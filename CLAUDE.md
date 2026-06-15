@@ -65,5 +65,9 @@ Guided by  <CIEETRC 彰化縣國際教育暨英語教育資源中心→www.cieet
 - 卡片左上角不放單一中文字徽章；只列校長不列主任
 - 不建議 Google Forms（嵌站測驗自製 HTML + Apps Script pipeline）
 - 每校客製，不複用模板
+- 🔴 **每頁都要有動感**（Luke 明確要求）。Hub 頁面分兩套動效引擎，新頁務必其一：
+  - 套 hub chrome 的頁（首頁、`resources/*`）已吃 `assets/js/hub.js`（reveal selector 在 `initReveal()`，新類名要加進去）。
+  - bespoke 頁（festivals / disaster-english / 1-on-1 / soccer / partners / 含 quiz）吃全站動效層 `assets/css/motion.css` + `assets/js/motion.js`（drop-in，不碰字型/色/版面）。
+  - **新增這類頁後跑 `python3 scripts/inject_motion_layer.py`**（idempotent，自動略過已有 motion 的頁與 schools/）即補上動效。schools/ 各校自帶 motion 層，不歸這裡。
 
 > 完整脈絡見 vault `組織事務/人師教育協會/彰化雙語網站專案/彰化雙語資源網/`（編號討論 + 現狀盤點 16）。
