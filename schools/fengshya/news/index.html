@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News · 最新消息 · Fengshya Elementary School</title>
+<meta name="description" content="Latest news and announcements from Fengshya Elementary School, Pushin Township, Changhua County. 鳳霞國小最新消息與公告。">
+<link rel="icon" type="image/png" sizes="32x32"   href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180"      href="../favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --amber:#C8920A; --amber-deep:#8F6705; --amber-soft:#FBF3E0;
+  --mango:#CC4A18; --mango-deep:#8F3010; --mango-soft:#FAE8E0;
+  --jade:#2A6B2A;  --jade-soft:#DFF0DF;
+  --ink:#1F1A16;   --ink-soft:#5E5750;   --line:#E9DDD2;
+  --max:1140px;
+  --shadow:0 14px 40px -16px rgba(204,74,24,.28);
+  --shadow-sm:0 4px 14px -4px rgba(204,74,24,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:var(--mango);text-decoration:none;transition:color .2s;}
+a:hover{color:var(--jade);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+/* TOPBAR */
+.topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:13px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topbar-brand{display:flex;align-items:center;gap:11px;}
+.topbar-logo{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.topbar-name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:600;color:var(--mango-deep);line-height:1.1;}
+.topbar-name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em;}
+.topbar-nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+.topbar-nav a{color:var(--ink);font-size:14px;font-weight:500;letter-spacing:.04em;}
+.topbar-nav a:hover{color:var(--mango);}
+.topbar-nav a.is-active{color:var(--mango-deep);font-weight:700;}
+@media(max-width:560px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:9px;}.topbar-nav{gap:14px;}.topbar-nav a{font-size:13px;}}
+
+/* BANNER */
+.banner{position:relative;background:#000 url('../photos/campus-court.png') center 45%/cover;min-height:260px;display:flex;align-items:flex-end;overflow:hidden;}
+@media(min-width:720px){.banner{min-height:320px;}}
+.banner::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,transparent 38%,rgba(31,26,22,.78) 100%);pointer-events:none;}
+.banner__inner{position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;padding:28px 24px 26px;color:#fff;}
+.banner__brand{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-soft);font-weight:700;margin-bottom:8px;}
+.banner h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,58px);font-weight:600;line-height:1.1;text-shadow:0 3px 14px rgba(0,0,0,.4);}
+.banner__zh{font-size:19px;color:rgba(255,255,255,.84);margin-top:6px;font-weight:500;letter-spacing:.06em;font-family:'PingFang TC',sans-serif;}
+
+/* INFO STRIP */
+.info-strip{background:var(--amber-soft);border-bottom:1px solid var(--line);padding:14px 0;}
+.info-strip__inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.info-strip__msg{font-size:15px;color:var(--amber-deep);line-height:1.55;}
+.info-strip__msg .zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-size:14px;margin-left:6px;}
+.info-strip a{display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:14px;font-weight:600;color:var(--mango-deep);border:1px solid var(--mango);border-radius:6px;padding:5px 12px;transition:background .2s,color .2s;}
+.info-strip a:hover{background:var(--mango);color:#fff;}
+
+/* NEWS SECTION */
+section{padding:72px 0;}
+.sec-head{margin-bottom:44px;}
+.sec-head .eyebrow{display:inline-block;font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--jade);margin-bottom:10px;}
+.sec-head h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(36px,5vw,50px);font-weight:600;color:var(--mango-deep);line-height:1.18;margin-bottom:6px;}
+.sec-head .h2-zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;}
+.sec-head .rule{width:64px;height:5px;background:var(--amber);border-radius:3px;margin:16px 0 0;}
+
+/* CAT KEY */
+.cat-key{display:flex;gap:8px 16px;flex-wrap:wrap;margin-bottom:36px;padding:14px 18px;background:#fafaf8;border:1px solid var(--line);border-radius:10px;}
+.cat-key span{font-size:14px;color:var(--ink-soft);font-weight:500;}
+
+/* NEWS GRID — non-clickable cards */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:900px){.news-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.news-grid{grid-template-columns:1fr;}}
+
+.nc{
+  background:#fff;border-radius:16px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  /* non-clickable: no cursor:pointer, no hover effect */
+}
+.nc__body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column;}
+.nc__cat{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.nc__date{font-size:13px;color:var(--ink-soft);margin-bottom:12px;font-family:'PingFang TC',sans-serif;}
+.nc__title{font-family:'Playfair Display','PingFang TC',serif;font-size:22px;font-weight:600;color:var(--mango-deep);line-height:1.28;margin-bottom:6px;}
+.nc__title-zh{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);font-weight:500;line-height:1.55;margin-bottom:12px;}
+.nc__excerpt{font-size:15.5px;color:var(--ink);line-height:1.72;flex:1;}
+.nc__excerpt-zh{font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);line-height:1.8;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+
+/* category colour bands */
+.nc--school  .nc__cat{color:var(--mango);}
+.nc--school  {border-top:3px solid var(--mango);}
+.nc--community .nc__cat{color:var(--jade);}
+.nc--community {border-top:3px solid var(--jade);}
+.nc--academic .nc__cat{color:var(--amber-deep);}
+.nc--academic {border-top:3px solid var(--amber);}
+
+/* SOURCE NOTE */
+.source-note{background:#f8f5f0;border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-top:44px;display:flex;gap:14px;align-items:flex-start;}
+.source-note .icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.source-note p{font-size:15px;color:var(--ink-soft);line-height:1.7;}
+.source-note p .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:14.5px;margin-top:5px;color:var(--ink-soft);}
+.source-note a{color:var(--mango);font-weight:600;}
+
+/* FOOTER */
+footer{background:#1a0f08;color:rgba(255,255,255,.6);padding:34px 0;font-size:15px;border-top:1px solid rgba(255,255,255,.07);}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer .partner{color:var(--amber-soft);font-weight:600;}
+footer .partner a{color:var(--amber-soft);}
+
+.rvl{opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1);}
+.rvl.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-brand">
+      <img src="../favicon-192.png" alt="Fengshya Elementary emblem" class="topbar-logo">
+      <div class="topbar-name">Fengshya Elementary<small>鳳霞國民小學</small></div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="../">Home</a>
+      <a href="../principal/">Principal</a>
+      <a href="../lessons/">Lessons</a>
+      <a href="./" class="is-active">News</a>
+    </nav>
+  </div>
+</div>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__brand">School News · 最新消息</div>
+    <h1>News from Fengshya</h1>
+    <div class="banner__zh">鳳霞國小校園消息</div>
+  </div>
+</header>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="wrap info-strip__inner">
+    <p class="info-strip__msg">
+      News sourced from the school's official announcement board.
+      <span class="zh">消息來源：鳳霞國小官網公告系統</span>
+    </p>
+    <a href="https://www.sfsps.chc.edu.tw/posts" target="_blank" rel="noopener">Official Site · 學校官網 ↗</a>
+  </div>
+</div>
+
+<!-- NEWS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Latest Announcements</div>
+      <h2>What's Happening at School</h2>
+      <div class="h2-zh">校園最新消息 · 115 學年度</div>
+      <div class="rule"></div>
+    </div>
+
+    <div class="cat-key">
+      <span>🏫 School News · 校務公告</span>
+      <span>🌿 Community · 社區活動</span>
+      <span>🎓 Academic · 學務相關</span>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="nc nc--academic rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🎓 Academic · 學務</div>
+          <div class="nc__date">June 8, 2026 · 115/06/08</div>
+          <h2 class="nc__title">Superintendent's Farewell Message to the Class of 2026</h2>
+          <div class="nc__title-zh">114 學年度縣長給國小畢業生的祝福詞</div>
+          <p class="nc__excerpt">The Changhua County Superintendent sends a heartfelt graduation message to all elementary school graduates this year — celebrating their growth and looking forward to what comes next.</p>
+          <p class="nc__excerpt-zh">彰化縣長致信全縣國小應屆畢業生，以溫暖文字慶賀孩子的成長，也為他們即將踏上的下一段旅程送上祝福。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--academic rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🎓 Academic · 學務</div>
+          <div class="nc__date">June 8, 2026 · 115/06/08</div>
+          <h2 class="nc__title">Curriculum Committee Meets June 12</h2>
+          <div class="nc__title-zh">115.6.12（五）課程發展委員會討論議題</div>
+          <p class="nc__excerpt">The school's Curriculum Development Committee convenes on June 12 to review and discuss key agenda items and supporting materials for the coming academic year.</p>
+          <p class="nc__excerpt-zh">課程發展委員會訂於 6 月 12 日（五）召開會議，討論 115 學年度課程相關議題及附件資料。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--school rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🏫 School News · 校務</div>
+          <div class="nc__date">June 8, 2026 · 115/06/08</div>
+          <h2 class="nc__title">End-of-Semester Faculty Meeting — Proposals Submitted</h2>
+          <div class="nc__title-zh">114 學年度下學期校務會議提案資料公告</div>
+          <p class="nc__excerpt">Proposal documents for the end-of-semester faculty meeting are now published for staff review ahead of the upcoming session.</p>
+          <p class="nc__excerpt-zh">114 學年度下學期校務會議提案資料已公告，供全體教職員預先查閱。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--community rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🌿 Community · 社區</div>
+          <div class="nc__date">June 9, 2026 · 115/06/09</div>
+          <h2 class="nc__title">Parenting Talk: Allergy-Free Childhood, Ages 0–8</h2>
+          <div class="nc__title-zh">信誼基金會「0–8 歲抗過敏照護指南」親職講座</div>
+          <p class="nc__excerpt">The Hsin Yi Foundation invites parents and caregivers to a practical parenting talk on managing and preventing allergies in young children, covering diet, environment, and daily care.</p>
+          <p class="nc__excerpt-zh">信誼基金會舉辦親職講座，提供 0–8 歲幼兒過敏預防與照護的實用指南，涵蓋飲食、環境與日常照護等面向，歡迎家長踴躍參加。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--school rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🏫 School News · 校務</div>
+          <div class="nc__date">June 10, 2026 · 115/06/10</div>
+          <h2 class="nc__title">English Specialist Teaching Position Still Open</h2>
+          <div class="nc__title-zh">英語專長代理教師 1 名缺額，進入第二階段甄選</div>
+          <p class="nc__excerpt">Following Round 1 of the contract teacher selection, one English specialist teaching position remains unfilled. The search advances to Round 2. Qualified candidates with English teaching expertise are encouraged to apply.</p>
+          <p class="nc__excerpt-zh">115 學年度代理教師甄選第一階段結束後，英語專長教師 1 名缺額未補，正式進入第二階段甄選。歡迎具英語教學專長之教師踴躍應徵。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--school rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🏫 School News · 校務</div>
+          <div class="nc__date">June 12, 2026 · 115/06/12</div>
+          <h2 class="nc__title">Substitute Teacher Search Advances to Round 3</h2>
+          <div class="nc__title-zh">115 學年度代課教師甄選進入第三階段</div>
+          <p class="nc__excerpt">After Round 2 of the substitute teacher selection process received no applications, the school has opened Round 3 to continue recruitment for the coming academic year.</p>
+          <p class="nc__excerpt-zh">115 學年度代課教師甄選第二階段無人報名，正式進入第三階段甄選，持續招募 115 學年度代課教師。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--school rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🏫 School News · 校務</div>
+          <div class="nc__date">June 12, 2026 · 115/06/12</div>
+          <h2 class="nc__title">Contract Teachers Selected for Next Academic Year</h2>
+          <div class="nc__title-zh">115 學年度代理教師甄選第三階段錄取名單公告</div>
+          <p class="nc__excerpt">The Round 3 results for contract teacher selection are now announced. Successful candidates have been contacted and will join the school team for the 2026–2027 academic year.</p>
+          <p class="nc__excerpt-zh">115 學年度代理教師甄選第三階段錄取名單已公告。錄取人員已獲通知，將於 115 學年度起加入鳳霞國小教學團隊。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--community rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🌿 Community · 社區</div>
+          <div class="nc__date">June 13, 2026 · 115/06/13</div>
+          <h2 class="nc__title">Summer Camp: Grandpa's Secret Garden for Grandchildren</h2>
+          <div class="nc__title-zh">阿公的祕密花園——祖孫科學營（8 月 29 日）</div>
+          <p class="nc__excerpt">The Changhua County Children and Youth Welfare Centre hosts a one-day grandparent-grandchild science camp on August 29. A chance for grandparents and grandchildren to explore, discover, and learn together in the garden.</p>
+          <p class="nc__excerpt-zh">彰化縣兒童青少年福利服務中心於 8 月 29 日（六）舉辦「阿公的祕密花園」祖孫科學營，邀請祖孫共同探索、發現，在花園裡一起學習。</p>
+        </div>
+      </article>
+
+      <article class="nc nc--school rvl">
+        <div class="nc__body">
+          <div class="nc__cat">🏫 School News · 校務</div>
+          <div class="nc__date">June 15, 2026 · 115/06/15</div>
+          <h2 class="nc__title">Substitute Teacher Positions: Round 3 Results Announced</h2>
+          <div class="nc__title-zh">115 學年度代課教師甄選第三階段錄取名單公告</div>
+          <p class="nc__excerpt">Round 3 results for the substitute teacher recruitment are now published on the school's official announcement board. The school thanks all applicants for their interest in joining our team.</p>
+          <p class="nc__excerpt-zh">115 學年度代課教師甄選第三階段錄取名單已於學校官網公告欄公布。感謝所有報名的應徵者，期待未來有機會與大家合作。</p>
+        </div>
+      </article>
+
+    </div><!-- .news-grid -->
+
+    <div class="source-note">
+      <div class="icon">📋</div>
+      <p>
+        These news cards are compiled from Fengshya Elementary School's official announcement board. For the full text of each notice, please visit the <a href="https://www.sfsps.chc.edu.tw/posts" target="_blank" rel="noopener">school's official website</a>.
+        <span class="zh">以上新聞卡片整理自鳳霞國民小學官網公告系統。如需查看完整公告內容，請前往<a href="https://www.sfsps.chc.edu.tw/posts" target="_blank" rel="noopener">學校官網</a>。</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣埔心鄉鳳霞國民小學 · Fengshya Elementary School</div>
+    <div class="partner">Bilingual website by <a href="/">Changhua Bilingual Schools Network</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var els=[].slice.call(document.querySelectorAll('.rvl'));
+  if(!els.length)return;
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+(function(){
+  if(window.parent===window)return;
+  function report(){var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight);window.parent.postMessage({type:'fengshya-iframe-height',height:h},'*');}
+  window.addEventListener('load',report);window.addEventListener('resize',report);
+  setTimeout(report,300);setTimeout(report,1200);
+  if('ResizeObserver'in window)new ResizeObserver(report).observe(document.body);
+})();
+</script>
+</body>
+</html>
