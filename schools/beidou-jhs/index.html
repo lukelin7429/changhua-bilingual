@@ -174,9 +174,10 @@
 
   /* === FET (Foreign English Teacher) === */
   .fet-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1fr;}
-  @media (min-width:720px){ .fet-card{ grid-template-columns:300px 1fr; } }
-  .fet-card__photo{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--teal-soft);}
-  @media (min-width:720px){ .fet-card__photo{ height:100%;aspect-ratio:auto; } }
+  @media (min-width:720px){ .fet-card{ grid-template-columns:340px 1fr;align-items:stretch; } }
+  .fet-card__photo-wrap{display:flex;align-items:center;justify-content:center;padding:26px;background:linear-gradient(160deg,var(--teal-soft) 0%,#fff 100%);}
+  @media (min-width:720px){ .fet-card__photo-wrap{ padding:34px; } }
+  .fet-card__photo{width:100%;max-width:280px;aspect-ratio:1/1;object-fit:cover;border-radius:16px;box-shadow:0 8px 22px rgba(0,0,0,.14);display:block;}
   .fet-card__body{padding:30px 28px;}
   @media (min-width:720px){ .fet-card__body{ padding:40px 40px; } }
   .fet-card__flag{font-size:30px;line-height:1;}
@@ -489,7 +490,9 @@
     <div class="sec__rule"></div>
 
     <div class="fet-card">
-      <img class="fet-card__photo" src="/assets/images/fets/aileen-moralde-sim.jpg" alt="Teacher Aileen Sim — Foreign English Teacher at Beidou Junior High" loading="lazy">
+      <div class="fet-card__photo-wrap">
+        <img class="fet-card__photo" src="/assets/images/fets/aileen-moralde-sim.jpg" alt="Teacher Aileen Sim — Foreign English Teacher at Beidou Junior High" loading="lazy">
+      </div>
       <div class="fet-card__body">
         <div class="fet-card__flag">🇵🇭</div>
         <div class="fet-card__name">Aileen Moralde Sim</div>
