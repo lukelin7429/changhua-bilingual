@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -460,9 +484,176 @@
       <img src="/schools/nanhsing/photos/news/library-series/17.jpg" alt="Library Monthly Activities · 圖書館月月有活動" loading="lazy">
       <img src="/schools/nanhsing/photos/news/library-series/18.jpg" alt="Library Monthly Activities · 圖書館月月有活動" loading="lazy">
     </div>
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">📚</div>
+          <div class="word__main"><div class="word__term">library <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">圖書館</div></div>
+          <button class="say" data-speak="library" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🗣️</div>
+          <div class="word__main"><div class="word__term">guest <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">來賓、客座講師</div></div>
+          <button class="say" data-speak="guest" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">📖</div>
+          <div class="word__main"><div class="word__term">reading <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">閱讀</div></div>
+          <button class="say" data-speak="reading" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">📜</div>
+          <div class="word__main"><div class="word__term">poetry <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">詩</div></div>
+          <button class="say" data-speak="poetry" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🎨</div>
+          <div class="word__main"><div class="word__term">art <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">藝術</div></div>
+          <button class="say" data-speak="art" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🤝</div>
+          <div class="word__main"><div class="word__term">share <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">分享</div></div>
+          <button class="say" data-speak="share" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">Every month a new <b>guest</b> visits our <b>library</b>.</div><div class="zh">每個月都有一位新來賓造訪我們的圖書館。</div></div><button class="say" data-speak="Every month a new guest visits our library." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">A retired teacher came to <b>share</b> a story.</div><div class="zh">一位退休老師來分享一個故事。</div></div><button class="say" data-speak="A retired teacher came to share a story." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We read Tang <b>poetry</b> in the morning.</div><div class="zh">我們在早晨讀唐詩。</div></div><button class="say" data-speak="We read Tang poetry in the morning." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">An alumna talked about Italian <b>art</b>.</div><div class="zh">一位校友談到義大利藝術。</div></div><button class="say" data-speak="An alumna talked about Italian art." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en"><b>Reading</b> keeps a light shining all year.</div><div class="zh">閱讀讓光芒整年閃耀。</div></div><button class="say" data-speak="Reading keeps a light shining all year." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">📚 Two friends arrive for the morning library hour. 兩位朋友來到晨光圖書館時間。</div>
+    <div class="dialog">
+      <div class="turn turn--a">
+        <div class="turn__who">L</div>
+        <div class="turn__main"><div class="turn__en">Who is our guest at the library this month?</div><div class="turn__zh">這個月圖書館的來賓是誰？</div></div>
+        <button class="say" data-speak="Who is our guest at the library this month?" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">R</div>
+        <div class="turn__main"><div class="turn__en">A volunteer parent. She will read us a story.</div><div class="turn__zh">是一位志工媽媽。她會讀故事給我們聽。</div></div>
+        <button class="say" data-speak="A volunteer parent. She will read us a story." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--a">
+        <div class="turn__who">L</div>
+        <div class="turn__main"><div class="turn__en">Last month we learned about Tang poetry. I love reading!</div><div class="turn__zh">上個月我們學了唐詩。我好愛閱讀！</div></div>
+        <button class="say" data-speak="Last month we learned about Tang poetry. I love reading!" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">R</div>
+        <div class="turn__main"><div class="turn__en">Me too. Every month opens a new world of books.</div><div class="turn__zh">我也是。每個月都打開一個新的書本世界。</div></div>
+        <button class="say" data-speak="Me too. Every month opens a new world of books." aria-label="Hear this">🔊</button>
+      </div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="3" data-explain="A new guest speaker comes every month." data-explain-zh="每個月都有一位新的客座講師。">
+        <div class="quiz__stem">1. How often does a new guest come to the library? <span class="quiz__zh">圖書館多久邀請一位新來賓？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Once a year</button>
+          <button class="quiz__opt">Only at exam time</button>
+          <button class="quiz__opt">Every month</button>
+          <button class="quiz__opt">Never</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="Guests included a volunteer parent, a retired teacher, and an alumna." data-explain-zh="講師包括志工媽媽、退休教師與一位校友。">
+        <div class="quiz__stem">2. Who were some of the guest speakers? <span class="quiz__zh">客座講師有哪些人？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Famous singers</button>
+          <button class="quiz__opt">A parent, a retired teacher, and an alumna</button>
+          <button class="quiz__opt">Movie stars</button>
+          <button class="quiz__opt">Sports players</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="Topics ranged from Anne Frank to Tang poetry and Italian art." data-explain-zh="主題從《安妮的日記》到唐詩與義大利藝術。">
+        <div class="quiz__stem">3. Which topic was part of the series? <span class="quiz__zh">下列哪一個是系列活動的主題？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Car racing</button>
+          <button class="quiz__opt">Cooking pizza</button>
+          <button class="quiz__opt">Video games</button>
+          <button class="quiz__opt">Tang poetry and Italian art</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

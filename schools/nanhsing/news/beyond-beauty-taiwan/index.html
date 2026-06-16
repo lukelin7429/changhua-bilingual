@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -451,9 +475,176 @@
       <img src="/schools/nanhsing/photos/news/beyond-beauty-taiwan/8.jpg" alt="&quot;Taiwan from Above&quot; Screening · 環境台灣校園公播－從空中看台灣" loading="lazy">
       <img src="/schools/nanhsing/photos/news/beyond-beauty-taiwan/9.jpg" alt="&quot;Taiwan from Above&quot; Screening · 環境台灣校園公播－從空中看台灣" loading="lazy">
     </div>
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🏝️</div>
+          <div class="word__main"><div class="word__term">island <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">島嶼</div></div>
+          <button class="say" data-speak="island" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🚁</div>
+          <div class="word__main"><div class="word__term">aerial <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">空中的 · 空拍的</div></div>
+          <button class="say" data-speak="aerial" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🌏</div>
+          <div class="word__main"><div class="word__term">environment <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">環境</div></div>
+          <button class="say" data-speak="environment" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🌸</div>
+          <div class="word__main"><div class="word__term">beauty <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">美麗</div></div>
+          <button class="say" data-speak="beauty" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🍃</div>
+          <div class="word__main"><div class="word__term">fragile <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">脆弱的</div></div>
+          <button class="say" data-speak="fragile" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">💚</div>
+          <div class="word__main"><div class="word__term">protect <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">保護 · 守護</div></div>
+          <button class="say" data-speak="protect" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">Taiwan is a beautiful green <b>island</b>.</div><div class="zh">台灣是一座美麗的綠色島嶼。</div></div><button class="say" data-speak="Taiwan is a beautiful green island." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">The <b>aerial</b> film shows our land from high in the sky.</div><div class="zh">這部空拍影片從高空展現我們的土地。</div></div><button class="say" data-speak="The aerial film shows our land from high in the sky." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We saw the <b>beauty</b> of the mountains and the sea.</div><div class="zh">我們看見了山與海的美麗。</div></div><button class="say" data-speak="We saw the beauty of the mountains and the sea." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Some places are <b>fragile</b> and need our care.</div><div class="zh">有些地方很脆弱，需要我們的關心。</div></div><button class="say" data-speak="Some places are fragile and need our care." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We must <b>protect</b> our <b>environment</b> for the future.</div><div class="zh">為了未來，我們必須保護我們的環境。</div></div><button class="say" data-speak="We must protect our environment for the future." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🚁 After the movie, Sam and Joy talk about the film "Taiwan from Above." 看完電影後，阿山和喬伊聊起《從空中看台灣》。</div>
+    <div class="dialog">
+      <div class="turn turn--a">
+        <div class="turn__who">S</div>
+        <div class="turn__main"><div class="turn__en">The aerial views of our island were amazing!</div><div class="turn__zh">我們島嶼的空拍畫面好驚人！</div></div>
+        <button class="say" data-speak="The aerial views of our island were amazing!" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">J</div>
+        <div class="turn__main"><div class="turn__en">Yes, but some places looked fragile and hurt.</div><div class="turn__zh">對啊，但有些地方看起來很脆弱、受了傷。</div></div>
+        <button class="say" data-speak="Yes, but some places looked fragile and hurt." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--a">
+        <div class="turn__who">S</div>
+        <div class="turn__main"><div class="turn__en">How can kids like us protect the environment?</div><div class="turn__zh">像我們這樣的孩子，能怎麼保護環境呢？</div></div>
+        <button class="say" data-speak="How can kids like us protect the environment?" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">J</div>
+        <div class="turn__main"><div class="turn__en">We can save water, pick up trash, and keep Taiwan beautiful.</div><div class="turn__zh">我們可以節約用水、撿垃圾，讓台灣保持美麗。</div></div>
+        <button class="say" data-speak="We can save water, pick up trash, and keep Taiwan beautiful." aria-label="Hear this">🔊</button>
+      </div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="2" data-explain="An aerial film is shot from high in the sky, often from a drone or helicopter." data-explain-zh="空拍影片是從高空拍攝的，常用空拍機或直升機。">
+        <div class="quiz__stem">1. How was the film "Taiwan from Above" filmed? <span class="quiz__zh">《從空中看台灣》是怎麼拍攝的？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Underwater</button>
+          <button class="quiz__opt">From high in the sky</button>
+          <button class="quiz__opt">Inside a cave</button>
+          <button class="quiz__opt">On a moving train</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="The film showed both Taiwan's beauty and its fragile places." data-explain-zh="影片同時呈現了台灣的美麗，以及它脆弱的地方。">
+        <div class="quiz__stem">2. What did the film help students think about? <span class="quiz__zh">這部影片讓學生思考什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">How to fly a plane</button>
+          <button class="quiz__opt">What to eat for lunch</button>
+          <button class="quiz__opt">How to win a game</button>
+          <button class="quiz__opt">Caring for our environment</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="1" data-explain="Saving water and picking up trash are simple ways kids can protect nature." data-explain-zh="節約用水、撿垃圾，都是孩子保護大自然的簡單方法。">
+        <div class="quiz__stem">3. Which is a good way to protect the environment? <span class="quiz__zh">哪一個是保護環境的好方法？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Save water and pick up trash</button>
+          <button class="quiz__opt">Leave the lights on all day</button>
+          <button class="quiz__opt">Throw trash in the river</button>
+          <button class="quiz__opt">Waste lots of paper</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

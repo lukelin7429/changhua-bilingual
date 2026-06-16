@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -452,9 +476,126 @@
       <img src="/schools/nanhsing/photos/news/railway-safety/9.jpg" alt="Railway Crossing Safety · 平交道安全宣導" loading="lazy">
       <img src="/schools/nanhsing/photos/news/railway-safety/10.jpg" alt="Railway Crossing Safety · 平交道安全宣導" loading="lazy">
     </div>
+
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word"><div class="word__top"><div class="word__emoji">🚆</div><div class="word__main"><div class="word__term">railway <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">鐵路</div></div><button class="say" data-speak="railway" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🚧</div><div class="word__main"><div class="word__term">crossing <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">平交道</div></div><button class="say" data-speak="crossing" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🛤️</div><div class="word__main"><div class="word__term">track <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">鐵軌</div></div><button class="say" data-speak="track" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🚦</div><div class="word__main"><div class="word__term">signal <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">號誌 · 警示</div></div><button class="say" data-speak="signal" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🛡️</div><div class="word__main"><div class="word__term">safe <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">安全的</div></div><button class="say" data-speak="safe" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">⚠️</div><div class="word__main"><div class="word__term">careful <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">小心的</div></div><button class="say" data-speak="careful" aria-label="Hear this">🔊</button></div></div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">Always stop, look, and listen at a railway <b>crossing</b>.</div><div class="zh">在平交道前一定要停、看、聽。</div></div><button class="say" data-speak="Always stop, look, and listen at a railway crossing." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Never walk or play on the train <b>track</b>.</div><div class="zh">絕對不要走在鐵軌上或在上面玩。</div></div><button class="say" data-speak="Never walk or play on the train track." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Wait for the <b>signal</b> before you cross.</div><div class="zh">通過前要先等號誌。</div></div><button class="say" data-speak="Wait for the signal before you cross." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Being <b>careful</b> keeps you <b>safe</b> every day.</div><div class="zh">小心謹慎，每天都能保持安全。</div></div><button class="say" data-speak="Being careful keeps you safe every day." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">The <b>railway</b> can be dangerous, so follow the rules.</div><div class="zh">鐵路可能很危險，所以要遵守規則。</div></div><button class="say" data-speak="The railway can be dangerous, so follow the rules." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🚧 On the way home, Ben and Amy reach a railway crossing. 放學回家路上，阿班和小美走到一個平交道。</div>
+    <div class="dialog">
+      <div class="turn turn--a"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">The bell is ringing. Should we run across quickly?</div><div class="turn__zh">警鈴響了，我們要快點跑過去嗎？</div></div><button class="say" data-speak="The bell is ringing. Should we run across quickly?" aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">No! We must stop, look, and listen first.</div><div class="turn__zh">不行！我們要先停、看、聽。</div></div><button class="say" data-speak="No! We must stop, look, and listen first." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--a"><div class="turn__who">B</div><div class="turn__main"><div class="turn__en">You're right. The signal says a train is coming.</div><div class="turn__zh">你說得對，號誌顯示火車要來了。</div></div><button class="say" data-speak="You are right. The signal says a train is coming." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">A</div><div class="turn__main"><div class="turn__en">Let's wait here. Being safe is more important than being fast.</div><div class="turn__zh">我們在這裡等，安全比快更重要。</div></div><button class="say" data-speak="Let's wait here. Being safe is more important than being fast." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="1" data-explain="Always stop, look, and listen before you cross." data-explain-zh="過平交道前一定要停、看、聽。">
+        <div class="quiz__stem">1. What should you do at a railway crossing? <span class="quiz__zh">在平交道前應該怎麼做？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Stop, look, and listen</button>
+          <button class="quiz__opt">Run across as fast as you can</button>
+          <button class="quiz__opt">Play games on the tracks</button>
+          <button class="quiz__opt">Close your eyes and walk</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="Cross only when the signal shows it is safe." data-explain-zh="只有當號誌顯示安全時才能通過。">
+        <div class="quiz__stem">2. When is it safe to cross the tracks? <span class="quiz__zh">什麼時候穿越鐵軌才安全？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">While the bell is still ringing</button>
+          <button class="quiz__opt">When a train is coming</button>
+          <button class="quiz__opt">Only when the signal says it is safe</button>
+          <button class="quiz__opt">Whenever you are in a hurry</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="Safe habits protect every child on the way to school." data-explain-zh="安全的習慣保護每個孩子上下學的安全。">
+        <div class="quiz__stem">3. Why do we follow railway safety rules? <span class="quiz__zh">我們為什麼要遵守鐵路安全規則？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">To make the trip longer</button>
+          <button class="quiz__opt">To win a prize</button>
+          <button class="quiz__opt">To make a lot of noise</button>
+          <button class="quiz__opt">To keep everyone safe</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
+
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

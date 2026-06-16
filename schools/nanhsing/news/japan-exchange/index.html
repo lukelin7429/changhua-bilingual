@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -449,9 +473,176 @@
       <img src="/schools/nanhsing/photos/news/japan-exchange/6.jpg" alt="Japanese Culture Exchange · 日本文化交流" loading="lazy">
       <img src="/schools/nanhsing/photos/news/japan-exchange/7.jpg" alt="Japanese Culture Exchange · 日本文化交流" loading="lazy">
     </div>
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🌏</div>
+          <div class="word__main"><div class="word__term">culture <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">文化</div></div>
+          <button class="say" data-speak="culture" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🤝</div>
+          <div class="word__main"><div class="word__term">exchange <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">交流</div></div>
+          <button class="say" data-speak="exchange" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🗣️</div>
+          <div class="word__main"><div class="word__term">language <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">語言</div></div>
+          <button class="say" data-speak="language" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🎎</div>
+          <div class="word__main"><div class="word__term">custom <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">習俗</div></div>
+          <button class="say" data-speak="custom" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">💛</div>
+          <div class="word__main"><div class="word__term">friendship <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">友誼</div></div>
+          <button class="say" data-speak="friendship" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">👋</div>
+          <div class="word__main"><div class="word__term">welcome <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">歡迎</div></div>
+          <button class="say" data-speak="welcome" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">Our school had a Japanese <b>culture</b> day.</div><div class="zh">我們學校舉辦了日本文化日。</div></div><button class="say" data-speak="Our school had a Japanese culture day." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We learned new words in a language <b>exchange</b>.</div><div class="zh">我們在語言交流中學了新單字。</div></div><button class="say" data-speak="We learned new words in a language exchange." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Japanese is a beautiful <b>language</b>.</div><div class="zh">日語是一種優美的語言。</div></div><button class="say" data-speak="Japanese is a beautiful language." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Bowing is a polite <b>custom</b> in Japan.</div><div class="zh">鞠躬在日本是一種有禮貌的習俗。</div></div><button class="say" data-speak="Bowing is a polite custom in Japan." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We <b>welcome</b> new friends and start a <b>friendship</b>.</div><div class="zh">我們歡迎新朋友，開始一段友誼。</div></div><button class="say" data-speak="We welcome new friends and start a friendship." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🎌 Two students meet a guest from Japan. 兩位學生遇見來自日本的客人。</div>
+    <div class="dialog">
+      <div class="turn turn--a">
+        <div class="turn__who">M</div>
+        <div class="turn__main"><div class="turn__en">Welcome to our school! How do you say "hello" in Japanese?</div><div class="turn__zh">歡迎來到我們學校！「你好」用日語怎麼說？</div></div>
+        <button class="say" data-speak="Welcome to our school! How do you say hello in Japanese?" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">T</div>
+        <div class="turn__main"><div class="turn__en">We say "Konnichiwa." Thank you for the warm welcome!</div><div class="turn__zh">我們說「Konnichiwa」。謝謝你們熱情的歡迎！</div></div>
+        <button class="say" data-speak="We say Konnichiwa. Thank you for the warm welcome!" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--a">
+        <div class="turn__who">M</div>
+        <div class="turn__main"><div class="turn__en">I want to learn about your customs, too.</div><div class="turn__zh">我也想學習你們的習俗。</div></div>
+        <button class="say" data-speak="I want to learn about your customs, too." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">T</div>
+        <div class="turn__main"><div class="turn__en">Let's share our cultures and become good friends!</div><div class="turn__zh">讓我們分享彼此的文化，成為好朋友！</div></div>
+        <button class="say" data-speak="Let's share our cultures and become good friends!" aria-label="Hear this">🔊</button>
+      </div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="2" data-explain="An exchange is when people share and learn from each other." data-explain-zh="exchange 是指彼此分享、互相學習。">
+        <div class="quiz__stem">1. What did Nanhsing host for its students? <span class="quiz__zh">南興為學生舉辦了什麼活動？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">A sports day</button>
+          <button class="quiz__opt">A Japanese culture exchange</button>
+          <button class="quiz__opt">A math contest</button>
+          <button class="quiz__opt">A cooking show</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="The students explored Japan's language, customs, and friendship." data-explain-zh="孩子體驗了日本的語言、習俗與友誼。">
+        <div class="quiz__stem">2. Which of these did the students experience? <span class="quiz__zh">學生體驗到了下列哪一項？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Snow and ice</button>
+          <button class="quiz__opt">Rockets and space</button>
+          <button class="quiz__opt">Robots and cars</button>
+          <button class="quiz__opt">Language, customs, and friendship</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="Events like this bring the wider world into our classrooms." data-explain-zh="這樣的活動把更廣闊的世界帶進教室。">
+        <div class="quiz__stem">3. Why are exchanges like this special? <span class="quiz__zh">這樣的交流為什麼特別？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">They cancel classes</button>
+          <button class="quiz__opt">They give out prizes</button>
+          <button class="quiz__opt">They bring the world into the classroom</button>
+          <button class="quiz__opt">They make school shorter</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -454,9 +478,177 @@
       <img src="/schools/nanhsing/photos/news/new-student-challenge/11.jpg" alt="New Student Orientation Challenge · 新生注音符號闖關" loading="lazy">
       <img src="/schools/nanhsing/photos/news/new-student-challenge/12.jpg" alt="New Student Orientation Challenge · 新生注音符號闖關" loading="lazy">
     </div>
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🆕</div>
+          <div class="word__main"><div class="word__term">new student <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">新生</div></div>
+          <button class="say" data-speak="new student" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🎯</div>
+          <div class="word__main"><div class="word__term">challenge <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">挑戰、闖關</div></div>
+          <button class="say" data-speak="challenge" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🚩</div>
+          <div class="word__main"><div class="word__term">station <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">關卡、站</div></div>
+          <button class="say" data-speak="station" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🔤</div>
+          <div class="word__main"><div class="word__term">practice <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">練習</div></div>
+          <button class="say" data-speak="practice" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">😄</div>
+          <div class="word__main"><div class="word__term">proud <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">驕傲的、自豪的</div></div>
+          <button class="say" data-speak="proud" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🎲</div>
+          <div class="word__main"><div class="word__term">game <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">遊戲</div></div>
+          <button class="say" data-speak="game" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">I am a <b>new student</b> at Nanhsing.</div><div class="zh">我是南興的新生。</div></div><button class="say" data-speak="I am a new student at Nanhsing." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We move from <b>station</b> to <b>station</b> to play.</div><div class="zh">我們一站一站地闖關玩遊戲。</div></div><button class="say" data-speak="We move from station to station to play." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">I like to <b>practice</b> my sounds.</div><div class="zh">我喜歡練習注音的發音。</div></div><button class="say" data-speak="I like to practice my sounds." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">The <b>challenge</b> is fun like a <b>game</b>.</div><div class="zh">這場闖關像遊戲一樣好玩。</div></div><button class="say" data-speak="The challenge is fun like a game." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">I feel <b>proud</b> when I finish a <b>station</b>.</div><div class="zh">通過一關時，我覺得很自豪。</div></div><button class="say" data-speak="I feel proud when I finish a station." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🚩 Two new students meet at a phonics station. 兩位新生在注音闖關站相遇。</div>
+    <div class="dialog">
+      <div class="turn turn--a">
+        <div class="turn__who">M</div>
+        <div class="turn__main"><div class="turn__en">Which station should we try next?</div><div class="turn__zh">我們下一關要挑戰哪一站？</div></div>
+        <button class="say" data-speak="Which station should we try next?" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">T</div>
+        <div class="turn__main"><div class="turn__en">Let's practice these sounds together!</div><div class="turn__zh">我們一起練習這些注音吧！</div></div>
+        <button class="say" data-speak="Let's practice these sounds together!" aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--a">
+        <div class="turn__who">M</div>
+        <div class="turn__main"><div class="turn__en">I did it! I feel so proud.</div><div class="turn__zh">我做到了！我覺得好驕傲。</div></div>
+        <button class="say" data-speak="I did it! I feel so proud." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">T</div>
+        <div class="turn__main"><div class="turn__en">This challenge is just like a fun game!</div><div class="turn__zh">這個闖關就像好玩的遊戲一樣！</div></div>
+        <button class="say" data-speak="This challenge is just like a fun game!" aria-label="Hear this">🔊</button>
+      </div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="2" data-explain="The youngest learners — new students — took on the challenge." data-explain-zh="參加闖關的是最年幼的新生。">
+        <div class="quiz__stem">1. Who took part in the challenge? <span class="quiz__zh">是誰參加了這場闖關？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">The principal</button>
+          <button class="quiz__opt">The new students</button>
+          <button class="quiz__opt">The parents</button>
+          <button class="quiz__opt">The teachers only</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="Students moved from station to station to practice." data-explain-zh="學生一站一站地移動練習。">
+        <div class="quiz__stem">2. How did the students move during the challenge? <span class="quiz__zh">闖關時學生怎麼移動？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">They stayed in one seat</button>
+          <button class="quiz__opt">They went home early</button>
+          <button class="quiz__opt">They waited in line all day</button>
+          <button class="quiz__opt">From station to station</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="Each completed station brought a proud smile." data-explain-zh="每通過一關，孩子都露出自豪的笑容。">
+        <div class="quiz__stem">3. How did the children feel after finishing a station? <span class="quiz__zh">通過一關後孩子有什麼感覺？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Bored</button>
+          <button class="quiz__opt">Sleepy</button>
+          <button class="quiz__opt">Proud and happy</button>
+          <button class="quiz__opt">Angry</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
+
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

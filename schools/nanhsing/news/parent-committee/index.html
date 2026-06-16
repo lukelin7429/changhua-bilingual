@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -453,9 +477,177 @@
       <img src="/schools/nanhsing/photos/news/parent-committee/10.jpg" alt="Parents&#x27; Association New Year Blessings · 家長委員會休業式發紅包" loading="lazy">
       <img src="/schools/nanhsing/photos/news/parent-committee/11.jpg" alt="Parents&#x27; Association New Year Blessings · 家長委員會休業式發紅包" loading="lazy">
     </div>
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🧧</div>
+          <div class="word__main"><div class="word__term">red envelope <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">紅包</div></div>
+          <button class="say" data-speak="red envelope" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">👪</div>
+          <div class="word__main"><div class="word__term">parent <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">家長</div></div>
+          <button class="say" data-speak="parent" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🎊</div>
+          <div class="word__main"><div class="word__term">ceremony <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">典禮</div></div>
+          <button class="say" data-speak="ceremony" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🕊️</div>
+          <div class="word__main"><div class="word__term">peace <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">平安</div></div>
+          <button class="say" data-speak="peace" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🍀</div>
+          <div class="word__main"><div class="word__term">good fortune <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">好運</div></div>
+          <button class="say" data-speak="good fortune" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+      <div class="word">
+        <div class="word__top">
+          <div class="word__emoji">🤝</div>
+          <div class="word__main"><div class="word__term">community <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">社區</div></div>
+          <button class="say" data-speak="community" aria-label="Hear this">🔊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">The <b>parents</b> gave us a <b>red envelope</b>.</div><div class="zh">家長們發給我們紅包。</div></div><button class="say" data-speak="The parents gave us a red envelope." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We had a happy <b>ceremony</b> at the end of the semester.</div><div class="zh">學期末我們舉行了快樂的典禮。</div></div><button class="say" data-speak="We had a happy ceremony at the end of the semester." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">A <b>red envelope</b> brings <b>peace</b> and <b>good fortune</b>.</div><div class="zh">紅包帶來平安與好運。</div></div><button class="say" data-speak="A red envelope brings peace and good fortune." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Our school and <b>community</b> are like one family.</div><div class="zh">我們的學校和社區就像一家人。</div></div><button class="say" data-speak="Our school and community are like one family." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Thank you for this warm <b>red envelope</b>!</div><div class="zh">謝謝您這份溫暖的紅包！</div></div><button class="say" data-speak="Thank you for this warm red envelope!" aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🧧 Two students receive red envelopes at the ceremony. 兩位學生在典禮上收到紅包。</div>
+    <div class="dialog">
+      <div class="turn turn--a">
+        <div class="turn__who">J</div>
+        <div class="turn__main"><div class="turn__en">Look! The parents gave us a red envelope.</div><div class="turn__zh">你看！家長發給我們紅包了。</div></div>
+        <button class="say" data-speak="Look! The parents gave us a red envelope." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">W</div>
+        <div class="turn__main"><div class="turn__en">It means peace and good fortune for the new year.</div><div class="turn__zh">它代表新年的平安與好運。</div></div>
+        <button class="say" data-speak="It means peace and good fortune for the new year." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--a">
+        <div class="turn__who">J</div>
+        <div class="turn__main"><div class="turn__en">We should say thank you to them.</div><div class="turn__zh">我們應該向他們說謝謝。</div></div>
+        <button class="say" data-speak="We should say thank you to them." aria-label="Hear this">🔊</button>
+      </div>
+      <div class="turn turn--b">
+        <div class="turn__who">W</div>
+        <div class="turn__main"><div class="turn__en">Yes. Our school and community feel like one family.</div><div class="turn__zh">對啊，我們的學校和社區就像一家人。</div></div>
+        <button class="say" data-speak="Yes. Our school and community feel like one family." aria-label="Hear this">🔊</button>
+      </div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="3" data-explain="The Parents' Association handed out red envelopes." data-explain-zh="家長委員會發送了紅包。">
+        <div class="quiz__stem">1. What did the Parents' Association give to the students? <span class="quiz__zh">家長委員會發給學生什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">New books</button>
+          <button class="quiz__opt">Soccer balls</button>
+          <button class="quiz__opt">Red envelopes</button>
+          <button class="quiz__opt">Lunch boxes</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="The red envelopes were given at the end-of-semester ceremony." data-explain-zh="紅包是在休業式（學期末典禮）發送的。">
+        <div class="quiz__stem">2. When did this happen? <span class="quiz__zh">這件事發生在什麼時候？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">On the first day of school</button>
+          <button class="quiz__opt">During summer camp</button>
+          <button class="quiz__opt">In the middle of a class</button>
+          <button class="quiz__opt">At the end-of-semester ceremony</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="The red envelope is a symbol of peace and good fortune." data-explain-zh="紅包象徵平安與好運。">
+        <div class="quiz__stem">3. What does a red envelope stand for? <span class="quiz__zh">紅包象徵著什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Rain and wind</button>
+          <button class="quiz__opt">Peace and good fortune</button>
+          <button class="quiz__opt">Homework and tests</button>
+          <button class="quiz__opt">Noise and traffic</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
+
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

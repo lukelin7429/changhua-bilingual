@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -449,9 +473,126 @@
       <img src="/schools/nanhsing/photos/news/sports-day/6.jpg" alt="National Sports Day · 國民體育日" loading="lazy">
       <img src="/schools/nanhsing/photos/news/sports-day/7.jpg" alt="National Sports Day · 國民體育日" loading="lazy">
     </div>
+
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word"><div class="word__top"><div class="word__emoji">⚽</div><div class="word__main"><div class="word__term">sport <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">運動</div></div><button class="say" data-speak="sport" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🤝</div><div class="word__main"><div class="word__term">team <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">團隊</div></div><button class="say" data-speak="team" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">📣</div><div class="word__main"><div class="word__term">cheer <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">加油 · 歡呼</div></div><button class="say" data-speak="cheer" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">⚡</div><div class="word__main"><div class="word__term">energy <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">活力</div></div><button class="say" data-speak="energy" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🏃</div><div class="word__main"><div class="word__term">active <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">活躍的</div></div><button class="say" data-speak="active" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">💪</div><div class="word__main"><div class="word__term">healthy <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">健康的</div></div><button class="say" data-speak="healthy" aria-label="Hear this">🔊</button></div></div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">On National <b>Sports</b> Day, everyone plays together.</div><div class="zh">國民體育日這天，大家一起運動。</div></div><button class="say" data-speak="On National Sports Day, everyone plays together." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Our <b>team</b> worked hard and never gave up.</div><div class="zh">我們的隊伍努力不懈，從不放棄。</div></div><button class="say" data-speak="Our team worked hard and never gave up." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">We <b>cheer</b> loudly for our classmates.</div><div class="zh">我們大聲為同學加油。</div></div><button class="say" data-speak="We cheer loudly for our classmates." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Exercise gives us lots of <b>energy</b>.</div><div class="zh">運動讓我們充滿活力。</div></div><button class="say" data-speak="Exercise gives us lots of energy." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Staying <b>active</b> keeps our bodies <b>healthy</b>.</div><div class="zh">保持活躍讓我們的身體健康。</div></div><button class="say" data-speak="Staying active keeps our bodies healthy." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">⚽ It's National Sports Day. Leo and Sue are getting ready to play. 國民體育日到了，阿樂和小蘇正準備上場。</div>
+    <div class="dialog">
+      <div class="turn turn--a"><div class="turn__who">L</div><div class="turn__main"><div class="turn__en">I'm so excited for Sports Day! Which game is first?</div><div class="turn__zh">我好期待體育日！第一個比賽是什麼？</div></div><button class="say" data-speak="I'm so excited for Sports Day! Which game is first?" aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">S</div><div class="turn__main"><div class="turn__en">The relay race! Let's cheer for our team.</div><div class="turn__zh">大隊接力！我們來為隊伍加油。</div></div><button class="say" data-speak="The relay race! Let's cheer for our team." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--a"><div class="turn__who">L</div><div class="turn__main"><div class="turn__en">Running gives me so much energy.</div><div class="turn__zh">跑步讓我充滿活力。</div></div><button class="say" data-speak="Running gives me so much energy." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">S</div><div class="turn__main"><div class="turn__en">Yes! Staying active keeps us healthy and happy.</div><div class="turn__zh">對啊！保持活躍讓我們健康又快樂。</div></div><button class="say" data-speak="Yes! Staying active keeps us healthy and happy." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="4" data-explain="Nanhsing was celebrating National Sports Day." data-explain-zh="南興在慶祝國民體育日。">
+        <div class="quiz__stem">1. What was Nanhsing celebrating? <span class="quiz__zh">南興在慶祝什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">A reading week</button>
+          <button class="quiz__opt">A day off with no activities</button>
+          <button class="quiz__opt">A quiet day in the library</button>
+          <button class="quiz__opt">National Sports Day</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="Students moved, played, and cheered together." data-explain-zh="學生們一起運動、遊戲、加油。">
+        <div class="quiz__stem">2. What did students do on Sports Day? <span class="quiz__zh">體育日這天學生做了什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Sat quietly all day long</button>
+          <button class="quiz__opt">Moved, played, and cheered together</button>
+          <button class="quiz__opt">Stayed at home</button>
+          <button class="quiz__opt">Only watched television</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="Staying active keeps our bodies healthy." data-explain-zh="保持活躍能讓身體保持健康。">
+        <div class="quiz__stem">3. Why is staying active good for us? <span class="quiz__zh">保持活躍為什麼對我們有益？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">It makes us tired and sad</button>
+          <button class="quiz__opt">It wastes all our time</button>
+          <button class="quiz__opt">It keeps our bodies healthy</button>
+          <button class="quiz__opt">It stops us from playing</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
+
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){

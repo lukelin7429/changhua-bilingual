@@ -401,6 +401,30 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(3){border-top-color:var(--earth);}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -449,9 +473,126 @@
       <img src="/schools/nanhsing/photos/news/volunteer-breakfast/6.jpg" alt="Volunteer Certification Breakfast · 志工授證早餐會" loading="lazy">
       <img src="/schools/nanhsing/photos/news/volunteer-breakfast/7.jpg" alt="Volunteer Certification Breakfast · 志工授證早餐會" loading="lazy">
     </div>
+
+    <!-- ===================== LEARNING CORNER (teaching add-on) ===================== -->
+    <div style="margin-top:60px;border-top:3px dashed var(--line);"></div>
+    <div class="sec__no" style="margin-top:44px;">LEARN</div>
+    <h2 class="sec__title" style="font-size:34px;">Learn English from this Story</h2>
+    <div class="sec__title-zh">從這則新聞學英文 · 單字、例句、對話與小測驗</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Tap any <span style="font-weight:700;color:var(--g-deep);">🔊</span> button to hear the English read aloud.
+      <span class="zh">點任何 🔊 按鈕，就能聽英文發音。</span></p>
+
+    <!-- 1 · Keywords -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:46px 0 4px;">① Keywords <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">關鍵單字</span></h3>
+    <div class="words">
+      <div class="word"><div class="word__top"><div class="word__emoji">🙋</div><div class="word__main"><div class="word__term">volunteer <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">志工</div></div><button class="say" data-speak="volunteer" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🙏</div><div class="word__main"><div class="word__term">thank <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(v.)</span></div><div class="word__zh">感謝</div></div><button class="say" data-speak="thank" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">📜</div><div class="word__main"><div class="word__term">certificate <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">證書</div></div><button class="say" data-speak="certificate" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🤲</div><div class="word__main"><div class="word__term">helper <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">幫手</div></div><button class="say" data-speak="helper" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">💛</div><div class="word__main"><div class="word__term">kind <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(adj.)</span></div><div class="word__zh">親切的</div></div><button class="say" data-speak="kind" aria-label="Hear this">🔊</button></div></div>
+      <div class="word"><div class="word__top"><div class="word__emoji">🦸</div><div class="word__main"><div class="word__term">hero <span style="font-size:.5em;color:var(--gold-deep);font-style:italic;font-weight:600;">(n.)</span></div><div class="word__zh">英雄</div></div><button class="say" data-speak="hero" aria-label="Hear this">🔊</button></div></div>
+    </div>
+
+    <!-- 2 · Example sentences -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">② Example Sentences <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">例句</span></h3>
+    <div class="word__exs">
+      <div class="word__ex"><div class="ex__txt"><div class="en">We <b>thank</b> our <b>volunteers</b> for all their help.</div><div class="zh">我們感謝志工們所有的付出。</div></div><button class="say" data-speak="We thank our volunteers for all their help." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Each <b>helper</b> received a <b>certificate</b>.</div><div class="zh">每位幫手都拿到一張證書。</div></div><button class="say" data-speak="Each helper received a certificate." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">Our volunteers are so <b>kind</b> and caring.</div><div class="zh">我們的志工非常親切又有愛心。</div></div><button class="say" data-speak="Our volunteers are so kind and caring." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">They are the everyday <b>heroes</b> of the Nanhsing family.</div><div class="zh">他們是南興大家庭裡每日付出的英雄。</div></div><button class="say" data-speak="They are the everyday heroes of the Nanhsing family." aria-label="Hear this">🔊</button></div>
+      <div class="word__ex"><div class="ex__txt"><div class="en">A <b>volunteer</b> gives time to help other people.</div><div class="zh">志工付出時間來幫助別人。</div></div><button class="say" data-speak="A volunteer gives time to help other people." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 3 · Dialogue -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 14px;">③ Dialogue <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">對話練習</span></h3>
+    <div class="dialog__scene">🍞 At the volunteer breakfast, students Joy and Max watch the thank-you ceremony. 在志工早餐會上，喬伊和阿邁看著感謝頒證儀式。</div>
+    <div class="dialog">
+      <div class="turn turn--a"><div class="turn__who">J</div><div class="turn__main"><div class="turn__en">Look, the volunteers are getting their certificates!</div><div class="turn__zh">你看，志工們正在領證書！</div></div><button class="say" data-speak="Look, the volunteers are getting their certificates!" aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">M</div><div class="turn__main"><div class="turn__en">They help our school every day. We should thank them.</div><div class="turn__zh">他們每天幫助我們的學校，我們應該感謝他們。</div></div><button class="say" data-speak="They help our school every day. We should thank them." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--a"><div class="turn__who">J</div><div class="turn__main"><div class="turn__en">Yes! They are so kind and work very hard.</div><div class="turn__zh">對啊！他們很親切又很努力。</div></div><button class="say" data-speak="Yes! They are so kind and work very hard." aria-label="Hear this">🔊</button></div>
+      <div class="turn turn--b"><div class="turn__who">M</div><div class="turn__main"><div class="turn__en">They really are the everyday heroes of Nanhsing.</div><div class="turn__zh">他們真的是南興每日的英雄。</div></div><button class="say" data-speak="They really are the everyday heroes of Nanhsing." aria-label="Hear this">🔊</button></div>
+    </div>
+
+    <!-- 4 · Quick quiz -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:var(--g-deep);margin:48px 0 16px;">④ Quick Quiz <span style="font-size:.66em;color:var(--ink-soft);font-weight:600;">小測驗</span></h3>
+    <div class="quiz" id="quiz">
+      <div class="quiz__q" data-answer="2" data-explain="The breakfast was held to thank the volunteers." data-explain-zh="這場早餐會是為了感謝學校的志工。">
+        <div class="quiz__stem">1. Why did Nanhsing hold the breakfast? <span class="quiz__zh">南興為什麼舉辦這場早餐會？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">To start a new class</button>
+          <button class="quiz__opt">To thank its volunteers</button>
+          <button class="quiz__opt">To sell food to families</button>
+          <button class="quiz__opt">To give everyone a test</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="The volunteers received certificates." data-explain-zh="志工們獲頒志工證書。">
+        <div class="quiz__stem">2. What did the volunteers receive? <span class="quiz__zh">志工們收到了什麼？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Brand-new desks</button>
+          <button class="quiz__opt">A long summer holiday</button>
+          <button class="quiz__opt">A trophy for sports</button>
+          <button class="quiz__opt">Certificates</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="1" data-explain="The story calls them everyday heroes of the school." data-explain-zh="這則新聞形容他們是學校每日默默付出的英雄。">
+        <div class="quiz__stem">3. How does the story describe the volunteers? <span class="quiz__zh">這則新聞如何形容志工？</span></div>
+        <div class="quiz__opts">
+          <button class="quiz__opt">Everyday heroes of the school</button>
+          <button class="quiz__opt">Visitors from far away</button>
+          <button class="quiz__opt">Brand-new students</button>
+          <button class="quiz__opt">Strangers who never help</button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <!-- =================== END LEARNING CORNER =================== -->
+
     <div class="back"><a href="../">← Back to News · 回到最新消息</a></div>
   </div>
 </section>
+<script>
+/* speak (Web Speech) — shared with lessons pages */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=0.85; u.pitch=1;
+  if(btn){ btn.classList.add('is-speaking');
+    u.onend=function(){btn.classList.remove('is-speaking');};
+    u.onerror=function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){
+  b.addEventListener('click',function(){speak(b.dataset.speak,b);});
+});
+
+/* quick quiz */
+document.querySelectorAll('.quiz__q').forEach(function(q){
+  var ans = parseInt(q.getAttribute('data-answer'),10);   /* 1-based */
+  var opts = [].slice.call(q.querySelectorAll('.quiz__opt'));
+  var fb = q.querySelector('.quiz__fb');
+  opts.forEach(function(opt,i){
+    opt.addEventListener('click',function(){
+      if(q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var correctOpt = opts[ans-1];
+      correctOpt.classList.add('is-correct');
+      opts.forEach(function(o){o.classList.add('is-locked');});
+      if(i===ans-1){
+        fb.className='quiz__fb ok';
+        fb.innerHTML='✅ Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      } else {
+        opt.classList.add('is-wrong');
+        fb.className='quiz__fb no';
+        fb.innerHTML='❌ Not quite. The answer is "<b>'+correctOpt.textContent+'</b>." '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';
+      }
+    });
+  });
+});
+</script>
 <script>
 /* reveal-fx */
 (function(){
