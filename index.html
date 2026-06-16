@@ -82,48 +82,44 @@
         <p class="cnow-sub" id="cnow-feels">&nbsp;</p>
       </div>
     </div>
-    <p class="cnow-foot">Live data, updated automatically — the kind of thing a plain web page can do, and a locked-down site builder can't. <span class="hub-zh">即時資料、自動更新——這正是手寫網頁能做、受限的網站工具做不到的。</span></p>
   </div>
 </section>
 <style>
-  .cnow{max-width:1200px;margin:0 auto;padding:8px 24px 0}
+  .cnow{max-width:1200px;margin:0 auto;padding:6px 24px 0}
   .cnow-card{
-    position:relative;overflow:hidden;border-radius:18px;
-    padding:28px 30px;color:#fff;
-    background:linear-gradient(135deg,var(--hub-primary-deep) 0%,var(--hub-primary) 55%,#2a8f8f 100%);
+    position:relative;overflow:hidden;border-radius:14px;
+    padding:16px 22px;color:#fff;
+    background:linear-gradient(135deg,var(--hub-primary-deep) 0%,var(--hub-primary) 60%,#2a8f8f 100%);
     box-shadow:var(--hub-shadow);
-    opacity:0;transform:translateY(16px);animation:cnowIn .7s cubic-bezier(.2,.7,.2,1) .1s forwards;
+    opacity:0;transform:translateY(12px);animation:cnowIn .6s cubic-bezier(.2,.7,.2,1) .1s forwards;
   }
-  .cnow-card::before{content:"";position:absolute;top:-40%;right:-10%;width:420px;height:420px;border-radius:50%;
-    background:radial-gradient(circle,rgba(255,210,138,.30),transparent 65%);pointer-events:none;
-    animation:cnowFloat 11s ease-in-out infinite}
+  .cnow-card::before{content:"";position:absolute;top:-50%;right:-6%;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,210,138,.20),transparent 65%);pointer-events:none;
+    animation:cnowFloat 12s ease-in-out infinite}
   @keyframes cnowIn{to{opacity:1;transform:none}}
-  @keyframes cnowFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,18px)}}
-  .cnow-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;position:relative}
-  .cnow-live{display:inline-flex;align-items:center;gap:7px;font:600 13px/1 var(--hub-en-font);
-    letter-spacing:.14em;background:rgba(255,255,255,.16);padding:6px 12px;border-radius:999px}
-  .cnow-dot{width:9px;height:9px;border-radius:50%;background:#ff6b6b;box-shadow:0 0 0 0 rgba(255,107,107,.7);
+  @keyframes cnowFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-16px,14px)}}
+  .cnow-head{display:flex;align-items:center;gap:11px;margin-bottom:12px;position:relative}
+  .cnow-live{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--hub-en-font);
+    letter-spacing:.13em;background:rgba(255,255,255,.16);padding:4px 9px;border-radius:999px}
+  .cnow-dot{width:7px;height:7px;border-radius:50%;background:#ff6b6b;box-shadow:0 0 0 0 rgba(255,107,107,.7);
     animation:cnowPulse 1.8s ease-out infinite}
-  @keyframes cnowPulse{0%{box-shadow:0 0 0 0 rgba(255,107,107,.7)}70%{box-shadow:0 0 0 10px rgba(255,107,107,0)}100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}}
-  .cnow-title{margin:0;font:700 21px/1.2 var(--hub-en-font)}
-  .cnow-title span{font-family:var(--hub-zh-font);font-weight:600;opacity:.9;margin-left:6px}
-  .cnow-grid{display:grid;grid-template-columns:1fr;gap:22px;position:relative}
-  @media(min-width:680px){.cnow-grid{grid-template-columns:1fr 1fr;gap:30px}
-    .cnow-weather{border-left:1px solid rgba(255,255,255,.22);padding-left:30px}}
-  .cnow-label{margin:0 0 8px;font:600 14px/1 var(--hub-en-font);letter-spacing:.04em;
-    text-transform:uppercase;color:rgba(255,255,255,.78)}
-  .cnow-time{margin:0;font:700 clamp(2.6rem,7vw,3.6rem)/1 var(--hub-en-font);
+  @keyframes cnowPulse{0%{box-shadow:0 0 0 0 rgba(255,107,107,.7)}70%{box-shadow:0 0 0 8px rgba(255,107,107,0)}100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}}
+  .cnow-title{margin:0;font:700 16px/1.2 var(--hub-en-font)}
+  .cnow-title span{font-family:var(--hub-zh-font);font-weight:600;opacity:.88;margin-left:5px;font-size:14px}
+  .cnow-grid{display:grid;grid-template-columns:1fr;gap:14px;position:relative}
+  @media(min-width:680px){.cnow-grid{grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .cnow-weather{border-left:1px solid rgba(255,255,255,.20);padding-left:24px}}
+  .cnow-label{margin:0 0 5px;font:600 11px/1 var(--hub-en-font);letter-spacing:.05em;
+    text-transform:uppercase;color:rgba(255,255,255,.72)}
+  .cnow-time{margin:0;font:700 clamp(1.7rem,4vw,2.1rem)/1 var(--hub-en-font);
     font-variant-numeric:tabular-nums;letter-spacing:.01em}
-  .cnow-sub{margin:8px 0 0;font:500 17px/1.4 var(--hub-en-font);color:rgba(255,255,255,.9)}
-  .cnow-wx{display:flex;align-items:center;gap:16px}
-  .cnow-emoji{font-size:clamp(2.4rem,6vw,3.2rem);line-height:1;animation:cnowBob 4s ease-in-out infinite}
-  @keyframes cnowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-  .cnow-temp{margin:0;font:700 clamp(2.4rem,6.5vw,3.4rem)/1 var(--hub-en-font);font-variant-numeric:tabular-nums}
+  .cnow-sub{margin:5px 0 0;font:500 13px/1.4 var(--hub-en-font);color:rgba(255,255,255,.85)}
+  .cnow-wx{display:flex;align-items:center;gap:13px}
+  .cnow-emoji{font-size:2rem;line-height:1;animation:cnowBob 4s ease-in-out infinite}
+  @keyframes cnowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .cnow-temp{margin:0;font:700 clamp(1.7rem,4vw,2.1rem)/1 var(--hub-en-font);font-variant-numeric:tabular-nums}
   .cnow-deg{font-size:.5em;font-weight:600;opacity:.85;margin-left:2px}
-  .cnow-cond{margin:4px 0 0;font:500 18px/1.3 var(--hub-en-font)}
-  .cnow-foot{margin:20px 0 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);
-    font:500 16px/1.6 var(--hub-en-font);color:rgba(255,255,255,.86);max-width:78ch;position:relative}
-  .cnow-foot .hub-zh{display:block;margin-top:4px;font-family:var(--hub-zh-font);color:rgba(255,255,255,.78)}
+  .cnow-cond{margin:3px 0 0;font:500 14px/1.3 var(--hub-en-font)}
   @media(prefers-reduced-motion:reduce){.cnow-card,.cnow-dot,.cnow-emoji,.cnow-card::before{animation:none}.cnow-card{opacity:1;transform:none}}
 </style>
 <script>
