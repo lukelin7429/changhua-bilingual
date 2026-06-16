@@ -84,56 +84,52 @@ section:last-of-type{border-bottom:none;}
 .crumb a{color:var(--brick);text-decoration:none;font-weight:600;}
 .crumb a:hover{text-decoration:underline;}
 
-/* playlist block */
-.playlist-block{background:var(--bg-soft);border:2px solid var(--line);border-radius:24px;padding:32px 28px;box-shadow:var(--shadow-sm);margin-top:36px;}
-.playlist-block h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--brick-deep);font-weight:700;}
-@media(min-width:720px){.playlist-block h3{font-size:32px;}}
-.playlist-block .zh{font-size:17px;color:var(--ink-soft);margin:6px 0 20px;}
-@media(min-width:720px){.playlist-block .zh{font-size:19px;}}
-.video-frame{position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;}
-.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+/* vocab cards — video edition */
+.vocabs{display:grid;grid-template-columns:1fr;gap:36px;margin-top:48px;}
+@media(min-width:860px){.vocabs{grid-template-columns:1fr 1fr;gap:40px;}}
 
-/* vocab cards */
-.vocabs{display:grid;grid-template-columns:1fr;gap:28px;margin-top:38px;}
-@media(min-width:860px){.vocabs{grid-template-columns:1fr 1fr;gap:32px;}}
 .vc{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--brick);}
-.vc:nth-child(2){border-top-color:var(--azure);}
-.vc:nth-child(3){border-top-color:var(--gold);}
-.vc:nth-child(4){border-top-color:var(--green);}
-.vc:nth-child(5){border-top-color:var(--brick);}
-.vc:nth-child(6){border-top-color:var(--azure);}
-.vc__head{padding:26px 28px 18px;}
-@media(min-width:720px){.vc__head{padding:30px 34px 20px;}}
-.vc__emoji{font-size:52px;line-height:1;margin-bottom:14px;}
-@media(min-width:720px){.vc__emoji{font-size:64px;}}
-.vc__term{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:800;color:var(--brick-deep);line-height:1.1;margin-top:4px;}
+.vc:nth-child(4n+2){border-top-color:var(--azure);}
+.vc:nth-child(4n+3){border-top-color:var(--gold);}
+.vc:nth-child(4n+4){border-top-color:var(--green);}
+
+.vc__num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold-deep);background:var(--gold-soft);
+  padding:6px 20px;
+}
+
+.vc__head{padding:18px 24px 14px;}
+@media(min-width:720px){.vc__head{padding:22px 28px 16px;}}
+
+.vc__term{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:800;color:var(--brick-deep);line-height:1.1;}
 @media(min-width:720px){.vc__term{font-size:44px;}}
-.vc:nth-child(2) .vc__term{color:var(--azure-deep);}
-.vc:nth-child(3) .vc__term{color:var(--gold-deep);}
-.vc:nth-child(4) .vc__term{color:var(--green-deep);}
-.vc:nth-child(5) .vc__term{color:var(--brick-deep);}
-.vc:nth-child(6) .vc__term{color:var(--azure-deep);}
-.vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--ink-soft);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:6px;}
-.vc__zh{font-family:'PingFang TC',sans-serif;font-size:22px;color:var(--ink);font-weight:700;margin-top:6px;letter-spacing:1.5px;}
-@media(min-width:720px){.vc__zh{font-size:28px;}}
-.vc__body{padding:20px 28px 28px;flex:1;}
-@media(min-width:720px){.vc__body{padding:22px 34px 32px;}}
-.vc__exs{display:flex;flex-direction:column;gap:14px;}
-.vc__ex{background:var(--bg-soft);border-radius:14px;padding:16px 18px;border-left:5px solid var(--brick);}
-.vc__ex:nth-child(2){border-left-color:var(--gold);}
-.vc:nth-child(2) .vc__ex:first-child{border-left-color:var(--azure);}
-.vc:nth-child(3) .vc__ex:first-child{border-left-color:var(--gold);}
-.vc:nth-child(4) .vc__ex:first-child{border-left-color:var(--green);}
-.vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
-@media(min-width:720px){.vc__ex .en{font-size:22px;}}
-.vc__ex .en b{color:var(--brick-deep);font-weight:800;}
-.vc:nth-child(2) .vc__ex .en b{color:var(--azure-deep);}
-.vc:nth-child(3) .vc__ex .en b{color:var(--gold-deep);}
-.vc:nth-child(4) .vc__ex .en b{color:var(--green-deep);}
-.vc:nth-child(5) .vc__ex .en b{color:var(--brick-deep);}
-.vc:nth-child(6) .vc__ex .en b{color:var(--azure-deep);}
-.vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;font-family:'PingFang TC',sans-serif;}
-@media(min-width:720px){.vc__ex .zh{font-size:18px;}}
+.vc:nth-child(4n+2) .vc__term{color:var(--azure-deep);}
+.vc:nth-child(4n+3) .vc__term{color:var(--gold-deep);}
+.vc:nth-child(4n+4) .vc__term{color:var(--green-deep);}
+
+.vc__pos{font-family:'Inter',sans-serif;font-size:.42em;color:var(--ink-soft);font-style:italic;font-weight:500;letter-spacing:.5px;margin-left:8px;vertical-align:middle;}
+.vc__zh{font-family:'PingFang TC',sans-serif;font-size:22px;color:var(--ink);font-weight:700;margin-top:4px;letter-spacing:2px;}
+@media(min-width:720px){.vc__zh{font-size:26px;}}
+
+.vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+.vc__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+.vc__body{padding:20px 24px 26px;flex:1;}
+@media(min-width:720px){.vc__body{padding:22px 28px 30px;}}
+.vc__exs{display:flex;flex-direction:column;gap:12px;}
+
+.vc__ex{border-radius:12px;padding:14px 16px;}
+.vc__ex--1{background:var(--brick-soft);border-left:5px solid var(--brick);}
+.vc__ex--2{background:var(--azure-soft);border-left:5px solid var(--azure);}
+.vc__ex .en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.55;}
+@media(min-width:720px){.vc__ex .en{font-size:20px;}}
+.vc__ex .en b{font-weight:800;}
+.vc__ex--1 .en b{color:var(--brick-deep);}
+.vc__ex--2 .en b{color:var(--azure-deep);}
+.vc__ex .zh{font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.55;font-family:'PingFang TC',sans-serif;}
+@media(min-width:720px){.vc__ex .zh{font-size:17px;}}
 
 /* footer */
 footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
@@ -174,7 +170,7 @@ footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);
   </div>
 </div>
 
-<!-- PLAYLIST -->
+<!-- INTRO -->
 <section>
   <div class="wrap">
     <div class="crumb"><a href="../">← Lessons 課程</a></div>
@@ -183,161 +179,476 @@ footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);
     <div class="sec__title-zh">觀看影片，一起學英文！</div>
     <div class="sec__rule"></div>
     <p class="sec__lede">
-      These bilingual videos were filmed right here at Da-An — watch them on YouTube and learn one English word at a time. Press play and let's go!
-      <span class="zh">這些雙語影片在大安國小校園實地拍攝。按下播放，每次學一個英文單字，一起出發！</span>
+      These bilingual videos were filmed right here at Da-An — watch each video and learn one English word at a time. Every word comes with two example sentences to help you use it yourself!
+      <span class="zh">這些雙語影片在大安國小校園實地拍攝。每支影片學一個英文單字，搭配兩個例句，讓你馬上學會怎麼用！</span>
     </p>
-
-    <div class="playlist-block rvl">
-      <h3>📺 Da-An Word of the Day · 大安每日一字</h3>
-      <div class="zh">點擊播放，開始學英文！Use the arrows to go to the next video.</div>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8XYnhQixEX2I8NQcKAmoWWT&rel=0"
-          title="Da-An Elementary — Word of the Day · 大安國小每日一字"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- VOCABULARY CARDS -->
+<!-- VIDEO VOCABULARY CARDS -->
 <section style="background:var(--bg-soft);">
   <div class="wrap">
-    <div class="sec__no">✏️</div>
-    <h2 class="sec__title">Da-An's Words</h2>
-    <div class="sec__title-zh">大安的英文單字</div>
+    <div class="sec__no">📖</div>
+    <h2 class="sec__title">All 17 Words</h2>
+    <div class="sec__title-zh">十七個英文單字 · 大安校園拍攝</div>
     <div class="sec__rule"></div>
-    <p class="sec__lede">
-      These words come from Da-An's own story — from our unicycle champions to our moon-gate garden to the mountain we once climbed together.
-      <span class="zh">這些英文單字來自大安的故事——從我們的獨輪車冠軍隊、詩藝園月洞門，到我們一起爬上的那座山。</span>
-    </p>
 
     <div class="vocabs">
 
-      <!-- 1. Unicycle -->
+      <!-- 01 sweep -->
       <article class="vc rvl">
+        <div class="vc__num">WORD 001</div>
         <div class="vc__head">
-          <div class="vc__emoji">🦄</div>
-          <div class="vc__term">Unicycle<span class="vc__pos">n.</span></div>
-          <div class="vc__zh">獨輪車</div>
+          <div class="vc__term">sweep<span class="vc__pos">v.</span></div>
+          <div class="vc__zh">掃</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/7zKMZFEbauM?rel=0"
+            title="Word of the Day: sweep (v) 掃"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="vc__body">
           <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">I ride my <b>unicycle</b> every morning before school!</div>
-              <div class="zh">我每天早上上學前都騎獨輪車！</div>
+            <div class="vc__ex vc__ex--1">
+              <div class="en">The students <b>sweep</b> the classroom every afternoon.</div>
+              <div class="zh">學生們每天下午打掃教室。</div>
             </div>
-            <div class="vc__ex">
-              <div class="en">Our <b>unicycle</b> team won four gold medals at the County Cup.</div>
-              <div class="zh">我們的獨輪車隊在縣長盃贏了四面金牌。</div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Can you help me <b>sweep</b> the hallway?</div>
+              <div class="zh">你能幫我掃走廊嗎？</div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 2. Archery -->
+      <!-- 02 professional development -->
       <article class="vc rvl">
+        <div class="vc__num">WORD 002</div>
         <div class="vc__head">
-          <div class="vc__emoji">🏹</div>
-          <div class="vc__term">Archery<span class="vc__pos">n.</span></div>
+          <div class="vc__term">professional development<span class="vc__pos">phr.</span></div>
+          <div class="vc__zh">專業進修</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/Fo_MNXh2dKY?rel=0"
+            title="Word of the Day: professional development 專業進修"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">Teachers attend <b>professional development</b> workshops every semester.</div>
+              <div class="zh">老師們每學期參加專業進修研習。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en"><b>Professional development</b> helps our teachers learn new ideas.</div>
+              <div class="zh">專業進修幫助老師們學習新知識。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 basketball -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 003</div>
+        <div class="vc__head">
+          <div class="vc__term">basketball<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">籃球</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/eGHy6p45Qco?rel=0"
+            title="Word of the Day: basketball (n) 籃球"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We love playing <b>basketball</b> during recess.</div>
+              <div class="zh">下課時我們很喜歡打籃球。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">The <b>basketball</b> team practices hard every day after school.</div>
+              <div class="zh">籃球隊每天放學後認真練習。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 test -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 004</div>
+        <div class="vc__head">
+          <div class="vc__term">test<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">考試</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/Wa_tzUfVloY?rel=0"
+            title="Word of the Day: test (n) 考試"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We have an English <b>test</b> every Friday.</div>
+              <div class="zh">我們每個星期五有英文考試。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">I studied hard for the math <b>test</b> last night.</div>
+              <div class="zh">我昨晚為了數學考試認真讀書。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 jump rope -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 005</div>
+        <div class="vc__head">
+          <div class="vc__term">jump rope<span class="vc__pos">phr.</span></div>
+          <div class="vc__zh">跳繩</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/HzNTAPOAXw0?rel=0"
+            title="Word of the Day: jump rope 跳繩"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en"><b>Jump rope</b> is our favorite game at recess.</div>
+              <div class="zh">跳繩是我們下課最喜歡的遊戲。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">She can <b>jump rope</b> for five minutes without stopping!</div>
+              <div class="zh">她可以跳繩五分鐘不停下來！</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 recorder -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 006</div>
+        <div class="vc__head">
+          <div class="vc__term">recorder<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">直笛</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/K7jpoyWMDyM?rel=0"
+            title="Word of the Day: recorder (n) 直笛"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">Every student at Da-An learns to play the <b>recorder</b>.</div>
+              <div class="zh">大安國小每個學生都學吹直笛。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">She played a beautiful song on the <b>recorder</b> at the concert.</div>
+              <div class="zh">她在音樂會上用直笛演奏了一首美麗的歌。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 warm-up -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 007</div>
+        <div class="vc__head">
+          <div class="vc__term">warm-up<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">暖身</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/z8iILDsAPc0?rel=0"
+            title="Word of the Day: warm-up (n) 暖身"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We always do a <b>warm-up</b> before PE class.</div>
+              <div class="zh">我們在體育課前總是先做暖身運動。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">A good <b>warm-up</b> gets your body ready to move!</div>
+              <div class="zh">做好暖身運動，讓身體準備好動起來！</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 wind instrument -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 008</div>
+        <div class="vc__head">
+          <div class="vc__term">wind instrument<span class="vc__pos">phr.</span></div>
+          <div class="vc__zh">吹管樂器</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/dJ6ntjwk36A?rel=0"
+            title="Word of the Day: wind instrument 吹管樂器"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">The flute and recorder are both <b>wind instruments</b>.</div>
+              <div class="zh">長笛和直笛都是吹管樂器。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Da-An has an amazing <b>wind instrument</b> ensemble.</div>
+              <div class="zh">大安國小有一個很棒的吹管樂團。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 dance performance -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 009</div>
+        <div class="vc__head">
+          <div class="vc__term">dance performance<span class="vc__pos">phr.</span></div>
+          <div class="vc__zh">舞蹈表演</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/2PpBopXcjeU?rel=0"
+            title="Word of the Day: dance performance 舞蹈表演"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">Our class put on a <b>dance performance</b> at the school assembly.</div>
+              <div class="zh">我們班在朝會表演了舞蹈。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Everyone cheered during the <b>dance performance</b> on Sports Day.</div>
+              <div class="zh">運動會的舞蹈表演時，大家都歡呼喝采。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 correct -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 010</div>
+        <div class="vc__head">
+          <div class="vc__term">correct<span class="vc__pos">v.</span></div>
+          <div class="vc__zh">批改</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/cNJ5QyakzYc?rel=0"
+            title="Word of the Day: correct (v) 批改"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">Our teacher uses a red pen to <b>correct</b> our homework.</div>
+              <div class="zh">我們的老師用紅筆批改我們的作業。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">She <b>corrects</b> all the tests and gives them back the next day.</div>
+              <div class="zh">她批改完所有考卷，隔天還給我們。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 wash -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 011</div>
+        <div class="vc__head">
+          <div class="vc__term">wash<span class="vc__pos">v.</span></div>
+          <div class="vc__zh">洗</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/nqHezeViyaY?rel=0"
+            title="Word of the Day: wash (v) 洗"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We always <b>wash</b> our hands before lunch.</div>
+              <div class="zh">我們午餐前總是洗手。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Please <b>wash</b> the paintbrushes after art class.</div>
+              <div class="zh">美術課後請把畫筆洗乾淨。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 constellation -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 012</div>
+        <div class="vc__head">
+          <div class="vc__term">constellation<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">星座</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/6CZZ2Nff7RM?rel=0"
+            title="Word of the Day: constellation (n) 星座"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We learned about the twelve <b>constellations</b> in science class.</div>
+              <div class="zh">我們在自然課學習了十二星座。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Can you spot the Orion <b>constellation</b> in the night sky?</div>
+              <div class="zh">你能在夜空中找到獵戶座嗎？</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13 flute -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 013</div>
+        <div class="vc__head">
+          <div class="vc__term">flute<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">長笛</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/jhyrsJGY1OY?rel=0"
+            title="Word of the Day: flute (n) 長笛"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">She plays the <b>flute</b> in the school wind ensemble.</div>
+              <div class="zh">她在學校吹管樂團演奏長笛。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">The <b>flute</b> makes a beautiful, bright sound.</div>
+              <div class="zh">長笛發出美麗明亮的聲音。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14 pottery wheel -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 014</div>
+        <div class="vc__head">
+          <div class="vc__term">pottery wheel<span class="vc__pos">phr.</span></div>
+          <div class="vc__zh">陶輪</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/HlD8hzOSy4g?rel=0"
+            title="Word of the Day: pottery wheel 陶輪"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vc__body">
+          <div class="vc__exs">
+            <div class="vc__ex vc__ex--1">
+              <div class="en">We used a <b>pottery wheel</b> to make clay bowls in art class.</div>
+              <div class="zh">我們在美術課用陶輪製作陶碗。</div>
+            </div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">It takes a lot of practice to shape clay on a <b>pottery wheel</b>.</div>
+              <div class="zh">在陶輪上塑造陶土需要很多練習。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15 archery -->
+      <article class="vc rvl">
+        <div class="vc__num">WORD 015</div>
+        <div class="vc__head">
+          <div class="vc__term">archery<span class="vc__pos">n.</span></div>
           <div class="vc__zh">射箭</div>
         </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/9WDYI48NaDw?rel=0"
+            title="Word of the Day: archery (n) 射箭"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
         <div class="vc__body">
           <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">We practice <b>archery</b> after school.</div>
-              <div class="zh">我們放學後練習射箭。</div>
+            <div class="vc__ex vc__ex--1">
+              <div class="en">Da-An Elementary has a great <b>archery</b> team.</div>
+              <div class="zh">大安國小有一支很棒的射箭隊。</div>
             </div>
-            <div class="vc__ex">
-              <div class="en">Aim carefully — <b>archery</b> takes lots of focus.</div>
-              <div class="zh">仔細瞄準——射箭需要很強的專注力。</div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">She hit the bullseye on her very first try in <b>archery</b>!</div>
+              <div class="zh">她在射箭時第一次就射中靶心！</div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 3. Brass Band -->
+      <!-- 16 martial arts -->
       <article class="vc rvl">
+        <div class="vc__num">WORD 016</div>
         <div class="vc__head">
-          <div class="vc__emoji">🎺</div>
-          <div class="vc__term">Brass Band<span class="vc__pos">n.</span></div>
-          <div class="vc__zh">管樂團</div>
+          <div class="vc__term">martial arts<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">武術</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/f_9WQDYiH2A?rel=0"
+            title="Word of the Day: martial arts (n) 武術"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="vc__body">
           <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">Our <b>brass band</b> played music on top of the mountain!</div>
-              <div class="zh">我們的管樂團在山頂演奏！</div>
+            <div class="vc__ex vc__ex--1">
+              <div class="en">The <b>martial arts</b> club meets every Tuesday after school.</div>
+              <div class="zh">武術社每個星期二放學後集合。</div>
             </div>
-            <div class="vc__ex">
-              <div class="en">I play the flute in our school's <b>brass band</b>.</div>
-              <div class="zh">我在學校管樂團吹長笛。</div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">Learning <b>martial arts</b> teaches us discipline and respect.</div>
+              <div class="zh">學習武術教導我們紀律和尊重。</div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 4. Garden -->
+      <!-- 17 contraption -->
       <article class="vc rvl">
+        <div class="vc__num">WORD 017</div>
         <div class="vc__head">
-          <div class="vc__emoji">🌿</div>
-          <div class="vc__term">Garden<span class="vc__pos">n.</span></div>
-          <div class="vc__zh">花園</div>
+          <div class="vc__term">contraption<span class="vc__pos">n.</span></div>
+          <div class="vc__zh">裝置</div>
+        </div>
+        <div class="vc__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/rkZmhZaSGnM?rel=0"
+            title="Word of the Day: contraption (n) 裝置"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="vc__body">
           <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">Walk through the moon gate and into our school <b>garden</b>.</div>
-              <div class="zh">走過月洞門，進入我們的學校花園。</div>
+            <div class="vc__ex vc__ex--1">
+              <div class="en">The students built a clever <b>contraption</b> for the science fair.</div>
+              <div class="zh">學生們為科學展製作了一個聰明的裝置。</div>
             </div>
-            <div class="vc__ex">
-              <div class="en">We read poems in the <b>garden</b> on sunny days.</div>
-              <div class="zh">晴天的時候，我們在花園裡讀詩。</div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5. Champion -->
-      <article class="vc rvl">
-        <div class="vc__head">
-          <div class="vc__emoji">🏆</div>
-          <div class="vc__term">Champion<span class="vc__pos">n.</span></div>
-          <div class="vc__zh">冠軍</div>
-        </div>
-        <div class="vc__body">
-          <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">We are the <b>champions</b> of the County Unicycle Cup!</div>
-              <div class="zh">我們是縣長盃獨輪車錦標賽的冠軍！</div>
-            </div>
-            <div class="vc__ex">
-              <div class="en">Every <b>champion</b> practices hard every single day.</div>
-              <div class="zh">每個冠軍都每天努力練習。</div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6. Mountain -->
-      <article class="vc rvl">
-        <div class="vc__head">
-          <div class="vc__emoji">⛰️</div>
-          <div class="vc__term">Mountain<span class="vc__pos">n.</span></div>
-          <div class="vc__zh">山</div>
-        </div>
-        <div class="vc__body">
-          <div class="vc__exs">
-            <div class="vc__ex">
-              <div class="en">We climbed Hehuan <b>Mountain</b> — it's 3,417 meters high!</div>
-              <div class="zh">我們爬了合歡山——它有 3,417 公尺高！</div>
-            </div>
-            <div class="vc__ex">
-              <div class="en">A <b>mountain</b> always looks taller from the bottom.</div>
-              <div class="zh">從山腳往上看，山總是更高。</div>
+            <div class="vc__ex vc__ex--2">
+              <div class="en">What does this funny <b>contraption</b> do? Let's find out!</div>
+              <div class="zh">這個奇妙的裝置有什麼用？讓我們來找出答案！</div>
             </div>
           </div>
         </div>
