@@ -188,3 +188,61 @@ h2.sec{font-family:var(--font-display); font-weight:600; font-size:clamp(26px,3.
   section.block{padding:46px 0}
 }
 @media (max-width:520px){ .gallery{columns:1} }
+
+/* ===================== STORY QUIZ GAME ===================== */
+.quiz{max-width:780px; margin:0 auto; background:#fff; border-radius:26px; overflow:hidden;
+  box-shadow:0 26px 60px rgba(20,25,50,.22); border:3px solid #ffe08a; position:relative}
+.quiz-top{background:linear-gradient(110deg,#ff8a4c,#ff5d8f 55%,#7b5cff); color:#fff; padding:22px 26px; text-align:center}
+.quiz-top h3{font-family:var(--font-display); font-weight:700; font-size:27px; margin:0}
+.quiz-top p{margin:6px 0 0; font-size:16px; opacity:.95}
+.quiz-bar{height:12px; background:#ffe6ef}
+.quiz-bar i{display:block; height:100%; width:0; background:linear-gradient(90deg,#ffd23f,#ff7a3c); transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.quiz-body{padding:24px 26px 30px}
+.quiz-meta{display:flex; justify-content:space-between; align-items:center; font-size:16px; color:var(--muted); font-weight:600; margin-bottom:14px}
+.quiz-meta .score b{color:#ef5d6f}
+.q-photo{border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(20,25,50,.16); margin-bottom:18px; max-height:300px}
+.q-photo img{width:100%; height:100%; max-height:300px; object-fit:cover}
+.q-text{display:flex; align-items:flex-start; gap:12px; font-family:var(--font-display); font-weight:600; font-size:23px; line-height:1.4; color:var(--ink); margin-bottom:4px}
+.q-zh{font-size:17px; color:var(--muted); margin:0 0 18px 44px}
+.say-btn{flex:none; width:40px; height:40px; border-radius:50%; border:0; cursor:pointer; font-size:20px;
+  background:#fff3d6; color:#e08a1a; box-shadow:0 4px 10px rgba(224,138,26,.25); transition:transform .15s}
+.say-btn:hover{transform:scale(1.12)}
+.say-btn:active{transform:scale(.9)}
+.opts{display:grid; gap:12px}
+.opt{display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
+  background:#f6f7fb; border:2.5px solid #e7e9ef; border-radius:16px; padding:15px 18px; font-size:19px;
+  font-family:var(--font-body); color:var(--ink); transition:.16s}
+.opt:hover:not(:disabled){border-color:#ffb13c; background:#fff8ec; transform:translateY(-2px)}
+.opt .key{flex:none; width:34px; height:34px; border-radius:10px; background:#fff; border:2px solid #e7e9ef;
+  display:grid; place-items:center; font-weight:700; font-family:var(--font-display); color:#8a8f9c}
+.opt.correct{border-color:#27c08a; background:#e8fbf2}
+.opt.correct .key{background:#27c08a; color:#fff; border-color:#27c08a}
+.opt.wrong{border-color:#ff6b6b; background:#fff0f0}
+.opt.wrong .key{background:#ff6b6b; color:#fff; border-color:#ff6b6b}
+.opt:disabled{cursor:default}
+@keyframes shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(5px)}50%{transform:translateX(-7px)}}
+.opt.shake{animation:shake .4s}
+.explain{margin-top:16px; padding:15px 18px; border-radius:14px; background:#eef4ff; font-size:17px; line-height:1.6; display:none}
+.explain.show{display:block; animation:pop .35s}
+.explain b{color:#3a6fd0}
+.explain .zh{display:block; margin-top:4px; color:var(--muted); font-size:16px}
+@keyframes pop{0%{transform:scale(.94);opacity:0}100%{transform:scale(1);opacity:1}}
+.quiz-next{margin-top:18px; text-align:right}
+.btn-go{font-family:var(--font-display); font-weight:600; font-size:18px; color:#fff; background:linear-gradient(100deg,#ff7a3c,#ff5d8f);
+  border:0; border-radius:999px; padding:13px 30px; cursor:pointer; box-shadow:0 10px 22px rgba(255,93,143,.35); transition:transform .15s; opacity:0; pointer-events:none}
+.btn-go.show{opacity:1; pointer-events:auto}
+.btn-go:hover{transform:translateY(-2px)}
+/* result */
+.quiz-result{text-align:center; padding:18px 10px}
+.quiz-result .big{font-family:var(--font-display); font-weight:700; font-size:60px; line-height:1}
+.quiz-result h4{font-family:var(--font-display); font-size:26px; margin:10px 0 4px}
+.quiz-result p{font-size:18px; color:var(--muted); margin:0 0 6px}
+.stars{font-size:38px; letter-spacing:6px; margin:8px 0}
+/* confetti */
+.confetti{position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:5}
+.confetti i{position:absolute; top:-12px; width:10px; height:14px; border-radius:2px; opacity:.95; animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(620px) rotate(540deg); opacity:0}}
+@media (max-width:720px){
+  .q-text{font-size:21px} .opt{font-size:18px}
+  .quiz-body{padding:20px 16px 24px}
+}

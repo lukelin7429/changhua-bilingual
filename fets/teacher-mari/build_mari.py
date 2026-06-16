@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Generate Teacher Mari's English Hub (faithful recreation of her Google Site)."""
-import os, glob, re
+import os, glob, re, json
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PHOTOS = os.path.join(ROOT, 'photos')
@@ -151,6 +151,64 @@ def page(out_rel, title, theme, active, hero, body, desc):
 
 def idxrange(a, b):
     return [f'{i:02d}' for i in range(a, b+1)]
+
+def reading_quiz():
+    """Interactive 5-question comprehension game about Teacher Mari's germs & doughnuts story."""
+    rc = 'bilingual_reading-class'
+    QS = [
+        {"photo": img(rc,'19'),
+         "q": "What does the penguin shout through the megaphone?",
+         "zh": "企鵝用大聲公喊什麼？",
+         "options": ["\"Run away from the rain!\"", "\"Roll up, roll up, doughnuts for everyone!\"",
+                     "\"Time to go to sleep!\"", "\"Be quiet in class!\""],
+         "answer": 1,
+         "explainEn": "The penguin happily invites everyone to come and get free doughnuts!",
+         "explainZh": "企鵝開心地邀請大家來拿甜甜圈！"},
+        {"photo": img(rc,'20'),
+         "q": "How do the two little mice feel?",
+         "zh": "兩隻小老鼠怎麼了？",
+         "options": ["They are sleepy.", "They are angry.",
+                     "They are sick — cough, cough, achoo!", "They are very hungry."],
+         "answer": 2,
+         "explainEn": "The mice keep coughing and sneezing because they are sick.",
+         "explainZh": "小老鼠一直咳嗽、打噴嚏，因為牠們生病了。"},
+        {"photo": img(rc,'21'),
+         "q": "What makes the animals feel sick?",
+         "zh": "是什麼讓動物們生病？",
+         "options": ["Tiny germs.", "Too many doughnuts.", "The cold rain.", "A loud megaphone."],
+         "answer": 0,
+         "explainEn": "Tiny germs can make us cough, sneeze, and feel sick.",
+         "explainZh": "小小的細菌會讓我們咳嗽、打噴嚏、生病。"},
+        {"photo": img(rc,'30'),
+         "q": "Why is it so hard to wash germs away?",
+         "zh": "為什麼很難把細菌洗掉？",
+         "options": ["They can run very fast.", "They hide inside the doughnuts.",
+                     "They are too big to move.", "They are so tiny we can't even see them."],
+         "answer": 3,
+         "explainEn": "Germs are so small that our eyes can't see them — but they are still there!",
+         "explainZh": "細菌太小，我們的眼睛看不到，但它們還在喔！"},
+        {"photo": img(rc,'31'),
+         "q": "What is the best way to wash the germs away?",
+         "zh": "把細菌洗掉最好的方法是什麼？",
+         "options": ["Eat more doughnuts.", "Wash your hands with soap and water.",
+                     "Shout into the megaphone.", "Go straight to bed."],
+         "answer": 1,
+         "explainEn": "Scrub with soap and water to wash the germs away and stay healthy!",
+         "explainZh": "用肥皂和清水好好洗手，把細菌洗掉，保持健康！"},
+    ]
+    data = json.dumps(QS, ensure_ascii=False)
+    return f'''<section class="block tint" id="story-quiz"><div class="wrap">
+  <div class="sec-head reveal"><div class="sec-eyebrow">🎮 Story Quiz</div>
+    <h2 class="sec">Germs &amp; Doughnuts — do you remember the story?</h2>
+    <p>Teacher Mari's story is about a penguin, free doughnuts, sneaky germs, and washing hands. Read along, then play! Tap 🔊 to listen. 讀完故事就來玩，點 🔊 可以聽喔！</p></div>
+  <div class="quiz reveal" id="quiz">
+    <div class="confetti"></div>
+    <div class="quiz-top"><h3>📖 Story Quiz Time!</h3><p>5 questions about Teacher Mari's story</p></div>
+    <div class="quiz-bar"><i></i></div>
+    <div class="quiz-body"></div>
+  </div>
+</div></section>
+<script>window.MARI_QUIZ = {data};</script>'''
 
 # =========================================================
 #  PAGE CONTENT
@@ -307,7 +365,8 @@ read_body = f'''<section class="block"><div class="wrap">
   <p class="lead reveal" style="max-width:820px;margin:0 auto 30px;text-align:center">Our Reading Class for <b>Grades 3 and 4</b> helps students build a strong foundation in English. They learn basic vocabulary, simple sentences, and enjoy short stories that are easy to understand. Through these stories, students not only improve their reading skills but also learn important values like kindness, respect, and responsibility. Learning to read, understand, and grow — one story at a time! 🌟📚
   <span class="zh">三、四年級的閱讀課幫助學生打好英語基礎：學習基本字彙、簡單句型，享受好讀的短篇故事。透過故事，孩子不只提升閱讀力，也學會善良、尊重與負責等重要價值。一次一個故事，閱讀、理解、成長！</span></p>
   {gallery_block(gallery_imgs('bilingual_reading-class', idxrange(4,31)))}
-</div></section>'''
+</div></section>
+{reading_quiz()}'''
 page('bilingual-hub/reading-class/index.html', 'Reading Class', 'bilingual', 'reading',
      hero_video(mp4, poster, 'Reading Class', 'Reading Class'),
      read_body, "Reading Class for Grades 3 and 4 at Nanhsing — vocabulary, simple sentences, and short stories with values.")
