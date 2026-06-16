@@ -57,6 +57,118 @@
 </section>
 </div>
 
+<!-- ===== Changhua Right Now · 此刻的彰化 (live, no API key — Open-Meteo) ===== -->
+<section class="cnow" aria-label="Live local time and weather in Changhua">
+  <div class="cnow-card">
+    <div class="cnow-head">
+      <span class="cnow-live"><span class="cnow-dot"></span>LIVE</span>
+      <p class="cnow-title">Changhua Right Now <span>此刻的彰化</span></p>
+    </div>
+    <div class="cnow-grid">
+      <div class="cnow-cell cnow-clock">
+        <p class="cnow-label">Local time · 在地時間</p>
+        <p class="cnow-time" id="cnow-time">--:--:--</p>
+        <p class="cnow-sub" id="cnow-date">Changhua City, Taiwan · 彰化市</p>
+      </div>
+      <div class="cnow-cell cnow-weather">
+        <p class="cnow-label">Weather now · 目前天氣</p>
+        <div class="cnow-wx">
+          <span class="cnow-emoji" id="cnow-emoji">⛅</span>
+          <div>
+            <p class="cnow-temp"><span id="cnow-temp">--</span><span class="cnow-deg">°C</span></p>
+            <p class="cnow-cond" id="cnow-cond">Loading… · 載入中…</p>
+          </div>
+        </div>
+        <p class="cnow-sub" id="cnow-feels">&nbsp;</p>
+      </div>
+    </div>
+    <p class="cnow-foot">Live data, updated automatically — the kind of thing a plain web page can do, and a locked-down site builder can't. <span class="hub-zh">即時資料、自動更新——這正是手寫網頁能做、受限的網站工具做不到的。</span></p>
+  </div>
+</section>
+<style>
+  .cnow{max-width:1200px;margin:0 auto;padding:8px 24px 0}
+  .cnow-card{
+    position:relative;overflow:hidden;border-radius:18px;
+    padding:28px 30px;color:#fff;
+    background:linear-gradient(135deg,var(--hub-primary-deep) 0%,var(--hub-primary) 55%,#2a8f8f 100%);
+    box-shadow:var(--hub-shadow);
+    opacity:0;transform:translateY(16px);animation:cnowIn .7s cubic-bezier(.2,.7,.2,1) .1s forwards;
+  }
+  .cnow-card::before{content:"";position:absolute;top:-40%;right:-10%;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,210,138,.30),transparent 65%);pointer-events:none;
+    animation:cnowFloat 11s ease-in-out infinite}
+  @keyframes cnowIn{to{opacity:1;transform:none}}
+  @keyframes cnowFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,18px)}}
+  .cnow-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;position:relative}
+  .cnow-live{display:inline-flex;align-items:center;gap:7px;font:600 13px/1 var(--hub-en-font);
+    letter-spacing:.14em;background:rgba(255,255,255,.16);padding:6px 12px;border-radius:999px}
+  .cnow-dot{width:9px;height:9px;border-radius:50%;background:#ff6b6b;box-shadow:0 0 0 0 rgba(255,107,107,.7);
+    animation:cnowPulse 1.8s ease-out infinite}
+  @keyframes cnowPulse{0%{box-shadow:0 0 0 0 rgba(255,107,107,.7)}70%{box-shadow:0 0 0 10px rgba(255,107,107,0)}100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}}
+  .cnow-title{margin:0;font:700 21px/1.2 var(--hub-en-font)}
+  .cnow-title span{font-family:var(--hub-zh-font);font-weight:600;opacity:.9;margin-left:6px}
+  .cnow-grid{display:grid;grid-template-columns:1fr;gap:22px;position:relative}
+  @media(min-width:680px){.cnow-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .cnow-weather{border-left:1px solid rgba(255,255,255,.22);padding-left:30px}}
+  .cnow-label{margin:0 0 8px;font:600 14px/1 var(--hub-en-font);letter-spacing:.04em;
+    text-transform:uppercase;color:rgba(255,255,255,.78)}
+  .cnow-time{margin:0;font:700 clamp(2.6rem,7vw,3.6rem)/1 var(--hub-en-font);
+    font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .cnow-sub{margin:8px 0 0;font:500 17px/1.4 var(--hub-en-font);color:rgba(255,255,255,.9)}
+  .cnow-wx{display:flex;align-items:center;gap:16px}
+  .cnow-emoji{font-size:clamp(2.4rem,6vw,3.2rem);line-height:1;animation:cnowBob 4s ease-in-out infinite}
+  @keyframes cnowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .cnow-temp{margin:0;font:700 clamp(2.4rem,6.5vw,3.4rem)/1 var(--hub-en-font);font-variant-numeric:tabular-nums}
+  .cnow-deg{font-size:.5em;font-weight:600;opacity:.85;margin-left:2px}
+  .cnow-cond{margin:4px 0 0;font:500 18px/1.3 var(--hub-en-font)}
+  .cnow-foot{margin:20px 0 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);
+    font:500 16px/1.6 var(--hub-en-font);color:rgba(255,255,255,.86);max-width:78ch;position:relative}
+  .cnow-foot .hub-zh{display:block;margin-top:4px;font-family:var(--hub-zh-font);color:rgba(255,255,255,.78)}
+  @media(prefers-reduced-motion:reduce){.cnow-card,.cnow-dot,.cnow-emoji,.cnow-card::before{animation:none}.cnow-card{opacity:1;transform:none}}
+</style>
+<script>
+(function(){
+  // ---- Live local clock (Asia/Taipei) ----
+  var elT=document.getElementById('cnow-time'),elD=document.getElementById('cnow-date');
+  var dayEN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var dayZH=['週日','週一','週二','週三','週四','週五','週六'];
+  function tick(){
+    var t=new Date().toLocaleString('en-US',{timeZone:'Asia/Taipei',hour12:false,
+      hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    if(elT)elT.textContent=t;
+    var p=new Date().toLocaleString('en-US',{timeZone:'Asia/Taipei',weekday:'short',year:'numeric',month:'short',day:'numeric'});
+    var wd=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Taipei'})).getDay();
+    if(elD)elD.textContent=p+' · '+dayZH[wd]+' · 彰化市 Changhua';
+  }
+  tick();setInterval(tick,1000);
+
+  // ---- Live weather (Open-Meteo, no API key, CORS-friendly) ----
+  var WMO={0:['☀️','Clear sky','晴朗'],1:['🌤️','Mainly clear','大致晴朗'],2:['⛅','Partly cloudy','局部多雲'],
+    3:['☁️','Overcast','陰天'],45:['🌫️','Foggy','有霧'],48:['🌫️','Rime fog','霧凇'],
+    51:['🌦️','Light drizzle','毛毛雨'],53:['🌦️','Drizzle','細雨'],55:['🌧️','Heavy drizzle','密雨'],
+    61:['🌧️','Light rain','小雨'],63:['🌧️','Rain','下雨'],65:['🌧️','Heavy rain','大雨'],
+    71:['🌨️','Light snow','小雪'],73:['🌨️','Snow','下雪'],75:['❄️','Heavy snow','大雪'],
+    80:['🌦️','Rain showers','陣雨'],81:['🌧️','Showers','陣雨'],82:['⛈️','Violent showers','強陣雨'],
+    95:['⛈️','Thunderstorm','雷雨'],96:['⛈️','Thunderstorm + hail','雷雨夾冰雹'],99:['⛈️','Severe thunderstorm','強雷雨']};
+  var url='https://api.open-meteo.com/v1/forecast?latitude=24.0518&longitude=120.5161'+
+    '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code&timezone=Asia%2FTaipei';
+  fetch(url).then(function(r){return r.json();}).then(function(d){
+    var c=d.current||{};var w=WMO[c.weather_code]||['🌡️','—','—'];
+    var em=document.getElementById('cnow-emoji'),tp=document.getElementById('cnow-temp'),
+        cd=document.getElementById('cnow-cond'),fl=document.getElementById('cnow-feels');
+    if(em)em.textContent=w[0];
+    if(tp)tp.textContent=Math.round(c.temperature_2m);
+    if(cd)cd.textContent=w[1]+' · '+w[2];
+    if(fl)fl.innerHTML='Feels like '+Math.round(c.apparent_temperature)+'°C · 體感 '+
+      Math.round(c.apparent_temperature)+'°C &nbsp;|&nbsp; Humidity 濕度 '+c.relative_humidity_2m+'%';
+  }).catch(function(){
+    var cd=document.getElementById('cnow-cond');if(cd)cd.textContent='Weather unavailable · 暫無天氣資料';
+    var tp=document.getElementById('cnow-temp');if(tp)tp.textContent='—';
+  });
+})();
+</script>
+<!-- ===== /Changhua Right Now ===== -->
+
 <section class="hub-section">
   <p class="hub-eyebrow">What's inside</p>
   <h2 class="hub-h2">Explore the Hub</h2>
