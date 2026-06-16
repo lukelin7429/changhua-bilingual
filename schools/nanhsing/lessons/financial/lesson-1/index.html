@@ -401,6 +401,38 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz-sec{background:var(--bg-soft);}
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(4n+2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(4n+3){border-top-color:var(--earth);}
+  .quiz__q:nth-child(4n+4){border-top-color:var(--g-light);}
+  .quiz__qno{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;margin-top:4px;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;display:flex;gap:10px;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt .ltr{font-family:'Playfair Display',serif;font-weight:800;color:var(--g-light);flex-shrink:0;}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-correct .ltr{color:#2e9e57;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-wrong .ltr{color:var(--earth);}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
+  .quiz-score{margin-top:26px;text-align:center;font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--g-deep);background:var(--gold-soft);border-radius:16px;padding:22px;display:none;}
+  .quiz-score.show{display:block;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -545,6 +577,113 @@
     </div>
   </div>
 </section>
+<section class="quiz-sec">
+  <div class="wrap">
+    <div class="sec__no">QUIZ</div>
+    <h2 class="sec__title" style="font-size:34px;">Quiz Questions</h2>
+    <div class="sec__title-zh">金融教育 · What Is Money? 什麼是金錢？</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Review the lesson above, then tap the answer you think is correct.
+      <span class="zh">複習上面的內容，點選你認為正確的答案。</span></p>
+    <div class="quiz">
+      <div class="quiz__q" data-answer="4" data-explain="We use money to buy things we need." data-explain-zh="我們用金錢購買需要的東西。">
+        <div class="quiz__qno">Question 1</div>
+        <div class="quiz__stem">What do we use money for? <span class="quiz__zh">我們用金錢做什麼？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">To fly</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">To sleep</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">To swim</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">To buy things we need</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="A coin is round and made of metal." data-explain-zh="硬幣是圓形的金屬。">
+        <div class="quiz__qno">Question 2</div>
+        <div class="quiz__stem">Which is made of metal and is usually round? <span class="quiz__zh">哪一種通常是圓形的金屬？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">A bill</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">A coin</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">A flag</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">A map</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="A bill is paper money." data-explain-zh="bill 是紙鈔。">
+        <div class="quiz__qno">Question 3</div>
+        <div class="quiz__stem">A “bill” is… <span class="quiz__zh">「bill」是…</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">A coin</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">A kind of food</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Paper money</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">A bank</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="1" data-explain="To earn means to get money by working." data-explain-zh="earn 是靠工作賺到錢。">
+        <div class="quiz__qno">Question 4</div>
+        <div class="quiz__stem">“Earn” means… <span class="quiz__zh">「earn」是…</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">To get money by working</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">To lose money</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">To throw money away</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">To hide money</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="The child helped mom at home." data-explain-zh="孩子在家幫媽媽做事而賺到錢。">
+        <div class="quiz__qno">Question 5</div>
+        <div class="quiz__stem">In the dialogue, how did the child earn money? <span class="quiz__zh">對話中，孩子是怎麼賺到錢的？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">By sleeping</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">By helping at home</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">By playing games</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">By doing nothing</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="Coins and bills are money." data-explain-zh="硬幣和紙鈔都是金錢。">
+        <div class="quiz__qno">Question 6</div>
+        <div class="quiz__stem">Which of these is money? <span class="quiz__zh">下列何者是金錢？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">A leaf</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">A crayon</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">A stripe</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Coins and bills</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <div class="quiz-score"></div>
+  </div>
+</section>
+<script>
+/* lesson quiz */
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.quiz__q'));
+  if(!qs.length)return;
+  var total=qs.length, done=0, score=0;
+  var scoreEl=document.querySelector('.quiz-score');
+  qs.forEach(function(q){
+    var ans=parseInt(q.getAttribute('data-answer'),10);
+    var opts=[].slice.call(q.querySelectorAll('.quiz__opt'));
+    var fb=q.querySelector('.quiz__fb');
+    opts.forEach(function(opt,i){
+      opt.addEventListener('click',function(){
+        if(q.classList.contains('answered'))return;
+        q.classList.add('answered');done++;
+        var correct=opts[ans-1];correct.classList.add('is-correct');
+        opts.forEach(function(o){o.classList.add('is-locked');});
+        if(i===ans-1){score++;fb.className='quiz__fb ok';
+          fb.innerHTML='\u2705 Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        else{opt.classList.add('is-wrong');fb.className='quiz__fb no';
+          fb.innerHTML='\u274c Not quite. The answer is <b>'+correct.querySelector('.txt').textContent+'</b>. '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        if(done===total&&scoreEl){scoreEl.classList.add('show');
+          scoreEl.innerHTML='\ud83c\udf89 You scored '+score+' / '+total+'!<span style="display:block;font-family:Inter,sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:6px;">\u4f60\u7b54\u5c0d\u4e86 '+score+' / '+total+' \u984c\uff01</span>';}
+      });
+    });
+  });
+})();
+</script>
 <script>
 function speak(text, btn){
   if(!('speechSynthesis' in window)) return;
