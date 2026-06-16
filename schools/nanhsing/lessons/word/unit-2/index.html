@@ -401,6 +401,38 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz-sec{background:var(--bg-soft);}
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(4n+2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(4n+3){border-top-color:var(--earth);}
+  .quiz__q:nth-child(4n+4){border-top-color:var(--g-light);}
+  .quiz__qno{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;margin-top:4px;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;display:flex;gap:10px;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt .ltr{font-family:'Playfair Display',serif;font-weight:800;color:var(--g-light);flex-shrink:0;}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-correct .ltr{color:#2e9e57;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-wrong .ltr{color:var(--earth);}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
+  .quiz-score{margin-top:26px;text-align:center;font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--g-deep);background:var(--gold-soft);border-radius:16px;padding:22px;display:none;}
+  .quiz-score.show{display:block;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -544,6 +576,146 @@
     </div>
   </div>
 </section>
+<section class="quiz-sec">
+  <div class="wrap">
+    <div class="sec__no">QUIZ</div>
+    <h2 class="sec__title" style="font-size:34px;">Quiz Questions</h2>
+    <div class="sec__title-zh">小測驗 · Arts & Music 藝術與音樂 · 看完影片來挑戰！</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Watch the videos above, then tap the answer you think is correct.
+      <span class="zh">看完上面的影片，點選你認為正確的答案。</span></p>
+    <div class="quiz">
+      <div class="quiz__q" data-answer="1" data-explain="The Taiko drum is a large Japanese drum students play in unison." data-explain-zh="太鼓是學生齊聲合奏的日本大鼓。">
+        <div class="quiz__qno">Question 1</div>
+        <div class="quiz__stem">What is a Taiko drum? <span class="quiz__zh">太鼓是什麼？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">A Japanese drum</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">A painting</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">A fruit</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">A dance</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="To dance is to move your body to music." data-explain-zh="dance 就是隨著音樂擺動身體。">
+        <div class="quiz__qno">Question 2</div>
+        <div class="quiz__stem">Which word means “to move your body to music”? <span class="quiz__zh">哪個字是「隨音樂擺動身體」？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Draw</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Dance</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Dye</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Sweep</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="To use watercolor you need a brush, palette, and water." data-explain-zh="用水彩需要畫筆、調色盤和水。">
+        <div class="quiz__qno">Question 3</div>
+        <div class="quiz__stem">In art class, students use watercolor to ____. <span class="quiz__zh">美術課裡，學生用水彩來＿＿。</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">cook lunch</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">run races</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">paint pictures</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">read books</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="To draw is to make a picture with a pen or pencil." data-explain-zh="draw 就是用筆畫出圖案。">
+        <div class="quiz__qno">Question 4</div>
+        <div class="quiz__stem">Which word means “to make a picture with a pen or pencil”? <span class="quiz__zh">哪個字是「用筆畫圖」？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Dye</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Dance</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Sing</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Draw</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="1" data-explain="The students decorate their cookies with icing." data-explain-zh="學生用糖霜裝飾餅乾。">
+        <div class="quiz__qno">Question 5</div>
+        <div class="quiz__stem">When you decorate something, you ____. <span class="quiz__zh">當你裝飾一樣東西時，你＿＿。</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">make it look nice</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">throw it away</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">break it</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">hide it</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="They use dyes, rubber bands, and white handkerchiefs." data-explain-zh="他們用染料、橡皮筋和白手帕來染布。">
+        <div class="quiz__qno">Question 6</div>
+        <div class="quiz__stem">What do students use to dye fabric? <span class="quiz__zh">學生用什麼來染布？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Only water</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Dyes, rubber bands, and handkerchiefs</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Pencils and paper</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Drums</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="Students learn how to write a poem in class." data-explain-zh="學生在課堂上學寫詩。">
+        <div class="quiz__qno">Question 7</div>
+        <div class="quiz__stem">A poem is a kind of ____. <span class="quiz__zh">詩是一種＿＿。</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">food</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">game</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">writing</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">drum</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="They play the Taiko drum in unison." data-explain-zh="他們齊聲合奏太鼓。">
+        <div class="quiz__qno">Question 8</div>
+        <div class="quiz__stem">How do students play the Taiko drum? <span class="quiz__zh">學生怎麼打太鼓？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Alone in silence</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">While sleeping</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">By eating it</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Together in unison</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="1" data-explain="In art class students draw, paint, and decorate." data-explain-zh="美術課裡學生畫畫、上色、做裝飾。">
+        <div class="quiz__qno">Question 9</div>
+        <div class="quiz__stem">Which activities happen in art class? <span class="quiz__zh">美術課裡會做哪些活動？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Drawing and decorating</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Washing hands only</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Sweeping floors</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Playing soccer</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <div class="quiz-score"></div>
+  </div>
+</section>
+<script>
+/* WOTD quiz */
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.quiz__q'));
+  if(!qs.length)return;
+  var total=qs.length, done=0, score=0;
+  var scoreEl=document.querySelector('.quiz-score');
+  qs.forEach(function(q){
+    var ans=parseInt(q.getAttribute('data-answer'),10);
+    var opts=[].slice.call(q.querySelectorAll('.quiz__opt'));
+    var fb=q.querySelector('.quiz__fb');
+    opts.forEach(function(opt,i){
+      opt.addEventListener('click',function(){
+        if(q.classList.contains('answered'))return;
+        q.classList.add('answered');done++;
+        var correct=opts[ans-1];correct.classList.add('is-correct');
+        opts.forEach(function(o){o.classList.add('is-locked');});
+        if(i===ans-1){score++;fb.className='quiz__fb ok';
+          fb.innerHTML='\u2705 Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        else{opt.classList.add('is-wrong');fb.className='quiz__fb no';
+          fb.innerHTML='\u274c Not quite. The answer is <b>'+correct.querySelector('.txt').textContent+'</b>. '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        if(done===total&&scoreEl){scoreEl.classList.add('show');
+          scoreEl.innerHTML='\ud83c\udf89 You scored '+score+' / '+total+'!<span style="display:block;font-family:Inter,sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:6px;">\u4f60\u7b54\u5c0d\u4e86 '+score+' / '+total+' \u984c\uff01</span>';}
+      });
+    });
+  });
+})();
+</script>
 <script>
 /* reveal-fx */
 (function(){

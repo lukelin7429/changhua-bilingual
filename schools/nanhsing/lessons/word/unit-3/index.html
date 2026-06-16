@@ -401,6 +401,38 @@
   @media(min-width:720px){.sow-item__en{font-size:21px;}}
   .sow-item__zh{font-size:16px;color:var(--ink-soft);margin-top:3px;}
   @media(min-width:720px){.sow-item__zh{font-size:18px;}}
+  /* quiz */
+  .quiz-sec{background:var(--bg-soft);}
+  .quiz{display:flex;flex-direction:column;gap:22px;margin-top:8px;}
+  .quiz__q{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:24px 26px;border-top:7px solid var(--g);}
+  @media(min-width:720px){.quiz__q{padding:28px 32px;}}
+  .quiz__q:nth-child(4n+2){border-top-color:var(--gold);}
+  .quiz__q:nth-child(4n+3){border-top-color:var(--earth);}
+  .quiz__q:nth-child(4n+4){border-top-color:var(--g-light);}
+  .quiz__qno{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;}
+  .quiz__stem{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g-deep);line-height:1.35;margin-top:4px;}
+  @media(min-width:720px){.quiz__stem{font-size:25px;}}
+  .quiz__zh{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  @media(min-width:720px){.quiz__zh{font-size:19px;}}
+  .quiz__opts{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+  @media(min-width:640px){.quiz__opts{grid-template-columns:1fr 1fr;}}
+  .quiz__opt{text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:2px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:all .15s;line-height:1.4;display:flex;gap:10px;}
+  @media(min-width:720px){.quiz__opt{font-size:20px;}}
+  .quiz__opt .ltr{font-family:'Playfair Display',serif;font-weight:800;color:var(--g-light);flex-shrink:0;}
+  .quiz__opt:hover{border-color:var(--g-light);background:var(--g-soft);}
+  .quiz__opt.is-correct{background:#e6f4ea;border-color:#2e9e57;color:#1c6b3a;}
+  .quiz__opt.is-correct .ltr{color:#2e9e57;}
+  .quiz__opt.is-wrong{background:#fbe7e4;border-color:var(--earth);color:#9f3a22;}
+  .quiz__opt.is-wrong .ltr{color:var(--earth);}
+  .quiz__opt.is-locked{cursor:default;pointer-events:none;opacity:.85;}
+  .quiz__opt.is-locked.is-correct,.quiz__opt.is-locked.is-wrong{opacity:1;}
+  .quiz__fb{margin-top:16px;font-size:18px;font-weight:600;line-height:1.55;display:none;padding:14px 18px;border-radius:12px;}
+  @media(min-width:720px){.quiz__fb{font-size:20px;}}
+  .quiz__fb.ok{display:block;background:#e6f4ea;color:#1c6b3a;}
+  .quiz__fb.no{display:block;background:#fbe7e4;color:#9f3a22;}
+  .quiz__fb .zh{display:block;color:var(--ink-soft);font-weight:500;font-size:.85em;margin-top:4px;}
+  .quiz-score{margin-top:26px;text-align:center;font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--g-deep);background:var(--gold-soft);border-radius:16px;padding:22px;display:none;}
+  .quiz-score.show{display:block;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -502,6 +534,113 @@
     </div>
   </div>
 </section>
+<section class="quiz-sec">
+  <div class="wrap">
+    <div class="sec__no">QUIZ</div>
+    <h2 class="sec__title" style="font-size:34px;">Quiz Questions</h2>
+    <div class="sec__title-zh">小測驗 · Play & Sports 遊戲與運動 · 看完影片來挑戰！</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">Watch the videos above, then tap the answer you think is correct.
+      <span class="zh">看完上面的影片，點選你認為正確的答案。</span></p>
+    <div class="quiz">
+      <div class="quiz__q" data-answer="1" data-explain="You kick your legs up and down to swing." data-explain-zh="盪鞦韆時你會把腿前後上下擺動。">
+        <div class="quiz__qno">Question 1</div>
+        <div class="quiz__stem">What do students do when they swing? <span class="quiz__zh">盪鞦韆時，學生會做什麼？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Kick their legs up and down</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Lie down and sleep</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Write a poem</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Cook food</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="They stretch to stay healthy." data-explain-zh="他們伸展是為了保持健康。">
+        <div class="quiz__qno">Question 2</div>
+        <div class="quiz__stem">Why do students stretch? <span class="quiz__zh">學生為什麼要伸展？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">To get dirty</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">To stay healthy</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">To break a window</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">To eat lunch</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="3" data-explain="The students play board games in groups." data-explain-zh="學生們分組玩桌遊。">
+        <div class="quiz__qno">Question 3</div>
+        <div class="quiz__stem">A board game is usually played ____. <span class="quiz__zh">桌遊通常怎麼玩？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">while running outside</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">underwater</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">in groups at a table</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">on a moving bus</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="Students assemble water rockets and race them." data-explain-zh="學生組裝水火箭並比賽。">
+        <div class="quiz__qno">Question 4</div>
+        <div class="quiz__stem">What is a water rocket? <span class="quiz__zh">水火箭是什麼？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">A kind of fish</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">A school subject</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">A type of fruit</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">A rocket that uses water to fly</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="4" data-explain="To stretch is to reach out and loosen your body." data-explain-zh="stretch 就是伸展、放鬆身體。">
+        <div class="quiz__qno">Question 5</div>
+        <div class="quiz__stem">Which word means “to reach out and loosen your body”? <span class="quiz__zh">哪個字是「伸展、放鬆身體」？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">Sweep</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">Swing</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">Dye</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">Stretch</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+      <div class="quiz__q" data-answer="2" data-explain="During recess, students like to swing on the playground." data-explain-zh="下課時間學生喜歡在操場盪鞦韆。">
+        <div class="quiz__qno">Question 6</div>
+        <div class="quiz__stem">Where do students play on the swing? <span class="quiz__zh">學生在哪裡盪鞦韆？</span></div>
+        <div class="quiz__opts">
+        <button class="quiz__opt"><span class="ltr">A.</span><span class="txt">In the library</span></button>
+        <button class="quiz__opt"><span class="ltr">B.</span><span class="txt">On the playground during recess</span></button>
+        <button class="quiz__opt"><span class="ltr">C.</span><span class="txt">In the swimming pool</span></button>
+        <button class="quiz__opt"><span class="ltr">D.</span><span class="txt">On the rooftop</span></button>
+        </div>
+        <div class="quiz__fb"></div>
+      </div>
+    </div>
+    <div class="quiz-score"></div>
+  </div>
+</section>
+<script>
+/* WOTD quiz */
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.quiz__q'));
+  if(!qs.length)return;
+  var total=qs.length, done=0, score=0;
+  var scoreEl=document.querySelector('.quiz-score');
+  qs.forEach(function(q){
+    var ans=parseInt(q.getAttribute('data-answer'),10);
+    var opts=[].slice.call(q.querySelectorAll('.quiz__opt'));
+    var fb=q.querySelector('.quiz__fb');
+    opts.forEach(function(opt,i){
+      opt.addEventListener('click',function(){
+        if(q.classList.contains('answered'))return;
+        q.classList.add('answered');done++;
+        var correct=opts[ans-1];correct.classList.add('is-correct');
+        opts.forEach(function(o){o.classList.add('is-locked');});
+        if(i===ans-1){score++;fb.className='quiz__fb ok';
+          fb.innerHTML='\u2705 Correct! '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        else{opt.classList.add('is-wrong');fb.className='quiz__fb no';
+          fb.innerHTML='\u274c Not quite. The answer is <b>'+correct.querySelector('.txt').textContent+'</b>. '+q.getAttribute('data-explain')+'<span class="zh">'+q.getAttribute('data-explain-zh')+'</span>';}
+        if(done===total&&scoreEl){scoreEl.classList.add('show');
+          scoreEl.innerHTML='\ud83c\udf89 You scored '+score+' / '+total+'!<span style="display:block;font-family:Inter,sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:6px;">\u4f60\u7b54\u5c0d\u4e86 '+score+' / '+total+' \u984c\uff01</span>';}
+      });
+    });
+  });
+})();
+</script>
 <script>
 /* reveal-fx */
 (function(){
