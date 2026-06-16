@@ -1,0 +1,130 @@
+/* =====================================================================
+   Nanhsing Elementary — motion layer  (motion.css)
+   Loaded on every page. Big, lively, obvious — but tasteful.
+   Initial-hidden states are applied by motion.js ONLY, so without JS the
+   page renders fully visible. Honors prefers-reduced-motion.
+   Palette: blue (--g/--g-deep), gold (--gold), earth (--earth).
+   ===================================================================== */
+
+/* ---- scroll progress bar ---------------------------------------- */
+#mo-progress{
+  position:fixed;top:0;left:0;height:4px;width:0;z-index:300;
+  background:linear-gradient(90deg,var(--g-deep,#1a3866),var(--g,#2b5aa0) 45%,var(--gold,#e0a32a));
+  box-shadow:0 0 14px rgba(224,163,42,.6);
+  transition:width .12s linear;pointer-events:none;
+}
+
+/* ---- scroll-reveal: base + directional variants ----------------- */
+.mo{
+  opacity:0;will-change:opacity,transform,filter;
+  transition:opacity .75s cubic-bezier(.2,.7,.2,1),
+             transform .75s cubic-bezier(.2,.7,.2,1),
+             filter .75s ease;
+}
+.mo-up{transform:translateY(46px);}
+.mo-left{transform:translateX(-54px);}
+.mo-right{transform:translateX(54px);}
+.mo-zoom{transform:scale(.86);}
+.mo-pop{transform:scale(.7);}
+.mo-blur{filter:blur(13px);transform:translateY(26px);}
+.mo.mo-in{opacity:1;transform:none;filter:none;}
+
+/* ---- hero: staggered entrance of headline content --------------- */
+.mo-hero{position:relative;z-index:2;}
+.mo-hero > *:not(.mo-orbs){
+  position:relative;z-index:1;
+  opacity:0;transform:translateY(34px) scale(.97);filter:blur(8px);
+  animation:moHeroIn 1.05s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes moHeroIn{to{opacity:1;transform:none;filter:none;}}
+
+/* ---- hero banner image: slow ken-burns drift -------------------- */
+.page-banner img,.unit-hero{animation:moKen 22s ease-in-out infinite alternate;}
+@keyframes moKen{from{transform:scale(1);}to{transform:scale(1.09);}}
+.unit-hero{animation:none;}            /* gradient hero — don't scale text */
+
+/* ---- hero: drifting ambient orbs (pure decoration) -------------- */
+.mo-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.mo-orb{
+  position:absolute;border-radius:50%;filter:blur(34px);opacity:.6;
+  animation:moDrift ease-in-out infinite;
+}
+@keyframes moDrift{
+  0%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(var(--dx,30px),var(--dy,-26px)) scale(1.25);}
+  100%{transform:translate(0,0) scale(1);}
+}
+
+/* ---- top nav: animated underline -------------------------------- */
+.topbar-nav a{position:relative;}
+.topbar-nav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2.5px;border-radius:2px;
+  background:linear-gradient(90deg,var(--g,#2b5aa0),var(--gold,#e0a32a));
+  transition:right .3s cubic-bezier(.2,.7,.2,1);
+}
+.topbar-nav a:hover::after,
+.topbar-nav a.is-active::after{right:0;}
+
+/* ---- section accents come alive on reveal ----------------------- */
+.sec__rule,.contact__rule,.article__rule{transform-origin:left center;}
+.mo-in .sec__rule,.sec__rule.mo-in,
+.mo-in .contact__rule,.contact__rule.mo-in{animation:moRuleGrow .8s cubic-bezier(.2,.7,.2,1) both;}
+@keyframes moRuleGrow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+/* the Playfair "I. / II." section numbers get a soft gold shimmer */
+.sec__no{
+  background:linear-gradient(100deg,var(--gold,#e0a32a) 0%,#f6d98a 45%,var(--gold,#e0a32a) 70%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:moShimmer 5.5s linear infinite;
+}
+@keyframes moShimmer{to{background-position:-220% 0;}}
+
+/* ---- perpetual gentle bob on emoji art (alive at rest) ---------- */
+.pillar__icon,.unit__emoji,.course__emoji,.lesson__emoji,.word__emoji{
+  animation:moBob 4.5s ease-in-out infinite;
+}
+.pillars .pillar:nth-child(2n) .pillar__icon{animation-delay:.9s;}
+.pillars .pillar:nth-child(3n) .pillar__icon{animation-delay:1.7s;}
+@keyframes moBob{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-9px) rotate(-3deg);}}
+/* hover still wins (scale) on units/courses thanks to specificity below */
+.unit:hover .unit__emoji,.course:hover .course__emoji{animation:none;}
+
+/* ---- card hover lift (generic across page families) ------------- */
+.pillar,.life-card,.card,.th-fcard,.lcard,.unit,.vc,.course,.feature,.info-card,
+.word,.turn,.topic,.sow-item,.lesson,.cta,.yt-link{
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;
+}
+.pillar:hover,.life-card:hover,.card:hover,.th-fcard:hover,.lcard:hover,
+.unit:hover,.vc:hover,.course:hover,.feature:hover,.info-card:hover,
+.word:hover,.topic:hover,.sow-item:hover,.lesson:hover{
+  transform:translateY(-7px);
+}
+
+/* ---- back-to-top floating button -------------------------------- */
+#mo-top{
+  position:fixed;right:22px;bottom:22px;z-index:200;
+  width:50px;height:50px;border:0;cursor:pointer;border-radius:50%;
+  background:var(--g,#2b5aa0);color:#fff;
+  font-size:24px;line-height:48px;text-align:center;font-family:inherit;
+  box-shadow:0 10px 26px -8px rgba(26,56,102,.6);
+  opacity:0;transform:translateY(22px) scale(.6);pointer-events:none;
+  transition:opacity .3s,transform .3s,background .25s;
+}
+#mo-top.mo-show{opacity:.97;transform:none;pointer-events:auto;}
+#mo-top:hover{background:var(--gold-deep,#8a5a06);transform:translateY(-3px) scale(1.07);}
+
+/* ---- speak / pronunciation buttons: pulse while playing --------- */
+.say.mo-playing,.speak.mo-playing,.sow__say.mo-playing,.ln__speak.mo-playing{
+  animation:moPulse .8s ease infinite;
+}
+@keyframes moPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+
+/* ---- reduced motion: disable everything ------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .mo{opacity:1!important;transform:none!important;filter:none!important;}
+  .mo-hero > *:not(.mo-orbs){animation:none!important;opacity:1!important;transform:none!important;filter:none!important;}
+  .mo-orb,.page-banner img,.sec__no,.pillar__icon,.unit__emoji,.course__emoji,
+  .lesson__emoji,.word__emoji{animation:none!important;}
+  #mo-progress,#mo-top{display:none!important;}
+}
