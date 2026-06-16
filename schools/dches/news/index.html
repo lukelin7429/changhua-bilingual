@@ -9,14 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/schools/dches/style.css?v=1">
+<link rel="stylesheet" href="/schools/dches/style.css?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/dches/photos/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/dches/photos/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/dches/photos/favicon-180.png">
 <link rel="shortcut icon" href="/schools/dches/photos/favicon.ico">
 <script defer src="/analytics.js"></script>
 <style>
-.hero{background:radial-gradient(ellipse at 88% 18%, rgba(240,178,46,.26) 0%, transparent 56%),radial-gradient(ellipse at 6% 86%, rgba(13,94,76,.55) 0%, transparent 58%),linear-gradient(135deg, var(--blue-deep) 0%, #157d68 46%, var(--red-deep) 122%);}
+.hero{--banner-img:url("/schools/dches/photos/banner-news.jpg");--banner-pos:center 48%;}
 .news-source{font-size:15px;color:var(--ink-soft);margin-top:8px;}
 .news-source a{color:var(--blue-deep);text-decoration:none;border-bottom:1px dashed var(--gold);}
 .news-grid{display:grid;grid-template-columns:1fr;gap:16px;}
@@ -57,7 +57,8 @@
   </div>
 </div>
 
-<header class="hero hero--page">
+<header class="hero hero--page hero--photo" data-banner>
+  <div class="hero__bg"></div>
   <div class="hero__inner">
     <img class="hero__logo" src="/schools/dches/photos/logo.png" alt="Dacheng Elementary School crest">
     <div>
