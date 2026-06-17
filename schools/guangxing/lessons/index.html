@@ -120,6 +120,21 @@
   .unit__hero.is-photo::before, .unit__hero.is-photo::after{display:none;}
   .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
   .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+
+  /* Video-thumbnail hero (WOTD units use a real clip frame as the icon) */
+  .unit__hero.is-video{height:172px;font-size:0;background:#0c1a09;}
+  @media(min-width:720px){.unit__hero.is-video{height:194px;}}
+  .unit__hero.is-video::before, .unit__hero.is-video::after{display:none;}
+  .unit__thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;}
+  .unit:hover .unit__thumb{transform:scale(1.08);filter:saturate(1.08);}
+  .unit__play{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;}
+  .unit__play::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,6,.10) 0%,rgba(8,18,6,0) 36%,rgba(8,18,6,.18) 70%,rgba(8,18,6,.46) 100%);}
+  .unit__pbtn{position:relative;width:60px;height:60px;border-radius:50%;background:#ff1f1f;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(0,0,0,.6);transition:transform .32s cubic-bezier(.2,.7,.2,1),background .3s;}
+  .unit__pbtn::after{content:'';width:0;height:0;margin-left:4px;border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff;}
+  .unit__pbtn::before{content:'';position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.55);opacity:.9;animation:unitPulse 2.4s ease-out infinite;}
+  .unit:hover .unit__pbtn{transform:scale(1.14);background:#ff3636;}
+  @keyframes unitPulse{0%{transform:scale(1);opacity:.85;}70%{transform:scale(1.5);opacity:0;}100%{transform:scale(1.5);opacity:0;}}
+  @media(prefers-reduced-motion:reduce){.unit__pbtn::before{animation:none;opacity:0;}.unit__thumb{transition:none;}}
   .u-1 .unit__hero{background:linear-gradient(135deg,#7dc47d 0%,#316821 100%);}
   .u-2 .unit__hero{background:linear-gradient(135deg,#4a90c2 0%,#2b6789 100%);}
   .u-3 .unit__hero{background:linear-gradient(135deg,#f06956 0%,#b32916 100%);}
@@ -205,6 +220,7 @@
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 <script defer src="/analytics.js"></script>
+  <link rel="stylesheet" href="/schools/guangxing/motion.css">
 </head>
 <body>
 
@@ -303,7 +319,7 @@
   <div class="units">
 
     <a class="unit u-1" href="word/school-day/">
-      <div class="unit__hero"><span class="unit__emoji">🧹</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/7uEJ63Ne2Fc/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 01 · Video</div>
         <div class="unit__title">School Day Routines</div>
@@ -314,7 +330,7 @@
     </a>
 
     <a class="unit u-2" href="word/classroom/">
-      <div class="unit__hero"><span class="unit__emoji">📚</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/Eom8izk7CKw/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 02 · Video</div>
         <div class="unit__title">Classroom &amp; Subjects</div>
@@ -325,7 +341,7 @@
     </a>
 
     <a class="unit u-3" href="word/sports/">
-      <div class="unit__hero"><span class="unit__emoji">🏃</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/hpsyhQhZR5o/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 03 · Video</div>
         <div class="unit__title">Sports &amp; PE</div>
@@ -336,7 +352,7 @@
     </a>
 
     <a class="unit u-4" href="word/events/">
-      <div class="unit__hero"><span class="unit__emoji">🎉</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/eEvzmqE8K0Q/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 04 · Video</div>
         <div class="unit__title">Campus Events</div>
@@ -347,7 +363,7 @@
     </a>
 
     <a class="unit u-5" href="word/toys/">
-      <div class="unit__hero"><span class="unit__emoji">🪀</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/6P_0pt2Or-U/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 05 · Video</div>
         <div class="unit__title">Toys, Crafts &amp; Hobbies</div>
@@ -358,7 +374,7 @@
     </a>
 
     <a class="unit u-6" href="word/around/">
-      <div class="unit__hero"><span class="unit__emoji">🌾</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/Z9kduxGMc5g/maxresdefault.jpg" alt="" loading="lazy"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Unit 06 · Video</div>
         <div class="unit__title">Around Guangxing</div>
@@ -369,7 +385,7 @@
     </a>
 
     <a class="unit u-team" href="word/team/" style="grid-column:1 / -1;">
-      <div class="unit__hero" style="height:130px;font-size:64px;"><span class="unit__emoji">👋</span></div>
+      <div class="unit__hero is-video"><img class="unit__thumb" src="https://i.ytimg.com/vi/Rm2ZoustUaE/maxresdefault.jpg" alt="" loading="lazy" style="object-position:center 32%;"><span class="unit__play"><span class="unit__pbtn" aria-hidden="true"></span></span></div>
       <div class="unit__body">
         <div class="unit__no">Special · Team Wall</div>
         <div class="unit__title">Meet the Guangxing Team</div>
@@ -633,5 +649,6 @@
 </div></footer>
 
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<script defer src="/schools/guangxing/motion.js"></script>
 </body>
 </html>
