@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chasing the Light, Walking Toward the Sun · The 19th Graduation Ceremony · News · Hsinmin Elementary 新民國小</title>
-<meta name="description" content="Chasing the Light, Walking Toward the Sun · The 19th Graduation Ceremony 夢想逐光・向陽而行｜新民國小第19屆畢業典禮. Hsinmin Elementary campus news.">
+<title>Safety Meets Beauty · New Stage Steps for the Assembly Hall · News · Hsinmin Elementary 新民國小</title>
+<meta name="description" content="A new custom-designed staircase, donated by Parent Association Advisor Jiang Bo-zhang, has made Hsinmin's assembly hall stage safer, more beautiful, and more joyful. 家長會江柏樟顧問捐贈的全新舞台階梯，讓新民國小集會堂更安全、更美觀、更有活力。Hsinmin Elementary campus news.">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/hsinmin/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/hsinmin/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/hsinmin/favicon-180.png">
@@ -44,7 +44,6 @@
   .topbar-nav a.is-active{color:var(--plum-deep);font-weight:700;background:var(--plum-soft);}
   @media(max-width:780px){.topbar-inner{flex-direction:column;align-items:stretch;gap:6px;}.topbar-nav{gap:4px;justify-content:flex-start;width:100%;}.topbar-nav a{padding:11px 14px;font-size:20px;}}
 
-
   .pbanner{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(330px,46vh,500px);text-align:center;color:#fff;border-bottom:5px solid var(--gold);padding:64px 24px 46px;background-size:cover;background-position:center 42%;}
   @media(min-width:720px){.pbanner{min-height:clamp(380px,52vh,540px);padding:84px 24px 56px;}}
   .pbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(38,30,66,.10) 0%,rgba(38,30,66,0) 40%,rgba(38,30,66,.52) 74%,rgba(38,30,66,.9) 100%);}
@@ -57,10 +56,7 @@
   .pbanner .lede .zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:19px;margin-top:8px;color:rgba(255,255,255,.86);}
   main{padding:0 0 60px;}
   .article{max-width:780px;margin:0 auto;}
-  .lead-photo{margin:42px 0 6px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);} .lead-photo img{width:100%;display:block;}
-  .leadcap{max-width:780px;margin:10px auto 0;text-align:center;font-size:16px;color:var(--ink-soft);}
   .en-body p{font-size:20px;line-height:1.8;margin-top:18px;color:var(--ink);}
-  .ph{margin:28px 0 8px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);} .ph img{width:100%;display:block;}
   .zhwrap{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
   .zhwrap .zhlabel{display:inline-block;font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);background:var(--plum-soft);border-radius:20px;padding:5px 14px;margin-bottom:4px;}
   .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.95;margin-top:16px;color:var(--ink);}
@@ -68,6 +64,23 @@
   .lnav a{padding:10px 18px;border-radius:10px;border:2px solid var(--line);font-weight:700;font-size:18px;color:var(--plum-deep);background:#fff;} .lnav a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
   .lnav a.center{background:var(--plum-deep);color:#fff;border-color:var(--plum-deep);}
   .footer{background:var(--plum-deep);color:rgba(255,255,255,.72);text-align:center;padding:40px 0 34px;font-size:18px;margin-top:56px;} .footer a{color:var(--gold-soft);} .footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:8px;}
+
+  /* carousel */
+  .carousel{position:relative;margin:42px 0 6px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#100c20;touch-action:pan-y;}
+  .car-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+  .car-slide{min-width:100%;}
+  .car-slide img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;}
+  @media(max-width:640px){.car-slide img{aspect-ratio:4/3;}}
+  .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.86);color:var(--plum-deep);font-size:23px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:background .2s,transform .2s;z-index:3;}
+  .car-btn:hover{background:#fff;transform:translateY(-50%) scale(1.09);}
+  .car-prev{left:14px;} .car-next{right:14px;}
+  @media(max-width:640px){.car-btn{width:40px;height:40px;font-size:20px;}.car-prev{left:9px;}.car-next{right:9px;}}
+  .car-count{position:absolute;top:14px;right:16px;background:rgba(16,12,32,.62);color:#fff;font-size:15px;font-weight:600;letter-spacing:.05em;padding:5px 13px;border-radius:20px;z-index:3;backdrop-filter:blur(5px);}
+  .car-dots{position:absolute;bottom:13px;left:0;right:0;display:flex;justify-content:center;gap:7px;z-index:3;flex-wrap:wrap;padding:0 46px;}
+  .car-dot{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+  .car-dot.on{background:var(--gold);transform:scale(1.35);}
+  .car-note{max-width:780px;margin:10px auto 0;text-align:center;font-size:16px;color:var(--ink-soft);}
+  .car-note b{color:var(--plum-deep);font-weight:600;}
 
   /* ===== English Learning Corner ===== */
   .lz{margin:48px auto 0;max-width:780px;background:linear-gradient(180deg,var(--plum-soft),#fff 58%);border:1px solid var(--line);border-radius:22px;padding:34px 24px 40px;box-shadow:var(--shadow-sm);}
@@ -148,144 +161,139 @@
         <a href="https://changhua-bilingual.org/festivals/?from=hsinmin" target="_blank" rel="noopener">Festivals</a>
   </div>
 </div></div></nav>
-<header class="pbanner" style="background-image:url('../../photos/path.jpg');">
-  <div class="bn"><span class="eyebrow">News &middot; 2026.06.16</span><h1>Chasing the Light, Walking Toward the Sun<span class="zh">夢想逐光・向陽而行｜新民國小第19屆畢業典禮</span></h1></div>
+<header class="pbanner" style="background-image:url('../../photos/building.jpg');background-position:center 55%;">
+  <div class="bn"><span class="eyebrow">News &middot; 2026.06.17</span><h1>Safety Meets Beauty · New Stage Steps<span class="zh">美學與安全階梯｜感謝家長會江柏樟顧問的貼心好禮</span></h1></div>
 </header>
 <main><div class="wrap"><div class="article">
-  <div class="en-body">
-    <p>The flame trees are in full bloom, and the graduation song rings out. With hearts full of love and good wishes, the graduates of Hsinmin Elementary’s 19th class step forward to a brand-new beginning in their lives. 🎓✨</p>
-    <p>This year’s graduation ceremony was a little different. With a deep sense of ceremony, the school created one-of-a-kind, heart-warming memories for every child:</p>
-    <p>🎨 <b>One-of-a-kind colorful memories.</b> The graduates made their own corsages by hand — and every flower bloomed in its own irreplaceable, dazzling color.</p>
-    <p>🎖️ <b>A special honor, uniquely Hsinmin.</b> Our thanks go to the chair of the Parents’ Association and his wife, who specially presented each child with a fine acrylic pin — a beautiful reflection of the rich results of Hsinmin’s signature courses.</p>
-    <p>🕯️ <b>Chasing the light, brightening the future.</b> The school gave each graduate a crystal candle, echoing the ceremony’s theme, “Chasing the Light — Candlelight.” May this warm glow light up the journey ahead as you bravely follow your dreams.</p>
-    <p>🌻 <b>Toward the sun, heads held high.</b> Our thanks to Advisor Shen Jia-wei, who lovingly gave every graduate a sunflower, with the wish that the children carry a bright, sunlit, positive spirit as they walk toward the sun.</p>
-    <p>Thank you to all our teachers, the Parents’ Association, and our advisors. Because of you, this ceremony overflowed with love and warmth.</p>
-    <p>To all the graduates of the 19th class — happy graduation! Chase the light bravely, shine with all your light, and go create the brilliant future that is waiting for you. 🚀</p>
+
+  <div class="carousel" aria-roledescription="carousel">
+    <div class="car-track">
+      <div class="car-slide"><img src="../../news-img/stage-steps-1.jpg" alt="Safety Meets Beauty · New Stage Steps · photo 1"></div>
+      <div class="car-slide"><img src="../../news-img/stage-steps-2.jpg" alt="Safety Meets Beauty · New Stage Steps · photo 2" loading="lazy"></div>
+      <div class="car-slide"><img src="../../news-img/stage-steps-3.jpg" alt="Safety Meets Beauty · New Stage Steps · photo 3" loading="lazy"></div>
+      <div class="car-slide"><img src="../../news-img/stage-steps-4.jpg" alt="Safety Meets Beauty · New Stage Steps · photo 4" loading="lazy"></div>
+    </div>
+    <button class="car-btn car-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="car-btn car-next" aria-label="Next photo">&#8250;</button>
+    <div class="car-count"><b>1</b> / 4</div>
+    <div class="car-dots">
+      <button class="car-dot on" aria-label="Go to photo 1"></button>
+      <button class="car-dot" aria-label="Go to photo 2"></button>
+      <button class="car-dot" aria-label="Go to photo 3"></button>
+      <button class="car-dot" aria-label="Go to photo 4"></button>
+    </div>
   </div>
-  <div class="lead-photo"><img src="../../news-img/graduation-ceremony-1.jpg" alt="Hsinmin Elementary 19th graduation ceremony — precious memories: handmade corsages, acrylic pins, crystal candles, and sunflowers"></div>
-  <p class="leadcap">Precious memories from the 19th graduation ceremony — handmade corsages, “Hsinmin” acrylic pins, crystal candles, and sunflowers · 第19屆畢業典禮的珍貴回憶：手作胸花、新民壓克力胸針、水晶蠟燭與太陽花</p>
+
+  <div class="en-body">
+    <p>At first glance, it looks like just a staircase. Look closer, and you will find care built into every step.</p>
+    <p>Hsinmin Elementary's assembly hall has a beautiful new set of stage steps — custom-designed and generously donated by Parent Association Advisor Jiang Bo-zhang, our former vice president of the Parents' Association. Simple as it may look, every detail was thoughtfully chosen: a sturdy aluminum frame provides lasting strength, while a wooden board on each step brings a warm, gentle feel underfoot. The real star of the design, however, is the non-slip pad — a thoughtful touch that keeps every step safe, whether a student is bounding up to perform, a singer is stepping into the spotlight, or a guest is descending after a ceremony.</p>
+    <p>Since its arrival, the new staircase has made school life noticeably smoother and safer for students, teachers and families alike. And it hasn't taken long to earn an unofficial new title: the most popular photo spot on campus! From beaming school guests and teachers gathering for a warm group shot, to the choir lining up in full voice for a concert, everyone has been drawn to the steps as the perfect place to capture a shining moment together.</p>
+    <p>On behalf of all students, teachers and families at Hsinmin, we extend our warmest, most heartfelt thanks to Advisor Jiang for this generous and wonderfully thoughtful gift. Your care has made our school a safer, more beautiful, and more joyful place to learn, grow, and shine together. 🙏❤️</p>
+  </div>
+
   <div class="zhwrap"><span class="zhlabel">中文原文 · Chinese</span>
   <div class="zh-body">
-    <p>【夢想逐光✨向陽而行】新民國小第19屆畢業典禮，給孩子最與眾不同的祝福❤️</p>
-    <p>鳳凰花開，驪歌響起，新民國小第19屆的畢業生們，帶著滿滿的愛與祝福，邁向人生的下一個新起點！🎓✨</p>
-    <p>今年的畢業典禮很不一樣，我們用滿滿的儀式感，為孩子們打造了獨一無二的溫馨回憶：</p>
-    <p>🎨【獨一無二的彩色回憶】畢業生們親手製作專屬胸花，每一朵都綻放著屬於自己、無可取代的耀眼色彩！</p>
-    <p>🎖️【新民特色專屬榮耀】感謝家長會長賢伉儷特別致贈高級壓克力胸針，精緻展現新民特色課程的豐碩成果。</p>
-    <p>🕯️【夢想逐光．點亮未來】學校特贈畢業生水晶蠟燭，呼應「夢想逐光-燭光」主題，願這溫暖的光芒，照亮你們勇敢追夢的旅程。</p>
-    <p>🌻【心向陽光．昂首闊步】感謝沈嘉偉顧問精心致贈每位畢業生一朵太陽花，祝福孩子們帶著陽光般的正向力量，向陽而行！</p>
-    <p>謝謝所有師長、家長會與顧問的疼愛，因為有您們，讓這場畢業典禮充滿了愛與溫度。</p>
-    <p>祝福第19屆全體畢業生：畢業快樂！勇敢逐光，綻放光芒！輝煌的未來正等著你們去創造！🚀</p>
+    <p>🎉【校園美事】多一份貼心，增一份安全！</p>
+    <p>新民國小集會堂舞台「美學與安全階梯」正式登場 🏫❤️</p>
+    <p>這是一座專為新民國小集會堂舞台量身打造的全新階梯！看似簡單，背後卻藏著滿滿的細節與貼心：鋁製的骨架堅固耐用，上方特別加了一層木板，為上下舞台的步伐帶來柔軟與彈性；最讓人感動的，是那細緻的止滑墊設計，讓每一次的登台與下台，都多了一份安心與安全的守護。</p>
+    <p>這座階梯不僅大幅提升了全校親師生在集會與活動時的使用方便性與效率，更化身為校園裡最熱門的「拍照新景點」與大合照的完美站位！無論是貴賓與師長們的溫馨合影，或是孩子們在音樂交流演出、合唱團上台時的精采展現，這座階梯都默默地托起每一個閃耀的瞬間。</p>
+    <p>新民國小全體親師生，特別在此向「家長會前副會長——江柏樟顧問」致上最誠摯的謝意！感謝江顧問的用心付出與巧妙設計，您的這份貼心，讓新民的校園活動空間變得更安全、更進步、更美好。</p>
   </div></div>
+
 </div>
 
 <section class="lz">
   <span class="lz__eyebrow">English Learning Corner</span>
-  <h2 class="lz__title">Graduation Day · Words to Learn<span class="zh">英語學習角 · 畢業典禮的小單字</span></h2>
-  <p class="lz__sub">Eight key words from the graduation ceremony, each with an example sentence — then a five-question quiz. Tap 🔊 to listen.<br><span style="color:var(--ink-soft)">八個畢業典禮關鍵字，每個字配一個例句，最後有五題小考。點 🔊 聽發音。</span></p>
+  <h2 class="lz__title">Safety on Stage · Words to Learn<span class="zh">英語學習角 · 和新階梯有關的小單字</span></h2>
+  <p class="lz__sub">Six key words from this story, each with an example sentence — then a five-question quiz. Tap 🔊 to listen.<br><span style="color:var(--ink-soft)">六個關鍵字，每個字配一個例句，最後有五題小考。點 🔊 聽發音。</span></p>
 
   <div class="lz__sectlabel"><span class="num">1</span>Key Words</div>
   <div class="lz__sectlabel-zh">關鍵字 · 點 🔊 聽單字，再點小喇叭聽整句</div>
   <div class="kw-grid">
     <div class="kw">
       <div class="kw__top"><span class="kw__num">1</span>
-        <div class="kw__word"><div class="kw__en">graduate<span class="kw__pos">(n.)</span></div><div class="kw__zh">畢業生</div></div>
-        <button class="speak" data-speak="graduate" aria-label="Listen to graduate">🔊</button>
+        <div class="kw__word"><div class="kw__en">staircase<span class="kw__pos">(n.)</span></div><div class="kw__zh">階梯</div></div>
+        <button class="speak" data-speak="staircase" aria-label="Listen to staircase">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Every graduate received a sunflower.</div><div class="kw__eg-zh">每位畢業生都拿到一朵太陽花。</div></div>
-        <button class="speak speak--sm" data-speak="Every graduate received a sunflower." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The new staircase makes the stage much safer.</div><div class="kw__eg-zh">新階梯讓舞台安全多了。</div></div>
+        <button class="speak speak--sm" data-speak="The new staircase makes the stage much safer." aria-label="Listen to the sentence">🔊</button></div>
     </div>
     <div class="kw">
       <div class="kw__top"><span class="kw__num">2</span>
-        <div class="kw__word"><div class="kw__en">ceremony<span class="kw__pos">(n.)</span></div><div class="kw__zh">典禮</div></div>
-        <button class="speak" data-speak="ceremony" aria-label="Listen to ceremony">🔊</button>
+        <div class="kw__word"><div class="kw__en">aluminum<span class="kw__pos">(n.)</span></div><div class="kw__zh">鋁</div></div>
+        <button class="speak" data-speak="aluminum" aria-label="Listen to aluminum">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The graduation ceremony was full of love.</div><div class="kw__eg-zh">畢業典禮充滿了愛。</div></div>
-        <button class="speak speak--sm" data-speak="The graduation ceremony was full of love." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Aluminum is a light but very strong metal.</div><div class="kw__eg-zh">鋁是一種輕巧又非常堅固的金屬。</div></div>
+        <button class="speak speak--sm" data-speak="Aluminum is a light but very strong metal." aria-label="Listen to the sentence">🔊</button></div>
     </div>
     <div class="kw">
       <div class="kw__top"><span class="kw__num">3</span>
-        <div class="kw__word"><div class="kw__en">corsage<span class="kw__pos">(n.)</span></div><div class="kw__zh">胸花</div></div>
-        <button class="speak" data-speak="corsage" aria-label="Listen to corsage">🔊</button>
+        <div class="kw__word"><div class="kw__en">non-slip<span class="kw__pos">(adj.)</span></div><div class="kw__zh">止滑的</div></div>
+        <button class="speak" data-speak="non-slip" aria-label="Listen to non-slip">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The children made their own corsages.</div><div class="kw__eg-zh">孩子們親手做了自己的胸花。</div></div>
-        <button class="speak speak--sm" data-speak="The children made their own corsages." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The non-slip pad keeps everyone safe on the steps.</div><div class="kw__eg-zh">止滑墊讓大家踏上階梯時都很安全。</div></div>
+        <button class="speak speak--sm" data-speak="The non-slip pad keeps everyone safe on the steps." aria-label="Listen to the sentence">🔊</button></div>
     </div>
     <div class="kw">
       <div class="kw__top"><span class="kw__num">4</span>
-        <div class="kw__word"><div class="kw__en">candle<span class="kw__pos">(n.)</span></div><div class="kw__zh">蠟燭</div></div>
-        <button class="speak" data-speak="candle" aria-label="Listen to candle">🔊</button>
+        <div class="kw__word"><div class="kw__en">donate<span class="kw__pos">(v.)</span></div><div class="kw__zh">捐贈</div></div>
+        <button class="speak" data-speak="donate" aria-label="Listen to donate">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Each graduate got a crystal candle.</div><div class="kw__eg-zh">每位畢業生都拿到一個水晶蠟燭。</div></div>
-        <button class="speak speak--sm" data-speak="Each graduate got a crystal candle." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Advisor Jiang donated the staircase to our school.</div><div class="kw__eg-zh">江顧問把這座階梯捐贈給我們學校。</div></div>
+        <button class="speak speak--sm" data-speak="Advisor Jiang donated the staircase to our school." aria-label="Listen to the sentence">🔊</button></div>
     </div>
     <div class="kw">
       <div class="kw__top"><span class="kw__num">5</span>
-        <div class="kw__word"><div class="kw__en">sunflower<span class="kw__pos">(n.)</span></div><div class="kw__zh">太陽花</div></div>
-        <button class="speak" data-speak="sunflower" aria-label="Listen to sunflower">🔊</button>
+        <div class="kw__word"><div class="kw__en">grateful<span class="kw__pos">(adj.)</span></div><div class="kw__zh">感激的</div></div>
+        <button class="speak" data-speak="grateful" aria-label="Listen to grateful">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">A sunflower always turns toward the sun.</div><div class="kw__eg-zh">太陽花總是朝向太陽。</div></div>
-        <button class="speak speak--sm" data-speak="A sunflower always turns toward the sun." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">We are very grateful for this kind gift.</div><div class="kw__eg-zh">我們非常感激這份貼心的禮物。</div></div>
+        <button class="speak speak--sm" data-speak="We are very grateful for this kind gift." aria-label="Listen to the sentence">🔊</button></div>
     </div>
     <div class="kw">
       <div class="kw__top"><span class="kw__num">6</span>
-        <div class="kw__word"><div class="kw__en">dream<span class="kw__pos">(n.)</span></div><div class="kw__zh">夢想</div></div>
-        <button class="speak" data-speak="dream" aria-label="Listen to dream">🔊</button>
+        <div class="kw__word"><div class="kw__en">performance<span class="kw__pos">(n.)</span></div><div class="kw__zh">演出</div></div>
+        <button class="speak" data-speak="performance" aria-label="Listen to performance">🔊</button>
       </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Follow your dream and chase the light.</div><div class="kw__eg-zh">追隨你的夢想，勇敢逐光。</div></div>
-        <button class="speak speak--sm" data-speak="Follow your dream and chase the light." aria-label="Listen to the sentence">🔊</button></div>
-    </div>
-    <div class="kw">
-      <div class="kw__top"><span class="kw__num">7</span>
-        <div class="kw__word"><div class="kw__en">bloom<span class="kw__pos">(v.)</span></div><div class="kw__zh">綻放</div></div>
-        <button class="speak" data-speak="bloom" aria-label="Listen to bloom">🔊</button>
-      </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">Each flower bloomed in its own color.</div><div class="kw__eg-zh">每一朵花都綻放著自己的色彩。</div></div>
-        <button class="speak speak--sm" data-speak="Each flower bloomed in its own color." aria-label="Listen to the sentence">🔊</button></div>
-    </div>
-    <div class="kw">
-      <div class="kw__top"><span class="kw__num">8</span>
-        <div class="kw__word"><div class="kw__en">bright<span class="kw__pos">(adj.)</span></div><div class="kw__zh">明亮的</div></div>
-        <button class="speak" data-speak="bright" aria-label="Listen to bright">🔊</button>
-      </div>
-      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">A bright future is waiting for you.</div><div class="kw__eg-zh">一個明亮的未來正等著你。</div></div>
-        <button class="speak speak--sm" data-speak="A bright future is waiting for you." aria-label="Listen to the sentence">🔊</button></div>
+      <div class="kw__eg"><div class="kw__eg-txt"><div class="kw__eg-en">The choir gave a wonderful performance on the new steps.</div><div class="kw__eg-zh">合唱團在新階梯上獻上了精彩的演出。</div></div>
+        <button class="speak speak--sm" data-speak="The choir gave a wonderful performance on the new steps." aria-label="Listen to the sentence">🔊</button></div>
     </div>
   </div>
 
   <div class="lz__sectlabel"><span class="num">2</span>Try the Conversation</div>
   <div class="lz__sectlabel-zh">對話練習 · 兩個人一組，A 和 B 輪流唸；點 ▶ 可整段播放</div>
   <div class="dlg-head"><button class="playall" id="playAll">▶ Play the whole conversation</button></div>
-  <div class="dlg-scene">🎬 <b>Scene</b> · After the ceremony, two sixth-graders talk about their graduation day.<br>情境：典禮結束後，兩位六年級同學聊起他們的畢業典禮。</div>
+  <div class="dlg-scene">🎬 <b>Scene</b> · Two students discover the new staircase before a school event.<br>情境：活動開始前，兩個同學發現了新的舞台階梯。</div>
   <div class="dlg" id="dlg">
-    <div class="line" data-say="We finally graduated! I feel so happy.">
+    <div class="line" data-say="Wow, look at the new staircase! It looks so strong.">
       <div class="line__who">A</div>
-      <div class="line__txt"><div class="line__en">We finally graduated! I feel so happy.</div><div class="line__zh">我們終於畢業了！我好開心。</div></div>
-      <button class="speak speak--sm" data-speak="We finally graduated! I feel so happy." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">Wow, look at the new staircase! It looks so strong.</div><div class="line__zh">哇，快看那座新階梯！看起來好堅固喔。</div></div>
+      <button class="speak speak--sm" data-speak="Wow, look at the new staircase! It looks so strong." aria-label="Listen to this line">🔊</button>
     </div>
-    <div class="line b" data-say="Me too! I love the corsage we made by hand.">
+    <div class="line b" data-say="Yes! The frame is made of aluminum. It will last a long time.">
       <div class="line__who">B</div>
-      <div class="line__txt"><div class="line__en">Me too! I love the corsage we made by hand.</div><div class="line__zh">我也是！我好喜歡我們親手做的胸花。</div></div>
-      <button class="speak speak--sm" data-speak="Me too! I love the corsage we made by hand." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">Yes! The frame is made of aluminum. It will last a long time.</div><div class="line__zh">對啊！骨架是鋁製的，可以用很久。</div></div>
+      <button class="speak speak--sm" data-speak="Yes! The frame is made of aluminum. It will last a long time." aria-label="Listen to this line">🔊</button>
     </div>
-    <div class="line" data-say="The school gave us a crystal candle, too.">
+    <div class="line" data-say="I love the non-slip pads. They keep us safe every time we go up.">
       <div class="line__who">A</div>
-      <div class="line__txt"><div class="line__en">The school gave us a crystal candle, too.</div><div class="line__zh">學校還送了我們水晶蠟燭。</div></div>
-      <button class="speak speak--sm" data-speak="The school gave us a crystal candle, too." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">I love the non-slip pads. They keep us safe every time we go up.</div><div class="line__zh">我好喜歡那個止滑墊，每次走上去都很安心。</div></div>
+      <button class="speak speak--sm" data-speak="I love the non-slip pads. They keep us safe every time we go up." aria-label="Listen to this line">🔊</button>
     </div>
-    <div class="line b" data-say="And a sunflower! It means we walk toward the sun.">
+    <div class="line b" data-say="Did you know? Advisor Jiang donated this staircase to our school.">
       <div class="line__who">B</div>
-      <div class="line__txt"><div class="line__en">And a sunflower! It means we walk toward the sun.</div><div class="line__zh">還有一朵太陽花！代表我們向陽而行。</div></div>
-      <button class="speak speak--sm" data-speak="And a sunflower! It means we walk toward the sun." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">Did you know? Advisor Jiang donated this staircase to our school.</div><div class="line__zh">你知道嗎？這座階梯是江顧問捐贈給我們學校的。</div></div>
+      <button class="speak speak--sm" data-speak="Did you know? Advisor Jiang donated this staircase to our school." aria-label="Listen to this line">🔊</button>
     </div>
-    <div class="line" data-say="Let's chase the light and follow our dreams.">
+    <div class="line" data-say="Really? We should be so grateful. That is very kind of him.">
       <div class="line__who">A</div>
-      <div class="line__txt"><div class="line__en">Let's chase the light and follow our dreams.</div><div class="line__zh">讓我們勇敢逐光，追隨自己的夢想。</div></div>
-      <button class="speak speak--sm" data-speak="Let's chase the light and follow our dreams." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">Really? We should be so grateful. That is very kind of him.</div><div class="line__zh">真的嗎？我們真的很感激。他好有心喔。</div></div>
+      <button class="speak speak--sm" data-speak="Really? We should be so grateful. That is very kind of him." aria-label="Listen to this line">🔊</button>
     </div>
-    <div class="line b" data-say="Yes! A bright future is waiting for us.">
+    <div class="line b" data-say="Let's give our best performance today and make him proud!">
       <div class="line__who">B</div>
-      <div class="line__txt"><div class="line__en">Yes! A bright future is waiting for us.</div><div class="line__zh">對！一個明亮的未來正等著我們。</div></div>
-      <button class="speak speak--sm" data-speak="Yes! A bright future is waiting for us." aria-label="Listen to this line">🔊</button>
+      <div class="line__txt"><div class="line__en">Let's give our best performance today and make him proud!</div><div class="line__zh">那我們今天要有最棒的演出，讓他開心！</div></div>
+      <button class="speak speak--sm" data-speak="Let's give our best performance today and make him proud!" aria-label="Listen to this line">🔊</button>
     </div>
   </div>
 
@@ -293,66 +301,66 @@
   <div class="lz__sectlabel-zh">五題小考 · 選出最合適的英文單字，點 🔊 可聽題目</div>
   <div class="quiz">
     <div class="qz">
-      <div class="qz__q"><span class="num">Q1.</span><span>The children made their own ______ for the ceremony.</span><button class="speak speak--sm" data-speak="The children made their own blank for the ceremony." aria-label="Listen to the question">🔊</button></div>
-      <div class="qz__zh">孩子們親手為典禮製作了自己的______。</div>
+      <div class="qz__q"><span class="num">Q1.</span><span>The frame of the new staircase is made of ______.</span><button class="speak speak--sm" data-speak="The frame of the new staircase is made of blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">新階梯的骨架是用______做的。</div>
       <div class="qz__opts">
-        <button class="opt"><span class="key">A</span>kites</button>
-        <button class="opt"><span class="key">B</span>shoes</button>
-        <button class="opt" data-ok><span class="key">C</span>corsages</button>
-        <button class="opt"><span class="key">D</span>boxes</button>
+        <button class="opt"><span class="key">A</span>wood</button>
+        <button class="opt" data-ok><span class="key">B</span>aluminum</button>
+        <button class="opt"><span class="key">C</span>plastic</button>
+        <button class="opt"><span class="key">D</span>iron</button>
       </div>
-      <div class="qz__fb"><b>corsages</b> 胸花 ✓ — Each child made a corsage in their own color. 每個孩子做了一朵自己顏色的胸花。</div>
+      <div class="qz__fb"><b>aluminum</b> 鋁 ✓ — The aluminum frame makes the staircase strong and light. 鋁製骨架讓階梯堅固又輕巧。</div>
     </div>
     <div class="qz">
-      <div class="qz__q"><span class="num">Q2.</span><span>The school gave each graduate a crystal ______.</span><button class="speak speak--sm" data-speak="The school gave each graduate a crystal blank." aria-label="Listen to the question">🔊</button></div>
-      <div class="qz__zh">學校送給每位畢業生一個水晶______。</div>
+      <div class="qz__q"><span class="num">Q2.</span><span>The ______ pad stops your feet from sliding on the steps.</span><button class="speak speak--sm" data-speak="The blank pad stops your feet from sliding on the steps." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">______墊可以防止你的腳在階梯上滑動。</div>
       <div class="qz__opts">
-        <button class="opt" data-ok><span class="key">A</span>candle</button>
-        <button class="opt"><span class="key">B</span>chair</button>
-        <button class="opt"><span class="key">C</span>cup</button>
-        <button class="opt"><span class="key">D</span>clock</button>
+        <button class="opt"><span class="key">A</span>soft</button>
+        <button class="opt"><span class="key">B</span>color</button>
+        <button class="opt" data-ok><span class="key">C</span>non-slip</button>
+        <button class="opt"><span class="key">D</span>rubber</button>
       </div>
-      <div class="qz__fb"><b>candle</b> 蠟燭 ✓ — The candle echoes the theme “Chasing the Light.” 蠟燭呼應「夢想逐光」主題。</div>
+      <div class="qz__fb"><b>non-slip</b> 止滑的 ✓ — A non-slip surface keeps everyone safe. 止滑的表面讓大家都很安全。</div>
     </div>
     <div class="qz">
-      <div class="qz__q"><span class="num">Q3.</span><span>Advisor Shen gave every graduate a ______.</span><button class="speak speak--sm" data-speak="Advisor Shen gave every graduate a blank." aria-label="Listen to the question">🔊</button></div>
-      <div class="qz__zh">沈顧問送給每位畢業生一朵______。</div>
+      <div class="qz__q"><span class="num">Q3.</span><span>To "donate" something means to ______.</span><button class="speak speak--sm" data-speak="To donate something means to blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">「donate」的意思是______。</div>
       <div class="qz__opts">
-        <button class="opt"><span class="key">A</span>pencil</button>
-        <button class="opt"><span class="key">B</span>balloon</button>
-        <button class="opt"><span class="key">C</span>book</button>
-        <button class="opt" data-ok><span class="key">D</span>sunflower</button>
+        <button class="opt"><span class="key">A</span>sell it</button>
+        <button class="opt"><span class="key">B</span>break it</button>
+        <button class="opt" data-ok><span class="key">C</span>give it as a gift</button>
+        <button class="opt"><span class="key">D</span>borrow it</button>
       </div>
-      <div class="qz__fb"><b>sunflower</b> 太陽花 ✓ — A sunflower turns toward the sun, just like the graduates. 太陽花朝向太陽，就像畢業生一樣。</div>
+      <div class="qz__fb"><b>give it as a gift</b> 捐贈 ✓ — When you donate something, you give it freely to help others. 捐贈的意思是免費給別人，幫助他人。</div>
     </div>
     <div class="qz">
-      <div class="qz__q"><span class="num">Q4.</span><span>“Walking toward the sun” means we keep our heads ______.</span><button class="speak speak--sm" data-speak="Walking toward the sun means we keep our heads blank." aria-label="Listen to the question">🔊</button></div>
-      <div class="qz__zh">「向陽而行」代表我們抬頭______。</div>
+      <div class="qz__q"><span class="num">Q4.</span><span>Who donated the new staircase to Hsinmin Elementary?</span><button class="speak speak--sm" data-speak="Who donated the new staircase to Hsinmin Elementary?" aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">是誰把新階梯捐贈給新民國小的？</div>
       <div class="qz__opts">
-        <button class="opt"><span class="key">A</span>down</button>
-        <button class="opt" data-ok><span class="key">B</span>held high</button>
-        <button class="opt"><span class="key">C</span>covered</button>
-        <button class="opt"><span class="key">D</span>turned away</button>
+        <button class="opt"><span class="key">A</span>the principal</button>
+        <button class="opt"><span class="key">B</span>a teacher</button>
+        <button class="opt" data-ok><span class="key">C</span>Advisor Jiang</button>
+        <button class="opt"><span class="key">D</span>a student</button>
       </div>
-      <div class="qz__fb"><b>held high</b> 昂首 ✓ — We walk forward bravely, heads held high. 我們昂首闊步，勇敢向前。</div>
+      <div class="qz__fb"><b>Advisor Jiang</b> 江顧問 ✓ — Advisor Jiang Bo-zhang, former vice president of the Parents' Association, donated the staircase. 家長會前副會長江柏樟顧問捐贈了這座階梯。</div>
     </div>
     <div class="qz">
-      <div class="qz__q"><span class="num">Q5.</span><span>A ______ future is waiting for the graduates to create.</span><button class="speak speak--sm" data-speak="A blank future is waiting for the graduates to create." aria-label="Listen to the question">🔊</button></div>
-      <div class="qz__zh">一個______的未來，正等著畢業生去創造。</div>
+      <div class="qz__q"><span class="num">Q5.</span><span>If you are "grateful," you feel very ______.</span><button class="speak speak--sm" data-speak="If you are grateful, you feel very blank." aria-label="Listen to the question">🔊</button></div>
+      <div class="qz__zh">「grateful」的意思是感到非常______。</div>
       <div class="qz__opts">
-        <button class="opt"><span class="key">A</span>dark</button>
-        <button class="opt" data-ok><span class="key">B</span>bright</button>
-        <button class="opt"><span class="key">C</span>rainy</button>
-        <button class="opt"><span class="key">D</span>empty</button>
+        <button class="opt"><span class="key">A</span>angry</button>
+        <button class="opt"><span class="key">B</span>bored</button>
+        <button class="opt" data-ok><span class="key">C</span>thankful</button>
+        <button class="opt"><span class="key">D</span>tired</button>
       </div>
-      <div class="qz__fb"><b>bright</b> 明亮的 ✓ — Chase the light, and a bright future will shine. 勇敢逐光，明亮的未來就會發光。</div>
+      <div class="qz__fb"><b>thankful</b> 感謝的 ✓ — We are grateful and thankful for Advisor Jiang's kindness. 我們對江顧問的好意感到非常感激與感謝。</div>
     </div>
   </div>
   <div class="qz__score" id="qzScore"></div>
 </section>
 
-<nav class="lnav"><a href="../stage-steps/">&larr; Safety Meets Beauty · New Stage Steps</a><a href="../" class="center">&uarr; All News &middot; 回消息列表</a><a href="../summer-camp/">The Super-Power Summer Adventure Sets Sail &rarr;</a></nav>
-</div></main>
+<nav class="lnav"><span></span><a href="../" class="center">&uarr; All News &middot; 回消息列表</a><a href="../graduation-ceremony/">Chasing the Light, Walking Toward the Sun &rarr;</a></nav>
+</div></div></main>
 <script>
 /* ===== Text-to-speech (🔊) + Quiz ===== */
 (function(){
@@ -408,6 +416,32 @@
         if(answered===total && scoreEl){ scoreEl.textContent='🎉 '+correct+' / '+total+(correct===total?' — Perfect! 全對！':''); }
       });
     });
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var track=c.querySelector('.car-track');
+    var n=track.children.length;
+    var dots=[].slice.call(c.querySelectorAll('.car-dot'));
+    var count=c.querySelector('.car-count b');
+    var i=0,timer=null;
+    function go(k){i=(k%n+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';
+      dots.forEach(function(d,j){d.classList.toggle('on',j===i);});
+      if(count)count.textContent=(i+1);}
+    function start(){if(reduce)return;timer=setInterval(function(){go(i+1);},4800);}
+    function reset(){if(timer)clearInterval(timer);start();}
+    c.querySelector('.car-next').addEventListener('click',function(){go(i+1);reset();});
+    c.querySelector('.car-prev').addEventListener('click',function(){go(i-1);reset();});
+    dots.forEach(function(d,j){d.addEventListener('click',function(){go(j);reset();});});
+    c.addEventListener('mouseenter',function(){if(timer)clearInterval(timer);});
+    c.addEventListener('mouseleave',function(){start();});
+    var x0=null;
+    c.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    c.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(dx<0?i+1:i-1);reset();}x0=null;});
+    go(0);start();
   });
 })();
 </script>
