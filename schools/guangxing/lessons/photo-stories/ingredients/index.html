@@ -279,14 +279,25 @@
 <script>
 /* Learning Corner — Web Speech pronunciation + quiz */
 (function(){
+  var synth=window.speechSynthesis, voice=null;
+  function pickVoice(){
+    var vs=synth?synth.getVoices():[];
+    return vs.filter(function(v){return /^en[-_]/i.test(v.lang);})[0]
+        || vs.filter(function(v){return /^en$/i.test(v.lang);})[0]
+        || vs.filter(function(v){return /en/i.test(v.lang);})[0] || null;
+  }
+  if(synth){ voice=pickVoice();
+    try{synth.addEventListener('voiceschanged',function(){voice=pickVoice();});}catch(e){} }
   function say(text,btn){
-    if(!('speechSynthesis'in window)){return;}
-    try{speechSynthesis.cancel();}catch(e){}
+    if(!synth){return;}
+    try{synth.cancel();}catch(e){}
+    if(!voice)voice=pickVoice();
     var u=new SpeechSynthesisUtterance(text);
-    u.lang='en-US';u.rate=0.92;u.pitch=1;
+    u.lang='en-US';u.rate=0.92;u.pitch=1; if(voice)u.voice=voice;
     if(btn){btn.classList.add('is-playing');
       u.onend=u.onerror=function(){btn.classList.remove('is-playing');};}
-    speechSynthesis.speak(u);
+    synth.speak(u);
+    try{synth.resume();}catch(e){}   /* defeat Chrome idle-pause bug */
   }
   function updateScore(quiz){
     var qs=quiz.querySelectorAll('.q'),total=qs.length,done=0,right=0;
