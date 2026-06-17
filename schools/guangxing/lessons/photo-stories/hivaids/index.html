@@ -81,6 +81,70 @@
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+  /* ===== Learning Corner ===== */
+  .lc{margin:50px 0 8px;}
+  .lc__head{text-align:center;margin-bottom:26px;}
+  .lc__eyebrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);}
+  .lc__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(28px,4.6vw,40px);font-weight:700;color:var(--cane-deep);line-height:1.16;margin-top:6px;}
+  .lc__title-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  .lc__rule{width:74px;height:4px;background:var(--gold);border-radius:3px;margin:18px auto 0;}
+  .lc__sub{display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--cane-deep);margin:40px 0 16px;}
+  .lc__sub .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--cane-soft);color:var(--cane-deep);display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .lc__sub small{font-family:'PingFang TC',sans-serif;font-weight:500;font-size:15px;color:var(--ink-soft);}
+  /* speaker button */
+  .say{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;background:var(--cane-deep);color:#fff;font-size:18px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:var(--shadow-sm);}
+  .say:hover{background:var(--terra);transform:scale(1.1);}
+  .say:active{transform:scale(.94);}
+  .say.is-playing{animation:sayPulse .85s ease infinite;background:var(--terra);}
+  @keyframes sayPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.16);}}
+  /* keywords */
+  .kw-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  @media(min-width:600px){.kw-grid{grid-template-columns:1fr 1fr;}}
+  .kw{display:flex;align-items:center;gap:14px;background:var(--bg-soft);border:1px solid var(--line);border-radius:13px;padding:13px 16px;}
+  .kw__txt{flex:1;min-width:0;}
+  .kw__en{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--cane-deep);line-height:1.2;}
+  .kw__en .pos{font-size:14px;font-style:italic;color:var(--terra);font-weight:600;margin-left:6px;}
+  .kw__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:2px;}
+  /* example sentences */
+  .ex{display:flex;align-items:flex-start;gap:14px;padding:16px 2px;border-bottom:1px dashed var(--line);}
+  .ex:last-child{border-bottom:0;}
+  .ex__txt{flex:1;}
+  .ex__en{font-size:19px;line-height:1.6;color:var(--ink);}
+  .ex__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+  /* dialogue */
+  .dlg{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:20px 20px 8px;}
+  .turn{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
+  .turn .who{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;color:#fff;margin-top:2px;}
+  .turn.a .who{background:var(--cane-deep);}
+  .turn.b .who{background:var(--terra);}
+  .turn__txt{flex:1;}
+  .turn__en{font-size:18.5px;line-height:1.55;color:var(--ink);}
+  .turn__zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-top:3px;}
+  .turn .say{width:36px;height:36px;font-size:16px;align-self:center;margin-left:auto;}
+  /* quiz */
+  .quiz{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 4px;}
+  .q{padding:20px 18px;border-bottom:1px solid var(--line);}
+  .q:last-of-type{border-bottom:0;}
+  .q__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--terra);text-transform:uppercase;}
+  .q__ask{font-size:19px;font-weight:600;color:var(--ink);margin:6px 0 3px;line-height:1.5;}
+  .q__ask-zh{font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .opts{display:flex;flex-direction:column;gap:9px;}
+  .opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:12px 15px;font:inherit;font-size:17.5px;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;}
+  .opt:hover{border-color:var(--cane);background:var(--cane-soft);}
+  .opt .key{flex:0 0 auto;width:27px;height:27px;border-radius:7px;background:var(--bg-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--ink-soft);}
+  .opt.correct{border-color:var(--cane);background:var(--cane-soft);}
+  .opt.correct .key{background:var(--cane-deep);color:#fff;border-color:var(--cane-deep);}
+  .opt.wrong{border-color:#d8714f;background:#fbe7df;}
+  .opt.wrong .key{background:#c0522e;color:#fff;border-color:#c0522e;}
+  .opt:disabled{cursor:default;}
+  .opt:disabled:hover{background:#fff;border-color:var(--line);}
+  .opt.correct:disabled:hover{background:var(--cane-soft);border-color:var(--cane);}
+  .opt.wrong:disabled:hover{background:#fbe7df;border-color:#d8714f;}
+  .q__exp{margin-top:12px;font-family:'PingFang TC',sans-serif;font-size:15.5px;color:var(--cane-deep);background:var(--cane-soft);border-radius:10px;padding:11px 14px;line-height:1.7;display:none;}
+  .q.answered .q__exp{display:block;}
+  .quiz__score{text-align:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:21px;font-weight:700;color:var(--cane-deep);padding:18px 14px 14px;display:none;}
+  .quiz__score.show{display:block;}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/schools/guangxing/motion.css">
@@ -88,21 +152,21 @@
 <body>
 
 <nav class="topbar" role="navigation"><div class="topbar-inner">
-  <a class="brand" href="../../">
-    <img src="../../photos/logo.jpg" alt="Guangxing Elementary School logo 廣興國小校徽">
+  <a class="brand" href="../../../">
+    <img src="../../../photos/logo.jpg" alt="Guangxing Elementary School logo 廣興國小校徽">
     <div class="brand-name">Guangxing Elementary<small>彰化縣二林鎮廣興國民小學</small></div>
   </a>
   <div class="topbar-nav">
-    <a href="../../">Home</a>
-    <a href="../../principal/">Principal</a>
-    <a href="../" class="is-active">Lessons</a>
-    <a href="../../news/">News</a>
+    <a href="../../../">Home</a>
+    <a href="../../../principal/">Principal</a>
+    <a href="../../" class="is-active">Lessons</a>
+    <a href="../../../news/">News</a>
     <a href="/schools/guangxing/festivals/" target="_blank" rel="noopener">Festivals</a>
   </div>
 </div></nav>
 
 <header class="hero">
-  <img src="../../photos/lesson-hivaids.jpg" alt="Assembly hall talk about HIV and AIDS 全校愛滋宣導講座">
+  <img src="../../../photos/lesson-hivaids.jpg" alt="Assembly hall talk about HIV and AIDS 全校愛滋宣導講座">
   <div class="hero-cap">
     <span class="eyebrow">Story 05 · Photo</span>
     <h1>HIV &amp; AIDS Assembly<span class="zh">愛滋衛教講座</span></h1>
@@ -127,6 +191,66 @@
 
   <div class="credit">WOTD · HIV/AIDS · 朗讀者 Edwin Schadewald</div>
 
+<section class="lc" aria-label="Learning Corner">
+  <div class="lc__head"><span class="lc__eyebrow">Learning Corner</span><div class="lc__title">Learn the Words &amp; Talk About It<span class="lc__title-zh">學單字 · 練句子 · 開口說 · 小測驗</span></div><div class="lc__rule"></div></div>
+  <div class="lc__sub"><span class="n">1</span> Keywords <small>關鍵字</small></div>
+  <div class="kw-grid">
+    <div class="kw"><button class="say" data-say="presentation" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">presentation <span class="pos">(n.)</span></div><div class="kw__zh">講座；簡報</div></div></div>
+    <div class="kw"><button class="say" data-say="assembly hall" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">assembly hall <span class="pos">(n.)</span></div><div class="kw__zh">大禮堂</div></div></div>
+    <div class="kw"><button class="say" data-say="educate" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">educate <span class="pos">(v.)</span></div><div class="kw__zh">教育；宣導</div></div></div>
+    <div class="kw"><button class="say" data-say="disease" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">disease <span class="pos">(n.)</span></div><div class="kw__zh">疾病</div></div></div>
+    <div class="kw"><button class="say" data-say="transmission" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">transmission <span class="pos">(n.)</span></div><div class="kw__zh">傳播</div></div></div>
+    <div class="kw"><button class="say" data-say="awareness" aria-label="Listen 朗讀">🔊</button><div class="kw__txt"><div class="kw__en">awareness <span class="pos">(n.)</span></div><div class="kw__zh">認識；意識</div></div></div>
+  </div>
+  <div class="lc__sub"><span class="n">2</span> Example Sentences <small>例句</small></div>
+  <div class="ex-list">
+    <div class="ex"><button class="say" data-say="A special presentation was held in the assembly hall." aria-label="Listen 朗讀">🔊</button><div class="ex__txt"><div class="ex__en">A special presentation was held in the assembly hall.</div><div class="ex__zh">大禮堂裡舉行了一場特別的講座。</div></div></div>
+    <div class="ex"><button class="say" data-say="It educated students about disease transmission." aria-label="Listen 朗讀">🔊</button><div class="ex__txt"><div class="ex__en">It educated students about disease transmission.</div><div class="ex__zh">它向學生宣導疾病的傳播。</div></div></div>
+    <div class="ex"><button class="say" data-say="The students gained awareness about staying healthy." aria-label="Listen 朗讀">🔊</button><div class="ex__txt"><div class="ex__en">The students gained awareness about staying healthy.</div><div class="ex__zh">學生們提高了保持健康的認識。</div></div></div>
+  </div>
+  <div class="lc__sub"><span class="n">3</span> Talk About It <small>對話練習</small></div>
+  <div class="dlg">
+    <div class="turn a"><span class="who">A</span><div class="turn__txt"><div class="turn__en">Where is everyone going?</div><div class="turn__zh">大家要去哪裡？</div></div><button class="say" data-say="Where is everyone going?" aria-label="Listen 朗讀">🔊</button></div>
+    <div class="turn b"><span class="who">B</span><div class="turn__txt"><div class="turn__en">To the assembly hall for a special presentation.</div><div class="turn__zh">去大禮堂聽一場特別的講座。</div></div><button class="say" data-say="To the assembly hall for a special presentation." aria-label="Listen 朗讀">🔊</button></div>
+    <div class="turn a"><span class="who">A</span><div class="turn__txt"><div class="turn__en">What is it about?</div><div class="turn__zh">是關於什麼的？</div></div><button class="say" data-say="What is it about?" aria-label="Listen 朗讀">🔊</button></div>
+    <div class="turn b"><span class="who">B</span><div class="turn__txt"><div class="turn__en">It teaches us about disease transmission and how to stay healthy.</div><div class="turn__zh">它教我們疾病如何傳播，以及如何保持健康。</div></div><button class="say" data-say="It teaches us about disease transmission and how to stay healthy." aria-label="Listen 朗讀">🔊</button></div>
+  </div>
+  <div class="lc__sub"><span class="n">4</span> Quick Quiz <small>小測驗 · 五題</small></div>
+  <div class="quiz">
+    <div class="q"><div class="q__no">Question 1</div><div class="q__ask">Where was the presentation held?</div><div class="q__ask-zh">講座在哪裡舉行？</div><div class="opts">
+      <button class="opt"><span class="key">A</span> In the gym</button>
+      <button class="opt" data-correct="1"><span class="key">B</span> In the assembly hall</button>
+      <button class="opt"><span class="key">C</span> On the playground</button>
+      <button class="opt"><span class="key">D</span> In the library</button>
+      </div><div class="q__exp">✓ In the school's assembly hall. 在學校大禮堂。</div></div>
+    <div class="q"><div class="q__no">Question 2</div><div class="q__ask">What was the presentation about?</div><div class="q__ask-zh">講座的主題是？</div><div class="opts">
+      <button class="opt" data-correct="1"><span class="key">A</span> Disease transmission</button>
+      <button class="opt"><span class="key">B</span> Cooking</button>
+      <button class="opt"><span class="key">C</span> Sports</button>
+      <button class="opt"><span class="key">D</span> Music</button>
+      </div><div class="q__exp">✓ About disease transmission. 關於疾病傳播。</div></div>
+    <div class="q"><div class="q__no">Question 3</div><div class="q__ask">What does &quot;to educate&quot; mean?</div><div class="q__ask-zh">educate 是什麼意思？</div><div class="opts">
+      <button class="opt"><span class="key">A</span> To play games</button>
+      <button class="opt"><span class="key">B</span> To sell things</button>
+      <button class="opt"><span class="key">C</span> To clean up</button>
+      <button class="opt" data-correct="1"><span class="key">D</span> To teach and inform</button>
+      </div><div class="q__exp">✓ To educate is to teach and inform. 教育就是教導與宣導。</div></div>
+    <div class="q"><div class="q__no">Question 4</div><div class="q__ask">What did the students gain?</div><div class="q__ask-zh">學生們獲得了什麼？</div><div class="opts">
+      <button class="opt"><span class="key">A</span> Money</button>
+      <button class="opt"><span class="key">B</span> Toys</button>
+      <button class="opt" data-correct="1"><span class="key">C</span> Awareness and knowledge</button>
+      <button class="opt"><span class="key">D</span> Candy</button>
+      </div><div class="q__exp">✓ They gained awareness and knowledge. 提高了認識與知識。</div></div>
+    <div class="q"><div class="q__no">Question 5</div><div class="q__ask">What does &quot;awareness&quot; mean?</div><div class="q__ask-zh">awareness 是什麼意思？</div><div class="opts">
+      <button class="opt"><span class="key">A</span> Being asleep</button>
+      <button class="opt" data-correct="1"><span class="key">B</span> Knowing and understanding</button>
+      <button class="opt"><span class="key">C</span> Being hungry</button>
+      <button class="opt"><span class="key">D</span> Running fast</button>
+      </div><div class="q__exp">✓ Awareness means knowing and understanding. 認識＝知道並理解。</div></div>
+    <div class="quiz__score"></div>
+  </div>
+</section>
+
   <nav class="nav-pn">
     <a href="../coding/"><span class="lbl">← Previous</span><span class="name">Coding</span></a>
     <a class="right" href="../parent-teacher-meeting/"><span class="lbl">Next →</span><span class="name">Parent-Teacher Meeting</span></a>
@@ -150,6 +274,49 @@
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+/* Learning Corner — Web Speech pronunciation + quiz */
+(function(){
+  function say(text,btn){
+    if(!('speechSynthesis'in window)){return;}
+    try{speechSynthesis.cancel();}catch(e){}
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US';u.rate=0.92;u.pitch=1;
+    if(btn){btn.classList.add('is-playing');
+      u.onend=u.onerror=function(){btn.classList.remove('is-playing');};}
+    speechSynthesis.speak(u);
+  }
+  function updateScore(quiz){
+    var qs=quiz.querySelectorAll('.q'),total=qs.length,done=0,right=0;
+    [].forEach.call(qs,function(q){
+      if(!q.classList.contains('answered'))return;
+      done++;var c=q.querySelector('.opt.chosen');
+      if(c&&c.getAttribute('data-correct')==='1')right++;
+    });
+    if(done===total){
+      var s=quiz.querySelector('.quiz__score');
+      s.textContent='\uD83C\uDF1F You got '+right+' / '+total+' correct! \u00b7 \u4f60\u7b54\u5c0d\u4e86 '+right+'\uff0f'+total+' \u984c';
+      s.classList.add('show');
+    }
+  }
+  document.addEventListener('click',function(e){
+    var s=e.target.closest('.say');
+    if(s){say(s.getAttribute('data-say'),s);return;}
+    var o=e.target.closest('.opt');
+    if(o&&!o.disabled){
+      var q=o.closest('.q');
+      if(q.classList.contains('answered'))return;
+      q.classList.add('answered');o.classList.add('chosen');
+      [].forEach.call(q.querySelectorAll('.opt'),function(b){
+        b.disabled=true;
+        if(b.getAttribute('data-correct')==='1')b.classList.add('correct');
+      });
+      if(o.getAttribute('data-correct')!=='1')o.classList.add('wrong');
+      updateScore(q.closest('.quiz'));
+    }
+  });
 })();
 </script>
 <footer class="site"><div class="wrap">
