@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,27 +140,113 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/7uEJ63Ne2Fc?rel=0" title="mow (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>mow (v)<span class="zh">割</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">mow <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">割草</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/7uEJ63Ne2Fc?rel=0" title="mow · 割草" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">A worker <b>mows</b> the grass on the school grounds.</div>
+            <div class="zh">一位工人在校園裡割草。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The school staff <b>mows</b> the lawn every week to keep the campus tidy.</div>
+            <div class="zh">工友每週割草，讓校園保持整潔。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/o9aVmOaVCpk?rel=0" title="clean up (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>clean up (v)<span class="zh">打掃</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">clean up <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">打掃</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/o9aVmOaVCpk?rel=0" title="clean up · 打掃" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students <b>clean up</b> the classroom after lunch.</div>
+            <div class="zh">學生午餐後打掃教室。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Let's <b>clean up</b> together before going home.</div>
+            <div class="zh">我們一起打掃再回家吧。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/bzsRrgunklg?rel=0" title="sweep (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>sweep (v)<span class="zh">掃</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">sweep <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">掃</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/bzsRrgunklg?rel=0" title="sweep · 掃" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students <b>sweep</b> the hallway every afternoon.</div>
+            <div class="zh">學生每天下午掃走廊。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">She <b>sweeps</b> fallen leaves off the playground.</div>
+            <div class="zh">她把操場上的落葉掃乾淨。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/Q9TQc46TLI8?rel=0" title="brush your teeth" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>brush your teeth<span class="zh">刷牙</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">brush your teeth</div>
+        <div class="vc__zh">刷牙</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/Q9TQc46TLI8?rel=0" title="brush your teeth · 刷牙" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">You should <b>brush your teeth</b> after every meal.</div>
+            <div class="zh">每餐飯後你都應該刷牙。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Students <b>brush their teeth</b> after lunch at school.</div>
+            <div class="zh">學生在學校午餐後刷牙。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/VZeenmhAAik?rel=0" title="wash your hands" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>wash your hands<span class="zh">洗手</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">wash your hands</div>
+        <div class="vc__zh">洗手</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/VZeenmhAAik?rel=0" title="wash your hands · 洗手" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Always <b>wash your hands</b> before eating.</div>
+            <div class="zh">吃飯前一定要洗手。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Students <b>wash their hands</b> carefully with soap and water.</div>
+            <div class="zh">學生用肥皂和清水仔細地洗手。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">

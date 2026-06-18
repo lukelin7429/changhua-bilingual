@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,31 +140,134 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/6P_0pt2Or-U?rel=0" title="cupcake (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>cupcake (n)<span class="zh">杯子蛋糕</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">cupcake <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">杯子蛋糕</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/6P_0pt2Or-U?rel=0" title="cupcake · 杯子蛋糕" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students bake a <b>cupcake</b> for the school event.</div>
+            <div class="zh">學生為學校活動烤杯子蛋糕。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">She decorated her <b>cupcake</b> with colorful frosting and sprinkles.</div>
+            <div class="zh">她用彩色糖霜和糖粒裝飾她的杯子蛋糕。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/gkjgXEfOZQI?rel=0" title="top (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>top (n)<span class="zh">陀螺</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">top <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">陀螺</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/gkjgXEfOZQI?rel=0" title="top · 陀螺" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Children learn to spin a <b>top</b> with a piece of string.</div>
+            <div class="zh">孩子們學習用繩子轉動陀螺。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The <b>top</b> spins so fast it looks like it is standing still.</div>
+            <div class="zh">陀螺轉得很快，看起來好像靜止不動。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/NlcPuwlyMiM?rel=0" title="building blocks" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>building blocks<span class="zh">積木</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">building blocks</div>
+        <div class="vc__zh">積木</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/NlcPuwlyMiM?rel=0" title="building blocks · 積木" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The children build a tall tower with <b>building blocks</b>.</div>
+            <div class="zh">孩子們用積木蓋了一座高塔。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Playing with <b>building blocks</b> helps kids develop creativity and problem-solving skills.</div>
+            <div class="zh">玩積木有助於培養孩子的創造力和解決問題的能力。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/cbZ2fLuDueQ?rel=0" title="contraption (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>contraption (n)<span class="zh">裝置</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">contraption <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">裝置</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/cbZ2fLuDueQ?rel=0" title="contraption · 裝置" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The students build a funny-looking <b>contraption</b> from recycled materials.</div>
+            <div class="zh">學生用回收材料做了一個有趣的裝置。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Their <b>contraption</b> uses a rolling ball to knock down a row of blocks.</div>
+            <div class="zh">他們的裝置用一顆滾動的球打倒一排積木。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/zxjnS88JRbg?rel=0" title="calligraphy (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>calligraphy (n)<span class="zh">書法</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">calligraphy <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">書法</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/zxjnS88JRbg?rel=0" title="calligraphy · 書法" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We practice <b>calligraphy</b> with a brush and black ink.</div>
+            <div class="zh">我們用毛筆和黑墨水練習書法。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Beautiful <b>calligraphy</b> takes years of practice to master.</div>
+            <div class="zh">美麗的書法需要多年練習才能精通。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/pwrs1FN97Og?rel=0" title="Go (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>Go (n)<span class="zh">圍棋</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 06</div>
+        <div class="vc__term">Go <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">圍棋</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/pwrs1FN97Og?rel=0" title="Go · 圍棋" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students play <b>Go</b> during the afternoon club activity.</div>
+            <div class="zh">學生在下午社團活動中下圍棋。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Learning to play <b>Go</b> sharpens your thinking and strategy skills.</div>
+            <div class="zh">學習下圍棋可以鍛鍊你的思考和策略能力。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">

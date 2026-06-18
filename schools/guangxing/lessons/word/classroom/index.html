@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,35 +140,155 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/Eom8izk7CKw?rel=0" title="online class (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>online class (n)<span class="zh">線上課程</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">online class <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">線上課程</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/Eom8izk7CKw?rel=0" title="online class · 線上課程" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We have an <b>online class</b> when the teacher is away.</div>
+            <div class="zh">老師不在時我們上線上課程。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The students join their <b>online class</b> on a tablet at home.</div>
+            <div class="zh">學生在家用平板電腦上線上課程。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/w1-hee0hRLU?rel=0" title="encourage (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>encourage (v)<span class="zh">鼓勵</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">encourage <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">鼓勵</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/w1-hee0hRLU?rel=0" title="encourage · 鼓勵" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Teachers always <b>encourage</b> students to do their best.</div>
+            <div class="zh">老師總是鼓勵學生盡力表現。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Our principal <b>encourages</b> everyone to keep learning every day.</div>
+            <div class="zh">校長鼓勵大家每天持續學習。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/18p2GMadVFA?rel=0" title="social studies" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>social studies<span class="zh">社會科</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">social studies</div>
+        <div class="vc__zh">社會科</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/18p2GMadVFA?rel=0" title="social studies · 社會科" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">In <b>social studies</b>, we learn about communities, history, and maps.</div>
+            <div class="zh">在社會科，我們學習社區、歷史和地圖。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Social studies</b> class helps us understand the world around us.</div>
+            <div class="zh">社會科幫助我們了解周圍的世界。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/f8givizWntU?rel=0" title="test (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>test (n)<span class="zh">考試</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">test <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">考試</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/f8givizWntU?rel=0" title="test · 考試" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We have a spelling <b>test</b> every Friday afternoon.</div>
+            <div class="zh">我們每週五下午有拼字考試。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The students study hard to prepare for the English <b>test</b>.</div>
+            <div class="zh">學生努力讀書準備英文考試。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/Kt2GcIUJw44?rel=0" title="Chinese characters" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>Chinese characters<span class="zh">國字</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">Chinese characters</div>
+        <div class="vc__zh">國字</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/Kt2GcIUJw44?rel=0" title="Chinese characters · 國字" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We practice writing <b>Chinese characters</b> with a brush and ink.</div>
+            <div class="zh">我們用毛筆和墨水練習寫國字。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Learning <b>Chinese characters</b> takes a lot of practice and patience.</div>
+            <div class="zh">學習國字需要大量練習和耐心。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/Dm6UV3J3V6M?rel=0" title="color in" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>color in<span class="zh">著色</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 06</div>
+        <div class="vc__term">color in</div>
+        <div class="vc__zh">著色</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/Dm6UV3J3V6M?rel=0" title="color in · 著色" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The students <b>color in</b> a picture of the school campus.</div>
+            <div class="zh">學生為學校校園的圖片著色。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">She loves to <b>color in</b> her drawings with bright crayons.</div>
+            <div class="zh">她喜歡用亮色蠟筆為圖畫著色。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/y25DyrBx4PA?rel=0" title="computer lab" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>computer lab<span class="zh">電腦教室</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 07</div>
+        <div class="vc__term">computer lab</div>
+        <div class="vc__zh">電腦教室</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/y25DyrBx4PA?rel=0" title="computer lab · 電腦教室" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We go to the <b>computer lab</b> to learn how to type and code.</div>
+            <div class="zh">我們到電腦教室學習打字和程式設計。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The school has a big <b>computer lab</b> with many computers for students.</div>
+            <div class="zh">學校有一間寬敞的電腦教室，有很多電腦供學生使用。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">

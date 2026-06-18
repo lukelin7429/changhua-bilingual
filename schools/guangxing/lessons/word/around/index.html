@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,27 +140,113 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/Z9kduxGMc5g?rel=0" title="sugarcane" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>sugarcane<span class="zh">甘蔗</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">sugarcane</div>
+        <div class="vc__zh">甘蔗</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/Z9kduxGMc5g?rel=0" title="sugarcane · 甘蔗" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Guangxing is surrounded by beautiful <b>sugarcane</b> fields.</div>
+            <div class="zh">廣興四周圍繞著美麗的甘蔗田。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Farmers cut the <b>sugarcane</b> and send it to the factory to make sugar.</div>
+            <div class="zh">農民割甘蔗後送到工廠製成砂糖。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/jS4EhNijfnI?rel=0" title="ICRT radio station" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>ICRT radio station<span class="zh">廣播電台</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">ICRT radio station</div>
+        <div class="vc__zh">廣播電台</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/jS4EhNijfnI?rel=0" title="ICRT radio station · 廣播電台" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The students visited an <b>ICRT radio station</b> to see how programs are made.</div>
+            <div class="zh">學生參觀廣播電台，了解節目如何製作。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">They listened to an English DJ broadcast live at the <b>ICRT radio station</b>.</div>
+            <div class="zh">他們在廣播電台聽英文DJ現場播音。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/pZqtPRubMtg?rel=0" title="map" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>map<span class="zh">地圖</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">map</div>
+        <div class="vc__zh">地圖</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/pZqtPRubMtg?rel=0" title="map · 地圖" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We look at a <b>map</b> to find our school's location in Erlin.</div>
+            <div class="zh">我們看地圖找學校在二林的位置。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The students drew a <b>map</b> of the area around Guangxing Elementary.</div>
+            <div class="zh">學生畫了廣興國小附近區域的地圖。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/02CSA0GhWWg?rel=0" title="partner" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>partner<span class="zh">學伴</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">partner</div>
+        <div class="vc__zh">學伴</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/02CSA0GhWWg?rel=0" title="partner · 學伴" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Each student has a learning <b>partner</b> from another school to practice with.</div>
+            <div class="zh">每位學生都有一位來自另一所學校的學伴一起練習。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">My <b>partner</b> and I practiced English conversation together every week.</div>
+            <div class="zh">我和我的學伴每週一起練習英文對話。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/gbF8E2pTFW0?rel=0" title="professional development" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>professional development<span class="zh">專業進修</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">professional development</div>
+        <div class="vc__zh">專業進修</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/gbF8E2pTFW0?rel=0" title="professional development · 專業進修" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Teachers attend <b>professional development</b> workshops to improve their teaching.</div>
+            <div class="zh">老師參加專業進修工作坊以提升教學能力。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Professional development</b> helps teachers learn new methods and fresh ideas.</div>
+            <div class="zh">專業進修幫助老師學習新的教學方法和新的想法。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">

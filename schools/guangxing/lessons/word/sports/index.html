@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,43 +140,197 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/hpsyhQhZR5o?rel=0" title="kick (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>kick (v)<span class="zh">打水</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">kick <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">打水</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/hpsyhQhZR5o?rel=0" title="kick · 打水" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students use their legs to <b>kick</b> the water while swimming.</div>
+            <div class="zh">學生游泳時用腿打水。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">He <b>kicks</b> hard to move faster in the pool.</div>
+            <div class="zh">他用力打水在泳池裡游得更快。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/bv268AlW5m4?rel=0" title="jump rope" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>jump rope<span class="zh">跳繩</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">jump rope</div>
+        <div class="vc__zh">跳繩</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/bv268AlW5m4?rel=0" title="jump rope · 跳繩" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The girls <b>jump rope</b> in the playground during recess.</div>
+            <div class="zh">女生在下課時間於操場跳繩。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">We <b>jump rope</b> every morning as part of our warm-up exercise.</div>
+            <div class="zh">我們每天早上跳繩作為暖身運動的一部分。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/nQdiaCCzcbM?rel=0" title="run (v)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>run (v)<span class="zh">跑步</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">run <span class="vc__pos">(v)</span></div>
+        <div class="vc__zh">跑步</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/nQdiaCCzcbM?rel=0" title="run · 跑步" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We <b>run</b> laps around the track during PE class.</div>
+            <div class="zh">我們在體育課時繞跑道跑步。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">She <b>runs</b> very fast and always wins the race.</div>
+            <div class="zh">她跑得很快，總是贏得比賽。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/zuKJSCBSIb8?rel=0" title="warm-up (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>warm-up (n)<span class="zh">暖身</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">warm-up <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">暖身</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/zuKJSCBSIb8?rel=0" title="warm-up · 暖身" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We always do a <b>warm-up</b> before exercising.</div>
+            <div class="zh">我們運動前總是先做暖身。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">A good <b>warm-up</b> helps prevent injuries during sports activities.</div>
+            <div class="zh">充分的暖身有助於在運動時避免受傷。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/zyWkkCJ3GzQ?rel=0" title="road running (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>road running (n)<span class="zh">路跑</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">road running <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">路跑</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/zyWkkCJ3GzQ?rel=0" title="road running · 路跑" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The school holds a <b>road running</b> event every year.</div>
+            <div class="zh">學校每年舉辦路跑活動。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Many parents and teachers join the school <b>road running</b> event together.</div>
+            <div class="zh">許多家長和老師一起參加學校路跑活動。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/BHZSYgMhDaI?rel=0" title="kick board" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>kick board<span class="zh">浮板</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 06</div>
+        <div class="vc__term">kick board</div>
+        <div class="vc__zh">浮板</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/BHZSYgMhDaI?rel=0" title="kick board · 浮板" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Beginners use a <b>kick board</b> to practice their kicks in the pool.</div>
+            <div class="zh">初學者用浮板在泳池裡練習踢腿。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Hold the <b>kick board</b> and kick your legs to move forward.</div>
+            <div class="zh">抓住浮板，踢動雙腿向前游。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/sH4xdwopuW0?rel=0" title="swimming class 1" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>swimming class 1<span class="zh">游泳課 1</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 07</div>
+        <div class="vc__term">swimming class 1</div>
+        <div class="vc__zh">游泳課 1</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/sH4xdwopuW0?rel=0" title="swimming class 1 · 游泳課" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students line up at the pool to begin their <b>swimming class</b>.</div>
+            <div class="zh">學生在泳池邊排隊開始游泳課。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The coach teaches new swimming strokes in every <b>swimming class</b>.</div>
+            <div class="zh">教練在每堂游泳課教新的泳姿。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/15G7FVigo_U?rel=0" title="swimming class 2" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>swimming class 2<span class="zh">游泳課 2</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 08</div>
+        <div class="vc__term">swimming class 2</div>
+        <div class="vc__zh">游泳課 2</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/15G7FVigo_U?rel=0" title="swimming class 2 · 游泳課" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We practice floating on our backs in <b>swimming class</b>.</div>
+            <div class="zh">我們在游泳課練習仰漂。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Swimming class</b> helps students build confidence in the water.</div>
+            <div class="zh">游泳課幫助學生建立在水中的信心。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/m1Xuj3klzDg?rel=0" title="martial arts" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>martial arts<span class="zh">武術</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 09</div>
+        <div class="vc__term">martial arts</div>
+        <div class="vc__zh">武術</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/m1Xuj3klzDg?rel=0" title="martial arts · 武術" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Students learn <b>martial arts</b> as a special school activity.</div>
+            <div class="zh">學生學習武術作為學校的特色活動。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en"><b>Martial arts</b> training builds strength, balance, and focus.</div>
+            <div class="zh">武術訓練培養力量、平衡感和專注力。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">

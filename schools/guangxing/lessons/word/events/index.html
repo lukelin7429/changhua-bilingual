@@ -79,6 +79,32 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* Vocab cards */
+  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
+  @media(min-width:880px){.vocabs{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--cane);}
+  .vc:nth-child(2n){border-top-color:var(--gold);}
+  .vc:nth-child(3n){border-top-color:var(--terra);}
+  .vc:nth-child(4n){border-top-color:var(--cane-deep);}
+  .vc__head{padding:24px 26px 18px;}
+  @media(min-width:720px){.vc__head{padding:30px 32px 20px;}}
+  .vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra);text-transform:uppercase;}
+  .vc__term{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--cane-deep);line-height:1.15;margin-top:6px;}
+  @media(min-width:720px){.vc__term{font-size:42px;}}
+  .vc__pos{font-family:'Cormorant Garamond',serif;font-size:.55em;color:var(--terra);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
+  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
+  @media(min-width:720px){.vc__zh{font-size:26px;}}
+  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .vc__body{padding:22px 26px 28px;}
+  @media(min-width:720px){.vc__body{padding:26px 32px 32px;}}
+  .vc__exs{display:flex;flex-direction:column;gap:14px;}
+  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--cane);}
+  .vc__ex:nth-child(2){border-left-color:var(--gold);}
+  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
+  @media(min-width:720px){.vc__ex .en{font-size:21px;}}
+  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
+  @media(min-width:720px){.vc__ex .zh{font-size:18px;}}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -114,27 +140,113 @@
 
 <section><div class="wrap">
 
-  <div class="videos">
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/eEvzmqE8K0Q?rel=0" title="graduation (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>graduation (n)<span class="zh">畢業典禮</span></h3></div>
+  <div class="vocabs">
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 01</div>
+        <div class="vc__term">graduation <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">畢業典禮</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/eEvzmqE8K0Q?rel=0" title="graduation · 畢業典禮" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">The sixth graders celebrate their <b>graduation</b> in June.</div>
+            <div class="zh">六年級學生在六月慶祝畢業典禮。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Parents come to school to watch the <b>graduation</b> ceremony.</div>
+            <div class="zh">家長來學校觀看畢業典禮。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/CKFkPzJaKxY?rel=0" title="anniversary (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>anniversary (n)<span class="zh">校慶</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 02</div>
+        <div class="vc__term">anniversary <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">校慶</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/CKFkPzJaKxY?rel=0" title="anniversary · 校慶" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We celebrate our school <b>anniversary</b> with fun activities and performances.</div>
+            <div class="zh">我們舉辦有趣的活動和表演慶祝校慶。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The school <b>anniversary</b> parade is the most exciting event of the year.</div>
+            <div class="zh">校慶遊行是一年中最令人興奮的活動。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/8d_5bEG26bE?rel=0" title="earthquake drill" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>earthquake drill<span class="zh">地震演習</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 03</div>
+        <div class="vc__term">earthquake drill</div>
+        <div class="vc__zh">地震演習</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/8d_5bEG26bE?rel=0" title="earthquake drill · 地震演習" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">We practice an <b>earthquake drill</b> once every semester.</div>
+            <div class="zh">我們每學期練習一次地震演習。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">During an <b>earthquake drill</b>, students hide under their desks for protection.</div>
+            <div class="zh">地震演習時，學生躲在桌子底下保護自己。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/sqRhONmTBM0?rel=0" title="award (n)" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>award (n)<span class="zh">獎</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 04</div>
+        <div class="vc__term">award <span class="vc__pos">(n)</span></div>
+        <div class="vc__zh">獎</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/sqRhONmTBM0?rel=0" title="award · 獎" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">She received an <b>award</b> for being the best student in her class.</div>
+            <div class="zh">她因成為班上最優秀的學生而獲獎。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">The principal gives out <b>awards</b> to students at the school ceremony.</div>
+            <div class="zh">校長在學校典禮上頒獎給學生。</div>
+          </div>
+        </div>
+      </div>
     </article>
-    <article class="video-card">
-      <div class="vf"><iframe src="https://www.youtube-nocookie.com/embed/sahmTPbw3dI?rel=0" title="Christmas celebration" loading="lazy" allowfullscreen></iframe></div>
-      <div class="video-card__b"><h3>Christmas celebration<span class="zh">慶祝聖誕</span></h3></div>
+
+    <article class="vc">
+      <div class="vc__head">
+        <div class="vc__num">Word 05</div>
+        <div class="vc__term">Christmas celebration</div>
+        <div class="vc__zh">慶祝聖誕</div>
+      </div>
+      <div class="vc__video"><iframe src="https://www.youtube-nocookie.com/embed/sahmTPbw3dI?rel=0" title="Christmas celebration · 慶祝聖誕" loading="lazy" allowfullscreen></iframe></div>
+      <div class="vc__body">
+        <div class="vc__exs">
+          <div class="vc__ex">
+            <div class="en">Our school has a big <b>Christmas celebration</b> every December.</div>
+            <div class="zh">我們學校每年十二月舉辦盛大的聖誕慶典。</div>
+          </div>
+          <div class="vc__ex">
+            <div class="en">Students sing carols and exchange gifts at the <b>Christmas celebration</b>.</div>
+            <div class="zh">學生在聖誕慶典上唱聖誕歌曲和交換禮物。</div>
+          </div>
+        </div>
+      </div>
     </article>
+
   </div>
 
   <div class="back-row">
