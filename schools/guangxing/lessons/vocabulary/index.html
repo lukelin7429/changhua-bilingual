@@ -112,6 +112,9 @@ a:hover{color:var(--terra);}
 
 @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(255,107,157,.5);}70%{box-shadow:0 0 0 10px rgba(255,107,157,0);}100%{box-shadow:0 0 0 0 rgba(255,107,157,0);}}
 .speak-btn.speaking{animation:pulse-ring 1s ease-out infinite;}
+.speak-ex-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:2px 0 2px 4px;vertical-align:middle;opacity:.65;transition:transform .15s,opacity .15s;line-height:1;}
+.speak-ex-btn:hover{transform:scale(1.25);opacity:1;}
+.speak-ex-btn.speaking{animation:pulse-ring 1s ease-out infinite;}
 
 footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:17px;border-top:4px solid var(--gold);text-align:center;}
 footer.site a{color:var(--gold-soft);}
@@ -263,10 +266,10 @@ function render(p){
     <div class="card-en">${en}</div>
     <div class="card-zh">${zh}</div>
     <span class="card-pos">${pos}</span>
-    <div class="card-ex">${ex}</div>
+    <div class="card-ex">${ex}<button class="speak-ex-btn" onclick="speak('${esc(ex)}',this)" title="聽例句">🔊</button></div>
   </div>
   <div class="card-footer">
-    <button class="speak-btn" onclick="speak('${esc(en)}',this)" title="聽發音" aria-label="播放 ${en} 的發音">🔊</button>
+    <button class="speak-btn" onclick="speak('${esc(en)}',this)" title="聽單字發音" aria-label="播放 ${en} 的發音">🔊</button>
   </div>
 </div>`).join('');
   document.getElementById('cur-page').textContent=p;
