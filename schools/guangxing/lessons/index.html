@@ -214,6 +214,18 @@
   footer.site{background:#1a2418;color:rgba(255,255,255,.76);padding:38px 0 34px;font-size:18px;border-top:4px solid var(--gold);}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;text-align:center;}
   footer.site a{color:var(--gold-soft);}
+  /* ===== Festivals grid ===== */
+  .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media(min-width:680px){.fgrid{grid-template-columns:repeat(3,1fr);gap:22px;}}
+  @media(min-width:1000px){.fgrid{grid-template-columns:repeat(4,1fr);}}
+  .fcard{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 16px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;color:inherit;text-decoration:none;}
+  .fcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .fcard .fc-em{font-size:52px;line-height:1;transition:transform .25s;}
+  .fcard:hover .fc-em{transform:scale(1.1) rotate(-4deg);}
+  .fcard .fc-t{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--cane-deep);margin-top:12px;line-height:1.15;}
+  .fcard .fc-z{font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:4px;}
+  .fcard .fc-go{margin-top:10px;font-size:13.5px;font-weight:700;color:var(--gold-deep);letter-spacing:.3px;}
+
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -234,7 +246,6 @@
     <a href="../principal/">Principal</a>
     <a href="./" class="is-active">Lessons</a>
     <a href="../news/">News</a>
-    <a href="/schools/guangxing/festivals/" target="_blank" rel="noopener">Festivals</a>
   </div>
 </div></div></nav>
 
@@ -456,7 +467,37 @@
   </div>
 </div></section>
 
-<!-- ===== IV. Welcome to Guangxing ===== -->
+<!-- ===== IV. Festivals ===== -->
+<section id="festivals"><div class="wrap">
+  <div class="sec__head">
+    <span class="sec__no">IV. Festivals</span>
+    <h2 class="sec__title">Festival English</h2>
+    <div class="sec__title-zh">節慶英語 · 十六個節日雙語課</div>
+    <div class="sec__rule"></div>
+  </div>
+  <p class="lead">From Lunar New Year to Christmas — sixteen bilingual festival lessons, each with readings, vocabulary and a quiz.</p>
+  <p class="lead-zh">從農曆新年到聖誕節，每個節慶都有雙語段落、關鍵字彙與隨堂測驗。</p>
+  <div class="fgrid" style="margin-top:36px;">
+    <a class="fcard rvl" href="/schools/guangxing/festivals/new-years-day/"><div class="fc-em">🎆</div><div class="fc-t">New Year's Day</div><div class="fc-z">元旦</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/chinese-new-year/"><div class="fc-em">🧧</div><div class="fc-t">Lunar New Year</div><div class="fc-z">農曆新年</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/lantern-festival/"><div class="fc-em">🏮</div><div class="fc-t">Lantern Festival</div><div class="fc-z">元宵節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/tomb-sweeping-day/"><div class="fc-em">🌳</div><div class="fc-t">Tomb-Sweeping Day</div><div class="fc-z">清明節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/easter/"><div class="fc-em">🐰</div><div class="fc-t">Easter</div><div class="fc-z">復活節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/earth-day/"><div class="fc-em">🌏</div><div class="fc-t">Earth Day</div><div class="fc-z">地球日</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/world-book-day/"><div class="fc-em">📚</div><div class="fc-t">World Book Day</div><div class="fc-z">世界閱讀日</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/mothers-day/"><div class="fc-em">💐</div><div class="fc-t">Mother's Day</div><div class="fc-z">母親節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/dragon-boat-festival/"><div class="fc-em">🐉</div><div class="fc-t">Dragon Boat Festival</div><div class="fc-z">端午節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/childrens-day-international/"><div class="fc-em">🎈</div><div class="fc-t">Children's Day</div><div class="fc-z">兒童節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/fathers-day/"><div class="fc-em">👔</div><div class="fc-t">Father's Day</div><div class="fc-z">父親節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/teachers-day/"><div class="fc-em">🍎</div><div class="fc-t">Teachers' Day</div><div class="fc-z">教師節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/mid-autumn-festival/"><div class="fc-em">🥮</div><div class="fc-t">Mid-Autumn Festival</div><div class="fc-z">中秋節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/halloween/"><div class="fc-em">🎃</div><div class="fc-t">Halloween</div><div class="fc-z">萬聖節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/thanksgiving/"><div class="fc-em">🦃</div><div class="fc-t">Thanksgiving</div><div class="fc-z">感恩節</div><div class="fc-go">Explore →</div></a>
+    <a class="fcard rvl" href="/schools/guangxing/festivals/christmas/"><div class="fc-em">🎄</div><div class="fc-t">Christmas</div><div class="fc-z">聖誕節</div><div class="fc-go">Explore →</div></a>
+  </div>
+</div></section>
+
+<!-- ===== V. Welcome to Guangxing ===== -->
 <section><div class="wrap">
   <div class="sec__head">
     <span class="sec__no">IV. Start Here</span>
