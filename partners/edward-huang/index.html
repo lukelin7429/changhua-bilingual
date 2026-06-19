@@ -732,6 +732,47 @@
     .cta-info dl{grid-template-columns:1fr;gap:6px;}
     .cta-info dt{margin-top:8px;}
   }
+
+  /* ============ 2026 master-doc additions (forum / letter / tiers / trust) ============ */
+  .doc-figure{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow);}
+  .doc-figure img{width:100%;display:block;}
+  .doc-figure figcaption{padding:14px 18px;font-size:15px;color:#5a6b78;line-height:1.55;background:#f6f9fc;}
+  .doc-figure figcaption strong{color:var(--ink);}
+
+  .forum-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start;}
+  .forum-meta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;}
+  .forum-meta span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:15px;font-weight:600;color:var(--ink);}
+  .agenda{list-style:none;margin:0;padding:0;}
+  .agenda li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:11px 2px;border-bottom:1px dashed var(--line);font-size:16.5px;line-height:1.5;}
+  .agenda li:last-child{border-bottom:0;}
+  .agenda .tm{font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .agenda .en{display:block;font-size:14px;color:#5a6b78;margin-top:2px;}
+  .agenda li.hl{background:var(--gold-soft);border:1px solid #ecd58a;border-radius:12px;padding:15px 18px;margin:6px 0;}
+  .agenda li.hl .tm{color:#a07a0d;}
+  .agenda li.hl .ev{font-weight:700;color:var(--navy-deep);}
+
+  .trust-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .trust-row .tb{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;font-size:15.5px;font-weight:700;color:var(--navy-deep);box-shadow:var(--shadow-sm);}
+  .trust-row .tb b{color:var(--green);}
+  a.pac-link{color:var(--green);font-weight:700;border-bottom:1px solid rgba(30,132,73,.4);}
+
+  .tiers{display:grid;grid-template-columns:1fr;gap:18px;}
+  .tier{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;border-top:5px solid var(--tc,var(--navy));box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
+  .tier:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .tier .lvl{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tc,var(--navy));margin-bottom:8px;}
+  .tier h3{font-family:'Playfair Display','PingFang TC',serif;font-size:21px;color:var(--navy-deep);line-height:1.25;margin-bottom:4px;}
+  .tier .sub{font-size:14.5px;color:#5a6b78;margin-bottom:14px;}
+  .tier ul{margin:0;padding-left:1.1em;}
+  .tier li{font-size:15.5px;line-height:1.6;color:var(--ink);margin-bottom:9px;}
+  .tier li .en{display:block;font-size:13px;color:#5a6b78;margin-top:1px;}
+  .tier li:last-child{margin-bottom:0;}
+  .tc1{--tc:#1e8449;} .tc2{--tc:#0a6e8a;} .tc3{--tc:#9a6a12;}
+
+  @media (min-width:880px){
+    .forum-grid{grid-template-columns:0.82fr 1.18fr;}
+    .tiers{grid-template-columns:repeat(3,1fr);}
+    .agenda li{font-size:18px;}
+  }
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css">
@@ -929,10 +970,68 @@
       <h3>🇹🇼 LCOY Taiwan 對於臺灣以及世界的重要性</h3>
       <span class="lcoy-stat">2026 · 全球僅 113 國</span>
       <p><strong>2026 年，全球僅有 113 個國家獲得聯合國氣候變化綱要公約（UNFCCC）認可，成為 LCOY 的主辦單位之一。</strong></p>
+      <p>LCOY Taiwan 由 <strong>Youth Network（青年網）</strong>取得唯一主辦權，並與 <a class="pac-link" href="https://www.pacedu.net" target="_blank" rel="noopener">PAC（People Achievement Consulting）</a>簽署獨家合作；PAC 持有 GRI（全球報告倡議組織）認可，強化本計畫在永續報告與 ESG 標準上的專業性與公信力。<span class="en" style="display:block;font-size:14px;color:#5a6b78;margin-top:4px;">LCOY Taiwan is hosted by Youth Network under UNFCCC YOUNGO recognition, in exclusive partnership with PAC — a GRI-recognized partner.</span></p>
       <p>作為 LCOY Taiwan 的唯一主辦方，我們將代表台灣，匯聚不同世代與多元族群的聲音，包含兒童、青年、長者、在地行動團體、原住民族及其他關鍵群體等。讓世界看到臺灣對於氣候變遷以及其他全球議題的表現。</p>
       <p>LCOY Taiwan 並非一場單向的演講活動，而是一個以青年為核心的論壇。在這個平台上，青年被賦予行動力與影響力（<strong>Empowerment</strong>）。在深入理解聯合國體系後，將自身的聲音傳遞至國際舞台。</p>
       <p>這不僅是一份榮耀，更是一個培養全球公民素養、開啟跨國合作機會的重要起點。</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ 2026 Kick-off Forum (7/2 NTCUST) ============ -->
+<section class="lcoy" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">2026 Kick-off · 7 月 2 日啟動會</div>
+      <h2>2026 LCOY Taiwan 啟動會 · 四大科技大學共同參與</h2>
+      <p>走向 COP 的旅程，從台灣本地啟動。2026 LCOY Taiwan 於國立臺中科技大學「以永續思維 啟動技職新未來論壇」正式啟動，由臺灣科大、臺北科大、高雄科大、臺中科大共同參與。</p>
+    </div>
+
+    <div class="forum-meta">
+      <span>📅 2026/07/02（四）13:30–18:00</span>
+      <span>📍 臺中科大中正大樓 8F 國際會議廳</span>
+      <span>🎓 四大科大共同參與</span>
+    </div>
+
+    <div class="forum-grid">
+      <figure class="doc-figure">
+        <img src="photos/forum-2026-poster.jpg" alt="2026 臺中科大「以永續思維 啟動技職新未來論壇」海報">
+        <figcaption><strong>「以永續思維 啟動技職新未來論壇」</strong>——國立臺中科技大學永續發展辦公室主辦，2026 年 7 月 2 日。</figcaption>
+      </figure>
+
+      <ul class="agenda">
+        <li><span class="tm">13:30</span><span class="ev">開幕式暨貴賓致詞</span></li>
+        <li><span class="tm">14:00</span><span class="ev">臺灣科大 邱建國 特聘教授<span class="en">New engineering education &amp; university social responsibility</span></span></li>
+        <li><span class="tm">14:30</span><span class="ev">高雄科大 戴鴻傑 永續長：AI 驅動的跨校區智慧永續治理</span></li>
+        <li><span class="tm">14:45</span><span class="ev">臺中科大 何昕家 主任：以「永續」為經、「實作力」為緯的技職教育</span></li>
+        <li class="hl"><span class="tm">15:45</span><span class="ev">⭐ <strong>黃雋翔 Edward Huang</strong> · LCOY Taiwan 青年總教練——「青年的影響力：推動永續轉型的關鍵力量」<span class="en">The power of youth: the key force driving the sustainability transition</span></span></li>
+        <li><span class="tm">16:00</span><span class="ev">綜合座談：研商技職永續發展教育協作平台</span></li>
+        <li><span class="tm">17:00</span><span class="ev">跨校永續實踐成果聯展</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Credibility · Presidential letter + recognition ============ -->
+<section style="background:linear-gradient(180deg,#f6f9fc 0%,#fff 100%);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Recognized &amp; Backed · 公信力與背書</div>
+      <h2>獲官方認可的平台，不是口號</h2>
+      <p>從聯合國體系到我國總統府——LCOY Taiwan 的主辦資格與籌辦過程，都有可查證的正式背書。</p>
+    </div>
+
+    <div class="trust-row" style="margin-bottom:24px;">
+      <span class="tb">🇺🇳 <b>UNFCCC</b> YOUNGO</span>
+      <span class="tb">🤝 <b>PAC</b> · GRI &amp; NCDA</span>
+      <span class="tb">🎓 <b>UNESCO</b> Greening Education</span>
+      <span class="tb">🌍 <b>113</b> 國僅有</span>
+    </div>
+
+    <figure class="doc-figure" style="max-width:760px;">
+      <img src="photos/presidential-letter.png" alt="中華民國總統府就 LCOY Taiwan 籌辦來函的回覆">
+      <figcaption><strong>總統府</strong>就 Youth Network 籌辦 2026 LCOY Taiwan 來函正式回覆致意，並將所陳事項轉送行政院處理（來文編號 2026012076，2026 年 6 月）。<span class="en" style="display:block;margin-top:4px;">The Office of the President (Taiwan) formally replied to Youth Network's 2026 LCOY Taiwan letter and forwarded the matter to the Executive Yuan.</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1244,6 +1343,49 @@
       <div class="aud-card">
         <h3>🎓 校長室 / 副校長室</h3>
         <p>對外國際合作、媒體曝光、補助申請的策略性對話。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Corporate / ESG partnership tiers ============ -->
+<section class="lcoy" style="background:linear-gradient(180deg,#fff 0%,#f6f9fc 100%);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">For Companies · ESG · 企業 / ESG 合作</div>
+      <h2>企業合作的三個等級</h2>
+      <p>企業在 ESG / CSR 報告中往往不只需要「掛名贊助」，而是缺乏真正被看見、被理解、被放大的實質影響力。LCOY Taiwan 提供三種合作深度，依貴公司的 ESG 目標選擇。</p>
+    </div>
+    <div class="tiers">
+      <div class="tier tc1">
+        <div class="lvl">01 · 基礎夥伴 Foundation</div>
+        <h3>品牌可見度建立</h3>
+        <div class="sub">在平台各階段被穩定看見</div>
+        <ul>
+          <li>冠名贊助與品牌 Logo 全程曝光<span class="en">Title sponsorship &amp; full-event logo exposure</span></li>
+          <li>透過 LCOY Taiwan 社群網絡正式露出</li>
+          <li>企業 Logo 於官方宣傳素材中標記展示</li>
+        </ul>
+      </div>
+      <div class="tier tc2">
+        <div class="lvl">02 · 深度參與 Deep</div>
+        <h3>ESG 實質行動連結</h3>
+        <div class="sub">含基礎權益，並深化青年與社會連結</div>
+        <ul>
+          <li>企業員工完成培訓後，獨立舉辦 UNFCCC LCOY Taiwan 工作坊</li>
+          <li>大學生進企業 Open House 交流；協助應屆畢業生實習媒合</li>
+          <li>永續內容共創，成果可納入年度永續報告書</li>
+        </ul>
+      </div>
+      <div class="tier tc3">
+        <div class="lvl">03 · 戰略夥伴 Strategic</div>
+        <h3>國際影響力共建</h3>
+        <div class="sub">含深度參與權益，並提升至國際層級曝光</div>
+        <ul>
+          <li>於 COY / COP 等聯合國氣候論壇獲品牌曝光</li>
+          <li>共同參與聯合國青年氣候政策白皮書發布</li>
+          <li>深化在國際永續議題中的影響力與代表性</li>
+        </ul>
       </div>
     </div>
   </div>
