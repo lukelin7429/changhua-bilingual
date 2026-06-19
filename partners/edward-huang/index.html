@@ -773,6 +773,28 @@
     .tiers{grid-template-columns:repeat(3,1fr);}
     .agenda li{font-size:18px;}
   }
+
+  /* ============ photo slideshow (.eshow) ============ */
+  .eshow{position:relative;border-radius:18px;overflow:hidden;background:#06243a;box-shadow:var(--shadow);outline:none;}
+  .eshow:focus-visible{box-shadow:0 0 0 3px var(--gold),var(--shadow);}
+  .eshow-track{display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform;}
+  .eshow-slide{flex:0 0 100%;position:relative;margin:0;background:#000;}
+  .eshow-slide img{width:100%;height:100%;display:block;object-fit:cover;aspect-ratio:16/9;}
+  .eshow-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 22px 18px;background:linear-gradient(transparent,rgba(4,20,34,.9));color:#fff;font-size:16px;font-weight:600;line-height:1.45;}
+  .eshow-slide figcaption .tag{display:inline-block;background:rgba(212,160,23,.95);color:var(--navy-deep);padding:3px 10px;border-radius:5px;font-size:12px;font-weight:800;letter-spacing:.04em;margin-bottom:8px;}
+  .eshow-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.85);color:var(--navy-deep);font-size:26px;line-height:1;font-weight:700;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;backdrop-filter:blur(4px);}
+  .eshow-arrow:hover{background:#fff;}
+  .eshow-arrow.prev{left:14px;} .eshow-arrow.next{right:14px;}
+  .eshow-arrow:active{transform:translateY(-50%) scale(.92);}
+  .eshow-dots{position:absolute;left:0;right:0;bottom:14px;z-index:3;display:flex;justify-content:center;gap:8px;}
+  .eshow-dot{width:9px;height:9px;border-radius:50%;border:0;cursor:pointer;padding:0;background:rgba(255,255,255,.45);transition:background .2s,transform .2s;}
+  .eshow-dot:hover{background:rgba(255,255,255,.75);}
+  .eshow-dot.on{background:var(--gold);transform:scale(1.25);}
+  @media (max-width:880px){
+    .eshow-slide figcaption{font-size:14.5px;padding:38px 16px 26px;}
+    .eshow-arrow{width:38px;height:38px;font-size:22px;}
+    .eshow-slide img{aspect-ratio:4/3;}
+  }
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css">
@@ -1143,57 +1165,52 @@
       <p>從爾灣到杜拜、從巴庫到貝倫、從台灣偏鄉到聯合國論壇——Edward 帶領青年走過的真實國際舞台。</p>
     </div>
 
-    <div class="collage-grid">
-      <div class="tile tile--big">
-        <img src="photos/event-2024-lcoy-taiwan.jpg" alt="2024 LCOY Taiwan launch ceremony">
-        <span class="tag">FLAGSHIP</span>
-        <div class="label">2024 LCOY Taiwan · 聯合國青年氣候峰會啟動會</div>
+    <div class="eshow" data-interval="4500" aria-roledescription="carousel" aria-label="Edward Huang 國際舞台足跡">
+      <div class="eshow-track">
+        <figure class="eshow-slide">
+          <img src="photos/event-2024-lcoy-taiwan.jpg" alt="2024 LCOY Taiwan launch ceremony">
+          <figcaption><span class="tag">FLAGSHIP</span><br>2024 LCOY Taiwan · 聯合國青年氣候峰會啟動會</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2024-coy19-baku.jpg" alt="COY19 Baku Azerbaijan" loading="lazy">
+          <figcaption><span class="tag">UN · COY19</span><br>2024 全球青年氣候論壇 · 亞塞拜然巴庫 Baku</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2025-coy20-belem.jpg" alt="COY20 Belém Brazil" loading="lazy">
+          <figcaption><span class="tag">UN · COY20</span><br>2025 全球青年兒童氣候論壇 · 巴西貝倫 Belém</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2024-lcoy-okinawa.jpg" alt="LCOY Taiwan International Ceremony Okinawa Japan" loading="lazy">
+          <figcaption><span class="tag">JAPAN</span><br>2024 LCOY Taiwan · 沖繩國際典禮 Okinawa</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2024-siif-group.jpg" alt="Seoul International Invention Fair" loading="lazy">
+          <figcaption><span class="tag">KOREA</span><br>2024 韓國首爾國際發明展 (SIIF)</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2025-hawaii-group.jpg" alt="Hawaii International Conference on Education 2025" loading="lazy">
+          <figcaption><span class="tag">HICE</span><br>2025 夏威夷國際教育研討會 · Hawaii Int'l Conference on Education</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2025-icity-group.jpg" alt="Irvine Conference of International and Transnational Youth 2025" loading="lazy">
+          <figcaption><span class="tag">CITY · IRVINE</span><br>2025 爾灣跨國國際青年研討會 · ICITY</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-2025-irvine-eco-fair.jpg" alt="Cool Irvine Eco Fair 2025" loading="lazy">
+          <figcaption><span class="tag">IRVINE</span><br>2025 第四屆 Cool Irvine Eco Fair 環保博覽會</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-kanglang-elementary.jpg" alt="Kanglang Elementary onsite education" loading="lazy">
+          <figcaption><span class="tag">TAIWAN 偏鄉</span><br>2025 槺榔國小 · 實地英語志工教學</figcaption>
+        </figure>
+        <figure class="eshow-slide">
+          <img src="photos/event-niaosong-elementary.jpg" alt="Niaosong Elementary onsite education" loading="lazy">
+          <figcaption><span class="tag">TAIWAN 偏鄉</span><br>2025 蔦松國小 · 實地英語志工教學</figcaption>
+        </figure>
       </div>
-      <div class="tile">
-        <img src="photos/event-2024-coy19-baku.jpg" alt="COY19 Baku Azerbaijan">
-        <span class="tag">UN · COY19</span>
-        <div class="label">2024 Global Conference of Youth · Baku, Azerbaijan</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2025-coy20-belem.jpg" alt="COY20 Belém Brazil">
-        <span class="tag">UN · COY20</span>
-        <div class="label">2025 Global Conference of Youth and Children · Belém, Brazil</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2024-lcoy-okinawa.jpg" alt="LCOY Taiwan International Ceremony Okinawa Japan">
-        <span class="tag">JAPAN</span>
-        <div class="label">2024 LCOY Taiwan · International Ceremony, Okinawa</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2024-siif-group.jpg" alt="Seoul International Invention Fair">
-        <span class="tag">KOREA</span>
-        <div class="label">2025 韓國國際發明展 (SIIF)</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2025-hawaii-group.jpg" alt="Hawaii International Conference on Education 2025">
-        <span class="tag">HICE</span>
-        <div class="label">2025 Hawaii International Conference on Education</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2025-icity-group.jpg" alt="Irvine Conference of International and Transnational Youth 2025">
-        <span class="tag">CITY · IRVINE</span>
-        <div class="label">2025 Irvine Conference of International &amp; Transnational Youth</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-2025-irvine-eco-fair.jpg" alt="Cool Irvine Eco Fair 2025">
-        <span class="tag">IRVINE</span>
-        <div class="label">2025 4th Annual Cool Irvine Eco Fair</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-kanglang-elementary.jpg" alt="Kanglang Elementary onsite education">
-        <span class="tag">TAIWAN 偏鄉</span>
-        <div class="label">2025 槺榔國小 · Onsite English Volunteer Education</div>
-      </div>
-      <div class="tile">
-        <img src="photos/event-niaosong-elementary.jpg" alt="Niaosong Elementary onsite education">
-        <span class="tag">TAIWAN 偏鄉</span>
-        <div class="label">2025 蔦松國小 · Onsite English Volunteer Education</div>
-      </div>
+      <button class="eshow-arrow prev" type="button" aria-label="上一張">‹</button>
+      <button class="eshow-arrow next" type="button" aria-label="下一張">›</button>
+      <div class="eshow-dots" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1428,5 +1445,6 @@
 </footer>
 
 <script defer src="/assets/js/motion.js"></script>
+<script defer src="/assets/js/edward-slideshow.js"></script>
 </body>
 </html>
