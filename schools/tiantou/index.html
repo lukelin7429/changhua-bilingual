@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://tiantou.mycultureconnect.org/">
+<title>Tiantou Elementary School · 彰化縣竹塘鄉田頭國民小學</title>
+<meta name="description" content="Tiantou Elementary School — a small village school where the rice fields of Changhua's Zhutang Township begin. Move, make, and connect, all in two languages. 彰化縣竹塘鄉田頭國民小學 — 稻田起點上的鄉村小學，動手做、連世界的雙語校園。">
+<meta property="og:title" content="Tiantou Elementary School · 彰化縣竹塘鄉田頭國民小學">
+<meta property="og:description" content="Where the fields begin · 田，是成長的起點">
+<meta property="og:image" content="photos/campus-overview.png">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/tiantou/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/tiantou/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/tiantou/favicon-180.png">
+<link rel="shortcut icon" href="/schools/tiantou/favicon.ico">
+
+<style>
+  :root{
+    /* Tiantou palette — taken from the school crest: Red ring · Azure water · Harvest gold · Sprout green */
+    --brick:#C0281C;
+    --brick-deep:#8E1A12;
+    --brick-soft:#F8E7E4;
+    --azure:#1565A8;
+    --azure-deep:#0A3C66;
+    --azure-soft:#DBE8F4;
+    --gold:#C8963A;
+    --gold-deep:#7A5A17;
+    --gold-soft:#F5EDD4;
+    --green:#4E9A4A;
+    --green-deep:#2C6B2A;
+    --green-soft:#E2F0DD;
+    --cream:#ffffff;
+    --ink:#1C1C1E;
+    --ink-soft:#5B5E65;
+    --line:#E7DED7;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(142,26,18,.24);
+    --shadow-sm:0 4px 14px -4px rgba(142,26,18,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);background:#fff;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--azure);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ── TOPBAR ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
+  .topbar-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover;background:#F0F000;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18.7px;font-weight:700;color:var(--brick-deep);line-height:1.15;}
+  .topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{font-size:18.2px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
+  .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brick-deep);background:var(--brick-soft);}
+  @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
+
+  /* ── HERO TITLE ── */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(40,10,4,0) 0%, rgba(40,10,4,0) 42%, rgba(40,10,4,.62) 100%),
+      url('photos/school-front.png') center 46% / cover no-repeat;
+    text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);
+    padding:96px 0 72px;text-align:center;color:#fff;
+    border-bottom:5px solid var(--gold);
+  }
+  .title__eyebrow{
+    display:inline-block;font-size:16px;letter-spacing:.28em;
+    color:var(--gold-soft);font-weight:700;text-transform:uppercase;
+    margin-bottom:20px;text-shadow:0 1px 6px rgba(0,0,0,.4);
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(48.4px,7vw,79.2px);
+    line-height:1.08;font-weight:600;letter-spacing:.005em;
+    color:#fff;margin-bottom:8px;text-shadow:0 2px 14px rgba(0,0,0,.45);
+  }
+  .title .h1-zh{
+    font-size:clamp(22px,2.6vw,28.6px);font-weight:500;letter-spacing:.06em;
+    color:rgba(255,255,255,.92);margin-top:12px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 8px rgba(0,0,0,.4);
+  }
+  .title__divider{width:60px;height:2px;background:var(--gold);margin:24px auto 18px;border:0;}
+  .title__tagline{
+    max-width:640px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:23.1px;color:rgba(255,255,255,.96);line-height:1.55;
+    text-shadow:0 1px 8px rgba(0,0,0,.42);
+  }
+  .title__tagline .tagline-zh{
+    display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
+    font-size:18.7px;margin-top:8px;color:rgba(255,255,255,.82);letter-spacing:.05em;
+  }
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    max-width:860px;margin:38px auto 0;
+    background:rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.18);
+    border-bottom:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
+  }
+  .stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .stat:last-child{border-right:none;}
+  .stat__label-en{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.02em;color:#fff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+  .stat__label-zh{font-size:16px;margin-top:8px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  @media (max-width:880px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .stat:nth-child(2){border-right:none;}
+    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16);}
+  }
+
+  /* ── SECTION BASE ── */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;color:var(--brick);font-size:16.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(46.2px,6vw,68.2px);font-weight:600;color:var(--brick-deep);line-height:1.2;margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:24.8px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{color:var(--ink-soft);font-size:21.5px;max-width:660px;margin:18px auto 0;}
+
+  /* ── ABOUT ── */
+  .about{background:#fff;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .about-photos{display:grid;grid-template-rows:auto auto;gap:14px;}
+  .about-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo .badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--gold);color:#fff;
+    padding:5px 12px;border-radius:99px;
+    font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .about-photo .caption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(40,10,4,.85) 0%,transparent 100%);
+    color:#fff;padding:18px 16px 12px;font-size:17.1px;font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:19.2px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
+  .about-text h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:41.2px;color:var(--brick-deep);line-height:1.25;margin-bottom:18px;font-weight:600;}
+  .about-text .en{font-size:22px;color:var(--ink);margin-bottom:18px;}
+  .about-text .zh-divider{height:1px;background:var(--line);margin:24px 0;position:relative;}
+  .about-text .zh-divider::before{
+    content:"中文";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;padding:0 14px;
+    font-size:16px;color:var(--ink-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .about-text .zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:21.5px;color:var(--ink);line-height:1.85;}
+  .about-text .quick{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:26px;box-shadow:var(--shadow-sm);}
+  .about-text .quick dt{font-size:16px;font-weight:700;color:var(--brick);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;}
+  .about-text .quick dd{font-size:19.8px;color:var(--ink);margin:2px 0 12px;font-family:'PingFang TC',sans-serif;}
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ── IDENTITY — 3 Pillars ── */
+  .identity{background:linear-gradient(180deg,var(--cream) 0%,var(--brick-soft) 100%);}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .pillar{
+    background:#fff;border-radius:18px;padding:36px 30px 32px;
+    border:1px solid var(--line);box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+  }
+  .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:28.6px;font-weight:700;font-family:'Cormorant Garamond','PingFang TC',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(1) .icon{background:var(--brick-soft);color:var(--brick-deep);}
+  .pillar:nth-child(2) .icon{background:var(--azure-soft);color:var(--azure-deep);}
+  .pillar:nth-child(3) .icon{background:var(--green-soft);color:var(--green-deep);}
+  .pillar:nth-child(1):hover{border-color:var(--brick);}
+  .pillar:nth-child(2):hover{border-color:var(--azure);}
+  .pillar:nth-child(3):hover{border-color:var(--green);}
+  .pillar h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:33px;color:var(--brick-deep);line-height:1.25;font-weight:600;margin-bottom:6px;}
+  .pillar:nth-child(2) h3{color:var(--azure-deep);}
+  .pillar:nth-child(3) h3{color:var(--green-deep);}
+  .pillar h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:19.2px;color:var(--ink-soft);font-weight:500;margin-top:4px;letter-spacing:.04em;}
+  .pillar .en-body{font-size:19.8px;color:var(--ink);margin:18px 0;line-height:1.7;}
+  .pillar .divider-tiny{height:1px;background:var(--line);margin:14px 0;}
+  .pillar .zh-body{font-family:'PingFang TC',sans-serif;font-size:19.8px;color:var(--ink);line-height:1.85;}
+
+  /* ── WELCOME VIDEO ── */
+  .welcome{background:linear-gradient(180deg,var(--brick-soft) 0%,var(--cream) 100%);}
+  .welcome .player{max-width:900px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+  .welcome .player__ratio{position:relative;width:100%;aspect-ratio:16/9;}
+  .welcome .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  /* ── PRINCIPAL ── */
+  .principal{background:#fff;}
+  .principal-card{
+    max-width:920px;margin:0 auto;text-align:center;
+    background:#fff;border-radius:22px;padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .principal-emblem{width:132px;height:132px;border-radius:50%;margin:0 auto 22px;display:block;box-shadow:var(--shadow-sm);object-fit:cover;object-position:center 18%;}
+  .principal-card .role{color:var(--brick);font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .principal-card h3{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--brick-deep);line-height:1.15;margin-bottom:6px;}
+  .principal-card h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:24.8px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .values{margin:30px auto 4px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:760px;}
+  .value-item{padding-top:16px;border-top:3px solid var(--gold);}
+  .value-item .v-en{font-family:'Cormorant Garamond',serif;font-size:23.1px;font-style:italic;color:var(--brick-deep);line-height:1.3;}
+  .value-item .v-zh{font-family:'PingFang TC',sans-serif;font-size:18.7px;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
+  .principal-card .footnote{font-size:18.2px;color:var(--ink-soft);margin-top:26px;font-style:italic;font-family:'PingFang TC',sans-serif;line-height:1.75;max-width:720px;margin-left:auto;margin-right:auto;}
+  @media (max-width:720px){.values{grid-template-columns:repeat(2,1fr);}}
+
+  /* ── VISIT ── */
+  .visit{background:var(--brick-deep);color:#fff;padding:80px 0;}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .visit h2{font-family:'Cormorant Garamond',serif;font-size:57.8px;font-weight:600;line-height:1.15;margin-bottom:6px;}
+  .visit h2 small{display:block;font-family:'PingFang TC',sans-serif;font-size:24.8px;font-weight:500;color:rgba(255,255,255,.75);margin-top:8px;}
+  .visit p{font-size:20.9px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:19.8px;}
+  .contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:28px 30px;backdrop-filter:blur(8px);}
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:4px;}
+  .contact dd{font-size:21.5px;color:#fff;font-family:'PingFang TC',sans-serif;line-height:1.55;}
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
+  .visit-cta{margin-top:30px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:520px){ .visit-cta{grid-template-columns:1fr 1fr;} }
+  .visit-cta a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;padding:16px 20px;border-radius:14px;text-decoration:none;font-weight:600;letter-spacing:.02em;transition:background .2s,border-color .2s,transform .2s;}
+  .visit-cta a:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-2px);}
+  .visit-cta__icon{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;flex-shrink:0;transition:color .2s;}
+  .visit-cta a:hover .visit-cta__icon{color:#fff;}
+  .visit-cta__txt{display:flex;flex-direction:column;gap:2px;line-height:1.3;}
+  .visit-cta__txt strong{font-size:18.2px;}
+  .visit-cta__txt span{font-size:16px;font-family:'PingFang TC',sans-serif;color:rgba(255,255,255,.7);font-weight:500;}
+  .visit-cta__arrow{margin-left:auto;font-size:19.8px;color:rgba(255,255,255,.55);}
+  .visit-cta a:hover .visit-cta__arrow{color:#fff;}
+
+  /* ── FOOTER ── */
+  footer{background:#3a1008;color:rgba(255,255,255,.65);padding:36px 0;font-size:17.6px;border-top:1px solid rgba(255,255,255,.08);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+
+  /* ── MOBILE ── */
+  @media (max-width:880px){
+    .title{padding:42px 0 28px;}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{padding:34px 26px;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<nav class="topbar" role="navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="/schools/tiantou/">
+      <img class="topbar-logo" src="/schools/tiantou/logo.png" alt="田頭國小校徽">
+      <div class="topbar-name">Tiantou Elementary<small>彰化縣竹塘鄉田頭國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="/schools/tiantou/" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="lessons/">Lessons</a>
+      <a href="news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO TITLE ── -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Changhua County · Taiwan · Est. 1954</span>
+    <h1>Tiantou Elementary School
+      <div class="h1-zh">彰化縣竹塘鄉田頭國民小學</div>
+    </h1>
+    <hr class="title__divider">
+    <p class="title__tagline">
+      Where the rice fields begin — a small village school reaching far beyond its size
+      <span class="tagline-zh">稻田起點上的鄉村小學——校雖小，世界很大</span>
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__label-en">Est. 1954</div>
+        <div class="stat__label-zh">1954 獨立設校</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Zhutang Township</div>
+        <div class="stat__label-zh">竹塘鄉田頭村</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Bilingual Campus</div>
+        <div class="stat__label-zh">雙語校園</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Move · Make · Connect</div>
+        <div class="stat__label-zh">動手做，連世界</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>Where the Fields Begin</h2>
+      <div class="h2-zh">田，是成長的起點</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/campus-overview.png" alt="Tiantou Elementary School playground and campus" loading="lazy">
+          <div class="badge">Since 1954</div>
+          <div class="caption">
+            <span class="en">Our campus, framed by open sky and green fields</span>
+            藍天綠野間的田頭國小操場
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/campus-pavilion.png" alt="The mushroom pavilions and old tree of Tiantou's campus" loading="lazy">
+          <div class="caption">
+            <span class="en">The mushroom pavilions and the old tree — where children rest and play</span>
+            蘑菇涼亭與老樹下，孩子歇腳遊戲的角落
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>A village school at the head of Changhua's rice country</h3>
+        <p class="en">The name <strong>Tiantou</strong> means "the head of the fields" — the very edge where Changhua's rice paddies begin. The school started here in 1948 as a small branch classroom, became fully independent in 1954, and took its present name in 1968.</p>
+        <p class="en">Our school crest tells the same story: an open book with a green sprout rising between its pages, set above blue waves on a field of harvest gold. Learning takes root here like a seedling — fed by water, warmed by sun, growing straight up.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>「田頭」二字，意思是「田的起點」——彰化稻田開始的地方。學校在 1948 年以分班起家，1954 年獨立設校，1968 年定名為「田頭國民小學」。</p>
+          <p style="margin-top:14px;">校徽說著同一個故事：一本翻開的書，書頁間長出一株綠色幼苗，下方是藍色波浪，襯著金黃的稻田。學習在這裡像幼苗一樣扎根——有水滋養、有陽光照拂，向上生長。</p>
+        </div>
+
+        <dl class="quick">
+          <dt>Location · 校址</dt>
+          <dd>525 彰化縣竹塘鄉田頭村光明路 60 號</dd>
+          <dt>Township · 鄉鎮</dt>
+          <dd>竹塘鄉 (Zhutang Township) · 彰化縣西南</dd>
+          <dt>Phone · 電話</dt>
+          <dd>(04) 897-2189</dd>
+          <dt>Age Range · 招收</dt>
+          <dd>Grade 1 – Grade 6（一至六年級）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── IDENTITY — 3 Pillars ── -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What We Grow</div>
+      <h2>Move · Make · Connect</h2>
+      <div class="h2-zh">動手・做事・連世界 — 田頭孩子的三種能力</div>
+      <p class="lede">A small school, but a wide life. At Tiantou, children grow through movement, making, and connection.</p>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">動</div>
+        <h3>Move
+          <small>動 — 多元運動</small>
+        </h3>
+        <p class="en-body">For a school its size, Tiantou plays big. Children ride unicycles, bounce the net in tchoukball, swing in tee-ball, and roll on inline skates. Sport here is about balance, courage, and trying again — the kind of strength every child can build.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">田頭雖是小校，運動卻很精彩。孩子騎獨輪車、打巧固球、玩樂樂棒球、溜直排輪。這裡的運動，練的是平衡、勇氣與一次次再試——這種力量，每個孩子都長得出來。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">做</div>
+        <h3>Make
+          <small>做 — 手作工藝</small>
+        </h3>
+        <p class="en-body">Tiantou children learn with their hands. They shape clay and fire it in the kiln, build with wood in the workshop, lay bricks, and paint bright murals. Knowing something and making something are two different joys — and here, children get both.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">田頭的孩子用雙手學習。他們捏陶、進窯燒，在工坊裡做木工，砌磚、彩繪。「知道」和「做出來」是兩種不同的快樂——在田頭，孩子兩種都擁有。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">連</div>
+        <h3>Connect
+          <small>連 — 雙語 × 在地</small>
+        </h3>
+        <p class="en-body">A small school is never alone. Tiantou shares an English teacher with neighbouring schools, films its own bilingual Word of the Day videos, and learns English through local life — rice dumplings, meatballs, and the Taiwanese spoken at home. Small, yet connected to the world.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">小校從不孤單。田頭與鄰校共聘英語老師、自己拍攝雙語「每日一字」影片，從在地生活學英文——粽子、貢丸，還有家裡說的台語。校雖小，卻與世界相連。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── WELCOME VIDEO ── -->
+<section class="welcome" id="welcome">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meet Tiantou</div>
+      <h2>Welcome to Our School</h2>
+      <div class="h2-zh">歡迎來到田頭國小</div>
+      <p class="lede">Say hello to Tiantou — a one-minute bilingual welcome from our own campus.</p>
+    </div>
+    <div class="player rvl">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/nrw4DK-bOSw?rel=0"
+          title="Welcome to Tiantou Elementary School"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── PRINCIPAL ── -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">School Leadership</div>
+      <h2>Our Principal</h2>
+      <div class="h2-zh">校長室</div>
+    </div>
+
+    <div class="principal-card rvl">
+      <img class="principal-emblem" src="photos/principal-chen.jpg" alt="陳彥龍校長 · Principal Chen Yen-lung">
+      <div class="role">Principal · 校長 · 17th · 第十七任</div>
+      <h3>Chen Yen-lung
+        <small>陳彥龍 校長</small>
+      </h3>
+      <div class="values">
+        <div class="value-item"><div class="v-en">Aspiration</div><div class="v-zh">積極</div></div>
+        <div class="value-item"><div class="v-en">Gratitude</div><div class="v-zh">感恩</div></div>
+        <div class="value-item"><div class="v-en">Wellness</div><div class="v-zh">健康</div></div>
+        <div class="value-item"><div class="v-en">Joy</div><div class="v-zh">快樂</div></div>
+        <div class="value-item"><div class="v-en">Confidence</div><div class="v-zh">自信</div></div>
+      </div>
+      <p class="footnote">Principal Chen Yen-lung has led Tiantou Elementary since August 2021 as the school's 17th principal. The school's five-word vision — 積極・感恩・健康・快樂・自信 — runs through everything from the playground to the classroom.<br><br>陳彥龍校長自 2021 年 8 月起帶領田頭國小，是第十七任校長。五字願景——積極、感恩、健康、快樂、自信——從操場到教室，都看得見它的影子。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── VISIT ── -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞臨田頭</small>
+        </h2>
+        <p>We welcome educators, parents, and friends to visit our small school in Zhutang Township — where the rice fields of Changhua begin, and where children learn to move, make, and connect in two languages.</p>
+        <p class="zh">歡迎來到竹塘鄉田頭國小，這裡是彰化稻田的起點，也是孩子用雙語學習動手、創作與連結世界的地方。無論您是教育工作者、家長，或路過的朋友，田頭的門永遠為您開著。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>525 彰化縣竹塘鄉田頭村光明路 60 號<br>
+            No. 60, Guangming Rd., Tiantou Vil., Zhutang Twp., Changhua County 525, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886489721 89">(04) 897-2189</a></dd>
+          </div>
+        </dl>
+
+        <div class="visit-cta">
+          <a href="https://ttes.chc.edu.tw/" target="_blank" rel="noopener">
+            <span class="visit-cta__icon">🌐</span>
+            <span class="visit-cta__txt">
+              <strong>Official Website</strong>
+              <span>學校官網 · ttes.chc.edu.tw</span>
+            </span>
+            <span class="visit-cta__arrow">↗</span>
+          </a>
+          <a href="https://www.facebook.com/p/%E7%94%B0%E9%A0%AD%E5%9C%8B%E5%B0%8F-100057360854170/" target="_blank" rel="noopener">
+            <span class="visit-cta__icon">f</span>
+            <span class="visit-cta__txt">
+              <strong>Facebook Page</strong>
+              <span>田頭國小臉書粉絲頁</span>
+            </span>
+            <span class="visit-cta__arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.pillar,.about-photo,.principal-card,.welcome .player';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<footer>
+  <div class="wrap">
+    <div>© 2026 彰化縣竹塘鄉田頭國民小學 · Tiantou Elementary School</div>
+    <div class="partner">525 彰化縣竹塘鄉田頭村光明路 60 號 · TEL (04) 897-2189</div>
+  </div>
+</footer>
+
+<div class="cb-credit" style="background:#241208;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+</body>
+</html>
