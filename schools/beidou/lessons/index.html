@@ -125,6 +125,11 @@
   .player-link__text strong{display:block;font-size:19px;color:var(--green-deep);}
   .player-link__text span{display:block;font-size:16px;color:var(--ink-soft);margin-top:2px;}
   .player-link__arrow{margin-left:auto;font-size:20px;color:var(--ink-soft);}
+  .ply{margin-top:24px;}
+  .ply__btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;border:0;border-radius:999px;padding:13px 24px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;}
+  @media (min-width:720px){ .ply__btn{ font-size:19px; } }
+  .ply__btn:hover{background:var(--green-deep);}
+  .ply__btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
   .credits{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:20px;padding:18px 22px;background:var(--cream);border-radius:14px;border:1px solid var(--line);}
   .credits__label{font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
   .credits__value{font-size:18px;color:var(--ink);font-weight:600;margin-top:2px;}
@@ -338,9 +343,7 @@
       <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>
       <div class="credits__cell"><div class="credits__label">Audience</div><div class="credits__value">In-service teachers · 在職教師</div></div>
     </div>
-    <div class="player"><div class="player__ratio">
-      <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div></div>
+    <div class="ply" data-t="yt" data-v="PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ"><button class="ply__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg> 看影片 Watch</button></div>
     <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
       <span class="player-link__icon">▶</span>
       <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支影片</span></span>
@@ -378,9 +381,7 @@
       <div class="credits__cell"><div class="credits__label">Hosts</div><div class="credits__value">Sarah Thomas &amp; Susan Rose</div></div>
       <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>
     </div>
-    <div class="player"><div class="player__ratio">
-      <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div></div>
+    <div class="ply" data-t="yt" data-v="PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy"><button class="ply__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg> 看影片 Watch</button></div>
     <a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
       <span class="player-link__icon">▶</span>
       <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist</span></span>
@@ -402,5 +403,14 @@
   </div>
 </footer>
 <div class="cb-credit">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.ply__btn'); if(!b)return;
+  var p=b.parentElement, v=p.dataset.v;
+  var d=document.createElement('div'); d.className='player';
+  d.innerHTML='<div class="player__ratio"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list='+v+'&rel=0&autoplay=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
+  p.appendChild(d); b.remove();
+});
+</script>
 </body>
 </html>
