@@ -260,7 +260,7 @@ function renderQ(){
 document.getElementById('qNext').addEventListener('click',()=>{qi=(qi+1)%qOrder.length;if(qi===0)qOrder=shuf(qOrder);renderQ();});
 renderQ();
 
-(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.ply__btn');if(!b)return;var p=b.parentElement,t=p.dataset.t,v=p.dataset.v,html;if(t==='file')html='<audio controls autoplay src="'+v+'"></audio>';else if(t==='sc')html='<iframe height="140" loading="lazy" src="https://w.soundcloud.com/player/?url='+encodeURIComponent(v)+'&color=%231c8a3b&inverse=false&auto_play=true&show_user=true&visual=false"></iframe>';else html='<iframe height="180" loading="lazy" src="https://player.soundon.fm/p/619e24bb-df9c-4d1d-b180-184d994dd484/episodes/'+v+'"></iframe>';var d=document.createElement('div');d.className='ply__player';d.innerHTML=html;p.appendChild(d);b.remove();});})();
+(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.ply__btn');if(!b)return;var p=b.parentElement,t=p.dataset.t,v=p.dataset.v,html;if(t==='file')html='<audio controls src="'+v+'"></audio>';else if(t==='sc')html='<iframe height="140" loading="lazy" src="https://w.soundcloud.com/player/?url='+encodeURIComponent(v)+'&color=%231c8a3b&inverse=false&auto_play=false&show_user=true&visual=false"></iframe>';else html='<iframe height="180" loading="lazy" src="https://player.soundon.fm/p/619e24bb-df9c-4d1d-b180-184d994dd484/episodes/'+v+'"></iframe>';var d=document.createElement('div');d.className='ply__player';d.innerHTML=html;p.appendChild(d);b.remove();});})();
 </script>
 </body>
 </html>
