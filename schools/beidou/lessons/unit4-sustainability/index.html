@@ -131,6 +131,10 @@
   .ply__player{margin-top:10px;}
   .ply__player iframe{width:100%;border:0;border-radius:10px;display:block;}
   .ply__player audio{width:100%;}
+  .ply__ic--stop{display:none;}
+  .ply__btn.is-playing{background:var(--red);}
+  .ply__btn.is-playing .ply__ic--play{display:none;}
+  .ply__btn.is-playing .ply__ic--stop{display:inline-block;}
 </style>
 </head>
 <body>
@@ -225,7 +229,7 @@ const DATA=[
    en_p:"Through the flea market charity sale, we learned by doing! We experienced how to work together, share tasks, and sell products. Most importantly, we also had the chance to spread kindness and love to others!",
    zh_p:"同學們透過跳蚤市場義賣活動，從做中學，體驗如何分工合作推銷商品，並且也能夠將我們的愛心傳播出去。"},
 ];
-const audioHTML=d=>{var t=d.file?'file':(d.sc?'sc':'so');var v=d.file||d.sc||d.so;return '<div class="ply" data-t="'+t+'" data-v="'+v+'"><button class="ply__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg> 聽發音 Listen</button></div>';};
+const audioHTML=d=>{var t=d.file?'file':(d.sc?'sc':'so');var v=d.file||d.sc||d.so;return '<div class="ply" data-t="'+t+'" data-v="'+v+'"><button class="ply__btn" type="button"><svg class="ply__ic ply__ic--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><svg class="ply__ic ply__ic--stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span class="ply__txt">聽發音 Listen</span></button></div>';};
 
 document.getElementById('arts').innerHTML=DATA.map(d=>`
   <div class="art">
@@ -260,7 +264,8 @@ function renderQ(){
 document.getElementById('qNext').addEventListener('click',()=>{qi=(qi+1)%qOrder.length;if(qi===0)qOrder=shuf(qOrder);renderQ();});
 renderQ();
 
-(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.ply__btn');if(!b)return;var p=b.parentElement,t=p.dataset.t,v=p.dataset.v,html;if(t==='file')html='<audio controls src="'+v+'"></audio>';else if(t==='sc')html='<iframe height="140" loading="lazy" src="https://w.soundcloud.com/player/?url='+encodeURIComponent(v)+'&color=%231c8a3b&inverse=false&auto_play=false&show_user=true&visual=false"></iframe>';else html='<iframe height="180" loading="lazy" src="https://player.soundon.fm/p/619e24bb-df9c-4d1d-b180-184d994dd484/episodes/'+v+'"></iframe>';var d=document.createElement('div');d.className='ply__player';d.innerHTML=html;p.appendChild(d);b.remove();});})();
+const SO_MP3=function(eid){return 'https://rss.soundon.fm/rssf/619e24bb-df9c-4d1d-b180-184d994dd484/feedurl/'+eid+'/rssFileVip.mp3';};
+(function(){var current=null;function setBtn(btn,on){btn.classList.toggle('is-playing',on);btn.querySelector('.ply__txt').textContent=on?'停止 Stop':'聽發音 Listen';}function stopCur(){if(current){try{current.stop();}catch(e){}setBtn(current.btn,false);current=null;}}document.addEventListener('click',function(e){var btn=e.target.closest&&e.target.closest('.ply__btn');if(!btn)return;var ply=btn.parentElement,t=ply.dataset.t,v=ply.dataset.v;if(current&&current.btn===btn){stopCur();return;}stopCur();if(t==='sc'){var w=ply._scw;if(!w){var f=document.createElement('iframe');f.allow='autoplay';f.style.cssText='position:absolute;left:-9999px;width:0;height:0;border:0;';f.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(v)+'&auto_play=true';ply.appendChild(f);w=SC.Widget(f);ply._scw=w;w.bind(SC.Widget.Events.FINISH,function(){if(current&&current.btn===btn){setBtn(btn,false);current=null;}});}else{w.play();}current={btn:btn,stop:function(){w.pause();}};setBtn(btn,true);}else{var au=ply._audio;if(!au){au=new Audio(t==='so'?SO_MP3(v):v);ply._audio=au;au.addEventListener('ended',function(){if(current&&current.btn===btn){setBtn(btn,false);current=null;}});}au.play();current={btn:btn,stop:function(){au.pause();}};setBtn(btn,true);}});})();
 </script>
 </body>
 </html>
