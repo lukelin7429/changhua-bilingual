@@ -97,6 +97,18 @@
   .ncard h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
   .ncard p{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.65;}
   .ncard p.zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:8px;}
+  /* linked news card (with thumbnail) */
+  a.ncard{padding:0;overflow:hidden;color:inherit;transition:transform .2s,box-shadow .2s;}
+  a.ncard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  a.ncard .thumb{position:relative;aspect-ratio:16/9;background:#000;}
+  a.ncard .thumb img{width:100%;height:100%;object-fit:cover;}
+  a.ncard .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,36,20,.4),rgba(16,36,20,0) 55%);}
+  a.ncard .thumb .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(232,152,12,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px -6px rgba(0,0,0,.5);z-index:1;}
+  a.ncard .thumb .play svg{width:24px;height:24px;margin-left:3px;fill:#fff;}
+  a.ncard .cbody{padding:24px 28px 30px;display:flex;flex-direction:column;}
+  a.ncard .cbody .tag{margin-top:0;}
+  a.ncard .cbody h3{margin-top:4px;}
+  a.ncard .cbody p{margin-top:12px;}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -125,7 +137,8 @@
     <article class="ncard"><div class="em">🎧</div><div class="tag">English</div><h3>Cool English Listening Champions<small>英聽王捷報</small></h3><p>Sixth-grader Huang Yun-jun earned the Scholar Award, with classmates winning “Golden Ears” honors in the national Cool English listening contest.</p><p class="zh">六年級黃筠珺榮獲 Cool English 英聽王書卷獎，多位同學亦獲「金耳朵獎」。</p></article>
     <article class="ncard"><div class="em">📚</div><div class="tag">English</div><h3>Cool English Vocabulary Stars<small>字彙王捷報</small></h3><p>Students across our Grade 6 classes earned “Vocabulary Cadet” awards in the Cool English vocabulary contest — English is clearly catching on.</p><p class="zh">六年忠、仁、愛班多位學生於 Cool English 字彙王比賽獲「字彙小尖兵獎」。</p></article>
     <article class="ncard"><div class="em">🌱</div><div class="tag">Eco</div><h3>Eco-Warriors in Action<small>環保勇士 PK</small></h3><p>Our students joined the Tzu Chi Eco-Warrior PK challenge, with Li Jing-xian placing 5th county-wide — green habits run deep at our twice-honored eco-school.</p><p class="zh">學生參加慈濟環保勇士 PK 賽，六忠李靖嫺榮獲全縣第五名；環保精神是東芳兩度全國環保有功學校的底色。</p></article>
-    <article class="ncard"><div class="em">🚭</div><div class="tag">Health</div><h3>Health Education Film<small>菸害防治宣導</small></h3><p>Dongfang students wrote, filmed and starred in an anti-smoking awareness video as part of our 2026 health-education program.</p><p class="zh">東芳學生自編自演，完成 115 年菸害防治宣導影片，落實健康教育。</p></article></div>
+    <article class="ncard"><div class="em">🚭</div><div class="tag">Health</div><h3>Health Education Film<small>菸害防治宣導</small></h3><p>Dongfang students wrote, filmed and starred in an anti-smoking awareness video as part of our 2026 health-education program.</p><p class="zh">東芳學生自編自演，完成 115 年菸害防治宣導影片，落實健康教育。</p></article>
+    <a class="ncard" href="grandpa-mike/" aria-label="Grandpa Mike Came to Visit — 麥克爺爺來訪東芳"><div class="thumb"><img src="https://i.ytimg.com/vi/u42qFazwKNM/hqdefault.jpg" alt="Grandpa Mike's 2019 visit to Dongfang Elementary"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="cbody"><div class="tag">In Memory · 2019.11</div><h3>Grandpa Mike Came to Visit<small>麥克爺爺來訪東芳</small></h3><p>In 2019, Grandpa Mike — Michael Dishnow — toured Changhua school by school to teach English, and stopped here at Dongfang. We share his film in loving memory.</p><p class="zh">2019 年，麥克爺爺（Michael Dishnow）走遍彰化各校教英語，也來到東芳。我們以此片永遠懷念這位美國志工。</p></div></a></div>
 </div></section>
 <script>
 (function(){
