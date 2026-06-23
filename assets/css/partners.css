@@ -1,0 +1,129 @@
+/* ============================================================
+   partners.css — Changhua Bilingual Hub
+   Powers the /partners/ index cards AND the self-hosted partner
+   profile pages ported from the Taiwan hub layout. The profile
+   pages keep their bespoke per-partner section styles; this file
+   provides the base tokens & layout primitives they rely on, mapped
+   onto Changhua Hub design tokens so everything stays consistent.
+   ============================================================ */
+
+/* ---- Token shim: legacy vars used by ported profile pages ---- */
+:root {
+  --line: var(--hub-line);
+  --ink: var(--hub-ink);
+  --ink-soft: var(--hub-ink-soft);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  --shadow: 0 2px 4px rgba(0,0,0,.06), 0 14px 32px rgba(0,0,0,.10);
+  --jade: var(--hub-primary);
+  --jade-deep: var(--hub-primary-deep);
+  --jade-soft: #ecf4f2;
+  --gold: #e0a82e;
+  --gold-deep: #9a6d12;
+  --partners: #7e5fa3;
+  --partners-deep: #5b417d;
+  --partners-soft: #f0e9f7;
+}
+
+/* ---- Layout primitives used by ported profile pages ---- */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 64px 0; }
+.partners-page img { max-width: 100%; }
+@media (max-width: 640px) { .section { padding: 48px 0; } }
+
+/* ============================================================
+   /partners/ INDEX cards
+   ============================================================ */
+
+.pintro { max-width: 64ch; }
+.pintro .lede { font-size: 1.12rem; line-height: 1.65; color: var(--hub-ink-soft); margin: 14px 0 6px; text-wrap: pretty; }
+.pintro .lede-zh { font-family: var(--hub-zh-font); font-size: 1.02rem; line-height: 1.85; color: var(--hub-ink-faint); margin: 0; }
+
+/* Featured people (photo + body) */
+.partner {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  background: #fff; border: 1px solid var(--hub-line);
+  border-left: 6px solid var(--pc, var(--hub-primary));
+  border-radius: 16px; overflow: hidden; box-shadow: var(--hub-shadow);
+  margin-bottom: 26px; transition: transform .18s, box-shadow .18s;
+}
+.partner:hover { transform: translateY(-3px); box-shadow: var(--hub-shadow-hover); }
+@media (min-width: 760px) { .partner { grid-template-columns: 240px 1fr; } }
+.partner-photo { background: var(--pc-deep, var(--hub-primary-deep)); }
+.partner-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; min-height: 240px; display: block; }
+.partner-body { padding: 30px 34px; }
+.partner-tag {
+  display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--pc, var(--hub-primary));
+  background: var(--pc-soft, var(--jade-soft)); padding: 5px 12px; border-radius: 999px; margin-bottom: 13px;
+}
+.partner-body h2 { font-family: var(--hub-serif); font-size: 1.75rem; color: var(--hub-ink); line-height: 1.12; margin: 0; }
+.partner-body .role { margin-top: 6px; font-size: 1rem; font-weight: 600; color: var(--pc, var(--hub-primary)); }
+.partner-body p { margin-top: 13px; font-size: 1.04rem; color: var(--hub-ink-soft); line-height: 1.65; }
+.partner-body p.zh { font-family: var(--hub-zh-font); font-size: .98rem; line-height: 1.85; }
+.partner-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+.partner-meta span { font-size: .82rem; font-weight: 600; color: var(--pc-deep, var(--hub-primary-deep)); background: var(--pc-soft, var(--jade-soft)); padding: 5px 12px; border-radius: 999px; }
+.partner-go {
+  display: inline-block; margin-top: 18px; background: var(--pc, var(--hub-primary)); color: #fff;
+  font-weight: 700; font-size: .98rem; padding: 11px 22px; border-radius: 999px; text-decoration: none;
+  transition: filter .15s;
+}
+.partner-go:hover { filter: brightness(.93); color: #fff; text-decoration: none; }
+
+/* Per-person accents */
+.pc-edward { --pc:#0a3d62; --pc-deep:#062940; --pc-soft:#e8eef4; }
+.pc-dom    { --pc:#0a1f5c; --pc-deep:#081848; --pc-soft:#eaedf6; }
+.pc-leon   { --pc:#c2641a; --pc-deep:#5d2c10; --pc-soft:#fbeede; }
+
+/* In Memoriam card */
+.memoriam {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  background: linear-gradient(135deg,#fbf6ec 0%,#f3e9d4 100%);
+  border: 1px solid #e7dcc6; border-left: 6px solid #9a7b43;
+  border-radius: 16px; overflow: hidden; box-shadow: var(--hub-shadow);
+  margin: 6px 0 26px; transition: transform .18s, box-shadow .18s;
+}
+.memoriam:hover { transform: translateY(-3px); box-shadow: var(--hub-shadow-hover); }
+@media (min-width: 760px) { .memoriam { grid-template-columns: 230px 1fr; } }
+.memoriam-photo { background: #4f3f29; }
+.memoriam-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; min-height: 230px; display: block; }
+.memoriam-body { padding: 30px 34px; }
+.memoriam-ribbon { display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7a5f38; background: #efe2c8; padding: 5px 14px; border-radius: 999px; margin-bottom: 13px; }
+.memoriam-body h2 { font-family: var(--hub-serif); font-size: 1.75rem; color: #4f3f29; line-height: 1.12; margin: 0; }
+.memoriam-body .role { margin-top: 6px; font-size: 1rem; font-weight: 600; color: #7a5f38; }
+.memoriam-body p { margin-top: 13px; font-size: 1.04rem; color: #5b5147; line-height: 1.65; }
+.memoriam-body p.zh { font-family: var(--hub-zh-font); font-size: .96rem; line-height: 1.85; }
+.memoriam-go { display: inline-block; margin-top: 16px; background: #9a7b43; color: #fff; font-weight: 700; font-size: .98rem; padding: 10px 22px; border-radius: 999px; text-decoration: none; transition: filter .15s; }
+.memoriam-go:hover { filter: brightness(.93); color: #fff; text-decoration: none; }
+
+/* Section label for org group */
+.pgroup { margin: 44px 0 24px; }
+.pgroup .ph-label { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--partners); margin-bottom: 6px; }
+.pgroup h2 { font-family: var(--hub-serif); font-size: 1.6rem; color: var(--hub-ink); line-height: 1.2; margin: 0; }
+.pgroup p { font-size: 1rem; color: var(--hub-ink-soft); line-height: 1.65; margin-top: 8px; max-width: 66ch; }
+
+/* Org / program progcards */
+.progcard {
+  display: flex; flex-direction: column; gap: 0;
+  background: #fff; border: 1px solid var(--hub-line);
+  border-left: 6px solid var(--pc, var(--hub-primary));
+  border-radius: 16px; overflow: hidden; box-shadow: var(--hub-shadow);
+  text-decoration: none; margin-bottom: 22px; transition: transform .18s, box-shadow .18s;
+}
+.progcard:hover { transform: translateY(-3px); box-shadow: var(--hub-shadow-hover); text-decoration: none; }
+@media (min-width: 760px) { .progcard { flex-direction: row; } }
+.progcard-thumb { position: relative; background: var(--pc-deep, var(--hub-primary-deep)); flex: none; }
+@media (min-width: 760px) { .progcard-thumb { width: 300px; } }
+.progcard-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 190px; aspect-ratio: 16/9; }
+.progcard-thumb .pp { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.5); }
+.progcard-body { padding: 26px 30px; }
+.progcard-body .tag { display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--pc, var(--hub-primary)); background: var(--pc-soft, var(--jade-soft)); padding: 5px 12px; border-radius: 999px; margin-bottom: 11px; }
+.progcard-body h3 { font-family: var(--hub-serif); font-size: 1.5rem; color: var(--hub-ink); line-height: 1.12; margin: 0; }
+.progcard-body .role { margin-top: 6px; font-size: .98rem; font-weight: 600; color: var(--pc, var(--hub-primary)); }
+.progcard-body p { margin-top: 12px; font-size: 1rem; color: var(--hub-ink-soft); line-height: 1.65; }
+.progcard-body .go { display: inline-block; margin-top: 14px; color: var(--pc-deep, var(--hub-primary-deep)); font-weight: 700; font-size: .96rem; }
+
+/* "More partners" closing note */
+.more { background: var(--jade-soft); border-radius: 16px; padding: 30px 32px; text-align: center; }
+.more h3 { font-family: var(--hub-serif); font-size: 1.3rem; color: var(--hub-primary-deep); margin: 0 0 8px; }
+.more p { font-size: 1rem; color: var(--hub-ink-soft); line-height: 1.65; max-width: 60ch; margin: 0 auto; }
+.more a { color: var(--hub-primary-deep); font-weight: 700; }

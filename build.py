@@ -31,6 +31,7 @@ SECTIONS = [
     ("/fets/", "FETs"),
     ("/word-of-the-day/", "Word of the Day"),
     ("/resources/", "Resources"),
+    ("/partners/", "Partners"),
 ]
 
 
@@ -683,6 +684,177 @@ def build_fets(fets_data, schools_data):
     return page_shell("FETs", content, "/fets/")
 
 
+def build_partners():
+    """International partners page. Self-hosted on the Changhua hub; cards
+    mirror the Taiwan Bilingual Hub partners, restyled to Changhua design.
+    Edward & Dom link to their existing /resources/ profiles; everyone else
+    links to a self-hosted /partners/<slug>/ profile."""
+    hero = curve_hero(
+        variant="partners",
+        eyebrow="International Partners · 國際夥伴",
+        title_html="The people who bring<br>the world into the classroom.",
+        lede_en="Internationally recognized advocates, schools and organizations who give Changhua's students a real global stage — and real, living English from people who use it every day.",
+        lede_zh="國際級的夥伴——倡議者、學校與組織，為彰化學生帶來真實的世界舞台，以及來自每天都在使用英語的人的「活的英文」。",
+        pull_en="A global stage,<br>in every classroom.",
+        pull_zh="教室裡的國際舞台。",
+        attr="Changhua Bilingual Hub",
+    )
+
+    content = """
+""" + hero + """
+
+<section class="hub-section partners-page">
+
+  <!-- Edward -->
+  <article class="partner pc-edward">
+    <div class="partner-photo"><img src="/partners/edward-huang/photos/edward-portrait.jpg" alt="Edward Huang" loading="lazy"></div>
+    <div class="partner-body">
+      <span class="partner-tag">UN Youth Climate</span>
+      <h2>Edward Huang 黃雋翔</h2>
+      <div class="role">LCOY Taiwan International Ambassador · UNFCCC YOUNGO</div>
+      <p>A UCLA graduate and member of the UN climate body's official youth constituency, Edward opens UN climate summits, SDGs teaching and cross-border project learning for Taiwan's students — from elementary school to university. His Youth Network secured Taiwan's right to host LCOY Taiwan 2026.</p>
+      <p class="zh">UCLA 碩士、UNFCCC 官方青年組織 YOUNGO 成員。Edward 為臺灣學生（小學到大學）開啟聯合國氣候峰會、SDGs 教學與跨國專題學習；其 Youth Network 取得 2026 LCOY Taiwan 主辦權。</p>
+      <div class="partner-meta"><span>🇺🇳 UNFCCC YOUNGO</span><span>🌍 LCOY Taiwan</span><span>🎓 UCLA</span></div>
+      <a class="partner-go" href="/resources/edward-huang/">View profile · 中／EN 切換 →</a>
+    </div>
+  </article>
+
+  <!-- Dom -->
+  <article class="partner pc-dom">
+    <div class="partner-photo"><img src="/partners/dom-jones/images/dom-jones.png" alt="Dom Jones" loading="lazy"></div>
+    <div class="partner-body">
+      <span class="partner-tag">Advocacy · Kindness</span>
+      <h2>Dom Jones 多姆・瓊斯</h2>
+      <div class="role">UN SDG Ambassador · MCC Advocacy Board</div>
+      <p>A California social advocate, educator and media personality — host of The Dom Jones Show and a CBS Amazing Race alum — Dom brings a school assembly tour built on three pillars: English education, global connection, and kindness.</p>
+      <p class="zh">來自加州的社會運動者、教育家與媒體人，主持《The Dom Jones Show》、曾登上 CBS《The Amazing Race》。Dom 帶來以「英語教育、全球連結、善意與愛」為三大主軸的校園巡迴集會。</p>
+      <div class="partner-meta"><span>🌏 UN SDG</span><span>📺 PBTV</span><span>🏆 Amazing Race S34</span></div>
+      <a class="partner-go" href="/resources/dom-jones/">View profile →</a>
+    </div>
+  </article>
+
+  <!-- Leon -->
+  <article class="partner pc-leon">
+    <div class="partner-photo"><img src="/partners/leon-la-couvee/photos/leon-portrait.jpg" alt="Leon E. La Couvée" loading="lazy"></div>
+    <div class="partner-body">
+      <span class="partner-tag">Author · Speaker</span>
+      <h2>Leon E. La Couvée</h2>
+      <div class="role">Author · TEDxYouth speaker · bilingual teacher</div>
+      <p>Canadian-born, Taiwanese by choice — a writer, speaker and teacher whose subject is human freedom and contentment. Author of <em>Grandfather Is Dead</em> (落日餘暉) and <em>Grandfather Is Going to Die</em>, with weekly columns, a podcast and a TEDxYouth talk. MCC turned his first book into a 30-part bilingual video series.</p>
+      <p class="zh">加拿大出生、選擇定居臺灣的作家、講者與教師，畢生關注人的自由與圓滿。著有《Grandfather Is Dead／落日餘暉》與《Grandfather Is Going to Die》，並有每週專欄、播客與 TEDxYouth 演講；人師將其第一本書製作成三十集雙語影片。</p>
+      <div class="partner-meta"><span>📚 Two books</span><span>🎙️ Podcast</span><span>🎤 TEDxYouth</span></div>
+      <a class="partner-go" href="/partners/leon-la-couvee/">View profile →</a>
+    </div>
+  </article>
+
+  <!-- In Memoriam — Grandpa Mike -->
+  <article class="memoriam">
+    <div class="memoriam-photo"><img src="/partners/grandpa-mike/photos/mike-portrait.jpg" alt="Grandpa Mike — Michael Dishnow" loading="lazy"></div>
+    <div class="memoriam-body">
+      <span class="memoriam-ribbon">🕯️ In Loving Memory · 懷念</span>
+      <h2>Grandpa Mike</h2>
+      <div class="role">Michael Dishnow · 1943 – 2025 · an American grandfather to Taiwan's children</div>
+      <p>For over a decade he flew to Taiwan again and again to teach our children English — and to love them. He left behind a 32-film series of his visits to our schools, and a lesson larger than language.</p>
+      <p class="zh">十多年來，他一次又一次飛來台灣，陪孩子學英語、也愛著他們。他留下 32 支造訪校園的影片，與一堂比語言更大的課。</p>
+      <a class="memoriam-go" href="/partners/grandpa-mike/">Visit his memorial · 走進紀念頁 →</a>
+    </div>
+  </article>
+
+  <div class="pgroup">
+    <div class="ph-label">University &amp; Program Partners · 大學與計畫夥伴</div>
+    <h2>Schools &amp; organizations in partnership</h2>
+    <p>Beyond individual advocates, the hub is built on partnerships with schools, universities and sister organizations — ongoing and foundational — that share our mission across the Pacific. 除了個人倡議者，資源網也建立在與學校、大學及姊妹組織的夥伴情誼之上——既有現正進行、也有最早奠基的合作，共享橫跨太平洋的使命。</p>
+  </div>
+
+  <a class="progcard" style="--pc:#0a5a9c;--pc-deep:#0b3552;--pc-soft:#e6f2fb;" href="/partners/una-oc/">
+    <div class="progcard-thumb" style="background:#0b3552;"><img src="/partners/una-oc/img/una-oc-sdg.jpg" alt="UN Sustainable Development Goals color wheel" loading="lazy"></div>
+    <div class="progcard-body">
+      <span class="tag">🌐 United Nations Association of Orange County</span>
+      <h3>UNA-OC brings the UN's goals to Taiwan</h3>
+      <div class="role">UNA-USA chapter · UN SDGs · linked through Dom Jones</div>
+      <p>A chapter of the UN Association of the USA, advancing the Sustainable Development Goals and global citizenship — connected to the hub through partner Dom Jones, who serves as its Government Affairs Ambassador. 美國聯合國協會橙縣分會，推動 SDGs 與全球公民意識；透過擔任其政府事務大使的夥伴 Dom Jones 與本資源網結緣。</p>
+      <span class="go">View partnership →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#00703c;--pc-deep:#024d2a;--pc-soft:#e2f1e8;" href="/partners/dlsu-d/">
+    <div class="progcard-thumb" style="background:#024d2a;"><img src="https://i.ytimg.com/vi/nHXZsvoPG7c/hqdefault.jpg" alt="Sister-school signing ceremony between Chung Shih Vocational High School and DLSU-D" loading="lazy"><span class="pp">▶</span></div>
+    <div class="progcard-body">
+      <span class="tag">🇵🇭 De La Salle University–Dasmariñas · High School</span>
+      <h3>DLSU-D &amp; Chung Shih sign as sister schools</h3>
+      <div class="role">Lasallian Catholic, Philippines · sister school of 員林崇實高工 · arranged by MCC</div>
+      <p>MCC's Lasallian partner in the Philippines became a sister school of Chung Shih Vocational High School in Yuanlin, Changhua — a signing ceremony, a calligraphy exchange and local news coverage, captured in 5 videos. 人師在菲律賓的拉薩爾夥伴與彰化員林崇實高工締結姊妹校：簽約儀式、書法交流與在地報導，收錄於 5 支影片。</p>
+      <span class="go">View partnership · 5 videos →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#9a7b1e;--pc-deep:#6b540f;--pc-soft:#f3e6cf;" href="/partners/chinese-culture-connection/">
+    <div class="progcard-thumb" style="background:#221a18;"><img src="/partners/chinese-culture-connection/img/gala.png" alt="Chinese Culture Connection" loading="lazy"></div>
+    <div class="progcard-body">
+      <span class="tag">🌉 Chinese Culture Connection · 華夏文化協會</span>
+      <h3>Chinese Culture Connection</h3>
+      <div class="role">Greater Boston, MA · sister organization · since 1985</div>
+      <p>A forty-year Greater Boston nonprofit and MCC's sister organization — bilingual, bicultural education and cross-cultural understanding, linked by a shared board member. 大波士頓四十年的非營利組織、人師的姊妹組織，理念相通、董事相連。</p>
+      <span class="go">Meet the organization →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#0d7377;--pc-deep:#0a5557;--pc-soft:#ddf0ef;" href="/partners/books-for-taiwan/">
+    <div class="progcard-thumb" style="background:#0a5557;"><img src="https://i.ytimg.com/vi/Y45jz0N6Zk0/hqdefault.jpg" alt="Books for Taiwan founder Amy Lin" loading="lazy"><span class="pp">▶</span></div>
+    <div class="progcard-body">
+      <span class="tag">📚 Books for Taiwan · 送書到台灣 · Since 2012</span>
+      <h3>Books for Taiwan brings English books home</h3>
+      <div class="role">Founded by Amy Lin · American volunteers · schools, libraries &amp; prisons</div>
+      <p>Since April 2012, Amy Lin's volunteers have collected English-language books from U.S. libraries and donated them to Taiwan's schools, libraries, and prisons — captured in 14 videos of the founder and grateful recipients. 自 2012 年起，Amy Lin 的志工收集美國圖書館的英文書，捐贈臺灣的學校、圖書館與監獄，收錄於 14 支影片。</p>
+      <span class="go">View partnership · 14 videos →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#b1322e;--pc-deep:#7d211e;--pc-soft:#f7e3e1;" href="/partners/ccc-chinese-school/">
+    <div class="progcard-thumb" style="background:#7d211e;"><img src="https://i.ytimg.com/vi/Q7E2vrl2uRQ/hqdefault.jpg" alt="CCC Chinese School in Changhua" loading="lazy"><span class="pp">▶</span></div>
+    <div class="progcard-body">
+      <span class="tag">🇺🇸 CCC Chinese School · Since 2022</span>
+      <h3>CCC Chinese School comes to Changhua</h3>
+      <div class="role">Albany, New York · ongoing partnership · most recent 2025</div>
+      <p>An ongoing partnership since 2022 — students from Albany, NY tutor Taiwan's children in English and visit Changhua to teach and exchange culture, captured in 27 videos. 自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流，收錄於 27 支影片。</p>
+      <span class="go">View partnership · 27 videos →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#2c6e49;--pc-deep:#184a31;--pc-soft:#e3efe8;" href="/partners/nmu/">
+    <div class="progcard-thumb" style="background:#184a31;"><img src="/partners/nmu/img/nmu-principal-group.jpg" alt="NMU student teachers at Yangming Junior High, Changhua" loading="lazy"></div>
+    <div class="progcard-body">
+      <span class="tag">🎓 Northern Michigan University · 2026</span>
+      <h3>NMU comes to Changhua</h3>
+      <div class="role">Northern Michigan University · faculty &amp; student teachers · Xizhou &amp; Yangming JHS</div>
+      <p>In May 2026, Professor David Boe led a cohort of NMU student teachers to Changhua for a TESOL practicum — co-teaching and leading classrooms at Xizhou and Yangming junior highs, captured in their own video reflections. 2026 年 5 月，David Boe 教授帶領 NMU 師資生來彰化進行 TESOL 實習，於溪州與陽明國中協同教學，收錄於師資生親錄的見證短片。</p>
+      <span class="go">View partnership · 4 videos →</span>
+    </div>
+  </a>
+
+  <a class="progcard" style="--pc:#1f6e6e;--pc-deep:#0f4747;--pc-soft:#ecf4f2;" href="/partners/utrgv/">
+    <div class="progcard-thumb" style="background:#0f4747;"><img src="https://i.ytimg.com/vi/qn33x2o0Vr4/hqdefault.jpg" alt="UTRGV in Taiwan 2017" loading="lazy"><span class="pp">▶</span></div>
+    <div class="progcard-body">
+      <span class="tag">🎓 UTRGV · 2017</span>
+      <h3>UTRGV comes to Taiwan</h3>
+      <div class="role">University of Texas Rio Grande Valley · 21 student teachers</div>
+      <p>One of the program's earliest international partnerships — a cohort of UTRGV student teachers who taught across Changhua, captured in 22 video reflections. 本計畫最早的國際合作之一，21 位 UTRGV 師資生在彰化教學的歷程，收錄於 22 支見證短片。</p>
+      <span class="go">View partnership · 22 videos →</span>
+    </div>
+  </a>
+
+  <div class="more">
+    <h3>More partners joining</h3>
+    <p>The hub continues to welcome international educators and advocates who can give Changhua's students a genuine global stage. 資源網持續邀請能為彰化學生帶來真實國際舞台的國際教育者與倡議者加入。</p>
+  </div>
+
+</section>
+""".strip()
+
+    extra_head = '<link rel="stylesheet" href="/assets/css/partners.css">'
+    return page_shell("Partners", content, "/partners/", extra_head)
+
+
 WOTD_THEMES = [
     ("tasks", "Tasks", "校園百科", [
         "sweep","clean","mop","wipe","wash","dust","tidy","pick up","trash","garbage","recycle",
@@ -1021,17 +1193,12 @@ def build_resources():
       <p>1,074 km² · 1.2 million people · founded 1723 — Taiwan's name-sake of education. Geography, history, and the bilingual ecosystem at a glance.</p>
       <div class="hub-card-meta">Geography · History · Education</div>
     </a>
-    <a class="hub-card" href="/resources/dom-jones/">
-      <h3>Dom Jones 校園巡迴</h3>
-      <p>From Compton to Changhua — UN SDG ambassador and MCC Advocacy Board Chairwoman, on her ongoing school assembly tour across the county.</p>
-      <div class="hub-card-meta">School visits · SDGs</div>
-    </a>
-    <a class="hub-card" href="/resources/edward-huang/">
-      <h3>Edward Huang 認識</h3>
-      <p>A UN voice for Taiwan's youth — UNFCCC YOUNGO member and LCOY Taiwan International Ambassador bringing climate diplomacy into Changhua classrooms.</p>
-      <div class="hub-card-meta">UN climate · SDGs</div>
-    </a>
   </div>
+  <p style="margin-top:18px;color:var(--hub-ink-faint);font-size:.95rem">
+    Looking for Dom Jones, Edward Huang and our international advocates? They now live on the
+    <a href="/partners/" style="color:var(--hub-primary);font-weight:600">Partners</a> page. ·
+    Dom Jones、Edward Huang 等國際夥伴已移至 <a href="/partners/" style="color:var(--hub-primary);font-weight:600">Partners</a> 頁。
+  </p>
 </section>
 
 <!-- ===== Festival English Series ===== -->
@@ -3262,6 +3429,7 @@ def main():
     write("fets/index.html", build_fets(fets, schools))
     write("word-of-the-day/index.html", build_wotd())
     write("resources/index.html", build_resources())
+    write("partners/index.html", build_partners())
     write("resources/about-changhua/index.html", build_about_changhua())
     write("resources/classroom-english/index.html", build_classroom_english())
     write("resources/sdgs/index.html", build_sdgs())

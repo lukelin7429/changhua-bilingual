@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+<meta name="theme-color" content="#009edb">
+<title>United Nations Association of Orange County (UNA-OC) · Changhua Bilingual Hub</title>
+<meta name="description" content="United Nations Association of Orange County (UNA-OC) — a chapter of UNA-USA advancing the UN Sustainable Development Goals and global citizenship. A My Culture Connect partner, linked through Dom Jones, who serves as its Government Affairs Ambassador. 聯合國協會橙縣分會：推動聯合國永續發展目標與全球公民意識，透過 Dom Jones 與人師結為夥伴。">
+<meta property="og:title" content="United Nations Association of Orange County (UNA-OC) — Changhua Bilingual Hub">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<link rel="stylesheet" href="/assets/css/hub.css">
+<link rel="stylesheet" href="/assets/css/partners.css">
+<style>
+  :root{ --un:#0a5a9c; --un-bright:#009edb; --un-deep:#0b3552; --un-soft:#e6f2fb; --sky:#7cc4ec; }
+
+  .u-hero{background:linear-gradient(135deg,var(--un-deep) 0%,var(--un) 55%,var(--un-bright) 100%);color:#fff;position:relative;overflow:hidden;padding:58px 0 60px;}
+  .u-hero::before{content:"";position:absolute;top:-130px;right:-110px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.16) 0%,transparent 70%);}
+  .u-hero::after{content:"";position:absolute;bottom:-160px;left:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(124,196,236,.30) 0%,transparent 70%);}
+  .u-hero .inner{position:relative;z-index:1;}
+  .u-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);color:#eaf6ff;padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:700;letter-spacing:.05em;margin-bottom:16px;border:1px solid rgba(255,255,255,.32);}
+  .u-hero h1{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(32px,5vw,50px);font-weight:600;line-height:1.06;}
+  .u-hero .zh{font-size:23px;font-weight:500;color:#e3f1fb;margin-top:10px;}
+  .u-hero .tagline{margin-top:14px;font-style:italic;font-family:'Playfair Display',serif;font-size:20px;color:#d3ecfb;}
+  .u-hero .sub{margin-top:16px;font-size:20px;color:#eef7fd;max-width:62ch;line-height:1.65;}
+  .u-hero .sub-zh{margin-top:8px;font-size:18px;color:#cfe6f5;max-width:58ch;line-height:1.85;}
+  .u-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .u-stats span{font-size:14.5px;font-weight:700;color:#fff;background:rgba(255,255,255,.14);padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);}
+
+  .u-sec{padding:54px 0;}
+  .u-sec.alt{background:#f4faff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .u-label{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--un);margin-bottom:10px;}
+  .u-h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(26px,3.6vw,34px);font-weight:700;color:var(--un-deep);line-height:1.18;}
+  .u-note{font-size:17px;color:var(--ink-soft);margin-top:8px;line-height:1.75;max-width:70ch;}
+
+  .u-quote{margin-top:24px;padding:26px 30px;border-left:5px solid var(--un-bright);background:#fff;border-radius:0 14px 14px 0;box-shadow:var(--shadow-sm);}
+  .u-quote p{font-size:19px;line-height:1.8;color:#26415a;font-style:italic;}
+  .u-quote .zh{font-size:16.5px;font-style:normal;color:var(--ink-soft);margin-top:12px;line-height:1.85;}
+
+  .u-bi{display:grid;grid-template-columns:1fr;gap:22px;margin-top:26px;}
+  @media(min-width:820px){.u-bi{grid-template-columns:1fr 1fr;}}
+  .u-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 30px;box-shadow:var(--shadow-sm);}
+  .u-card .tag{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--un);background:var(--un-soft);padding:4px 12px;border-radius:999px;margin-bottom:14px;}
+  .u-card p{font-size:18px;line-height:1.8;color:#33424f;margin-bottom:12px;}
+  .u-card p.zh{font-size:16.5px;line-height:1.9;}
+  .u-card p:last-child{margin-bottom:0;}
+  .u-card strong{color:var(--un-deep);font-weight:700;}
+
+  /* ambassador feature (Dom) */
+  .u-amb{display:grid;grid-template-columns:1fr;gap:0;margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);border-left:7px solid var(--un-bright);}
+  @media(min-width:760px){.u-amb{grid-template-columns:250px 1fr;}}
+  .u-amb-photo{background:var(--un-deep);}
+  .u-amb-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;min-height:260px;display:block;}
+  .u-amb-body{padding:32px 34px;}
+  .u-amb-body .k{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--un);background:var(--un-soft);padding:4px 12px;border-radius:999px;}
+  .u-amb-body h3{font-family:'Playfair Display','PingFang TC',serif;font-size:28px;color:var(--un-deep);margin-top:14px;line-height:1.15;}
+  .u-amb-body .role{margin-top:6px;font-size:16.5px;font-weight:600;color:var(--un-bright);}
+  .u-amb-body p{font-size:17.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  .u-amb-body p.zh{font-size:16px;line-height:1.85;}
+  .u-amb-go{display:inline-block;margin-top:18px;background:var(--un);color:#fff;font-weight:700;font-size:16px;padding:11px 22px;border-radius:999px;text-decoration:none;}
+  .u-amb-go:hover{filter:brightness(1.08);color:#fff;}
+
+  /* programs */
+  .u-progs{display:grid;grid-template-columns:1fr;gap:18px;margin-top:26px;}
+  @media(min-width:620px){.u-progs{grid-template-columns:1fr 1fr;}}
+  @media(min-width:920px){.u-progs{grid-template-columns:1fr 1fr 1fr;}}
+  .prog{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 24px;border-top:4px solid var(--un-bright);box-shadow:var(--shadow-sm);}
+  .prog .ic{font-size:30px;line-height:1;}
+  .prog h3{font-family:'Playfair Display','PingFang TC',serif;font-size:20px;color:var(--un-deep);margin-top:12px;line-height:1.2;}
+  .prog .zh{font-size:15px;color:var(--un);font-weight:600;margin-top:3px;}
+  .prog p{font-size:16.5px;color:var(--ink-soft);margin-top:10px;line-height:1.65;}
+
+  /* learn more */
+  .u-learn{background:var(--un-deep);color:#fff;border-radius:22px;padding:40px 36px;margin-top:26px;text-align:center;position:relative;overflow:hidden;}
+  .u-learn::before{content:"";position:absolute;top:-80px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(124,196,236,.22) 0%,transparent 70%);}
+  .u-learn .globe{font-size:54px;line-height:1;position:relative;z-index:1;}
+  .u-learn h3{font-family:'Playfair Display','PingFang TC',serif;font-size:26px;margin-top:14px;position:relative;z-index:1;}
+  .u-learn p{font-size:17px;color:#dbeefb;margin-top:10px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1;}
+  .u-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px;position:relative;z-index:1;}
+  .u-links a{font-weight:700;font-size:16px;padding:12px 22px;border-radius:999px;text-decoration:none;}
+  .u-links a.bright{background:var(--un-bright);color:#04263d;}
+  .u-links a.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);}
+  .u-links a:hover{filter:brightness(1.06);}
+  .u-back{display:inline-block;margin-top:24px;color:var(--un-deep);font-weight:700;font-size:16px;}
+</style>
+</head>
+<body>
+
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/" aria-current="page">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<header class="u-hero">
+  <div class="wrap inner">
+    <div class="u-badge">🌐 UN Association Partner · 聯合國協會夥伴 · Orange County, CA</div>
+    <h1>United Nations Association<br>of Orange County</h1>
+    <div class="zh">聯合國協會 · 橙縣分會（UNA-OC）</div>
+    <div class="tagline">"Educate and inspire individuals to support the UN and its goals."</div>
+    <p class="sub">A community chapter of the <strong>United Nations Association of the USA (UNA-USA)</strong>, UNA-OC turns the UN's global goals into local action — championing the <strong>Sustainable Development Goals</strong>, fostering global citizenship, and connecting young people to the wider world.</p>
+    <p class="sub-zh">UNA-OC 是<strong>美國聯合國協會（UNA-USA）</strong>的社區分會，把聯合國的全球目標化為在地行動——推動<strong>永續發展目標（SDGs）</strong>、培養全球公民意識，並讓青年連結更廣大的世界。</p>
+    <div class="u-stats"><span>📍 Orange County, California</span><span>🇺🇳 Chapter of UNA-USA</span><span>🎯 UN SDGs · Agenda 2030</span><span>🎓 Youth &amp; Campus Chapters</span></div>
+  </div>
+</header>
+
+<section class="u-sec">
+  <div class="wrap">
+    <div class="u-label">Why we are partners · 為何結為夥伴</div>
+    <h2 class="u-h2">One world, taught from two shores</h2>
+    <div class="u-bi">
+      <div class="u-card">
+        <span class="tag">A shared mission · 共同的使命</span>
+        <p>UNA-OC and <strong>My Culture Connect</strong> share the same belief: that young people learn best when the world feels real and close. UNA-OC brings the <strong>UN Sustainable Development Goals</strong> and global citizenship into local life; MCC brings living English and a global stage into Taiwan's classrooms. Together they give students a <strong>local-to-global</strong> horizon.</p>
+        <p class="zh">UNA-OC 與<strong>人師（MCC）</strong>懷抱相同信念：當世界變得真實而靠近，孩子學得最好。UNA-OC 把<strong>聯合國永續發展目標（SDGs）</strong>與全球公民意識帶進在地生活；人師把活的英語與國際舞台帶進臺灣課堂。兩者共同為學生開啟「<strong>在地連結全球</strong>」的視野。</p>
+      </div>
+      <div class="u-card">
+        <span class="tag">A living bridge · 真實的橋樑</span>
+        <p>The connection between the two organizations is a person. <strong>Dom Jones</strong> — Chairwoman of MCC's Advocacy Board and a partner of the hub — serves as UNA-OC's <strong>Government Affairs Ambassador</strong>, advancing the UN's 2030 Agenda. Through her, the SDGs travel from Orange County straight into Taiwan's schools.</p>
+        <p class="zh">兩個組織之間的連結，是一個人。<strong>Dom Jones</strong>——人師倡議委員會主席、本資源網的夥伴——同時擔任 UNA-OC 的<strong>政府事務大使（Government Affairs Ambassador）</strong>，推動聯合國 2030 議程。透過她，SDGs 從橙縣一路走進臺灣的校園。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="u-sec alt">
+  <div class="wrap">
+    <div class="u-label">Our Ambassador · 我們的大使</div>
+    <h2 class="u-h2">Dom Jones — the bridge between UNA-OC and Taiwan</h2>
+    <div class="u-amb">
+      <div class="u-amb-photo"><img src="/dom-jones/images/dom-jones.png" alt="Dom Jones"></div>
+      <div class="u-amb-body">
+        <span class="k">Government Affairs Ambassador · 政府事務大使</span>
+        <h3>Dom Jones 多姆・瓊斯</h3>
+        <div class="role">UNA-OC · UN SDG Advocate · MCC Advocacy Board</div>
+        <p>A California educator, advocate and media personality, Dom carries the UN's 2030 Agenda into her work as UNA-OC's Government Affairs Ambassador — and brings the same global-citizenship message to Taiwan's students through her school assembly tour built on English education, global connection, and kindness.</p>
+        <p class="zh">來自加州的教育家、社會運動者與媒體人。Dom 以 UNA-OC 政府事務大使的身分推動聯合國 2030 議程，並把同樣的全球公民訊息，透過以「英語教育、全球連結、善意」為主軸的校園巡迴，帶給臺灣的學生。</p>
+        <a class="u-amb-go" href="/resources/dom-jones/">Meet Dom Jones →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="u-sec">
+  <div class="wrap">
+    <div class="u-label">What They Do · 主要工作</div>
+    <h2 class="u-h2">Turning global goals into local action</h2>
+    <div class="u-progs">
+      <div class="prog"><div class="ic">🎯</div><h3>SDG Champions</h3><div class="zh">永續目標倡議者</div><p>Identifying and celebrating local people and groups advancing the UN's 17 Sustainable Development Goals.</p></div>
+      <div class="prog"><div class="ic">🤝</div><h3>Community Partnerships</h3><div class="zh">社區夥伴合作</div><p>Working alongside food banks, refugee resettlement and community organizations whose work supports the SDGs.</p></div>
+      <div class="prog"><div class="ic">📣</div><h3>Advocacy</h3><div class="zh">政策倡議</div><p>Advocating for UN-aligned policies and the 2030 Agenda at the local, state and federal level.</p></div>
+      <div class="prog"><div class="ic">🎓</div><h3>Youth Engagement</h3><div class="zh">青年參與</div><p>Drawing young people into UN values through events, mentoring and leadership opportunities.</p></div>
+      <div class="prog"><div class="ic">🏫</div><h3>Campus &amp; Model UN</h3><div class="zh">校園與模擬聯合國</div><p>Campus chapters, Model UN chapters and university chapters that grow the next generation of global citizens.</p></div>
+      <div class="prog"><div class="ic">🌏</div><h3>Local-to-Global</h3><div class="zh">在地連結全球</div><p>Connecting everyday community life to the United Nations — and, through MCC, to Taiwan's classrooms.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="u-sec alt">
+  <div class="wrap">
+    <div class="u-label">Their Mission · 他們的使命</div>
+    <h2 class="u-h2">Local-to-global engagement</h2>
+    <div class="u-quote">
+      <p>"Educate and inspire individuals to support the UN and its goals" — fostering global citizenship and promoting UN values, from Orange County to the wider world.</p>
+      <p class="zh">「教育並激勵每一個人支持聯合國及其目標」——培養全球公民意識、推廣聯合國價值，從橙縣連結到更廣大的世界。</p>
+    </div>
+    <p class="u-note" style="margin-top:18px;">UNA-OC is a chapter of the <strong>United Nations Association of the USA</strong>, part of a nationwide network supporting the work of the United Nations and the UN Foundation. UNA-OC 是<strong>美國聯合國協會</strong>的分會，屬於全美支持聯合國及聯合國基金會工作的網絡之一。</p>
+  </div>
+</section>
+
+<section class="u-sec">
+  <div class="wrap">
+    <div class="u-learn">
+      <div class="globe">🌐</div>
+      <h3>Learn more about UNA-OC</h3>
+      <p>Discover their programs, SDG work and how Orange County connects local action to the United Nations. 進一步認識他們的計畫、SDGs 工作，以及橙縣如何把在地行動連結到聯合國。</p>
+      <div class="u-links">
+        <a class="bright" href="https://www.una-oc.org/" target="_blank" rel="noopener">Official website ↗</a>
+        <a class="ghost" href="https://unausa.org/" target="_blank" rel="noopener">UNA-USA ↗</a>
+      </div>
+    </div>
+    <a class="u-back" href="/partners/">← Back to Partners · 回國際夥伴</a>
+  </div>
+</section>
+
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a>
+      <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+
+  <script src="/assets/js/hub.js"></script>
+</body>
+</html>
