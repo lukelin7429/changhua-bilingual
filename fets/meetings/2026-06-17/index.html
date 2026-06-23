@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/meetings/2026-06-17/">
+  <title>FET Monthly Meeting · June 17, 2026 · Changhua Bilingual Hub</title>
+  <meta name="description" content="Discussion highlights and photos from the Changhua Foreign English Teachers' monthly meeting on June 17, 2026.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="FET Monthly Meeting · June 17, 2026">
+  <meta property="og:description" content="Discussion highlights and photos from the Changhua FET monthly meeting.">
+  <meta property="og:image" content="/fets/meetings/2026-06-17/photos/p01.jpg">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <style>
+    /* ---------- Meeting page scoped styles ---------- */
+    .mtg-crumbs {
+      max-width: 1200px; margin: 0 auto; padding: 20px 24px 0;
+      font-size: .9rem; color: var(--hub-ink-faint);
+    }
+    .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
+    .mtg-crumbs a:hover { text-decoration: underline; }
+
+    /* Intro */
+    .mtg-intro { max-width: 760px; }
+    .mtg-intro .hub-eyebrow { color: var(--hub-accent); }
+    .mtg-lede { font-size: 1.12rem; line-height: 1.65; color: var(--hub-ink-soft); margin: 14px 0 6px; text-wrap: pretty; }
+    .mtg-lede-zh { font-family: var(--hub-zh-font); font-size: 1.02rem; line-height: 1.85; color: var(--hub-ink-faint); margin: 0; }
+    .mtg-meta-row { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 22px; }
+    .mtg-chip {
+      display:inline-flex; align-items:center; gap:7px;
+      background: var(--hub-line-soft); color: var(--hub-ink-soft);
+      padding: 7px 14px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+    }
+    .mtg-chip svg { width: 15px; height: 15px; stroke: var(--hub-primary); }
+
+    /* ---------- Carousel ---------- */
+    .carousel { position: relative; max-width: 1000px; margin: 0 auto; }
+    .carousel-frame {
+      position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden;
+      background: #11201f; box-shadow: 0 18px 48px -18px rgba(0,0,0,.45);
+    }
+    .carousel-track { position:absolute; inset:0; }
+    .carousel-slide {
+      position:absolute; inset:0; opacity:0; transform: scale(1.04);
+      transition: opacity .7s ease, transform 7s ease;
+      pointer-events:none;
+    }
+    .carousel-slide img { width:100%; height:100%; object-fit: cover; display:block; }
+    .carousel-slide.is-active { opacity:1; transform: scale(1); pointer-events:auto; }
+    .carousel-cap {
+      position:absolute; left:0; right:0; bottom:0;
+      padding: 46px 22px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0));
+      color:#fff; font-size: .98rem; line-height:1.5; font-weight: 500;
+      letter-spacing:.005em;
+    }
+    .carousel-btn {
+      position:absolute; top:50%; transform: translateY(-50%);
+      width:46px; height:46px; border-radius:50%; border:none; cursor:pointer;
+      background: rgba(255,255,255,.92); color: var(--hub-ink);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25); transition: background .15s, transform .15s; z-index:3;
+    }
+    .carousel-btn:hover { background:#fff; transform: translateY(-50%) scale(1.08); }
+    .carousel-btn svg { width:22px; height:22px; stroke: var(--hub-ink); stroke-width:2.4; fill:none; }
+    .carousel-btn--prev { left: 14px; }
+    .carousel-btn--next { right: 14px; }
+    .carousel-dots { display:flex; justify-content:center; gap:9px; margin-top:18px; flex-wrap:wrap; }
+    .carousel-dot {
+      width:9px; height:9px; border-radius:50%; border:none; cursor:pointer; padding:0;
+      background: var(--hub-line); transition: background .2s, transform .2s;
+    }
+    .carousel-dot.is-active { background: var(--hub-primary); transform: scale(1.35); }
+    .carousel-count {
+      position:absolute; top:14px; right:14px; z-index:3;
+      background: rgba(0,0,0,.5); color:#fff; font-size:.78rem; font-weight:600;
+      padding:4px 11px; border-radius:999px; letter-spacing:.04em;
+    }
+
+    /* ---------- Group summary ---------- */
+    .group-list { display:grid; gap: 22px; }
+    .group-card {
+      background:#fff; border:1px solid var(--hub-line); border-left: 5px solid var(--gc, var(--hub-primary));
+      border-radius: var(--hub-radius); padding: 26px 28px;
+      box-shadow: 0 4px 14px -8px rgba(0,0,0,.10);
+      opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease;
+    }
+    .group-card.is-in { opacity:1; transform:none; }
+    .group-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+    .group-badge {
+      flex:none; background: var(--gc, var(--hub-primary)); color:#fff;
+      font-size:.82rem; font-weight:700; letter-spacing:.06em;
+      padding:4px 11px; border-radius:7px;
+    }
+    .group-title { font-family: var(--hub-serif); font-size: 1.32rem; line-height:1.25; color: var(--hub-ink); margin:0; }
+    .group-sub { font-size:.86rem; color: var(--hub-ink-faint); margin: 2px 0 14px; font-weight:500; }
+    .group-card ul { margin: 0; padding-left: 1.15em; }
+    .group-card li { margin: 0 0 9px; line-height: 1.6; color: var(--hub-ink-soft); }
+    .group-card li:last-child { margin-bottom:0; }
+    .group-card li strong { color: var(--hub-ink); font-weight:600; }
+
+    .mtg-foot-note {
+      max-width: 760px; margin: 8px auto 0; text-align:center;
+      font-family: var(--hub-zh-font); color: var(--hub-ink-faint); font-size:.92rem; line-height:1.8;
+    }
+
+    @media (max-width: 640px) {
+      .carousel-btn { width:38px; height:38px; }
+      .carousel-cap { font-size:.9rem; padding: 38px 16px 14px; }
+      .group-card { padding: 22px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-slide { transition: opacity .3s ease; transform:none !important; }
+      .group-card { transition: none; opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<nav class="mtg-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; <a href="/fets/meetings/">Meetings</a> &nbsp;›&nbsp; June 17, 2026
+</nav>
+
+<section class="hub-section" style="padding-top:28px;padding-bottom:36px">
+  <div class="mtg-intro">
+    <p class="hub-eyebrow">Foreign English Teachers · Monthly Meeting</p>
+    <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.9rem);line-height:1.1;margin:.1em 0 0">FET Monthly Meeting<br>June 17, 2026</h1>
+    <p class="mtg-lede">Changhua's foreign English teachers came together for their monthly meeting. In small group discussions, each team shared the classroom strategies, activities, and tools that have worked for them — from culture and camps to AI-made games, storytelling, and sister-school partnerships. Here are the highlights.</p>
+    <p class="mtg-lede-zh">彰化縣外籍英語教師月會。各小組分享了行之有效的教學策略、活動與工具——以下為本次討論重點與活動相片。</p>
+    <div class="mtg-meta-row">
+      <span class="mtg-chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 17, 2026</span>
+      <span class="mtg-chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>8 group presentations</span>
+      <span class="mtg-chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Elementary &amp; Junior High Groups</span>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Photo carousel ---------- -->
+<section class="hub-section" style="padding-top:0;padding-bottom:48px">
+  <div class="carousel" aria-roledescription="carousel" aria-label="Meeting photos">
+    <div class="carousel-frame">
+      <span class="carousel-count"><span id="cur">1</span> / 12</span>
+      <div class="carousel-track" id="track">
+        <figure class="carousel-slide is-active"><img src="photos/p01.jpg" alt="Foreign English teachers gather for the June monthly meeting" loading="eager"><figcaption class="carousel-cap">Changhua's foreign English teachers gather for the June monthly meeting.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p02.jpg" alt="A group representative shares ideas" loading="lazy"><figcaption class="carousel-cap">A group representative shares their team's classroom ideas.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p03.jpg" alt="Small-group discussion" loading="lazy"><figcaption class="carousel-cap">Small-group discussion in full swing.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p04.jpg" alt="Presenting to the full room" loading="lazy"><figcaption class="carousel-cap">Presenting to the full room.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p05.jpg" alt="Teachers brainstorm activities together" loading="lazy"><figcaption class="carousel-cap">Teachers brainstorm activities together.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p06.jpg" alt="Exchanging strategies across tables" loading="lazy"><figcaption class="carousel-cap">Exchanging strategies across tables.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p07.jpg" alt="Sharing a group's key takeaways" loading="lazy"><figcaption class="carousel-cap">Sharing a group's key takeaways.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p08.jpg" alt="Collaboration and camaraderie" loading="lazy"><figcaption class="carousel-cap">Collaboration and camaraderie.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p09.jpg" alt="Comparing notes between schools" loading="lazy"><figcaption class="carousel-cap">Comparing notes between schools.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p10.jpg" alt="The full assembly of FETs" loading="lazy"><figcaption class="carousel-cap">The full assembly of foreign English teachers.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p11.jpg" alt="Hands-on group work" loading="lazy"><figcaption class="carousel-cap">Hands-on group work.</figcaption></figure>
+        <figure class="carousel-slide"><img src="photos/p12.jpg" alt="Wrapping up with shared resources" loading="lazy"><figcaption class="carousel-cap">Wrapping up with shared resources and ideas.</figcaption></figure>
+      </div>
+      <button class="carousel-btn carousel-btn--prev" aria-label="Previous photo"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="carousel-btn carousel-btn--next" aria-label="Next photo"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="carousel-dots" id="dots" role="tablist" aria-label="Choose photo"></div>
+  </div>
+</section>
+
+<!-- ---------- Discussion highlights ---------- -->
+<section class="hub-section" style="padding-top:8px">
+  <h2 class="hub-h2" style="font-family:var(--hub-serif)">Discussion Highlights <span style="font-family:var(--hub-zh-font);font-size:.62em;color:var(--hub-ink-faint);font-weight:400">討論重點</span></h2>
+  <p style="color:var(--hub-ink-soft);max-width:60ch;margin:8px 0 32px">What each group shared, in their own words — practical ideas you can adapt for your own classroom.</p>
+
+  <div class="group-list">
+
+    <article class="group-card" style="--gc:var(--c-orange)">
+      <div class="group-head">
+        <span class="group-badge">EG 1</span>
+        <h3 class="group-title">Bringing World Cultures &amp; Festivals into the Classroom</h3>
+      </div>
+      <p class="group-sub">For summer / winter camps and English Club classes</p>
+      <ul>
+        <li>Explored how to weave cultural traditions and festivals into lessons for summer and winter camps and English Club classes.</li>
+        <li><strong>Teacher Dan A.</strong> shared videos of his middle-grade students playing with a <em>piñata</em>, connecting the Mexican festival and birthday tradition to Filipino culture.</li>
+        <li><strong>Teacher Amelia W.</strong> walked through the process of making <em>guacamole</em>, a traditional dish from Mexico and Central and South America.</li>
+        <li>Both activities promote global partnership and cross-cultural understanding in the classroom.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-blue)">
+      <div class="group-head">
+        <span class="group-badge">EG 2</span>
+        <h3 class="group-title">Designing Summer &amp; Winter Camps + SUNO AI</h3>
+      </div>
+      <p class="group-sub">Nanxing Elementary School · "Sharing is Caring"</p>
+      <ul>
+        <li>Built camps around the UN Sustainable Development Goals: a <strong>Winter Camp on "Life Below Water" (SDG 14)</strong> and a <strong>Summer Camp on "Life on Land" (SDG 15)</strong>.</li>
+        <li>Design method: <strong>decide the final product first</strong> (e.g., a musical play, "The Ocean Protectors"), then plan backward from it.</li>
+        <li>Sample summer days — Day 1: animal classification (vertebrates vs. invertebrates; native wildlife like the Formosan rock macaque and pangolin) with clay sculpting; Day 2: diets &amp; food chains with 3D pop-up cards; Day 3: homes &amp; habitats (nests, burrows, dens, hives).</li>
+        <li>Every session threads five pillars: <strong>Vocabulary → Sentence Patterns → Science Connection → Creative Activity → Presentation Practice.</strong></li>
+        <li>Introduced <strong>SUNO AI</strong> (text-to-music) to boost vocabulary retention, model natural pronunciation and intonation, and lower students' anxiety through stress-free, song-based learning.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-green)">
+      <div class="group-head">
+        <span class="group-badge">EG 3</span>
+        <h3 class="group-title">Hosting Classroom Games with GitHub &amp; Gemini</h3>
+      </div>
+      <p class="group-sub">Ready-to-play games for the English Corner</p>
+      <ul>
+        <li>Used <strong>Google Gemini</strong> to generate single-file, browser-based HTML games — no installation needed, and easy to host and share on GitHub.</li>
+        <li>Showcased a finished <strong>"Travel Around the World"</strong> geography game where students complete challenges and design their own digital boarding pass.</li>
+        <li>Shared an <strong>"Everyday English"</strong> game for low-pressure practice in the classroom or English Corner.</li>
+        <li>Focused on showing the finished, playable product so colleagues can reuse and adapt resources rather than start from scratch.</li>
+        <li>Positioned GitHub + Gemini games as a practical, low-barrier resource for English Corner enrichment.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-purple)">
+      <div class="group-head">
+        <span class="group-badge">EG 4</span>
+        <h3 class="group-title">A Practical Workshop: Making Games with Gemini</h3>
+      </div>
+      <p class="group-sub">Write prompts instead of code</p>
+      <ul>
+        <li>A hands-on walkthrough teaching educators to create HTML games with Gemini instead of coding manually.</li>
+        <li>Workflow: open Gemini → write a detailed prompt → let it generate the HTML → paste into Notepad → save as an <code>.html</code> file → open in Chrome and play.</li>
+        <li>Prompt-writing tips: be clear and direct, keep instructions simple, and request big buttons, bright colors, clear text, sound effects, a scoring system, and full-screen display.</li>
+        <li>Always ask Gemini to put everything in one HTML file, tell it to fix any errors, and keep refining until the game matches your vision.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--hub-primary)">
+      <div class="group-head">
+        <span class="group-badge">EG 5</span>
+        <h3 class="group-title">Classroom Challenges &amp; Effective Interventions</h3>
+      </div>
+      <p class="group-sub">Real problems, practical responses</p>
+      <ul>
+        <li><strong>Tablet distraction</strong> (1:1 device setup): temporarily collect a misused iPad, return it to the charging cart until needed, and reinforce responsible-use expectations and consequences.</li>
+        <li><strong>Lessons delivered too fast</strong> (especially when moving from junior high to elementary): coordinate pacing with your co-teacher and adjust to students' comprehension level.</li>
+        <li><strong>Limited co-teacher coordination</strong> (FET left only a few minutes due to poor time management): discuss scheduling and pacing with co-teachers, and raise it with administrators if it continues.</li>
+        <li><strong>Teasing during group work</strong> when a student can't answer: set clear expectations for respectful teamwork, emphasize collaboration and mutual support, and involve the homeroom teacher for added behavioral support.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-orange)">
+      <div class="group-head">
+        <span class="group-badge">EG 6</span>
+        <h3 class="group-title">Building Global Connections: ESL Through Sister-School Partnerships</h3>
+      </div>
+      <p class="group-sub">Theories · suggested activities · school events</p>
+      <ul>
+        <li>Framed sister-school partnerships to give learners confidence and a real audience for their English.</li>
+        <li>Exchanged student <strong>self-introduction videos</strong> between Siang Tian Elementary (Taiwan) and Senior Tesoro Academy (Philippines).</li>
+        <li>Spotlighted <strong>"English Day"</strong> as a sister-school program: students write postcards, make short videos, hold real-life conversations, and compare English Day in Taiwan vs. the partner school.</li>
+        <li>Compared signature events — Taiwan's <strong>Sports Day</strong> (relays, tug-of-war, novelty games, parent and teacher participation) and the Philippines' <strong>Foundation Day &amp; Intramurals</strong> (cultural shows, sports fests, parades).</li>
+        <li>Suggested cross-school activities: virtual vocabulary lessons, a mock sports day, cultural-share sessions, live watch parties, and cultural-exchange blogs via Google Classroom.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-blue)">
+      <div class="group-head">
+        <span class="group-badge">JG 1</span>
+        <h3 class="group-title">English Club: Movie Watching &amp; Voice Dubbing</h3>
+      </div>
+      <p class="group-sub">Building speaking confidence through movies</p>
+      <ul>
+        <li>An English Club activity that builds speaking and listening through movies and voice acting.</li>
+        <li>Steps: watch an engaging English movie or scene → answer comprehension questions on a worksheet → read the script aloud together → record (dub) their own voices over the characters.</li>
+        <li>Goals: check understanding and new vocabulary, practice clear pronunciation, pacing, and intonation, and build speaking confidence and fluency in a fun, low-pressure way.</li>
+      </ul>
+    </article>
+
+    <article class="group-card" style="--gc:var(--c-green)">
+      <div class="group-head">
+        <span class="group-badge">JG 2</span>
+        <h3 class="group-title">Storytelling Frameworks &amp; a Teacher-Led Digital Library</h3>
+      </div>
+      <p class="group-sub">Multi-sensory reading beyond rote</p>
+      <ul>
+        <li>Explored multi-sensory storybook teaching that goes beyond rote reading to build conceptual mastery.</li>
+        <li><strong>Wordless / sequential-illustration books:</strong> with no pre-written text, students become the narrators — interpreting illustrations, discussing spontaneously, and turning visual clues into English sentences (building critical thinking).</li>
+        <li><strong>Concept-integrated storytelling:</strong> teach background knowledge first (e.g., habitats, animal adaptations), then apply it to understand and discuss the story (sample units on forests, grasslands, deserts, farms, oceans, and "what if animals wore clothes").</li>
+        <li>Proposed a district-wide, open-access cloud <strong>Digital Library</strong>: foreign teachers scan, categorize, and upload useful storybooks and lesson guides to share resources with one another.</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <p class="mtg-foot-note">感謝所有外師的精彩分享。下次月會見！ · Thank you to every teacher who shared. See you at the next meeting.</p>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+<script>
+(function(){
+  var track = document.getElementById('track');
+  if(!track) return;
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.carousel-slide'));
+  var dotsWrap = document.getElementById('dots');
+  var curEl = document.getElementById('cur');
+  var n = slides.length, idx = 0, timer = null;
+
+  slides.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.className = 'carousel-dot' + (i===0?' is-active':'');
+    b.setAttribute('aria-label', 'Photo ' + (i+1));
+    b.addEventListener('click', function(){ go(i); reset(); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function go(i){
+    idx = (i + n) % n;
+    slides.forEach(function(s,j){ s.classList.toggle('is-active', j===idx); });
+    dots.forEach(function(d,j){ d.classList.toggle('is-active', j===idx); });
+    if(curEl) curEl.textContent = idx+1;
+  }
+  function next(){ go(idx+1); }
+  function prev(){ go(idx-1); }
+  function reset(){ stop(); start(); }
+  function start(){ timer = setInterval(next, 5000); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+
+  document.querySelector('.carousel-btn--next').addEventListener('click', function(){ next(); reset(); });
+  document.querySelector('.carousel-btn--prev').addEventListener('click', function(){ prev(); reset(); });
+
+  var car = document.querySelector('.carousel');
+  car.addEventListener('mouseenter', stop);
+  car.addEventListener('mouseleave', start);
+  car.setAttribute('tabindex','0');
+  car.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'){ next(); reset(); }
+    else if(e.key==='ArrowLeft'){ prev(); reset(); }
+  });
+
+  // touch swipe
+  var x0 = null;
+  car.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; stop(); }, {passive:true});
+  car.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx)>40){ dx<0 ? next() : prev(); }
+    x0 = null; start();
+  });
+
+  if(!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches){ start(); }
+
+  // reveal group cards on scroll
+  var cards = document.querySelectorAll('.group-card');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    cards.forEach(function(c){ io.observe(c); });
+  } else {
+    cards.forEach(function(c){ c.classList.add('is-in'); });
+  }
+})();
+</script>
+</body>
+</html>
