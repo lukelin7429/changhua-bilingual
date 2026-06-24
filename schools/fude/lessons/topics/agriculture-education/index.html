@@ -115,6 +115,36 @@ section:last-of-type{border-bottom:none;}
 .news-quote__en{font-size:19px;font-weight:600;color:var(--ink);line-height:1.65;font-style:italic;}
 .news-quote__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.85;}
 
+/* hero photo strip */
+.hero-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:40px 0 0;}
+.hero-photo-main{grid-column:span 2;border-radius:16px;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 40%;box-shadow:var(--shadow-sm);}
+.hero-photo-sm{border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-sm);}
+@media(max-width:600px){.hero-photos{grid-template-columns:1fr;}.hero-photo-main{grid-column:span 1;aspect-ratio:4/3;}}
+
+/* plant vocab game */
+.pg-wrap{background:var(--soil-soft);border-radius:24px;padding:36px 28px;max-width:720px;margin:0 auto;}
+.pg-bar{height:10px;background:#ddd;border-radius:5px;margin-bottom:12px;overflow:hidden;}
+.pg-bar-fill{height:100%;background:var(--soil);border-radius:5px;transition:width .4s;}
+.pg-score-line{text-align:center;font-size:18px;color:var(--soil-deep);font-weight:700;margin-bottom:20px;}
+.pg-clue{background:#fff;border-radius:18px;padding:28px 22px;margin-bottom:24px;border-left:5px solid var(--soil);text-align:center;}
+.pg-clue-icon{font-size:52px;display:block;margin-bottom:12px;}
+.pg-clue-text{font-size:22px;font-weight:700;color:var(--ink);line-height:1.65;}
+@media(min-width:640px){.pg-clue-text{font-size:26px;}}
+.pg-clue-text .pg-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:600;color:var(--ink-soft);margin-top:10px;}
+.pg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pg-btn{padding:20px 14px;border:3px solid transparent;border-radius:18px;font-weight:700;cursor:pointer;color:#fff;text-align:center;transition:transform .1s;}
+.pg-btn:active{transform:scale(.96);}
+.pg-btn-icon{font-size:34px;display:block;margin-bottom:8px;}
+.pg-btn-en{display:block;font-size:24px;font-weight:700;}
+.pg-btn-zh{display:block;font-size:17px;opacity:.9;margin-top:4px;}
+.pg-fb{text-align:center;font-size:22px;font-weight:700;min-height:38px;margin-top:18px;}
+.pg-end{text-align:center;padding:20px 0;}
+.pg-end-star{font-size:64px;}
+.pg-end-num{font-size:52px;font-weight:700;color:var(--soil-deep);margin:8px 0;}
+.pg-end-msg{font-size:22px;color:var(--ink);margin-bottom:24px;line-height:1.6;}
+.pg-replay{background:var(--soil);color:#fff;border:none;padding:16px 36px;border-radius:16px;font-size:22px;font-weight:700;cursor:pointer;}
+.pg-replay:hover{background:var(--soil-deep);}
+
 .rvl{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
 .rvl.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -153,6 +183,17 @@ footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);
     </div>
   </div>
 </header>
+
+<!-- HERO PHOTO STRIP -->
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="hero-photos">
+      <img class="hero-photo-main" src="agri-wide-1.jpg" alt="一年級同學親手拔蘿蔔" loading="eager">
+      <img class="hero-photo-sm" src="agri-9.jpg" alt="師生共同在農園活動" loading="eager">
+      <img class="hero-photo-sm" src="agri-wide-2.jpg" alt="親子一起參與收成" loading="eager">
+    </div>
+  </div>
+</section>
 
 <!-- INTRO -->
 <section>
@@ -217,6 +258,19 @@ footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);
           <div class="journey-step__desc">The final step: students cook and eat what they have grown. Tasting the results of their own work is the most powerful lesson of all.<span class="zh">最後一步：學生烹飪並品嚐自己種出來的食物。親手種、親手吃，是最有力量的一課。</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANT VOCAB GAME -->
+<section>
+  <div class="wrap">
+    <div class="sec__label rvl">Word Game · 單字遊戲</div>
+    <h2 class="sec__title rvl">Plant Parts Challenge</h2>
+    <div class="sec__title-zh rvl">猜猜我是什麼植物部位？</div>
+    <div class="sec__rule rvl"></div>
+    <div class="pg-wrap rvl">
+      <div id="pg-inner"></div>
     </div>
   </div>
 </section>
@@ -320,6 +374,85 @@ footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+
+<script>
+(function(){
+  var WORDS=[
+    {en:'seed',    zh:'種子', icon:'🌰'},
+    {en:'root',    zh:'根',   icon:'🪴'},
+    {en:'stem',    zh:'莖',   icon:'🌿'},
+    {en:'leaf',    zh:'葉子', icon:'🍃'},
+    {en:'flower',  zh:'花',   icon:'🌸'},
+    {en:'fruit',   zh:'果實', icon:'🍎'},
+    {en:'soil',    zh:'土壤', icon:'🌱'},
+    {en:'sunlight',zh:'陽光', icon:'☀️'},
+    {en:'water',   zh:'水',   icon:'💧'},
+    {en:'compost', zh:'堆肥', icon:'♻️'}
+  ];
+  var QS=[
+    {desc:'I am tiny. Plant me in the soil and a new plant will grow!<span class="pg-zh">把我種進土裡，一棵新的植物就誕生了！</span>',ans:0},
+    {desc:'I live underground and drink water for the whole plant.<span class="pg-zh">我住在地底下，幫整株植物喝水。</span>',ans:1},
+    {desc:'I stand tall and carry water from the roots up to the leaves.<span class="pg-zh">我挺直站立，把水從根送到葉子。</span>',ans:2},
+    {desc:'I am flat and green. I use sunlight to make food for the plant.<span class="pg-zh">我又平又綠，用陽光幫植物製造食物。</span>',ans:3},
+    {desc:'I am colorful and sweet-smelling. I will turn into a fruit!<span class="pg-zh">我五顏六色又香香的，我會變成果實！</span>',ans:4},
+    {desc:'I grow after the flower. I have seeds inside me.<span class="pg-zh">我在花之後長出來，裡面有種子。</span>',ans:5},
+    {desc:'I am the rich dark ground where plants grow and get their food.<span class="pg-zh">我是植物生長的地方，給它們食物和家。</span>',ans:6},
+    {desc:'I shine from the sky. Leaves need me to make food. Without me, plants cannot grow.<span class="pg-zh">我從天空照下來，葉子需要我製造食物。</span>',ans:7},
+    {desc:'Roots drink me every day. Without me, plants will dry out and die.<span class="pg-zh">根每天都在喝我，沒有我植物就會枯死。</span>',ans:8},
+    {desc:'I am made from old leaves and eggshells. I make the soil richer!<span class="pg-zh">我由落葉和蛋殼做成，讓土壤更肥沃！</span>',ans:9}
+  ];
+  var COLORS=['#3a86c8','#d4820a','#2a9e5c','#c0397a'];
+  var DARKS= ['#2a6599','#a36108','#1e7543','#902b5a'];
+
+  var questions,qi,score,locked;
+
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  function init(){questions=shuffle(QS).slice(0,8);qi=0;score=0;locked=false;render();}
+
+  function render(){
+    var w=document.getElementById('pg-inner');
+    if(!w)return;
+    if(qi>=questions.length){
+      var pct=Math.round(score/questions.length*100);
+      var star=pct>=80?'🌟':pct>=60?'🌿':'🌱';
+      var msg=pct>=80?'Excellent! You\'re a plant expert!<br>你是植物達人！':pct>=60?'Good job! Keep growing!<br>做得很好，繼續加油！':'Keep practicing!<br>再練習一下！';
+      w.innerHTML='<div class="pg-end"><div class="pg-end-star">'+star+'</div><div class="pg-end-num">'+score+' / '+questions.length+'</div><div class="pg-end-msg">'+msg+'</div><button class="pg-replay" onclick="pgStart()">Play Again · 再玩一次</button></div>';
+      return;
+    }
+    var q=questions[qi];
+    var choices=shuffle([WORDS[q.ans]].concat(shuffle(WORDS.filter(function(_,i){return i!==q.ans;})).slice(0,3)));
+    var btns=choices.map(function(wd,i){
+      var wi=WORDS.indexOf(wd);
+      return '<button class="pg-btn" style="background:'+COLORS[i]+';border-color:'+DARKS[i]+';" onclick="pgAns('+wi+')">'+
+        '<span class="pg-btn-icon">'+wd.icon+'</span>'+
+        '<span class="pg-btn-en">'+wd.en+'</span>'+
+        '<span class="pg-btn-zh">'+wd.zh+'</span>'+
+      '</button>';
+    }).join('');
+    var pct=Math.round(qi/questions.length*100);
+    w.innerHTML=
+      '<div class="pg-bar"><div class="pg-bar-fill" style="width:'+pct+'%"></div></div>'+
+      '<div class="pg-score-line">Question '+(qi+1)+' / '+questions.length+' &nbsp;·&nbsp; Score: '+score+'</div>'+
+      '<div class="pg-clue"><span class="pg-clue-icon">🌱</span><div class="pg-clue-text">'+q.desc+'</div></div>'+
+      '<div class="pg-grid">'+btns+'</div>'+
+      '<div class="pg-fb" id="pg-fb"></div>';
+    locked=false;
+  }
+
+  window.pgAns=function(idx){
+    if(locked)return;locked=true;
+    var q=questions[qi];
+    var fb=document.getElementById('pg-fb');
+    if(idx===q.ans){score++;fb.innerHTML='✅ Correct! <strong>'+WORDS[idx].en+'</strong> = '+WORDS[idx].zh;fb.style.color='#2a9e5c';}
+    else{fb.innerHTML='❌ Answer: <strong>'+WORDS[q.ans].en+'</strong> = '+WORDS[q.ans].zh;fb.style.color='#c0392b';}
+    qi++;
+    setTimeout(render,1600);
+  };
+  window.pgStart=init;
+  init();
 })();
 </script>
 </body>
