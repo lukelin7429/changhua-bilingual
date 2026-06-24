@@ -1,0 +1,181 @@
+/* =====================================================================
+   Dongfang Elementary — motion layer  (motion.css)
+   Loaded on every page. Big, lively, obvious — but tasteful.
+   Initial-hidden states applied by motion.js ONLY; without JS the page
+   renders fully visible. Honors prefers-reduced-motion.
+   Palette: grass (#2f9e44), sun (#e8980c), sky (#2f7fc4), flame (#e8472b).
+   ===================================================================== */
+
+/* ---- scroll progress bar ---------------------------------------- */
+#mo-progress{
+  position:fixed;top:0;left:0;height:4px;width:0;z-index:300;
+  background:linear-gradient(90deg,#1c6b34,#2f9e44 40%,#e8980c 75%,#a86a00);
+  box-shadow:0 0 16px rgba(232,152,12,.65);
+  transition:width .12s linear;pointer-events:none;
+}
+
+/* ---- scroll-reveal: base + directional variants ----------------- */
+.mo{
+  opacity:0;will-change:opacity,transform,filter;
+  transition:opacity .75s cubic-bezier(.2,.7,.2,1),
+             transform .75s cubic-bezier(.2,.7,.2,1),
+             filter .75s ease;
+}
+.mo-up{transform:translateY(46px);}
+.mo-left{transform:translateX(-54px);}
+.mo-right{transform:translateX(54px);}
+.mo-zoom{transform:scale(.86);}
+.mo-pop{transform:scale(.7);}
+.mo-blur{filter:blur(13px);transform:translateY(26px);}
+.mo.mo-in{opacity:1;transform:none;filter:none;}
+
+/* ---- hero: staggered entrance of headline content --------------- */
+.mo-hero{position:relative;z-index:2;}
+.mo-hero > *:not(.mo-orbs){
+  position:relative;z-index:1;
+  opacity:0;transform:translateY(34px) scale(.97);filter:blur(8px);
+  animation:moHeroIn 1.05s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes moHeroIn{to{opacity:1;transform:none;filter:none;}}
+
+
+/* ---- hero: drifting ambient orbs (pure decoration) -------------- */
+.mo-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.mo-orb{
+  position:absolute;border-radius:50%;filter:blur(36px);opacity:.55;
+  animation:moDrift ease-in-out infinite;
+}
+@keyframes moDrift{
+  0%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(var(--dx,30px),var(--dy,-26px)) scale(1.28);}
+  100%{transform:translate(0,0) scale(1);}
+}
+
+/* ---- topbar nav: animated underline ----------------------------- */
+.topbar-nav a{position:relative;}
+.topbar-nav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2.5px;border-radius:2px;
+  background:linear-gradient(90deg,#2f9e44,#e8980c);
+  transition:right .3s cubic-bezier(.2,.7,.2,1);
+}
+.topbar-nav a:hover::after,
+.topbar-nav a.is-active::after{right:0;}
+
+/* ---- perpetual gentle bob on emoji art (alive at rest) ---------- */
+.pillar .ic,.unit__emoji{
+  animation:moBob 4.5s ease-in-out infinite;display:inline-block;
+}
+.pillar:nth-child(2) .ic{animation-delay:.9s;}
+.pillar:nth-child(3) .ic{animation-delay:1.7s;}
+.pillar:nth-child(4) .ic{animation-delay:2.4s;}
+@keyframes moBob{
+  0%,100%{transform:translateY(0) rotate(0);}
+  50%{transform:translateY(-10px) rotate(-4deg);}
+}
+.unit:hover .unit__emoji{animation:none;}
+
+/* ---- pillar cards: rich hover (color + glow + lift) ------------- */
+.pillar{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),
+             box-shadow .35s,border-color .35s,background .35s!important;
+}
+.pillar:nth-child(1):hover{
+  transform:translateY(-10px) scale(1.03)!important;
+  background:var(--grass-soft)!important;
+  box-shadow:0 30px 60px -18px rgba(28,107,52,.45)!important;
+}
+.pillar:nth-child(2):hover{
+  transform:translateY(-10px) scale(1.03)!important;
+  background:var(--sun-soft)!important;
+  box-shadow:0 30px 60px -18px rgba(168,106,0,.35)!important;
+}
+.pillar:nth-child(3):hover{
+  transform:translateY(-10px) scale(1.03)!important;
+  background:var(--sky-soft)!important;
+  box-shadow:0 30px 60px -18px rgba(31,90,145,.35)!important;
+}
+.pillar:nth-child(4):hover{
+  transform:translateY(-10px) scale(1.03)!important;
+  background:var(--flame-soft)!important;
+  box-shadow:0 30px 60px -18px rgba(182,47,26,.35)!important;
+}
+
+/* ---- unit cards (lessons hub): lift + emoji bounce on hover ----- */
+.unit{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),
+             box-shadow .35s!important;
+}
+.unit:hover{
+  transform:translateY(-10px) scale(1.025)!important;
+  box-shadow:0 32px 56px -18px rgba(28,77,40,.4)!important;
+}
+
+/* ---- ocard / contact buttons ------------------------------------ */
+.ocard{
+  transition:background .25s,transform .25s,box-shadow .25s,color .25s!important;
+}
+.ocard:hover{
+  transform:translateY(-5px) scale(1.02)!important;
+  box-shadow:0 18px 38px -10px rgba(28,77,40,.35)!important;
+}
+
+/* ---- feat__cta button: grow + glow on hover --------------------- */
+.feat__cta{
+  transition:background .25s,transform .25s,box-shadow .25s!important;
+}
+.feat__cta:hover{
+  transform:translateY(-3px) scale(1.04)!important;
+  box-shadow:0 14px 30px -8px rgba(28,77,40,.5)!important;
+}
+
+/* ---- teaser__cta ------------------------------------------------ */
+.teaser__cta{
+  transition:background .25s,transform .25s,box-shadow .25s!important;
+}
+.teaser__cta:hover{
+  transform:translateY(-4px) scale(1.04)!important;
+  box-shadow:0 16px 34px -10px rgba(28,77,40,.45)!important;
+}
+
+/* ---- spotlight: gentle parallax shift on hover ------------------ */
+.spotlight{transition:box-shadow .35s;}
+.spotlight:hover{box-shadow:0 32px 70px -22px rgba(28,77,40,.4);}
+
+/* ---- fact strip: glow on hover ---------------------------------- */
+.fact{transition:background .2s;}
+.fact:hover{background:rgba(255,255,255,.22);}
+
+/* ---- back-to-top floating button -------------------------------- */
+#mo-top{
+  position:fixed;right:22px;bottom:22px;z-index:200;
+  width:52px;height:52px;border:0;cursor:pointer;border-radius:50%;
+  background:var(--grass-deep,#1c6b34);color:#fff;
+  font-size:24px;line-height:50px;text-align:center;font-family:inherit;
+  box-shadow:0 10px 28px -8px rgba(28,107,52,.65);
+  opacity:0;transform:translateY(22px) scale(.6);pointer-events:none;
+  transition:opacity .3s,transform .3s,background .25s;
+}
+#mo-top.mo-show{opacity:.97;transform:none;pointer-events:auto;}
+#mo-top:hover{
+  background:var(--sun-deep,#a86a00);
+  transform:translateY(-4px) scale(1.1);
+}
+
+/* ---- speak buttons: pulse while playing ------------------------- */
+.say.mo-playing,.speak.mo-playing,.sow__say.mo-playing{
+  animation:moPulse .8s ease infinite;
+}
+@keyframes moPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+
+/* ---- reduced motion: disable everything ------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .mo{opacity:1!important;transform:none!important;filter:none!important;}
+  .mo-hero > *:not(.mo-orbs){
+    animation:none!important;opacity:1!important;transform:none!important;filter:none!important;
+  }
+  .mo-orb,.pillar .ic,.unit__emoji{animation:none!important;}
+  #mo-progress,#mo-top{display:none!important;}
+  .pillar:hover,.unit:hover,.ocard:hover,.feat__cta:hover,.teaser__cta:hover{
+    transform:none!important;
+  }
+}
