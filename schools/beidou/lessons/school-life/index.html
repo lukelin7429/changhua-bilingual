@@ -121,31 +121,19 @@
 
   .draft{background:#fff3cd;border-bottom:1px solid #ffe69c;color:#8a6d00;text-align:center;padding:10px 16px;font-size:16px;font-weight:700;}
 
-  /* ===== Unified audio button ===== */
-  .ply{margin-top:14px;}
+  /* ===== Single audio button (Play → Pause → Stop cycle) ===== */
+  .ply{display:inline-block;margin-top:14px;}
   .ply__btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;border:0;border-radius:999px;padding:12px 22px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;}
   @media (min-width:720px){ .ply__btn{ font-size:19px; } }
-  .ply__btn:hover{background:var(--green-deep);}
-  .ply__btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
-  .ply__player{margin-top:10px;}
-  .ply__player iframe{width:100%;border:0;border-radius:10px;display:block;}
-  .ply__player audio{width:100%;}
-  .ply__ic--stop{display:none;}
-  .ply__btn.is-playing{background:var(--red);}
-  .ply__btn.is-playing .ply__ic--play{display:none;}
-  .ply__btn.is-playing .ply__ic--stop{display:inline-block;}
-  .ply{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px;}
-  .ply__main,.ply__stop{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;padding:12px 22px;transition:background .15s;color:#fff;}
-  @media (min-width:720px){ .ply__main,.ply__stop{ font-size:19px; } }
-  .ply__main{background:var(--green);}
-  .ply__main:hover{background:var(--green-deep);}
-  .ply.is-playing .ply__main,.ply.is-paused .ply__main{background:var(--gold-deep);}
-  .ply__stop{background:var(--red);}
-  .ply__stop:hover{background:var(--red-deep);}
+  .ply__btn:hover{filter:brightness(.9);}
+  .ply__btn.is-playing{background:var(--gold-deep);}
+  .ply__btn.is-paused{background:var(--red);}
   .ply__ic{width:18px;height:18px;fill:#fff;flex-shrink:0;}
-  .ply__ic--pause{display:none;}
-  .ply.is-playing .ply__ic--play{display:none;}
-  .ply.is-playing .ply__ic--pause{display:inline-block;}
+  .ply__ic--pause,.ply__ic--stop{display:none;}
+  .ply__btn.is-playing .ply__ic--play{display:none;}
+  .ply__btn.is-playing .ply__ic--pause{display:inline-block;}
+  .ply__btn.is-paused .ply__ic--play{display:none;}
+  .ply__btn.is-paused .ply__ic--stop{display:inline-block;}
 </style>
 </head>
 <body>
@@ -281,7 +269,7 @@ const DATA=[
    fill:["The students ____ the street to get to school.","過馬路"]},
 ];
 const PID="619e24bb-df9c-4d1d-b180-184d994dd484";
-const audioHTML=d=>{var src='audio/'+d.img.split('/').pop().replace(/\.[a-z]+$/i,'.m4a');return '<div class="ply" data-src="'+src+'"><button class="ply__main" type="button"><svg class="ply__ic ply__ic--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><svg class="ply__ic ply__ic--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg><span class="ply__txt">聽發音 Listen</span></button><button class="ply__stop" type="button" hidden><svg class="ply__ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span>停止 Stop</span></button></div>';};
+const audioHTML=d=>{var src='audio/'+d.img.split('/').pop().replace(/\.[a-z]+$/i,'.m4a');return '<div class="ply" data-src="'+src+'"><button class="ply__btn" type="button"><svg class="ply__ic ply__ic--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><svg class="ply__ic ply__ic--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg><svg class="ply__ic ply__ic--stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span class="ply__txt">聽發音 Listen</span></button></div>';};
 
 // Word cards
 document.getElementById('words').innerHTML=DATA.map(d=>`
@@ -346,7 +334,7 @@ function renderF(){
 document.getElementById('fNext').addEventListener('click',()=>{fi=(fi+1)%fOrder.length;if(fi===0)fOrder=shuf(fOrder);renderF();});
 renderF();
 
-(function(){var cur=null;function txt(p,s){p.querySelector('.ply__txt').textContent=s;}function showStop(p,on){var b=p.querySelector('.ply__stop');if(b)b.hidden=!on;}function reset(p){p.classList.remove('is-playing','is-paused');txt(p,'聽發音 Listen');showStop(p,false);}function stopCur(){if(cur){cur.audio.pause();cur.audio.currentTime=0;reset(cur.ply);cur=null;}}document.addEventListener('click',function(e){var st=e.target.closest&&e.target.closest('.ply__stop');if(st){if(cur&&cur.ply===st.parentElement)stopCur();return;}var mn=e.target.closest&&e.target.closest('.ply__main');if(!mn)return;var p=mn.parentElement;if(cur&&cur.ply===p){if(cur.audio.paused){cur.audio.play();p.classList.remove('is-paused');p.classList.add('is-playing');txt(p,'暫停 Pause');}else{cur.audio.pause();p.classList.remove('is-playing');p.classList.add('is-paused');txt(p,'繼續 Resume');}return;}stopCur();var au=p._audio;if(!au){au=new Audio(p.dataset.src);p._audio=au;au.addEventListener('ended',function(){if(cur&&cur.ply===p){reset(p);cur=null;}});}au.currentTime=0;au.play();cur={ply:p,audio:au};p.classList.add('is-playing');txt(p,'暫停 Pause');showStop(p,true);});})();
+(function(){var cur=null;function txt(b,s){b.querySelector('.ply__txt').textContent=s;}function reset(b){b.classList.remove('is-playing','is-paused');txt(b,'聽發音 Listen');}function stopCur(){if(cur){cur.audio.pause();cur.audio.currentTime=0;reset(cur.btn);cur=null;}}document.addEventListener('click',function(e){var btn=e.target.closest&&e.target.closest('.ply__btn');if(!btn)return;var ply=btn.closest('.ply');if(cur&&cur.btn===btn){if(!cur.audio.paused){cur.audio.pause();btn.classList.remove('is-playing');btn.classList.add('is-paused');txt(btn,'停止 Stop');}else{stopCur();}return;}stopCur();var au=ply._audio;if(!au){au=new Audio(ply.dataset.src);ply._audio=au;au.addEventListener('ended',function(){if(cur&&cur.btn===btn){reset(btn);cur=null;}});}au.currentTime=0;au.play();cur={btn:btn,audio:au};btn.classList.add('is-playing');txt(btn,'暫停 Pause');});})();
 </script>
 </body>
 </html>
