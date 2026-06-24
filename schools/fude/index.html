@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://fude.mycultureconnect.org/">
+<title>Fude Elementary School · 彰化縣永靖鄉福德國民小學</title>
+<meta name="description" content="Fude Elementary School — a community school in Yongjing Township, Changhua, rooted in temple tradition and growing toward the world through bilingual education, traditional drum arts, and food education. 彰化縣永靖鄉福德國民小學 — 福德爺守護下的社區小學，傳統跳鼓陣、黃豆食農教育、雙語社區共讀，根扎永靖，心連世界。">
+<meta property="og:title" content="Fude Elementary School · 彰化縣永靖鄉福德國民小學">
+<meta property="og:description" content="Rooted in tradition, growing toward the world · 傳統為根，世界為家">
+<meta property="og:image" content="photos/school-front.png">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/fude/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/fude/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/fude/favicon-180.png">
+<link rel="shortcut icon" href="/schools/fude/favicon.ico">
+
+<style>
+  :root{
+    /* Fude palette — drawn from the Land God's colours: Temple gold · Blessing red · Earth green · Sky blue */
+    --brick:#B5261A;
+    --brick-deep:#821A10;
+    --brick-soft:#F9E8E6;
+    --azure:#1565A8;
+    --azure-deep:#0A3C66;
+    --azure-soft:#DBE8F4;
+    --gold:#C8963A;
+    --gold-deep:#7A5A17;
+    --gold-soft:#F5EDD4;
+    --green:#4E9A4A;
+    --green-deep:#2C6B2A;
+    --green-soft:#E2F0DD;
+    --cream:#ffffff;
+    --ink:#1C1C1E;
+    --ink-soft:#5B5E65;
+    --line:#E7DED7;
+    --max:1140px;
+    --shadow:0 14px 40px -16px rgba(130,26,16,.24);
+    --shadow-sm:0 4px 14px -4px rgba(130,26,16,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+    color:var(--ink);background:#fff;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--azure);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* ── TOPBAR ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
+  .topbar-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover;background:#e8c97a;}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18.7px;font-weight:700;color:var(--brick-deep);line-height:1.15;}
+  .topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{font-size:18.2px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
+  .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brick-deep);background:var(--brick-soft);}
+  @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
+
+  /* ── HERO TITLE ── */
+  .title{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(40,10,4,0) 0%, rgba(40,10,4,0) 40%, rgba(40,10,4,.65) 100%),
+      url('photos/campus-field.png') center 40% / cover no-repeat;
+    text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);
+    padding:96px 0 72px;text-align:center;color:#fff;
+    border-bottom:5px solid var(--gold);
+  }
+  .title__eyebrow{
+    display:inline-block;font-size:16px;letter-spacing:.28em;
+    color:var(--gold-soft);font-weight:700;text-transform:uppercase;
+    margin-bottom:20px;text-shadow:0 1px 6px rgba(0,0,0,.4);
+  }
+  .title h1{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(48.4px,7vw,79.2px);
+    line-height:1.08;font-weight:600;letter-spacing:.005em;
+    color:#fff;margin-bottom:8px;text-shadow:0 2px 14px rgba(0,0,0,.45);
+  }
+  .title .h1-zh{
+    font-size:clamp(22px,2.6vw,28.6px);font-weight:500;letter-spacing:.06em;
+    color:rgba(255,255,255,.92);margin-top:12px;
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 8px rgba(0,0,0,.4);
+  }
+  .title__divider{width:60px;height:2px;background:var(--gold);margin:24px auto 18px;border:0;}
+  .title__tagline{
+    max-width:640px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:23.1px;color:rgba(255,255,255,.96);line-height:1.55;
+    text-shadow:0 1px 8px rgba(0,0,0,.42);
+  }
+  .title__tagline .tagline-zh{
+    display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
+    font-size:18.7px;margin-top:8px;color:rgba(255,255,255,.82);letter-spacing:.05em;
+  }
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    max-width:860px;margin:38px auto 0;
+    background:rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.18);
+    border-bottom:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
+  }
+  .stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .stat:last-child{border-right:none;}
+  .stat__label-en{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.02em;color:#fff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+  .stat__label-zh{font-size:16px;margin-top:8px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  @media (max-width:880px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .stat:nth-child(2){border-right:none;}
+    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16);}
+  }
+
+  /* ── SECTION BASE ── */
+  section{padding:90px 0;}
+  .section-head{text-align:center;margin-bottom:60px;}
+  .section-head .eyebrow{
+    display:inline-block;color:var(--brick);font-size:16.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond','PingFang TC',serif;
+    font-size:clamp(46.2px,6vw,68.2px);font-weight:600;color:var(--brick-deep);line-height:1.2;margin-bottom:8px;
+  }
+  .section-head .h2-zh{
+    font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    font-size:24.8px;color:var(--ink-soft);font-weight:500;letter-spacing:.04em;
+  }
+  .section-head .lede{color:var(--ink-soft);font-size:21.5px;max-width:660px;margin:18px auto 0;}
+
+  /* ── ABOUT ── */
+  .about{background:#fff;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .about-photos{display:grid;grid-template-rows:auto auto;gap:14px;}
+  .about-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo .badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--gold);color:#fff;
+    padding:5px 12px;border-radius:99px;
+    font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .about-photo .caption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(0deg,rgba(40,10,4,.85) 0%,transparent 100%);
+    color:#fff;padding:18px 16px 12px;font-size:17.1px;font-family:'PingFang TC',sans-serif;
+  }
+  .about-photo .caption .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:19.2px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
+  .about-text h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:41.2px;color:var(--brick-deep);line-height:1.25;margin-bottom:18px;font-weight:600;}
+  .about-text .en{font-size:22px;color:var(--ink);margin-bottom:18px;}
+  .about-text .zh-divider{height:1px;background:var(--line);margin:24px 0;position:relative;}
+  .about-text .zh-divider::before{
+    content:"中文";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;padding:0 14px;
+    font-size:16px;color:var(--ink-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .about-text .zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:21.5px;color:var(--ink);line-height:1.85;}
+  .about-text .quick{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:26px;box-shadow:var(--shadow-sm);}
+  .about-text .quick dt{font-size:16px;font-weight:700;color:var(--brick);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;}
+  .about-text .quick dd{font-size:19.8px;color:var(--ink);margin:2px 0 12px;font-family:'PingFang TC',sans-serif;}
+  .about-text .quick dd:last-child{margin-bottom:0;}
+
+  /* ── IDENTITY — 3 Pillars ── */
+  .identity{background:linear-gradient(180deg,var(--cream) 0%,var(--brick-soft) 100%);}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .pillar{
+    background:#fff;border-radius:18px;padding:36px 30px 32px;
+    border:1px solid var(--line);box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+  }
+  .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .pillar .icon{
+    width:54px;height:54px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:28.6px;font-weight:700;font-family:'Cormorant Garamond','PingFang TC',serif;
+    margin-bottom:22px;
+  }
+  .pillar:nth-child(1) .icon{background:var(--brick-soft);color:var(--brick-deep);}
+  .pillar:nth-child(2) .icon{background:var(--green-soft);color:var(--green-deep);}
+  .pillar:nth-child(3) .icon{background:var(--azure-soft);color:var(--azure-deep);}
+  .pillar:nth-child(1):hover{border-color:var(--brick);}
+  .pillar:nth-child(2):hover{border-color:var(--green);}
+  .pillar:nth-child(3):hover{border-color:var(--azure);}
+  .pillar h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:33px;color:var(--brick-deep);line-height:1.25;font-weight:600;margin-bottom:6px;}
+  .pillar:nth-child(2) h3{color:var(--green-deep);}
+  .pillar:nth-child(3) h3{color:var(--azure-deep);}
+  .pillar h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:19.2px;color:var(--ink-soft);font-weight:500;margin-top:4px;letter-spacing:.04em;}
+  .pillar .en-body{font-size:19.8px;color:var(--ink);margin:18px 0;line-height:1.7;}
+  .pillar .divider-tiny{height:1px;background:var(--line);margin:14px 0;}
+  .pillar .zh-body{font-family:'PingFang TC',sans-serif;font-size:19.8px;color:var(--ink);line-height:1.85;}
+
+  /* ── PRINCIPAL ── */
+  .principal{background:#fff;}
+  .principal-card{
+    max-width:920px;margin:0 auto;text-align:center;
+    background:#fff;border-radius:22px;padding:50px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .principal-emblem{width:132px;height:132px;border-radius:50%;margin:0 auto 22px;display:block;box-shadow:var(--shadow-sm);object-fit:cover;object-position:center 18%;}
+  .principal-card .role{color:var(--brick);font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .principal-card h3{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--brick-deep);line-height:1.15;margin-bottom:6px;}
+  .principal-card h3 small{display:block;font-family:'PingFang TC',sans-serif;font-size:24.8px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
+  .values{margin:30px auto 4px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:760px;}
+  .value-item{padding-top:16px;border-top:3px solid var(--gold);}
+  .value-item .v-en{font-family:'Cormorant Garamond',serif;font-size:23.1px;font-style:italic;color:var(--brick-deep);line-height:1.3;}
+  .value-item .v-zh{font-family:'PingFang TC',sans-serif;font-size:18.7px;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
+  .principal-card .footnote{font-size:18.2px;color:var(--ink-soft);margin-top:26px;font-style:italic;font-family:'PingFang TC',sans-serif;line-height:1.75;max-width:720px;margin-left:auto;margin-right:auto;}
+  @media (max-width:720px){.values{grid-template-columns:repeat(2,1fr);}}
+
+  /* ── VISIT ── */
+  .visit{background:var(--brick-deep);color:#fff;padding:80px 0;}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .visit h2{font-family:'Cormorant Garamond',serif;font-size:57.8px;font-weight:600;line-height:1.15;margin-bottom:6px;}
+  .visit h2 small{display:block;font-family:'PingFang TC',sans-serif;font-size:24.8px;font-weight:500;color:rgba(255,255,255,.75);margin-top:8px;}
+  .visit p{font-size:20.9px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
+  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:19.8px;}
+  .contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:28px 30px;backdrop-filter:blur(8px);}
+  .contact dl{display:grid;gap:18px;}
+  .contact dt{font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:4px;}
+  .contact dd{font-size:21.5px;color:#fff;font-family:'PingFang TC',sans-serif;line-height:1.55;}
+  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
+  .contact dd a:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
+  .visit-cta{margin-top:30px;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:520px){ .visit-cta{grid-template-columns:1fr 1fr;} }
+  .visit-cta a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;padding:16px 20px;border-radius:14px;text-decoration:none;font-weight:600;letter-spacing:.02em;transition:background .2s,border-color .2s,transform .2s;}
+  .visit-cta a:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-2px);}
+  .visit-cta__icon{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;flex-shrink:0;transition:color .2s;}
+  .visit-cta a:hover .visit-cta__icon{color:#fff;}
+  .visit-cta__txt{display:flex;flex-direction:column;gap:2px;line-height:1.3;}
+  .visit-cta__txt strong{font-size:18.2px;}
+  .visit-cta__txt span{font-size:16px;font-family:'PingFang TC',sans-serif;color:rgba(255,255,255,.7);font-weight:500;}
+  .visit-cta__arrow{margin-left:auto;font-size:19.8px;color:rgba(255,255,255,.55);}
+  .visit-cta a:hover .visit-cta__arrow{color:#fff;}
+
+  /* ── FOOTER ── */
+  footer{background:#3a1008;color:rgba(255,255,255,.65);padding:36px 0;font-size:17.6px;border-top:1px solid rgba(255,255,255,.08);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer .partner{color:var(--gold-soft);font-weight:600;}
+
+  /* ── MOBILE ── */
+  @media (max-width:880px){
+    .title{padding:42px 0 28px;}
+    section{padding:64px 0;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .pillars{grid-template-columns:1fr;}
+    .principal-card{padding:34px 26px;}
+    .visit-grid{grid-template-columns:1fr;gap:30px;}
+    footer .wrap{flex-direction:column;text-align:center;}
+  }
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+</style>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<nav class="topbar" role="navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="/schools/fude/">
+      <img class="topbar-logo" src="/schools/fude/logo.png" alt="福德國小校徽">
+      <div class="topbar-name">Fude Elementary<small>彰化縣永靖鄉福德國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="/schools/fude/" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="lessons/">Lessons</a>
+      <a href="news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO TITLE ── -->
+<header class="title">
+  <div class="wrap">
+    <span class="title__eyebrow">Changhua County · Taiwan · Est. 1973</span>
+    <h1>Fude Elementary School
+      <div class="h1-zh">彰化縣永靖鄉福德國民小學</div>
+    </h1>
+    <hr class="title__divider">
+    <p class="title__tagline">
+      Rooted in tradition, growing toward the world — where the Land God's blessing meets bilingual education
+      <span class="tagline-zh">傳統為根，世界為家——福德爺庇蔭的雙語小學</span>
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__label-en">Est. 1973</div>
+        <div class="stat__label-zh">1973 獨立設校</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Yongjing Township</div>
+        <div class="stat__label-zh">永靖鄉永南村</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Bilingual Campus</div>
+        <div class="stat__label-zh">雙語校園</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Drum · Grow · Read</div>
+        <div class="stat__label-zh">鼓陣・食農・共讀</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Our School</div>
+      <h2>Named for the Land God</h2>
+      <div class="h2-zh">福德爺守護的學校</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="about-photo">
+          <img src="photos/campus-pavilion.png" alt="福德國小傳統涼亭" loading="lazy">
+          <div class="badge">Since 1973</div>
+          <div class="caption">
+            <span class="en">Fude Elementary — a school rooted in community and tradition</span>
+            社區守護中的福德國小
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="photos/campus-playground.png" alt="福德國小操場與遊樂場" loading="lazy">
+          <div class="caption">
+            <span class="en">A welcoming campus where every child belongs</span>
+            每個孩子都有歸屬感的溫暖校園
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>A school born from temple roots and community spirit</h3>
+        <p class="en">The name <strong>Fude</strong> — meaning "virtue and blessing" — comes from the Land God (福德正神) worshipped at Wufu Temple, whose side rooms sheltered the school's very first classrooms in 1965. When the government lacked funds to build the school, it was the local Fude Ye Community that stepped forward to make it happen.</p>
+        <p class="en">From those borrowed temple rooms, the school moved to its current site in 1968 and became fully independent in 1973. Today, Fude Elementary carries that same spirit of community — passing on traditions, growing connections, and opening doors to the world.</p>
+
+        <div class="zh-divider"></div>
+        <div class="zh">
+          <p>「福德」二字，來自五福宮主神福德正神——土地公守護的地方。1965年，政府經費不足，是在地福德爺會出手相助，讓學校在廟宇廂房裡借用教室起步。</p>
+          <p style="margin-top:14px;">1968年校舍完工、遷入現址，1973年正式獨立設校，成為彰化縣永靖鄉福德國民小學。半世紀過去，這所學校依然承繼當年的社區精神——傳承傳統、扎根在地、連結世界。</p>
+        </div>
+
+        <dl class="quick">
+          <dt>Founded · 創校</dt>
+          <dd>1973（前身五福分班 1965）</dd>
+          <dt>Township · 鄉鎮</dt>
+          <dd>彰化縣永靖鄉 · Yongjing Township, Changhua</dd>
+          <dt>Awards · 榮耀</dt>
+          <dd>KDP 國際認證獎 2025・網界博覽會金牌・跳鼓陣全國金牌</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── IDENTITY — 3 Pillars ── -->
+<section class="identity" id="identity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What We Stand For</div>
+      <h2>Drum · Grow · Read</h2>
+      <div class="h2-zh">鼓陣・食農・共讀 — 福德孩子的三種力量</div>
+      <p class="lede">A small school with deep roots. At Fude, children grow through traditional arts, connection with the land, and a love of reading.</p>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar">
+        <div class="icon">🥁</div>
+        <h3>Drum
+          <small>Traditional Arts · 跳鼓陣</small>
+        </h3>
+        <p class="en-body">Fude's 跳鼓陣 drum-dance troupe has kept the tradition alive for over 24 years. Senior students become teachers, passing the art to juniors one-on-one in a living apprentice tradition. At the 2024 national folk-arts competition, the troupe took home the gold — carrying the spirit of Yongjing's temple culture to stages far beyond the village.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">福德國小跳鼓陣走過二十四個年頭，高年級學生親自帶著學弟妹，一對一傳授技藝，形成師徒制的活態傳承。113學年度全國民俗技藝競賽，孩子用鼓聲拿下金牌，把永靖廟會文化帶上全國舞台。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">🌱</div>
+        <h3>Grow
+          <small>Food Education · 食農教育</small>
+        </h3>
+        <p class="en-body">Here, a soybean tells a whole story. Students follow it through three chapters — planting in Beidou's fields, pressing tofu at the local workshop, and tasting the finished dish. The "Soybean Giants" project won gold at the International Schools CyberFair, continuing a proud tradition that once crowned the local chrysanthemum with the same honor.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">在福德，一顆黃豆說完一整個故事。孩子走出校門，到北斗田間播種、到在地工坊做豆花，再端上桌品嚐。「黃豆小巨人」榮獲網界博覽會金牌，延續了前一年菊花研究的榮耀。</p>
+      </article>
+
+      <article class="pillar">
+        <div class="icon">📚</div>
+        <h3>Read
+          <small>Bilingual Community · 共讀站</small>
+        </h3>
+        <p class="en-body">The school's community reading station is something special — a cool, welcoming space where children and families explore English picture books alongside local nature and sustainability stories. Here, language learning flows out of the classroom and into the neighbourhood, connecting bilingual education to real Yongjing life.</p>
+        <div class="divider-tiny"></div>
+        <p class="zh-body">福德的社區共讀站是全鄉的寶地——有冷氣、有手作、有繪本故事。孩子與家長在這裡讀英文繪本、探索在地永續故事，讓語言學習從課本流進真實的生活。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── PRINCIPAL ── -->
+<section class="principal" id="principal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">School Leadership</div>
+      <h2>Our Principal</h2>
+      <div class="h2-zh">校長室</div>
+    </div>
+
+    <div class="principal-card rvl">
+      <img class="principal-emblem" src="photos/principal.jpg" alt="卓鴻賓校長 · Principal Cho Hung-pin">
+      <div class="role">Principal · 校長</div>
+      <h3>Cho Hung-pin
+        <small>卓鴻賓 校長</small>
+      </h3>
+      <div class="values">
+        <div class="value-item"><div class="v-en">Virtue</div><div class="v-zh">品德</div></div>
+        <div class="value-item"><div class="v-en">Roots</div><div class="v-zh">在地</div></div>
+        <div class="value-item"><div class="v-en">Vitality</div><div class="v-zh">活力</div></div>
+        <div class="value-item"><div class="v-en">Bilingual</div><div class="v-zh">雙語</div></div>
+        <div class="value-item"><div class="v-en">Future</div><div class="v-zh">未來</div></div>
+      </div>
+      <p class="footnote">Principal Cho Hung-pin leads Fude Elementary with a vision that honours the school's deep community roots while building a bilingual, future-ready campus. Under his leadership, the school has earned the KDP International Award for School Innovation and maintains its proud tradition of folk arts and food education.<br><br>卓鴻賓校長以「扎根在地、放眼未來」為核心理念，帶領福德國小在傳承傳統的同時，也積極推動雙語教育。在他的帶領下，學校榮獲 KDP 國際認證獎，跳鼓陣與食農教育持續發光發熱。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── VISIT ── -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞臨福德國小</small>
+        </h2>
+        <p>We welcome educators, parents, and friends to visit our school in Yongjing Township — where a temple's blessing became a community's school, and where children learn through tradition, nature, and two languages.</p>
+        <p class="zh">歡迎來到永靖鄉福德國小，這裡是福德爺守護下誕生的社區學校。無論您是教育工作者、家長，或路過的朋友，福德的大門永遠為您開著。孩子在這裡用鼓聲傳承文化、用雙手耕作土地、用雙語連結世界。</p>
+      </div>
+
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>512 彰化縣永靖鄉永南村福德巷36號<br>
+            No. 36, Fude Ln., Yongnan Vil., Yongjing Twp., Changhua County 512, Taiwan</dd>
+          </div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886482241 54">(04) 822-4154</a></dd>
+          </div>
+        </dl>
+
+        <div class="visit-cta">
+          <a href="https://fdps.chc.edu.tw/" target="_blank" rel="noopener">
+            <span class="visit-cta__icon">🌐</span>
+            <span class="visit-cta__txt">
+              <strong>Official Website</strong>
+              <span>學校官網 · fdps.chc.edu.tw</span>
+            </span>
+            <span class="visit-cta__arrow">↗</span>
+          </a>
+          <a href="https://www.facebook.com/p/%E5%BD%B0%E5%8C%96%E7%B8%A3%E6%B0%B8%E9%9D%96%E9%84%89%E7%A6%8F%E5%BE%B7%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8-100063790010724/" target="_blank" rel="noopener">
+            <span class="visit-cta__icon">f</span>
+            <span class="visit-cta__txt">
+              <strong>Facebook Page</strong>
+              <span>福德國小臉書粉絲頁</span>
+            </span>
+            <span class="visit-cta__arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <span>© 2025 彰化縣永靖鄉福德國民小學 · Fude Elementary School</span>
+    <span>Bilingual website by <span class="partner">彰化縣人師教育協會</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sel='.pillar,.about-photo,.principal-card';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rvl');});
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>

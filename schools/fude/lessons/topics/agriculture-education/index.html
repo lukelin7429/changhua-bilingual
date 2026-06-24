@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://fude.mycultureconnect.org/lessons/topics/agriculture-education/">
+<title>Puxue Farm Garden · 樸學農園 · Fude Elementary School</title>
+<meta name="description" content="Fude Elementary's food education garden — from soybean fields in Beidou to tofu on the table. 彰化縣永靖鄉福德國小樸學農園食農教育。">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32.png">
+<link rel="apple-touch-icon" href="../../../favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --soil:#7a5230;--soil-deep:#4a2f18;--soil-soft:#f5ede0;
+  --leaf:#4E9A4A;--leaf-deep:#2C6B2A;--leaf-soft:#E2F0DD;
+  --brick:#B5261A;--brick-deep:#821A10;--brick-soft:#F9E8E6;
+  --gold:#C8963A;--gold-deep:#7A5A17;--gold-soft:#F5EDD4;
+  --ink:#1b2430;--ink-soft:#566374;--line:#e3d8d2;--bg-soft:#fdf8f3;
+  --shadow:0 14px 38px -16px rgba(74,47,24,.30);
+  --shadow-sm:0 6px 16px -6px rgba(74,47,24,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;font-size:20.4px;}
+@media(min-width:720px){body{font-size:22px;}}
+img{max-width:100%;display:block;}
+a{color:var(--soil);text-decoration:none;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+.wrap-narrow{max-width:800px;margin:0 auto;padding:0 24px;}
+
+.topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topbar-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
+.topbar-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover;}
+.topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18.7px;font-weight:700;color:var(--brick-deep);line-height:1.15;}
+.topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+.topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+.topbar-nav a{font-size:18.2px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
+.topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brick-deep);background:var(--brick-soft);}
+@media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
+
+.hero{background:linear-gradient(135deg,var(--soil) 0%,var(--soil-deep) 100%);color:#fff;padding:56px 0 48px;border-bottom:4px solid var(--gold);}
+.hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;}
+@media(max-width:680px){.hero__inner{grid-template-columns:1fr;gap:16px;}}
+.hero__emoji{font-size:96px;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));}
+@media(min-width:720px){.hero__emoji{font-size:120px;}}
+.hero__back{display:inline-flex;align-items:center;gap:6px;font-size:16px;color:rgba(255,255,255,.75);font-weight:600;margin-bottom:14px;text-decoration:none;}
+.hero__back:hover{color:#fff;}
+.hero__no{font-size:16px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:10px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,66px);font-weight:800;line-height:1.05;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.3);}
+.hero__zh{font-family:'PingFang TC',sans-serif;font-size:clamp(20px,2.2vw,26px);color:rgba(255,255,255,.88);font-weight:500;letter-spacing:.06em;margin-top:10px;}
+.hero__sub{margin-top:14px;font-size:18px;color:rgba(255,255,255,.72);font-family:'PingFang TC',sans-serif;line-height:1.75;}
+
+section{padding:60px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+
+.sec__label{font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--soil);margin-bottom:14px;}
+.sec__title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:700;color:var(--soil-deep);line-height:1.15;}
+.sec__title-zh{font-family:'PingFang TC',sans-serif;font-size:22px;color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:.04em;}
+.sec__rule{width:80px;height:5px;background:var(--soil);border-radius:3px;margin:20px 0 32px;}
+
+.body-en{font-size:20.9px;color:var(--ink);line-height:1.78;margin-bottom:16px;}
+@media(min-width:720px){.body-en{font-size:22px;}}
+.body-zh{font-family:'PingFang TC',sans-serif;font-size:18.7px;color:var(--ink-soft);line-height:1.95;border-left:3px solid var(--soil);padding-left:18px;margin-top:12px;}
+
+.journey{display:grid;grid-template-columns:1fr;gap:0;margin-top:32px;position:relative;}
+.journey::before{content:'';position:absolute;left:28px;top:24px;bottom:24px;width:3px;background:linear-gradient(180deg,var(--soil) 0%,var(--leaf) 100%);border-radius:2px;}
+@media(min-width:640px){.journey::before{left:36px;}}
+.journey-step{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:flex-start;padding:20px 0;}
+@media(min-width:640px){.journey-step{grid-template-columns:88px 1fr;}}
+.journey-step__num{width:56px;height:56px;border-radius:50%;background:var(--soil);color:#fff;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:var(--shadow-sm);position:relative;z-index:1;}
+@media(min-width:640px){.journey-step__num{width:68px;height:68px;font-size:26px;}}
+.journey-step:nth-child(even) .journey-step__num{background:var(--leaf);}
+.journey-step__body{padding-top:12px;}
+.journey-step__icon{font-size:28px;margin-bottom:6px;}
+.journey-step__title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--soil-deep);line-height:1.2;}
+.journey-step__zh{font-family:'PingFang TC',sans-serif;font-size:17.6px;color:var(--ink-soft);margin-top:4px;font-weight:600;letter-spacing:.04em;}
+.journey-step__desc{font-size:18.7px;color:var(--ink-soft);margin-top:10px;line-height:1.75;}
+.journey-step__desc .zh{display:block;font-family:'PingFang TC',sans-serif;margin-top:6px;font-size:16.5px;}
+
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+@media(min-width:640px){.photo-grid{grid-template-columns:repeat(3,1fr);}}
+.photo-grid img{border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-sm);}
+.photo-placeholder{border-radius:14px;aspect-ratio:4/3;background:var(--soil-soft);border:2px dashed var(--soil);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--soil-deep);font-size:16px;font-weight:600;text-align:center;padding:16px;}
+.photo-placeholder .ph-icon{font-size:32px;}
+.photo-panorama{width:100%;border-radius:16px;aspect-ratio:32/9;object-fit:cover;box-shadow:var(--shadow-sm);margin-bottom:24px;display:block;}
+.photo-wide-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.photo-wide-pair img{border-radius:14px;width:100%;aspect-ratio:16/9;object-fit:cover;box-shadow:var(--shadow-sm);}
+@media(max-width:640px){.photo-wide-pair{grid-template-columns:1fr;}}
+
+.award-strip{background:linear-gradient(135deg,var(--gold-soft) 0%,#fff 100%);border:1.5px solid var(--gold);border-radius:18px;padding:32px;margin-top:32px;display:flex;gap:24px;align-items:flex-start;}
+.award-strip__icon{font-size:48px;flex-shrink:0;}
+.award-strip__body{}
+.award-strip__title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold-deep);}
+.award-strip__zh{font-family:'PingFang TC',sans-serif;font-size:17.6px;color:var(--ink-soft);margin-top:4px;}
+.award-strip__desc{font-size:18.7px;color:var(--ink);margin-top:10px;line-height:1.75;}
+
+.back-btn{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-size:18.2px;font-weight:700;color:var(--soil-deep);border:2px solid var(--soil);padding:12px 24px;border-radius:12px;text-decoration:none;transition:all .15s;}
+.back-btn:hover{background:var(--soil);color:#fff;}
+
+/* news article */
+.news-card{background:var(--bg-soft);border-radius:22px;padding:40px 36px;border-left:6px solid var(--soil);max-width:860px;margin:0 auto;}
+.news-card__source{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--soil);padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.news-card__date{font-size:15px;color:var(--ink-soft);margin-bottom:18px;font-weight:600;}
+.news-card__title-en{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:700;color:var(--soil-deep);line-height:1.25;margin-bottom:6px;}
+.news-card__title-zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink-soft);font-weight:600;margin-bottom:28px;letter-spacing:.04em;}
+.news-card__divider{width:60px;height:4px;background:var(--soil);border-radius:3px;margin-bottom:28px;}
+.news-card p{font-size:19.8px;color:var(--ink);line-height:1.82;margin-bottom:18px;}
+.news-card .zh-block{border-top:1.5px solid var(--line);margin-top:32px;padding-top:28px;}
+.news-card .zh-block p{font-family:'PingFang TC',sans-serif;font-size:17.6px;color:var(--ink-soft);line-height:2.05;margin-bottom:16px;}
+.news-quote{background:#fff;border-radius:16px;padding:22px 24px;margin:24px 0;border-left:5px solid var(--leaf);display:flex;gap:14px;align-items:flex-start;}
+.news-quote__icon{font-size:28px;flex-shrink:0;margin-top:2px;}
+.news-quote__en{font-size:19px;font-weight:600;color:var(--ink);line-height:1.65;font-style:italic;}
+.news-quote__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.85;}
+
+.rvl{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+.rvl.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);}
+.site-footer-dark{background:#3d2410;color:rgba(255,255,255,.62);text-align:center;padding:18px 22px 20px;font-size:16px;line-height:1.9;}
+.site-footer-dark a{color:#d4b896;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="../../../">
+      <img class="topbar-logo" src="../../../logo.png" alt="福德國小校徽">
+      <div class="topbar-name">Fude Elementary<small>彰化縣永靖鄉福德國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="../../../">Home</a>
+      <a href="../../../principal/">Principal</a>
+      <a href="../../" class="is-active">Lessons</a>
+      <a href="../../../news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <div class="hero__emoji">🌱</div>
+    <div>
+      <a class="hero__back" href="../../">← Lessons · 回課程總覽</a>
+      <div class="hero__no">Course 04 · 第四單元</div>
+      <h1>Puxue Farm Garden</h1>
+      <div class="hero__zh">樸學農園 · 食農教育</div>
+      <div class="hero__sub">From seed to table — growing, learning, tasting · 從播種到餐桌，在泥土裡學習</div>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section>
+  <div class="wrap-narrow">
+    <div class="sec__label rvl">About the Garden · 關於樸學農園</div>
+    <h2 class="sec__title rvl">Where Children Grow with the Earth</h2>
+    <div class="sec__title-zh rvl">讓孩子跟著土地一起長大</div>
+    <div class="sec__rule rvl"></div>
+    <p class="body-en rvl">
+      <strong>Puxue Farm Garden</strong> — "puxue" means learning through simplicity and closeness to the land — is Fude's living classroom. Here, children kneel in the soil, plant seeds with their own hands, watch shoots grow week by week, and finally bring their harvest to the table.
+    </p>
+    <p class="body-en rvl">
+      The centrepiece of the programme is the <strong>soybean project</strong>: students plant soybeans in the fields of Beidou, follow the crop through the growing season, visit a local workshop to press tofu, and eat the results together. This is food education at its most direct — and most delicious.
+    </p>
+    <div class="body-zh rvl">
+      「樸學農園」的「樸」，是返璞歸真、貼近土地的學習。這是福德的活的教室。孩子們跪在土裡，親手播下種子，一週一週看著嫩芽生長，最後把收成端上桌。其中最核心的是「黃豆計畫」：學生在北斗田間播種、跟著一整個生長季，走訪在地工坊壓豆腐，再一起品嚐。這是最直接、也最美味的食農教育。
+    </div>
+  </div>
+</section>
+
+<!-- FROM SEED TO TABLE -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec__label rvl">The Journey · 從種子到餐桌</div>
+    <h2 class="sec__title rvl">Seed to Table</h2>
+    <div class="sec__title-zh rvl">黃豆計畫的完整旅程</div>
+    <div class="sec__rule rvl"></div>
+    <div class="journey">
+      <div class="journey-step rvl">
+        <div class="journey-step__num">01</div>
+        <div class="journey-step__body">
+          <div class="journey-step__icon">🌾</div>
+          <div class="journey-step__title">Plant</div>
+          <div class="journey-step__zh">播種 · 北斗農田</div>
+          <div class="journey-step__desc">Students travel to soybean fields in Beidou and plant seeds by hand, learning about soil, seasons, and the patience that farming requires.<span class="zh">學生前往北斗的黃豆田，親手播下種子，認識土壤、四季與農耕需要的耐心。</span></div>
+        </div>
+      </div>
+      <div class="journey-step rvl">
+        <div class="journey-step__num">02</div>
+        <div class="journey-step__body">
+          <div class="journey-step__icon">🔬</div>
+          <div class="journey-step__title">Observe</div>
+          <div class="journey-step__zh">觀察 · 校園農園</div>
+          <div class="journey-step__desc">Back at Fude's own garden, students grow and observe companion plants week by week — recording growth in their science journals.<span class="zh">回到福德農園，學生週週觀察與記錄植物生長，把發現寫進科學日記。</span></div>
+        </div>
+      </div>
+      <div class="journey-step rvl">
+        <div class="journey-step__num">03</div>
+        <div class="journey-step__body">
+          <div class="journey-step__icon">🏭</div>
+          <div class="journey-step__title">Process</div>
+          <div class="journey-step__zh">加工 · 在地工坊</div>
+          <div class="journey-step__desc">At a local workshop, students see soybeans become tofu, soy milk, and other products — connecting farm to factory to food.<span class="zh">在在地工坊，學生看著黃豆變成豆腐、豆漿，連接農場、工坊與食物的完整故事。</span></div>
+        </div>
+      </div>
+      <div class="journey-step rvl">
+        <div class="journey-step__num">04</div>
+        <div class="journey-step__body">
+          <div class="journey-step__icon">🍽️</div>
+          <div class="journey-step__title">Taste</div>
+          <div class="journey-step__zh">品嚐 · 從農場到餐桌</div>
+          <div class="journey-step__desc">The final step: students cook and eat what they have grown. Tasting the results of their own work is the most powerful lesson of all.<span class="zh">最後一步：學生烹飪並品嚐自己種出來的食物。親手種、親手吃，是最有力量的一課。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS ARTICLE -->
+<section>
+  <div class="wrap">
+    <div class="sec__label rvl">In the News · 媒體報導</div>
+    <h2 class="sec__title rvl">Press Coverage</h2>
+    <div class="sec__title-zh rvl">台灣好新聞 · 2025 年 3 月</div>
+    <div class="sec__rule rvl"></div>
+    <div class="news-card rvl">
+      <div class="news-card__source">📰 台灣好新聞</div>
+      <div class="news-card__date">March 6, 2025 · 114年3月6日</div>
+      <div class="news-card__title-en">Fude Elementary: Growing, Learning, and Speaking English</div>
+      <div class="news-card__title-zh">福德國小：種菜、學習、說英文</div>
+      <div class="news-card__divider"></div>
+
+      <p>On March 6, 2025, 14 first graders at Fude Elementary School had a fun day in the school garden. With help from their teachers and parents, they picked radishes they had grown by themselves. After that, they joined a bilingual class and learned how to cook the radishes without wasting any part of them.</p>
+      <p>The school's garden is not just for growing vegetables. It helps students get closer to nature and learn about being kind to the Earth. The children also learn English, good habits, and how to take care of the environment. They collect leaves and eggshells to make compost and try not to waste food.</p>
+      <p>Teacher Lin Meihui used AI to make fun bilingual dialogues for the cooking activity. Principal Cho Hongbin said these hands-on lessons help children understand where food comes from and learn to care for the world.</p>
+      <p>Parents Chang Danhua and Chen Yating joined the activity and were happy to see their kids learning English and learning to protect nature.</p>
+
+      <div class="news-quote">
+        <div class="news-quote__icon">💬</div>
+        <div>
+          <div class="news-quote__en">"It was my first time eating something I planted. Pulling radishes was fun!"</div>
+          <div class="news-quote__zh">黃彥勛：「第一次吃到自己種的菜，拔蘿蔔很好玩！」</div>
+        </div>
+      </div>
+      <div class="news-quote">
+        <div class="news-quote__icon">💬</div>
+        <div>
+          <div class="news-quote__en">"I learned how to grow vegetables. I want to plant more!"</div>
+          <div class="news-quote__zh">張墐夏：「我學會怎麼種菜了，我還想再種更多！」</div>
+        </div>
+      </div>
+
+      <p>This special day helped students learn new words, new skills, and how to treasure the food they eat.</p>
+
+      <div class="zh-block">
+        <p>114年3月6日，福德國小的一年級小朋友，在學校的菜園裡度過了一個開心又有收穫的一天。他們在老師和家長的幫忙下，拔起了自己種的蘿蔔。接著，大家一起上雙語課，學習怎麼把蘿蔔煮成好吃又不浪費的料理。</p>
+        <p>這個菜園不只是種菜的地方，它也讓小朋友更認識大自然，學習環保、好品格和英文。大家還會收集樹葉和蛋殼來做堆肥，學習怎麼不浪費食物。</p>
+        <p>林美惠老師用 AI 科技設計了有趣的雙語對話，讓小朋友在做菜時也能練習英文。卓鴻賓校長說，這樣的活動可以幫助孩子了解食物從哪裡來，學會珍惜和關心我們的地球。</p>
+        <p>家長張丹鏵和陳雅婷也參加了活動，她們很開心看到孩子學到英文，也學到保護自然的重要。</p>
+        <p>這一天，小朋友不只把手弄髒，還學到新單字、新技能，最重要的是學會珍惜食物。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section>
+  <div class="wrap">
+    <div class="sec__label rvl">Gallery · 農園日常</div>
+    <h2 class="sec__title rvl">Life in the Garden</h2>
+    <div class="sec__title-zh rvl">播種・照顧・收成・品嚐</div>
+    <div class="sec__rule rvl"></div>
+    <img class="photo-panorama rvl" src="agri-panorama.jpg" alt="福德國小樸學農園種子成長歷程" loading="eager">
+    <div class="photo-grid rvl">
+      <img src="agri-1.jpg"  alt="樸學農園活動 1"  loading="eager">
+      <img src="agri-2.jpg"  alt="樸學農園活動 2"  loading="eager">
+      <img src="agri-3.jpg"  alt="樸學農園活動 3"  loading="eager">
+      <img src="agri-4.jpg"  alt="樸學農園活動 4">
+      <img src="agri-5.jpg"  alt="樸學農園活動 5">
+      <img src="agri-6.jpg"  alt="樸學農園活動 6">
+      <img src="agri-7.jpg"  alt="農園植物生長 1">
+      <img src="agri-8.jpg"  alt="農園植物生長 2">
+      <img src="agri-9.jpg"  alt="同學拔蘿蔔體驗">
+    </div>
+    <div class="photo-wide-pair rvl">
+      <img src="agri-wide-1.jpg" alt="一年級同學拔蘿蔔活動">
+      <img src="agri-wide-2.jpg" alt="師生共同參與收成">
+    </div>
+
+    <div class="award-strip rvl">
+      <div class="award-strip__icon">🥇</div>
+      <div class="award-strip__body">
+        <div class="award-strip__title">International Schools CyberFair — Gold Award</div>
+        <div class="award-strip__zh">網界博覽會金牌 · 黃豆小巨人</div>
+        <div class="award-strip__desc">Fude's soybean food education project "Soybean Giants" won the gold award at the International Schools CyberFair, carrying on the school's proud tradition of research excellence that began with the chrysanthemum study.</div>
+      </div>
+    </div>
+    <a class="back-btn rvl" href="../../">← Back to All Lessons</a>
+  </div>
+</section>
+
+<footer>© 2025 彰化縣永靖鄉福德國民小學 · Fude Elementary School</footer>
+<div class="site-footer-dark">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a></div>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=[].slice.call(document.querySelectorAll('.rvl'));
+  if(!els.length)return;
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
