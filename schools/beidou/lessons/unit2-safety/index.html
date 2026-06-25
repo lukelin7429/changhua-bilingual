@@ -136,6 +136,7 @@
   .ply__btn.is-paused .ply__ic--play{display:none;}
   .ply__btn.is-paused .ply__ic--stop{display:inline-block;}
 </style>
+  <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
 
@@ -269,5 +270,6 @@ renderQ();
 
 (function(){var cur=null;function txt(b,s){b.querySelector('.ply__txt').textContent=s;}function reset(b){b.classList.remove('is-playing','is-paused');txt(b,'聽發音 Listen');}function stopCur(){if(cur){cur.audio.pause();cur.audio.currentTime=0;reset(cur.btn);cur=null;}}document.addEventListener('click',function(e){var btn=e.target.closest&&e.target.closest('.ply__btn');if(!btn)return;var ply=btn.closest('.ply');if(cur&&cur.btn===btn){if(!cur.audio.paused){cur.audio.pause();btn.classList.remove('is-playing');btn.classList.add('is-paused');txt(btn,'停止 Stop');}else{stopCur();}return;}stopCur();var au=ply._audio;if(!au){au=new Audio(ply.dataset.src);ply._audio=au;au.addEventListener('ended',function(){if(cur&&cur.btn===btn){reset(btn);cur=null;}});}au.currentTime=0;au.play();cur={btn:btn,audio:au};btn.classList.add('is-playing');txt(btn,'暫停 Pause');});})();
 </script>
+<script defer src="/assets/js/motion.js"></script>
 </body>
 </html>

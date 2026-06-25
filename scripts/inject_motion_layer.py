@@ -13,7 +13,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS = '  <link rel="stylesheet" href="/assets/css/motion.css">\n'
 JS  = '<script defer src="/assets/js/motion.js"></script>\n'
 
-SKIP_DIRS = ('schools', '_reference', 'scripts')
+SKIP_DIRS = ('_reference', 'scripts')
 SKIP_FILES = {'google61797ac71119d5f3.html'}
 
 added, skipped_hub, skipped_done, skipped_nohead = [], 0, 0, []
