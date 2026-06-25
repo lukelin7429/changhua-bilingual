@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Scenery · 校園美景 — Sijhou Elementary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<script defer src="/analytics.js"></script>
+<style>
+:root {
+  --forest:#1f4a3a; --forest-mid:#2e6a4f; --forest-light:#5b9d75; --forest-soft:#d7e6dc;
+  --honey:#d4953a; --honey-deep:#9c6a1d; --honey-soft:#f5e4c8;
+  --paper:#faf6ed; --paper-deep:#efe6d1; --wool:#faf6ed; --bg-soft:#faf6ed;
+  --line:#e0d8c4; --ink:#1a1f24; --ink-soft:#5a606e;
+  --shadow:0 14px 38px -16px rgba(31,74,58,.25); --shadow-sm:0 6px 16px -6px rgba(31,74,58,.15);
+  --tree-deep:var(--forest); --tree:var(--forest-mid); --tree-soft:var(--forest-soft);
+  --gold:var(--honey); --gold-deep:var(--honey-deep); --gold-soft:var(--honey-soft);
+  --terra:var(--forest-mid); --terra-deep:var(--forest); --terra-soft:var(--forest-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family: 'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  background: var(--wool);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ── Banner ── */
+.page-banner {
+  position: relative;
+  min-height: 440px;
+  background: url('../scenery/7R305486.jpg') center center / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+.page-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,30,22,.82) 0%, rgba(15,30,22,.32) 55%, transparent 100%);
+  pointer-events: none;
+}
+.page-banner__text {
+  position: relative;
+  z-index: 1;
+  padding: 0 28px 44px;
+  max-width: 860px;
+}
+.page-banner__text h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.page-banner__text p {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+  font-weight: 300;
+  letter-spacing: .02em;
+}
+
+/* ── Sub-nav ── */
+.subnav {
+  background: var(--forest);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(31,74,58,.25);
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.subnav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 4px;
+  padding: 12px 0;
+}
+.subnav__inner a {
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .03em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: color .2s, background .2s;
+}
+.subnav__inner a:hover,
+.subnav__inner a[aria-current="page"] {
+  color: var(--honey);
+  background: rgba(255,255,255,.08);
+}
+.subnav__sep {
+  color: rgba(255,255,255,.3);
+  font-size: 13px;
+  user-select: none;
+}
+
+/* ── Gallery section ── */
+.gallery-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px 16px;
+}
+.gallery-section__header {
+  margin-bottom: 32px;
+}
+.gallery-section__header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 6px;
+}
+.gallery-section__header p {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.photo-count {
+  display: inline-block;
+  background: var(--forest-soft);
+  color: var(--forest);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  letter-spacing: .04em;
+}
+
+/* ── Photo Grid ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+@media (max-width: 700px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.photo-grid__cell {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--forest-soft);
+}
+.photo-grid__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease, filter .35s ease;
+}
+.photo-grid__cell:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+.photo-grid__cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(31,74,58,0) 60%, rgba(31,74,58,.18) 100%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.photo-grid__cell:hover::after { opacity: 1; }
+
+/* ── Gallery caption ── */
+.gallery-caption {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  letter-spacing: .02em;
+  border-top: 1px solid var(--line);
+  max-width: 1200px;
+  margin: 24px auto 0;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10,16,12,.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox__img-wrap {
+  position: relative;
+  max-width: 92vw;
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox__img {
+  max-width: 92vw;
+  max-height: 84vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 72px rgba(0,0,0,.6);
+  transition: opacity .22s ease;
+}
+.lightbox__img.is-loading { opacity: 0; }
+
+.lightbox__close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  z-index: 10000;
+  line-height: 1;
+}
+.lightbox__close:hover { background: rgba(255,255,255,.22); transform: scale(1.08); }
+
+.lightbox__prev,
+.lightbox__next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  z-index: 10000;
+  user-select: none;
+}
+.lightbox__prev { left: 16px; }
+.lightbox__next { right: 16px; }
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: rgba(255,255,255,.24);
+  transform: translateY(-50%) scale(1.08);
+}
+@media (max-width: 600px) {
+  .lightbox__prev { left: 8px; width: 40px; height: 40px; font-size: 18px; }
+  .lightbox__next { right: 8px; width: 40px; height: 40px; font-size: 18px; }
+}
+
+.lightbox__counter {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.5);
+  color: rgba(255,255,255,.82);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  padding: 5px 16px;
+  border-radius: 20px;
+  z-index: 10000;
+}
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="page-banner mo mo-up">
+  <div class="page-banner__text">
+    <h1>Campus Scenery</h1>
+    <p>校園美景 · 溪州的每個角落</p>
+  </div>
+</div>
+
+<!-- Sub-nav -->
+<nav class="subnav">
+  <div class="wrap">
+    <div class="subnav__inner">
+      <a href="../">Home</a><span class="subnav__sep">·</span>
+      <a href="../principal/">Principal</a><span class="subnav__sep">·</span>
+      <a href="../lessons/">Lessons</a><span class="subnav__sep">·</span>
+      <a href="../news/">News</a><span class="subnav__sep">·</span>
+      <a href="../bilingual-campus/">Bilingual Campus</a><span class="subnav__sep">·</span>
+      <a href="https://changhua-bilingual.org/festivals/?from=sijhou">Festivals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Gallery -->
+<section class="gallery-section mo mo-up">
+  <div class="gallery-section__header">
+    <h2>Campus Photo Gallery</h2>
+    <p>Explore every corner of Sijhou Elementary</p>
+    <span class="photo-count">83 Photos</span>
+  </div>
+
+  <div class="photo-grid" id="photoGrid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<div class="gallery-caption mo mo-up">
+  All photos taken on Sijhou Elementary campus · 所有照片均攝於溪州國小校園內
+</div>
+
+<!-- cb-credit footer -->
+<div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lightbox__prev" id="lbPrev" aria-label="Previous photo">&#8592;</button>
+  <div class="lightbox__img-wrap">
+    <img class="lightbox__img" id="lbImg" src="" alt="">
+  </div>
+  <button class="lightbox__next" id="lbNext" aria-label="Next photo">&#8594;</button>
+  <div class="lightbox__counter" id="lbCounter">1 / 83</div>
+</div>
+
+<script src="/assets/js/motion.js"></script>
+<script>
+(function() {
+  // ── Build photos array ──
+  var camera1 = [], camera2 = [];
+
+  // 2R4A4751 through 2R4A4802 (52 files)
+  for (var n = 4751; n <= 4802; n++) {
+    camera1.push('2R4A' + n + '.jpg');
+  }
+
+  // 7R305474 through 7R305504 (31 files)
+  for (var n = 5474; n <= 5504; n++) {
+    camera2.push('7R30' + n + '.jpg');
+  }
+
+  var PHOTOS = camera1.concat(camera2); // 52 + 31 = 83 total
+
+  var BASE_FULL  = '../scenery/';
+  var BASE_THUMB = '../scenery/thumbs/';
+
+  // ── Build grid ──
+  var grid = document.getElementById('photoGrid');
+  PHOTOS.forEach(function(filename, idx) {
+    var cell = document.createElement('div');
+    cell.className = 'photo-grid__cell';
+    cell.setAttribute('data-idx', idx);
+
+    var img = document.createElement('img');
+    img.src = BASE_THUMB + filename;
+    img.alt = 'Sijhou Elementary campus photo ' + (idx + 1);
+    img.loading = 'lazy';
+
+    cell.appendChild(img);
+    cell.addEventListener('click', function() { openLightbox(parseInt(this.getAttribute('data-idx'))); });
+    grid.appendChild(cell);
+  });
+
+  // ── Lightbox ──
+  var lb       = document.getElementById('lightbox');
+  var lbImg    = document.getElementById('lbImg');
+  var lbCounter= document.getElementById('lbCounter');
+  var lbClose  = document.getElementById('lbClose');
+  var lbPrev   = document.getElementById('lbPrev');
+  var lbNext   = document.getElementById('lbNext');
+  var currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    showPhoto(currentIdx);
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function showPhoto(idx) {
+    lbImg.classList.add('is-loading');
+    var filename = PHOTOS[idx];
+    var newSrc = BASE_FULL + filename;
+    var tmp = new Image();
+    tmp.onload = function() {
+      lbImg.src = newSrc;
+      lbImg.alt = 'Sijhou Elementary campus photo ' + (idx + 1);
+      lbImg.classList.remove('is-loading');
+    };
+    tmp.src = newSrc;
+    lbCounter.textContent = (idx + 1) + ' / ' + PHOTOS.length;
+  }
+
+  function goPrev() {
+    currentIdx = (currentIdx - 1 + PHOTOS.length) % PHOTOS.length;
+    showPhoto(currentIdx);
+  }
+
+  function goNext() {
+    currentIdx = (currentIdx + 1) % PHOTOS.length;
+    showPhoto(currentIdx);
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', function(e) { e.stopPropagation(); goPrev(); });
+  lbNext.addEventListener('click', function(e) { e.stopPropagation(); goNext(); });
+
+  // Background click closes
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') goPrev();
+    if (e.key === 'ArrowRight') goNext();
+  });
+})();
+</script>
+</body>
+</html>

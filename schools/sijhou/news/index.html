@@ -225,6 +225,41 @@
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+  /* === Sub-page photo banner === */
+  .page-banner{
+    position:relative;overflow:hidden;
+    background:#15392b url('../photos/scenery/7R305502.jpg') center 45%/cover;
+    color:#fff;
+    border-bottom:4px solid var(--honey,#d4953a);
+    min-height:280px;display:flex;align-items:flex-end;
+  }
+  @media (min-width:720px){.page-banner{min-height:360px;}}
+  .page-banner::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 0%,transparent 30%,rgba(15,40,28,.88) 100%);
+    pointer-events:none;
+  }
+  .page-banner__inner{
+    position:relative;z-index:1;width:100%;max-width:1080px;margin:0 auto;
+    padding:60px 24px 44px;
+  }
+  @media (min-width:720px){.page-banner__inner{padding:80px 36px 60px;}}
+  .page-banner__eyebrow{
+    font-size:13px;letter-spacing:4px;text-transform:uppercase;
+    color:#f4e9c8;font-weight:600;margin-bottom:10px;
+    font-family:'Playfair Display',serif;
+  }
+  .page-banner h1{
+    font-family:'Playfair Display',serif;
+    font-size:40px;font-weight:800;line-height:1.05;
+    text-shadow:0 4px 18px rgba(0,0,0,.4);
+  }
+  @media (min-width:720px){.page-banner h1{font-size:64px;}}
+  .page-banner__zh{
+    font-size:20px;color:#eee6cf;margin-top:8px;font-weight:500;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);letter-spacing:1px;
+  }
+  @media (min-width:720px){.page-banner__zh{font-size:26px;}}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css">
@@ -248,6 +283,14 @@
     </div>
   </div>
 </nav>
+
+<header class="page-banner">
+  <div class="page-banner__inner">
+    <div class="page-banner__eyebrow">News &amp; Updates · 校園動態</div>
+    <h1>What's New at Sijhou</h1>
+    <div class="page-banner__zh">溪州近期動態 · 公告 / 故事 / 媒體報導</div>
+  </div>
+</header>
 
 <!-- ===== News Search Box ===== -->
 <div class="news-search" role="search">
