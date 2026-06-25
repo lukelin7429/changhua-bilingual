@@ -543,6 +543,33 @@ img.ymj-hero__logo{
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/yangming-jhs/favicon-180.png">
 <link rel="shortcut icon" href="/schools/yangming-jhs/favicon.ico">
 <script defer src="/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/motion.css">
+<style>
+/* ===== Extra animation layer ===== */
+@keyframes ymj-badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(230,61,46,.0);}50%{box-shadow:0 0 0 8px rgba(230,61,46,.18);}}
+.science-spot__badge{animation:ymj-badge-pulse 2.8s ease-in-out infinite;}
+@keyframes ymj-counter{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:none;}}
+.science-spot__big.counted{animation:ymj-counter .7s cubic-bezier(.2,.7,.2,1) both;}
+@keyframes ymj-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.lessons-spot__credit{animation:ymj-float 4s ease-in-out infinite;}
+/* Staggered pillar entrance from alternating sides */
+@media (min-width:720px){
+  .pillar.rvl.in:nth-child(odd){animation:none;}
+  .pillar.rvl.in:nth-child(even){animation:none;}
+}
+/* Enhanced hero eyebrow */
+@keyframes ymj-eyebrow{from{opacity:0;letter-spacing:.12em;}to{opacity:1;letter-spacing:.32em;}}
+.ymj-hero__eyebrow{animation:ymj-eyebrow .9s .25s both;}
+/* CTA hover shine */
+.official-cta,.lessons-spot__cta,.wbtn{position:relative;overflow:hidden;}
+.official-cta::after,.lessons-spot__cta::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.18) 50%,transparent 100%);
+  transform:translateX(-100%);transition:transform .45s ease;
+}
+.official-cta:hover::after,.lessons-spot__cta:hover::after{transform:translateX(100%);}
+/* Scroll progress bar (motion.css fallback) */
+</style>
 </head>
 <body>
 
@@ -621,12 +648,12 @@ img.ymj-hero__logo{
       </p>
     </div>
 
-    <figure class="gate-figure">
+    <figure class="gate-figure rvl">
       <img src="photos/gate-art-01.png" alt="Yangming Heart Words gate art installation 陽明心語大門裝置藝術 (2015)">
       <figcaption><b>「陽明心語」大門裝置藝術 · 2015</b><br>"Yangming Heart Words" — recomposing characters into points, lines, and surfaces to give the school gate a leaping, vibrant new life.</figcaption>
     </figure>
 
-    <div class="quote quote--principal">
+    <div class="quote quote--principal rvl">
       <div class="quote__text">"Education is what makes a child deeply confident."</div>
       <div class="quote__zh">「教育的意義是讓孩子深具信心。」<br>—— 校長 張耀忠</div>
     </div>
@@ -652,7 +679,7 @@ img.ymj-hero__logo{
 
     <div class="pillars">
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="pillar__no">PILLAR 01</div>
         <div class="pillar__icon">🌐</div>
         <div class="pillar__title">International Education</div>
@@ -660,7 +687,7 @@ img.ymj-hero__logo{
         <div class="pillar__body">Building global perspective through specialised English programs, multicultural exchanges, and our flagship <em>Diplomatic Pioneer</em> initiative — opening windows so rural-county students can walk confidently into the world.</div>
       </article>
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="pillar__no">PILLAR 02</div>
         <div class="pillar__icon">🎵</div>
         <div class="pillar__title">A Campus of Music</div>
@@ -668,7 +695,7 @@ img.ymj-hero__logo{
         <div class="pillar__body">Music as a daily landscape — through our award-winning Chinese orchestra, harmonica ensemble, and arts programs, students grow into rounded humanistic learners with sensitivity and grace.</div>
       </article>
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="pillar__no">PILLAR 03</div>
         <div class="pillar__icon">🔬</div>
         <div class="pillar__title">Scientific Thinking</div>
@@ -676,7 +703,7 @@ img.ymj-hero__logo{
         <div class="pillar__body">A culture of curiosity, evidence, and rigour. Our 23 consecutive years as Changhua County science fair team champions — and 23 straight years of qualifying for the National Science Fair, bringing home awards every time — are not the goal. They are the proof that scientific thinking is woven into how Yangming students learn.</div>
       </article>
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="pillar__no">PILLAR 04</div>
         <div class="pillar__icon">⚡</div>
         <div class="pillar__title">Sports &amp; Wellness</div>
@@ -686,7 +713,7 @@ img.ymj-hero__logo{
 
     </div>
 
-    <div class="quote">
+    <div class="quote rvl">
       <div class="quote__text">"To be at home in both letters and arms; equally at ease in stillness and motion."</div>
       <div class="quote__zh">「允文允武、動靜皆宜」—— 校長對每位陽明學子的期勉。</div>
     </div>
@@ -701,7 +728,7 @@ img.ymj-hero__logo{
     <div class="sec__title-zh">彰化縣科展 23 連霸 · 全國科展連續 23 年參賽且得獎</div>
     <div class="sec__rule"></div>
 
-    <div class="science-spot">
+    <div class="science-spot rvl">
       <div class="science-spot__badge">Science Fair Streak · 科展連霸</div>
       <div class="science-spot__big">23<small> Years</small></div>
       <div class="science-spot__title">Consecutive Team Championships<br><span style="font-size:.55em;color:var(--blue);">Changhua County · 彰化縣</span></div>
@@ -811,7 +838,7 @@ img.ymj-hero__logo{
     <div class="sec__title-zh">課程精華 · 持續累積中的 ESL 工作坊</div>
     <div class="sec__rule"></div>
 
-    <div class="lessons-spot">
+    <div class="lessons-spot rvl">
       <div class="lessons-spot__badge">Diplomatic Pioneers · 外交小尖兵</div>
       <div class="lessons-spot__credit">
         <div class="lessons-spot__credit-avatar">S</div>
@@ -835,6 +862,10 @@ img.ymj-hero__logo{
         <span class="week-pill">W6 · Dream Vacation</span>
         <span class="week-pill">W7 · Play Ball</span>
         <span class="week-pill">W8 · That's My Opinion</span>
+        <span class="week-pill">W9 · Fantasy Creatures</span>
+        <span class="week-pill">W11 · Future Self</span>
+        <span class="week-pill">W12 · American Slang</span>
+        <span class="week-pill">W14 · Dream Vacation II</span>
         <span class="week-pill week-pill--more">+ More coming · 持續新增</span>
       </div>
       <a class="lessons-spot__cta" href="/partners/teacher-shannon/yangming-diplomats/">
@@ -855,7 +886,7 @@ img.ymj-hero__logo{
 
     <div class="programs">
 
-      <article class="program">
+      <article class="program rvl">
         <div class="program__icon">🌍</div>
         <div>
           <div class="program__title">Diplomatic Pioneers</div>
@@ -865,7 +896,7 @@ img.ymj-hero__logo{
         </div>
       </article>
 
-      <article class="program">
+      <article class="program rvl">
         <div class="program__icon">🎼</div>
         <div>
           <div class="program__title">Chinese Orchestra &amp; Harmonica Ensemble</div>
@@ -876,7 +907,7 @@ img.ymj-hero__logo{
         </div>
       </article>
 
-      <article class="program">
+      <article class="program rvl">
         <div class="program__icon">🥋</div>
         <div>
           <div class="program__title">Martial Arts &amp; Taekwondo</div>
@@ -886,7 +917,7 @@ img.ymj-hero__logo{
         </div>
       </article>
 
-      <article class="program">
+      <article class="program rvl">
         <div class="program__icon">🎓</div>
         <div>
           <div class="program__title">Gifted Student Programs</div>
@@ -896,7 +927,7 @@ img.ymj-hero__logo{
         </div>
       </article>
 
-      <article class="program">
+      <article class="program rvl">
         <div class="program__icon">💻</div>
         <div>
           <div class="program__title">Digital Learning</div>
@@ -908,7 +939,7 @@ img.ymj-hero__logo{
 
     </div>
 
-    <div class="quote">
+    <div class="quote rvl">
       <div class="quote__text">"There is no miracle in life — only the trace of unceasing effort."</div>
       <div class="quote__zh">「生命沒有奇蹟，只有不斷努力的痕跡。」<br>—— 期許在陽明每一項的「存在」都成為傳奇，每一段成長「路程」都充滿美好回憶。</div>
     </div>
@@ -924,42 +955,42 @@ img.ymj-hero__logo{
     <div class="sec__rule"></div>
 
     <div class="timeline">
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1940</div>
         <div class="tl-event">Founded as <em>Changhua Municipal Home Economics Girls' School</em></div>
         <div class="tl-detail">創立於民國 29 年 4 月，初名「彰化市立彰化家政女子學校」。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1943</div>
         <div class="tl-event">New campus completed and occupied</div>
         <div class="tl-detail">民國 32 年新校舍落成，遷入今址（彰化市長順街 76 號）。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1945</div>
         <div class="tl-event">Reorganized as <em>Girls' Junior Commercial Vocational School</em></div>
         <div class="tl-detail">日本投降後，改制為「彰化市立女子初級商業職業學校」。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1954</div>
         <div class="tl-event">Senior division added; renamed <em>Girls' Commercial Vocational School</em></div>
         <div class="tl-detail">民國 43 年增設高商部，更名為「彰化縣立女子商業職業學校」。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1968</div>
         <div class="tl-event">Converted to <em>Yangming Junior High School</em> with the launch of nine-year compulsory education</div>
         <div class="tl-detail">民國 57 年配合九年國民義務教育，改制為「彰化縣立陽明國民中學」，沿用至今。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1976</div>
         <div class="tl-event">Supplementary evening school program established</div>
         <div class="tl-detail">民國 65 年增設補校。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">1997</div>
         <div class="tl-event">Yangming Hall multi-purpose complex completed</div>
         <div class="tl-detail">民國 86 年陽明館完工——含行政、電腦教學、學生活動與游泳設施的多功能大樓。</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item rvl">
         <div class="tl-year">Today</div>
         <div class="tl-event">Principal Chang Yao-chung (張耀忠) leads the four-pillar vision</div>
         <div class="tl-detail">現任校長張耀忠以「允文允武、動靜皆宜」為核心，推動四大具體主軸：國際教育、樂音校園、科學思維、運動風氣。</div>
@@ -971,7 +1002,7 @@ img.ymj-hero__logo{
 <!-- ===== VI. Contact ===== -->
 <section>
   <div class="wrap">
-    <div class="contact">
+    <div class="contact rvl">
       <div class="contact__title">Visit Us · 聯絡陽明</div>
       <div class="contact__zh">A school in the heart of the city — always glad to welcome you.</div>
       <div class="contact__rule"></div>
@@ -1029,23 +1060,32 @@ img.ymj-hero__logo{
 
 <!-- ============ FOOTER (shared) ============ -->
 <script>
-/* reveal-fx */
+/* Animated counter for the "23" science streak number */
 (function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
-  if(!els.length)return;
-  els.forEach(function(el){el.classList.add('rvl');});
-  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
-  els.forEach(function(el){io.observe(el);});
+  var big = document.querySelector('.science-spot__big');
+  if(!big) return;
+  var triggered = false;
+  function runCounter(){
+    if(triggered) return; triggered = true;
+    var target = 23, current = 0, step = 1, delay = 60;
+    big.innerHTML = '0<small> Years</small>';
+    big.classList.add('counted');
+    var t = setInterval(function(){
+      current += step;
+      if(current >= target){ current = target; clearInterval(t); }
+      big.innerHTML = current + '<small> Years</small>';
+    }, delay);
+  }
+  var rect = big.getBoundingClientRect();
+  if(rect.top < window.innerHeight){ runCounter(); return; }
+  function onScroll(){
+    var r = big.getBoundingClientRect();
+    if(r.top < window.innerHeight * .88){ runCounter(); window.removeEventListener('scroll', onScroll); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
 })();
 </script>
+<script defer src="/assets/js/motion.js"></script>
 <footer class="ymj-footer">
   <div class="ymj-footer__inner">
     <div class="ymj-footer__brand">
