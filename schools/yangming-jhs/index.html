@@ -545,30 +545,93 @@ img.ymj-hero__logo{
 <script defer src="/analytics.js"></script>
 <link rel="stylesheet" href="/assets/css/motion.css">
 <style>
-/* ===== Extra animation layer ===== */
-@keyframes ymj-badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(230,61,46,.0);}50%{box-shadow:0 0 0 8px rgba(230,61,46,.18);}}
+/* ===== Yangming-JHS bespoke animation layer ===== */
+
+/* — Hero entrance keyframes — */
+@keyframes ymjSlideUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+@keyframes ymjSlideLeft{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:none;}}
+@keyframes ymjBlurIn{from{opacity:0;filter:blur(8px);transform:translateY(14px);}to{opacity:1;filter:none;transform:none;}}
+@keyframes ymjEyebrow{from{opacity:0;transform:translateY(14px);letter-spacing:.12em;}to{opacity:1;transform:none;letter-spacing:.32em;}}
+@keyframes ymjWatermark{0%,100%{transform:translateY(-50%) rotate(-6deg) scale(1);}50%{transform:translateY(-50%) rotate(-4.5deg) scale(1.06);}}
+
+/* Hero children cascade in */
+.ymj-hero::before{animation:ymjWatermark 22s ease-in-out infinite;}
+.ymj-hero__logo{animation:ymjSlideLeft .9s .1s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero__eyebrow{animation:ymjEyebrow .85s .3s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero h1{animation:ymjBlurIn .95s .46s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero .h1-zh{animation:ymjSlideUp .65s .62s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero__tagline{animation:ymjSlideUp .65s .78s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero__pills{animation:ymjSlideUp .65s .96s both cubic-bezier(.2,.7,.2,1);}
+/* Pills pop in one by one */
+.ymj-hero__pills .pill{opacity:0;animation:ymjSlideUp .5s both cubic-bezier(.2,.7,.2,1);}
+.ymj-hero__pills .pill:nth-child(1){animation-delay:1.06s;}
+.ymj-hero__pills .pill:nth-child(2){animation-delay:1.21s;}
+.ymj-hero__pills .pill:nth-child(3){animation-delay:1.36s;}
+.ymj-hero__pills .pill:nth-child(4){animation-delay:1.51s;}
+
+/* — Ambient orbs (reuses moDrift from motion.css) — */
+.ymj-hero__orb{
+  position:absolute;border-radius:50%;pointer-events:none;
+  filter:blur(40px);opacity:.22;
+  background:radial-gradient(circle at 35% 35%,#fff,transparent 70%);
+  animation:moDrift ease-in-out infinite;
+}
+
+/* — Scroll reveal: directional variety per element type —
+   Use :not(.in) so the transform ONLY applies before reveal;
+   once motion.js adds .in, .rvl.in{transform:none} takes over cleanly. — */
+
+/* Pillars: zoom-up with stagger */
+.pillar.rvl:not(.in){transform:translateY(32px) scale(.97);}
+.pillars .pillar.rvl:nth-child(2){transition-delay:.12s;}
+.pillars .pillar.rvl:nth-child(3){transition-delay:.24s;}
+.pillars .pillar.rvl:nth-child(4){transition-delay:.36s;}
+
+/* Programs: alternating left / right */
+.programs .program.rvl{transition-duration:.72s;}
+.programs .program.rvl:not(.in){transform:translateX(-44px);}
+.programs .program.rvl:not(.in):nth-child(even){transform:translateX(44px);}
+.programs .program.rvl:nth-child(2){transition-delay:.09s;}
+.programs .program.rvl:nth-child(3){transition-delay:.18s;}
+.programs .program.rvl:nth-child(4){transition-delay:.27s;}
+.programs .program.rvl:nth-child(5){transition-delay:.36s;}
+
+/* Timeline: slides in from the left spine */
+.tl-item.rvl{transition-duration:.56s;}
+.tl-item.rvl:not(.in){transform:translateX(-34px);}
+
+/* Accent pieces */
+.gate-figure.rvl:not(.in){transform:scale(.93);}
+.quote--principal.rvl:not(.in){transform:translateX(38px);}
+.quote:not(.quote--principal).rvl:not(.in){transform:translateX(38px);}
+.science-spot.rvl{transition-duration:.78s;}
+.science-spot.rvl:not(.in){transform:scale(.91) translateY(22px);}
+.lessons-spot.rvl{transition-duration:.78s;}
+.lessons-spot.rvl:not(.in){transform:translateY(40px);}
+.contact.rvl{transition-duration:.88s;}
+.contact.rvl:not(.in){transform:translateY(46px);}
+
+/* Section headings */
+.sec__no.rvl:not(.in){transform:translateX(-22px);}
+.sec__rule{transform-origin:left center;}
+.sec__rule.rvl:not(.in){transform:scaleX(0);}
+
+/* — Persistent sparkle effects — */
+@keyframes ymj-badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(230,61,46,0);}50%{box-shadow:0 0 0 10px rgba(230,61,46,.2);}}
 .science-spot__badge{animation:ymj-badge-pulse 2.8s ease-in-out infinite;}
 @keyframes ymj-counter{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:none;}}
 .science-spot__big.counted{animation:ymj-counter .7s cubic-bezier(.2,.7,.2,1) both;}
-@keyframes ymj-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes ymj-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
 .lessons-spot__credit{animation:ymj-float 4s ease-in-out infinite;}
-/* Staggered pillar entrance from alternating sides */
-@media (min-width:720px){
-  .pillar.rvl.in:nth-child(odd){animation:none;}
-  .pillar.rvl.in:nth-child(even){animation:none;}
-}
-/* Enhanced hero eyebrow */
-@keyframes ymj-eyebrow{from{opacity:0;letter-spacing:.12em;}to{opacity:1;letter-spacing:.32em;}}
-.ymj-hero__eyebrow{animation:ymj-eyebrow .9s .25s both;}
-/* CTA hover shine */
-.official-cta,.lessons-spot__cta,.wbtn{position:relative;overflow:hidden;}
+
+/* — CTA hover shine — */
+.official-cta,.lessons-spot__cta{position:relative;overflow:hidden;}
 .official-cta::after,.lessons-spot__cta::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.18) 50%,transparent 100%);
-  transform:translateX(-100%);transition:transform .45s ease;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.2) 50%,transparent 100%);
+  transform:translateX(-100%);transition:transform .48s ease;
 }
 .official-cta:hover::after,.lessons-spot__cta:hover::after{transform:translateX(100%);}
-/* Scroll progress bar (motion.css fallback) */
 </style>
 </head>
 <body>
@@ -600,6 +663,9 @@ img.ymj-hero__logo{
 
 <!-- ============ HERO (Home) ============ -->
 <header class="ymj-hero">
+  <div class="ymj-hero__orb" style="width:380px;height:380px;top:-18%;left:-6%;--dx:52px;--dy:34px;animation-duration:20s;"></div>
+  <div class="ymj-hero__orb" style="width:260px;height:260px;top:30%;right:-4%;--dx:-44px;--dy:28px;animation-duration:26s;animation-delay:-9s;"></div>
+  <div class="ymj-hero__orb" style="width:190px;height:190px;bottom:4%;left:24%;--dx:32px;--dy:-34px;animation-duration:17s;animation-delay:-5s;"></div>
   <div class="ymj-hero__inner">
     <img class="ymj-hero__logo" src="https://changhua-bilingual.org/schools/yangming-jhs/photos/logo.png" alt="Yangming Junior High School logo">
     <div>
@@ -619,15 +685,14 @@ img.ymj-hero__logo{
     </div>
   </div>
 </header>
--->
 
 <!-- ===== I. About ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">I.</div>
+    <div class="sec__no rvl">I.</div>
     <h2 class="sec__title">About Yangming</h2>
     <div class="sec__title-zh">關於陽明 · 一所立於彰化市中心的傳統名校</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="about__lead">A school where every child grows in confidence — at the heart of Changhua City for over eight decades.</div>
     <div class="about__lead-zh">一所立於彰化市中心、以「讓孩子深具信心」為信念的傳統名校。</div>
@@ -663,10 +728,10 @@ img.ymj-hero__logo{
 <!-- ===== II. Principal's Four Pillars ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no rvl">II.</div>
     <h2 class="sec__title">Four Concrete Thrusts</h2>
     <div class="sec__title-zh">校長四大具體主軸 · 張耀忠校長辦學藍圖</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
       <p>
@@ -723,10 +788,10 @@ img.ymj-hero__logo{
 <!-- ===== III. Science Championship Spotlight ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no rvl">III.</div>
     <h2 class="sec__title">A Twenty-Three-Year Streak</h2>
     <div class="sec__title-zh">彰化縣科展 23 連霸 · 全國科展連續 23 年參賽且得獎</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="science-spot rvl">
       <div class="science-spot__badge">Science Fair Streak · 科展連霸</div>
@@ -833,10 +898,10 @@ img.ymj-hero__logo{
 </style>
 <section>
   <div class="wrap">
-    <div class="sec__no">IV.</div>
+    <div class="sec__no rvl">IV.</div>
     <h2 class="sec__title">Lessons</h2>
     <div class="sec__title-zh">課程精華 · 持續累積中的 ESL 工作坊</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="lessons-spot rvl">
       <div class="lessons-spot__badge">Diplomatic Pioneers · 外交小尖兵</div>
@@ -879,10 +944,10 @@ img.ymj-hero__logo{
 <!-- ===== V. Featured Programs ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">V.</div>
+    <div class="sec__no rvl">V.</div>
     <h2 class="sec__title">Featured Programs</h2>
     <div class="sec__title-zh">特色課程與社團 · 四大主軸的具體實踐</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="programs">
 
@@ -949,10 +1014,10 @@ img.ymj-hero__logo{
 <!-- ===== VI. History ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">VI.</div>
+    <div class="sec__no rvl">VI.</div>
     <h2 class="sec__title">Our Story</h2>
     <div class="sec__title-zh">校史時間軸 · 從家政女子學校到陽明國中</div>
-    <div class="sec__rule"></div>
+    <div class="sec__rule rvl"></div>
 
     <div class="timeline">
       <div class="tl-item rvl">
