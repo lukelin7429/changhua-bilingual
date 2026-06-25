@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <link rel="canonical" href="https://changhua-bilingual.org/schools/sijhou/lessons/word/">
+<link rel="canonical" href="https://changhua-bilingual.org/schools/sijhou/lessons/word/">
 <title>Word of the Day · Sijhou Elementary</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/sijhou/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/sijhou/favicon-192.png">
@@ -13,109 +13,114 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<script defer src="/analytics.js"></script>
 <style>
   :root{
-    /* Refined: deep forest + warm paper + single honey accent — no muddy terra/red */
-    --forest:#1f4a3a;
-    --forest-mid:#2e6a4f;
-    --forest-light:#5b9d75;
-    --forest-soft:#d7e6dc;
-    --honey:#d4953a;
-    --honey-deep:#9c6a1d;
-    --honey-soft:#f5e4c8;
-    --paper:#faf6ed;
-    --paper-deep:#efe6d1;
-    --wool:#faf6ed;
-    --bg-soft:#faf6ed;
-    --line:#e0d8c4;
-    --ink:#1a1f24;
-    --ink-soft:#5a606e;
+    --forest:#1f4a3a;--forest-mid:#2e6a4f;--forest-light:#5b9d75;--forest-soft:#d7e6dc;
+    --honey:#d4953a;--honey-deep:#9c6a1d;--honey-soft:#f5e4c8;
+    --paper:#faf6ed;--paper-deep:#efe6d1;--line:#e0d8c4;
+    --ink:#1a1f24;--ink-soft:#5a606e;
     --shadow:0 14px 38px -16px rgba(31,74,58,.25);
     --shadow-sm:0 6px 16px -6px rgba(31,74,58,.15);
-    /* Compat aliases for legacy class names */
-    --tree-deep:var(--forest);
-    --tree:var(--forest-mid);
-    --tree-soft:var(--forest-soft);
-    --gold:var(--honey);
-    --gold-deep:var(--honey-deep);
-    --gold-soft:var(--honey-soft);
-    --terra:var(--forest-mid);
-    --terra-deep:var(--forest);
-    --terra-soft:var(--forest-soft);
+    --tree-deep:var(--forest);--tree:var(--forest-mid);--tree-soft:var(--forest-soft);
+    --gold:var(--honey);--gold-deep:var(--honey-deep);--gold-soft:var(--honey-soft);
+    --terra:var(--forest-mid);--terra-deep:var(--forest);--terra-soft:var(--forest-soft);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
-  @media (min-width:720px){ body{ font-size:23px; } }
+  @media(min-width:720px){body{font-size:23px;}}
   .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
 
+  /* ── subnav ── */
   .subnav{background:var(--tree-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
   .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Playfair Display','PingFang TC',serif;font-size:17px;}
-  @media (min-width:720px){ .subnav__inner{ font-size:19px; } }
+  @media(min-width:720px){.subnav__inner{font-size:19px;}}
   .subnav a{color:var(--tree-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--terra-deep);}
   .subnav a.is-active{background:var(--terra);color:#fff;}
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
-  @media (max-width:600px){ .subnav__sep{display:none;} }
+  @media(max-width:600px){.subnav__sep{display:none;}}
 
-  /* Unit hero */
-  .unit-hero{background:linear-gradient(135deg, var(--tree-deep) 0%, var(--tree) 100%);color:#fff;padding:48px 24px 60px;text-align:center;}
-  @media (min-width:720px){ .unit-hero{ padding:72px 24px 88px; } }
-  .unit-hero__eyebrow{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:5px;color:var(--gold-soft);text-transform:uppercase;font-weight:600;}
-  @media (min-width:720px){ .unit-hero__eyebrow{ font-size:16px; } }
-  .unit-hero h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;line-height:1.1;letter-spacing:.5px;margin-top:10px;}
-  @media (min-width:720px){ .unit-hero h1{ font-size:64px; } }
-  .unit-hero__zh{font-size:20px;color:#e7eee2;margin-top:10px;letter-spacing:1.5px;}
-  @media (min-width:720px){ .unit-hero__zh{ font-size:26px; } }
-  .unit-hero__meta{display:inline-flex;gap:24px;margin-top:24px;padding:12px 24px;background:rgba(255,255,255,.1);border-radius:99px;font-size:15px;color:#fff;font-weight:600;letter-spacing:1px;}
-  @media (min-width:720px){ .unit-hero__meta{ font-size:17px;gap:32px; } }
+  /* ── hero ── */
+  .hero{background:linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);color:#fff;padding:56px 24px 72px;text-align:center;}
+  @media(min-width:720px){.hero{padding:80px 24px 100px;}}
+  .hero__eyebrow{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:5px;color:var(--honey-soft);text-transform:uppercase;font-weight:600;}
+  @media(min-width:720px){.hero__eyebrow{font-size:15px;}}
+  .hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1.1;letter-spacing:.5px;margin-top:12px;}
+  @media(min-width:720px){.hero h1{font-size:68px;}}
+  .hero__zh{font-size:20px;color:#e7eee2;margin-top:10px;letter-spacing:1.5px;}
+  @media(min-width:720px){.hero__zh{font-size:26px;}}
+  .hero__meta{display:inline-flex;gap:20px;margin-top:28px;padding:12px 26px;background:rgba(255,255,255,.1);border-radius:99px;font-size:15px;color:#fff;font-weight:600;letter-spacing:.5px;}
+  @media(min-width:720px){.hero__meta{font-size:17px;gap:32px;}}
 
-  .unit-nav{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:24px 0 12px;flex-wrap:wrap;}
-  .unit-nav a{color:var(--tree-deep);text-decoration:none;font-weight:700;font-size:16px;padding:10px 20px;border-radius:10px;border:2px solid var(--line);background:#fff;transition:all .15s;}
-  @media (min-width:720px){ .unit-nav a{ font-size:18px; } }
-  .unit-nav a:hover{background:var(--terra-soft);border-color:var(--terra);color:var(--terra-deep);}
-  .unit-nav a.center{background:var(--tree-deep);color:#fff;border-color:var(--tree-deep);}
-  .unit-nav a.center:hover{background:var(--terra);border-color:var(--terra);color:#fff;}
-  .unit-nav a.disabled{color:var(--ink-soft);background:var(--bg-soft);pointer-events:none;border-color:var(--line);}
+  /* ── unit card grid ── */
+  .units{display:grid;grid-template-columns:1fr;gap:24px;margin-top:52px;}
+  @media(min-width:600px){.units{grid-template-columns:repeat(2,1fr);gap:28px;}}
+  @media(min-width:1080px){.units{grid-template-columns:repeat(4,1fr);}}
 
-  /* Vocab cards */
-  .vocabs{display:grid;grid-template-columns:1fr;gap:32px;margin:40px 0 30px;}
-  @media (min-width:880px){ .vocabs{ grid-template-columns:repeat(2,1fr);gap:36px; } }
-  .vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--tree);}
-  .vc:nth-child(4n+2){border-top-color:var(--gold);}
-  .vc:nth-child(4n+3){border-top-color:var(--terra);}
-  .vc:nth-child(4n+4){border-top-color:#5b9d5b;}
-  .vc__head{padding:24px 26px 18px;min-height:130px;}
-  @media (min-width:720px){ .vc__head{ padding:30px 32px 20px;min-height:160px; } }
-  .vc__num{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--terra-deep);text-transform:uppercase;}
-  @media (min-width:720px){ .vc__num{ font-size:15px; } }
-  .vc__term{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--tree-deep);line-height:1.15;margin-top:6px;}
-  @media (min-width:720px){ .vc__term{ font-size:42px; } }
-  .vc__pos{font-family:'Playfair Display',serif;font-size:.55em;color:var(--terra-deep);font-style:italic;font-weight:600;letter-spacing:1px;margin-left:4px;}
-  .vc__zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1.5px;}
-  @media (min-width:720px){ .vc__zh{ font-size:28px; } }
-  .vc__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
-  .vc__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-  .vc__body{padding:22px 26px 28px;}
-  @media (min-width:720px){ .vc__body{ padding:26px 32px 32px; } }
-  .vc__exs{display:flex;flex-direction:column;gap:14px;}
-  .vc__ex{background:var(--bg-soft);border-radius:12px;padding:14px 18px;border-left:4px solid var(--tree);}
-  .vc__ex:nth-child(2){border-left-color:var(--gold);}
-  .vc__ex .en{font-size:19px;color:var(--ink);font-weight:600;line-height:1.5;}
-  @media (min-width:720px){ .vc__ex .en{ font-size:21px; } }
-  .vc__ex .zh{font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
-  @media (min-width:720px){ .vc__ex .zh{ font-size:18px; } }
+  .unit{
+    background:#fff;border-radius:22px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);overflow:hidden;
+    display:flex;flex-direction:column;
+    text-decoration:none;color:inherit;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(31,74,58,.35);}
 
-  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;}
-  @media (min-width:720px){ footer{ font-size:17px; } }
-  footer .org{font-weight:600;color:var(--tree-deep);}
-  /* reveal-fx */
+  .unit__hero{
+    height:160px;display:flex;align-items:center;justify-content:center;
+    font-size:80px;position:relative;overflow:hidden;
+  }
+  @media(min-width:720px){.unit__hero{height:180px;font-size:96px;}}
+  .unit__hero::before{
+    content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 60%);
+    border-radius:50%;
+  }
+  .unit__hero::after{
+    content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;
+    background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 60%);
+    border-radius:50%;
+  }
+  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
+  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+
+  .unit.u1 .unit__hero{background:linear-gradient(135deg,#2e6a4f 0%,#1f4a3a 100%);}
+  .unit.u2 .unit__hero{background:linear-gradient(135deg,#5b9d75 0%,#2e6a4f 100%);}
+  .unit.u3 .unit__hero{background:linear-gradient(135deg,#d4953a 0%,#9c6a1d 100%);}
+  .unit.u4 .unit__hero{background:linear-gradient(135deg,#3d7a6a 0%,#1f4a3a 100%);}
+
+  .unit__body{padding:24px 24px 28px;flex:1;display:flex;flex-direction:column;}
+  @media(min-width:720px){.unit__body{padding:28px 28px 32px;}}
+  .unit__no{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra-deep);}
+  @media(min-width:720px){.unit__no{font-size:13px;}}
+  .unit__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--tree-deep);line-height:1.2;margin-top:6px;}
+  @media(min-width:720px){.unit__title{font-size:26px;}}
+  .unit__title-zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:5px;letter-spacing:.5px;}
+  @media(min-width:720px){.unit__title-zh{font-size:18px;}}
+  .unit__desc{font-size:15px;color:var(--ink-soft);margin-top:12px;line-height:1.65;flex:1;}
+  @media(min-width:720px){.unit__desc{font-size:17px;}}
+  .unit__cta{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);color:var(--terra-deep);font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:.5px;}
+  @media(min-width:720px){.unit__cta{font-size:17px;}}
+
+  /* ── section ── */
+  .sec{padding:56px 0 72px;}
+  @media(min-width:720px){.sec{padding:80px 0 96px;}}
+  .sec__title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--tree-deep);line-height:1.15;letter-spacing:.5px;}
+  @media(min-width:720px){.sec__title{font-size:48px;}}
+  .sec__title-zh{font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:8px;letter-spacing:1px;}
+  @media(min-width:720px){.sec__title-zh{font-size:20px;}}
+  .sec__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:18px 0 0;}
+
+  footer{text-align:center;padding:40px 24px;font-size:15px;color:var(--ink-soft);line-height:1.65;border-top:1px solid var(--line);}
+  @media(min-width:720px){footer{font-size:17px;}}
+
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
-<script defer src="/analytics.js"></script>
-  <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
 
@@ -133,76 +138,81 @@
   </div>
 </nav>
 
-  <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-top:36px;">
-    <style>.uc{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s;}@media(min-width:720px){.uc{grid-template-columns:200px 1fr;}}.uc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -18px rgba(47,78,44,.35);}.uc__hero{display:flex;align-items:center;justify-content:center;font-size:80px;padding:32px 18px;color:#fff;}@media(min-width:720px){.uc__hero{font-size:96px;padding:18px;}}.uc.u1 .uc__hero{background:linear-gradient(180deg,#2e6a4f 0%,#1f4a3a 100%);}.uc.u2 .uc__hero{background:linear-gradient(180deg,#4a7a5f 0%,#2f4e3a 100%);}.uc.u3 .uc__hero{background:linear-gradient(180deg,#5b9d75 0%,#2e6a4f 100%);}.uc.u4 .uc__hero{background:linear-gradient(180deg,#1f4a3a 0%,#15392b 100%);}.uc__body{padding:26px 28px 30px;}.uc__no{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra-deep);font-weight:700;}.uc__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--tree-deep);margin-top:6px;line-height:1.15;}@media(min-width:720px){.uc__title{font-size:34px;}}.uc__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:4px;}.uc__desc{font-size:17px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}.uc__cta{margin-top:18px;color:var(--terra-deep);font-family:'Playfair Display',serif;font-size:17px;font-weight:700;letter-spacing:.5px;}</style>
-    <a class="uc u1" href="unit-1/">
-      <div class="uc__hero">🏫</div>
-      <div class="uc__body">
-        <div class="uc__no">Unit 01 · Word of the Day</div>
-        <div class="uc__title">A Day at Sijhou</div>
-        <div class="uc__zh">校園日常與作息</div>
-        <div class="uc__desc">From the morning bell to the nurse&#x27;s office — the everyday words that shape a Sijhou child&#x27;s school day. <span style="display:block;color:var(--ink-soft);margin-top:4px;">從晨間朝會到保健室——溪州孩子每天會用到的校園英文。</span></div>
-        <div class="uc__cta">15 videos · 進入 Unit 1 →</div>
-      </div>
-    </a>
-    <a class="uc u2" href="unit-2/">
-      <div class="uc__hero">📚</div>
-      <div class="uc__body">
-        <div class="uc__no">Unit 02 · Word of the Day</div>
-        <div class="uc__title">Reading &amp; Learning</div>
-        <div class="uc__zh">閱讀、學習與考試</div>
-        <div class="uc__desc">From storytelling contests to midterm exams — the words Sijhou children meet when they pick up a book or open a workbook. <span style="display:block;color:var(--ink-soft);margin-top:4px;">從說故事比賽到期中考——溪州孩子打開書本與考卷時會遇到的英文。</span></div>
-        <div class="uc__cta">15 videos · 進入 Unit 2 →</div>
-      </div>
-    </a>
-    <a class="uc u3" href="unit-3/">
-      <div class="uc__hero">🎒</div>
-      <div class="uc__body">
-        <div class="uc__no">Unit 03 · Word of the Day</div>
-        <div class="uc__title">Recess &amp; Play</div>
-        <div class="uc__zh">下課與遊戲</div>
-        <div class="uc__desc">Dodgeball, swings, frisbees, board games — recess at Sijhou is loud, fast, and worth a few new English words. <span style="display:block;color:var(--ink-soft);margin-top:4px;">躲避球、鞦韆、飛盤、桌遊——溪州的下課時間很熱鬧，值得多認識一些英文。</span></div>
-        <div class="uc__cta">11 videos · 進入 Unit 3 →</div>
-      </div>
-    </a>
-    <a class="uc u4" href="unit-4/">
-      <div class="uc__hero">🌾</div>
-      <div class="uc__body">
-        <div class="uc__no">Unit 04 · Word of the Day</div>
-        <div class="uc__title">Crafts, Science &amp; Local Life</div>
-        <div class="uc__zh">手作、科學與在地生活</div>
-        <div class="uc__desc">Dye, clay, cyanotype, water buffalo, guava orchard — Sijhou is in the countryside, and our hands learn fast. <span style="display:block;color:var(--ink-soft);margin-top:4px;">染、黏土、藍曬、水牛、芭樂園——溪州在農村裡，這裡的手最早學會這些英文。</span></div>
-        <div class="uc__cta">24 videos · 進入 Unit 4 →</div>
-      </div>
-    </a>
+<header class="hero">
+  <div class="hero__eyebrow">Sijhou Elementary · 溪州國小</div>
+  <h1>Word of the Day</h1>
+  <div class="hero__zh">每日一字 · 溪州自製雙語影片庫</div>
+  <div class="hero__meta">
+    <span>📺 65 videos</span>
+    <span>📚 4 units</span>
+    <span>🎬 Sijhou original</span>
   </div>
+</header>
 
-  <div style="text-align:center;margin-top:36px;">
-    <a href="../" style="display:inline-block;background:var(--tree-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;">← Back to Lessons · 回 Lessons</a>
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec__title">Choose a Unit</h2>
+    <div class="sec__title-zh">選一個主題單元，開始今天的英文</div>
+    <div class="sec__rule"></div>
+
+    <div class="units">
+
+      <a class="unit u1 rvl" href="unit-1/">
+        <div class="unit__hero"><span class="unit__emoji">🏫</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 01 · Word of the Day</div>
+          <div class="unit__title">A Day at Sijhou</div>
+          <div class="unit__title-zh">校園日常與作息</div>
+          <div class="unit__desc">From the morning bell to the nurse's office — the everyday words that shape a Sijhou child's school day. 從晨間朝會到保健室，溪州孩子每天會用到的校園英文。</div>
+          <div class="unit__cta">15 videos · 進入 Unit 1 →</div>
+        </div>
+      </a>
+
+      <a class="unit u2 rvl" href="unit-2/">
+        <div class="unit__hero"><span class="unit__emoji">📚</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 02 · Word of the Day</div>
+          <div class="unit__title">Reading &amp; Learning</div>
+          <div class="unit__title-zh">閱讀、學習與考試</div>
+          <div class="unit__desc">From storytelling contests to midterm exams — the words Sijhou children meet when they pick up a book or open a workbook. 從說故事比賽到期中考，打開書本與考卷時會遇到的英文。</div>
+          <div class="unit__cta">15 videos · 進入 Unit 2 →</div>
+        </div>
+      </a>
+
+      <a class="unit u3 rvl" href="unit-3/">
+        <div class="unit__hero"><span class="unit__emoji">🎒</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 03 · Word of the Day</div>
+          <div class="unit__title">Recess &amp; Play</div>
+          <div class="unit__title-zh">下課與遊戲</div>
+          <div class="unit__desc">Dodgeball, swings, frisbees, board games — recess at Sijhou is loud, fast, and worth a few new English words. 躲避球、鞦韆、飛盤、桌遊——下課時間很熱鬧，值得多認識一些英文。</div>
+          <div class="unit__cta">11 videos · 進入 Unit 3 →</div>
+        </div>
+      </a>
+
+      <a class="unit u4 rvl" href="unit-4/">
+        <div class="unit__hero"><span class="unit__emoji">🌾</span></div>
+        <div class="unit__body">
+          <div class="unit__no">Unit 04 · Word of the Day</div>
+          <div class="unit__title">Crafts, Science &amp; Local Life</div>
+          <div class="unit__title-zh">手作、科學與在地生活</div>
+          <div class="unit__desc">Dye, clay, cyanotype, water buffalo, guava orchard — Sijhou is in the countryside, and our hands learn fast. 染、黏土、藍曬、水牛、芭樂園——溪州在農村裡，這裡的手最早學會這些英文。</div>
+          <div class="unit__cta">24 videos · 進入 Unit 4 →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="../" style="display:inline-flex;align-items:center;gap:10px;background:var(--tree-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;">← Back to Lessons · 回 Lessons</a>
+    </div>
   </div>
-</div>
+</section>
 
-<script>
-/* reveal-fx */
-(function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
-  if(!els.length)return;
-  els.forEach(function(el){el.classList.add('rvl');});
-  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
-  els.forEach(function(el){io.observe(el);});
-})();
-</script>
 <footer>
   © 溪州國小 Sijhou Elementary &nbsp;·&nbsp;
-  Word of the Day series by <span class="org">My Culture Connect 人師教育協會</span></footer>
+  Word of the Day series by <strong>My Culture Connect 人師教育協會</strong>
+</footer>
 
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 <script defer src="/assets/js/motion.js"></script>
