@@ -1,23 +1,15 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <link rel="canonical" href="https://changhua-bilingual.org/schools/wenchang/news/">
-
+<link rel="canonical" href="https://changhua-bilingual.org/schools/wenchang/news/">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
 <link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
-
-<title>News &amp; Stories · 公告新聞 · Wenchang Elementary</title>
-<meta name="description" content="Recent announcements and stories from Wenchang Elementary School. 文昌國小近期公告與校園故事。">
-<meta property="og:title" content="News &amp; Stories · 公告新聞 · Wenchang Elementary">
-<meta property="og:type" content="website">
-
+<title>News &amp; Stories · Wenchang Elementary 文昌國小</title>
+<meta name="description" content="Recent achievements, activities, and campus life at Wenchang Elementary School, Fuxing Township, Changhua. 文昌國小近期榮譽與校園動態。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,153 +30,154 @@ body{
   color:var(--ink);background:#fff;
   font-size:20px;line-height:1.7;-webkit-font-smoothing:antialiased;
 }
-@media (min-width:720px){ body{ font-size:23px; } }
-@media (min-width:1100px){ body{ font-size:24px; } }
+@media(min-width:720px){body{font-size:22px;}}
 a{color:var(--melon);text-decoration:none;transition:color .15s;}
 a:hover{color:var(--melon-deep);}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-.wrap-narrow{max-width:780px;margin:0 auto;padding:0 24px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
 
-/* === Subnav === */
+/* ── Subnav ── */
 .subnav{background:var(--leaf-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
 .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
-@media (min-width:720px){ .subnav__inner{ font-size:21px; } }
+@media(min-width:720px){.subnav__inner{font-size:21px;}}
 .subnav a{color:var(--leaf-deep);text-decoration:none;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap;}
 .subnav a:hover{background:#fff;color:var(--melon-deep);}
 .subnav a.is-active{background:var(--melon);color:#fff;}
 .subnav__sep{color:var(--ink-soft);opacity:.4;}
-@media (max-width:600px){ .subnav__sep{display:none;} }
+@media(max-width:600px){.subnav__sep{display:none;}}
 
-/* === Page banner (Festival shape, sail-deep gold color) === */
+/* ── Page Banner ── */
 .page-banner{
-  background:#8b6a17;color:#fff;
-  padding:56px 24px 52px;text-align:center;
-  border-bottom:6px solid var(--melon);
+  position:relative;
+  background:#000 url('../photos/school-gate.jpg') center/cover;
+  min-height:280px;display:flex;align-items:flex-end;overflow:hidden;
 }
-@media (min-width:720px){ .page-banner{ padding:72px 24px 68px; } }
-.page-banner__brand{
+@media(min-width:720px){.page-banner{min-height:360px;}}
+.page-banner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(20,10,5,.8) 100%);
+}
+.page-banner__inner{
+  position:relative;z-index:1;
+  padding:28px 24px 26px;color:#fff;width:100%;max-width:1100px;margin:0 auto;
+}
+@media(min-width:720px){.page-banner__inner{padding:48px 36px 40px;}}
+.page-banner__eyebrow{
   font-family:'Cormorant Garamond',serif;
-  font-size:14px;letter-spacing:4px;text-transform:uppercase;
-  color:#ffe8b3;font-weight:700;margin-bottom:18px;
+  font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
+  color:#ffe8b3;font-weight:600;margin-bottom:10px;
 }
-@media (min-width:720px){ .page-banner__brand{ font-size:17px; } }
-.page-banner h1{
-  font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:46px;font-weight:700;line-height:1.05;color:#fff;letter-spacing:.4px;
+.page-banner__inner h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,5.5vw,60px);font-weight:700;line-height:1.06;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
 }
-@media (min-width:720px){ .page-banner h1{ font-size:72px; } }
-@media (min-width:1080px){ .page-banner h1{ font-size:88px; } }
 .page-banner__zh{
-  font-family:'PingFang TC',sans-serif;
-  font-size:22px;color:#f0e8d8;margin-top:14px;font-weight:500;letter-spacing:1.5px;
-}
-@media (min-width:720px){ .page-banner__zh{ font-size:28px; } }
-.page-banner__tagline{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:19px;color:#f5e1c2;margin-top:22px;max-width:760px;
-  margin-left:auto;margin-right:auto;line-height:1.5;
-}
-@media (min-width:720px){ .page-banner__tagline{ font-size:23px; } }
-.page-banner__tagline .zh{
-  display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
-  font-size:17px;color:#dcd0bc;margin-top:8px;letter-spacing:.05em;
-}
-@media (min-width:720px){ .page-banner__tagline .zh{ font-size:20px; } }
-
-/* === Section divider === */
-.section-divider{
-  display:flex;align-items:center;justify-content:center;gap:24px;
-  padding:48px 24px 36px;color:var(--melon-deep);
-  font-family:'Cormorant Garamond',serif;
-  font-size:18px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;
-}
-.section-divider::before,.section-divider::after{
-  content:"";flex:1;height:1px;background:var(--line);max-width:340px;
+  font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  font-size:clamp(15px,1.8vw,19px);color:rgba(255,255,255,.85);
+  margin-top:6px;letter-spacing:.07em;text-shadow:0 1px 4px rgba(0,0,0,.4);
 }
 
-/* === Announcements list === */
-.news-section{padding:24px 0 72px;}
-.news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
-.news-item{
-  padding:28px 0;border-bottom:1px solid var(--line);
+/* ── Section heading ── */
+.sec-head{padding:52px 0 32px;}
+.sec-head__no{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--line);line-height:1;}
+@media(min-width:720px){.sec-head__no{font-size:64px;}}
+.sec-head__title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--ink);line-height:1.2;margin-top:2px;}
+.sec-head__zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:4px;letter-spacing:.06em;}
+.sec-head__rule{height:3px;width:56px;background:var(--melon);border-radius:2px;margin:16px 0 0;}
+
+/* ── Card grid ── */
+.card-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  padding-bottom:64px;
 }
-.news-item__meta{
-  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-  margin-bottom:14px;
+@media(min-width:560px){.card-grid{grid-template-columns:1fr 1fr;gap:22px;}}
+@media(min-width:900px){.card-grid{grid-template-columns:1fr 1fr 1fr;gap:24px;}}
+
+/* ── Card ── */
+.ncard{
+  background:#fff;border:1.5px solid var(--line);border-radius:18px;
+  padding:0;overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s;
 }
-.news-item__date{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:22px;color:var(--melon-deep);font-weight:700;letter-spacing:.06em;
+.ncard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+
+.ncard__top{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:22px 22px 0;
 }
-.news-item__tag{
+.ncard__tag{
   display:inline-block;
-  font-family:'Inter',sans-serif;
-  font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--leaf-deep);background:var(--leaf-soft);
-  padding:7px 16px;border-radius:99px;
+  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:5px 12px;border-radius:99px;white-space:nowrap;
+  background:var(--leaf-soft);color:var(--leaf-deep);
 }
-.news-item__tag.is-hiring{color:var(--melon-deep);background:var(--melon-soft);}
-.news-item__tag.is-safety{color:var(--sail-deep);background:var(--sail-soft);}
-.news-item__body{
-  font-family:'PingFang TC',sans-serif;
-  font-size:24px;color:var(--ink);line-height:1.55;
-}
-.news-item__body .en{
-  display:block;font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:20px;color:var(--ink-soft);
-  margin-top:8px;line-height:1.5;
+.ncard__tag.t-honor{background:var(--sail-soft);color:var(--sail-deep);}
+.ncard__tag.t-sport{background:var(--melon-soft);color:var(--melon-deep);}
+.ncard__tag.t-intl{background:#e8f0fe;color:#1a3a7c;}
+.ncard__tag.t-upcoming{background:#fce8ff;color:#6a1a8a;}
+.ncard__tag.t-arts{background:#fff3e0;color:#7a4a00;}
+
+.ncard__date{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-weight:700;color:var(--ink-soft);
+  letter-spacing:.04em;white-space:nowrap;flex-shrink:0;
+  margin-top:2px;
 }
 
-/* === Coming soon block === */
-.coming-soon{
-  margin-top:18px;padding:40px 32px;
-  border:2px dashed var(--line);border-radius:18px;
-  text-align:center;background:#fff;
-}
-.coming-soon__icon{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:68px;color:var(--melon-deep);line-height:1;
-}
-.coming-soon h3{
-  font-family:'Cormorant Garamond','PingFang TC',serif;
-  font-size:34px;font-weight:600;color:var(--ink);
-  margin-top:18px;line-height:1.25;
-}
-.coming-soon .zh-h{
-  display:block;font-family:'PingFang TC',sans-serif;
-  font-size:22px;color:var(--ink-soft);font-weight:500;
-  margin-top:8px;letter-spacing:.04em;
-}
-.coming-soon p{
-  margin-top:22px;max-width:620px;margin-left:auto;margin-right:auto;
-  font-size:21px;color:var(--ink);line-height:1.7;
-}
-.coming-soon p .zh{
-  display:block;font-family:'PingFang TC',sans-serif;
-  margin-top:8px;font-size:19px;color:var(--ink-soft);
-}
-.coming-soon a.fb{
-  display:inline-flex;align-items:center;gap:10px;margin-top:26px;
-  padding:14px 26px;border:2px solid var(--ink);border-radius:99px;
-  color:var(--ink);font-size:18px;font-weight:600;letter-spacing:.05em;
-  text-transform:uppercase;transition:all .2s;
-}
-.coming-soon a.fb:hover{background:var(--ink);color:#fff;transform:translateY(-1px);}
+.ncard__em{font-size:36px;line-height:1;padding:18px 22px 0;}
 
-/* === Footer === */
-footer{text-align:center;padding:42px 24px;font-size:18px;color:rgba(255,255,255,.7);background:#1a0f0a;}
+.ncard__body{padding:14px 22px 24px;flex:1;display:flex;flex-direction:column;}
+.ncard__title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.4vw,24px);font-weight:700;
+  color:var(--ink);line-height:1.2;
+}
+.ncard__zh{
+  font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  font-size:14px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em;
+}
+.ncard__desc{
+  font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.65;flex:1;
+}
+.ncard__desc strong{color:var(--ink);font-weight:600;}
+
+/* ── Divider ── */
+.divider{
+  display:flex;align-items:center;gap:20px;
+  padding:16px 0 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;letter-spacing:.3em;font-weight:700;text-transform:uppercase;
+  color:var(--melon-deep);
+}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+
+/* ── Source note ── */
+.source-note{
+  padding:20px 0 56px;
+  font-size:14px;color:var(--ink-soft);font-style:italic;
+}
+.source-note a{color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+.source-note a:hover{color:var(--melon);}
+
+/* ── Footer ── */
+footer{text-align:center;padding:40px 24px;font-size:15px;color:rgba(255,255,255,.7);background:#1a0f0a;}
 footer .org{color:var(--sail-soft);font-weight:600;}
 footer a{color:var(--sail-soft);}
-  /* reveal-fx */
-  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
-  .rvl.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+/* ── Reveal ── */
+.rvl{opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1);}
+.rvl.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
-  <link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
 
-<!-- Subnav -->
+<!-- ── Subnav ── -->
 <nav class="subnav">
   <div class="wrap">
     <div class="subnav__inner">
@@ -199,139 +192,250 @@ footer a{color:var(--sail-soft);}
   </div>
 </nav>
 
-<!-- PAGE BANNER (Festival pattern) -->
+<!-- ── Hero Banner ── -->
 <header class="page-banner">
-  <div class="page-banner__brand">What's Happening on Campus</div>
-  <h1>News &amp; Stories</h1>
-  <div class="page-banner__zh">公告新聞 · 校園故事</div>
-  <div class="page-banner__tagline">
-    Wenchang's daily life &mdash; announcements, events, and small moments worth saving.
-    <span class="zh">文昌的日常——校園公告、活動、值得記下的小時刻，都在這裡。</span>
+  <div class="page-banner__inner">
+    <div class="page-banner__eyebrow">Wenchang Elementary · Est. 1959 · Fuxing, Changhua</div>
+    <h1>News &amp; Stories</h1>
+    <div class="page-banner__zh">校園新聞 · 榮譽與生活</div>
   </div>
 </header>
 
-<!-- Divider -->
-<div class="wrap">
-  <div class="section-divider">Official Announcements · 學校公告</div>
-</div>
-
-<!-- Announcements list -->
-<section class="news-section">
+<!-- ══════════════════════════════════════════
+     I.  HONOR ROLL
+══════════════════════════════════════════ -->
+<section>
   <div class="wrap">
-    <div class="news-list">
+    <div class="sec-head rvl">
+      <div class="sec-head__no">I.</div>
+      <div class="sec-head__title">Honor Roll</div>
+      <div class="sec-head__zh">榮譽榜 · 近期得獎與升學</div>
+      <div class="sec-head__rule"></div>
+    </div>
 
-      <article class="news-item">
-        <div class="news-item__meta">
-          <div class="news-item__date">11 May 2026</div>
-          <span class="news-item__tag">Activity · 活動</span>
+    <div class="card-grid">
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-honor">English · 英語競賽</span>
+          <span class="ncard__date">22 Jun 2026</span>
         </div>
-        <div class="news-item__body">
-          「2026 小小永續工程師營隊」活動
-          <span class="en">The 2026 Little Sustainability Engineers Camp.</span>
+        <div class="ncard__em">🎤</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Cool English Speaking Masters — Three Medals</div>
+          <div class="ncard__zh">酷英語口說達人競賽 · 三位同學獲獎</div>
+          <div class="ncard__desc">
+            Three Wenchang students placed in this year's <strong>Cool English Speaking Masters Competition</strong>, a countywide English oral contest: <strong>Xu Chen-wen</strong> and <strong>Xie Yi-rong</strong> (both Grade 5A), along with <strong>Gong Jin-fei</strong> (Grade 4A). All three were coached by Teacher Wang Yu-tian. For a small village school, three placings in one round is an outstanding result.
+          </div>
         </div>
       </article>
 
-      <article class="news-item">
-        <div class="news-item__meta">
-          <div class="news-item__date">11 May 2026</div>
-          <span class="news-item__tag is-hiring">Hiring · 人事</span>
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-honor">Alumni · 校友升學</span>
+          <span class="ncard__date">15 Jun 2026</span>
         </div>
-        <div class="news-item__body">
-          115 學年度第 1 次代理、兼任代課教師甄選
-          <span class="en">2026 school-year substitute and part-time teacher selection (Round 1).</span>
-        </div>
-      </article>
-
-      <article class="news-item">
-        <div class="news-item__meta">
-          <div class="news-item__date">6 May 2026</div>
-          <span class="news-item__tag">Contest · 競賽</span>
-        </div>
-        <div class="news-item__body">
-          「115 年環境知識競賽」
-          <span class="en">2026 Environmental Knowledge Competition.</span>
+        <div class="ncard__em">🎓</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Alumni Head to Top High School &amp; University</div>
+          <div class="ncard__zh">校友升讀資優高中與清大資工</div>
+          <div class="ncard__desc">
+            Two Wenchang alumni have gone on to selective programs: the school's <strong>67th-cohort graduate Huang Shi-chi</strong> was admitted to Jingcheng Senior High School's gifted stream, and <strong>61st-cohort graduate Zhou Yu-sheng</strong> was accepted into the Department of Computer Science at <strong>National Tsing Hua University</strong>. The watermelon fields of Fuxing grow more than fruit.
+          </div>
         </div>
       </article>
 
-      <article class="news-item">
-        <div class="news-item__meta">
-          <div class="news-item__date">29 Apr 2026</div>
-          <span class="news-item__tag">Contest · 競賽</span>
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-honor">Language Arts · 語文</span>
+          <span class="ncard__date">18 May 2026</span>
         </div>
-        <div class="news-item__body">
-          「三百風華・藝繪孔子廟」寫生徵件比賽
-          <span class="en">"Three Centuries of Splendour · Painting the Confucius Temple" sketching contest.</span>
+        <div class="ncard__em">🗣</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Taiwanese Recitation — 1st Place</div>
+          <div class="ncard__zh">台語朗讀競賽 · 第一名</div>
+          <div class="ncard__desc">
+            <strong>Gong Jin-fei</strong> (Grade 4A) won first place in the Taiwanese-language recitation competition. The same student also placed in the Cool English Speaking contest (see above) — a rare double across two different language streams in the same academic year.
+          </div>
         </div>
       </article>
 
-      <article class="news-item">
-        <div class="news-item__meta">
-          <div class="news-item__date">27 Apr 2026</div>
-          <span class="news-item__tag is-safety">Safety · 交安</span>
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-sport">Sports · 體育</span>
+          <span class="ncard__date">16 Mar 2026</span>
         </div>
-        <div class="news-item__body">
-          「115 年 1 月彰化縣事故肇因排行」交通安全宣導
-          <span class="en">January 2026 Changhua County traffic-accident causes — road-safety awareness.</span>
+        <div class="ncard__em">🥋</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Taekwondo — Silver in the 68 kg Division</div>
+          <div class="ncard__zh">跆拳道 68 公斤級 · 第二名</div>
+          <div class="ncard__desc">
+            <strong>Chen Bo-rong</strong> (Grade 6A) earned a <strong>silver medal</strong> in the 68 kg weight division at the countywide taekwondo competition. Taekwondo is one of Wenchang's featured competitive areas, and this result keeps a strong tradition going.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-honor">Mind Sports · 益智</span>
+          <span class="ncard__date">9 Mar 2026</span>
+        </div>
+        <div class="ncard__em">♟</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Go Competition — Bronze Medal</div>
+          <div class="ncard__zh">圍棋競賽 · 第三名</div>
+          <div class="ncard__desc">
+            <strong>Cai Yi-shan</strong> (Grade 6A) took <strong>third place</strong> in the Go (圍棋) competition. Alongside taekwondo, English, and inline skating, Go is one of the four competition tracks Wenchang explicitly develops — a deliberate choice to give rural-village students a wide range of arenas to excel in.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-sport">Sports · 體育</span>
+          <span class="ncard__date">9 Mar 2026</span>
+        </div>
+        <div class="ncard__em">⛸</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Speed Skating — Two Medals in One Day</div>
+          <div class="ncard__zh">速度溜冰 · 同日摘兩牌</div>
+          <div class="ncard__desc">
+            <strong>Xu Ting-yu</strong> (Grade 4A) won <strong>2nd and 3rd place</strong> in two inline speed-skating events on the same competition day. Inline skating has been part of Wenchang's athletics curriculum for years, and results like this show why — consistent practice leads to consistent podiums.
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     II.  CAMPUS LIFE
+══════════════════════════════════════════ -->
+<section style="background:#faf9f7;padding-bottom:8px;">
+  <div class="wrap">
+    <div class="sec-head rvl">
+      <div class="sec-head__no">II.</div>
+      <div class="sec-head__title">Campus Life &amp; Activities</div>
+      <div class="sec-head__zh">校園生活 · 活動與學習</div>
+      <div class="sec-head__rule"></div>
+    </div>
+
+    <div class="card-grid">
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-upcoming">Upcoming · 即將登場</span>
+          <span class="ncard__date">20–24 Jul 2026</span>
+        </div>
+        <div class="ncard__em">🛶</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Summer Kayaking Camp — Grades 3 to 6</div>
+          <div class="ncard__zh">暑期獨木舟營隊 · 三至六年級</div>
+          <div class="ncard__desc">
+            From <strong>July 20 to 24</strong>, students in Grades 3 through 6 are invited to join a hands-on kayaking camp. The five-day program is designed to build water safety awareness, teamwork, and physical confidence — all outside the usual classroom setting. Sign-ups through the school office.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-upcoming">Upcoming · 即將登場</span>
+          <span class="ncard__date">12–13 Aug 2026</span>
+        </div>
+        <div class="ncard__em">🌿</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Green Energy Summer Workshop</div>
+          <div class="ncard__zh">綠能科技暑期工作坊</div>
+          <div class="ncard__desc">
+            A two-day <strong>green energy workshop</strong> on August 12–13 will introduce students to solar power, wind energy, and sustainable design. Part of the school's ongoing commitment to environmental literacy — Wenchang has previously run outdoor education at Chaoyang Green Energy Park, and this workshop extends that work into the summer.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-intl">International · 國際教育</span>
+          <span class="ncard__date">15 Dec 2025</span>
+        </div>
+        <div class="ncard__em">🌏</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Online Cross-Cultural Exchange with Overseas Classrooms</div>
+          <div class="ncard__zh">國際教育線上文化交流</div>
+          <div class="ncard__desc">
+            On December 15, Wenchang students connected live with classrooms abroad for a structured <strong>cross-cultural exchange</strong> session. Students introduced themselves, shared aspects of Taiwanese village life, and listened to their counterparts do the same. As a certified <em>Setting Sail</em> school under MOE's International Education 2.0 framework, these exchanges are a core part of how Wenchang goes beyond the textbook.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag">Outdoor · 戶外教育</span>
+          <span class="ncard__date">24–25 Feb 2026</span>
+        </div>
+        <div class="ncard__em">🚌</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Two-Day Outdoor Education in Kaohsiung</div>
+          <div class="ncard__zh">高雄兩日戶外教育</div>
+          <div class="ncard__desc">
+            Students traveled to <strong>Kaohsiung</strong> for a two-day outdoor education experience on February 24–25. The trip was designed around experiential learning beyond the classroom — combining cultural sites, teamwork activities, and exposure to urban life quite different from the watermelon fields of Fuxing Township.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-arts">Arts · 才藝</span>
+          <span class="ncard__date">2025–2026</span>
+        </div>
+        <div class="ncard__em">🎭</div>
+        <div class="ncard__body">
+          <div class="ncard__title">115th Year Talent &amp; Clubs Showcase</div>
+          <div class="ncard__zh">115 學年度才藝社團成果表演</div>
+          <div class="ncard__desc">
+            Students from Wenchang's various clubs and extracurricular activities performed in the <strong>Changhua County Clubs Showcase</strong> for the 115th academic year. The performance featured a range of acts drawn from the school's after-school program — a reminder that a small village school still has a full stage to fill.
+          </div>
+        </div>
+      </article>
+
+      <article class="ncard rvl">
+        <div class="ncard__top">
+          <span class="ncard__tag t-honor">English · 自主學習</span>
+          <span class="ncard__date">22 Jun 2026</span>
+        </div>
+        <div class="ncard__em">📱</div>
+        <div class="ncard__body">
+          <div class="ncard__title">Cool English Self-Learning Recognition</div>
+          <div class="ncard__zh">酷英語自主學習表揚</div>
+          <div class="ncard__desc">
+            Wenchang students participating in the <strong>Cool English self-directed learning platform</strong> were recognized for their consistent engagement outside class hours. The program rewards students who complete listening, speaking, and vocabulary activities independently — building the habit of learning English between the lessons, not only during them.
+          </div>
         </div>
       </article>
 
     </div>
 
-    <p style="margin-top:28px;font-size:18px;color:var(--ink-soft);font-style:italic;">
-      Source: <a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a> · 學校官網公告區
+    <p class="source-note">
+      Source: <a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a> (文昌國小官網) · Last updated June 2026
     </p>
   </div>
 </section>
 
-<!-- Divider -->
-<div class="wrap">
-  <div class="section-divider">Campus Stories · 校園故事</div>
-</div>
-
-<!-- Coming soon (FB stories) -->
-<section class="news-section">
-  <div class="wrap">
-    <div class="coming-soon">
-      <div class="coming-soon__icon">— soon —</div>
-      <h3>Campus stories from Facebook coming soon.
-        <span class="zh-h">Facebook 校園故事整理中</span>
-      </h3>
-      <p>
-        We are curating Wenchang's recent campus moments &mdash; events, learning, life on the watermelon fields &mdash; from the school's Facebook page into bilingual stories. Check back shortly.
-        <span class="zh">我們正將文昌國小臉書粉專上的近期校園動態——活動、學習、西瓜田畔的日常——整理成中英對照的校園故事。請稍後再回來看。</span>
-      </p>
-      <a class="fb" href="https://www.facebook.com/100063792111873" target="_blank" rel="noopener">
-        Visit Wenchang FB →
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<script>
-/* reveal-fx */
-(function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
-  if(!els.length)return;
-  els.forEach(function(el){el.classList.add('rvl');});
-  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
-  els.forEach(function(el){io.observe(el);});
-})();
-</script>
+<!-- ── Footer ── -->
 <footer>
   <div class="wrap">
-    © 2026 <span class="org">彰化縣福興鄉文昌國民小學 · Wenchang Elementary School</span></div>
+    © 2026 <span class="org">彰化縣福興鄉文昌國民小學 · Wenchang Elementary School</span>
+  </div>
 </footer>
-
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rvl');
+  function check(){els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight-60)el.classList.add('in');});}
+  check();document.addEventListener('scroll',check,{passive:true});
+})();
+</script>
 <script defer src="/assets/js/motion.js"></script>
 </body>
 </html>
