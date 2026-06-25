@@ -460,3 +460,159 @@
   margin: 10px 0 0;
   line-height: 1.7;
 }
+
+/* ===== Township Cards (About Changhua > townships grid) ===== */
+.tp-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 36px;
+}
+@media (min-width: 560px) {
+  .tp-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 860px) {
+  .tp-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+}
+@media (min-width: 1060px) {
+  .tp-grid { grid-template-columns: repeat(5, 1fr); }
+}
+.tp-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+  background: #fff;
+  border: 1px solid var(--hub-line);
+  border-radius: 14px;
+  text-decoration: none !important;
+  color: var(--hub-ink);
+  transition: box-shadow .18s, transform .18s, border-color .18s;
+  position: relative;
+  overflow: hidden;
+}
+.tp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--tp-accent, var(--hub-primary));
+  border-radius: 14px 14px 0 0;
+}
+.tp-card:hover {
+  box-shadow: var(--hub-shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--tp-accent, var(--hub-primary));
+  text-decoration: none;
+  color: var(--hub-ink);
+}
+.tp-card--city   { --tp-accent: var(--hub-primary); }
+.tp-card--urban  { --tp-accent: var(--r-blue); }
+.tp-card--rural  { --tp-accent: var(--r-green); }
+.tp-icon {
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+}
+.tp-name-en {
+  font-family: var(--hub-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--hub-primary-deep);
+  line-height: 1.2;
+  margin: 0 0 2px;
+}
+.tp-name-zh {
+  font-family: var(--hub-zh-font);
+  font-size: .9rem;
+  color: var(--hub-ink-soft);
+  margin: 0 0 8px;
+}
+.tp-badge {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--tp-accent, var(--hub-primary));
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.tp-specialty {
+  font-size: .83rem;
+  line-height: 1.5;
+  color: var(--hub-ink-soft);
+  margin: 0;
+  flex: 1;
+}
+.tp-arrow {
+  margin-top: 12px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--tp-accent, var(--hub-primary));
+}
+
+/* Legend for township type color coding */
+.tp-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0 0 24px;
+  font-size: .85rem;
+  color: var(--hub-ink-soft);
+}
+.tp-legend-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.tp-legend-dot--city  { background: var(--hub-primary); }
+.tp-legend-dot--urban { background: var(--r-blue); }
+.tp-legend-dot--rural { background: var(--r-green); }
+
+/* ===== Township Detail Pages ===== */
+.tp-breadcrumb {
+  font-size: .88rem;
+  margin-bottom: 20px;
+}
+.tp-breadcrumb a {
+  color: var(--hub-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.tp-breadcrumb a:hover { text-decoration: underline; }
+
+.tp-facts-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  margin-top: 28px;
+}
+@media (min-width: 680px) {
+  .tp-facts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .tp-facts-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.tp-fact {
+  background: var(--hub-line-soft);
+  border-left: 4px solid var(--hub-primary);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  font-size: .92rem;
+  line-height: 1.6;
+  color: var(--hub-ink);
+}
+.tp-fact strong {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--hub-ink-faint);
+  margin-bottom: 4px;
+}
