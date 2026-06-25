@@ -39,14 +39,17 @@
 
     /* ---------- HERO: entrance + ambient light blooms ---------- */
     var hero=document.querySelector(
-      '.strip,.head,.hero,.banner,.page-banner,.unit__hero,.th-fest-hero');
+      '.strip,.head,.hero,.banner,.page-banner,.unit__hero,.th-fest-hero,'+
+      'header[class*="hero"]:not([class*="__"])');
+    /* pages with hand-crafted hero CSS skip motion.js hero processing */
+    if(hero && hero.hasAttribute('data-mo-custom')) hero=null;
     if(hero){
       if(getComputedStyle(hero).position==='static') hero.style.position='relative';
       if(getComputedStyle(hero).overflow==='visible') hero.style.overflow='hidden';
 
       var inner=hero.querySelector(
         ':scope > .wrap, :scope > .banner__inner, :scope > .hero-inner, '+
-        ':scope > .hero__top, :scope > .th-fest-hero__inner') || hero;
+        ':scope > .hero__top, :scope > .th-fest-hero__inner, :scope > [class*="__inner"]') || hero;
       var kids=[].slice.call(inner.children);          /* capture BEFORE adding orbs */
       inner.classList.add('mo-hero');
       kids.forEach(function(c,i){ c.style.animationDelay=(0.14+i*0.12)+'s'; });
@@ -84,12 +87,21 @@
       '.role-card','.award-card','.story-block','.pillar','.principal-card',
       '.life-card','.feature','.info-card','.course','.lcard','.card',
       '.grid-section',
+      /* content blocks used on school / partner bespoke pages */
+      '.quote','.lead',
       /* generic block patterns so every bespoke design is covered.
-         :not([class*="__"]) keeps us on BLOCK roots, not their BEM kids. */
+         :not([class*="__"]) keeps us on BLOCK roots, not their BEM kids.
+         :not(header) on -hero keeps page-banner headers out of the SEL
+         (they're handled by the hero entrance path above). */
       '[class*="-card"]:not([class*="__"])',
       '[class*="-item"]:not([class*="__"])',
       '[class*="-block"]:not([class*="__"])',
-      '[class*="-tile"]:not([class*="__"])'
+      '[class*="-tile"]:not([class*="__"])',
+      '[class*="-col"]:not([class*="__"])',
+      '[class*="-section"]:not([class*="__"])',
+      '[class*="-spot"]:not([class*="__"])',
+      '[class*="-panel"]:not([class*="__"])',
+      '[class*="-hero"]:not([class*="__"]):not(header)'
     ];
 
     var cands=[].slice.call(document.querySelectorAll(SEL.join(',')));
