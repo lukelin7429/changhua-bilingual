@@ -638,6 +638,27 @@
   @keyframes mascotFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
   @media(prefers-reduced-motion:reduce){.mascots__fig img{animation:none;}}
 
+  /* ── Signature Programs (食農 / 科技) ── */
+  .programs{padding:64px 0 8px;}
+  .prog-band{margin-bottom:56px;}
+  .prog-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+  .prog-head .ico{font-size:34px;line-height:1;}
+  .prog-head h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(24px,3.4vw,34px);font-weight:700;color:var(--melon-deep);line-height:1.15;}
+  .prog-band:nth-child(2) .prog-head h3{color:var(--leaf-deep);}
+  .prog-head .zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:600;}
+  .prog-lead{font-size:18px;color:var(--ink-soft);line-height:1.7;max-width:760px;margin:14px 0 0;}
+  @media(min-width:720px){.prog-lead{font-size:20px;}}
+  .prog-lead .zh{display:block;margin-top:8px;font-size:16px;}
+  .prog-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px;}
+  @media(min-width:680px){.prog-grid{grid-template-columns:repeat(3,1fr);gap:18px;}}
+  .prog-fig{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px -4px rgba(138,40,40,.18);background:#1a0f0a;aspect-ratio:4/3;}
+  .prog-fig img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .prog-fig:hover img{transform:scale(1.05);}
+  .prog-fig__scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(15,8,4,.8) 100%);pointer-events:none;}
+  .prog-fig figcaption{position:absolute;left:14px;right:14px;bottom:13px;color:#fff;z-index:1;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:14px;font-weight:600;line-height:1.35;text-shadow:0 1px 4px rgba(0,0,0,.7);}
+  .prog-fig figcaption .en{display:block;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;}
+  @media(prefers-reduced-motion:reduce){.prog-fig img,.prog-fig:hover img{transition:none;transform:none;}}
+
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -846,6 +867,50 @@
       </article>
 
     </div>
+  </div>
+</section>
+
+
+<!-- ============ SIGNATURE PROGRAMS (食農 / 科技) ============ -->
+<section class="programs" id="programs">
+  <div class="wrap">
+
+    <!-- Food & Farm -->
+    <div class="prog-band">
+      <div class="prog-head rvl">
+        <span class="ico">🍉</span>
+        <h3>From Seed to Lunchbox</h3>
+        <span class="zh">食農教育 · 從種子到餐桌</span>
+      </div>
+      <p class="prog-lead rvl">
+        The watermelon and sweet-potato fields begin right at the school fence, so Wenchang turned them into a classroom. Children plant, dig, harvest, and finally taste what they grew — learning where real food comes from.
+        <span class="zh">西瓜與地瓜田就從校園圍籬邊開始，文昌索性把田變成教室。孩子親手種、親手挖、親手收，最後嘗到自己種出來的滋味——真正認識食物從哪裡來。</span>
+      </p>
+      <div class="prog-grid">
+        <figure class="prog-fig rvl"><img src="photos/programs/farm-harvest.jpg" alt="Student harvesting a watermelon in the field with a farmer" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">Watermelon Harvest</span>採收西瓜 · 田邊就是教室</figcaption></figure>
+        <figure class="prog-fig rvl"><img src="photos/programs/farm-dig.jpg" alt="Students in the field after digging sweet potatoes, giving a thumbs up" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">Digging Sweet Potatoes</span>社區採地瓜 · 滿載而歸</figcaption></figure>
+        <figure class="prog-fig rvl"><img src="photos/programs/farm-learn.jpg" alt="A local farmer showing crops to Wenchang students in the field" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">Learning from Farmers</span>田間導覽 · 向農夫學習</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- Technology & Robotics -->
+    <div class="prog-band">
+      <div class="prog-head rvl">
+        <span class="ico">🤖</span>
+        <h3>Hands That Make Things</h3>
+        <span class="zh">科技教育 · 動手做的孩子</span>
+      </div>
+      <p class="prog-lead rvl">
+        Tradition in one hand, circuit boards in the other. From micro-controllers to 3D printing, Wenchang gives village children the same hands-on STEM experience that larger urban schools take for granted.
+        <span class="zh">一手是傳統、一手是電路板。從微控制器到 3D 列印，文昌讓鄉村孩子也擁有都市學校熟悉的 STEM 動手經驗。</span>
+      </p>
+      <div class="prog-grid">
+        <figure class="prog-fig rvl"><img src="photos/programs/tech-circuit.jpg" alt="Students gathered around a micro-controller circuit project" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">Building Circuits</span>電路動手做 · micro:bit 程式</figcaption></figure>
+        <figure class="prog-fig rvl"><img src="photos/programs/tech-3d.jpg" alt="Group of students holding their 3D-printed creations" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">3D Print Creations</span>3D 列印創作 · 把點子印出來</figcaption></figure>
+        <figure class="prog-fig rvl"><img src="photos/programs/tech-print.jpg" alt="A student showing a 3D-printed keychain in front of the trophy shelf" loading="lazy"><span class="prog-fig__scrim"></span><figcaption><span class="en">My Own Design</span>我的設計 · 列印成真</figcaption></figure>
+      </div>
+    </div>
+
   </div>
 </section>
 
