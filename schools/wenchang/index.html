@@ -619,6 +619,25 @@
   .gallery-caption{padding:6px 8px 8px;}
   .gallery-caption .en{font-weight:600;font-size:13px;color:var(--ink);line-height:1.3;}
   .gallery-caption .zh{font-family:'PingFang TC',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+  /* ── Mascots (文昌娃娃) ── */
+  .mascots{padding:60px 0 72px;background:linear-gradient(180deg,#fff 0%,var(--leaf-soft) 100%);overflow:hidden;}
+  .mascots .section-head{text-align:center;}
+  .mascots__lead{max-width:660px;margin:14px auto 0;text-align:center;color:var(--ink-soft);font-size:18px;line-height:1.7;}
+  @media(min-width:720px){.mascots__lead{font-size:20px;}}
+  .mascots__lead .zh{display:block;margin-top:8px;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;color:var(--ink-soft);}
+  .mascots__row{display:flex;justify-content:center;align-items:flex-end;gap:8px;flex-wrap:wrap;margin-top:36px;}
+  @media(min-width:560px){.mascots__row{gap:24px;}}
+  .mascots__fig{flex:0 0 auto;width:46%;max-width:200px;text-align:center;}
+  @media(min-width:560px){.mascots__fig{width:auto;}}
+  .mascots__fig img{width:100%;max-width:160px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 12px 18px rgba(46,82,25,.22));animation:mascotFloat 5s ease-in-out infinite;}
+  @media(min-width:560px){.mascots__fig img{max-width:150px;}}
+  .mascots__fig:nth-child(2) img{animation-delay:-1.2s;}
+  .mascots__fig:nth-child(3) img{animation-delay:-2.4s;}
+  .mascots__fig:nth-child(4) img{animation-delay:-3.6s;}
+  .mascots__fig:hover img{animation-play-state:paused;transform:translateY(-6px) scale(1.05);transition:transform .25s;}
+  @keyframes mascotFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @media(prefers-reduced-motion:reduce){.mascots__fig img{animation:none;}}
+
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -826,6 +845,28 @@
         <p class="zh-body">一手是傳統、一手是電路板。文昌國小開設了機器人設計課程與機器人營隊，讓鄉村學校的孩子也擁有都市學校熟悉的 STEM 動手經驗。這樣的課程其實悄悄地回答了一個不太好答的問題：2026 年的「小學教育」應該長什麼樣子？——我們認為，是西瓜，也是機器人，兩者一起在同一所學校長大。</p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MASCOTS (文昌娃娃) ============ -->
+<section class="mascots" id="mascots">
+  <div class="wrap">
+    <div class="section-head rvl">
+      <div class="eyebrow">Meet the Wenchang Kids</div>
+      <h2>文昌娃娃 · Our Mascots</h2>
+      <div class="h2-zh">從西瓜田裡長出來的吉祥物</div>
+    </div>
+    <p class="mascots__lead rvl">
+      Our mascots grow straight out of the fields around school — watermelon, sweet potato, garden greens, and blossom — each one wearing the Wenchang school badge. They are how a small farming village says hello to the world.
+      <span class="zh">文昌娃娃從校園邊的田裡長出來——西瓜、地瓜、青蔬、花朵，每一隻肚子上都帶著文昌校徽。這是一個小農村，向世界打招呼的方式。</span>
+    </p>
+    <div class="mascots__row">
+      <figure class="mascots__fig rvl"><img src="photos/mascots/mascot-2.png" alt="Wenchang watermelon mascot 西瓜娃娃" loading="lazy"></figure>
+      <figure class="mascots__fig rvl"><img src="photos/mascots/mascot-1.png" alt="Wenchang sweet potato mascot 地瓜娃娃" loading="lazy"></figure>
+      <figure class="mascots__fig rvl"><img src="photos/mascots/mascot-4.png" alt="Wenchang garden greens mascot 青蔬娃娃" loading="lazy"></figure>
+      <figure class="mascots__fig rvl"><img src="photos/mascots/mascot-3.png" alt="Wenchang blossom mascot 花娃娃" loading="lazy"></figure>
     </div>
   </div>
 </section>
