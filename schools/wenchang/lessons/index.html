@@ -107,29 +107,39 @@ a:hover{color:var(--leaf);}
 .lead{color:var(--ink-soft);font-size:19px;max-width:720px;line-height:1.75;margin-bottom:10px;}
 @media(min-width:720px){.lead{font-size:21px;}}
 
-/* ── Lesson Feature Card ── */
-.feature-card{
-  display:grid;grid-template-columns:1fr;gap:0;
-  border:1.5px solid var(--line);border-radius:18px;
-  overflow:hidden;box-shadow:var(--shadow-sm);
-  text-decoration:none;color:inherit;
-  transition:transform .2s,box-shadow .2s;
-  max-width:680px;
+/* ── Grade Group ── */
+.grade-group{margin-top:44px;}
+.grade-group + .grade-group{margin-top:56px;}
+.grade-label{
+  font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;color:var(--melon-deep);
+  border-bottom:2px solid var(--melon);padding-bottom:8px;margin-bottom:20px;
+  display:inline-block;
 }
-@media(min-width:680px){.feature-card{grid-template-columns:200px 1fr;}}
-.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.feature-card__cover{
-  background:linear-gradient(135deg,var(--leaf) 0%,var(--leaf-deep) 100%);
-  display:flex;align-items:center;justify-content:center;
-  font-size:72px;min-height:140px;
+
+/* ── Lesson Card Grid ── */
+.lesson-grid{
+  display:grid;grid-template-columns:1fr;gap:12px;
 }
-@media(min-width:680px){.feature-card__cover{min-height:180px;font-size:80px;}}
-.feature-card__body{padding:26px 28px;}
-.feature-card__eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sail-deep);margin-bottom:8px;}
-.feature-card__title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.8vw,28px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:6px;}
-.feature-card__zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:15px;color:var(--ink-soft);margin-bottom:12px;letter-spacing:.05em;}
-.feature-card__desc{font-size:17px;color:var(--ink-soft);line-height:1.65;}
-.feature-card__cta{display:inline-block;margin-top:14px;font-size:15px;font-weight:700;color:var(--melon);}
+@media(min-width:560px){.lesson-grid{grid-template-columns:repeat(2,1fr);gap:14px;}}
+@media(min-width:900px){.lesson-grid{grid-template-columns:repeat(4,1fr);gap:16px;}}
+
+.lcard{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;
+  padding:18px 18px 16px;
+  border-top:4px solid var(--melon);
+  box-shadow:var(--shadow-sm);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.lcard:nth-child(4n+2){border-top-color:var(--leaf);}
+.lcard:nth-child(4n+3){border-top-color:var(--sail);}
+.lcard:nth-child(4n){border-top-color:var(--sail-deep);}
+.lcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);color:inherit;}
+.lcard__meta{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+.lcard__title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--melon-deep);line-height:1.25;margin-bottom:4px;}
+@media(min-width:720px){.lcard__title{font-size:21px;}}
+.lcard__go{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--melon);}
 
 /* ── Festivals Grid ── */
 .fest-intro{font-size:18px;color:var(--ink-soft);line-height:1.7;max-width:720px;margin-bottom:32px;}
@@ -259,22 +269,198 @@ a:hover{color:var(--leaf);}
   <div class="wrap">
     <div class="sec__no rvl">I.</div>
     <h2 class="sec__title rvl">Classroom Lessons</h2>
-    <div class="sec__title-zh rvl">課堂教材 · 正式課文與學科英語</div>
+    <div class="sec__title-zh rvl">課堂教材 · 三至六年級全課程</div>
     <div class="sec__rule rvl"></div>
-    <p class="lead rvl">English lessons built around Wenchang's actual curriculum — one unit at a time, with vocabulary, dialogues, and speaking practice.</p>
+    <p class="lead rvl">32 lessons across Grades 3–6 — vocabulary tables with pronunciation, bilingual sentence patterns, grammar focus, and a 10-question quiz for every unit.</p>
 
-    <div class="rvl" style="margin-top:32px;">
-      <a class="feature-card" href="/schools/wenchang/lessons/g6s1l1/">
-        <div class="feature-card__cover">📖</div>
-        <div class="feature-card__body">
-          <div class="feature-card__eyebrow">Grade 6 · Book 7 · Lesson 1</div>
-          <div class="feature-card__title">Where Are You From?</div>
-          <div class="feature-card__zh">你從哪裡來？</div>
-          <div class="feature-card__desc">Vocabulary, bilingual dialogues, and speaking practice around countries, nationalities, and greetings from around the world.</div>
-          <div class="feature-card__cta">Open lesson →</div>
-        </div>
-      </a>
+    <!-- Grade 3 -->
+    <div class="grade-group rvl">
+      <div class="grade-label">Grade 3 · Books 1 &amp; 2</div>
+      <div class="lesson-grid">
+        <a class="lcard" href="/schools/wenchang/lessons/g3s1l1/">
+          <div class="lcard__meta">Book 1 · Lesson 1</div>
+          <div class="lcard__title">What's Your Name?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s1l2/">
+          <div class="lcard__meta">Book 1 · Lesson 2</div>
+          <div class="lcard__title">How Old Are You?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s1l3/">
+          <div class="lcard__meta">Book 1 · Lesson 3</div>
+          <div class="lcard__title">I'm Tall</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s1l4/">
+          <div class="lcard__meta">Book 1 · Lesson 4</div>
+          <div class="lcard__title">Are You Happy?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s2l1/">
+          <div class="lcard__meta">Book 2 · Lesson 1</div>
+          <div class="lcard__title">What's This?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s2l2/">
+          <div class="lcard__meta">Book 2 · Lesson 2</div>
+          <div class="lcard__title">What Color Is It?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s2l3/">
+          <div class="lcard__meta">Book 2 · Lesson 3</div>
+          <div class="lcard__title">Is It a Bear?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g3s2l4/">
+          <div class="lcard__meta">Book 2 · Lesson 4</div>
+          <div class="lcard__title">Can You Sing?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+      </div>
     </div>
+
+    <!-- Grade 4 -->
+    <div class="grade-group rvl">
+      <div class="grade-label">Grade 4 · Books 3 &amp; 4</div>
+      <div class="lesson-grid">
+        <a class="lcard" href="/schools/wenchang/lessons/g4s1l1/">
+          <div class="lcard__meta">Book 3 · Lesson 1</div>
+          <div class="lcard__title">Who's He?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s1l2/">
+          <div class="lcard__meta">Book 3 · Lesson 2</div>
+          <div class="lcard__title">Is She a Teacher?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s1l3/">
+          <div class="lcard__meta">Book 3 · Lesson 3</div>
+          <div class="lcard__title">Where's He?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s1l4/">
+          <div class="lcard__meta">Book 3 · Lesson 4</div>
+          <div class="lcard__title">Do You Have a Dog?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s2l1/">
+          <div class="lcard__meta">Book 4 · Lesson 1</div>
+          <div class="lcard__title">What Are These?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s2l2/">
+          <div class="lcard__meta">Book 4 · Lesson 2</div>
+          <div class="lcard__title">Where Are They?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s2l3/">
+          <div class="lcard__meta">Book 4 · Lesson 3</div>
+          <div class="lcard__title">What Time Is It?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g4s2l4/">
+          <div class="lcard__meta">Book 4 · Lesson 4</div>
+          <div class="lcard__title">Do You Like Cake?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grade 5 -->
+    <div class="grade-group rvl">
+      <div class="grade-label">Grade 5 · Books 5 &amp; 6</div>
+      <div class="lesson-grid">
+        <a class="lcard" href="/schools/wenchang/lessons/g5s1l1/">
+          <div class="lcard__meta">Book 5 · Lesson 1</div>
+          <div class="lcard__title">What Day Is It?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s1l2/">
+          <div class="lcard__meta">Book 5 · Lesson 2</div>
+          <div class="lcard__title">What Time Does She Get Up?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s1l3/">
+          <div class="lcard__meta">Book 5 · Lesson 3</div>
+          <div class="lcard__title">How's the Weather?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s1l4/">
+          <div class="lcard__meta">Book 5 · Lesson 4</div>
+          <div class="lcard__title">Do You Have English Class Today?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s2l1/">
+          <div class="lcard__meta">Book 6 · Lesson 1</div>
+          <div class="lcard__title">What's He Doing?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s2l2/">
+          <div class="lcard__meta">Book 6 · Lesson 2</div>
+          <div class="lcard__title">I Have a Headache</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s2l3/">
+          <div class="lcard__meta">Book 6 · Lesson 3</div>
+          <div class="lcard__title">Where Are You Going?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g5s2l4/">
+          <div class="lcard__meta">Book 6 · Lesson 4</div>
+          <div class="lcard__title">How Can We Get There?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grade 6 -->
+    <div class="grade-group rvl">
+      <div class="grade-label">Grade 6 · Books 7 &amp; 8</div>
+      <div class="lesson-grid">
+        <a class="lcard" href="/schools/wenchang/lessons/g6s1l1/">
+          <div class="lcard__meta">Book 7 · Lesson 1</div>
+          <div class="lcard__title">Where Are You From?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s1l2/">
+          <div class="lcard__meta">Book 7 · Lesson 2</div>
+          <div class="lcard__title">What Do You Like to Do?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s1l3/">
+          <div class="lcard__meta">Book 7 · Lesson 3</div>
+          <div class="lcard__title">How Many Eggs Do You Need?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s1l4/">
+          <div class="lcard__meta">Book 7 · Lesson 4</div>
+          <div class="lcard__title">Would You Like Some Rice?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s2l1/">
+          <div class="lcard__meta">Book 8 · Lesson 1</div>
+          <div class="lcard__title">Were You at the Park?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s2l2/">
+          <div class="lcard__meta">Book 8 · Lesson 2</div>
+          <div class="lcard__title">Where Was He Yesterday?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s2l3/">
+          <div class="lcard__meta">Book 8 · Lesson 3</div>
+          <div class="lcard__title">What Do You Want to Be?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+        <a class="lcard" href="/schools/wenchang/lessons/g6s2l4/">
+          <div class="lcard__meta">Book 8 · Lesson 4</div>
+          <div class="lcard__title">Whose Phone Is This?</div>
+          <div class="lcard__go">Open →</div>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
