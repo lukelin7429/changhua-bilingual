@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book 2 · Lesson 2 — What Color Is It? · Wenchang Elementary</title>
+<meta name="description" content="Grade 3 Book 2 Lesson 2 — What Color Is It? Colors. 三年級第二課：What Color Is It?">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
+<link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<style>
+:root{
+  --accent:#8a2828;
+  --accent-mid:#d44a4a;
+  --leaf:#3a6b1e;
+  --ink:#1a1510;
+  --ink-2:#4a4038;
+  --ink-3:#7a7068;
+  --rule:#d8d0c4;
+  --bg:#fff;
+  --bg-2:#f8f5f0;
+  --max:860px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--ink);background:var(--bg);
+  font-size:19px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+@media(min-width:720px){body{font-size:21px;}}
+img{max-width:100%;display:block;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+/* ===== SUBNAV ===== */
+.subnav{
+  background:rgba(248,245,240,.96);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+  padding:14px 0;position:sticky;top:0;z-index:50;
+}
+.subnav__inner{
+  display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:center;align-items:center;
+  font-family:'Cormorant Garamond',serif;font-size:17px;
+}
+@media(min-width:720px){.subnav__inner{font-size:19px;}}
+.subnav a{
+  color:var(--ink-2);text-decoration:none;font-weight:600;
+  padding:4px 12px;border-radius:4px;transition:color .15s;white-space:nowrap;
+}
+.subnav a:hover{color:var(--accent);}
+.subnav a.is-active{color:var(--accent);border-bottom:2px solid var(--accent-mid);}
+.subnav__sep{color:var(--rule);}
+@media(max-width:600px){.subnav__sep{display:none;}}
+
+/* ===== PAGE HEADER (text-only) ===== */
+.page-header{
+  border-bottom:1px solid var(--rule);
+  padding:36px 0 28px;
+}
+.page-header__inner{max-width:var(--max);margin:0 auto;padding:0 28px;}
+.page-header__back{
+  display:inline-block;font-size:13px;letter-spacing:.5px;
+  color:var(--ink-3);margin-bottom:14px;
+}
+.page-header__back:hover{color:var(--ink);text-decoration:none;}
+.page-header__label{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;margin-bottom:10px;
+}
+.page-header__h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:700;line-height:1.1;color:var(--ink);
+}
+@media(min-width:720px){.page-header__h1{font-size:48px;}}
+.page-header__sub{font-size:15px;color:var(--ink-3);margin-top:8px;letter-spacing:.3px;}
+
+/* ===== LAYOUT ===== */
+main{padding:52px 0 96px;}
+.section{margin-bottom:64px;}
+
+/* Section heading */
+.sh{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:28px;
+}
+.sh h2{
+  font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--ink);
+}
+@media(min-width:720px){.sh h2{font-size:28px;}}
+.sh__tag{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;
+}
+.section-note{font-size:15px;color:var(--ink-3);margin-bottom:24px;line-height:1.6;}
+
+/* ===== VOCAB TABLE ===== */
+.vocab-list{width:100%;border-collapse:collapse;}
+.vocab-list tr{border-bottom:1px solid var(--rule);}
+.vocab-list tr:last-child{border-bottom:none;}
+.vocab-list td{padding:14px 8px;vertical-align:middle;}
+.vl-flag{font-size:24px;width:36px;padding-left:0;}
+.vl-name{font-size:20px;font-weight:600;white-space:nowrap;}
+@media(min-width:720px){.vl-name{font-size:22px;}}
+.vl-full{
+  font-size:12px;color:var(--ink-3);
+  border:1px solid var(--rule);border-radius:3px;
+  padding:2px 7px;white-space:nowrap;display:inline-block;margin-top:3px;
+}
+.vl-zh{font-size:15px;color:var(--ink-3);}
+.vl-say{padding-right:0;text-align:right;}
+.say{
+  background:none;border:1px solid var(--rule);color:var(--ink-3);
+  border-radius:50%;width:28px;height:28px;cursor:pointer;
+  font-size:13px;display:inline-flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.say:hover,.say.saying{border-color:var(--leaf);color:var(--leaf);}
+
+/* ===== PATTERN BLOCKS ===== */
+.pattern{margin-bottom:28px;}
+.pattern__label{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:600;color:var(--ink-3);margin-bottom:8px;
+}
+.pattern__formula{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;color:var(--ink);
+  border-left:3px solid var(--accent-mid);padding-left:16px;margin-bottom:16px;
+  line-height:1.3;
+}
+@media(min-width:720px){.pattern__formula{font-size:26px;}}
+.pattern__examples{
+  padding-left:20px;display:flex;flex-direction:column;gap:8px;
+}
+.ex{font-size:17px;color:var(--ink-2);display:flex;gap:10px;align-items:baseline;}
+.ex-spk{font-size:14px;color:var(--ink-3);min-width:20px;font-style:italic;}
+.ex-text strong{color:var(--ink);}
+.say-inline{
+  background:none;border:none;color:var(--ink-3);cursor:pointer;
+  font-size:14px;padding:0 2px;vertical-align:middle;transition:color .15s;
+}
+.say-inline:hover,.say-inline.saying{color:var(--leaf);}
+
+/* ===== NATIONALITY TABLE ===== */
+.nat-table{width:100%;border-collapse:collapse;font-size:16px;}
+.nat-table thead tr{border-bottom:2px solid var(--ink);}
+.nat-table th{
+  padding:10px 14px;text-align:left;font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;font-weight:600;color:var(--ink-3);
+}
+.nat-table td{padding:12px 14px;border-bottom:1px solid var(--rule);}
+.nat-table tr:last-child td{border-bottom:none;}
+.nat-flag{font-size:20px;}
+.nat-country{font-weight:600;font-size:17px;}
+.nat-nat{font-weight:600;color:var(--accent);font-size:17px;}
+.nat-eg{font-size:15px;color:var(--ink-3);font-style:italic;}
+
+/* ===== GRAMMAR FOCUS ===== */
+.grammar-note{
+  background:var(--bg-2);border:1px solid var(--rule);
+  border-radius:4px;padding:22px 24px;margin-bottom:24px;
+}
+.grammar-note__title{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;
+  color:var(--ink);margin-bottom:10px;
+}
+.grammar-note p{font-size:16px;color:var(--ink-2);line-height:1.7;margin-bottom:8px;}
+.grammar-note p:last-child{margin-bottom:0;}
+.err{color:#aa1111;text-decoration:line-through;}
+.ok{color:var(--leaf);font-weight:600;}
+.be-table{width:100%;border-collapse:collapse;font-size:15px;margin-top:24px;}
+.be-table th{
+  text-align:left;padding:9px 14px;
+  border-bottom:2px solid var(--ink);
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-3);
+}
+.be-table td{padding:11px 14px;border-bottom:1px solid var(--rule);}
+.be-table tr:last-child td{border-bottom:none;}
+.be-table td strong{color:var(--ink);}
+
+/* ===== QUIZ ===== */
+.quiz{
+  border-top:2px solid var(--ink);padding-top:36px;margin-top:64px;
+}
+.quiz__heading{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+  color:var(--ink);margin-bottom:4px;
+}
+@media(min-width:720px){.quiz__heading{font-size:30px;}}
+.quiz__sub{font-size:15px;color:var(--ink-3);margin-bottom:32px;}
+
+.q{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--rule);}
+.q:last-of-type{border-bottom:none;}
+.q.answered{pointer-events:none;}
+.q__num{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-bottom:8px;
+}
+.q__text{font-size:19px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.5;}
+@media(min-width:720px){.q__text{font-size:21px;}}
+.blank{
+  display:inline-block;min-width:70px;border-bottom:1.5px solid var(--accent-mid);
+  margin:0 2px;
+}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:11px 16px;border-radius:3px;
+  border:1px solid var(--rule);cursor:pointer;
+  background:var(--bg);font-size:17px;text-align:left;
+  width:100%;font-family:inherit;color:var(--ink);
+  transition:border-color .12s,background .12s;
+}
+.opt:hover{border-color:var(--ink-2);background:var(--bg-2);}
+.opt-letter{
+  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;
+  color:var(--ink-3);min-width:18px;flex-shrink:0;padding-top:1px;
+}
+.opt.correct{border-color:#2e6b2e;background:#f0f7f0;}
+.opt.correct .opt-letter{color:#2e6b2e;}
+.opt.wrong{border-color:#aa2222;background:#fdf2f2;}
+.opt.wrong .opt-letter{color:#aa2222;}
+.q-fb{
+  margin-top:12px;font-size:14px;color:var(--ink-2);
+  padding:10px 14px;border-radius:3px;background:var(--bg-2);
+  border-left:3px solid var(--rule);display:none;line-height:1.6;
+}
+.q-fb.show{display:block;}
+.q-fb.ok{border-left-color:#2e6b2e;background:#f0f7f0;}
+.q-fb.bad{border-left-color:#aa2222;background:#fdf2f2;}
+
+.quiz-score{
+  margin-top:28px;padding:18px 22px;border-radius:3px;
+  background:var(--bg-2);border:1px solid var(--rule);
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;
+  text-align:center;display:none;
+}
+.quiz-score.show{display:block;}
+.quiz-btn{
+  margin-top:28px;display:inline-block;padding:11px 28px;
+  border:1.5px solid var(--ink);border-radius:3px;background:var(--bg);
+  font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--ink);
+  transition:background .15s,color .15s;letter-spacing:.3px;
+}
+.quiz-btn:hover:not(:disabled){background:var(--ink);color:#fff;}
+.quiz-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ===== FOOTER ===== */
+.ft{border-top:1px solid var(--rule);padding:32px 0;margin-top:64px;}
+.ft__inner{max-width:var(--max);margin:0 auto;padding:0 28px;font-size:13px;color:var(--ink-3);text-align:center;line-height:1.9;}
+.ft__inner a{color:var(--ink-3);}
+.ft__inner a:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<!-- SUBNAV -->
+<nav class="subnav">
+  <div class="subnav__inner">
+    <a href="/schools/wenchang/">Home</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/principal/">Principal</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/bilingual-campus/">Bilingual Campus</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/lessons/" class="is-active">Lessons</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/news/">News</a>
+    <span class="subnav__sep">·</span>
+    <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header__inner">
+    <a class="page-header__back" href="/schools/wenchang/lessons/">← All Lessons</a>
+    <div class="page-header__label">Grade 3 · Book 2 · Lesson 2</div>
+    <h1 class="page-header__h1">What Color Is It?</h1>
+    <div class="page-header__sub">Colors · 顏色</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+<div class="wrap">
+
+  <!-- VOCABULARY -->
+  <section class="section">
+    <div class="sh"><h2>Key Vocabulary 關鍵單字</h2><span class="sh__tag">Theme Words</span></div>
+    <p class="section-note">點 🔊 聽每個顏色的發音。</p>
+    <table class="vocab-list">
+      <tr>
+        <td class="vl-name">red <button class="say" data-say="red">🔊</button></td>
+        <td class="vl-zh">紅色</td>
+      </tr>
+      <tr>
+        <td class="vl-name">blue <button class="say" data-say="blue">🔊</button></td>
+        <td class="vl-zh">藍色</td>
+      </tr>
+      <tr>
+        <td class="vl-name">green <button class="say" data-say="green">🔊</button></td>
+        <td class="vl-zh">綠色</td>
+      </tr>
+      <tr>
+        <td class="vl-name">yellow <button class="say" data-say="yellow">🔊</button></td>
+        <td class="vl-zh">黃色</td>
+      </tr>
+      <tr>
+        <td class="vl-name">orange <button class="say" data-say="orange">🔊</button></td>
+        <td class="vl-zh">橙色</td>
+      </tr>
+      <tr>
+        <td class="vl-name">purple <button class="say" data-say="purple">🔊</button></td>
+        <td class="vl-zh">紫色</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PATTERNS -->
+  <section class="section">
+    <div class="sh"><h2>Sentence Patterns 句型</h2><span class="sh__tag">Key Patterns</span></div>
+
+    <div class="pattern">
+      <div class="pattern__label">Pattern 1 · 詢問顏色</div>
+      <div class="pattern__formula">What color is it?</div>
+      <div class="pattern__examples">
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">What color is it? <button class="say-inline" data-say="What color is it?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's red. <button class="say-inline" data-say="It's red.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">What color is it? <button class="say-inline" data-say="What color is it?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's blue. <button class="say-inline" data-say="It's blue.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">What color is it? <button class="say-inline" data-say="What color is it?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's yellow. <button class="say-inline" data-say="It's yellow.">🔊</button></span></div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern__label">Pattern 2 · Describing color + object 顏色＋名詞</div>
+      <div class="pattern__formula">It's a ___ ___. (color + noun)</div>
+      <div class="pattern__examples">
+        <div class="ex"><span class="ex-spk"></span><span class="ex-text">It's a red pen. <button class="say-inline" data-say="It's a red pen.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk"></span><span class="ex-text">It's a blue ruler. <button class="say-inline" data-say="It's a blue ruler.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk"></span><span class="ex-text">It's a green eraser. <button class="say-inline" data-say="It's a green eraser.">🔊</button></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAMMAR -->
+  <section class="section">
+    <div class="sh"><h2>Grammar Focus 文法重點</h2><span class="sh__tag">Writing Rules</span></div>
+
+    <div class="grammar-note">
+      <div class="grammar-note__title">Sentence Writing Rules — Review 寫句子的四個規則</div>
+      <p>1. Capitalize the first letter of every sentence. 每個句子的第一個字母要大寫。</p>
+      <p>2. The word "I" is always capitalized. "I" 永遠要大寫。</p>
+      <p>3. Leave a space between words. 單字與單字之間要有空格。</p>
+      <p>4. No space before punctuation (period, question mark). 標點符號前面不加空格。</p>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="be-table">
+      <thead>
+        <tr>
+          <th>Wrong ❌</th>
+          <th>Right ✅</th>
+          <th>Rule 規則</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="err">it's red.</span></td>
+          <td><span class="ok">It's red.</span></td>
+          <td>Capitalize the first letter.</td>
+        </tr>
+        <tr>
+          <td><span class="err">what color is it ?</span></td>
+          <td><span class="ok">What color is it?</span></td>
+          <td>No space before "?".</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz">
+    <h2 class="quiz__heading">Mini Quiz · 小考</h2>
+    <p class="quiz__sub">Select the best answer for each question. 選出每題最適合的答案。</p>
+
+    <div class="quiz-score" id="scoreBar"></div>
+
+    <!-- Q1 -->
+    <div class="q" id="q1">
+      <div class="q__num">Question 1 / 10</div>
+      <div class="q__text">A: What color is it?&ensp; B: It's <span class="blank"></span>.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">A.</span>a red</button>
+        <button class="opt" onclick="answer(this,'q1','correct')"><span class="opt-letter">B.</span>red</button>
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">C.</span>the red</button>
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">D.</span>Red color</button>
+      </div>
+      <div class="q-fb ok" id="q1-ok">Correct. When answering "What color is it?", say <strong>It's red.</strong> — just the color, no article needed.</div>
+      <div class="q-fb bad" id="q1-bad">When answering "What color is it?", say <strong>It's red.</strong> — just the color, no article needed.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q" id="q2">
+      <div class="q__num">Question 2 / 10</div>
+      <div class="q__text">What color is the sky? 天空是什麼顏色？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">A.</span>It's green.</button>
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">B.</span>It's red.</button>
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">C.</span>It's yellow.</button>
+        <button class="opt" onclick="answer(this,'q2','correct')"><span class="opt-letter">D.</span>It's blue.</button>
+      </div>
+      <div class="q-fb ok" id="q2-ok">Correct. The sky is <strong>blue</strong> 藍色. 藍 = blue.</div>
+      <div class="q-fb bad" id="q2-bad">The sky is <strong>blue</strong>. 藍色 = blue.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q" id="q3">
+      <div class="q__num">Question 3 / 10</div>
+      <div class="q__text">Which sentence uses the color + noun pattern correctly? 哪個句子的顏色+名詞用法正確？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q3','correct')"><span class="opt-letter">A.</span>It's a blue pen.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">B.</span>It's a pen blue.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">C.</span>It's blue pen a.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">D.</span>It's pen a blue.</button>
+      </div>
+      <div class="q-fb ok" id="q3-ok">Correct. The correct order is: article + color + noun → <strong>It's a blue pen.</strong></div>
+      <div class="q-fb bad" id="q3-bad">The correct order is: article + color + noun → <strong>It's a blue pen.</strong> In English, the color comes before the noun.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q" id="q4">
+      <div class="q__num">Question 4 / 10</div>
+      <div class="q__text">"紫色" in English is ___</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">A.</span>orange</button>
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">B.</span>yellow</button>
+        <button class="opt" onclick="answer(this,'q4','correct')"><span class="opt-letter">C.</span>purple</button>
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">D.</span>green</button>
+      </div>
+      <div class="q-fb ok" id="q4-ok">Correct. 紫色 = <strong>purple</strong>.</div>
+      <div class="q-fb bad" id="q4-bad">紫色 = <strong>purple</strong>. orange = 橙色, yellow = 黃色, green = 綠色.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q" id="q5">
+      <div class="q__num">Question 5 / 10</div>
+      <div class="q__text">Which sentence has correct capitalization? 哪個句子的大寫用法正確？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">A.</span>it's Green.</button>
+        <button class="opt" onclick="answer(this,'q5','correct')"><span class="opt-letter">B.</span>It's green.</button>
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">C.</span>It's Green.</button>
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">D.</span>it's green.</button>
+      </div>
+      <div class="q-fb ok" id="q5-ok">Correct. <strong>It's green.</strong> — capitalize "I" at the start of the sentence. Colors are NOT capitalized.</div>
+      <div class="q-fb bad" id="q5-bad"><strong>It's green.</strong> — "It" is capitalized (start of sentence). Colors like "green" are NOT capitalized in English.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q" id="q6">
+      <div class="q__num">Question 6 / 10</div>
+      <div class="q__text">"橙色" in English is ___</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">A.</span>red</button>
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">B.</span>purple</button>
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">C.</span>yellow</button>
+        <button class="opt" onclick="answer(this,'q6','correct')"><span class="opt-letter">D.</span>orange</button>
+      </div>
+      <div class="q-fb ok" id="q6-ok">Correct. 橙色 = <strong>orange</strong>.</div>
+      <div class="q-fb bad" id="q6-bad">橙色 = <strong>orange</strong>. red = 紅色, purple = 紫色, yellow = 黃色.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q" id="q7">
+      <div class="q__num">Question 7 / 10</div>
+      <div class="q__text">Which sentence is punctuated correctly? 哪個句子的標點符號正確？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q7','correct')"><span class="opt-letter">A.</span>What color is it?</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">B.</span>What color is it ?</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">C.</span>What color is it .</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">D.</span>What color is it</button>
+      </div>
+      <div class="q-fb ok" id="q7-ok">Correct. <strong>What color is it?</strong> — no space before the question mark.</div>
+      <div class="q-fb bad" id="q7-bad"><strong>What color is it?</strong> — there is NO space before the question mark. Rule: no space before punctuation.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q" id="q8">
+      <div class="q__num">Question 8 / 10</div>
+      <div class="q__text">What color is grass? 草是什麼顏色？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">A.</span>It's blue.</button>
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">B.</span>It's red.</button>
+        <button class="opt" onclick="answer(this,'q8','correct')"><span class="opt-letter">C.</span>It's green.</button>
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">D.</span>It's purple.</button>
+      </div>
+      <div class="q-fb ok" id="q8-ok">Correct. Grass is <strong>green</strong>. 綠色 = green.</div>
+      <div class="q-fb bad" id="q8-bad">Grass is <strong>green</strong>. 綠色 = green.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q" id="q9">
+      <div class="q__num">Question 9 / 10</div>
+      <div class="q__text">Fill in the blank: It's <span class="blank"></span> yellow pencil.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">A.</span>an</button>
+        <button class="opt" onclick="answer(this,'q9','correct')"><span class="opt-letter">B.</span>a</button>
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">C.</span>the</button>
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">D.</span>(nothing)</button>
+      </div>
+      <div class="q-fb ok" id="q9-ok">Correct. "yellow" starts with /j/ (consonant sound) → use <strong>a</strong> yellow pencil.</div>
+      <div class="q-fb bad" id="q9-bad">"yellow" starts with /j/ (consonant sound) → use <strong>a</strong> yellow pencil, not "an".</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q" id="q10">
+      <div class="q__num">Question 10 / 10</div>
+      <div class="q__text">Which sentence follows ALL four writing rules correctly? 哪個句子符合全部四個寫作規則？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">A.</span>it's a red pen.</button>
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">B.</span>It's a Red pen.</button>
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">C.</span>It's a red pen .</button>
+        <button class="opt" onclick="answer(this,'q10','correct')"><span class="opt-letter">D.</span>It's a red pen.</button>
+      </div>
+      <div class="q-fb ok" id="q10-ok">Correct. <strong>It's a red pen.</strong> — capital "I", lowercase color "red", no space before ".".</div>
+      <div class="q-fb bad" id="q10-bad">(D) <strong>It's a red pen.</strong> — (A) needs capital "I"; (B) "Red" shouldn't be capitalized; (C) has a space before the period.</div>
+    </div>
+
+    <button class="quiz-btn" id="checkBtn" onclick="checkScore()" disabled>See My Score · 看成績</button>
+  </section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft__inner">
+    Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect · 人師教育協會</a> ·
+    Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a> ·
+    <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a>
+  </div>
+</footer>
+
+<!-- TTS -->
+<script>
+(function(){
+  var bs=document.querySelectorAll('.say,.say-inline');
+  if(!bs.length||!('speechSynthesis'in window))return;
+  function pick(){var v=speechSynthesis.getVoices()||[];return v.filter(function(x){return/en[-_]US/i.test(x.lang)})[0]||v.filter(function(x){return/^en/i.test(x.lang)})[0]||null;}
+  try{speechSynthesis.onvoiceschanged=function(){};}catch(e){}
+  bs.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var t=b.getAttribute('data-say');if(!t)return;
+      speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.88;
+      var vc=pick();if(vc)u.voice=vc;
+      document.querySelectorAll('.saying').forEach(function(o){o.classList.remove('saying');});
+      b.classList.add('saying');
+      u.onend=function(){b.classList.remove('saying');};
+      u.onerror=function(){b.classList.remove('saying');};
+      speechSynthesis.speak(u);
+    });
+  });
+})();
+</script>
+
+<!-- QUIZ LOGIC -->
+<script>
+var score=0,answered=0,total=10;
+function answer(btn,qid,result){
+  var qel=document.getElementById(qid);
+  if(qel.classList.contains('answered'))return;
+  qel.classList.add('answered');answered++;
+  btn.classList.add(result);
+  if(result==='correct'){
+    score++;
+    document.getElementById(qid+'-ok').classList.add('show');
+  } else {
+    document.getElementById(qid+'-bad').classList.add('show');
+    var opts=qel.querySelectorAll('.opt');
+    for(var i=0;i<opts.length;i++){
+      if(opts[i].getAttribute('onclick').indexOf("'correct'")>-1){opts[i].classList.add('correct');break;}
+    }
+  }
+  if(answered===total)document.getElementById('checkBtn').removeAttribute('disabled');
+}
+function checkScore(){
+  var bar=document.getElementById('scoreBar');
+  var pct=Math.round(score/total*100);
+  bar.textContent='Score: '+score+' / '+total+' ('+pct+'%)';
+  bar.classList.add('show');
+  bar.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+
+<script defer src="/assets/js/motion.js"></script>
+</body>
+</html>
