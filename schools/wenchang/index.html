@@ -72,7 +72,7 @@
   /* ============ HERO BANNER (Dajuang pattern verbatim, with courtyard-fountain.jpg) ============ */
   .hero-banner{
     position:relative;
-    background:#000 url('photos/courtyard-fountain.jpg') center/cover;
+    background:#000 url('photos/aerial-overview.jpg') center/cover;
     min-height:300px;
     display:flex;align-items:flex-end;
     overflow:hidden;
@@ -593,6 +593,39 @@
   @media (min-width:720px){ .story__body{ font-size:21px; } }
   .story__body strong{color:var(--melon-deep);}
   .story__zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+  /* ======= Campus Gallery ======= */
+  .campus-gallery-section{padding:64px 0 80px;}
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  @media(min-width:1080px){.gallery{grid-template-columns:repeat(4,1fr);gap:18px;}}
+  @media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr);gap:8px;}}
+  .gallery-item{
+    position:relative;overflow:hidden;border-radius:10px;
+    aspect-ratio:4/3;cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.10);
+    transition:box-shadow .3s;
+  }
+  .gallery-item:hover{box-shadow:0 6px 24px rgba(0,0,0,.22);}
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .45s cubic-bezier(.2,.7,.2,1);
+    display:block;
+  }
+  .gallery-item:hover img{transform:scale(1.09);}
+  .gallery-caption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.72));
+    color:#fff;padding:22px 14px 12px;
+    opacity:0;transform:translateY(4px);
+    transition:opacity .3s,transform .3s;
+    pointer-events:none;
+  }
+  .gallery-item:hover .gallery-caption{opacity:1;transform:none;}
+  .gallery-caption .en{font-weight:600;font-size:14px;line-height:1.3;}
+  .gallery-caption .zh{font-family:'PingFang TC',sans-serif;font-size:12px;opacity:.85;margin-top:3px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -877,6 +910,112 @@
 
         <a href="principal/" class="cta">Read the principal's page · 進入校長室</a>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ DIVIDER ============ -->
+<div class="wrap"><div class="section-divider">Campus Life · 校園之美</div></div>
+
+<!-- ============ CAMPUS GALLERY ============ -->
+<section class="campus-gallery-section" id="campus-gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Campus Beauty</div>
+      <h2>A Glimpse of Wenchang</h2>
+      <div class="h2-zh">鏡頭裡的文昌——跑道、噴泉、教室與天空</div>
+    </div>
+    <div class="gallery">
+
+      <figure class="gallery-item">
+        <img src="photos/aerial-overview.jpg" alt="Wide aerial view of Wenchang Elementary School campus and surrounding farmland" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">Aerial overview</div>
+          <div class="zh">校園空拍全景</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/aerial-top.jpg" alt="Top-down aerial view of Wenchang campus showing the blue running track and basketball court" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">Birds-eye view</div>
+          <div class="zh">垂直俯瞰 · 藍綠跑道</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/aerial-back.jpg" alt="Aerial view of Wenchang Elementary from the south side" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">Campus from the south</div>
+          <div class="zh">南側空拍</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/campus-track.jpg" alt="Wenchang Elementary School blue and green running track with basketball court" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">The running track</div>
+          <div class="zh">藍綠跑道與籃球場</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/campus-fountain.jpg" alt="Wenchang Elementary School central fountain with surrounding green hedges" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">The fountain</div>
+          <div class="zh">中央噴泉廣場</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/steam-pbl.jpg" alt="STEAM and Project-Based Learning display wall inside a Wenchang classroom" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">STEAM + PBL classroom</div>
+          <div class="zh">專題式學習教室</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/character-wall.jpg" alt="Dependability character-education wall display at Wenchang Elementary" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">Character education wall</div>
+          <div class="zh">品德教育廊道</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item" style="aspect-ratio:3/4;">
+        <img src="photos/mascot-mural.jpg" alt="Colorful mural of the Wenchang school mascot Wenchang Gong holding a scroll" loading="lazy" style="object-position:center top;">
+        <div class="gallery-caption">
+          <div class="en">School mascot mural</div>
+          <div class="zh">文昌公卿彩繪</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item" style="aspect-ratio:3/4;">
+        <img src="photos/school-sign.jpg" alt="Wenchang Elementary School entrance stone sign with school crest" loading="lazy" style="object-position:center top;">
+        <div class="gallery-caption">
+          <div class="en">School entrance sign</div>
+          <div class="zh">校門石碑</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item" style="aspect-ratio:3/4;">
+        <img src="photos/excel-rock.jpg" alt="Large rock monument inscribed with 超越 (Excel) in the school courtyard" loading="lazy" style="object-position:center top;">
+        <div class="gallery-caption">
+          <div class="en">&ldquo;Excel&rdquo; monument</div>
+          <div class="zh">超越巨石</div>
+        </div>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="photos/community-map.jpg" alt="Hand-drawn student community map artwork showing Fuxing Township landmarks" loading="lazy">
+        <div class="gallery-caption">
+          <div class="en">Student community map</div>
+          <div class="zh">學生手繪社區地圖</div>
+        </div>
+      </figure>
+
     </div>
   </div>
 </section>

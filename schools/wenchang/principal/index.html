@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
 <link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
 
-<meta property="og:image" content="../photos/principal-portrait.jpg">
+<meta property="og:image" content="../photos/chen-principal.jpg">
 <meta property="og:type" content="profile">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,12 +55,20 @@ a:hover{color:var(--leaf);}
 .subnav__sep{color:var(--ink-soft);opacity:.4;}
 @media (max-width:600px){ .subnav__sep{display:none;} }
 
-/* ===== PAGE BANNER (Festival shape, melon-deep red color) ===== */
+/* ===== PAGE BANNER ===== */
 .page-banner{
-  background:#8a2828;color:#fff;
+  position:relative;
+  background:#000 url('../photos/aerial-back.jpg') center/cover;
+  color:#fff;
   padding:56px 24px 52px;text-align:center;
   border-bottom:6px solid var(--sail);
+  overflow:hidden;
 }
+.page-banner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 15%,rgba(15,8,4,.85) 100%);
+}
+.page-banner > *{position:relative;z-index:1;}
 @media (min-width:720px){ .page-banner{ padding:72px 24px 68px; } }
 .page-banner__brand{
   font-family:'Cormorant Garamond',serif;
@@ -370,7 +378,7 @@ section.po-body:last-of-type{border-bottom:none;}
       </div>
 
       <figure class="po-hero__photo">
-        <img src="../photos/principal-portrait.jpg" alt="Principal Chen Yu-shan of Wenchang Elementary School">
+        <img src="../photos/chen-principal.jpg" alt="Principal Chen Yu-shan of Wenchang Elementary School">
         <span class="badge">Wenchang</span>
       </figure>
 
