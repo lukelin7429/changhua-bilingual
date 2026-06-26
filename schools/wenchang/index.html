@@ -72,7 +72,7 @@
   /* ============ HERO BANNER (Dajuang pattern verbatim, with courtyard-fountain.jpg) ============ */
   .hero-banner{
     position:relative;
-    background:#000 url('photos/aerial-overview.jpg') center/cover;
+    background:#000 url('photos/courtyard-fountain.jpg') center 40%/cover;
     min-height:300px;
     display:flex;align-items:flex-end;
     overflow:hidden;
@@ -593,39 +593,34 @@
   @media (min-width:720px){ .story__body{ font-size:21px; } }
   .story__body strong{color:var(--melon-deep);}
   .story__zh{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
-  /* ======= Campus Gallery ======= */
+  /* ======= Campus Gallery (card style) ======= */
   .campus-gallery-section{padding:64px 0 80px;}
   .gallery{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:14px;
+    gap:20px;
   }
-  @media(min-width:1080px){.gallery{grid-template-columns:repeat(4,1fr);gap:18px;}}
-  @media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr);gap:8px;}}
+  @media(min-width:1080px){.gallery{grid-template-columns:repeat(4,1fr);gap:22px;}}
+  @media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr);gap:12px;}}
   .gallery-item{
-    position:relative;overflow:hidden;border-radius:10px;
-    aspect-ratio:4/3;cursor:pointer;
-    box-shadow:0 2px 8px rgba(0,0,0,.10);
-    transition:box-shadow .3s;
+    border-radius:8px;overflow:hidden;
+    border:1px solid var(--line);
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    transition:box-shadow .25s,transform .25s;
   }
-  .gallery-item:hover{box-shadow:0 6px 24px rgba(0,0,0,.22);}
+  .gallery-item:hover{box-shadow:0 8px 24px rgba(0,0,0,.13);transform:translateY(-2px);}
   .gallery-item img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .45s cubic-bezier(.2,.7,.2,1);
+    width:100%;aspect-ratio:4/3;object-fit:cover;
     display:block;
+    transition:transform .4s cubic-bezier(.2,.7,.2,1);
   }
-  .gallery-item:hover img{transform:scale(1.09);}
+  .gallery-item:hover img{transform:scale(1.04);}
   .gallery-caption{
-    position:absolute;bottom:0;left:0;right:0;
-    background:linear-gradient(transparent,rgba(0,0,0,.72));
-    color:#fff;padding:22px 14px 12px;
-    opacity:0;transform:translateY(4px);
-    transition:opacity .3s,transform .3s;
-    pointer-events:none;
+    padding:10px 14px 12px;
   }
-  .gallery-item:hover .gallery-caption{opacity:1;transform:none;}
-  .gallery-caption .en{font-weight:600;font-size:14px;line-height:1.3;}
-  .gallery-caption .zh{font-family:'PingFang TC',sans-serif;font-size:12px;opacity:.85;margin-top:3px;}
+  .gallery-caption .en{font-weight:600;font-size:14px;color:var(--ink);line-height:1.3;}
+  .gallery-caption .zh{font-family:'PingFang TC',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:2px;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -984,7 +979,7 @@
         </div>
       </figure>
 
-      <figure class="gallery-item" style="aspect-ratio:3/4;">
+      <figure class="gallery-item">
         <img src="photos/mascot-mural.jpg" alt="Colorful mural of the Wenchang school mascot Wenchang Gong holding a scroll" loading="lazy" style="object-position:center top;">
         <div class="gallery-caption">
           <div class="en">School mascot mural</div>
@@ -992,7 +987,7 @@
         </div>
       </figure>
 
-      <figure class="gallery-item" style="aspect-ratio:3/4;">
+      <figure class="gallery-item">
         <img src="photos/school-sign.jpg" alt="Wenchang Elementary School entrance stone sign with school crest" loading="lazy" style="object-position:center top;">
         <div class="gallery-caption">
           <div class="en">School entrance sign</div>
@@ -1000,7 +995,7 @@
         </div>
       </figure>
 
-      <figure class="gallery-item" style="aspect-ratio:3/4;">
+      <figure class="gallery-item">
         <img src="photos/excel-rock.jpg" alt="Large rock monument inscribed with 超越 (Excel) in the school courtyard" loading="lazy" style="object-position:center top;">
         <div class="gallery-caption">
           <div class="en">&ldquo;Excel&rdquo; monument</div>
