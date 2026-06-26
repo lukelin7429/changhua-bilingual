@@ -61,37 +61,27 @@ a:hover{text-decoration:underline;}
 .subnav__sep{color:var(--rule);}
 @media(max-width:600px){.subnav__sep{display:none;}}
 
-/* ===== BANNER ===== */
-.banner{
-  position:relative;
-  background:#000 url('/schools/wenchang/photos/watermelon-slide.jpg') center 30%/cover;
-  min-height:240px;display:flex;align-items:flex-end;overflow:hidden;
+/* ===== PAGE HEADER (text-only) ===== */
+.page-header{
+  border-bottom:1px solid var(--rule);
+  padding:36px 0 28px;
 }
-@media(min-width:720px){.banner{min-height:340px;}}
-.banner::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.08) 0%,rgba(0,0,0,.65) 100%);
-}
-.banner__inner{
-  position:relative;z-index:1;width:100%;
-  padding:28px 28px 26px;color:#fff;
-}
-@media(min-width:720px){.banner__inner{padding:44px 40px 38px;max-width:var(--max);margin:0 auto;}}
-.banner__back{
+.page-header__inner{max-width:var(--max);margin:0 auto;padding:0 28px;}
+.page-header__back{
   display:inline-block;font-size:13px;letter-spacing:.5px;
-  color:rgba(255,255,255,.7);margin-bottom:12px;
+  color:var(--ink-3);margin-bottom:14px;
 }
-.banner__back:hover{color:#fff;text-decoration:none;}
-.banner__label{
-  font-size:12px;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,.65);font-weight:500;margin-bottom:8px;
+.page-header__back:hover{color:var(--ink);text-decoration:none;}
+.page-header__label{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;margin-bottom:10px;
 }
-.banner__h1{
+.page-header__h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:30px;font-weight:700;line-height:1.1;
+  font-size:32px;font-weight:700;line-height:1.1;color:var(--ink);
 }
-@media(min-width:720px){.banner__h1{font-size:46px;}}
-.banner__sub{font-size:15px;color:rgba(255,255,255,.75);margin-top:7px;letter-spacing:.3px;}
+@media(min-width:720px){.page-header__h1{font-size:48px;}}
+.page-header__sub{font-size:15px;color:var(--ink-3);margin-top:8px;letter-spacing:.3px;}
 
 /* ===== LAYOUT ===== */
 main{padding:52px 0 96px;}
@@ -290,13 +280,13 @@ main{padding:52px 0 96px;}
   </div>
 </nav>
 
-<!-- BANNER -->
-<header class="banner">
-  <div class="banner__inner">
-    <a class="banner__back" href="/schools/wenchang/lessons/">← All Lessons</a>
-    <div class="banner__label">Grade 6 · Book 7 · Lesson 1</div>
-    <h1 class="banner__h1">Where Are You From?</h1>
-    <div class="banner__sub">Countries &amp; Nationalities · 國家與國籍</div>
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header__inner">
+    <a class="page-header__back" href="/schools/wenchang/lessons/">← All Lessons</a>
+    <div class="page-header__label">Grade 6 · Book 7 · Lesson 1</div>
+    <h1 class="page-header__h1">Where Are You From?</h1>
+    <div class="page-header__sub">Countries &amp; Nationalities · 國家與國籍</div>
   </div>
 </header>
 
