@@ -231,6 +231,18 @@ a:hover{color:var(--leaf);}
 .office__list li:last-child{border-bottom:none;}
 .office__list .ep{flex:0 0 auto;font-family:'Cormorant Garamond',serif;color:var(--melon);font-weight:700;font-size:14px;letter-spacing:1.5px;}
 
+/* ── English in Action strip ── */
+.eia-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;}
+@media(min-width:680px){.eia-grid{grid-template-columns:repeat(3,1fr);gap:20px;}}
+.eia{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);background:#1a0f0a;aspect-ratio:4/3;}
+.eia img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.eia:hover img{transform:scale(1.05);}
+.eia__scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,8,4,.82) 100%);pointer-events:none;}
+.eia__cap{position:absolute;left:16px;right:16px;bottom:14px;color:#fff;z-index:1;}
+.eia__en{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.12;text-shadow:0 1px 5px rgba(0,0,0,.7);}
+.eia__zh{display:block;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13.5px;color:rgba(255,255,255,.92);margin-top:3px;text-shadow:0 1px 4px rgba(0,0,0,.7);}
+@media(prefers-reduced-motion:reduce){.eia img,.eia:hover img{transition:none;transform:none;}}
+
 /* ── Reveal ── */
 .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
 .rvl.in{opacity:1;transform:none;}
@@ -461,6 +473,32 @@ a:hover{color:var(--leaf);}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== English in Action (photo strip) ===== -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec__title-zh rvl" style="font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--melon-deep);margin-bottom:2px;">English in Action</div>
+    <h3 class="rvl" style="font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink);line-height:1.2;">英語，不只在課本裡</h3>
+    <p class="lead rvl" style="margin-top:10px;">Lessons spill out of the textbook — into reading corners, recitation stages, and classroom games. This is what English looks like on an ordinary day at Wenchang.</p>
+    <div class="eia-grid">
+      <figure class="eia rvl">
+        <img src="../photos/english-class.jpg" alt="Students acting out an English class with an interactive screen" loading="lazy">
+        <span class="eia__scrim"></span>
+        <figcaption class="eia__cap"><span class="eia__en">A Fun English Class</span><span class="eia__zh">有趣的英語課 · 邊唱邊演學單字</span></figcaption>
+      </figure>
+      <figure class="eia rvl">
+        <img src="../photos/english-recital.jpg" alt="Students reading aloud at an English recitation contest outdoors" loading="lazy">
+        <span class="eia__scrim"></span>
+        <figcaption class="eia__cap"><span class="eia__en">English Recitation</span><span class="eia__zh">英語朗讀比賽 · 開口說出自信</span></figcaption>
+      </figure>
+      <figure class="eia rvl">
+        <img src="../photos/english-reading.jpg" alt="Children reading picture books together in the school library" loading="lazy">
+        <span class="eia__scrim"></span>
+        <figcaption class="eia__cap"><span class="eia__en">Children Who Love to Read</span><span class="eia__zh">愛閱讀的孩子 · 雲水書坊共讀</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
