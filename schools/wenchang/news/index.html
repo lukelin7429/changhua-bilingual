@@ -168,6 +168,44 @@ footer{text-align:center;padding:40px 24px;font-size:15px;color:rgba(255,255,255
 footer .org{color:var(--sail-soft);font-weight:600;}
 footer a{color:var(--sail-soft);}
 
+/* ── Clubs & Talents ── */
+.club-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-bottom:24px;}
+@media(min-width:560px){.club-grid{grid-template-columns:1fr 1fr 1fr;gap:18px;}}
+@media(min-width:900px){.club-grid{grid-template-columns:repeat(4,1fr);gap:20px;}}
+.club{position:relative;border:0;padding:0;margin:0;cursor:pointer;display:block;width:100%;
+  border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);background:#1a0f0a;aspect-ratio:4/3;
+  transition:transform .2s,box-shadow .2s;}
+.club:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.club:focus-visible{outline:3px solid var(--sail);outline-offset:2px;}
+.club img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease;}
+.club:hover img{transform:scale(1.06);}
+.club__scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(15,8,4,.84) 100%);pointer-events:none;}
+.club__label{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;text-align:left;color:#fff;pointer-events:none;}
+.club__en{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;line-height:1.12;text-shadow:0 1px 5px rgba(0,0,0,.7);}
+@media(min-width:900px){.club__en{font-size:21px;}}
+.club__zh{display:block;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;color:rgba(255,255,255,.92);margin-top:2px;text-shadow:0 1px 4px rgba(0,0,0,.7);}
+.club__count{position:absolute;top:9px;right:9px;z-index:1;background:rgba(0,0,0,.42);color:#fff;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:99px;pointer-events:none;}
+.club__say{position:absolute;top:8px;left:8px;z-index:2;width:30px;height:30px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.92);font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:background .15s,transform .15s;}
+.club__say:hover{background:#fff;transform:scale(1.08);}
+
+/* ── Lightbox ── */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(12,6,3,.93);display:none;align-items:center;justify-content:center;padding:24px 16px;}
+.lb.open{display:flex;}
+.lb__inner{max-width:940px;width:100%;position:relative;}
+.lb__stage{position:relative;}
+.lb__img{width:100%;max-height:70vh;object-fit:contain;border-radius:10px;background:#000;}
+.lb__cap{text-align:center;color:#fff;margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;}
+.lb__cap small{display:block;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:14px;color:rgba(255,255,255,.75);font-weight:400;margin-top:3px;letter-spacing:.05em;}
+.lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#1f1a16;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.lb__nav:hover{background:#fff;}
+.lb__prev{left:-6px;}.lb__next{right:-6px;}
+@media(max-width:640px){.lb__prev{left:2px;}.lb__next{right:2px;}}
+.lb__close{position:absolute;top:-46px;right:-4px;background:none;border:0;color:#fff;font-size:32px;line-height:1;cursor:pointer;}
+.lb__dots{display:flex;gap:8px;justify-content:center;margin-top:16px;}
+.lb__dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.32);border:0;cursor:pointer;padding:0;transition:background .15s;}
+.lb__dot.on{background:#fff;}
+@media(prefers-reduced-motion:reduce){.club img,.club:hover img{transition:none;transform:none;}}
+
 /* ── Reveal ── */
 .rvl{opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1);}
 .rvl.in{opacity:1;transform:none;}
@@ -414,12 +452,47 @@ footer a{color:var(--sail-soft);}
       </article>
 
     </div>
-
-    <p class="source-note">
-      Source: <a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a> (文昌國小官網) · Last updated June 2026
-    </p>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════
+     III.  CLUBS & TALENTS
+══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rvl">
+      <div class="sec-head__no">III.</div>
+      <div class="sec-head__title">Clubs &amp; Talents</div>
+      <div class="sec-head__zh">社團才藝 · 發展學生多元潛能</div>
+      <div class="sec-head__rule"></div>
+    </div>
+
+    <p class="ncard__desc rvl" style="font-size:17px;max-width:720px;margin:0 0 28px;color:var(--ink-soft);">
+      A small school with a wide stage. From croquet on the field to drumlines, ocarinas, Go boards, and inline-skating circles, Wenchang gives every child a way to shine. <strong>Tap any club</strong> to see more, and tap <span style="white-space:nowrap;">🔊</span> to hear its English name.
+      <span style="display:block;margin-top:6px;font-size:14px;">小校園，大舞台——從草地上的槌球到樂隊、陶笛、圍棋與直排輪，文昌讓每個孩子都有發光的方式。點任一社團看更多，點 🔊 聽英文唸法。</span>
+    </p>
+
+    <div class="club-grid" id="clubGrid"><!-- cards injected by JS --></div>
+  </div>
+</section>
+
+<!-- ── Lightbox ── -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Club photo gallery">
+  <div class="lb__inner">
+    <button class="lb__close" id="lbClose" aria-label="Close">×</button>
+    <div class="lb__stage">
+      <img class="lb__img" id="lbImg" alt="">
+      <button class="lb__nav lb__prev" id="lbPrev" aria-label="Previous photo">‹</button>
+      <button class="lb__nav lb__next" id="lbNext" aria-label="Next photo">›</button>
+    </div>
+    <div class="lb__cap" id="lbCap"></div>
+    <div class="lb__dots" id="lbDots"></div>
+  </div>
+</div>
+
+<p class="source-note" style="text-align:center;">
+  <span class="wrap" style="display:block;">Source: <a href="https://wces.chc.edu.tw/" target="_blank" rel="noopener">wces.chc.edu.tw</a> (文昌國小官網) · Last updated June 2026</span>
+</p>
 
 <!-- ── Footer ── -->
 <footer>
@@ -430,10 +503,98 @@ footer a{color:var(--sail-soft);}
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 
 <script>
+/* ── Clubs & Talents: data, cards, speak, lightbox ── */
+(function(){
+  var BASE='../photos/clubs/';
+  var CLUBS=[
+    {slug:'croquet',  en:'Croquet',        zh:'槌球',   cover:2, n:3},
+    {slug:'band',     en:'Marching Band',  zh:'樂隊',   cover:2, n:3},
+    {slug:'ocarina',  en:'Ocarina',        zh:'陶笛',   cover:2, n:3},
+    {slug:'taekwondo',en:'Taekwondo',      zh:'跆拳道', cover:2, n:3},
+    {slug:'go',       en:'Go',             zh:'圍棋',   cover:2, n:3},
+    {slug:'diabolo',  en:'Diabolo',        zh:'扯鈴',   cover:1, n:3},
+    {slug:'skating',  en:'Inline Skating', zh:'直排輪', cover:2, n:3},
+    {slug:'pingpong', en:'Table Tennis',   zh:'桌球',   cover:2, n:3}
+  ];
+
+  /* speak the English club name */
+  function speak(text){
+    try{
+      if(!('speechSynthesis' in window))return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(text);
+      u.lang='en-US';u.rate=.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  }
+
+  /* build cards */
+  var grid=document.getElementById('clubGrid');
+  CLUBS.forEach(function(c,i){
+    var b=document.createElement('button');
+    b.className='club rvl';
+    b.type='button';
+    b.setAttribute('aria-label',c.en+' '+c.zh+' — view photos');
+    b.innerHTML=
+      '<img src="'+BASE+c.slug+'-'+c.cover+'.jpg" alt="'+c.en+' club at Wenchang Elementary" loading="lazy">'+
+      '<span class="club__scrim"></span>'+
+      '<span class="club__count">'+c.n+' photos</span>'+
+      '<span class="club__say" role="button" aria-label="Hear '+c.en+'" data-say="'+c.en+'">🔊</span>'+
+      '<span class="club__label"><span class="club__en">'+c.en+'</span><span class="club__zh">'+c.zh+'</span></span>';
+    b.addEventListener('click',function(e){
+      var s=e.target.closest('.club__say');
+      if(s){e.stopPropagation();speak(s.getAttribute('data-say'));return;}
+      openLB(i,0);
+    });
+    grid.appendChild(b);
+  });
+
+  /* lightbox */
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap'),lbDots=document.getElementById('lbDots'),
+      lbClose=document.getElementById('lbClose'),lbPrev=document.getElementById('lbPrev'),
+      lbNext=document.getElementById('lbNext');
+  var cur=0,idx=0;
+
+  function render(){
+    var c=CLUBS[cur];
+    lbImg.src=BASE+c.slug+'-'+(idx+1)+'.jpg';
+    lbImg.alt=c.en+' — photo '+(idx+1);
+    lbCap.innerHTML=c.en+'<small>'+c.zh+' · '+(idx+1)+' / '+c.n+'</small>';
+    lbDots.innerHTML='';
+    for(var k=0;k<c.n;k++){
+      var d=document.createElement('button');
+      d.className='lb__dot'+(k===idx?' on':'');
+      d.setAttribute('aria-label','Photo '+(k+1));
+      (function(kk){d.addEventListener('click',function(){idx=kk;render();});})(k);
+      lbDots.appendChild(d);
+    }
+  }
+  function openLB(c,i){cur=c;idx=i;render();lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLB(){lb.classList.remove('open');document.body.style.overflow='';if('speechSynthesis'in window)window.speechSynthesis.cancel();}
+  function next(){idx=(idx+1)%CLUBS[cur].n;render();}
+  function prev(){idx=(idx-1+CLUBS[cur].n)%CLUBS[cur].n;render();}
+
+  lbClose.addEventListener('click',closeLB);
+  lbNext.addEventListener('click',next);
+  lbPrev.addEventListener('click',prev);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLB();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLB();
+    else if(e.key==='ArrowRight')next();
+    else if(e.key==='ArrowLeft')prev();
+  });
+})();
+</script>
+
+<script>
 (function(){
   var els=document.querySelectorAll('.rvl');
   function check(){els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight-60)el.classList.add('in');});}
   check();document.addEventListener('scroll',check,{passive:true});
+  // re-scan after club cards are injected
+  setTimeout(function(){els=document.querySelectorAll('.rvl');check();},50);
 })();
 </script>
 <script defer src="/assets/js/motion.js"></script>
