@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book 6 · Lesson 3 — Places in Town · Wenchang Elementary</title>
+<meta name="description" content="Book 6 Lesson 3 — Where Are You Going? Places in Town and Directions. 五年級第三課：Where are you going?">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/wenchang/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/wenchang/favicon-192.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/wenchang/favicon-180.png?v=2">
+<link rel="shortcut icon" href="/schools/wenchang/favicon.ico?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<style>
+:root{
+  --accent:#8a2828;
+  --accent-mid:#d44a4a;
+  --leaf:#3a6b1e;
+  --ink:#1a1510;
+  --ink-2:#4a4038;
+  --ink-3:#7a7068;
+  --rule:#d8d0c4;
+  --bg:#fff;
+  --bg-2:#f8f5f0;
+  --max:860px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--ink);background:var(--bg);
+  font-size:19px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+@media(min-width:720px){body{font-size:21px;}}
+img{max-width:100%;display:block;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+/* ===== SUBNAV ===== */
+.subnav{
+  background:rgba(248,245,240,.96);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+  padding:14px 0;position:sticky;top:0;z-index:50;
+}
+.subnav__inner{
+  display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:center;align-items:center;
+  font-family:'Cormorant Garamond',serif;font-size:17px;
+}
+@media(min-width:720px){.subnav__inner{font-size:19px;}}
+.subnav a{
+  color:var(--ink-2);text-decoration:none;font-weight:600;
+  padding:4px 12px;border-radius:4px;transition:color .15s;white-space:nowrap;
+}
+.subnav a:hover{color:var(--accent);}
+.subnav a.is-active{color:var(--accent);border-bottom:2px solid var(--accent-mid);}
+.subnav__sep{color:var(--rule);}
+@media(max-width:600px){.subnav__sep{display:none;}}
+
+/* ===== PAGE HEADER (text-only) ===== */
+.page-header{
+  border-bottom:1px solid var(--rule);
+  padding:36px 0 28px;
+}
+.page-header__inner{max-width:var(--max);margin:0 auto;padding:0 28px;}
+.page-header__back{
+  display:inline-block;font-size:13px;letter-spacing:.5px;
+  color:var(--ink-3);margin-bottom:14px;
+}
+.page-header__back:hover{color:var(--ink);text-decoration:none;}
+.page-header__label{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;margin-bottom:10px;
+}
+.page-header__h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:700;line-height:1.1;color:var(--ink);
+}
+@media(min-width:720px){.page-header__h1{font-size:48px;}}
+.page-header__sub{font-size:15px;color:var(--ink-3);margin-top:8px;letter-spacing:.3px;}
+
+/* ===== LAYOUT ===== */
+main{padding:52px 0 96px;}
+.section{margin-bottom:64px;}
+
+/* Section heading */
+.sh{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:28px;
+}
+.sh h2{
+  font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--ink);
+}
+@media(min-width:720px){.sh h2{font-size:28px;}}
+.sh__tag{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;
+}
+.section-note{font-size:15px;color:var(--ink-3);margin-bottom:24px;line-height:1.6;}
+
+/* ===== VOCAB TABLE ===== */
+.vocab-list{width:100%;border-collapse:collapse;}
+.vocab-list tr{border-bottom:1px solid var(--rule);}
+.vocab-list tr:last-child{border-bottom:none;}
+.vocab-list td{padding:14px 8px;vertical-align:middle;}
+.vl-flag{font-size:24px;width:36px;padding-left:0;}
+.vl-name{font-size:20px;font-weight:600;white-space:nowrap;}
+@media(min-width:720px){.vl-name{font-size:22px;}}
+.vl-zh{font-size:15px;color:var(--ink-3);}
+.vl-say{padding-right:0;text-align:right;}
+.say{
+  background:none;border:1px solid var(--rule);color:var(--ink-3);
+  border-radius:50%;width:28px;height:28px;cursor:pointer;
+  font-size:13px;display:inline-flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.say:hover,.say.saying{border-color:var(--leaf);color:var(--leaf);}
+
+/* ===== PATTERN BLOCKS ===== */
+.pattern{margin-bottom:28px;}
+.pattern__label{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:600;color:var(--ink-3);margin-bottom:8px;
+}
+.pattern__formula{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;color:var(--ink);
+  border-left:3px solid var(--accent-mid);padding-left:16px;margin-bottom:16px;
+  line-height:1.3;
+}
+@media(min-width:720px){.pattern__formula{font-size:26px;}}
+.pattern__examples{
+  padding-left:20px;display:flex;flex-direction:column;gap:8px;
+}
+.ex{font-size:17px;color:var(--ink-2);display:flex;gap:10px;align-items:baseline;}
+.ex-spk{font-size:14px;color:var(--ink-3);min-width:20px;font-style:italic;}
+.ex-text strong{color:var(--ink);}
+.say-inline{
+  background:none;border:none;color:var(--ink-3);cursor:pointer;
+  font-size:14px;padding:0 2px;vertical-align:middle;transition:color .15s;
+}
+.say-inline:hover,.say-inline.saying{color:var(--leaf);}
+
+/* ===== GRAMMAR FOCUS ===== */
+.grammar-note{
+  background:var(--bg-2);border:1px solid var(--rule);
+  border-radius:4px;padding:22px 24px;margin-bottom:24px;
+}
+.grammar-note__title{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;
+  color:var(--ink);margin-bottom:10px;
+}
+.grammar-note p{font-size:16px;color:var(--ink-2);line-height:1.7;margin-bottom:8px;}
+.grammar-note p:last-child{margin-bottom:0;}
+.err{color:#aa1111;text-decoration:line-through;}
+.ok{color:var(--leaf);font-weight:600;}
+.be-table{width:100%;border-collapse:collapse;font-size:15px;margin-top:24px;}
+.be-table th{
+  text-align:left;padding:9px 14px;
+  border-bottom:2px solid var(--ink);
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-3);
+}
+.be-table td{padding:11px 14px;border-bottom:1px solid var(--rule);}
+.be-table tr:last-child td{border-bottom:none;}
+.be-table td strong{color:var(--ink);}
+
+/* ===== QUIZ ===== */
+.quiz{
+  border-top:2px solid var(--ink);padding-top:36px;margin-top:64px;
+}
+.quiz__heading{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+  color:var(--ink);margin-bottom:4px;
+}
+@media(min-width:720px){.quiz__heading{font-size:30px;}}
+.quiz__sub{font-size:15px;color:var(--ink-3);margin-bottom:32px;}
+
+.q{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--rule);}
+.q:last-of-type{border-bottom:none;}
+.q.answered{pointer-events:none;}
+.q__num{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-bottom:8px;
+}
+.q__text{font-size:19px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.5;}
+@media(min-width:720px){.q__text{font-size:21px;}}
+.blank{
+  display:inline-block;min-width:70px;border-bottom:1.5px solid var(--accent-mid);
+  margin:0 2px;
+}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:11px 16px;border-radius:3px;
+  border:1px solid var(--rule);cursor:pointer;
+  background:var(--bg);font-size:17px;text-align:left;
+  width:100%;font-family:inherit;color:var(--ink);
+  transition:border-color .12s,background .12s;
+}
+.opt:hover{border-color:var(--ink-2);background:var(--bg-2);}
+.opt-letter{
+  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;
+  color:var(--ink-3);min-width:18px;flex-shrink:0;padding-top:1px;
+}
+.opt.correct{border-color:#2e6b2e;background:#f0f7f0;}
+.opt.correct .opt-letter{color:#2e6b2e;}
+.opt.wrong{border-color:#aa2222;background:#fdf2f2;}
+.opt.wrong .opt-letter{color:#aa2222;}
+.q-fb{
+  margin-top:12px;font-size:14px;color:var(--ink-2);
+  padding:10px 14px;border-radius:3px;background:var(--bg-2);
+  border-left:3px solid var(--rule);display:none;line-height:1.6;
+}
+.q-fb.show{display:block;}
+.q-fb.ok{border-left-color:#2e6b2e;background:#f0f7f0;}
+.q-fb.bad{border-left-color:#aa2222;background:#fdf2f2;}
+
+.quiz-score{
+  margin-top:28px;padding:18px 22px;border-radius:3px;
+  background:var(--bg-2);border:1px solid var(--rule);
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;
+  text-align:center;display:none;
+}
+.quiz-score.show{display:block;}
+.quiz-btn{
+  margin-top:28px;display:inline-block;padding:11px 28px;
+  border:1.5px solid var(--ink);border-radius:3px;background:var(--bg);
+  font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--ink);
+  transition:background .15s,color .15s;letter-spacing:.3px;
+}
+.quiz-btn:hover:not(:disabled){background:var(--ink);color:#fff;}
+.quiz-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ===== FOOTER ===== */
+.ft{border-top:1px solid var(--rule);padding:32px 0;margin-top:64px;}
+.ft__inner{max-width:var(--max);margin:0 auto;padding:0 28px;font-size:13px;color:var(--ink-3);text-align:center;line-height:1.9;}
+.ft__inner a{color:var(--ink-3);}
+.ft__inner a:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<!-- SUBNAV -->
+<nav class="subnav">
+  <div class="subnav__inner">
+    <a href="/schools/wenchang/">Home</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/principal/">Principal</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/bilingual-campus/">Bilingual Campus</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/lessons/" class="is-active">Lessons</a>
+    <span class="subnav__sep">·</span>
+    <a href="/schools/wenchang/news/">News</a>
+    <span class="subnav__sep">·</span>
+    <a href="https://changhua-bilingual.org/festivals/?from=wenchang">Festivals</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header__inner">
+    <a class="page-header__back" href="/schools/wenchang/lessons/">← All Lessons</a>
+    <div class="page-header__label">Grade 5 · Book 6 · Lesson 3</div>
+    <h1 class="page-header__h1">Where Are You Going?</h1>
+    <div class="page-header__sub">Places in Town &amp; Directions · 城市地點與位置</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+<div class="wrap">
+
+  <!-- VOCABULARY -->
+  <section class="section">
+    <div class="sh"><h2>Places in Town 城市地點</h2><span class="sh__tag">Theme Words</span></div>
+    <p class="section-note">Click 🔊 to hear the pronunciation of each place. 點 🔊 聽每個地點的發音。</p>
+    <table class="vocab-list">
+      <tr>
+        <td class="vl-flag">📚</td>
+        <td><div class="vl-name">library <button class="say" data-say="library">🔊</button></div></td>
+        <td class="vl-zh">圖書館</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">🏥</td>
+        <td><div class="vl-name">hospital <button class="say" data-say="hospital">🔊</button></div></td>
+        <td class="vl-zh">醫院</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">📖</td>
+        <td><div class="vl-name">bookstore <button class="say" data-say="bookstore">🔊</button></div></td>
+        <td class="vl-zh">書店</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">🛒</td>
+        <td><div class="vl-name">supermarket <button class="say" data-say="supermarket">🔊</button></div></td>
+        <td class="vl-zh">超市</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">🌳</td>
+        <td><div class="vl-name">park <button class="say" data-say="park">🔊</button></div></td>
+        <td class="vl-zh">公園</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">📮</td>
+        <td><div class="vl-name">post office <button class="say" data-say="post office">🔊</button></div></td>
+        <td class="vl-zh">郵局</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">🧋</td>
+        <td><div class="vl-name">tea shop <button class="say" data-say="tea shop">🔊</button></div></td>
+        <td class="vl-zh">手搖飲店</td>
+      </tr>
+      <tr>
+        <td class="vl-flag">🦁</td>
+        <td><div class="vl-name">zoo <button class="say" data-say="zoo">🔊</button></div></td>
+        <td class="vl-zh">動物園</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PATTERNS -->
+  <section class="section">
+    <div class="sh"><h2>Sentence Patterns 句型</h2><span class="sh__tag">Key Patterns</span></div>
+
+    <div class="pattern">
+      <div class="pattern__label">Pattern 1 · 問要去哪</div>
+      <div class="pattern__formula">Where are you / is he / she going? → I'm / He's / She's going to the <em>___</em>.</div>
+      <div class="pattern__examples">
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">Where <strong>are</strong> you going? <button class="say-inline" data-say="Where are you going?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">I'm going to the library. <button class="say-inline" data-say="I'm going to the library.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">Where <strong>is</strong> she going? <button class="say-inline" data-say="Where is she going?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">She's going to the bookstore. <button class="say-inline" data-say="She's going to the bookstore.">🔊</button></span></div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern__label">Pattern 2 · 問位置</div>
+      <div class="pattern__formula">Where's the <em>___</em>? → It's on ___ Road. / It's next to the ___.</div>
+      <div class="pattern__examples">
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">Where's the post office? <button class="say-inline" data-say="Where's the post office?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's on Green Road. <button class="say-inline" data-say="It's on Green Road.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">Where's the hospital? <button class="say-inline" data-say="Where's the hospital?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's next to the supermarket. <button class="say-inline" data-say="It's next to the supermarket.">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">A:</span><span class="ex-text">Where's the zoo? <button class="say-inline" data-say="Where's the zoo?">🔊</button></span></div>
+        <div class="ex"><span class="ex-spk">B:</span><span class="ex-text">It's across from the park. <button class="say-inline" data-say="It's across from the park.">🔊</button></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAMMAR -->
+  <section class="section">
+    <div class="sh"><h2>Grammar Focus 文法重點</h2><span class="sh__tag">Present Continuous for Future Plans</span></div>
+
+    <div class="grammar-note">
+      <div class="grammar-note__title">Present Continuous for Future Plans</div>
+      <p>In English, we often use the present continuous (am / is / are + going) to talk about near-future plans.</p>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="be-table">
+      <thead>
+        <tr>
+          <th>Subject 主詞</th>
+          <th>Be verb</th>
+          <th>Pattern</th>
+          <th>Example 例句</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>I</strong></td>
+          <td>am</td>
+          <td>I'm going to…</td>
+          <td>I'm going to the park.</td>
+        </tr>
+        <tr>
+          <td><strong>He / She</strong></td>
+          <td>is</td>
+          <td>He's / She's going to…</td>
+          <td>She's going to the zoo.</td>
+        </tr>
+        <tr>
+          <td><strong>You / We / They</strong></td>
+          <td>are</td>
+          <td>You're / We're / They're going to…</td>
+          <td>They're going to the library.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div style="margin-top:32px;">
+    <div class="sh" style="margin-bottom:20px;"><h2>Location Prepositions 位置介系詞</h2><span class="sh__tag">Where's the ___?</span></div>
+    <div style="overflow-x:auto;">
+    <table class="be-table">
+      <thead>
+        <tr>
+          <th>Preposition</th>
+          <th>Meaning 意思</th>
+          <th>Example 例句</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>on ___ Road</strong></td>
+          <td>在某條路上</td>
+          <td>It's on Blue Road.</td>
+        </tr>
+        <tr>
+          <td><strong>next to</strong></td>
+          <td>在...旁邊</td>
+          <td>It's next to the park.</td>
+        </tr>
+        <tr>
+          <td><strong>across from</strong></td>
+          <td>在...對面</td>
+          <td>It's across from the hospital.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz">
+    <h2 class="quiz__heading">Mini Quiz · 小考</h2>
+    <p class="quiz__sub">Select the best answer for each question. 選出每題最適合的答案。</p>
+
+    <div class="quiz-score" id="scoreBar"></div>
+
+    <!-- Q1 answer=B -->
+    <div class="q" id="q1">
+      <div class="q__num">Question 1 / 10</div>
+      <div class="q__text">A: Where <span class="blank"></span> she going?&ensp; B: She's going to the bookstore.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">A.</span>am</button>
+        <button class="opt" onclick="answer(this,'q1','correct')"><span class="opt-letter">B.</span>is</button>
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">C.</span>are</button>
+        <button class="opt" onclick="answer(this,'q1','wrong')"><span class="opt-letter">D.</span>do</button>
+      </div>
+      <div class="q-fb ok" id="q1-ok">Correct. "She" is singular → <strong>Where is she going?</strong></div>
+      <div class="q-fb bad" id="q1-bad">"She" is singular, so use <strong>is</strong>. "are" is for you / we / they.</div>
+    </div>
+
+    <!-- Q2 answer=D -->
+    <div class="q" id="q2">
+      <div class="q__num">Question 2 / 10</div>
+      <div class="q__text">Where's the hospital?&ensp; It's <span class="blank"></span> the supermarket.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">A.</span>across to</button>
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">B.</span>on</button>
+        <button class="opt" onclick="answer(this,'q2','wrong')"><span class="opt-letter">C.</span>in front</button>
+        <button class="opt" onclick="answer(this,'q2','correct')"><span class="opt-letter">D.</span>next to</button>
+      </div>
+      <div class="q-fb ok" id="q2-ok">Correct. <strong>next to</strong> means 在...旁邊. "It's next to the supermarket."</div>
+      <div class="q-fb bad" id="q2-bad">Use <strong>next to</strong> (在...旁邊). "across from" means 在...對面, not used here.</div>
+    </div>
+
+    <!-- Q3 answer=A -->
+    <div class="q" id="q3">
+      <div class="q__num">Question 3 / 10</div>
+      <div class="q__text">Which sentence is correct? 哪個句子正確？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q3','correct')"><span class="opt-letter">A.</span>I'm going to the library.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">B.</span>I am go to the library.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">C.</span>I going to the library.</button>
+        <button class="opt" onclick="answer(this,'q3','wrong')"><span class="opt-letter">D.</span>I goes to the library.</button>
+      </div>
+      <div class="q-fb ok" id="q3-ok">Correct. <strong>I'm going to the library.</strong> — present continuous: am + going.</div>
+      <div class="q-fb bad" id="q3-bad">(A) is correct: <strong>I'm going to the library.</strong> — use am + going (not "go" or "goes").</div>
+    </div>
+
+    <!-- Q4 answer=C -->
+    <div class="q" id="q4">
+      <div class="q__num">Question 4 / 10</div>
+      <div class="q__text">Where's the zoo?&ensp; It's <span class="blank"></span> the park.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">A.</span>next to</button>
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">B.</span>on</button>
+        <button class="opt" onclick="answer(this,'q4','correct')"><span class="opt-letter">C.</span>across from</button>
+        <button class="opt" onclick="answer(this,'q4','wrong')"><span class="opt-letter">D.</span>between</button>
+      </div>
+      <div class="q-fb ok" id="q4-ok">Correct. <strong>across from</strong> means 在...對面. "It's across from the park."</div>
+      <div class="q-fb bad" id="q4-bad">Use <strong>across from</strong> (在...對面). "next to" means 在...旁邊.</div>
+    </div>
+
+    <!-- Q5 answer=B -->
+    <div class="q" id="q5">
+      <div class="q__num">Question 5 / 10</div>
+      <div class="q__text">A: Where <span class="blank"></span> they going?&ensp; B: They're going to the zoo.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">A.</span>is</button>
+        <button class="opt" onclick="answer(this,'q5','correct')"><span class="opt-letter">B.</span>are</button>
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">C.</span>am</button>
+        <button class="opt" onclick="answer(this,'q5','wrong')"><span class="opt-letter">D.</span>does</button>
+      </div>
+      <div class="q-fb ok" id="q5-ok">Correct. "They" is plural → <strong>Where are they going?</strong></div>
+      <div class="q-fb bad" id="q5-bad">"They" needs <strong>are</strong>. "is" is for he / she / it.</div>
+    </div>
+
+    <!-- Q6 answer=D -->
+    <div class="q" id="q6">
+      <div class="q__num">Question 6 / 10</div>
+      <div class="q__text">Where's the post office?&ensp; It's <span class="blank"></span> Green Road.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">A.</span>at</button>
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">B.</span>in</button>
+        <button class="opt" onclick="answer(this,'q6','wrong')"><span class="opt-letter">C.</span>by</button>
+        <button class="opt" onclick="answer(this,'q6','correct')"><span class="opt-letter">D.</span>on</button>
+      </div>
+      <div class="q-fb ok" id="q6-ok">Correct. We say <strong>on</strong> a road: "It's on Green Road."</div>
+      <div class="q-fb bad" id="q6-bad">Use <strong>on</strong> for roads: "It's on Green Road." — not "at" or "in".</div>
+    </div>
+
+    <!-- Q7 answer=A -->
+    <div class="q" id="q7">
+      <div class="q__num">Question 7 / 10</div>
+      <div class="q__text">Which place do you go to borrow books? 借書要去哪裡？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q7','correct')"><span class="opt-letter">A.</span>library</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">B.</span>hospital</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">C.</span>post office</button>
+        <button class="opt" onclick="answer(this,'q7','wrong')"><span class="opt-letter">D.</span>supermarket</button>
+      </div>
+      <div class="q-fb ok" id="q7-ok">Correct. A <strong>library</strong> (圖書館) is where you borrow books.</div>
+      <div class="q-fb bad" id="q7-bad">You go to the <strong>library</strong> (圖書館) to borrow books.</div>
+    </div>
+
+    <!-- Q8 answer=C -->
+    <div class="q" id="q8">
+      <div class="q__num">Question 8 / 10</div>
+      <div class="q__text">A: Where <span class="blank"></span> you going?&ensp; B: I'm going to the park.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">A.</span>is</button>
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">B.</span>am</button>
+        <button class="opt" onclick="answer(this,'q8','correct')"><span class="opt-letter">C.</span>are</button>
+        <button class="opt" onclick="answer(this,'q8','wrong')"><span class="opt-letter">D.</span>do</button>
+      </div>
+      <div class="q-fb ok" id="q8-ok">Correct. "You" uses <strong>are</strong> → <strong>Where are you going?</strong></div>
+      <div class="q-fb bad" id="q8-bad">"You" uses <strong>are</strong>: "Where are you going?" — not "am" (which is only for "I").</div>
+    </div>
+
+    <!-- Q9 answer=B -->
+    <div class="q" id="q9">
+      <div class="q__num">Question 9 / 10</div>
+      <div class="q__text">Which place is a place to buy food and groceries? 哪個地方可以買食物和日用品？</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">A.</span>tea shop</button>
+        <button class="opt" onclick="answer(this,'q9','correct')"><span class="opt-letter">B.</span>supermarket</button>
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">C.</span>bookstore</button>
+        <button class="opt" onclick="answer(this,'q9','wrong')"><span class="opt-letter">D.</span>zoo</button>
+      </div>
+      <div class="q-fb ok" id="q9-ok">Correct. A <strong>supermarket</strong> (超市) is where you buy food and groceries.</div>
+      <div class="q-fb bad" id="q9-bad">A <strong>supermarket</strong> (超市) is where you buy food and daily items.</div>
+    </div>
+
+    <!-- Q10 answer=D -->
+    <div class="q" id="q10">
+      <div class="q__num">Question 10 / 10</div>
+      <div class="q__text">He <span class="blank"></span> going to the hospital.</div>
+      <div class="opts">
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">A.</span>am</button>
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">B.</span>are</button>
+        <button class="opt" onclick="answer(this,'q10','wrong')"><span class="opt-letter">C.</span>go</button>
+        <button class="opt" onclick="answer(this,'q10','correct')"><span class="opt-letter">D.</span>is</button>
+      </div>
+      <div class="q-fb ok" id="q10-ok">Correct. "He" is singular → <strong>He is going</strong> (= He's going) to the hospital.</div>
+      <div class="q-fb bad" id="q10-bad">"He" needs <strong>is</strong>: "He is going to the hospital." — "is" goes with he / she / it.</div>
+    </div>
+
+    <button class="quiz-btn" id="checkBtn" onclick="checkScore()" disabled>See My Score · 看成績</button>
+  </section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft__inner">
+    Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect · 人師教育協會</a> ·
+    Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a> ·
+    <a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a>
+  </div>
+</footer>
+
+<!-- TTS -->
+<script>
+(function(){
+  var bs=document.querySelectorAll('.say,.say-inline');
+  if(!bs.length||!('speechSynthesis'in window))return;
+  function pick(){var v=speechSynthesis.getVoices()||[];return v.filter(function(x){return/en[-_]US/i.test(x.lang)})[0]||v.filter(function(x){return/^en/i.test(x.lang)})[0]||null;}
+  try{speechSynthesis.onvoiceschanged=function(){};}catch(e){}
+  bs.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var t=b.getAttribute('data-say');if(!t)return;
+      speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.88;
+      var vc=pick();if(vc)u.voice=vc;
+      document.querySelectorAll('.saying').forEach(function(o){o.classList.remove('saying');});
+      b.classList.add('saying');
+      u.onend=function(){b.classList.remove('saying');};
+      u.onerror=function(){b.classList.remove('saying');};
+      speechSynthesis.speak(u);
+    });
+  });
+})();
+</script>
+
+<!-- QUIZ LOGIC -->
+<script>
+var score=0,answered=0,total=10;
+function answer(btn,qid,result){
+  var qel=document.getElementById(qid);
+  if(qel.classList.contains('answered'))return;
+  qel.classList.add('answered');answered++;
+  btn.classList.add(result);
+  if(result==='correct'){
+    score++;
+    document.getElementById(qid+'-ok').classList.add('show');
+  } else {
+    document.getElementById(qid+'-bad').classList.add('show');
+    var opts=qel.querySelectorAll('.opt');
+    for(var i=0;i<opts.length;i++){
+      if(opts[i].getAttribute('onclick').indexOf("'correct'")>-1){opts[i].classList.add('correct');break;}
+    }
+  }
+  if(answered===total)document.getElementById('checkBtn').removeAttribute('disabled');
+}
+function checkScore(){
+  var bar=document.getElementById('scoreBar');
+  var pct=Math.round(score/total*100);
+  bar.textContent='Score: '+score+' / '+total+' ('+pct+'%)';
+  bar.classList.add('show');
+  bar.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+
+<script defer src="/assets/js/motion.js"></script>
+</body>
+</html>
