@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="canonical" href="https://changhua-bilingual.org/schools/taihe/lessons/">
 <title>Lessons · 課程 — Tai-He Elementary School</title>
-<meta name="description" content="Tai-He's growing library of bilingual lessons — Word of the Day units voiced by FET Rochelle, Classroom English, and Announcements. 泰和國小雙語課程入口：Word of the Day、Classroom English、Announcements。">
+<meta name="description" content="Tai-He's bilingual lesson library — dance, swimming, school day, choir, campus life, and Word of the Day. 泰和國小雙語課程入口。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,13 +17,78 @@
 <script defer src="/analytics.js"></script>
 <style>
 .hero{--banner-img:url("/schools/taihe/photos/banner-lessons.jpg");--banner-pos:center 62%;}
-.cat-head{margin:14px 0 22px;}
-.cat-head__title{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--blue-deep);line-height:1.15;letter-spacing:.4px;}
-@media (min-width:720px){ .cat-head__title{font-size:38px;} }
-.cat-head__zh{font-size:18px;color:var(--ink-soft);margin-top:6px;font-weight:500;}
-@media (min-width:720px){ .cat-head__zh{font-size:21px;} }
-.cat-rule{width:60px;height:4px;background:var(--gold);border-radius:2px;margin:14px 0 26px;}
-/* shared playlist player (Classroom English · Bilingual Announcements) */
+
+/* ── Square card grid ─────────────────────────────────────────── */
+.sq-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+@media(min-width:560px){.sq-grid{grid-template-columns:repeat(3,1fr);gap:20px;}}
+@media(min-width:860px){.sq-grid{gap:24px;}}
+
+.sq-card{
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s,box-shadow .18s;
+}
+.sq-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+
+.sq-card__hero{
+  aspect-ratio:1/1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+}
+.sq-card__emoji{font-size:clamp(36px,7vw,58px);line-height:1;}
+.sq-card__tag{
+  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(255,255,255,.55);border-radius:99px;padding:3px 10px;
+  color:rgba(0,0,0,.55);
+}
+
+.sq-card__body{
+  padding:14px 16px 18px;
+  border-top:1px solid var(--line);
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.sq-card__title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(16px,2.4vw,21px);
+  font-weight:700;
+  color:var(--blue-deep);
+  line-height:1.2;
+  letter-spacing:.2px;
+}
+.sq-card__zh{
+  font-family:'PingFang TC',sans-serif;
+  font-size:13px;color:var(--ink-soft);
+  margin-top:4px;font-weight:500;
+}
+.sq-card__desc{
+  font-size:13px;color:var(--ink-soft);
+  margin-top:8px;line-height:1.55;
+  flex:1;
+}
+.sq-card__cta{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:700;
+  margin-top:10px;
+}
+
+/* ── Video player (Classroom English / Announcements) ─────────── */
 .player{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);margin-top:16px;}
 .player__ratio{position:relative;width:100%;padding-top:56.25%;background:#000;}
 .player__ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
@@ -35,27 +100,12 @@
 .player-link__text span{font-size:14.5px;color:rgba(255,255,255,.78);font-family:'PingFang TC',sans-serif;}
 .player-link__arrow{font-size:20px;color:var(--gold);}
 .credits{display:grid;grid-template-columns:1fr;gap:10px;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-top:18px;}
-@media (min-width:720px){ .credits{grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 26px;} }
+@media(min-width:720px){.credits{grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 26px;}}
 .credits__cell{padding:6px 0;border-bottom:1px solid var(--line);}
-@media (min-width:720px){ .credits__cell{border-bottom:none;border-right:1px solid var(--line);padding:0 22px 0 0;} .credits__cell:last-child{border-right:none;} }
+@media(min-width:720px){.credits__cell{border-bottom:none;border-right:1px solid var(--line);padding:0 22px 0 0;}.credits__cell:last-child{border-right:none;}}
 .credits__label{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
 .credits__value{font-family:'Playfair Display',serif;font-size:19.5px;color:var(--blue-deep);font-weight:700;margin-top:4px;}
 .credits__value .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-top:2px;font-weight:500;}
-/* Campus Life card — fresh green */
-.unit.u-4 .unit__hero{background:linear-gradient(135deg,#dff1d7 0%,#a9d8a0 100%);}
-.unit.u-4 .unit__title{color:#2f7d32;}
-/* My School Day card — warm amber */
-.unit.u-msd .unit__hero{background:linear-gradient(135deg,#fde8c8 0%,#e09c4a 52%,#c86a10 100%);}
-.unit.u-msd .unit__title{color:#7a3c00;}
-.unit.u-msd .unit__cta{color:#c86a10;}
-/* Choir English card — purple */
-.unit.u-choir .unit__hero{background:linear-gradient(135deg,#ede8f8 0%,#c8b8e8 52%,#6b4fa0 100%);}
-.unit.u-choir .unit__title{color:#3d2b6b;}
-.unit.u-choir .unit__cta{color:#6b4fa0;}
-/* Library Books card — warm amber */
-.unit.u-lib .unit__hero{background:linear-gradient(135deg,#fef6e8 0%,#f5d9a0 52%,#b06a00 100%);}
-.unit.u-lib .unit__title{color:#7a4500;}
-.unit.u-lib .unit__cta{color:#b06a00;}
 </style>
   <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
@@ -85,100 +135,161 @@
       <h1>Lessons</h1>
       <div class="h1-zh">課程 · 泰和雙語學習入口</div>
       <p class="hero__tagline">
-        Three corners of our bilingual day — vocabulary, classroom voice, and the morning announcements that open every school day.
-        <span class="tagline-zh">三大課程入口：每日單字、課堂英語、每日廣播——泰和雙語的三個角落</span>
+        Dance, swimming, choir, school life, vocabulary — pick a course and start learning.
+        <span class="tagline-zh">舞蹈、游泳、合唱、校園生活、每日單字——選一個課程，馬上開始學。</span>
       </p>
     </div>
   </div>
 </header>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     LESSON CARD GRID
+     ════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
-    <h2 class="sec__title">Word of the Day</h2>
-    <div class="sec__title-zh">每日一字 · 12 支影片 · Rochelle 老師親自錄製</div>
+    <h2 class="sec__title">All Lessons</h2>
+    <div class="sec__title-zh">所有課程 · 點卡片進入</div>
     <div class="sec__rule"></div>
 
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Twelve <em>Words of the Day</em>, voiced by Teacher Rochelle and grouped into three short themed units. Click into any unit — every word has a video, a pronunciation, and two example sentences in English and Chinese.</p>
-      <p class="zh rvl">12 支 Word of the Day，Rochelle 老師親自錄製，分成三個短單元。點進任何一個單元，每個字都有影片、發音示範，以及兩句中英對照例句。</p>
-    </div>
+    <div class="sq-grid">
 
-    <div class="units">
-      <a class="unit u-1 rvl" href="/schools/taihe/lessons/word-of-the-day/unit-1/">
-        <div class="unit__hero"><div class="unit__hero-emoji">📚</div></div>
-        <div class="unit__body">
-          <div class="unit__no">Unit 01 · 5 Words</div>
-          <div class="unit__title">My Subjects</div>
-          <div class="unit__title-zh">我的學科</div>
-          <div class="unit__desc">Chinese class, math class, science class, computer class, Taiwanese — the five classes that fill a week at Tai-He.</div>
-          <div class="unit__cta">Open Unit <span class="arrow">→</span></div>
+      <!-- Dance Course -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/dance/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#f5f0fc 0%,#d4c0f0 60%,#7B5EA7 100%);">
+          <div class="sq-card__emoji">💃</div>
+          <div class="sq-card__tag" style="color:#4a3070;">10 Lessons</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#4a3070;">Dance Course</div>
+          <div class="sq-card__zh">舞蹈英語課</div>
+          <div class="sq-card__desc">Body, rhythm, balance, confidence, and performing — six years of dance in English.</div>
+          <div class="sq-card__cta" style="color:#7B5EA7;">Open <span>→</span></div>
         </div>
       </a>
-      <a class="unit u-2 rvl" href="/schools/taihe/lessons/word-of-the-day/unit-2/">
-        <div class="unit__hero"><div class="unit__hero-emoji">🏫</div></div>
-        <div class="unit__body">
-          <div class="unit__no">Unit 02 · 4 Words</div>
-          <div class="unit__title">Around Campus</div>
-          <div class="unit__title-zh">校園裡</div>
-          <div class="unit__desc">Reading, the recorder, checking out a book at the library, the bell for recess — life around the school day.</div>
-          <div class="unit__cta">Open Unit <span class="arrow">→</span></div>
+
+      <!-- Swimming Lessons -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/swimming/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#d0eef8 0%,#7dc8e8 60%,#0a6e9a 100%);">
+          <div class="sq-card__emoji">🏊</div>
+          <div class="sq-card__tag" style="color:#0a3d5c;">6 Lessons</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#0a5f85;">Swimming Lessons</div>
+          <div class="sq-card__zh">游泳課</div>
+          <div class="sq-card__desc">Pool, gear, strokes, safety, racing — one of only three elementary pools in Changhua.</div>
+          <div class="sq-card__cta" style="color:#0a6e9a;">Open <span>→</span></div>
         </div>
       </a>
-      <a class="unit u-3 rvl" href="/schools/taihe/lessons/word-of-the-day/unit-3/">
-        <div class="unit__hero"><div class="unit__hero-emoji">🌱</div></div>
-        <div class="unit__body">
-          <div class="unit__no">Unit 03 · 3 Words</div>
-          <div class="unit__title">Good Habits</div>
-          <div class="unit__title-zh">泰和好習慣</div>
-          <div class="unit__desc">Washing hands, correcting our work, keeping on growing — the everyday habits that make us stronger.</div>
-          <div class="unit__cta">Open Unit <span class="arrow">→</span></div>
+
+      <!-- My School Day -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/my-school-day/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#fde8c8 0%,#e09c4a 60%,#c86a10 100%);">
+          <div class="sq-card__emoji">🏫</div>
+          <div class="sq-card__tag" style="color:#6b3200;">8 Lessons</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#7a3c00;">My School Day</div>
+          <div class="sq-card__zh">我的一天</div>
+          <div class="sq-card__desc">Morning duty, assembly, subjects, lunch, going home — a full bilingual school day.</div>
+          <div class="sq-card__cta" style="color:#c86a10;">Open <span>→</span></div>
         </div>
       </a>
+
+      <!-- Choir English -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/choir/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#ede8f8 0%,#c8b8e8 60%,#6b4fa0 100%);">
+          <div class="sq-card__emoji">🎵</div>
+          <div class="sq-card__tag" style="color:#2d1c60;">6 Lessons</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#3d2b6b;">Choir English</div>
+          <div class="sq-card__zh">合唱英語</div>
+          <div class="sq-card__desc">Conductor, harmony, posture, stage, confidence — for Grades 5 &amp; 6 choir members.</div>
+          <div class="sq-card__cta" style="color:#6b4fa0;">Open <span>→</span></div>
+        </div>
+      </a>
+
+      <!-- Shuttlecock Kicking -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/campus-life/shuttlecock/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#dff1d7 0%,#a9d8a0 60%,#5a9d52 100%);">
+          <div class="sq-card__emoji">🪶</div>
+          <div class="sq-card__tag" style="color:#1f5a23;">Campus Life</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#2f7d32;">Shuttlecock Kicking</div>
+          <div class="sq-card__zh">踢毽子</div>
+          <div class="sq-card__desc">Kick, balance, take turns — a classic Taiwanese playground game with English words.</div>
+          <div class="sq-card__cta" style="color:#5a9d52;">Open <span>→</span></div>
+        </div>
+      </a>
+
+      <!-- Library Books -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/campus-life/library-books/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#fef6e8 0%,#f5d9a0 60%,#b06a00 100%);">
+          <div class="sq-card__emoji">📖</div>
+          <div class="sq-card__tag" style="color:#5c3200;">Campus Life</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#7a4500;">Borrowing Library Books</div>
+          <div class="sq-card__zh">借還書</div>
+          <div class="sq-card__desc">Library card, due date, bookshelf, librarian — every step of borrowing a book in English.</div>
+          <div class="sq-card__cta" style="color:#b06a00;">Open <span>→</span></div>
+        </div>
+      </a>
+
+      <!-- WotD Unit 1 -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/word-of-the-day/unit-1/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#e8eef8 0%,#a8bee8 60%,#3a5fa0 100%);">
+          <div class="sq-card__emoji">📚</div>
+          <div class="sq-card__tag" style="color:#1f3060;">5 Words</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#1f3a6e;">My Subjects</div>
+          <div class="sq-card__zh">我的學科</div>
+          <div class="sq-card__desc">Chinese, math, science, computer, Taiwanese — five subjects that fill a week at Tai-He.</div>
+          <div class="sq-card__cta" style="color:#3a5fa0;">Open <span>→</span></div>
+        </div>
+      </a>
+
+      <!-- WotD Unit 2 -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/word-of-the-day/unit-2/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#e8f4f8 0%,#90cce0 60%,#1a7fa0 100%);">
+          <div class="sq-card__emoji">🏫</div>
+          <div class="sq-card__tag" style="color:#0d3c50;">4 Words</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#0d5070;">Around Campus</div>
+          <div class="sq-card__zh">校園裡</div>
+          <div class="sq-card__desc">Reading, recorder, library, bell — words for everyday life around the school.</div>
+          <div class="sq-card__cta" style="color:#1a7fa0;">Open <span>→</span></div>
+        </div>
+      </a>
+
+      <!-- WotD Unit 3 -->
+      <a class="sq-card rvl" href="/schools/taihe/lessons/word-of-the-day/unit-3/">
+        <div class="sq-card__hero" style="background:linear-gradient(135deg,#eaf8ea 0%,#a0d8a0 60%,#2a8a2a 100%);">
+          <div class="sq-card__emoji">🌱</div>
+          <div class="sq-card__tag" style="color:#1a4a1a;">3 Words</div>
+        </div>
+        <div class="sq-card__body">
+          <div class="sq-card__title" style="color:#2a5c2a;">Good Habits</div>
+          <div class="sq-card__zh">泰和好習慣</div>
+          <div class="sq-card__desc">Washing hands, correcting our work, growing every day — habits that make us stronger.</div>
+          <div class="sq-card__cta" style="color:#2a8a2a;">Open <span>→</span></div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     CLASSROOM ENGLISH
+     ════════════════════════════════════════════════════════════ -->
 <section style="background:var(--cream-warm);">
   <div class="wrap">
     <div class="sec__no">II.</div>
-    <h2 class="sec__title">Campus Life</h2>
-    <div class="sec__title-zh">校園生活 · 泰和自己的學生、真實的活動</div>
-    <div class="sec__rule"></div>
-
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Our own students, our own playground. Short videos of the things Tai-He kids already love doing — traditional games, sports, everyday school life — each one paired with the English words to go with it.</p>
-      <p class="zh rvl">泰和自己的學生、自己的操場。把孩子們本來就愛玩的事——傳統童玩、運動、校園日常——拍成短片，每一支都配上相關的英語單字與例句。</p>
-    </div>
-
-    <div class="units">
-      <a class="unit u-4 rvl" href="/schools/taihe/lessons/campus-life/shuttlecock/">
-        <div class="unit__hero"><div class="unit__hero-emoji">🪶</div></div>
-        <div class="unit__body">
-          <div class="unit__no">Campus Life · 8 Words</div>
-          <div class="unit__title">Shuttlecock Kicking</div>
-          <div class="unit__title-zh">踢毽子</div>
-          <div class="unit__desc">A classic Taiwanese playground game — kick, balance, take turns. Watch our students play, then learn the words.</div>
-          <div class="unit__cta">Open Lesson <span class="arrow">→</span></div>
-        </div>
-      </a>
-      <a class="unit u-lib rvl" href="/schools/taihe/lessons/campus-life/library-books/">
-        <div class="unit__hero"><div class="unit__hero-emoji">📚</div></div>
-        <div class="unit__body">
-          <div class="unit__no">Campus Life · 8 Words · 10 Quiz Questions</div>
-          <div class="unit__title">Borrowing Library Books</div>
-          <div class="unit__title-zh">借還書</div>
-          <div class="unit__desc">Library card, due date, bookshelf, librarian — the English words for every step of borrowing and returning a book.</div>
-          <div class="unit__cta">Open Lesson <span class="arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec__no">III.</div>
     <h2 class="sec__title">Classroom English</h2>
     <div class="sec__title-zh">課室英語 · 教師課堂十大情境用語</div>
     <div class="sec__rule"></div>
@@ -218,9 +329,12 @@
   </div>
 </section>
 
-<section style="background:var(--cream-warm);">
+<!-- ═══════════════════════════════════════════════════════════════
+     BILINGUAL ANNOUNCEMENTS
+     ════════════════════════════════════════════════════════════ -->
+<section>
   <div class="wrap">
-    <div class="sec__no">IV.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Bilingual Announcements</h2>
     <div class="sec__title-zh">雙語廣播 · 各處室自我介紹 13 集</div>
     <div class="sec__rule"></div>
@@ -243,7 +357,7 @@
     <div class="player rvl">
       <div class="player__ratio">
         <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0"
-                title="Bilingual Announcements playlist by Sarah Thomas & Susan Rose"
+                title="Bilingual Announcements playlist by Sarah Thomas &amp; Susan Rose"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen loading="lazy"></iframe>
       </div>
@@ -256,112 +370,6 @@
         <span>在 YouTube 開啟完整 playlist · 任選想看的處室</span>
       </span>
       <span class="player-link__arrow">↗</span>
-    </a>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec__no">V.</div>
-    <h2 class="sec__title">Swimming Lessons</h2>
-    <div class="sec__title-zh">游泳課 · 六堂課 · 從認識泳池到驕傲地向世界介紹泰和</div>
-    <div class="sec__rule"></div>
-
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Six bilingual lessons built around Tai-He's one-of-a-kind swimming pool — one of only three elementary school pools in all of Changhua County. From pool basics and gear to racing, safety rules, and showing off our school to international visitors.</p>
-      <p class="zh rvl">六堂以泰和獨特游泳池為主題的雙語課程——全彰化縣只有三所國小有游泳池，我們是其中之一！從認識泳池、裝備、基本泳姿、安全規則、競賽計時，到驕傲地向國際訪客介紹我們的學校。每堂課都有單字、例句、對話練習、短文，以及 10 題英文小考。</p>
-    </div>
-
-    <div class="units">
-      <a class="unit rvl" href="/schools/taihe/lessons/swimming/" style="text-decoration:none;">
-        <div class="unit__hero" style="background:linear-gradient(135deg,#d0eef8 0%,#7dc8e8 100%);"><div class="unit__hero-emoji">🏊</div></div>
-        <div class="unit__body">
-          <div class="unit__no">6 Lessons · 48 Vocabulary Words · 60 Quiz Questions</div>
-          <div class="unit__title" style="color:#0a5f85;">Swimming Lessons</div>
-          <div class="unit__title-zh">游泳課</div>
-          <div class="unit__desc">Pool basics · Gear · Strokes · Safety · Racing · Introducing our school — everything in English and Chinese, with 🔊 audio and quizzes.</div>
-          <div class="unit__cta" style="color:#0a5f85;">Open Swimming Lessons <span class="arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec__no">VI.</div>
-    <h2 class="sec__title">My School Day</h2>
-    <div class="sec__title-zh">我的一天 · 8 課 · 三四年級生活英語</div>
-    <div class="sec__rule"></div>
-
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Eight short lessons that follow a full school day at Tai-He — from morning cleaning duty all the way to going home. Every lesson has six key words, a 🔊 pronunciation button for each one, and a set of practice sentences to say out loud.</p>
-      <p class="zh rvl">8 課短課程，完整跟著泰和的一整天走：晨光打掃 → 升旗典禮 → 學科與下課 → 午餐 → 放學。每課 6 個單字，每個字都有 🔊 朗讀按鈕，加上一組練習例句。三四年級適用。</p>
-    </div>
-
-    <div class="units">
-      <a class="unit u-msd rvl" href="/schools/taihe/lessons/my-school-day/">
-        <div class="unit__hero"><div class="unit__hero-emoji">🏫</div></div>
-        <div class="unit__body">
-          <div class="unit__no">8 Lessons · Grades 3 &amp; 4</div>
-          <div class="unit__title">My School Day</div>
-          <div class="unit__title-zh">我的一天 · 從晨光打掃到放學</div>
-          <div class="unit__desc">Cleaning tools, morning assembly, subjects, recess games, lunch, and going home — a full bilingual school day in eight lessons.</div>
-          <div class="unit__cta">Browse All 8 Lessons <span class="arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--cream-warm);">
-  <div class="wrap">
-    <div class="sec__no">VII.</div>
-    <h2 class="sec__title">Choir English</h2>
-    <div class="sec__title-zh">合唱英語 · 六課 · 五六年級合唱團員</div>
-    <div class="sec__rule"></div>
-
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Six bilingual lessons for Tai-He's choir members in Grades 5 and 6. From the basics of what a choir is to singing techniques, teamwork, performance day, and sharing your choir story — every lesson includes vocabulary, example sentences, dialogue practice, a short reading, and a quiz, all with 🔊 audio buttons for self-study.</p>
-      <p class="zh rvl">六課專為泰和合唱團五、六年級團員設計的雙語課程。從認識合唱、聲部、歌唱技巧、團隊合作、站上舞台，到分享你的合唱故事——每課包含單字、例句、對話練習、短篇閱讀和小考，全程 🔊 喇叭可自學。</p>
-    </div>
-
-    <div class="units">
-      <a class="unit u-choir rvl" href="/schools/taihe/lessons/choir/">
-        <div class="unit__hero"><div class="unit__hero-emoji">🎵</div></div>
-        <div class="unit__body">
-          <div class="unit__no">6 Lessons · Grades 5 &amp; 6 · Choir Members</div>
-          <div class="unit__title">Choir English</div>
-          <div class="unit__title-zh">合唱英語 · 合唱團的課程</div>
-          <div class="unit__desc">Choir, conductor, soprano, harmony, posture, teamwork, stage, confidence — 36 words across six lessons to help you share your choir story in English.</div>
-          <div class="unit__cta">Open Choir English <span class="arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec__no">VIII.</div>
-    <h2 class="sec__title">Dance Course</h2>
-    <div class="sec__title-zh">舞蹈英語課 · 10 堂課帶你六年一起成長</div>
-    <div class="sec__rule"></div>
-
-    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:780px;">
-      <p class="rvl">Ten lessons about the dance program Tai-He students have practiced every week since first grade — body parts, rhythm, balance, feelings, performance, and more. Each lesson has vocabulary, sentences, a dialogue, a short reading, and a 10-question quiz.</p>
-      <p class="zh rvl">十堂關於舞蹈的英語課——身體部位、節奏、平衡、感受、表演等等。泰和的小朋友從一年級起每週上舞蹈課，這套課程把六年舞蹈學到的一切，全部變成英語。每課包含單字、例句、對話、短篇閱讀和 10 題小考。</p>
-    </div>
-
-    <a class="unit rvl" href="/schools/taihe/lessons/dance/" style="display:flex;align-items:stretch;background:#fff;border:1px solid #e6e0d2;border-left:6px solid #7B5EA7;border-radius:0 16px 16px 0;text-decoration:none;color:inherit;box-shadow:0 6px 18px -6px rgba(74,48,112,.20);transition:transform .18s,box-shadow .18s;max-width:600px;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
-      <div style="font-size:64px;line-height:1;padding:24px 20px;flex-shrink:0;display:flex;align-items:center;">💃</div>
-      <div style="padding:22px 20px 22px 0;flex:1;">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.2em;color:#7B5EA7;text-transform:uppercase;margin-bottom:8px;">Dance English Course · 10 Lessons · 六年舞蹈</div>
-        <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#4a3070;line-height:1.15;">Dance English Course</div>
-        <div style="font-family:'PingFang TC',sans-serif;font-size:16px;color:#5a606e;margin-top:4px;">舞蹈英語課</div>
-        <div style="font-size:15px;color:#5a606e;margin-top:10px;line-height:1.6;">Learn the English words and stories behind six years of Tai-He dance — from your first warm-up to your final performance.</div>
-        <div style="display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:700;color:#7B5EA7;margin-top:14px;">Start Learning <span>→</span></div>
-      </div>
     </a>
   </div>
 </section>
