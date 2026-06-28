@@ -215,6 +215,16 @@
   .principal-card .footnote{font-size:18.2px;color:var(--ink-soft);margin-top:26px;font-style:italic;font-family:'PingFang TC',sans-serif;line-height:1.75;max-width:720px;margin-left:auto;margin-right:auto;}
   @media (max-width:720px){.values{grid-template-columns:repeat(2,1fr);}}
 
+  /* ── CAMPUS GALLERY ── */
+  .campus-gallery{background:var(--brick-soft);padding:90px 0;}
+  .campus-gallery__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px;}
+  @media(max-width:760px){.campus-gallery__grid{grid-template-columns:1fr;}}
+  .campus-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .campus-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+  .campus-photo:hover img{transform:scale(1.04);}
+  .campus-photo .cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(30,8,4,.82) 0%,transparent 100%);color:#fff;padding:18px 16px 12px;font-size:17.1px;font-family:'PingFang TC',sans-serif;}
+  .campus-photo .cap .en{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:19.2px;display:block;margin-bottom:2px;color:rgba(255,255,255,.95);}
+
   /* ── VISIT ── */
   .visit{background:var(--brick-deep);color:#fff;padding:80px 0;}
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
@@ -409,6 +419,41 @@
         <p class="zh-body">英語自然地融入舊社的日常校園生活。透過雙語主題課程，學生在真實情境中培養語言能力與國際視野，既能與世界對話，又不忘自己的根。</p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CAMPUS GALLERY ── -->
+<section class="campus-gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Campus</div>
+      <h2>Beautiful Spaces</h2>
+      <div class="h2-zh">舊社國小校園一覽</div>
+    </div>
+    <div class="campus-gallery__grid">
+      <div class="campus-photo rvl">
+        <img src="photos/campus-amphitheater.jpg" alt="舊社國小半圓形階梯廣場" loading="lazy">
+        <div class="cap">
+          <span class="en">The amphitheatre steps — a gathering place</span>
+          半圓形階梯廣場，師生相聚的空間
+        </div>
+      </div>
+      <div class="campus-photo rvl">
+        <img src="photos/campus-gate.jpg" alt="舊社國民小學校門正面" loading="lazy">
+        <div class="cap">
+          <span class="en">Jioushe Elementary — our school gate</span>
+          舊社國民小學校門正面
+        </div>
+      </div>
+      <div class="campus-photo rvl">
+        <img src="photos/campus-field-golden.jpg" alt="舊社國小黃昏大操場" loading="lazy">
+        <div class="cap">
+          <span class="en">Golden hour on the field — children play here every day</span>
+          黃昏時分的大操場，孩子每天奔跑的地方
+        </div>
+      </div>
     </div>
   </div>
 </section>
