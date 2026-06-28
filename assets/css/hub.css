@@ -617,6 +617,7 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   position: relative; aspect-ratio: 5 / 4;
   background: transparent;
   overflow: visible;
+  margin-bottom: 44px; /* room for the legend that now sits below the map */
 }
 #hub-map { width: 100%; height: 100%; display: block; }
 #hub-map .township {
@@ -666,11 +667,13 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 }
 .hub-map-legend {
   position: absolute;
-  bottom: 8px; left: 8px;
-  display: flex; align-items: center; gap: 8px;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  margin-top: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  flex-wrap: wrap; max-width: 96%;
   font-size: .7rem; color: var(--hub-ink-faint);
   background: rgba(251,247,232,.7);
-  padding: 4px 10px; border-radius: 999px;
+  padding: 5px 12px; border-radius: 14px;
   pointer-events: none;
 }
 .hub-map-legend-swatches {
