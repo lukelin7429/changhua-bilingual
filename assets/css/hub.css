@@ -626,16 +626,17 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   cursor: default;
   transition: fill .15s, stroke .15s;
 }
-/* gradient based on school count */
-#hub-map .township.tier-1 { fill: #cfe2dc; }
-#hub-map .township.tier-2 { fill: #a3c9bf; }
-#hub-map .township.tier-3 { fill: #7caea1; }
-#hub-map .township.tier-4 { fill: #5a9587; }
+/* colourful map: fill by geographic region of Changhua */
+#hub-map .township.rg-coast   { fill: #6bb0d6; }
+#hub-map .township.rg-north   { fill: #5fbf7e; }
+#hub-map .township.rg-central { fill: #efa94a; }
+#hub-map .township.rg-south   { fill: #a987e0; }
+#hub-map .township:not(.has-schools) { opacity: .45; }
 #hub-map .township.has-schools { cursor: pointer; }
 #hub-map .township.has-schools:hover {
-  fill: var(--hub-primary);
-  stroke: #fbf7e8;
-  stroke-width: 1.8;
+  stroke: #fff;
+  stroke-width: 2;
+  filter: brightness(1.08) saturate(1.15);
 }
 .hub-map-tooltip {
   position: absolute; pointer-events: none;
@@ -673,15 +674,16 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   pointer-events: none;
 }
 .hub-map-legend-swatches {
-  display: inline-flex; gap: 2px;
+  display: inline-flex; align-items: center; gap: 5px; flex-wrap: wrap;
 }
-.hub-map-legend-swatches span {
-  display: inline-block; width: 14px; height: 10px;
+.hub-map-legend-swatches span:not(.lbl) {
+  display: inline-block; width: 12px; height: 12px; border-radius: 3px;
 }
-.hub-map-legend-swatches .s1 { background: #cfe2dc; }
-.hub-map-legend-swatches .s2 { background: #a3c9bf; }
-.hub-map-legend-swatches .s3 { background: #7caea1; }
-.hub-map-legend-swatches .s4 { background: #5a9587; }
+.hub-map-legend-swatches .lbl { margin-right: 6px; }
+.hub-map-legend-swatches .rg-coast   { background: #6bb0d6; }
+.hub-map-legend-swatches .rg-north   { background: #5fbf7e; }
+.hub-map-legend-swatches .rg-central { background: #efa94a; }
+.hub-map-legend-swatches .rg-south   { background: #a987e0; }
 
 /* ----- Feature cards ----- */
 .hub-feature-grid {
@@ -1120,3 +1122,66 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
 /* Emoji / icon flourish on hover where cards expose an icon span */
 .theme__icon, .about-card-icon, .dom-role-icon { transition: transform .3s cubic-bezier(.2,.7,.2,1); display: inline-block; }
 .theme:hover .theme__icon, .about-card:hover .about-card-icon, .dom-role:hover .dom-role-icon { transform: scale(1.12) rotate(-6deg); }
+
+/* ====================================================================
+   SIGNATURE COLOURFUL CARDS  (Luke's house style — mirrors taiwan-bilingual
+   motion.css; see memory reference_signature_card_motion_style)
+   Each card carries a hue (--accent), cycling a warm 6-colour palette
+   unless a page sets --accent inline. The hue drives: a colour LEFT-BAR
+   (text cards) or the card's own top bar (photo cards), a corner colour
+   circle that grows on hover, and an accent-COLOURED glow + lift on hover.
+   ==================================================================== */
+.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,
+.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,
+.theme,.dom-card,.progcard{
+  position:relative;
+  transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;
+}
+/* cycle a hue per card (low-specificity :where → inline curated colours win) */
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+1){--accent:#b8431c;}
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+2){--accent:#0c8599;}
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+3){--accent:#7048e8;}
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+4){--accent:#2f9e44;}
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+5){--accent:#d6336c;}
+:where(.card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard):nth-child(6n+6){--accent:#e8590c;}
+/* soft colour-circle in the top-right corner; grows + brightens on hover */
+.card::after,.fcard::after,.th-fcard::after,.about-card::after,.hub-card::after,
+.hub-school-card::after,.fet-card::after,.news-card::after,.ncard::after,.sdg-card::after,
+.sdg::after,.story-card::after,.ccard::after,.policy-card::after,.person::after,
+.theme::after,.dom-card::after,.progcard::after{
+  content:"";position:absolute;right:-55px;top:-55px;width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle at 32% 32%,var(--accent,#1f6e6e),transparent 70%);
+  opacity:.08;pointer-events:none;z-index:0;
+  transition:opacity .35s ease,transform .6s cubic-bezier(.22,.61,.36,1);
+}
+/* TEXT cards: bold colour LEFT-BAR via inset shadow (visible at rest) */
+.card,.about-card,.hub-card,.fcard,.ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card{
+  box-shadow:inset 5px 0 0 0 var(--accent,#1f6e6e),0 1px 3px rgba(20,24,31,.05);
+}
+.card:hover,.about-card:hover,.hub-card:hover,.fcard:hover,.ncard:hover,.sdg-card:hover,
+.sdg:hover,.story-card:hover,.ccard:hover,.policy-card:hover{
+  transform:translateY(-8px);border-color:var(--accent);
+  box-shadow:inset 5px 0 0 0 var(--accent,#1f6e6e),0 26px 52px -18px var(--accent,rgba(20,24,31,.4)),0 8px 18px rgba(20,24,31,.08);
+}
+/* PHOTO / image-top cards: lift + accent-COLOURED glow (no left bar) */
+.th-fcard:hover,.hub-school-card:hover,.fet-card:hover,.news-card:hover,
+.dom-card:hover,.progcard:hover,.person:hover,.theme:hover{
+  transform:translateY(-8px);border-color:var(--accent);
+  box-shadow:0 26px 52px -18px var(--accent,rgba(20,24,31,.4)),0 8px 18px rgba(20,24,31,.08);
+}
+/* circle grows + brightens on hover */
+.card:hover::after,.fcard:hover::after,.th-fcard:hover::after,.about-card:hover::after,
+.hub-card:hover::after,.hub-school-card:hover::after,.fet-card:hover::after,.news-card:hover::after,
+.ncard:hover::after,.sdg-card:hover::after,.sdg:hover::after,.story-card:hover::after,
+.ccard:hover::after,.policy-card:hover::after,.person:hover::after,.theme:hover::after,
+.dom-card:hover::after,.progcard:hover::after{opacity:.2;transform:scale(1.35);}
+/* tag / CTA pick up the hue */
+.card-tag,.card-go,.card-action,.card-meta{color:var(--accent);}
+@media (prefers-reduced-motion:reduce){
+  .card,.fcard,.th-fcard,.about-card,.hub-card,.hub-school-card,.fet-card,.news-card,
+  .ncard,.sdg-card,.sdg,.story-card,.ccard,.policy-card,.person,.theme,.dom-card,.progcard{transition:none;}
+  .card:hover,.fcard:hover,.th-fcard:hover,.about-card:hover,.hub-card:hover,.hub-school-card:hover,
+  .fet-card:hover,.news-card:hover,.ncard:hover,.sdg-card:hover,.sdg:hover,.story-card:hover,
+  .ccard:hover,.policy-card:hover,.person:hover,.theme:hover,.dom-card:hover,.progcard:hover{transform:none;}
+  .card:hover::after,.hub-card:hover::after,.about-card:hover::after{transform:none;}
+}

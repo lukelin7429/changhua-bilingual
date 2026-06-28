@@ -110,17 +110,21 @@
       container.parentElement.style.position = 'relative';
       container.parentElement.appendChild(tip);
 
+      // colour the map by geographic region of Changhua (4 hues)
+      var REGION = {
+        'xianxi':'coast','shenkang':'coast','lukang':'coast','fuxing':'coast',
+        'fangyuan':'coast','dacheng':'coast','erlin':'coast','puyan':'coast',
+        'changhua-city':'north','hemei':'north','huatan':'north','fenyuan':'north','xiushui':'north',
+        'yuanlin-city':'central','dacun':'central','puxin':'central','yongjing':'central','xihu':'central','shetou':'central',
+        'tianzhong':'south','beidou':'south','tianwei':'south','pitou':'south','xizhou':'south','zhutang':'south','ershui':'south'
+      };
       gj.features.forEach(function (f) {
         var name = f.properties.name;
         var info = window.HUB_TOWNSHIP_INDEX[name];
         var path = document.createElementNS(svgNS, 'path');
         path.setAttribute('d', polysToPath(f.geometry.coordinates, f.geometry.type));
-        var tier = '';
-        if (info && info.school_count) {
-          var c = info.school_count;
-          tier = c >= 8 ? ' tier-4' : c >= 5 ? ' tier-3' : c >= 3 ? ' tier-2' : ' tier-1';
-        }
-        path.setAttribute('class', 'township' + (info && info.school_count ? ' has-schools' : '') + tier);
+        var rg = info && REGION[info.slug] ? ' rg-' + REGION[info.slug] : '';
+        path.setAttribute('class', 'township' + (info && info.school_count ? ' has-schools' : '') + rg);
         path.setAttribute('data-name', name);
         if (info && info.school_count) {
           path.setAttribute('tabindex', '0');
@@ -157,14 +161,12 @@
       // Legend
       var legend = document.createElement('div');
       legend.className = 'hub-map-legend';
-      legend.innerHTML = '<span>Schools:</span>'
-        + '<span class="hub-map-legend-swatches">'
-        + '<span class="s1" title="1-2"></span>'
-        + '<span class="s2" title="3-4"></span>'
-        + '<span class="s3" title="5-7"></span>'
-        + '<span class="s4" title="8+"></span>'
-        + '</span>'
-        + '<span>1 → 8+</span>';
+      legend.innerHTML = '<span class="hub-map-legend-swatches">'
+        + '<span class="rg-coast"></span><span class="lbl">Coast 海線</span>'
+        + '<span class="rg-north"></span><span class="lbl">North 北彰</span>'
+        + '<span class="rg-central"></span><span class="lbl">Central 中彰</span>'
+        + '<span class="rg-south"></span><span class="lbl">South 南彰</span>'
+        + '</span>';
       container.parentElement.appendChild(legend);
     }).catch(function (e) {
       container.innerHTML = '<div style="padding:40px;color:#888;text-align:center">Map could not load.</div>';
