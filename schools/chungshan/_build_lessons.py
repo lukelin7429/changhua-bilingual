@@ -78,7 +78,7 @@ if unassigned:
 TB = ('<div class="tb"><div class="tb__inner"><a class="tb__brand" href="/schools/chungshan/">'
       '<img class="tb__logo" src="/schools/chungshan/favicon-192.png" alt="Chungshan crest 中山國小校徽"><div class="tb__name">Chungshan Elementary<small>彰化市中山國小</small></div></a>'
       '<nav class="tb__nav"><a href="/schools/chungshan/">Home</a><a href="/schools/chungshan/principal/">Principal</a>'
-      '<a href="/schools/chungshan/lessons/" class="is-active">Lessons</a><a href="/schools/chungshan/news/">News</a><a href="/schools/chungshan/festivals/">Festivals</a></nav>'
+      '<a href="/schools/chungshan/lessons/" class="is-active">Lessons</a><a href="/schools/chungshan/news/">News</a></nav>'
       '</div></div>')
 
 FOOT = ('<footer class="ft"><div class="ft__inner"><div class="ft__brand"><img class="ft__logo" src="/schools/chungshan/favicon-192.png" alt="Chungshan crest 中山國小校徽"><div>'
