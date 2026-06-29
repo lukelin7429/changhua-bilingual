@@ -394,3 +394,53 @@ section:last-of-type{border-bottom:none;}
   .lcard:hover,.feature:hover,.vc:hover,.vchip:hover,.topic:hover,.office:hover,.srow:hover{transform:none;}
   .lcard:hover::after,.feature:hover::after,.vc:hover::after{opacity:0;transform:scale(.6);}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   SITEWIDE SWEEP — same motion language on every remaining card / tile
+   family across Home, Principal, Photo Lessons, News and the shared
+   Festival pages.  (.news-card / .card / .th-fcard stay with the global
+   motion.css.)  Coastal accent cycle for grids; one steady hue for the
+   one-off content blocks; the Festival template keeps its warm palette.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* repeating grid tiles join the coastal accent cycle */
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+1){--accent:#1c7c9c;}
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+2){--accent:#c8922f;}
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+3){--accent:#3f9079;}
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+4){--accent:#2b6cb0;}
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+5){--accent:#d6618a;}
+:where(.pillar,.ocard,.gallery figure):nth-child(6n+6){--accent:#e08a2e;}
+
+/* one steady coastal hue for single content blocks */
+.reading,.spotlight,.portrait{--accent:#1c7c9c;}
+.quote{--accent:#c8922f;}
+
+/* accent-driven bars */
+.pillar{border-top-color:var(--accent,var(--rice))!important;}
+.ocard,.reading,.quote{border-left-color:var(--accent,var(--rice))!important;}
+
+/* transitions */
+.pillar,.ocard,.reading,.quote,.spotlight,.portrait,.gallery figure{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;}
+
+/* corner bloom on the image tiles (overflow:hidden already clips it) */
+.gallery figure::after{content:"";position:absolute;top:0;left:0;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 32% 32%,var(--accent,var(--ember)),transparent 70%);opacity:0;transform:scale(.6);transition:opacity .3s,transform .3s;pointer-events:none;z-index:1;}
+.gallery figure:hover::after{opacity:.16;transform:scale(1.4);}
+
+/* hover: lift + accent-COLOURED glow shadow */
+.pillar:hover,.ocard:hover,.reading:hover,.gallery figure:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 26px 52px -18px var(--accent),0 8px 18px rgba(14,79,102,.10);}
+.portrait:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 26px 52px -18px var(--accent),0 8px 18px rgba(14,79,102,.12);}
+.quote:hover{transform:translateY(-4px);box-shadow:0 20px 42px -18px var(--accent),0 6px 14px rgba(14,79,102,.08);}
+.spotlight:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 30px 60px -20px var(--accent),0 10px 22px rgba(14,79,102,.12);}
+
+/* clear reveal stagger delay so hover transitions fire */
+.pillar.rvl.in:hover,.ocard.rvl.in:hover,.reading.rvl.in:hover,.quote.rvl.in:hover,.spotlight.rvl.in:hover,.gallery figure.rvl.in:hover{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
+
+@media(prefers-reduced-motion:reduce){
+  .pillar:hover,.ocard:hover,.reading:hover,.quote:hover,.spotlight:hover,.portrait:hover,.gallery figure:hover{transform:none;}
+  .gallery figure:hover::after{opacity:0;}
+}
+
+/* ── Festival lesson pages (shared warm template) — palette-matched lift ── */
+.vocab-list .vocab,.trad,.scn,.ag{transition:transform .26s cubic-bezier(.2,.7,.2,1),box-shadow .26s ease,border-color .26s ease;}
+.vocab-list .vocab:hover,.trad:hover,.scn:hover,.ag:hover{transform:translateY(-6px);box-shadow:0 22px 46px -18px var(--sun,#f0a722),0 6px 16px rgba(42,39,37,.10);border-color:var(--sun,#f0a722);}
+@media(prefers-reduced-motion:reduce){.vocab-list .vocab:hover,.trad:hover,.scn:hover,.ag:hover{transform:none;}}
