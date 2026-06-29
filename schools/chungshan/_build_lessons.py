@@ -182,6 +182,7 @@ HEAD = ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
         '<meta name="description" content="{desc}">'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
+        '<link rel="icon" type="image/png" sizes="32x32" href="/schools/chungshan/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/schools/chungshan/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/schools/chungshan/favicon-180.png"><link rel="shortcut icon" href="/schools/chungshan/favicon.ico">'
         '<link rel="stylesheet" href="/schools/chungshan/style.css"><link rel="stylesheet" href="/assets/css/motion.css">'
         '<style>{css}</style></head><body>')
 
