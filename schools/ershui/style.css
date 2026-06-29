@@ -64,6 +64,18 @@ a:hover{color:var(--gold-deep);}
 @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 @media(prefers-reduced-motion:reduce){.chero::before,.chero::after,.chero__fx,.scrollcue{animation:none;}.chero__inner>*{animation:none;opacity:1;transform:none;}}
 
+/* ===== Photo hero (real banner photo) — taller, gentle bottom scrim only =====
+   Keeps the signature white wave + sweep-light; hides the white blur orbs so
+   the photo stays crisp. Scrim darkens ONLY the bottom band behind the text
+   (no full muddy overlay), so the high-quality photo reads clearly above.   */
+.chero--photo{min-height:420px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
+    linear-gradient(to bottom,rgba(11,33,48,.12) 0%,rgba(11,33,48,0) 34%,rgba(8,26,40,.30) 64%,rgba(7,22,35,.62) 100%),
+    url("/schools/ershui/banner-home.jpg") center 42%/cover no-repeat;}
+@media(min-width:720px){.chero--photo{min-height:560px;}}
+.chero--photo::before,.chero--photo::after{display:none;}
+
 /* ===== Sections ===== */
 section{padding:52px 0;border-bottom:1px solid var(--line);}
 @media(min-width:720px){section{padding:76px 0;}}
