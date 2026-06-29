@@ -179,6 +179,10 @@ def festival_hero_css(primary, secondary, accent):
 
 def strip_hub_chrome(html):
     """Remove all hub-injected chrome from a hub festival HTML."""
+    # leftover hub second-topbar (Festival English · Hub/Festivals/Handout/Quiz) —
+    # duplicates the school's own topbar; drop it (nav stays via school topbar +
+    # hero crumb + in-body Quiz/Handout links).
+    html = re.sub(r'<nav class="fest-topbar">.*?</nav>\s*', '', html, count=1, flags=re.DOTALL)
     html = re.sub(r'<div[^>]*class="cb-back-strip[^"]*"[^>]*>.*?</div>\s*', '', html, count=1, flags=re.DOTALL)
     html = re.sub(r'<style>\s*\.cb-back-strip-fallback.*?</style>\s*', '', html, count=1, flags=re.DOTALL)
     html = re.sub(r'<script\s+src="(?:\.\./)+_shared/schoolbar\.js"\s*></script>\s*', '', html)
