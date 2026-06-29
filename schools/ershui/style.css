@@ -72,7 +72,7 @@ a:hover{color:var(--gold-deep);}
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
     linear-gradient(to bottom,rgba(11,33,48,.12) 0%,rgba(11,33,48,0) 34%,rgba(8,26,40,.30) 64%,rgba(7,22,35,.62) 100%),
-    url("/schools/ershui/banner-home.jpg") center 42%/cover no-repeat;}
+    var(--banner,url("/schools/ershui/banner-home.jpg")) center 42%/cover no-repeat;}
 @media(min-width:720px){.chero--photo{min-height:560px;}}
 .chero--photo::before,.chero--photo::after{display:none;}
 
@@ -370,3 +370,26 @@ section:last-of-type{border-bottom:none;}
 .cover--art{position:relative;overflow:hidden;}
 .cover--art svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
 .lcard:hover .cover--art svg{transform:scale(1.05);}
+
+/* ===== Campus photo gallery + lightbox ===== */
+.gallery{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px;}
+@media(min-width:600px){.gallery{grid-template-columns:1fr 1fr;}}
+@media(min-width:960px){.gallery{grid-template-columns:repeat(3,1fr);gap:18px;}}
+.gtile{position:relative;margin:0;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);aspect-ratio:4/3;background:var(--blue-soft);}
+.gtile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
+.gtile:hover img,.gtile:focus img{transform:scale(1.07);}
+.gtile figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 13px;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.66),transparent);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;}
+.gtile:hover figcaption,.gtile:focus figcaption{opacity:1;transform:none;}
+.gtile figcaption .en{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;line-height:1.2;}
+.gtile figcaption .zh{display:block;font-size:13px;opacity:.92;margin-top:2px;}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,20,30,.93);display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px;}
+.lb.open{display:flex;}
+.lb img{max-width:92vw;max-height:78vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+.lb__cap{color:#fff;text-align:center;margin-top:16px;max-width:680px;}
+.lb__cap .en{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;}
+.lb__cap .zh{display:block;font-size:15px;opacity:.85;margin-top:4px;}
+.lb__close{position:absolute;top:14px;right:20px;font-size:34px;color:#fff;cursor:pointer;line-height:1;background:none;border:none;}
+.lb__nav{position:absolute;top:50%;transform:translateY(-50%);font-size:42px;color:#fff;cursor:pointer;background:none;border:none;padding:10px 18px;opacity:.8;}
+.lb__nav:hover{opacity:1;}
+.lb__prev{left:6px;}.lb__next{right:6px;}
+@media(max-width:640px){.lb__nav{font-size:30px;padding:6px 10px;}}
