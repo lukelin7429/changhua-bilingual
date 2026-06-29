@@ -355,3 +355,13 @@ section:last-of-type{border-bottom:none;}
 /* ===== back link (unit pages) ===== */
 .backlink{display:inline-block;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--blue);border-bottom:1px dashed var(--blue-soft);}
 .backlink:hover{color:var(--gold-deep);}
+
+/* ===== Lesson landing: rich "sticker" motif cover (for cards without video) ===== */
+.cover--motif{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--g1,#d6336c) 0%,var(--g2,#7048e8) 100%);}
+.cover--motif::before,.cover--motif::after{content:"";position:absolute;border-radius:50%;filter:blur(30px);pointer-events:none;z-index:0;}
+.cover--motif::before{width:170px;height:170px;background:rgba(255,255,255,.38);top:-46px;left:-34px;}
+.cover--motif::after{width:140px;height:140px;background:rgba(255,255,255,.20);bottom:-44px;right:8%;}
+.cover--motif .m-big{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-6deg);font-size:70px;line-height:1;z-index:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.30));transition:transform .45s cubic-bezier(.2,.7,.2,1);}
+.lcard:hover .cover--motif .m-big{transform:translate(-50%,-50%) rotate(0deg) scale(1.1);}
+.cover--motif .m{position:absolute;z-index:1;font-size:30px;line-height:1;opacity:.95;filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));transition:transform .45s cubic-bezier(.2,.7,.2,1);}
+.lcard:hover .cover--motif .m{transform:translateY(-4px) scale(1.06);}
