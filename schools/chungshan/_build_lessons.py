@@ -207,7 +207,7 @@ lessons = HEAD.format(
     desc='Chungshan Word of the Day — 70+ short bilingual videos from across our campus, sorted into five themes. 中山國小每日一字雙語影片課程。',
     css=LCSS)
 lessons += TB
-lessons += ('<header class="chero" style="--b1:#4a4f93;--b2:#363a72;--b3:#23264d;"><div class="chero__fx"></div>'
+lessons += ('<header class="chero is-photo" style="--photo:url(/schools/chungshan/photos/lessons-banner.jpg);"><div class="chero__fx"></div>'
             '<div class="chero__inner"><span class="eyebrow">Bilingual Curriculum · 雙語課程</span>'
             '<h1>Word of the Day</h1><div class="h1-zh">每日一字 · 校園裡的英文小故事</div></div>'
             '<div class="scrollcue" aria-hidden="true">⌄</div></header>')
