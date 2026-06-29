@@ -248,7 +248,7 @@ lessons = HEAD.format(
 lessons += TB
 lessons += ('<header class="chero is-photo" style="--photo:url(/schools/chungshan/photos/lessons-banner.jpg);"><div class="chero__fx"></div>'
             '<div class="chero__inner"><span class="eyebrow">Bilingual Curriculum · 雙語課程</span>'
-            '<h1>Word of the Day</h1><div class="h1-zh">每日一字 · 校園裡的英文小故事</div></div>'
+            '<h1>Lessons</h1><div class="h1-zh">中山雙語課程 · 每日一字、詩文樹、世界節慶與課室英語</div></div>'
             '<div class="scrollcue" aria-hidden="true">⌄</div></header>')
 lessons += ('<section><div class="wrap"><div class="sec__no">I.</div>'
             '<h2 class="sec__title">Word of the Day</h2><div class="sec__title-zh">每日一字 · 五大主題，點一個單元開始</div><div class="sec__rule"></div>'
