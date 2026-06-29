@@ -152,6 +152,19 @@
     section{break-inside:avoid-page;page-break-inside:avoid;}
     .trad, .scn{break-inside:avoid-page;page-break-inside:avoid;}
   }
+
+/* ===== site topbar (matches all other Ershui pages) ===== */
+.tb{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:11px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+.tb__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.tb__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.tb__logo{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;background:linear-gradient(135deg,var(--blue),var(--blue-deep));box-shadow:0 4px 10px -2px rgba(15,77,110,.30);flex-shrink:0;}
+.tb__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:var(--blue-deep);line-height:1.1;}
+.tb__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
+.tb__nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
+.tb__nav a{color:var(--ink);font-size:15px;font-weight:500;letter-spacing:.04em;text-decoration:none;}
+.tb__nav a:hover{color:var(--blue);}
+.tb__nav a.is-active{color:var(--blue);font-weight:700;}
+@media(max-width:640px){.tb__inner{flex-direction:column;align-items:flex-start;gap:10px;}.tb__nav{gap:14px;justify-content:flex-start;}.tb__nav a{font-size:14px;}}
 </style>
 <script defer src="/analytics.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -561,21 +574,7 @@
   <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
-<nav class="subnav">
-  <div class="wrap">
-    <div class="subnav__inner">
-      <a href="/schools/ershui/" >Home</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/ershui/principal/">Principal</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/ershui/lessons/">Lessons</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/ershui/news/">News</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/ershui/festivals/" class="is-active">Festivals</a>
-    </div>
-  </div>
-</nav>
+<div class="tb"><div class="tb__inner"><a class="tb__brand" href="/schools/ershui/"><span class="tb__logo">💧</span><div class="tb__name">Ershui Elementary<small>二水國民小學</small></div></a><nav class="tb__nav"><a href="/schools/ershui/">Home</a><a href="/schools/ershui/principal/">Principal</a><a href="/schools/ershui/lessons/" class="is-active">Lessons</a><a href="/schools/ershui/news/">News</a></nav></div></div>
 <header class="th-fest-hero">
   <div class="th-fest-hero__inner">
     <div class="th-fest-hero__emoji">🦃</div>
