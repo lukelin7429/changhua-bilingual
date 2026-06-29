@@ -19,6 +19,11 @@ for f in glob.glob(os.path.join(ROOT, 'festivals', '**', 'index.html'), recursiv
                               '<a href="/schools/chungshan/lessons/" class="is-active">Lessons</a>')
         return nav
     h2 = re.sub(r'<nav class="tb__nav">.*?</nav>', fix, h, count=1, flags=re.S)
+    # Remove the shared template's leftover second topbar (Festival English ·
+    # Hub/Festivals/Handout/Quiz) — it duplicates our topbar and links back to
+    # the hub. Navigation stays via our .tb bar + the hero "← All Festivals"
+    # crumb + the in-body Quiz/Handout links.
+    h2 = re.sub(r'<nav class="fest-topbar">.*?</nav>\s*', '', h2, count=1, flags=re.S)
     if h2 != h:
         open(f, 'w', encoding='utf-8').write(h2); n += 1
 print(f'festival nav fixed: {n} files')
