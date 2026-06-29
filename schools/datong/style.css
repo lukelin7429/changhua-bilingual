@@ -351,3 +351,46 @@ section:last-of-type{border-bottom:none;}
 .vchip .say{position:absolute;top:12px;right:12px;margin:0;}
 .scap .en .say{width:28px;height:28px;font-size:14px;}
 .reading .en .say{width:30px;height:30px;}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Signature motion — colour-cycling cards + video cards
+   Mirrors the Pitou JHS feel (lift, accent-coloured glow shadow, corner
+   bloom) for the WOTD / Lessons card families the global motion.css does
+   NOT already hook (.news-card is handled there — left untouched here to
+   avoid a double corner circle).  Coastal palette accent cycle.
+   ═══════════════════════════════════════════════════════════════════ */
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+1){--accent:#1c7c9c;}
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+2){--accent:#c8922f;}
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+3){--accent:#3f9079;}
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+4){--accent:#2b6cb0;}
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+5){--accent:#d6618a;}
+:where(.lcard,.feature,.vc,.vchip,.topic,.office,.srow):nth-child(6n+6){--accent:#e08a2e;}
+
+/* accent-driven coloured bar */
+.lcard,.feature,.vc,.vchip,.topic{border-top-color:var(--accent,var(--rice))!important;}
+.office{border-left-color:var(--accent,var(--rice))!important;}
+
+/* smooth transitions for the lift */
+.lcard,.feature,.vc,.vchip,.topic,.office,.srow{position:relative;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;}
+
+/* corner bloom for the big visual cards (these are overflow:hidden, so it
+   stays neatly clipped inside the rounded top-left corner) */
+.lcard::after,.feature::after,.vc::after{content:"";position:absolute;top:0;left:0;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 32% 32%,var(--accent,var(--ember)),transparent 70%);opacity:0;transform:scale(.6);transition:opacity .3s,transform .3s;pointer-events:none;z-index:0;}
+.lcard>*,.feature>*,.vc>*{position:relative;z-index:1;}
+
+/* hover: lift + accent-COLOURED glow shadow */
+.lcard:hover,.feature:hover,.vc:hover,.vchip:hover,.topic:hover,.office:hover,.srow:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 26px 52px -18px var(--accent),0 8px 18px rgba(14,79,102,.10);}
+.lcard:hover::after,.feature:hover::after,.vc:hover::after{opacity:.18;transform:scale(1.4);}
+
+/* video pops a touch sharper as the card lifts */
+.vc__video{transition:filter .28s ease;}
+.vc:hover .vc__video{filter:saturate(1.06);}
+
+/* clear the reveal-engine's stagger transition-delay so hover transitions
+   actually fire (inline transition-delay would otherwise lag the lift) */
+.lcard.rvl.in:hover,.feature.rvl.in:hover,.vc.rvl.in:hover,.vchip.rvl.in:hover,.topic.rvl.in:hover,.office.rvl.in:hover,.srow.rvl.in:hover{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
+
+@media(prefers-reduced-motion:reduce){
+  .lcard:hover,.feature:hover,.vc:hover,.vchip:hover,.topic:hover,.office:hover,.srow:hover{transform:none;}
+  .lcard:hover::after,.feature:hover::after,.vc:hover::after{opacity:0;transform:scale(.6);}
+}
