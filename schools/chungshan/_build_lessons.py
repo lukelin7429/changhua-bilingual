@@ -160,6 +160,11 @@ LCSS = """
 .sigcard__body p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
 .sigcard__cta{margin-top:18px;font-family:'Playfair Display',serif;color:var(--brick);font-weight:700;font-size:18px;}
 .sigcard:hover .sigcard__cta{text-decoration:underline;}
+.sigcard--fest{border-top-color:var(--gold-deep);}
+.sigcard--fest:hover{box-shadow:0 28px 54px -20px var(--gold-deep);}
+.sigcard__media--fest{background:linear-gradient(135deg,#3c4587,#8a5f17);display:flex;align-items:center;justify-content:center;}
+.sigcard__bigem{font-size:92px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.32));transition:transform .5s ease;}
+.sigcard--fest:hover .sigcard__bigem{transform:scale(1.08) rotate(-4deg);}
 """
 
 UVCSS = """
@@ -252,7 +257,7 @@ lessons += ('<section><div class="wrap"><div class="sec__no">I.</div>'
             f'<div class="units">{"".join(cards)}</div></div></section>')
 # ---- Signature Course: Poem Tree ----
 lessons += ('<section><div class="wrap"><div class="sec__no">II.</div>'
-            '<h2 class="sec__title">Signature Course</h2><div class="sec__title-zh">特色課程 · 詩文樹</div><div class="sec__rule"></div>'
+            '<h2 class="sec__title">Signature &amp; Festival Lessons</h2><div class="sec__title-zh">特色課程 · 詩文樹與世界節慶</div><div class="sec__rule"></div>'
             '<a class="sigcard" href="poem-tree/">'
             '<div class="sigcard__media"><span class="sigcard__badge">Poem Tree · 詩文樹</span>'
             '<img src="/schools/chungshan/photos/news-banner.jpg" alt="The Poem Tree at Chungshan Elementary" loading="lazy"></div>'
@@ -260,6 +265,13 @@ lessons += ('<section><div class="wrap"><div class="sec__no">II.</div>'
             '<p>Meet the twelve literary alumni honored on Chungshan\'s Poem Tree — among them Lai He, the father of Taiwan\'s New Literature. '
             'Read their poems with English translations, learn the key words, and listen along. 認識詩文樹上的十二位文學家校友，讀他們的詩文與英譯，學關鍵字、聽發音。</p>'
             '<span class="sigcard__cta">Enter the lesson · 進入學習 →</span></div></a>'
+            '<a class="sigcard sigcard--fest" href="festivals/" style="margin-top:24px;">'
+            '<div class="sigcard__media sigcard__media--fest"><span class="sigcard__badge" style="background:var(--gold-deep);">Festivals · 節慶英語</span>'
+            '<span class="sigcard__bigem">🎊</span></div>'
+            '<div class="sigcard__body"><h3>Festivals Around the World</h3><div class="zh">世界節慶英語 · 16 個節慶單元</div>'
+            '<p>From Lunar New Year and the Lantern Festival to Halloween and Christmas — sixteen bilingual festival lessons, each with vocabulary, '
+            'traditions, role-play and a quiz. 從農曆新年、元宵，到萬聖節、聖誕節——十六個雙語節慶單元，含單字、習俗、角色扮演與小測驗。</p>'
+            '<span class="sigcard__cta" style="color:var(--gold-deep);">Explore the festivals · 進入節慶 →</span></div></a>'
             '</div></section>')
 
 # ---- Classroom English (shared MCC playlist) ----
