@@ -205,6 +205,11 @@ def wrap_for_school(slug, meta):
 
     school_styles = extract_head_styles(school_html)
     school_ext_links = extract_external_stylesheets(school_html)
+    # If the school ships a topbar-only stylesheet, use it here so the full
+    # site CSS doesn't override the festival template's .wrap/section/.sec__* .
+    if (REPO / "schools" / folder / "topbar.css").exists():
+        school_ext_links = school_ext_links.replace(
+            f"/schools/{folder}/style.css", f"/schools/{folder}/topbar.css")
 
     # Hero CSS uses the palette for festival-specific banner
     hero_css = festival_hero_css(meta["primary"], meta["secondary"], meta["accent"])
@@ -263,6 +268,11 @@ def build_landing_for_school(slug, meta):
     topbar = ensure_festivals_active(topbar, folder)
     school_styles = extract_head_styles(school_html)
     school_ext_links = extract_external_stylesheets(school_html)
+    # If the school ships a topbar-only stylesheet, use it here so the full
+    # site CSS doesn't override the festival template's .wrap/section/.sec__* .
+    if (REPO / "schools" / folder / "topbar.css").exists():
+        school_ext_links = school_ext_links.replace(
+            f"/schools/{folder}/style.css", f"/schools/{folder}/topbar.css")
     primary, secondary, accent = meta["primary"], meta["secondary"], meta["accent"]
     hero_css = festival_hero_css(primary, secondary, accent)
     landing_hero = f"""<header class="th-fest-hero">
