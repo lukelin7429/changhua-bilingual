@@ -76,12 +76,12 @@ if unassigned:
     print('  !! UNASSIGNED:', unassigned)
 
 TB = ('<div class="tb"><div class="tb__inner"><a class="tb__brand" href="/schools/chungshan/">'
-      '<span class="tb__logo">📖</span><div class="tb__name">Chungshan Elementary<small>彰化市中山國小</small></div></a>'
+      '<img class="tb__logo" src="/schools/chungshan/favicon-192.png" alt="Chungshan crest 中山國小校徽"><div class="tb__name">Chungshan Elementary<small>彰化市中山國小</small></div></a>'
       '<nav class="tb__nav"><a href="/schools/chungshan/">Home</a><a href="/schools/chungshan/principal/">Principal</a>'
       '<a href="/schools/chungshan/lessons/" class="is-active">Lessons</a><a href="/schools/chungshan/news/">News</a></nav>'
       '</div></div>')
 
-FOOT = ('<footer class="ft"><div class="ft__inner"><div class="ft__brand"><span class="ft__logo">📖</span><div>'
+FOOT = ('<footer class="ft"><div class="ft__inner"><div class="ft__brand"><img class="ft__logo" src="/schools/chungshan/favicon-192.png" alt="Chungshan crest 中山國小校徽"><div>'
         '<h4>Chungshan Elementary School</h4><div class="zh">彰化縣彰化市中山國民小學</div>'
         '<div class="ft__addr">50042 彰化縣彰化市中山路二段 678 號<br>Tel · 電話：(04) 722-2033</div></div></div>'
         '<div class="ft__col"><h5>This Site</h5><ul><li><a href="/schools/chungshan/">Home · 首頁</a></li>'
