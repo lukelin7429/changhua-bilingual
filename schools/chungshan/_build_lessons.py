@@ -138,6 +138,28 @@ LCSS = """
 .playlist-block .zh{text-align:center;font-size:17px;color:var(--ink-soft);margin-top:6px;}
 .video-frame{margin-top:22px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+/* category card cover = a real video thumbnail (prettier than an emoji) */
+.unit__hero::before,.unit__hero::after{display:none;}
+.unit__thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .4s ease;}
+.unit:hover .unit__thumb{transform:scale(1.06);}
+.unit__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(16,14,28,.62),rgba(16,14,28,.06) 55%);}
+.unit__emoji{position:absolute;z-index:2;left:14px;bottom:10px;font-size:34px;filter:drop-shadow(0 2px 7px rgba(0,0,0,.55));}
+.unit__play{position:absolute;z-index:2;right:14px;bottom:12px;width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.5);border:1.5px solid rgba(255,255,255,.8);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;padding-left:3px;transition:background .25s,transform .25s;}
+.unit:hover .unit__play{background:var(--brick);transform:scale(1.08);}
+/* poem-tree signature feature card */
+.sigcard{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-top:8px solid var(--brick);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);color:inherit;transition:transform .28s,box-shadow .28s;}
+@media(min-width:760px){.sigcard{grid-template-columns:.9fr 1.1fr;}}
+.sigcard:hover{transform:translateY(-8px);box-shadow:0 28px 54px -20px var(--brick);}
+.sigcard__media{position:relative;min-height:210px;overflow:hidden;}
+.sigcard__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.sigcard:hover .sigcard__media img{transform:scale(1.05);}
+.sigcard__badge{position:absolute;z-index:2;left:16px;top:14px;background:var(--brick);color:#fff;font:700 12px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:99px;}
+.sigcard__body{padding:30px 32px 34px;display:flex;flex-direction:column;justify-content:center;}
+.sigcard__body h3{font-family:'Playfair Display',serif;font-size:30px;color:var(--green-deep);font-weight:700;line-height:1.12;}
+.sigcard__body .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
+.sigcard__body p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
+.sigcard__cta{margin-top:18px;font-family:'Playfair Display',serif;color:var(--brick);font-weight:700;font-size:18px;}
+.sigcard:hover .sigcard__cta{text-decoration:underline;}
 """
 
 UVCSS = """
@@ -174,6 +196,9 @@ UVCSS = """
 .vc__ex .en b{color:var(--green-deep);}
 .vc__ex .zh{font-size:15px;color:var(--ink-soft);margin-top:6px;line-height:1.55;}
 @media(min-width:720px){.vc__ex .zh{font-size:17px;}}
+.say{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:0 0 auto;margin-right:8px;vertical-align:-6px;border:none;border-radius:50%;background:var(--gold-soft);color:var(--gold-deep);font-size:14px;cursor:pointer;transition:transform .15s,background .15s;}
+.say:hover{background:var(--gold);color:#fff;transform:scale(1.12);}
+.say:active{transform:scale(.94);}
 """
 
 HEAD = ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
@@ -187,6 +212,12 @@ HEAD = ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
         '<style>{css}</style></head><body>')
 
 def esc(s): return html.escape(s, quote=True)
+def plain(s): return re.sub(r'<[^>]+>', '', s)
+
+# Web Speech 🔊 (read learning content aloud)
+SAY = ("<script>(function(){function speak(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);"
+       "u.lang='en-US';u.rate=.92;speechSynthesis.speak(u);}catch(e){}}"
+       "document.addEventListener('click',function(e){var b=e.target.closest('.say');if(b){speak(b.getAttribute('data-say'));}});})();</script>")
 
 # ---------- Lessons hub ----------
 cards = []
@@ -194,7 +225,9 @@ for i, u in enumerate(UNITS, 1):
     n = len(buckets[u['slug']])
     cards.append(
       f'<a class="unit" href="word/{u["slug"]}/" style="--ua:{u["g2"]}">'
-      f'<div class="unit__hero" style="background:linear-gradient(135deg,{u["g1"]},{u["g2"]});"><span class="unit__emoji">{u["emoji"]}</span></div>'
+      f'<div class="unit__hero" style="background:linear-gradient(135deg,{u["g1"]},{u["g2"]});">'
+      f'<img class="unit__thumb" src="https://i.ytimg.com/vi/{buckets[u["slug"]][0]["id"]}/hqdefault.jpg" alt="" loading="lazy">'
+      f'<div class="unit__veil"></div><span class="unit__emoji">{u["emoji"]}</span><span class="unit__play">▶</span></div>'
       f'<div class="unit__body"><div class="unit__no">Unit {i:02d} · Word of the Day</div>'
       f'<div class="unit__title">{esc(u["en"])}</div><div class="unit__title-zh">{esc(u["zh"])}</div>'
       f'<div class="unit__desc">{esc(u["desc"])}</div>'
@@ -212,11 +245,70 @@ lessons += ('<header class="chero is-photo" style="--photo:url(/schools/chungsha
             '<div class="chero__inner"><span class="eyebrow">Bilingual Curriculum · 雙語課程</span>'
             '<h1>Word of the Day</h1><div class="h1-zh">每日一字 · 校園裡的英文小故事</div></div>'
             '<div class="scrollcue" aria-hidden="true">⌄</div></header>')
-lessons += ('<section><div class="wrap"><div class="sec__no">★</div>'
-            '<h2 class="sec__title">Pick a Theme</h2><div class="sec__title-zh">五大主題 · 點一個單元開始</div><div class="sec__rule"></div>'
+lessons += ('<section><div class="wrap"><div class="sec__no">I.</div>'
+            '<h2 class="sec__title">Word of the Day</h2><div class="sec__title-zh">每日一字 · 五大主題，點一個單元開始</div><div class="sec__rule"></div>'
             f'<p class="lead-zh" style="margin-top:0;">{total} short bilingual videos from real moments around the Chungshan campus — each with two example sentences in English and Chinese. '
             '每段都來自校園真實場景，附兩句中英例句。</p>'
             f'<div class="units">{"".join(cards)}</div></div></section>')
+# ---- Signature Course: Poem Tree ----
+lessons += ('<section><div class="wrap"><div class="sec__no">II.</div>'
+            '<h2 class="sec__title">Signature Course</h2><div class="sec__title-zh">特色課程 · 詩文樹</div><div class="sec__rule"></div>'
+            '<a class="sigcard" href="poem-tree/">'
+            '<div class="sigcard__media"><span class="sigcard__badge">Poem Tree · 詩文樹</span>'
+            '<img src="/schools/chungshan/photos/news-banner.jpg" alt="The Poem Tree at Chungshan Elementary" loading="lazy"></div>'
+            '<div class="sigcard__body"><h3>The Poem Tree</h3><div class="zh">詩文樹 · 彰化文學家的搖籃</div>'
+            '<p>Meet the twelve literary alumni honored on Chungshan\'s Poem Tree — among them Lai He, the father of Taiwan\'s New Literature. '
+            'Read their poems with English translations, learn the key words, and listen along. 認識詩文樹上的十二位文學家校友，讀他們的詩文與英譯，學關鍵字、聽發音。</p>'
+            '<span class="sigcard__cta">Enter the lesson · 進入學習 →</span></div></a>'
+            '</div></section>')
+
+# ---- Classroom English (shared MCC playlist) ----
+lessons += ('<section id="classroom-english"><div class="wrap"><div class="sec__no">III.</div>'
+            '<h2 class="sec__title">Classroom English</h2><div class="sec__title-zh">課室英語 · 給老師的口袋句庫（影片版）</div><div class="sec__rule"></div>'
+            '<div class="lead">The phrases teachers say between the lessons — taught on video.</div>'
+            '<div class="lead-zh">老師在課堂裡每天會用上的英文句子——有人示範給你看。</div>'
+            '<div class="credits"><div class="credits__cell"><div class="credits__label">Instructor</div><div class="credits__value">Sarah Thomas · Sarah Thomas 老師</div></div>'
+            '<div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>'
+            '<div class="credits__cell"><div class="credits__label">Audience</div><div class="credits__value">In-service teachers · 在職教師</div></div></div>'
+            '<div class="player"><div class="player__ratio"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>'
+            '<a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener"><span class="player-link__icon">▶</span><span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支</span></span><span class="player-link__arrow">↗</span></a>'
+            '<div class="topics">'
+            '<div class="topic"><div class="topic__no">01</div><div class="topic__en">Greetings &amp; Roll Call</div><div class="topic__zh">問候、點名</div></div>'
+            '<div class="topic"><div class="topic__no">02</div><div class="topic__en">Pre-Class Preparation</div><div class="topic__zh">課前準備</div></div>'
+            '<div class="topic"><div class="topic__no">03</div><div class="topic__en">Explanations</div><div class="topic__zh">講解</div></div>'
+            '<div class="topic"><div class="topic__no">04</div><div class="topic__en">Pre-Teaching Activities</div><div class="topic__zh">課前教學活動</div></div>'
+            '<div class="topic"><div class="topic__no">05</div><div class="topic__en">Feedback &amp; Praise</div><div class="topic__zh">回饋、讚美、糾正</div></div>'
+            '<div class="topic"><div class="topic__no">06</div><div class="topic__en">Order &amp; Handouts</div><div class="topic__zh">教室管理、分發講義</div></div>'
+            '<div class="topic"><div class="topic__no">07</div><div class="topic__en">Lesson Activities</div><div class="topic__zh">課堂教學活動</div></div>'
+            '<div class="topic"><div class="topic__no">08</div><div class="topic__en">Assigning Homework</div><div class="topic__zh">分派作業</div></div>'
+            '<div class="topic"><div class="topic__no">09</div><div class="topic__en">Class Conclusion</div><div class="topic__zh">課堂收尾</div></div>'
+            '<div class="topic"><div class="topic__no">10</div><div class="topic__en">Examinations</div><div class="topic__zh">考試</div></div>'
+            '</div></div></section>')
+
+# ---- Bilingual Announcements (shared MCC playlist) ----
+lessons += ('<section id="announcements"><div class="wrap"><div class="sec__no">IV.</div>'
+            '<h2 class="sec__title">Bilingual Announcements</h2><div class="sec__title-zh">英語廣播 · 校園的英語之聲</div><div class="sec__rule"></div>'
+            '<div class="lead">The morning intercom in two languages — written and recorded by the four school offices.</div>'
+            '<div class="lead-zh">早上的校園廣播，雙語版本——由教務、學務、總務、輔導四個處室共同寫稿、共同上鏡。</div>'
+            '<div class="credits is-broadcast"><div class="credits__cell"><div class="credits__label">Hosts</div><div class="credits__value">Sarah Thomas &amp; Susan Rose</div></div>'
+            '<div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>'
+            '<div class="credits__cell"><div class="credits__label">Episodes</div><div class="credits__value">13 · 涵蓋四個處室</div></div></div>'
+            '<div class="player"><div class="player__ratio"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>'
+            '<a class="player-link" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener"><span class="player-link__icon">▶</span><span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 13 集任你選擇</span></span><span class="player-link__arrow">↗</span></a>'
+            '<div class="offices">'
+            '<div class="office"><div class="office__title">Academic Affairs</div><div class="office__title-zh">教務處</div><ul class="office__list">'
+            '<li><span class="ep">EP</span><span>Curriculum &amp; Instruction · 教學組</span></li><li><span class="ep">EP</span><span>Registrar · 註冊組</span></li>'
+            '<li><span class="ep">EP</span><span>Equipment &amp; Facilities · 設備組</span></li><li><span class="ep">EP</span><span>Library · 圖書室</span></li>'
+            '<li><span class="ep">EP</span><span>Information Technology · 資訊組</span></li></ul></div>'
+            '<div class="office"><div class="office__title">Student Affairs</div><div class="office__title-zh">學務處</div><ul class="office__list">'
+            '<li><span class="ep">EP</span><span>Discipline &amp; Activities · 訓育組</span></li><li><span class="ep">EP</span><span>Student Guidance · 生教組</span></li>'
+            '<li><span class="ep">EP</span><span>Physical Education · 體育組</span></li></ul></div>'
+            '<div class="office"><div class="office__title">General Affairs</div><div class="office__title-zh">總務處</div><ul class="office__list">'
+            '<li><span class="ep">EP</span><span>Documents, Cashier, Maintenance · 文書、出納、事務</span></li></ul></div>'
+            '<div class="office"><div class="office__title">Counseling Office</div><div class="office__title-zh">輔導室</div><ul class="office__list">'
+            '<li><span class="ep">EP</span><span>Student support &amp; career guidance · 學生支持與生涯輔導</span></li></ul></div>'
+            '</div></div></section>')
+
 lessons += ('<section style="padding-top:0;"><div class="wrap"><div class="playlist-block">'
             '<h3>Watch the full playlist on YouTube</h3><div class="zh">不分單元，這裡是完整的中山英語影片清單</div>'
             '<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8WSth0Ydh_MaazCkPOXDSGs&rel=0" title="Chungshan Word of the Day · full playlist" loading="lazy" allowfullscreen></iframe></div>'
@@ -233,7 +325,7 @@ for i, u in enumerate(UNITS):
     for j, d in enumerate(vids, 1):
         pos = f'<span class="vc__pos">({esc(d["pos"])})</span>' if d.get('pos') else ''
         exs = ''.join(
-            f'<div class="vc__ex"><div class="en">{e["en"]}</div>'
+            f'<div class="vc__ex"><div class="en"><button class="say" data-say="{esc(plain(e["en"]))}" aria-label="Listen">🔊</button>{e["en"]}</div>'
             + (f'<div class="zh">{esc(e["zh"])}</div>' if e.get('zh') else '') + '</div>'
             for e in d['exs'])
         vcs.append(
@@ -255,7 +347,7 @@ for i, u in enumerate(UNITS):
              f'<h1>{u["emoji"]} {esc(u["en"])}</h1><div class="unit-hero__zh">{esc(u["zh"])}</div>'
              f'<div class="unit-hero__meta">📺 {len(vids)} videos · {len(vids)} 部影片</div></header>')
     page += f'<div class="wrap">{navtop}<div class="vocabs">{"".join(vcs)}</div>{navtop}</div>'
-    page += REVEAL + FOOT + '<script defer src="/assets/js/motion.js"></script></body></html>'
+    page += REVEAL + SAY + FOOT + '<script defer src="/assets/js/motion.js"></script></body></html>'
     os.makedirs(os.path.join(ROOT, 'lessons', 'word', u['slug']), exist_ok=True)
     open(os.path.join(ROOT, 'lessons', 'word', u['slug'], 'index.html'), 'w').write(page)
 
