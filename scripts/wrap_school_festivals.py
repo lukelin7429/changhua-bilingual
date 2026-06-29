@@ -30,6 +30,8 @@ FEST_META = {slug:(e,en,zh) for slug,e,en,zh in FEST_LIST}
 
 # === Step 1: detect school topbar from index.html ===
 TOPBAR_PATTERNS = [
+    # chungshan-style ".tb" bar: <div class="tb"><div class="tb__inner">…<nav>…</nav></div></div>
+    r'<div class="tb"><div class="tb__inner">.*?</nav>\s*</div>\s*</div>',
     # subnav (dajuang, jianxin, dongshan, etc.)
     r'<nav class="subnav">.*?</nav>',
     # Any "<prefix>-topbar" wrapper div containing a <nav> (matches ymj-topbar,
