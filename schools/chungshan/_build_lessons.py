@@ -4,7 +4,7 @@
 import json, os, html, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DATA = json.load(open('/tmp/chungshan_wotd.json'))
+DATA = json.load(open(os.path.join(ROOT, 'wotd_data.json')))
 by_id = {d['id']: d for d in DATA}
 
 # shot put had no example sentences in its description — supply two.
@@ -52,7 +52,7 @@ ASSIGN = {
             'arm strength','core strength','softball throw','starting blocks','shot put','endurance',
             'climb','zipline','harness','dodgebee','sports day','enter the field','perform a dance'],
  'science': ['electromagnet','fossil','plant','pot','spring scale','friction','air pressure',
-             'science museum','cpr','earthquake drill'],
+             'science museum','cpr','earthquake drill','catapult','wheel and axle','pulley'],
  'festivals': ['christmas','gingerbread house','christmas celebration','sticky rice ball',
                "mother's day",'pastry','anniversary','school anniversary','award presentation',
                'field trip'],
