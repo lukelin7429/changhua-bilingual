@@ -188,6 +188,15 @@ section:last-of-type{border-bottom:none;}
 .pmono b{font-family:'Playfair Display',serif;font-size:62px;font-weight:800;line-height:1;}
 .pmono span{font-family:'PingFang TC',sans-serif;font-size:18px;font-weight:600;margin-top:8px;letter-spacing:.1em;}
 
+/* ===== Featured video card (signature hover: colour shadow + lift) ===== */
+.playercard{position:relative;max-width:760px;margin:8px 0 0;background:#fff;border:1px solid var(--line);border-top:8px solid var(--green);border-radius:20px;padding:14px;box-shadow:var(--shadow-sm);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;}
+@media(min-width:720px){.playercard{padding:18px;}}
+.playercard:hover{transform:translateY(-8px);border-color:var(--green);box-shadow:0 28px 54px -18px var(--green),0 8px 18px rgba(34,36,63,.08);}
+.playercard .player__ratio{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+.playercard .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.playercard__cap{margin-top:13px;font-size:15px;color:var(--ink-soft);text-align:center;font-weight:600;}
+@media(prefers-reduced-motion:reduce){.playercard{transition:none;}.playercard:hover{transform:none;}}
+
 /* ===== Video player (inline, no pop-out) ===== */
 .player{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);}
 @media(min-width:720px){.player{padding:18px;}}
