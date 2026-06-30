@@ -90,7 +90,7 @@ section:last-of-type{border-bottom:none;}
 @media(min-width:720px){.quote__zh{font-size:20px;}}
 
 /* ===== SIGNATURE COLOURFUL CARDS (Ru-Yi house style, self-contained) ===== */
-.lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.vc,.unitcard{position:relative;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;}
+.lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.vc,.unitcard{position:relative,box-shadow .28s ease,border-color .28s ease;}
 :where(.lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.vc,.unitcard):nth-child(6n+1){--accent:#0c8599;}
 :where(.lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.vc,.unitcard):nth-child(6n+2){--accent:#2f9e44;}
 :where(.lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.vc,.unitcard):nth-child(6n+3){--accent:#c8922f;}
@@ -127,8 +127,7 @@ section:last-of-type{border-bottom:none;}
 .pillars{display:grid;grid-template-columns:1fr;gap:22px;}
 @media(min-width:720px){.pillars{grid-template-columns:1fr 1fr;gap:26px;}}
 .pillar{background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--gold));border-radius:20px;padding:30px 28px;box-shadow:var(--shadow-sm);}
-.pillar__icon{font-size:52px;line-height:1;margin-bottom:10px;transition:transform .28s cubic-bezier(.2,.7,.2,1);}
-.pillar:hover .pillar__icon{transform:scale(1.18) rotate(-7deg);}
+.pillar__icon{font-size:52px;line-height:1;margin-bottom:10px;}
 .pillar__t{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;color:var(--green-deep);line-height:1.15;}
 .pillar__zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:4px;}
 .pillar__b{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.65;}
@@ -226,7 +225,7 @@ section:last-of-type{border-bottom:none;}
 /* feature card with a real video thumbnail cover (ytimg + play button) */
 .feature .cover.cover--thumb{background-color:#0a5f63;background-size:cover;background-position:center 38%;position:relative;min-height:210px;padding:0;font-size:0;}
 .feature .cover.cover--thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,95,99,.30),rgba(0,0,0,.30));z-index:0;}
-.feature .cover.cover--thumb .playbtn{position:relative;z-index:1;width:66px;height:66px;border-radius:50%;background:rgba(196,48,43,.94);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;padding-left:5px;box-shadow:0 10px 26px rgba(0,0,0,.4);transition:transform .28s cubic-bezier(.2,.7,.2,1);}
+.feature .cover.cover--thumb .playbtn{position:relative;z-index:1;width:66px;height:66px;border-radius:50%;background:rgba(196,48,43,.94);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;padding-left:5px;box-shadow:0 10px 26px rgba(0,0,0,.4);}
 .feature:hover .cover.cover--thumb .playbtn{transform:scale(1.14);}
 @media(prefers-reduced-motion:reduce){.feature:hover .cover.cover--thumb .playbtn{transform:none;}}
 /* feature card with a full-bleed SVG illustration cover (no dark tint) */
@@ -237,7 +236,7 @@ section:last-of-type{border-bottom:none;}
 @media(min-width:680px){.units{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:1000px){.units{grid-template-columns:repeat(4,1fr);}}
 .unitcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--gold));border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);color:inherit;}
-.unitcard .hero{height:128px;display:flex;align-items:center;justify-content:center;font-size:64px;color:#fff;background:linear-gradient(135deg,var(--accent,var(--green)),rgba(0,0,0,.18));transition:transform .28s cubic-bezier(.2,.7,.2,1);}
+.unitcard .hero{height:128px;display:flex;align-items:center;justify-content:center;font-size:64px;color:#fff;background:linear-gradient(135deg,var(--accent,var(--green)),rgba(0,0,0,.18));}
 .unitcard:hover .hero{transform:scale(1.06);}
 .unitcard .body{padding:18px 20px 22px;}
 .unitcard__no{font-family:'Playfair Display',serif;color:var(--accent,var(--gold-deep));font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;}
