@@ -61,6 +61,20 @@ a:hover{color:var(--gold-deep);}
 @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 @media(prefers-reduced-motion:reduce){.chero::before,.chero::after,.chero__fx,.scrollcue{animation:none;}.chero__inner>*{animation:none;opacity:1;transform:none;}}
 
+/* ===== Photo banner hero (real campus photo + bottom scrim, taller) =====
+   Set --photo inline per page. Keeps a white wave at the bottom to blend into
+   the page; a bottom-weighted scrim keeps the title legible without muddying
+   the whole image. The colour-hero orbs/sweep are hidden over a photo. */
+.chero--photo{min-height:440px;background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
+  linear-gradient(to top,rgba(8,30,28,.62) 0%,rgba(8,30,28,.22) 34%,rgba(8,30,28,.04) 56%,rgba(8,30,28,.20) 100%),
+  var(--photo) center/cover no-repeat,
+  #0a5f63;}
+@media(min-width:720px){.chero--photo{min-height:600px;}}
+.chero--tall{min-height:480px;}
+@media(min-width:720px){.chero--tall{min-height:660px;}}
+.chero--photo::before,.chero--photo::after,.chero--photo .chero__fx{display:none;}
+
 /* ===== Sections ===== */
 section{padding:52px 0;border-bottom:1px solid var(--line);}
 @media(min-width:720px){section{padding:76px 0;}}
