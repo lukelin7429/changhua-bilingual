@@ -133,11 +133,13 @@ section:last-of-type{border-bottom:none;}
 .lcard .zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:600;margin-top:5px;}
 .lcard .meta{margin-top:12px;font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--accent,var(--gold-deep));text-transform:uppercase;}
 
-/* ===== Photo hero (home / faculty / gallery — large, with bg image) ===== */
+/* ===== Photo hero (home / faculty / gallery — large, with bg image)
+   Overlay is bottom-only vignette so the photo stays vibrant. White hero
+   text sits in the dimmed bottom band and remains legible. */
 .phero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:flex-end;color:#fff;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
-    linear-gradient(180deg,rgba(20,15,10,.35) 0%,rgba(20,15,10,.18) 35%,rgba(60,40,18,.62) 100%),
+    linear-gradient(180deg,transparent 0%,transparent 50%,rgba(0,0,0,.55) 100%),
     var(--phero-img,linear-gradient(165deg,var(--honey),var(--honey-deep))) center/cover no-repeat;}
 @media(min-width:720px){.phero{min-height:640px;}}
 .phero::before,.phero::after{content:"";position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;z-index:0;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.45),transparent 70%);}
@@ -233,9 +235,12 @@ section:last-of-type{border-bottom:none;}
 .factcard__v{font-family:'Playfair Display',serif;font-size:23px;color:var(--honey-deep);font-weight:700;margin-top:10px;line-height:1.2;}
 .factcard__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
 
-/* ===== Principal photo / monogram ===== */
-.pphoto{width:200px;height:200px;border-radius:50%;margin:0 auto;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,var(--honey-soft),var(--jade-soft));}
-.pphoto img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+/* ===== Principal photo / monogram =====
+   Display the full environmental portrait as a tall rounded-rectangle
+   card (matches the source 2:3 aspect so no important cropping). */
+.pphoto{width:300px;max-width:90%;aspect-ratio:2/3;border-radius:22px;margin:0 auto;overflow:hidden;box-shadow:0 22px 50px -20px rgba(122,82,23,.45),0 6px 18px rgba(20,24,31,.10);background:linear-gradient(135deg,var(--honey-soft),var(--jade-soft));position:relative;}
+@media(min-width:720px){.pphoto{width:340px;}}
+.pphoto img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 /* ===== CV: Education + Career grid ===== */
 .cv{display:grid;grid-template-columns:1fr;gap:24px;margin-top:30px;}
 @media(min-width:760px){.cv{grid-template-columns:1fr 1fr;gap:30px;}}
