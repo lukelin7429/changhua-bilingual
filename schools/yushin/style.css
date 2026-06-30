@@ -324,6 +324,19 @@ section:last-of-type{border-bottom:none;}
 .quiz-btn:hover{transform:translateY(-2px);background:var(--green-deep);}
 .quiz-score{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-deep);min-height:1em;}
 
+/* ===== Campus photo gallery ===== */
+.gallery{display:grid;grid-template-columns:1fr;gap:18px;}
+@media(min-width:600px){.gallery{grid-template-columns:1fr 1fr;}}
+@media(min-width:980px){.gallery{grid-template-columns:1fr 1fr 1fr;}}
+.gfig{position:relative;margin:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);background:#0a3a3c;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;}
+.gfig:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.gfig img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
+.gfig:hover img{transform:scale(1.07);}
+.gfig figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 13px;color:#fff;background:linear-gradient(to top,rgba(6,30,28,.78),rgba(6,30,28,.32) 55%,transparent);}
+.gfig figcaption b{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;display:block;line-height:1.2;}
+.gfig figcaption span{font-family:'PingFang TC',sans-serif;font-size:14px;opacity:.92;}
+@media(prefers-reduced-motion:reduce){.gfig:hover,.gfig:hover img{transform:none;}}
+
 /* ===== Interactive CTA buttons (footer connect) ===== */
 .ft-ctas{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
 .cta-btn{background:var(--green);color:#fff;border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transition:transform .18s,background .18s,color .18s,box-shadow .18s;}
