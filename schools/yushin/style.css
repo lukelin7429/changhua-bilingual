@@ -265,6 +265,15 @@ section:last-of-type{border-bottom:none;}
 .vc__ex .en b{color:var(--green-deep);font-weight:800;}
 .vc__ex .zh{display:block;color:var(--ink-soft);font-size:15px;margin-top:3px;}
 
+/* ===== Photo band (real activity photos) ===== */
+.photoband{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;}
+@media(min-width:680px){.photoband{grid-template-columns:repeat(3,1fr);}}
+.photoband figure{margin:0;}
+.photoband img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:var(--shadow-sm);border:1px solid var(--line);display:block;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;}
+.photoband figure:hover img{transform:translateY(-4px);box-shadow:var(--shadow);}
+.photoband figcaption{margin-top:9px;font-size:14px;color:var(--ink-soft);text-align:center;line-height:1.45;}
+@media(prefers-reduced-motion:reduce){.photoband figure:hover img{transform:none;}}
+
 /* ===== Interactive CTA buttons (footer connect) ===== */
 .ft-ctas{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
 .cta-btn{background:var(--green);color:#fff;border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transition:transform .18s,background .18s,color .18s,box-shadow .18s;}
