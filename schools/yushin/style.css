@@ -308,6 +308,13 @@ section:last-of-type{border-bottom:none;}
 .dairy__b{font-size:17px;color:var(--ink);margin-top:5px;line-height:1.6;}
 .dairy__b .zh{display:block;color:var(--ink-soft);font-size:15px;margin-top:4px;}
 
+/* two photos side by side (lesson content) */
+.photoduo{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px;}
+@media(min-width:680px){.photoduo{grid-template-columns:1fr 1fr;}}
+.photoduo figure{margin:0;}
+.photoduo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:var(--shadow-sm);border:1px solid var(--line);display:block;}
+.photoduo figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft);text-align:center;}
+
 /* ===== Quiz (auto-graded, English options) ===== */
 .quiz{margin-top:24px;display:grid;gap:18px;}
 .qcard{background:#fff;border:1px solid var(--line);border-left:6px solid var(--accent,var(--gold));border-radius:14px;padding:20px 22px 22px;box-shadow:var(--shadow-sm);}
