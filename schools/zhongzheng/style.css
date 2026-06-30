@@ -108,14 +108,16 @@ section:last-of-type{border-bottom:none;}
   background:radial-gradient(circle at 32% 32%,var(--accent,#7a5217),transparent 70%);
   opacity:.09;pointer-events:none;z-index:0;transition:opacity .35s ease,transform .6s cubic-bezier(.22,.61,.36,1);}
 .lcard>*,.pillar>*,.nstory>*,.ocard>*,.feature>*,.topic>*,.office>*,.factcard>*{position:relative;z-index:1;}
-/* hover: lift + accent-COLOURED glow + brighten circle */
-.lcard:hover,.pillar:hover,.nstory:hover,.ocard:hover,.feature:hover,.topic:hover,.office:hover,.factcard:hover{
-  transform:translateY(-8px);border-color:var(--accent);
-  box-shadow:0 26px 52px -18px var(--accent),0 8px 18px rgba(20,24,31,.08);}
+/* hover: lift + accent-COLOURED glow + brighten circle
+   !important on transform because .rvl.in (specificity 0,2,0) would otherwise
+   beat .pillar:hover (specificity 0,1,1) and pin transform:none. */
+.lcard:hover,.pillar:hover,.nstory:hover,.ocard:hover,.feature:hover,.topic:hover,.office:hover,.factcard:hover,.fcard:hover,.galcard:hover{
+  transform:translateY(-10px) !important;border-color:var(--accent);
+  box-shadow:0 28px 56px -16px var(--accent),0 10px 22px rgba(20,24,31,.10);}
 .lcard:hover::after,.pillar:hover::after,.nstory:hover::after,.ocard:hover::after,.feature:hover::after,.topic:hover::after,.office:hover::after,.factcard:hover::after{opacity:.2;transform:scale(1.35);}
 @media(prefers-reduced-motion:reduce){
-  .lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard{transition:none;}
-  .lcard:hover,.pillar:hover,.nstory:hover,.ocard:hover,.feature:hover,.topic:hover,.office:hover,.factcard:hover{transform:none;}
+  .lcard,.pillar,.nstory,.ocard,.feature,.topic,.office,.factcard,.fcard,.galcard{transition:none;}
+  .lcard:hover,.pillar:hover,.nstory:hover,.ocard:hover,.feature:hover,.topic:hover,.office:hover,.factcard:hover,.fcard:hover,.galcard:hover{transform:none !important;}
   .lcard:hover::after,.pillar:hover::after,.nstory:hover::after,.ocard:hover::after,.feature:hover::after,.topic:hover::after,.office:hover::after,.factcard:hover::after{transform:none;}
 }
 
@@ -179,7 +181,7 @@ section:last-of-type{border-bottom:none;}
 :where(.fac-grid .fcard):nth-child(6n+4){--accent:#0c8599;}
 :where(.fac-grid .fcard):nth-child(6n+5){--accent:#d6336c;}
 :where(.fac-grid .fcard):nth-child(6n+6){--accent:#e8590c;}
-.fcard:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 22px 44px -16px var(--accent),0 6px 14px rgba(20,24,31,.08);}
+/* .fcard hover handled by the unified rule above */
 .fcard__photo{width:96px;height:96px;border-radius:50%;overflow:hidden;margin:6px auto 12px;background:var(--honey-soft);box-shadow:0 4px 12px -4px rgba(122,82,23,.3);}
 .fcard__photo img{width:100%;height:100%;object-fit:cover;}
 .fcard__name{font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:700;color:var(--honey-deep);line-height:1.2;}
@@ -190,8 +192,7 @@ section:last-of-type{border-bottom:none;}
 .pillars{display:grid;grid-template-columns:1fr;gap:22px;}
 @media(min-width:720px){.pillars{grid-template-columns:1fr 1fr;gap:26px;}}
 .pillar{background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--honey));border-radius:20px;padding:30px 28px;box-shadow:var(--shadow-sm);}
-.pillar__icon{font-size:52px;line-height:1;margin-bottom:10px;transition:transform .28s cubic-bezier(.2,.7,.2,1);}
-.pillar:hover .pillar__icon{transform:scale(1.18) rotate(-7deg);}
+.pillar__icon{font-size:52px;line-height:1;margin-bottom:10px;}
 .pillar__t{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;color:var(--honey-deep);line-height:1.15;}
 .pillar__zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:4px;}
 .pillar__b{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.65;}
@@ -361,4 +362,4 @@ section:last-of-type{border-bottom:none;}
 .rvl.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 /* reveal must not fight the card hover-lift (datong stagger-delay lesson) */
-.lcard.rvl.in:hover,.pillar.rvl.in:hover,.nstory.rvl.in:hover,.ocard.rvl.in:hover,.feature.rvl.in:hover,.topic.rvl.in:hover,.office.rvl.in:hover,.factcard.rvl.in:hover{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
+.lcard.rvl.in:hover,.pillar.rvl.in:hover,.nstory.rvl.in:hover,.ocard.rvl.in:hover,.feature.rvl.in:hover,.topic.rvl.in:hover,.office.rvl.in:hover,.factcard.rvl.in:hover,.fcard.rvl.in:hover,.galcard.rvl.in:hover{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
