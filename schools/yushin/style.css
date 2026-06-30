@@ -223,6 +223,12 @@ section:last-of-type{border-bottom:none;}
 .feature .body .zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
 .feature .body p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
 .feature .cta{margin-top:18px;font-family:'Playfair Display',serif;color:var(--accent,var(--gold-deep));font-weight:700;font-size:18px;letter-spacing:.5px;}
+/* feature card with a real video thumbnail cover (ytimg + play button) */
+.feature .cover.cover--thumb{background-color:#0a5f63;background-size:cover;background-position:center 38%;position:relative;min-height:210px;padding:0;font-size:0;}
+.feature .cover.cover--thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,95,99,.30),rgba(0,0,0,.30));z-index:0;}
+.feature .cover.cover--thumb .playbtn{position:relative;z-index:1;width:66px;height:66px;border-radius:50%;background:rgba(196,48,43,.94);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;padding-left:5px;box-shadow:0 10px 26px rgba(0,0,0,.4);transition:transform .28s cubic-bezier(.2,.7,.2,1);}
+.feature:hover .cover.cover--thumb .playbtn{transform:scale(1.14);}
+@media(prefers-reduced-motion:reduce){.feature:hover .cover.cover--thumb .playbtn{transform:none;}}
 
 /* ===== WOTD unit theme cards (dajuang-style grid) ===== */
 .units{display:grid;grid-template-columns:1fr;gap:24px;}
