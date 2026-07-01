@@ -173,6 +173,10 @@
 
   /* ── IDENTITY — 3 Pillars ── */
   .identity{background:linear-gradient(180deg,var(--cream) 0%,var(--brick-soft) 100%);}
+  .activity-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px;}
+  .activity-row .activity-photo{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3;}
+  .activity-row .activity-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media(max-width:720px){.activity-row{grid-template-columns:1fr;}}
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .pillar{
     background:#fff;border-radius:18px;padding:36px 30px 32px;
@@ -380,6 +384,11 @@
 <!-- ── IDENTITY — 3 Pillars ── -->
 <section class="identity" id="identity">
   <div class="wrap">
+    <div class="activity-row">
+      <div class="activity-photo"><img src="photos/activity-farm.jpg" alt="Desing students in the greenhouse farm" loading="lazy"></div>
+      <div class="activity-photo"><img src="photos/activity-classroom.jpg" alt="Desing students in the classroom" loading="lazy"></div>
+      <div class="activity-photo"><img src="photos/activity-visitor.jpg" alt="Desing students with a visiting teacher" loading="lazy"></div>
+    </div>
     <div class="section-head">
       <div class="eyebrow">What We Grow</div>
       <h2>Music · Farm · Connect</h2>
