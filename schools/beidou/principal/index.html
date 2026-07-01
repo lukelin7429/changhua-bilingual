@@ -75,6 +75,16 @@
   .prose .en:first-child,.prose .zh:first-child{margin-top:0;}
   .prose strong{color:var(--green-deep);font-weight:700;}
 
+  .pintro{display:grid;grid-template-columns:1fr;gap:30px;align-items:start;margin-bottom:8px;}
+  @media (min-width:720px){ .pintro{ grid-template-columns:330px 1fr;gap:48px; } }
+  .pfig{margin:0 auto;max-width:340px;width:100%;}
+  @media (min-width:720px){ .pfig{ position:sticky;top:96px; } }
+  .pfig__card{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--cream-warm);}
+  .pfig__card img{display:block;width:100%;height:auto;}
+  .pfig__cap{background:linear-gradient(135deg,var(--green-deep),var(--green));color:#fff;text-align:center;padding:16px 18px;border-top:4px solid var(--gold);}
+  .pfig__cap .cn{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:.5px;}
+  .pfig__cap .cz{font-size:17px;color:#dff0e2;margin-top:3px;font-weight:600;}
+
   .cv{display:grid;gap:18px;margin-top:8px;}
   .cv__row{background:var(--cream-warm);border:1px solid var(--line);border-radius:16px;padding:22px 26px;}
   .cv__h{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--red-deep);}
@@ -135,11 +145,24 @@
     <h2 class="sec__title serif">Meet Our Principal</h2>
     <div class="sec__title-zh">認識校長 · 游美雯 Yu Mei-wen</div>
     <div class="sec__rule"></div>
-    <div class="lead serif">An educator from Changhua, devoted to arts, the environment, and bilingual learning.</div>
-    <div class="lead-zh">一位來自彰化的教育工作者，深耕藝術、環境與雙語教育。</div>
-    <div class="prose">
-      <p class="en">Principal Yu Mei-wen is a native of Changhua County. Across a long career as a teacher, director, and principal in Changhua schools, she has been recognized for excellence in teaching, environmental education, and the arts — and now leads Beidou Elementary with a vision of cultivating beauty and knowledge in every child.</p>
-      <p class="zh">游美雯校長是彰化縣人。在彰化多所學校歷任教師、主任與校長的漫長生涯中，她在教學、環境教育與藝術領域屢獲肯定，如今帶領北斗國小，秉持「在每個孩子身上培養美感與學識」的願景。</p>
+    <div class="pintro">
+      <figure class="pfig">
+        <div class="pfig__card">
+          <img src="assets/principal.jpg" alt="Principal Yu Mei-wen 校長游美雯" width="690" height="820">
+          <figcaption class="pfig__cap">
+            <div class="cn serif">Yu Mei-wen</div>
+            <div class="cz">游美雯 校長 · Principal</div>
+          </figcaption>
+        </div>
+      </figure>
+      <div class="pintro__text">
+        <div class="lead serif">An educator from Changhua, devoted to arts, the environment, and bilingual learning.</div>
+        <div class="lead-zh">一位來自彰化的教育工作者，深耕藝術、環境與雙語教育。</div>
+        <div class="prose">
+          <p class="en">Principal Yu Mei-wen is a native of Changhua County. Across a long career as a teacher, director, and principal in Changhua schools, she has been recognized for excellence in teaching, environmental education, and the arts — and now leads Beidou Elementary with a vision of cultivating beauty and knowledge in every child.</p>
+          <p class="zh">游美雯校長是彰化縣人。在彰化多所學校歷任教師、主任與校長的漫長生涯中，她在教學、環境教育與藝術領域屢獲肯定，如今帶領北斗國小，秉持「在每個孩子身上培養美感與學識」的願景。</p>
+        </div>
+      </div>
     </div>
     <div class="quote">
       <div class="q-zh serif">北斗藝揚好美力，藏修游息品書香</div>
