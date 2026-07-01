@@ -1081,25 +1081,60 @@ a:hover { color: var(--hub-primary-deep); text-decoration: underline; }
   .hub-footer-inner { grid-template-columns: 1fr; }
 }
 
-/* Nav collapses to a hamburger earlier than the layout breakpoint:
-   the larger (yangming-scale) nav labels would otherwise wrap in the
-   ~800–1000px band. */
+/* ---- Mobile hamburger button ---- */
+.hub-nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: 44px; height: 44px;
+  background: none; border: none; cursor: pointer; padding: 10px;
+  border-radius: 8px; -webkit-tap-highlight-color: transparent;
+}
+.hub-nav-toggle span {
+  display: block; width: 22px; height: 2px;
+  background: #2a3a2a; border-radius: 2px;
+  transition: transform .28s cubic-bezier(.22,.61,.36,1), opacity .2s;
+  transform-origin: center;
+}
+.hub-nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hub-nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hub-nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- Mobile drawer (outside header to escape backdrop-filter stacking context) ---- */
+.hub-mob-drawer { display: none; }
+
 @media (max-width: 1000px) {
   .hub-nav-inner { padding: 12px 20px; }
-  .hub-nav ul.hub-nav-list {
-    position: absolute; top: 100%; right: 0; left: 0;
-    flex-direction: column; padding: 12px 20px 20px;
-    background: #fff; border-bottom: 1px solid var(--hub-line);
-    transform: translateY(-12px); opacity: 0; pointer-events: none;
-    transition: transform .2s, opacity .2s;
+  .hub-nav ul.hub-nav-list { display: none; } /* hide desktop list */
+  .hub-nav-toggle { display: flex; }
+
+  .hub-mob-drawer {
+    display: block;
+    position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+    background: #fff; z-index: 9999;
+    overflow-y: auto;
+    opacity: 0; transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity .22s ease, transform .22s cubic-bezier(.22,.61,.36,1);
   }
-  .hub-nav.open ul.hub-nav-list { transform: none; opacity: 1; pointer-events: auto; }
-  .hub-nav-toggle {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 40px; height: 40px; border: 1px solid var(--hub-line);
-    border-radius: 8px; background: #fff; cursor: pointer;
+  .hub-mob-drawer.is-open {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
   }
-  .hub-nav-toggle svg { width: 20px; height: 20px; }
+  .hub-mob-drawer nav {
+    display: flex; flex-direction: column;
+    padding: 8px 0 48px;
+  }
+  .hub-mob-drawer nav a {
+    display: block;
+    font-size: 18px; font-weight: 500;
+    padding: 18px 28px;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: #1a1a1a;
+  }
+  .hub-mob-drawer nav a.active,
+  .hub-mob-drawer nav a[aria-current="page"] { color: var(--hub-primary-deep); }
+  .hub-mob-drawer nav a:hover { color: var(--hub-primary-deep); background: #f5fbf6; }
 }
 
 /* ===== Motion: scroll-reveal + hover micro-interactions =====

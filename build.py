@@ -41,10 +41,13 @@ def load_yaml(name):
 
 
 def nav_html(current_path):
-    items = []
+    items_desktop = []
+    items_mobile = []
     for href, label in SECTIONS:
         attr = ' aria-current="page"' if href == current_path else ""
-        items.append(f'<li><a class="hub-nav-link" href="{href}"{attr}>{label}</a></li>')
+        items_desktop.append(f'<li><a class="hub-nav-link" href="{href}"{attr}>{label}</a></li>')
+        active_cls = ' class="active"' if href == current_path else ""
+        items_mobile.append(f'<a href="{href}"{active_cls}>{label}</a>')
     return f"""
 <header class="hub-nav" role="banner">
   <div class="hub-nav-inner">
@@ -55,15 +58,28 @@ def nav_html(current_path):
         <small>彰化雙語資源網</small>
       </span>
     </a>
-    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
     <nav aria-label="Primary">
-      <ul class="hub-nav-list">{''.join(items)}</ul>
+      <ul class="hub-nav-list">{''.join(items_desktop)}</ul>
     </nav>
+    <button class="hub-nav-toggle" id="hubNavToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
-""".strip()
+<div class="hub-mob-drawer" id="hubMobDrawer" aria-hidden="true">
+  <nav>{''.join(items_mobile)}</nav>
+</div>
+<script>
+(function(){{
+  var btn=document.getElementById('hubNavToggle');
+  var dr=document.getElementById('hubMobDrawer');
+  if(!btn||!dr)return;
+  function open(){{dr.classList.add('is-open');dr.setAttribute('aria-hidden','false');btn.classList.add('is-open');btn.setAttribute('aria-expanded','true');document.body.classList.add('mob-nav-open');}}
+  function close(){{dr.classList.remove('is-open');dr.setAttribute('aria-hidden','true');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('mob-nav-open');}}
+  btn.addEventListener('click',function(e){{e.stopPropagation();dr.classList.contains('is-open')?close():open();}});
+  document.addEventListener('click',function(e){{if(dr.classList.contains('is-open')&&!dr.contains(e.target)&&!btn.contains(e.target))close();}});
+}})();
+</script>""".strip()
 
 
 def footer_html():
