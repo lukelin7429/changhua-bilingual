@@ -4,7 +4,7 @@
 
 | 檔名 | 用途 | 規格建議 | 狀態 |
 |---|---|---|---|
-| `principal-portrait.png` | 校長室 hero + 首頁校長預覽卡 | 4:5 直式，林畯城校長正式照（848×1279 PNG） | ✅ 已收 (2026-05-26) |
+| `principal-portrait.jpg` | 校長室 hero + 首頁校長預覽卡 | 4:5 直式，林畯城校長正式照（848×1279 PNG） | ✅ 已收 (2026-05-26) |
 | `school-front.jpg` | 首頁 hero 背景 + 「About」首張卡片 | 1600×1067px，4:3 / 16:10 橫式，校門或主建築 | 待補 |
 | `students-banner.jpg` | 首頁 About 區第二張 | 同上，學生持校旗 / 升旗 / 朝會 | 待補 |
 | `principal-event.jpg` | 校長室照片帶 + 首頁 student life | 21:9 橫式，校長與孩子互動畫面 | 待補 |

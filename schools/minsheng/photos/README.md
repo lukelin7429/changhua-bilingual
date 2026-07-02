@@ -17,7 +17,7 @@
 | `isa-2019.jpg` | ERC 頁「國際學校獎」 | 16:10，2019 ISA 獎狀或頒獎照 |
 | `phoenix-tree.jpg` | About／首頁背景元素（可選） | 16:10，鳳凰木盛開照 |
 | `elephant-slide.jpg` | 校史區「校友記憶」 | 16:10，大象溜滑梯（如已拆除可用舊照） |
-| `school-crest.png` | Footer / topbar logo（高解析透明 PNG） | 至少 512×512px |
+| `school-crest.jpg` | Footer / topbar logo（高解析透明 PNG） | 至少 512×512px |
 
 子資料夾 `news/`（之後加入 Stories 頁時）：
 - 每則新聞 1–3 張，命名 `<story-slug>-01.jpg` ~ `<story-slug>-03.jpg`
