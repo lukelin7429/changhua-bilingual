@@ -27,13 +27,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Stage the site, excluding images no page references (.pages-exclude).
+      # Those files stay in the repo but are kept out of the published artifact,
+      # so the deployed site stays comfortably under Pages' 1GB limit.
+      - name: Stage site (drop unreferenced assets)
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='.git' --exclude='.github' --exclude='_site' \
+            --exclude='.pages-exclude' --exclude='tools' \
+            --exclude-from='.pages-exclude' \
+            ./ _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
