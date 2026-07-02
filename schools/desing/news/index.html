@@ -120,17 +120,80 @@
 </header>
 
 <section><div class="wrap">
-  <div class="soon" style="max-width:640px;margin:0 auto;text-align:center;background:var(--bg-soft);border:1.5px dashed var(--brick);border-radius:20px;padding:56px 34px;">
-    <div style="font-size:44px;margin-bottom:18px;">📰</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--brick-deep);line-height:1.3;">Campus stories are on the way</div>
-    <div style="font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);margin-top:8px;">校園消息即將推出，敬請期待</div>
+  <div class="nsearch">
+    <input type="search" id="q" placeholder="Search news in English or Chinese… 搜尋新聞（中英文皆可）" aria-label="Search news">
+    <span class="ic">&#128269;</span>
+    <button class="clr" id="clr" aria-label="Clear">&times;</button>
   </div>
+  <p class="scount" id="scount"></p>
+
+  <a class="feat" href="closing-ceremony/" data-q="happy summer safe closing ceremony award champion typing contest 結業式 恭喜 打字比賽 冠亞軍 2026.06.30 進步獎 生日快樂 德興國小">
+    <div class="feat__img"><img src="../news-img/closing-ceremony-1.jpg" alt="Desing students and teachers holding awards outside the school entrance"></div>
+    <div class="feat__b">
+      <div class="feat__date">2026.06.30 &middot; Latest</div>
+      <div class="feat__t">Happy Summer, Safe Summer<small>114學年度第二學期結業式圓滿完成</small></div>
+      <p class="feat__p">Desing's closing ceremony celebrates a year of awards and hard work — from the typing contest champions to the AI &amp; STEAM creative project — before everyone heads into a safe, happy summer.</p>
+      <div class="feat__cta">Read the full story &rarr;</div>
+    </div>
+  </a>
+
+  <div class="news-grid" id="grid">
+
+    <a class="ncard" href="campus-disinfection/" data-q="thank you protect campus health disinfection dengue fever yongjing township cleaning team 感謝 攜手守護校園健康 消毒 登革熱 永靖鄉公所 清潔隊 2026.06.22 德興國小">
+      <div class="ncard__img"><img src="../news-img/campus-disinfection-3.jpg" alt="A Yongjing Township Office truck with a dengue-prevention banner parked on campus" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.06.22</div>
+        <div class="ncard__t">Protecting Our Campus Together<small>感謝有您！攜手守護校園健康</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <a class="ncard" href="graduation-68/" data-q="spread your wings graduation ceremony 68th ukulele bicycle flowers tradition gratitude 展翅高飛 夢想啟航 畢業典禮 第68屆 烏克麗麗 單車 2026.06.11 德興國小">
+      <div class="ncard__img"><img src="../news-img/graduation-68-6.jpg" alt="Graduates playing ukulele on stage under a banner for Desing's 68th graduation ceremony" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.06.11</div>
+        <div class="ncard__t">Spread Your Wings<small>第68屆畢業典禮圓滿落幕</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <a class="ncard" href="reading-rock-award/" data-q="desing shines national stage reading rock award trophy cacao community advocate ministry of education 德興 全國頂尖舞台 榮耀綻放 閱讀磐石獎 可可 社區 2026.05.27 德興國小">
+      <div class="ncard__img"><img src="../news-img/reading-rock-award-4.jpg" alt="Desing teachers celebrating on stage in front of the Ministry of Education Reading Rock Award banner" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.05.27</div>
+        <div class="ncard__t">Desing Shines on the National Stage<small>德興在全國頂尖舞台榮耀綻放！</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+  </div>
+  <p class="noresult" id="noresult">No stories matched your search. 找不到符合的消息。</p>
+
+  <p class="note">More campus stories are on the way. 更多校園消息陸續上線中。</p>
 </div></section>
 
 <script>
 (function(){
+  var q=document.getElementById('q'),clr=document.getElementById('clr'),scount=document.getElementById('scount'),noresult=document.getElementById('noresult');
+  var items=[].slice.call(document.querySelectorAll('[data-q]'));
+  function norm(s){return (s||'').toLowerCase();}
+  function run(){
+    var v=norm(q.value).trim();
+    clr.style.display=v?'block':'none';
+    var n=0;
+    items.forEach(function(el){
+      var hit=!v||norm(el.getAttribute('data-q')).indexOf(v)>-1;
+      el.style.display=hit?'':'none'; if(hit)n++;
+    });
+    noresult.style.display=(v&&n===0)?'block':'none';
+    scount.textContent=v?(n+' result'+(n===1?'':'s')+' · '+n+' 則'):'';
+  }
+  q.addEventListener('input',run);
+  clr.addEventListener('click',function(){q.value='';q.focus();run();});
+})();
+(function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.soon'));
+  var els=[].slice.call(document.querySelectorAll('.feat,.ncard'));
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){
