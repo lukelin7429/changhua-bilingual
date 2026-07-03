@@ -101,70 +101,72 @@ section:last-of-type{border-bottom:none;}
 .sec__lede .zh{display:block;font-size:18.7px;margin-top:8px;font-family:'PingFang TC',sans-serif;}
 @media(min-width:720px){.sec__lede .zh{font-size:20.9px;}}
 
-/* course cards */
-.course-list{display:flex;flex-direction:column;gap:30px;margin-top:10px;}
+/* course cards — compact grid so many courses stay scannable */
+.course-list{display:grid;grid-template-columns:1fr;gap:20px;margin-top:10px;}
+@media(min-width:640px){.course-list{grid-template-columns:1fr 1fr;}}
 .course{
-  display:grid;grid-template-columns:1fr;
-  background:#fff;border:1px solid var(--line);border-radius:26px;
-  overflow:hidden;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);border-top:6px solid var(--brick);border-radius:20px;
+  padding:24px 26px 22px;box-shadow:var(--shadow-sm);
   text-decoration:none;color:inherit;
   transition:transform .2s,box-shadow .2s;
 }
-@media(min-width:760px){.course{grid-template-columns:320px 1fr;align-items:stretch;}}
-.course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
-.course__art{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-  padding:52px 24px;
-  background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);
-}
-.course__emoji{font-size:114.4px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));transition:transform .3s;}
-@media(min-width:720px){.course__emoji{font-size:143px;}}
-.course:hover .course__emoji{transform:scale(1.07) rotate(-4deg);}
+.course:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.course__top{display:flex;align-items:flex-start;gap:14px;}
+.course__emoji{font-size:36px;line-height:1;flex-shrink:0;transition:transform .25s;}
+.course:hover .course__emoji{transform:scale(1.1) rotate(-6deg);}
 .course__badge{
-  font-size:16.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:#fff;background:rgba(255,255,255,.2);padding:7px 20px;border-radius:99px;
+  margin-left:auto;font-size:12.1px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:#fff;background:var(--brick);padding:5px 12px;border-radius:99px;white-space:nowrap;flex-shrink:0;
 }
-.course__body{padding:36px 32px 38px;display:flex;flex-direction:column;justify-content:center;}
-@media(min-width:720px){.course__body{padding:50px 56px;}}
 .course__no{
-  font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:700;
-  letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);
+  font-family:'Cormorant Garamond',serif;font-size:14.3px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);margin-top:16px;
 }
 .course__title{
   font-family:'Cormorant Garamond',serif;
-  font-size:41.8px;font-weight:800;color:var(--brick-deep);line-height:1.1;margin-top:8px;
+  font-size:26.4px;font-weight:800;color:var(--brick-deep);line-height:1.15;margin-top:4px;
 }
-@media(min-width:720px){.course__title{font-size:57.2px;}}
 .course__title-zh{
-  font-size:23.1px;color:var(--ink);font-weight:600;margin-top:8px;
-  font-family:'PingFang TC',sans-serif;letter-spacing:.06em;
+  font-size:16.5px;color:var(--ink);font-weight:600;margin-top:3px;
+  font-family:'PingFang TC',sans-serif;
 }
-@media(min-width:720px){.course__title-zh{font-size:27.5px;}}
-.course__desc{font-size:20.9px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
-@media(min-width:720px){.course__desc{font-size:24.2px;}}
+.course__desc{font-size:16.5px;color:var(--ink-soft);line-height:1.55;margin-top:10px;}
 .course__desc .zh{
-  display:block;font-size:17.6px;color:var(--ink-soft);
-  font-family:'PingFang TC',sans-serif;margin-top:6px;
+  display:block;font-size:14.3px;color:var(--ink-soft);
+  font-family:'PingFang TC',sans-serif;margin-top:3px;
 }
-@media(min-width:720px){.course__desc .zh{font-size:19.8px;}}
 .course__cta{
-  margin-top:26px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
-  font-family:'Cormorant Garamond',serif;font-size:23.1px;font-weight:700;
-  color:#fff;background:var(--brick);padding:15px 32px;border-radius:14px;
-  box-shadow:0 8px 22px -8px rgba(142,26,18,.55);text-decoration:none;
-  transition:background .15s,transform .15s;
+  margin-top:16px;display:inline-flex;align-items:center;gap:6px;
+  font-family:'Cormorant Garamond',serif;font-size:17.6px;font-weight:700;
+  color:var(--brick);text-decoration:none;
 }
-@media(min-width:720px){.course__cta{font-size:26.4px;}}
 .course__cta .arrow{transition:transform .15s;display:inline-block;}
-.course:hover .course__cta{background:var(--brick-deep);transform:translateY(-2px);}
-.course:hover .course__cta .arrow{transform:translateX(6px);}
+.course:hover .course__cta{color:var(--brick-deep);}
+.course:hover .course__cta .arrow{transform:translateX(5px);}
+
+/* per-course accent colors */
+.course--azure{border-top-color:var(--azure);}
+.course--azure .course__no{color:var(--azure);}
+.course--azure .course__title{color:var(--azure-deep);}
+.course--azure .course__badge{background:var(--azure);}
+.course--azure .course__cta{color:var(--azure);}
+.course--azure:hover .course__cta{color:var(--azure-deep);}
+.course--gold{border-top-color:var(--gold);}
+.course--gold .course__no{color:var(--gold-deep);}
+.course--gold .course__title{color:var(--gold-deep);}
+.course--gold .course__badge{background:var(--gold);}
+.course--gold .course__cta{color:var(--gold-deep);}
+.course--green{border-top-color:var(--green);}
+.course--green .course__no{color:var(--green-deep);}
+.course--green .course__title{color:var(--green-deep);}
+.course--green .course__badge{background:var(--green);}
+.course--green .course__cta{color:var(--green-deep);}
 
 /* coming-soon course (not clickable) */
 .course--soon{cursor:default;}
 .course--soon:hover{transform:none;box-shadow:var(--shadow-sm);}
-.course--soon .course__art{opacity:.92;}
-.course__cta--soon{margin-top:26px;display:inline-flex;align-self:flex-start;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);padding:15px 32px;border-radius:14px;}
-@media(min-width:720px){.course__cta--soon{font-size:22px;}}
+.course__badge--soon{background:var(--gold-soft);color:var(--gold-deep);}
 
 /* ── learning modules (Classroom English / Announcements) ── */
 .module{--accent:var(--azure);--accent-deep:var(--azure-deep);--accent-soft:var(--azure-soft);}
@@ -276,71 +278,63 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
     <div class="course-list">
 
       <a class="course rvl" href="word/">
-        <div class="course__art">
+        <div class="course__top">
           <div class="course__emoji">📖</div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
-        <div class="course__body">
-          <div class="course__no">Course 01</div>
-          <div class="course__title">Word of the Day</div>
-          <div class="course__title-zh">每日一字</div>
-          <p class="course__desc">
-            82 bilingual videos filmed on Lushang's own campus — one word at a time. Watch our teachers and students bring English to life on the basketball court, in the classroom, around campus, and at school festivals.
-            <span class="zh">在路上校園拍攝的 82 支雙語影片，每次一個英文單字。看老師和同學在籃球場、教室、校園各個角落，用生活把英文變得活起來！</span>
-          </p>
-          <div class="course__cta">Start Learning <span class="arrow">→</span></div>
-        </div>
+        <div class="course__no">Course 01</div>
+        <div class="course__title">Word of the Day</div>
+        <div class="course__title-zh">每日一字</div>
+        <p class="course__desc">
+          82 bilingual videos filmed on our own campus — one word at a time.
+          <span class="zh">在路上校園拍攝的 82 支雙語影片，每次一個英文單字。</span>
+        </p>
+        <div class="course__cta">Start Learning <span class="arrow">→</span></div>
       </a>
 
-      <a class="course rvl" href="../festivals/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);">
+      <a class="course course--gold rvl" href="../festivals/">
+        <div class="course__top">
           <div class="course__emoji">🎉</div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
-        <div class="course__body">
-          <div class="course__no">Course 02</div>
-          <div class="course__title">Festivals English</div>
-          <div class="course__title-zh">節慶英語</div>
-          <p class="course__desc">
-            From Lunar New Year and the Lantern Festival to Halloween, Thanksgiving, and Christmas — sixteen bilingual festival lessons, each with a printable handout and a fun quiz to check what you learned. Explore the holidays of Taiwan and the wider world, all in English and Chinese.
-            <span class="zh">從農曆新年、元宵節，到萬聖節、感恩節、聖誕節——十六個雙語節慶單元，每一個都有可列印的學習單和趣味小測驗。用中英雙語認識臺灣與世界的節日！</span>
-          </p>
-          <div class="course__cta">Explore Festivals <span class="arrow">→</span></div>
-        </div>
+        <div class="course__no">Course 02</div>
+        <div class="course__title">Festivals English</div>
+        <div class="course__title-zh">節慶英語</div>
+        <p class="course__desc">
+          16 bilingual festival lessons, each with a handout and a quiz.
+          <span class="zh">16 個雙語節慶單元，每個都附學習單與趣味小測驗。</span>
+        </p>
+        <div class="course__cta">Explore Festivals <span class="arrow">→</span></div>
       </a>
 
-      <a class="course rvl" href="art/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);">
+      <a class="course course--green rvl" href="art/">
+        <div class="course__top">
           <div class="course__emoji">🖌️</div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
-        <div class="course__body">
-          <div class="course__no">Course 03</div>
-          <div class="course__title">Bilingual Art Program</div>
-          <div class="course__title-zh">藝術領域雙語計畫</div>
-          <p class="course__desc">
-            Arts and crafts, taught in two languages. Learn cool and warm colors, discover the tradition of blue-and-white porcelain, and watch our own bilingual art club in action — all while practicing real English.
-            <span class="zh">用雙語上美勞課。認識冷暖色系、認識青花瓷傳統工藝，還可以看到路上雙語藝術社團的實際上課影片——邊做美勞邊練英文。</span>
-          </p>
-          <div class="course__cta">Explore Art Program <span class="arrow">→</span></div>
-        </div>
+        <div class="course__no">Course 03</div>
+        <div class="course__title">Bilingual Art Program</div>
+        <div class="course__title-zh">藝術領域雙語計畫</div>
+        <p class="course__desc">
+          Arts and crafts taught in two languages — colors, porcelain, and more.
+          <span class="zh">用雙語上美勞課，認識冷暖色系與青花瓷等主題。</span>
+        </p>
+        <div class="course__cta">Explore Art Program <span class="arrow">→</span></div>
       </a>
 
-      <a class="course rvl" href="ocarina/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--gold) 0%,#9C2F60 100%);">
+      <a class="course course--azure rvl" href="ocarina/">
+        <div class="course__top">
           <div class="course__emoji">🎵</div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
-        <div class="course__body">
-          <div class="course__no">Course 04</div>
-          <div class="course__title">Ocarina Club</div>
-          <div class="course__title-zh">陶笛社團</div>
-          <p class="course__desc">
-            Every student at Lushang plays the ocarina. Meet our instructor, learn ocarina vocabulary in English, read your first notes on a musical staff, and try a beginner song in numbered notation.
-            <span class="zh">路上國小人人有陶笛。認識我們的講師、學習陶笛英文詞彙、讀懂五線譜的第一個音符，還可以試試初學者曲子的簡譜。</span>
-          </p>
-          <div class="course__cta">Explore Ocarina Club <span class="arrow">→</span></div>
-        </div>
+        <div class="course__no">Course 04</div>
+        <div class="course__title">Ocarina Club</div>
+        <div class="course__title-zh">陶笛社團</div>
+        <p class="course__desc">
+          Every student plays — vocabulary, staff notation, and a practice song.
+          <span class="zh">路上人人有陶笛，學英文詞彙、認識五線譜、練習曲子。</span>
+        </p>
+        <div class="course__cta">Explore Ocarina Club <span class="arrow">→</span></div>
       </a>
 
     </div>
