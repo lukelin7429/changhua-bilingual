@@ -98,14 +98,18 @@ section .wrap,section .wrap-narrow{position:relative;z-index:1;}
 .lesson__photo{margin-top:20px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);}
 .lesson__photo img{width:100%;height:auto;display:block;}
 
-/* vocab glossary */
-.vocabgrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px;}
+/* vocab glossary — big word + IPA + speaker button */
+.vocabgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
 @media(min-width:620px){.vocabgrid{grid-template-columns:1fr 1fr;}}
-.vocab{display:flex;align-items:center;gap:14px;background:var(--bg-soft);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow-sm);transition:transform .2s;}
+.vocab{position:relative;background:var(--bg-soft);border-radius:18px;padding:18px 20px 18px 68px;box-shadow:var(--shadow-sm);transition:transform .2s;}
 .vocab:hover{transform:scale(1.03);}
-.vocab__icon{font-size:28.6px;flex-shrink:0;}
-.vocab__word{font-size:19.2px;font-weight:700;color:var(--ink);}
-.vocab__zh{font-size:15.4px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:1px;}
+.vsay{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:var(--pink);color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 10px -3px rgba(156,47,96,.5);}
+.vsay:hover{transform:translateY(-50%) scale(1.08);}
+.vsay:active{transform:translateY(-50%) scale(.92);}
+.vsay.ring{box-shadow:0 0 0 7px var(--pink-soft);}
+.vword{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,40px);font-weight:800;color:var(--ink);line-height:1.1;}
+.vipa{display:block;font-size:15.4px;color:var(--ink-soft);margin-top:2px;}
+.vzh{display:block;font-size:16.5px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:4px;}
 
 /* staff notation visual */
 .staffcard{background:#fff;border:3px solid var(--azure-soft);border-radius:24px;padding:28px;margin-top:30px;box-shadow:var(--shadow-sm);}
@@ -243,14 +247,38 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
     </p>
 
     <div class="vocabgrid">
-      <div class="vocab rvl"><span class="vocab__icon">🎺</span><div><div class="vocab__word">ocarina</div><div class="vocab__zh">陶笛</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">👄</span><div><div class="vocab__word">mouthpiece</div><div class="vocab__zh">吹嘴</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">⚫</span><div><div class="vocab__word">finger hole</div><div class="vocab__zh">指孔</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">✋</span><div><div class="vocab__word">fingering</div><div class="vocab__zh">指法</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">📈</span><div><div class="vocab__word">pitch</div><div class="vocab__zh">音高</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">🪜</span><div><div class="vocab__word">scale</div><div class="vocab__zh">音階</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">🔁</span><div><div class="vocab__word">octave</div><div class="vocab__zh">八度音</div></div></div>
-      <div class="vocab rvl"><span class="vocab__icon">💨</span><div><div class="vocab__word">breath control</div><div class="vocab__zh">氣息控制</div></div></div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="ocarina" aria-label="Listen to ocarina">🔊</button>
+        <span class="vword">ocarina</span><span class="vipa">/ˌɑkəˈriːnə/</span><span class="vzh">陶笛</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="mouthpiece" aria-label="Listen to mouthpiece">🔊</button>
+        <span class="vword">mouthpiece</span><span class="vipa">/ˈmaʊθˌpiːs/</span><span class="vzh">吹嘴</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="finger hole" aria-label="Listen to finger hole">🔊</button>
+        <span class="vword">finger hole</span><span class="vipa">/ˈfɪŋgər hoʊl/</span><span class="vzh">指孔</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="fingering" aria-label="Listen to fingering">🔊</button>
+        <span class="vword">fingering</span><span class="vipa">/ˈfɪŋgərɪŋ/</span><span class="vzh">指法</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="pitch" aria-label="Listen to pitch">🔊</button>
+        <span class="vword">pitch</span><span class="vipa">/pɪtʃ/</span><span class="vzh">音高</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="scale" aria-label="Listen to scale">🔊</button>
+        <span class="vword">scale</span><span class="vipa">/skeɪl/</span><span class="vzh">音階</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="octave" aria-label="Listen to octave">🔊</button>
+        <span class="vword">octave</span><span class="vipa">/ˈɑktɪv/</span><span class="vzh">八度音</span>
+      </div>
+      <div class="vocab rvl">
+        <button class="vsay" data-say="breath control" aria-label="Listen to breath control">🔊</button>
+        <span class="vword">breath control</span><span class="vipa">/brɛθ kənˈtroʊl/</span><span class="vzh">氣息控制</span>
+      </div>
     </div>
   </div>
 </section>
@@ -338,6 +366,18 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+(function(){
+  var grid=document.querySelector('.vocabgrid');
+  if(!grid)return;
+  grid.addEventListener('click',function(e){
+    var b=e.target.closest('.vsay');
+    if(!b)return;
+    say(b.getAttribute('data-say'));
+    b.classList.add('ring');
+    setTimeout(function(){b.classList.remove('ring');},650);
+  });
 })();
 </script>
 <script defer src="/assets/js/motion.js"></script>
