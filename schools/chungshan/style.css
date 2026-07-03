@@ -163,6 +163,19 @@ section:last-of-type{border-bottom:none;}
 .spotlight__zh{font-size:19px;color:var(--ink);font-weight:600;margin-top:6px;}
 .spotlight__b{font-size:18px;color:var(--ink-soft);max-width:680px;margin:14px auto 0;line-height:1.7;}
 
+/* ===== FET card (home) ===== */
+.fetcard{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);max-width:520px;margin:0 auto;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease;}
+.fetcard:hover{transform:translateY(-8px);box-shadow:var(--shadow);}
+.fetcard__photo{background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);padding:34px 0;display:flex;justify-content:center;}
+.fetcard__photo img{width:168px;height:168px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:var(--shadow);}
+.fetcard__body{padding:28px 32px 32px;text-align:center;}
+.fetcard__tag{font-family:'Playfair Display',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
+.fetcard__name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--green-deep);margin-top:6px;}
+.fetcard__desc{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.7;}
+.fetcard__cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:700;color:var(--green-deep);border-bottom:2px solid var(--gold);padding-bottom:2px;}
+.fetcard__cta:hover{color:var(--gold-deep);}
+@media(prefers-reduced-motion:reduce){.fetcard{transition:none;}.fetcard:hover{transform:none;}}
+
 /* ===== News stories (colour cards, self-contained, no images) ===== */
 .news-grid{display:grid;grid-template-columns:1fr;gap:28px;}
 @media(min-width:880px){.news-grid{grid-template-columns:1fr 1fr;gap:32px;}}
