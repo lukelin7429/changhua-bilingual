@@ -106,22 +106,31 @@ section:last-of-type{border-bottom:none;}
 @media(min-width:640px){.course-list{grid-template-columns:1fr 1fr;}}
 .course{
   display:flex;flex-direction:column;
-  background:#fff;border:1px solid var(--line);border-top:6px solid var(--brick);border-radius:20px;
-  padding:24px 26px 22px;box-shadow:var(--shadow-sm);
+  background:#fff;border:2px solid var(--brick);border-radius:20px;
+  padding:0 26px 22px;box-shadow:var(--shadow-sm);overflow:hidden;
   text-decoration:none;color:inherit;
   transition:transform .2s,box-shadow .2s;
 }
 .course:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.course__top{display:flex;align-items:flex-start;gap:14px;}
-.course__emoji{font-size:36px;line-height:1;flex-shrink:0;transition:transform .25s;}
-.course:hover .course__emoji{transform:scale(1.1) rotate(-6deg);}
+.course__top{
+  display:flex;align-items:center;gap:14px;
+  margin:0 -26px 20px;padding:18px 26px;
+  background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);
+}
+.course__icon-chip{
+  width:52px;height:52px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;
+  transition:transform .25s;
+}
+.course:hover .course__icon-chip{transform:scale(1.1) rotate(-6deg);}
+.course__emoji{font-size:28.6px;line-height:1;}
 .course__badge{
   margin-left:auto;font-size:12.1px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:#fff;background:var(--brick);padding:5px 12px;border-radius:99px;white-space:nowrap;flex-shrink:0;
+  color:#fff;background:rgba(255,255,255,.22);padding:5px 12px;border-radius:99px;white-space:nowrap;flex-shrink:0;
 }
 .course__no{
   font-family:'Cormorant Garamond',serif;font-size:14.3px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);margin-top:16px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);
 }
 .course__title{
   font-family:'Cormorant Garamond',serif;
@@ -146,21 +155,21 @@ section:last-of-type{border-bottom:none;}
 .course:hover .course__cta .arrow{transform:translateX(5px);}
 
 /* per-course accent colors */
-.course--azure{border-top-color:var(--azure);}
+.course--azure{border-color:var(--azure);}
+.course--azure .course__top{background:linear-gradient(135deg,var(--azure) 0%,var(--azure-deep) 100%);}
 .course--azure .course__no{color:var(--azure);}
 .course--azure .course__title{color:var(--azure-deep);}
-.course--azure .course__badge{background:var(--azure);}
 .course--azure .course__cta{color:var(--azure);}
 .course--azure:hover .course__cta{color:var(--azure-deep);}
-.course--gold{border-top-color:var(--gold);}
+.course--gold{border-color:var(--gold);}
+.course--gold .course__top{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);}
 .course--gold .course__no{color:var(--gold-deep);}
 .course--gold .course__title{color:var(--gold-deep);}
-.course--gold .course__badge{background:var(--gold);}
 .course--gold .course__cta{color:var(--gold-deep);}
-.course--green{border-top-color:var(--green);}
+.course--green{border-color:var(--green);}
+.course--green .course__top{background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);}
 .course--green .course__no{color:var(--green-deep);}
 .course--green .course__title{color:var(--green-deep);}
-.course--green .course__badge{background:var(--green);}
 .course--green .course__cta{color:var(--green-deep);}
 
 /* coming-soon course (not clickable) */
@@ -279,7 +288,7 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
 
       <a class="course rvl" href="word/">
         <div class="course__top">
-          <div class="course__emoji">📖</div>
+          <div class="course__icon-chip"><div class="course__emoji">📖</div></div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__no">Course 01</div>
@@ -294,7 +303,7 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
 
       <a class="course course--gold rvl" href="../festivals/">
         <div class="course__top">
-          <div class="course__emoji">🎉</div>
+          <div class="course__icon-chip"><div class="course__emoji">🎉</div></div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__no">Course 02</div>
@@ -309,7 +318,7 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
 
       <a class="course course--green rvl" href="art/">
         <div class="course__top">
-          <div class="course__emoji">🖌️</div>
+          <div class="course__icon-chip"><div class="course__emoji">🖌️</div></div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__no">Course 03</div>
@@ -324,7 +333,7 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
 
       <a class="course course--azure rvl" href="ocarina/">
         <div class="course__top">
-          <div class="course__emoji">🎵</div>
+          <div class="course__icon-chip"><div class="course__emoji">🎵</div></div>
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__no">Course 04</div>
