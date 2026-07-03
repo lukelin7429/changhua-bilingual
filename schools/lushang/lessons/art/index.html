@@ -116,11 +116,21 @@ section .wrap,section .wrap-narrow{position:relative;z-index:1;}
 .colorgroup__title .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
 .colorgroup__lede{font-size:16.5px;color:var(--ink);margin-top:10px;line-height:1.6;}
 .swatchlist{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
-.swatch{display:flex;align-items:flex-start;gap:14px;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:var(--shadow-sm);transition:transform .2s;}
-.swatch:hover{transform:scale(1.03);}
-.swatch__chip{width:34px;height:34px;border-radius:50%;flex-shrink:0;margin-top:2px;box-shadow:0 3px 8px -2px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.4);}
+.swatch{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:var(--shadow-sm);transition:transform .2s;}
+.swatch:hover{transform:scale(1.03) rotate(-1deg);}
+.swatch__chip{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 3px 8px -2px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.4);}
 .swatch__text strong{font-size:17.1px;color:var(--ink);}
 .swatch__text .zh{display:block;font-size:15.4px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:2px;line-height:1.5;}
+
+/* highlight bullet list (kid-readable breakdown) */
+.lesson__big{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24.2px;color:var(--ink);line-height:1.5;margin:16px 0 6px;}
+.lesson__big .zh{display:block;font-family:'PingFang TC',sans-serif;font-style:normal;font-size:17.6px;color:var(--ink-soft);margin-top:6px;}
+.hl{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+.hl li{display:flex;align-items:flex-start;gap:12px;background:var(--bg-soft);border-radius:14px;padding:12px 16px;}
+.hl__icon{font-size:24.2px;flex-shrink:0;line-height:1.4;}
+.hl__text{font-size:17.6px;color:var(--ink);line-height:1.5;}
+@media(min-width:720px){.hl__text{font-size:19.2px;}}
+.hl__text .zh{display:block;font-size:15.4px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:3px;line-height:1.55;}
 
 footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft);line-height:1.65;}
 @media(min-width:720px){footer{font-size:18.7px;}}
@@ -196,10 +206,17 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
       <div class="lesson__title">Creativity, Skill, and New Friends
         <span class="zh">發揮創意、學習技能、結交新朋友</span>
       </div>
-      <p class="lesson__body">
-        Looking for a fun way to be creative and make new friends? In arts and crafts class, you'll use materials like paper, glue, paint, and clay to create art like drawings, paintings, and sculptures — and useful things like pots, baskets, and decorations. Teachers show you how to make things, and you can also use your imagination to create your own projects. Studies show that arts and crafts can help with stress relief and improve hand-eye coordination.
-        <span class="zh">想找一個有趣的方法來發揮創意並結交新朋友嗎？在美勞課中，你會使用像紙張、膠水、顏料和黏土等材料，創作出繪畫、油畫和雕塑，還會製作花盆、籃子和裝飾品等實用物品。老師會教你如何製作東西，你也可以發揮自己的想像力來創作。研究表明，美勞可以幫助減輕壓力並改善手眼協調能力。</span>
+      <p class="lesson__big">
+        Want to be creative and make new friends? Come to arts and crafts class!
+        <span class="zh">想要發揮創意、又能交到新朋友嗎？來上美勞課吧！</span>
       </p>
+      <ul class="hl">
+        <li class="rvl"><span class="hl__icon">🖍️</span><span class="hl__text">You'll use paper, glue, paint, and clay.<span class="zh">使用紙張、膠水、顏料和黏土。</span></span></li>
+        <li class="rvl"><span class="hl__icon">🎨</span><span class="hl__text">You'll make drawings, paintings, and sculptures.<span class="zh">創作繪畫、油畫和雕塑。</span></span></li>
+        <li class="rvl"><span class="hl__icon">🧺</span><span class="hl__text">You'll also make useful things, like pots and baskets.<span class="zh">也會做花盆、籃子等實用物品。</span></span></li>
+        <li class="rvl"><span class="hl__icon">💡</span><span class="hl__text">Teachers help you — but you can use your own imagination too!<span class="zh">老師會教你，你也可以發揮自己的想像力。</span></span></li>
+        <li class="rvl"><span class="hl__icon">😌</span><span class="hl__text">It helps you relax, and trains your hand-eye coordination.<span class="zh">還能幫助放鬆心情、訓練手眼協調。</span></span></li>
+      </ul>
     </article>
   </div>
 </section>
@@ -222,9 +239,9 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
         <div class="colorgroup__title">Cool Colors<span class="zh">冷色</span></div>
         <p class="colorgroup__lede">Cool colors make us feel calm and relaxed. 冷色讓我們感覺平靜和放鬆。</p>
         <div class="swatchlist">
-          <div class="swatch"><div class="swatch__chip" style="background:#1565A8;"></div><div class="swatch__text"><strong>Blue</strong> — like the sky and the ocean, blue makes us feel peaceful.<span class="zh">藍色：像天空和海洋一樣，讓我們感覺和平。</span></div></div>
-          <div class="swatch"><div class="swatch__chip" style="background:#2E3E9E;"></div><div class="swatch__text"><strong>Indigo</strong> — like the deeper parts of the ocean, indigo feels peaceful.<span class="zh">靛色：像深海一樣，讓我們感覺平靜。</span></div></div>
-          <div class="swatch"><div class="swatch__chip" style="background:#8E6FB0;"></div><div class="swatch__text"><strong>Purple</strong> — calming, especially lighter shades like lavender.<span class="zh">紫色：讓人平靜，特別是像薰衣草一樣的淺紫色。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#1565A8;">🌤️</div><div class="swatch__text"><strong>Blue</strong> — like the sky and the ocean, blue makes us feel peaceful.<span class="zh">藍色：像天空和海洋一樣，讓我們感覺和平。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#2E3E9E;">🌊</div><div class="swatch__text"><strong>Indigo</strong> — like the deeper parts of the ocean, indigo feels peaceful.<span class="zh">靛色：像深海一樣，讓我們感覺平靜。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#8E6FB0;">🪻</div><div class="swatch__text"><strong>Purple</strong> — calming, especially lighter shades like lavender.<span class="zh">紫色：讓人平靜，特別是像薰衣草一樣的淺紫色。</span></div></div>
         </div>
       </div>
 
@@ -232,9 +249,9 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
         <div class="colorgroup__title">Warm Colors<span class="zh">暖色</span></div>
         <p class="colorgroup__lede">Warm colors make us feel happy and excited. 暖色讓我們感覺開心和興奮。</p>
         <div class="swatchlist">
-          <div class="swatch"><div class="swatch__chip" style="background:#C0281C;"></div><div class="swatch__text"><strong>Red</strong> — strong, and can make us feel excited.<span class="zh">紅色：很強烈，能讓我們感覺興奮。</span></div></div>
-          <div class="swatch"><div class="swatch__chip" style="background:#D9782D;"></div><div class="swatch__text"><strong>Orange</strong> — bright, and makes us feel energetic.<span class="zh">橙色：很明亮，讓我們感覺有活力。</span></div></div>
-          <div class="swatch"><div class="swatch__chip" style="background:#C8963A;"></div><div class="swatch__text"><strong>Yellow</strong> — cheerful, and makes us feel happy.<span class="zh">黃色：很開心，讓我們感覺快樂。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#C0281C;">🔥</div><div class="swatch__text"><strong>Red</strong> — strong, and can make us feel excited.<span class="zh">紅色：很強烈，能讓我們感覺興奮。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#D9782D;">🍊</div><div class="swatch__text"><strong>Orange</strong> — bright, and makes us feel energetic.<span class="zh">橙色：很明亮，讓我們感覺有活力。</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#C8963A;">☀️</div><div class="swatch__text"><strong>Yellow</strong> — cheerful, and makes us feel happy.<span class="zh">黃色：很開心，讓我們感覺快樂。</span></div></div>
         </div>
       </div>
     </div>
@@ -254,10 +271,16 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
       <div class="lesson__title">A Tradition in Clay and Blue
         <span class="zh">黏土與藍色顏料的傳統工藝</span>
       </div>
-      <p class="lesson__body">
-        Have you ever heard of blue and white porcelain? It's a type of pottery with blue designs painted on white clay. The designs can be flowers, animals, or cool patterns like waves and clouds. Artists shape the clay into cups, plates, or vases and paint blue designs using a special blue color. The pottery is baked in a very hot oven to make it shiny and hard. You can see blue and white porcelain in museums, art galleries, and sometimes in people's homes.
-        <span class="zh">你聽說過青花瓷嗎？這是一種在白色黏土上繪有藍色圖案的陶瓷。這些圖案可以是花、動物或像波浪和雲朵這樣的酷炫圖案。藝術家將黏土塑造成杯子、盤子或花瓶，並使用特別的藍色顏料繪製藍色圖案。這些陶瓷在非常高溫的烤爐中烘烤，使其光亮且堅硬。你可以在博物館、美術館，有時甚至在家裡看到青花瓷。</span>
+      <p class="lesson__big">
+        Blue and white porcelain: white clay + blue paint = beautiful art!
+        <span class="zh">青花瓷：白色黏土 + 藍色顏料 = 美麗的藝術品！</span>
       </p>
+      <ul class="hl">
+        <li class="rvl"><span class="hl__icon">🏺</span><span class="hl__text">Artists shape clay into cups, plates, and vases.<span class="zh">藝術家把黏土做成杯子、盤子、花瓶。</span></span></li>
+        <li class="rvl"><span class="hl__icon">🖌️</span><span class="hl__text">They paint blue designs — flowers, animals, waves, or clouds.<span class="zh">畫上藍色圖案——花、動物、波浪或雲朵。</span></span></li>
+        <li class="rvl"><span class="hl__icon">🔥</span><span class="hl__text">It's baked in a super-hot oven until shiny and hard.<span class="zh">放進超高溫的烤爐，燒到光亮堅硬。</span></span></li>
+        <li class="rvl"><span class="hl__icon">🖼️</span><span class="hl__text">You can see it in museums, art galleries, and even people's homes!<span class="zh">博物館、美術館，甚至家裡都看得到！</span></span></li>
+      </ul>
     </article>
   </div>
 </section>
