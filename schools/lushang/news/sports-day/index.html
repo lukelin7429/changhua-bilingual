@@ -68,6 +68,13 @@
   .vsent{font-size:19px;line-height:1.6;color:var(--ink);margin-top:12px;}.vsent b{color:var(--brick);}
   .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:4px;}
   .vgame{max-width:780px;margin:48px auto 0;padding-top:42px;border-top:1px solid var(--line);}
+  .wwrap{max-width:780px;margin:48px auto 0;padding-top:42px;border-top:1px solid var(--line);}
+  .wwgrid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:10px;}
+  @media(min-width:680px){.wwgrid{grid-template-columns:1fr 1fr;}}
+  .wwcard{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+  .wwcard__ratio{position:relative;width:100%;padding-bottom:76%;background:#000;}
+  .wwcard__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .wwcard__label{padding:12px 16px;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);text-align:center;background:var(--bg-soft);}
   .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-bottom:18px;}
   .game-score b{color:var(--brick);font-size:23px;}
   .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
@@ -125,7 +132,15 @@
 
   <div class="en-body">
     <p>There were also fun games like the Stick &amp; Ball Relay and the Ball Rolling Race. Students from different grades worked as a team to run, cheer, and play. Some parents even joined in the games and had fun playing with their children.</p>
-    <p>Students cheered loudly during the relay race. The tug-of-war was just as exciting. Everyone smiled and tried their best.</p>
+    <p>Students cheered loudly during the relay race.</p>
+  </div>
+
+  <div class="photo-row">
+    <div class="frame"><img src="../../news-img/sports-day-6.jpg" alt="Students playing tug-of-war at Lushang's Sports Day" loading="lazy"></div>
+  </div>
+
+  <div class="en-body">
+    <p>The tug-of-war was just as exciting — everyone pulled the rope with all their strength, and teams cheered loudly and worked together!</p>
   </div>
 
   <div class="photo-row two">
@@ -221,6 +236,23 @@
   <div class="game-done" id="gDone">&#127881; Great job! 你全部配對成功，太棒了！</div>
   <button class="game-reset" id="gReset" type="button">&#8635; Play again &middot; 再玩一次</button>
 </section>
+
+<section class="wwrap">
+  <div class="learn-head">
+    <span class="eyebrow">More Practice &middot; 更多練習</span>
+    <h2>Flashcards &amp; Quiz<br>單字卡與測驗</h2>
+  </div>
+  <div class="wwgrid">
+    <div class="wwcard rvl">
+      <div class="wwcard__ratio"><iframe src="https://wordwall.net/embed/1be563f86b014614bedea3429be72c8f?themeId=42&amp;templateId=70&amp;fontStackId=0" title="Sports Day vocabulary flashcards" loading="lazy" allowfullscreen></iframe></div>
+      <div class="wwcard__label">Flashcards &middot; 單字卡</div>
+    </div>
+    <div class="wwcard rvl">
+      <div class="wwcard__ratio"><iframe src="https://wordwall.net/embed/9a47ff88a6424ce895f07c545cb06e15?themeId=65&amp;templateId=5&amp;fontStackId=0" title="Sports Day quiz" loading="lazy" allowfullscreen></iframe></div>
+      <div class="wwcard__label">Quiz &middot; 小測驗</div>
+    </div>
+  </div>
+</section>
 </div></main>
 
 <nav class="lnav">
@@ -231,7 +263,7 @@
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.lead-photo,.photo-row,.en-body,.zhwrap,.learn,.vgame'));
+  var els=[].slice.call(document.querySelectorAll('.lead-photo,.photo-row,.en-body,.zhwrap,.learn,.vgame,.wwrap'));
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
