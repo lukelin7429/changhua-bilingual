@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://changhua-bilingual.org/schools/fangyuan/news/">
 <title>News · 校園消息 · Fangyuan Elementary School 芳苑國小</title>
-<meta name="description" content="Latest news and campus stories from Fangyuan Elementary School. 芳苑國小校園最新消息。">
+<meta name="description" content="Latest news and campus stories from Fangyuan Elementary School. Search all news in English or Chinese. 芳苑國小校園最新消息，支援中英文搜尋。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/fangyuan/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/fangyuan/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/fangyuan/favicon-180.png">
@@ -64,13 +64,29 @@
   .nsearch input::placeholder{color:var(--ink-soft);}
   .nsearch input:focus{border-color:var(--ocean);box-shadow:0 0 0 4px var(--ocean-soft);}
   .nsearch .ic{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:21px;color:var(--ocean);pointer-events:none;}
+  .nsearch .clr{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--ink-soft);background:none;border:0;cursor:pointer;display:none;line-height:1;padding:4px;}
+  .scount{text-align:center;color:var(--ink-soft);font-size:17px;font-family:'PingFang TC',sans-serif;margin:-22px auto 30px;min-height:24px;}
+  .noresult{display:none;text-align:center;color:var(--ink-soft);font-size:20px;font-family:'PingFang TC',sans-serif;padding:30px 0 10px;}
 
-  .empty-note{max-width:640px;margin:0 auto;text-align:center;background:var(--bg-soft);border:1.5px dashed var(--ocean);border-radius:18px;padding:44px 36px;}
-  .empty-note .ic{font-size:40px;margin-bottom:14px;}
-  .empty-note h3{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:28px;color:var(--ocean-deep);font-weight:600;margin-bottom:10px;}
-  .empty-note p{font-size:18px;color:var(--ink-soft);line-height:1.75;}
-  .empty-note p.zh{font-family:'PingFang TC',sans-serif;margin-top:6px;font-size:17px;}
-  .empty-note a{font-weight:700;}
+  .feat{display:grid;grid-template-columns:1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:40px;color:inherit;transition:transform .22s,box-shadow .22s;}
+  .feat:hover{transform:translateY(-3px);box-shadow:0 26px 50px -18px rgba(11,74,99,.34);}
+  @media(min-width:820px){.feat{grid-template-columns:1.05fr 1fr;}}
+  .feat__img{aspect-ratio:16/11;background:var(--ocean-soft);overflow:hidden;} .feat__img img{width:100%;height:100%;object-fit:cover;}
+  .feat__b{padding:32px 34px 36px;display:flex;flex-direction:column;justify-content:center;}
+  .feat__date{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sand-deep);}
+  .feat__t{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--ocean-deep);margin-top:6px;line-height:1.2;} .feat__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
+  .feat__p{font-size:19.5px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  .feat__cta{margin-top:16px;font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--sand-deep);font-size:20px;}
+
+  .news-grid{display:grid;grid-template-columns:1fr;gap:22px;}@media(min-width:600px){.news-grid{grid-template-columns:repeat(2,1fr);}}@media(min-width:920px){.news-grid{grid-template-columns:repeat(3,1fr);}}
+  .ncard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;color:inherit;}
+  .ncard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .ncard__img{aspect-ratio:16/11;background:var(--ocean-soft);overflow:hidden;} .ncard__img img{width:100%;height:100%;object-fit:cover;}
+  .ncard__b{padding:18px 22px 20px;flex:1;display:flex;flex-direction:column;}
+  .ncard__date{font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-deep);}
+  .ncard__t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--ocean-deep);line-height:1.2;margin-top:4px;} .ncard__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
+  .ncard__cta{margin-top:auto;padding-top:14px;color:var(--sand-deep);font-weight:700;font-size:18px;}
+  .note{text-align:center;color:var(--ink-soft);font-size:18px;font-family:'PingFang TC',sans-serif;margin-top:40px;} .note a{font-weight:600;}
 
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -106,22 +122,79 @@
 
 <section><div class="wrap">
   <div class="nsearch">
-    <input type="search" id="q" placeholder="Search news in English or Chinese… 搜尋新聞（中英文皆可）" aria-label="Search news" disabled>
+    <input type="search" id="q" placeholder="Search news in English or Chinese… 搜尋新聞（中英文皆可）" aria-label="Search news">
     <span class="ic">&#128269;</span>
+    <button class="clr" id="clr" aria-label="Clear">&times;</button>
   </div>
+  <p class="scount" id="scount"></p>
 
-  <div class="empty-note rvl">
-    <div class="ic">🌊</div>
-    <h3>Our first campus story is coming soon</h3>
-    <p>Check back for news from Fangyuan's rebuilt campus — or explore our <a href="../lessons/sea-culture/">Sea-Ox &amp; Oyster Culture</a> lesson in the meantime.</p>
-    <p class="zh">芳苑校園的第一則消息即將上線——歡迎先看看我們的<a href="../lessons/sea-culture/">海牛文化與蚵鄉記憶</a>課程。</p>
+  <a class="feat" href="library-visit/" data-q="summer study tour national library public information books borrowing e-book bear exhibition formosan black bear conservation reading literacy lifelong learning 暑假遊學 國立公共資訊圖書館 借書 電子書 有熊展 臺灣黑熊 保育 閱讀素養 終身學習 2026.07.01 芳苑國小">
+    <div class="feat__img"><img src="../news-img/library-visit-1.jpg" alt="A Summer Study Tour Into a World of Books"></div>
+    <div class="feat__b">
+      <div class="feat__date">2026.07.01 &middot; Latest</div>
+      <div class="feat__t">A Summer Study Tour Into a World of Books<small>暑假遊學，走進知識殿堂</small></div>
+      <p class="feat__p">Fangyuan's summer study students visit the National Library of Public Information — exploring reading resources, a black bear conservation exhibition, and e-books.</p>
+      <div class="feat__cta">Read the full story &rarr;</div>
+    </div>
+  </a>
+
+  <div class="news-grid" id="grid">
+
+    <a class="ncard" href="green-pioneers/" data-q="green pioneers environmental education recycling sorting plastic reduce sustainable yung-yi green energy materials 綠色小尖兵 環保教育 資源回收 分類 塑膠 減塑 永溢綠能材料 2026.06.30 芳苑國小">
+      <div class="ncard__img"><img src="../news-img/green-pioneers-1.jpg" alt="Green Pioneers environmental education event" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.06.30</div>
+        <div class="ncard__t">Green Pioneers<small>綠色小尖兵，環保從校園做起</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <a class="ncard" href="english-contest/" data-q="english contest dizi gui recitation kahoot sentence of the day festival english confidence courage brave 英語擂臺賽 弟子規 背誦 每日一句 節慶英語 自信 勇氣 2026.06.29 芳苑國小">
+      <div class="ncard__img"><img src="../news-img/english-contest-1.jpg" alt="English and Dizi Gui recitation contest" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.06.29</div>
+        <div class="ncard__t">Stepping Up<small>英語及弟子規擂臺賽</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <a class="ncard" href="kindergarten-term-end/" data-q="kindergarten term end putian temple blessing mazu grateful water play splash sunny 幼兒園期末活動 普天宮 祈福 媽祖 感恩 玩水 消暑 2026.06.24 芳苑國小">
+      <div class="ncard__img"><img src="../news-img/kindergarten-term-end-1.jpg" alt="Kindergarten end-of-term temple visit and water play" loading="lazy"></div>
+      <div class="ncard__b">
+        <div class="ncard__date">2026.06.24</div>
+        <div class="ncard__t">Kindergarten's End-of-Term Adventures<small>幼兒園期末活動分享</small></div>
+        <div class="ncard__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
   </div>
+  <p class="noresult" id="noresult">No stories matched your search. 找不到符合的消息。</p>
+
+  <p class="note">More campus stories are on the way. 更多校園消息陸續上線中。</p>
 </div></section>
 
 <script>
 (function(){
+  var q=document.getElementById('q'),clr=document.getElementById('clr'),scount=document.getElementById('scount'),noresult=document.getElementById('noresult');
+  var items=[].slice.call(document.querySelectorAll('[data-q]'));
+  function norm(s){return (s||'').toLowerCase();}
+  function run(){
+    var v=norm(q.value).trim();
+    clr.style.display=v?'block':'none';
+    var n=0;
+    items.forEach(function(el){
+      var hit=!v||norm(el.getAttribute('data-q')).indexOf(v)>-1;
+      el.style.display=hit?'':'none'; if(hit)n++;
+    });
+    noresult.style.display=(v&&n===0)?'block':'none';
+    scount.textContent=v?(n+' result'+(n===1?'':'s')+' · '+n+' 則'):'';
+  }
+  q.addEventListener('input',run);
+  clr.addEventListener('click',function(){q.value='';q.focus();run();});
+})();
+(function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.empty-note'));
+  var els=[].slice.call(document.querySelectorAll('.feat,.ncard'));
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){
