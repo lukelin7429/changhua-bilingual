@@ -1,31 +1,31 @@
 # WOTD Playlist 對齊 wotd.csv — 摘要報告
 
-產出日期：自動生成 / 來源 playlist：3,029 支 / 既有 wotd.csv：2164 唯一影片
+產出日期：自動生成 / 來源 playlist：3,029 支 / 既有 wotd.csv：2176 唯一影片
 
 ## 解析統計
 
 | 狀態 | 數量 | 說明 |
 |---|---:|---|
-| `ok` | 2907 | 學校名對齊 schools.yml 成功 |
-| `mcc_self` | 66 | 人師教育協會自製（非學校 contributor）|
+| `ok` | 2934 | 學校名對齊 schools.yml 成功 |
+| `mcc_self` | 68 | 人師教育協會自製（非學校 contributor）|
 | `ccc_ny` | 8 | CCC 紐約首府華社中文學校（跨組織）|
 | `out_of_county` | 39 | 非彰化縣學校（台中／南投等跨縣合作）|
-| `school_not_in_yml` | 4 | 彰化學校但 schools.yml 沒收錄 → **需補進 schools.yml** |
+| `school_not_in_yml` | 22 | 彰化學校但 schools.yml 沒收錄 → **需補進 schools.yml** |
 | `missing` | 5 | 描述沒夠線索抓到學校 → **手動查補** |
 
-句子抽取：sentence_1 命中 3027 / 3029
+句子抽取：sentence_1 命中 3074 / 3076
 
 ## 新增影片
 
-- Playlist 上但 wotd.csv 沒收錄：**865 支**
-- 已收錄：2164 支
+- Playlist 上但 wotd.csv 沒收錄：**900 支**
+- 已收錄：2176 支
 - → 詳見 `wotd_new_videos.csv`
 
 ## 去重決策
 
-- 重複群組（同 keyword + 同 sentence_1）：**356 組**
+- 重複群組（同 keyword + 同 sentence_1）：**358 組**
 - 規則：(1) 校影片數少的優先（讓更多學校露臉）(2) 鄉鎮代表性少的為 tiebreaker (3) video_id 穩定
-- 結果：864 支建議移除、356 支保留
+- 結果：864 支建議移除、358 支保留
 - → 詳見 `wotd_dedup_decisions.csv`
 
 ## 需要補進 schools.yml 的學校
@@ -34,7 +34,15 @@
 
 | 學校 | 影片數 |
 |---|---:|
+| 彰化縣芳苑鄉王功國小 | 9 |
 | 彰化縣鹿港鎮鹿東國小 | 4 |
+| 彰化縣溪州鄉潮洋國小 | 2 |
+| 彰化縣芳苑鄉芳苑國中 | 2 |
+| 彰化縣溪湖國小 | 1 |
+| 彰化縣田尾鄉田尾國中 | 1 |
+| 彰化縣溪州鄉溪陽國中 | 1 |
+| 彰化縣二水鄉王功國小 | 1 |
+| 彰化師員林市育英國小 | 1 |
 
 ## 描述沒線索的影片（11 支需手動查）
 
