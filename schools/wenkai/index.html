@@ -202,6 +202,12 @@
   .pillar .divider-tiny{height:1px;background:var(--line);margin:14px 0;}
   .pillar .zh-body{font-family:'PingFang TC',sans-serif;font-size:19.8px;color:var(--ink);line-height:1.85;}
 
+  /* ── WELCOME VIDEO ── */
+  .welcome{background:linear-gradient(180deg,var(--brick-soft) 0%,var(--cream) 100%);}
+  .welcome .player{max-width:900px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+  .welcome .player__ratio{position:relative;width:100%;aspect-ratio:16/9;}
+  .welcome .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
   /* ── WHY / ACHIEVEMENTS ── */
   .why{background:#fff;}
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -435,6 +441,27 @@
 </section>
 
 
+<!-- ── WELCOME VIDEO ── -->
+<section class="welcome" id="welcome">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meet Wenkai</div>
+      <h2>Welcome to Our School</h2>
+      <div class="h2-zh">歡迎來到文開國小</div>
+      <p class="lede">Say hello to Wenkai — a short welcome from our own campus.</p>
+    </div>
+    <div class="player rvl">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/IF_oalvXS4Y?rel=0"
+          title="Welcome to Wenkai Elementary School"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ── WHY / ACHIEVEMENTS ── -->
 <section class="why" id="why">
   <div class="wrap">
@@ -557,7 +584,7 @@
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.pillar,.about-photo,.principal-card,.why-card,.why-photo';
+  var sel='.pillar,.about-photo,.principal-card,.why-card,.why-photo,.welcome .player';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
