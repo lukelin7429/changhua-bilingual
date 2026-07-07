@@ -107,22 +107,25 @@ def footer_html():
 """.strip()
 
 
-def page_shell(title, content, current_path, extra_head=""):
+def page_shell(title, content, current_path, extra_head="", *, title_override=None, description=None):
     nav = nav_html(current_path)
     footer = footer_html()
+    page_title = title_override or f"{title} · Changhua Bilingual Hub"
+    page_description = description or "Bilingual education resources across Changhua County, Taiwan. 彰化雙語資源網 — 彰化縣雙語學校網站、外師介紹與教材資源。"
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} · Changhua Bilingual Hub</title>
-  <meta name="description" content="Bilingual education resources across Changhua County, Taiwan.">
+  <title>{page_title}</title>
+  <meta name="description" content="{page_description}">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
   <meta name="theme-color" content="#1f6e6e">
-  <meta property="og:title" content="{title} · Changhua Bilingual Hub">
+  <meta property="og:title" content="{page_title}">
+  <meta property="og:description" content="{page_description}">
   <meta property="og:image" content="/assets/logo/icon-512.png">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -416,8 +419,26 @@ def build_home(townships_data, schools_data, wotd_items):
 </section>
 """.strip()
 
-    extra_head = f"<script>window.HUB_TOWNSHIP_INDEX = {inline_idx};</script>"
-    return page_shell("Welcome", content, "/", extra_head)
+    jsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Changhua Bilingual Hub",
+        "alternateName": ["彰化雙語資源網", "Changhua Bilingual Resource Hub"],
+        "url": "https://changhua-bilingual.org/",
+        "logo": "https://changhua-bilingual.org/assets/logo/icon-512.png",
+        "description": "A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County, Taiwan.",
+        "areaServed": {"@type": "AdministrativeArea", "name": "Changhua County, Taiwan"},
+        "email": "luke@mycultureconnect.org",
+    }, ensure_ascii=False)
+    extra_head = (
+        f"<script>window.HUB_TOWNSHIP_INDEX = {inline_idx};</script>\n"
+        f'  <script type="application/ld+json">{jsonld}</script>'
+    )
+    return page_shell(
+        "Welcome", content, "/", extra_head,
+        title_override="彰化雙語資源網 Changhua Bilingual Hub",
+        description=f"彰化雙語資源網（Changhua Bilingual Hub）— 由人師教育協會與彰化縣國際教育暨英語教育資源中心共同維護，收錄{schools_rounded}所彰化縣雙語學校網站、外師介紹與教材資源。A directory of {schools_rounded} bilingual school sites, foreign English teacher profiles, and classroom resources across Changhua County, Taiwan.",
+    )
 
 
 def build_schools(townships_data, schools_data):
