@@ -94,10 +94,22 @@
     <a href="https://changhua-bilingual.org/festivals/?from=hsinmin" target="_blank" rel="noopener">Festivals</a>
   </div>
 </div></div></nav>
-<header class="pbanner" style="background:linear-gradient(135deg,#8a3f20 0%,#c2613a 50%,#b8862a 100%);">
+<header class="pbanner" style="background-image:url('../../news-img/welcome-teacher-1.jpg');">
   <div class="bn"><span class="eyebrow">News &middot; 2026.07.07</span><h1>Welcome, Teacher Wu! &#127881;<span class="zh">歡迎孟姿老師加入新民大家庭</span></h1></div>
 </header>
 <main><div class="wrap"><div class="article">
+  <div class="carousel" id="carousel">
+    <div class="carousel__track" id="carTrack">
+      <div class="carousel__slide"><img src="../../news-img/welcome-teacher-1.jpg" alt="歡迎吳孟姿老師加入新民大家庭"></div>
+      <div class="carousel__slide"><img src="../../news-img/welcome-teacher-2.jpg" alt="孟姿老師與新民師長合影" loading="lazy"></div>
+    </div>
+    <button class="carousel__btn carousel__prev" aria-label="Previous">&#8592;</button>
+    <button class="carousel__btn carousel__next" aria-label="Next">&#8594;</button>
+    <div class="carousel__dots" id="carDots">
+      <button class="carousel__dot is-active"></button>
+      <button class="carousel__dot"></button>
+    </div>
+  </div>
   <div class="en-body">
     <p>Hsinmin Elementary is thrilled to welcome a new member to our family this summer — <strong>Ms. Wu Meng-Zi (吳孟姿老師)</strong>! With her warm smile, enthusiastic teaching style, and nearly a decade of classroom experience, we know she is going to bring tremendous energy and love to our students.</p>
 
@@ -162,6 +174,14 @@
 </div></div></main>
 <script>
 (function(){
+  var track=document.getElementById('carTrack');
+  var dots=[].slice.call(document.querySelectorAll('.carousel__dot'));
+  var total=2,cur=0;
+  function goTo(n){cur=(n+total)%total;track.style.transform='translateX(-'+cur*100+'%)';dots.forEach(function(d,i){d.classList.toggle('is-active',i===cur);});}
+  document.querySelector('.carousel__prev').addEventListener('click',function(){goTo(cur-1);});
+  document.querySelector('.carousel__next').addEventListener('click',function(){goTo(cur+1);});
+  dots.forEach(function(d,i){d.addEventListener('click',function(){goTo(i);});});
+  setInterval(function(){goTo(cur+1);},4800);
   var voices=[];
   function load(){voices=(window.speechSynthesis?speechSynthesis.getVoices():[])||[];}
   load();if(typeof speechSynthesis!=='undefined')speechSynthesis.onvoiceschanged=load;
