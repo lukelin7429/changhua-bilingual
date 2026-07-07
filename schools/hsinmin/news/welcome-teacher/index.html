@@ -83,6 +83,13 @@
   .opt.is-wrong{border-color:#c2493a;background:#fbe4e1;color:#8a2f24;}.opt.is-wrong .key{background:#c2493a;color:#fff;border-color:#c2493a;}
   .opt:disabled{cursor:default;}.qz__fb{display:none;margin-top:12px;font-size:16px;line-height:1.6;border-radius:10px;padding:11px 14px;}.qz__fb.show{display:block;}.qz__fb.ok{background:#e3f5ea;color:#1c6b40;}.qz__fb.no{background:#fbe4e1;color:#8a2f24;}.qz__fb b{font-weight:700;}
   .qz__score{margin-top:18px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:var(--teal-deep);min-height:30px;}
+  .photo-grid{display:grid;gap:8px;margin:36px 0 4px;border-radius:18px;overflow:hidden;}
+  .photo-grid img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;}
+  .pg-2{grid-template-columns:repeat(2,1fr);}
+  .pg-3{grid-template-columns:repeat(3,1fr);}
+  .pg-4{grid-template-columns:repeat(2,1fr);}
+  .pg-5{grid-template-columns:repeat(2,1fr);}.pg-5 img:first-child{grid-column:span 2;}
+  .pg-6{grid-template-columns:repeat(3,1fr);}
 </style>
 </head>
 <body>
@@ -98,17 +105,9 @@
   <div class="bn"><span class="eyebrow">News &middot; 2026.07.07</span><h1>Welcome, Teacher Wu! &#127881;<span class="zh">歡迎孟姿老師加入新民大家庭</span></h1></div>
 </header>
 <main><div class="wrap"><div class="article">
-  <div class="carousel" id="carousel">
-    <div class="carousel__track" id="carTrack">
-      <div class="carousel__slide"><img src="../../news-img/welcome-teacher-1.jpg" alt="歡迎吳孟姿老師加入新民大家庭"></div>
-      <div class="carousel__slide"><img src="../../news-img/welcome-teacher-2.jpg" alt="孟姿老師與新民師長合影" loading="lazy"></div>
-    </div>
-    <button class="carousel__btn carousel__prev" aria-label="Previous">&#8592;</button>
-    <button class="carousel__btn carousel__next" aria-label="Next">&#8594;</button>
-    <div class="carousel__dots" id="carDots">
-      <button class="carousel__dot is-active"></button>
-      <button class="carousel__dot"></button>
-    </div>
+  <div class="photo-grid pg-2">
+    <img src="../../news-img/welcome-teacher-1.jpg" alt="歡迎吳孟姿老師加入新民大家庭">
+    <img src="../../news-img/welcome-teacher-2.jpg" alt="孟姿老師與新民師長合影" loading="lazy">
   </div>
   <div class="en-body">
     <p>Hsinmin Elementary is thrilled to welcome a new member to our family this summer — <strong>Ms. Wu Meng-Zi (吳孟姿老師)</strong>! With her warm smile, enthusiastic teaching style, and nearly a decade of classroom experience, we know she is going to bring tremendous energy and love to our students.</p>
@@ -174,14 +173,6 @@
 </div></div></main>
 <script>
 (function(){
-  var track=document.getElementById('carTrack');
-  var dots=[].slice.call(document.querySelectorAll('.carousel__dot'));
-  var total=2,cur=0;
-  function goTo(n){cur=(n+total)%total;track.style.transform='translateX(-'+cur*100+'%)';dots.forEach(function(d,i){d.classList.toggle('is-active',i===cur);});}
-  document.querySelector('.carousel__prev').addEventListener('click',function(){goTo(cur-1);});
-  document.querySelector('.carousel__next').addEventListener('click',function(){goTo(cur+1);});
-  dots.forEach(function(d,i){d.addEventListener('click',function(){goTo(i);});});
-  setInterval(function(){goTo(cur+1);},4800);
   var voices=[];
   function load(){voices=(window.speechSynthesis?speechSynthesis.getVoices():[])||[];}
   load();if(typeof speechSynthesis!=='undefined')speechSynthesis.onvoiceschanged=load;

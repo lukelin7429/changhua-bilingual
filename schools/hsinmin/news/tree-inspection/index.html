@@ -44,16 +44,13 @@
   .lnav a{padding:10px 18px;border-radius:10px;border:2px solid var(--line);font-weight:700;font-size:18px;color:var(--plum-deep);background:#fff;}.lnav a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
   .lnav a.center{background:var(--plum-deep);color:#fff;border-color:var(--plum-deep);}
   .footer{background:var(--plum-deep);color:rgba(255,255,255,.72);text-align:center;padding:40px 0 34px;font-size:18px;margin-top:56px;}.footer a{color:var(--gold-soft);}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:8px;}
-  .carousel{position:relative;margin:42px 0 6px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:var(--plum-soft);}
-  .carousel__track{display:flex;transition:transform .42s cubic-bezier(.4,0,.2,1);}
-  .carousel__slide{flex:0 0 100%;aspect-ratio:4/3;overflow:hidden;}
-  @media(min-width:600px){.carousel__slide{aspect-ratio:16/10;}}
-  .carousel__slide img{width:100%;height:100%;object-fit:cover;display:block;}
-  .carousel__btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.82);border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:background .15s;}
-  .carousel__btn:hover{background:#fff;}.carousel__prev{left:12px;}.carousel__next{right:12px;}
-  .carousel__dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;}
-  .carousel__dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);border:0;cursor:pointer;transition:background .2s,transform .2s;padding:0;}
-  .carousel__dot.is-active{background:#fff;transform:scale(1.25);}
+  .photo-grid{display:grid;gap:8px;margin:36px 0 4px;border-radius:18px;overflow:hidden;}
+  .photo-grid img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;}
+  .pg-2{grid-template-columns:repeat(2,1fr);}
+  .pg-3{grid-template-columns:repeat(3,1fr);}
+  .pg-4{grid-template-columns:repeat(2,1fr);}
+  .pg-5{grid-template-columns:repeat(2,1fr);}.pg-5 img:first-child{grid-column:span 2;}
+  .pg-6{grid-template-columns:repeat(3,1fr);}
   .lz{margin:48px auto 0;max-width:780px;background:linear-gradient(180deg,var(--teal-soft),#fff 58%);border:1px solid var(--line);border-radius:22px;padding:34px 24px 40px;box-shadow:var(--shadow-sm);}
   @media(min-width:720px){.lz{padding:42px 38px 48px;}}
   .lz__eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);background:#fff;border:1px solid var(--teal-soft);border-radius:20px;padding:5px 15px;margin-bottom:14px;}
@@ -105,19 +102,10 @@
   <div class="bn"><span class="eyebrow">News &middot; 2026.07.01</span><h1>Caring for Every Tree<span class="zh">守護校園綠樹，共同打造安全學習環境</span></h1></div>
 </header>
 <main><div class="wrap"><div class="article">
-  <div class="carousel" id="carousel">
-    <div class="carousel__track" id="carTrack">
-      <div class="carousel__slide"><img src="../../news-img/tree-inspection-1.jpg" alt="校園樹木健康檢查"></div>
-      <div class="carousel__slide"><img src="../../news-img/tree-inspection-2.jpg" alt="專家巡視校園樹木" loading="lazy"></div>
-      <div class="carousel__slide"><img src="../../news-img/tree-inspection-3.jpg" alt="樹木風險評估記錄" loading="lazy"></div>
-    </div>
-    <button class="carousel__btn carousel__prev" aria-label="Previous">&#8592;</button>
-    <button class="carousel__btn carousel__next" aria-label="Next">&#8594;</button>
-    <div class="carousel__dots" id="carDots">
-      <button class="carousel__dot is-active"></button>
-      <button class="carousel__dot"></button>
-      <button class="carousel__dot"></button>
-    </div>
+  <div class="photo-grid pg-3">
+    <img src="../../news-img/tree-inspection-1.jpg" alt="校園樹木健康檢查">
+    <img src="../../news-img/tree-inspection-2.jpg" alt="專家巡視校園樹木" loading="lazy">
+    <img src="../../news-img/tree-inspection-3.jpg" alt="樹木風險評估記錄" loading="lazy">
   </div>
 
   <div class="en-body">
@@ -177,14 +165,6 @@
 </div></div></main>
 <script>
 (function(){
-  var track=document.getElementById('carTrack');
-  var dots=[].slice.call(document.querySelectorAll('.carousel__dot'));
-  var total=3,cur=0;
-  function goTo(n){cur=(n+total)%total;track.style.transform='translateX(-'+cur*100+'%)';dots.forEach(function(d,i){d.classList.toggle('is-active',i===cur);});}
-  document.querySelector('.carousel__prev').addEventListener('click',function(){goTo(cur-1);});
-  document.querySelector('.carousel__next').addEventListener('click',function(){goTo(cur+1);});
-  dots.forEach(function(d,i){d.addEventListener('click',function(){goTo(i);});});
-  setInterval(function(){goTo(cur+1);},4800);
   var voices=[];
   function load(){voices=(window.speechSynthesis?speechSynthesis.getVoices():[])||[];}
   load();if(typeof speechSynthesis!=='undefined')speechSynthesis.onvoiceschanged=load;
