@@ -119,8 +119,8 @@ section:last-of-type{border-bottom:none;}
 @media(min-width:680px){.cards{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:980px){.cards.three{grid-template-columns:repeat(3,1fr);}}
 .lcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--gold));border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);color:inherit;}
-.lcard .cover{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:58px;color:#fff;background:linear-gradient(135deg,var(--accent,var(--navy)),rgba(0,0,0,.16));}
-.lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.lcard .cover{position:relative;padding-top:56.25%;background:linear-gradient(135deg,var(--accent,var(--navy)),rgba(0,0,0,.16));flex-shrink:0;}
+.lcard .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .lcard .body{padding:22px 24px 26px;}
 .lcard h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy-deep);font-weight:700;line-height:1.15;}
 .lcard .zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:600;margin-top:5px;}
@@ -156,8 +156,8 @@ section:last-of-type{border-bottom:none;}
 .nstory__date{font-size:14px;color:var(--ink-soft);letter-spacing:.5px;margin-top:12px;font-weight:600;}
 .nstory__hook{font-size:18px;color:var(--ink);margin-top:14px;line-height:1.65;}
 .nstory__hook-zh{font-size:16px;color:var(--ink-soft);margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);line-height:1.7;}
-.nstory__img{aspect-ratio:16/9;margin:-28px -30px 20px;border-radius:20px 20px 0 0;overflow:hidden;}
-.nstory__img img{width:100%;height:100%;object-fit:cover;}
+.nstory__img{position:relative;padding-top:56.25%;margin:-28px -30px 20px;border-radius:20px 20px 0 0;overflow:hidden;flex-shrink:0;}
+.nstory__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 
 /* ===== Honor cards ===== */
 .ofeed{display:grid;grid-template-columns:1fr;gap:14px;}
