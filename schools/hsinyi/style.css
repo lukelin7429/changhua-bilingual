@@ -287,6 +287,36 @@ section:last-of-type{border-bottom:none;}
 .ft__bottom a{color:var(--amber-soft);border-bottom:1px dashed rgba(250,235,208,.5);}
 .ft__bottom a:hover{color:#fff;}
 
+/* ===== Vocabulary reference grid ===== */
+.vocab-ref{display:grid;grid-template-columns:1fr;gap:10px;margin-top:28px;}
+@media(min-width:640px){.vocab-ref{grid-template-columns:1fr 1fr;gap:12px;}}
+@media(min-width:960px){.vocab-ref{grid-template-columns:1fr 1fr 1fr;}}
+.vref{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow-sm);}
+.vref__word{display:block;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--royal-deep);}
+.vref__zh{display:block;font-size:14px;color:var(--ink-soft);margin-top:2px;}
+
+/* ===== Matching game ===== */
+.vgame{max-width:820px;margin:40px auto 0;}
+.game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-bottom:18px;}
+.game-score b{color:var(--royal);font-size:23px;}
+.game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.gcol{display:flex;flex-direction:column;gap:10px;}
+.gtile{font-family:inherit;font-size:18px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:13px 10px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+.gtile.zh{font-family:'PingFang TC',sans-serif;}
+.gtile:hover{border-color:var(--amber);}
+.gtile.sel{border-color:var(--royal);background:var(--royal-soft);color:var(--royal-deep);}
+.gtile.done{background:#e9f7ec;border-color:#5cb274;color:#2f8049;cursor:default;}
+.gtile.pop{animation:gpop .5s;}
+@keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+.gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;}
+@keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--royal-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;}
+.game-reset:hover{background:var(--amber-soft);border-color:var(--amber);}
+.game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:22px;font-weight:700;color:var(--royal-deep);}
+.game-done.show{display:block;animation:gpop .55s;}
+.confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+@keyframes cfall{to{transform:translateY(105vh) rotate(540deg);opacity:.9;}}
+
 /* ===== reveal-fx ===== */
 .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
 .rvl.in{opacity:1;transform:none;}
