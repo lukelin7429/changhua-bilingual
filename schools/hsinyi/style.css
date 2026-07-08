@@ -51,6 +51,8 @@ a:hover{color:var(--amber-deep);}
 .chero::before{width:320px;height:320px;left:-70px;top:-90px;opacity:.5;animation:heroOrb 15s ease-in-out infinite,heroGlow 7s ease-in-out infinite;}
 .chero::after{width:240px;height:240px;right:7%;bottom:-30px;opacity:.4;animation:heroOrb 19s ease-in-out infinite reverse,heroGlow 9s ease-in-out infinite;}
 .chero__fx{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.18) 50%,transparent 68%);background-size:240% 100%;animation:heroSweep 6.5s linear infinite;}
+/* the white glow orbs + sweep are designed for the flat-gradient hero; on a real photo they just wash the colours out, so switch them off */
+.chero--photo::before,.chero--photo::after,.chero--photo .chero__fx{display:none;}
 .chero__inner{position:relative;z-index:1;max-width:var(--max);margin:0 auto;width:100%;padding:0 24px 58px;}
 .chero__inner>*{opacity:0;transform:translateY(22px);animation:bandUp .9s cubic-bezier(.2,.7,.2,1) forwards;}
 .chero__inner h1{animation-delay:.12s;}
