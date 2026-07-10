@@ -241,6 +241,47 @@ section:last-of-type{border-bottom:none;}
 .office__list .ep{flex:0 0 auto;font-family:'Playfair Display',serif;color:var(--accent,var(--green));font-weight:700;font-size:13px;letter-spacing:1.5px;}
 .office__list .zh-sub{display:block;margin-top:4px;font-size:16px;color:var(--ink-soft);}
 
+/* ===== Course hub cards (lessons overview → word/, festivals/) ===== */
+.course-list{display:flex;flex-direction:column;gap:26px;}
+.course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+@media(min-width:760px){.course{grid-template-columns:260px 1fr;}}
+.course:hover{transform:translateY(-5px);box-shadow:var(--shadow);color:inherit;}
+.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px 24px;background:linear-gradient(135deg,var(--accent,var(--green)),rgba(0,0,0,.16));}
+.course__emoji{font-size:76px;line-height:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25));transition:transform .3s;}
+.course:hover .course__emoji{transform:scale(1.08) rotate(-4deg);}
+.course__badge{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:99px;}
+.course__body{padding:28px 30px 30px;display:flex;flex-direction:column;justify-content:center;}
+.course__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,var(--gold-deep));}
+.course__t{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--green-deep);line-height:1.15;margin-top:6px;}
+.course__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+.course__desc{font-size:18px;color:var(--ink-soft);line-height:1.65;margin-top:14px;}
+.course__desc .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:6px;}
+.course__cta{margin-top:18px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:#fff;background:var(--accent,var(--green));padding:11px 22px;border-radius:12px;transition:background .15s,transform .15s;}
+.course:hover .course__cta{background:var(--green-deep);transform:translateY(-2px);}
+
+/* ===== Word-of-the-Day vocab cards (video + two example sentences) ===== */
+.vocabs{display:grid;grid-template-columns:1fr;gap:30px;margin-top:36px;}
+@media(min-width:820px){.vocabs{grid-template-columns:1fr 1fr;}}
+.vc{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;border-top:8px solid var(--accent,var(--gold));}
+.vc__num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-soft);padding:6px 18px;}
+.vc__head{padding:16px 22px 12px;}
+.vc__term{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--green-deep);line-height:1.15;}
+.vc__pos{font-family:'Inter',sans-serif;font-size:.4em;color:var(--ink-soft);font-style:italic;font-weight:500;letter-spacing:.5px;margin-left:8px;vertical-align:middle;}
+.vc__zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:600;margin-top:4px;}
+.vc__video{position:relative;width:100%;padding-top:56.25%;background:#000;}
+.vc__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vc__body{padding:18px 22px 24px;flex:1;}
+.vc__exs{display:flex;flex-direction:column;gap:10px;}
+.vc__ex{border-radius:12px;padding:12px 16px;}
+.vc__ex--1{background:var(--gold-soft);border-left:5px solid var(--gold);}
+.vc__ex--2{background:var(--green-soft);border-left:5px solid var(--green);}
+.vc__ex .en{font-size:16px;color:var(--ink);font-weight:600;line-height:1.55;}
+.vc__ex .en b{font-weight:800;color:var(--green-deep);}
+.vc__ex .zh{font-size:14px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+.crumb{font-size:15px;color:var(--ink-soft);}
+.crumb a{color:var(--green-deep);text-decoration:none;font-weight:700;}
+.crumb a:hover{text-decoration:underline;}
+
 /* big feature card (lessons intro) */
 .feature{display:grid;grid-template-columns:1fr;gap:0;background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--gold));border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);color:inherit;}
 @media(min-width:760px){.feature{grid-template-columns:.85fr 1fr;}}
