@@ -95,6 +95,15 @@ section.po-body+section.po-body{padding-top:0;}
 .po-lineage__list .no{flex:0 0 auto;font-family:'Cormorant Garamond',serif;color:var(--brick);font-weight:700;font-size:16px;letter-spacing:1.2px;min-width:30px;}
 .po-lineage__list li.is-current{background:linear-gradient(90deg,var(--brick-soft) 0%,#fff 80%);border-radius:8px;padding:12px 14px;border-bottom:none;font-weight:700;color:var(--brick-deep);}
 
+/* principal in action gallery */
+.po-gallery{background:linear-gradient(180deg,#fff 0%,var(--brick-soft) 100%);}
+.po-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+.po-g-photo{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.po-g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.po-g-photo:hover img{transform:scale(1.06);}
+.po-g-photo .cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(20,10,6,.82) 0%,transparent 100%);color:#fff;padding:14px 14px 10px;font-family:'PingFang TC',sans-serif;font-size:15.4px;}
+@media(max-width:760px){.po-gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
 /* six hearts values */
 .po-values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:30px 0;}
 .po-value{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow-sm);border-top:6px solid var(--brick);transition:transform .25s, box-shadow .25s;}
@@ -249,6 +258,28 @@ section.po-body+section.po-body{padding-top:0;}
       <div class="po-poem__sign">黑貓校長，歡迎大家蒞臨！
         <span>The "Black Cat Principal" welcomes you all!</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPAL IN ACTION -->
+<section class="po-body po-gallery">
+  <div class="wrap">
+    <div class="wrap-narrow" style="padding:0;">
+      <h2 class="rvl">Principal in Action
+        <span class="zh">校長身影</span>
+      </h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19.8px;color:var(--ink);margin:14px 0 4px;line-height:1.55;" class="rvl">
+        The poem says it best &mdash; what Principal Chou loves most is a child's honest, innocent heart.
+      </p>
+      <p style="font-family:'PingFang TC',sans-serif;font-size:17.6px;color:var(--ink-soft);margin-bottom:8px;" class="rvl">
+        就像詩裡寫的——校長最愛的，是孩子的赤子之心。
+      </p>
+    </div>
+    <div class="po-gallery-grid">
+      <div class="po-g-photo rvl"><img src="../principal/action-1.jpg" alt="Principal Chou sharing a casual snack moment with Fuchao students" loading="lazy"><div class="cap">A Casual Moment · 輕鬆的日常</div></div>
+      <div class="po-g-photo rvl"><img src="../principal/action-2.jpg" alt="Principal Chou with students holding Children's Day gifts donated by Mr. Huang Guo-kui" loading="lazy"><div class="cap">Children's Day Gifts · 感謝黃國魁先生捐贈</div></div>
+      <div class="po-g-photo rvl"><img src="../principal/action-3.jpg" alt="Principal Chou working alongside students in the school garden at sunrise" loading="lazy"><div class="cap">In the Garden Together · 帶著孩子下田</div></div>
     </div>
   </div>
 </section>
