@@ -26,7 +26,7 @@ a:hover{color:var(--sage-deep);}
 .tb{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:11px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
 .tb__inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
 .tb__brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.tb__logo{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;background:linear-gradient(135deg,var(--brick),var(--brick-deep));box-shadow:0 4px 10px -2px rgba(125,44,12,.30);flex-shrink:0;}
+.tb__logo{width:44px;height:44px;object-fit:contain;flex-shrink:0;display:block;}
 .tb__name{font-family:'Playfair Display','PingFang TC',serif;font-size:18px;font-weight:700;color:var(--brick-deep);line-height:1.1;}
 .tb__name small{display:block;font-family:'PingFang TC',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:3px;letter-spacing:.04em;}
 .tb__nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;}
@@ -208,6 +208,20 @@ section:last-of-type{border-bottom:none;}
 .vc__ex .zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.55;font-family:'PingFang TC',sans-serif;}
 .say{background:var(--accent,var(--brick));color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;vertical-align:middle;margin-left:8px;transition:transform .18s,background .18s;}
 .say:hover{transform:scale(1.1);}
+
+/* ===== Photo gallery grid (campus life / principal in action) ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:880px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+.g-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3;}
+.g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.g-photo:hover img{transform:scale(1.06);}
+.g-photo .g-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(14,32,64,.82) 0%,transparent 100%);color:#fff;padding:28px 14px 12px;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:500;letter-spacing:.02em;}
+
+/* ===== Principal portrait ===== */
+.pportrait{margin:6px auto 2px;max-width:420px;}
+.pportrait img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;border-radius:20px;box-shadow:var(--shadow);display:block;border:1px solid var(--line);}
+.pportrait figcaption{margin-top:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;color:var(--sage-deep);font-weight:700;text-align:center;}
+.pportrait figcaption small{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
 
 /* ===== Office intro cards (admin team) ===== */
 .staff-grid{display:grid;grid-template-columns:1fr;gap:18px;}
