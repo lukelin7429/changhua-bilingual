@@ -223,6 +223,19 @@ section:last-of-type{border-bottom:none;}
 .pportrait figcaption{margin-top:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:19px;color:var(--sage-deep);font-weight:700;text-align:center;}
 .pportrait figcaption small{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
 
+/* ===== History timeline ===== */
+.timeline{position:relative;padding-left:42px;}
+.timeline::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:4px;background:linear-gradient(180deg,var(--brick) 0%,var(--sage) 100%);border-radius:2px;}
+.tl-item{position:relative;padding-bottom:28px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:'';position:absolute;left:-34px;top:8px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--brick);box-shadow:0 0 0 4px var(--cream);}
+.tl-year{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--brick-deep);line-height:1.1;letter-spacing:.5px;}
+@media(min-width:720px){.tl-year{font-size:34px;}}
+.tl-event{font-family:'Playfair Display',serif;font-size:21px;color:var(--sage-deep);font-weight:700;margin-top:6px;line-height:1.35;}
+@media(min-width:720px){.tl-event{font-size:24px;}}
+.tl-detail{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:5px;line-height:1.55;}
+@media(min-width:720px){.tl-detail{font-size:19px;}}
+
 /* ===== Office intro cards (admin team) ===== */
 .staff-grid{display:grid;grid-template-columns:1fr;gap:18px;}
 @media(min-width:640px){.staff-grid{grid-template-columns:1fr 1fr;}}
