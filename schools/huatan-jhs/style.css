@@ -243,6 +243,23 @@ section:last-of-type{border-bottom:none;}
 .tl-detail{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:5px;line-height:1.55;}
 @media(min-width:720px){.tl-detail{font-size:19px;}}
 
+/* ===== Course cards (Lessons hub) ===== */
+.course-list{display:flex;flex-direction:column;gap:26px;}
+.course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+@media(min-width:720px){.course{grid-template-columns:260px 1fr;}}
+.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 24px;background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);}
+.course__emoji{font-size:76px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));}
+.course__badge{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:99px;}
+.course--soon .course__art{background:linear-gradient(135deg,#8a94a8 0%,#5c6478 100%);}
+.course__body{padding:26px 28px 30px;display:flex;flex-direction:column;justify-content:center;}
+.course__no{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brick);}
+.course__t{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--sage-deep);line-height:1.15;margin-top:6px;}
+.course__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+.course__desc{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+.course__cta{margin-top:18px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;background:var(--brick);padding:11px 22px;border-radius:12px;}
+.course:hover .course__cta{background:var(--brick-deep);}
+.course__cta--soon{margin-top:18px;display:inline-flex;align-self:flex-start;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--sage-deep);background:var(--sage-soft);padding:11px 22px;border-radius:12px;}
+
 /* ===== Office intro cards (admin team) ===== */
 .staff-grid{display:grid;grid-template-columns:1fr;gap:18px;}
 @media(min-width:640px){.staff-grid{grid-template-columns:1fr 1fr;}}
