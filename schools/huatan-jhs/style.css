@@ -167,12 +167,12 @@ section:last-of-type{border-bottom:none;}
 .lcard .zh{font-family:'PingFang TC',sans-serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:6px;}
 
 /* ===== Honor badge (Five-Star Flagship School) ===== */
-.honor-badge-wrap{text-align:center;margin-bottom:36px;}
-.honor-badge{display:inline-block;background:linear-gradient(160deg,#f3cb5e 0%,#eabb42 45%,#c98f1f 100%);border:2px solid #a9741a;border-top:7px solid var(--brick);color:#3b2a08;padding:24px 32px 22px;border-radius:24px;box-shadow:0 16px 34px -14px rgba(125,74,10,.55);transition:transform .22s,box-shadow .22s;max-width:440px;animation:badgeGlow 3.2s ease-in-out infinite;}
-@media(min-width:720px){.honor-badge{padding:30px 52px 26px;max-width:520px;}}
+.honor-badge-wrap{margin-bottom:36px;}
+.honor-badge{display:flex;align-items:center;gap:18px;width:100%;background:linear-gradient(120deg,#f3cb5e 0%,#eabb42 45%,#c98f1f 100%);border:2px solid #a9741a;border-left:9px solid var(--brick);color:#3b2a08;padding:22px 20px;border-radius:20px;box-shadow:0 16px 34px -14px rgba(125,74,10,.55);transition:transform .22s,box-shadow .22s;animation:badgeGlow 3.2s ease-in-out infinite;}
+@media(min-width:720px){.honor-badge{padding:30px 40px;gap:28px;border-radius:24px;}}
 .honor-badge:hover{color:#3b2a08;transform:translateY(-3px);box-shadow:0 22px 42px -16px rgba(125,74,10,.6);}
 @keyframes badgeGlow{0%,100%{box-shadow:0 16px 34px -14px rgba(125,74,10,.55),0 0 0 0 rgba(234,187,66,0);}50%{box-shadow:0 16px 34px -14px rgba(125,74,10,.55),0 0 34px 8px rgba(234,187,66,.5);}}
-.honor-badge__stars{font-size:26px;letter-spacing:.12em;color:#fff6db;}
+.honor-badge__stars{flex-shrink:0;font-size:22px;letter-spacing:.1em;color:#fff6db;}
 @media(min-width:720px){.honor-badge__stars{font-size:32px;}}
 .honor-badge__stars span{display:inline-block;animation:starTwinkle 2.4s ease-in-out infinite;text-shadow:0 2px 3px rgba(122,68,8,.55);}
 .honor-badge__stars span:nth-child(1){animation-delay:0s;}
@@ -182,11 +182,14 @@ section:last-of-type{border-bottom:none;}
 .honor-badge__stars span:nth-child(5){animation-delay:.6s;}
 @keyframes starTwinkle{0%,100%{opacity:.8;transform:scale(1);text-shadow:0 2px 3px rgba(122,68,8,.55);}50%{opacity:1;transform:scale(1.18);text-shadow:0 0 6px rgba(255,255,255,.95),0 0 14px rgba(255,240,180,.85);}}
 @media(prefers-reduced-motion:reduce){.honor-badge,.honor-badge__stars span{animation:none;}}
-.honor-badge__t{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;letter-spacing:.01em;margin-top:10px;line-height:1.2;}
-@media(min-width:720px){.honor-badge__t{font-size:30px;}}
-.honor-badge__zh{font-family:'PingFang TC',sans-serif;font-size:16px;font-weight:600;margin-top:8px;color:#5a3f0d;}
-@media(min-width:720px){.honor-badge__zh{font-size:18px;}}
-.honor-badge__cta{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;margin-top:16px;padding-top:14px;border-top:1px solid rgba(59,42,8,.25);color:#7a3e07;}
+.honor-badge__body{flex:1;min-width:0;text-align:left;}
+.honor-badge__t{font-family:'Playfair Display',serif;font-size:19px;font-weight:800;letter-spacing:.01em;line-height:1.25;}
+@media(min-width:720px){.honor-badge__t{font-size:28px;}}
+.honor-badge__zh{font-family:'PingFang TC',sans-serif;font-size:14px;font-weight:600;margin-top:5px;color:#5a3f0d;}
+@media(min-width:720px){.honor-badge__zh{font-size:17px;margin-top:7px;}}
+.honor-badge__arrow{flex-shrink:0;font-size:34px;font-weight:700;line-height:1;color:#7a3e07;transition:transform .2s;}
+@media(min-width:720px){.honor-badge__arrow{font-size:44px;}}
+.honor-badge:hover .honor-badge__arrow{transform:translateX(5px);}
 
 /* ===== Pillars (home) ===== */
 .pillars{display:grid;grid-template-columns:1fr;gap:22px;}
