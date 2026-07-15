@@ -68,8 +68,17 @@
   @media (min-width:720px){ .item__body .en{ font-size:21px; } }
   .item__body .zh{font-size:18px;color:var(--ink-soft);line-height:1.7;margin-top:10px;}
   @media (min-width:720px){ .item__body .zh{ font-size:20px; } }
-  .item__media{width:100%;background:var(--cream);}
-  .item__media img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;}
+  .carousel{position:relative;width:100%;background:var(--cream);overflow:hidden;aspect-ratio:16/10;}
+  .carousel__track{display:flex;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);}
+  .carousel__track img{min-width:100%;width:100%;height:100%;object-fit:cover;display:block;}
+  .carousel__nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(20,15,10,.36);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s,background .15s;}
+  .carousel:hover .carousel__nav{opacity:1;}
+  .carousel__nav:hover{background:rgba(20,15,10,.6);}
+  .carousel__nav--prev{left:12px;} .carousel__nav--next{right:12px;}
+  .carousel__dots{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:7px;justify-content:center;z-index:2;}
+  .carousel__dots button{width:9px;height:9px;padding:0;border:0;border-radius:999px;background:rgba(255,255,255,.6);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.45);transition:width .2s,background .2s;}
+  .carousel__dots button.is-active{background:#fff;width:22px;}
+  @media (max-width:720px){ .carousel__nav{opacity:.9;width:38px;height:38px;} }
   .item__cat .dot{color:var(--ink-soft);opacity:.45;margin:0 8px;font-weight:400;}
   .item__cat .date{color:var(--ink-soft);font-weight:600;letter-spacing:.5px;}
   .feed__label{font-family:'Playfair Display','PingFang TC',serif;font-size:20px;font-weight:700;color:var(--ink-soft);text-align:center;margin:14px 0 2px;letter-spacing:1px;}
@@ -119,7 +128,13 @@
     <div class="news">
 
       <article class="item">
-        <div class="item__media"><img src="photos/english-summer-camp.jpg" alt="外師 Anna 帶領學生體驗手作牛奶糖 · Ms. Anna guides students in hands-on baking" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/english-summer-camp-01.jpg" alt="外師 Anna 帶領學生手作與科學活動 · English Summer Camp with Ms. Anna" loading="lazy">
+          <img src="photos/english-summer-camp-02.jpg" alt="" loading="lazy">
+          <img src="photos/english-summer-camp-03.jpg" alt="" loading="lazy">
+          <img src="photos/english-summer-camp-04.jpg" alt="" loading="lazy">
+          <img src="photos/english-summer-camp-05.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--gold-soft)">🌟</div>
           <div><div class="item__cat">English Camp · 英語營<span class="dot">·</span><span class="date">15 Jul 2026</span></div>
@@ -132,7 +147,15 @@
       </article>
 
       <article class="item">
-        <div class="item__media"><img src="photos/summer-work-camp.jpg" alt="大專青年志工與北斗學生合影 · College youth volunteers with Beidou students" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/summer-work-camp-01.jpg" alt="大專青年志工與北斗學生合影 · College Youth Summer Camp" loading="lazy">
+          <img src="photos/summer-work-camp-02.jpg" alt="" loading="lazy">
+          <img src="photos/summer-work-camp-03.jpg" alt="" loading="lazy">
+          <img src="photos/summer-work-camp-04.jpg" alt="" loading="lazy">
+          <img src="photos/summer-work-camp-05.jpg" alt="" loading="lazy">
+          <img src="photos/summer-work-camp-06.jpg" alt="" loading="lazy">
+          <img src="photos/summer-work-camp-07.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--green-soft)">☀️</div>
           <div><div class="item__cat">Summer Camp · 暑期營隊<span class="dot">·</span><span class="date">13 Jul 2026</span></div>
@@ -145,7 +168,14 @@
       </article>
 
       <article class="item">
-        <div class="item__media"><img src="photos/teacher-prep-day.jpg" alt="老師於備課日分享校本課程 · A teacher shares the school-based curriculum on preparation day" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/teacher-prep-day-01.jpg" alt="老師於備課日分享校本課程 · Teachers share the school-based curriculum" loading="lazy">
+          <img src="photos/teacher-prep-day-02.jpg" alt="" loading="lazy">
+          <img src="photos/teacher-prep-day-03.jpg" alt="" loading="lazy">
+          <img src="photos/teacher-prep-day-04.jpg" alt="" loading="lazy">
+          <img src="photos/teacher-prep-day-05.jpg" alt="" loading="lazy">
+          <img src="photos/teacher-prep-day-06.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--red-soft)">📚</div>
           <div><div class="item__cat">Faculty · 教師備課<span class="dot">·</span><span class="date">1 Jul 2026</span></div>
@@ -158,7 +188,15 @@
       </article>
 
       <article class="item">
-        <div class="item__media"><img src="photos/graduation.jpg" alt="畢業生走過氣球拱門 · Graduates walk through the balloon arch" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/graduation-01.jpg" alt="畢業生走過氣球拱門 · Graduation ceremony" loading="lazy">
+          <img src="photos/graduation-02.jpg" alt="" loading="lazy">
+          <img src="photos/graduation-03.jpg" alt="" loading="lazy">
+          <img src="photos/graduation-04.jpg" alt="" loading="lazy">
+          <img src="photos/graduation-05.jpg" alt="" loading="lazy">
+          <img src="photos/graduation-06.jpg" alt="" loading="lazy">
+          <img src="photos/graduation-07.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--gold-soft)">🎓</div>
           <div><div class="item__cat">Graduation · 畢業典禮<span class="dot">·</span><span class="date">12 Jun 2026</span></div>
@@ -171,7 +209,11 @@
       </article>
 
       <article class="item">
-        <div class="item__media"><img src="photos/media-donation.jpg" alt="校友捐贈圖書室多媒體設備 · An alumnus donates multimedia equipment to the library" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/media-donation-01.jpg" alt="校友捐贈圖書室多媒體設備 · An alumnus donates multimedia equipment" loading="lazy">
+          <img src="photos/media-donation-02.jpg" alt="" loading="lazy">
+          <img src="photos/media-donation-03.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--green-soft)">🎁</div>
           <div><div class="item__cat">Donation · 愛心捐贈<span class="dot">·</span><span class="date">4 Jun 2026</span></div>
@@ -184,7 +226,15 @@
       </article>
 
       <article class="item">
-        <div class="item__media"><img src="photos/radio-drama.jpg" alt="學生在錄音室錄製交通安全廣播劇 · A student records the traffic-safety radio drama in the studio" loading="lazy"></div>
+        <div class="carousel"><div class="carousel__track">
+          <img src="photos/radio-drama-01.jpg" alt="學生在錄音室錄製交通安全廣播劇 · Recording the traffic-safety radio drama" loading="lazy">
+          <img src="photos/radio-drama-02.jpg" alt="" loading="lazy">
+          <img src="photos/radio-drama-03.jpg" alt="" loading="lazy">
+          <img src="photos/radio-drama-04.jpg" alt="" loading="lazy">
+          <img src="photos/radio-drama-05.jpg" alt="" loading="lazy">
+          <img src="photos/radio-drama-06.jpg" alt="" loading="lazy">
+          <img src="photos/radio-drama-07.jpg" alt="" loading="lazy">
+        </div></div>
         <div class="item__top">
           <div class="item__ic" style="background:var(--gold-soft)">🏆</div>
           <div><div class="item__cat">Award · 榮譽<span class="dot">·</span><span class="date">2 Jun 2026</span></div>
@@ -286,6 +336,38 @@
   </div>
 </footer>
 <div class="cb-credit">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<script>
+(function(){
+  var INTERVAL=4500;
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel'),function(c){
+    var track=c.querySelector('.carousel__track');
+    var n=track.children.length; if(n<2) return;
+    var idx=0, timer=null;
+    function go(i){idx=(i%n+n)%n;track.style.transform='translateX(-'+(idx*100)+'%)';dots.forEach(function(d,j){d.classList.toggle('is-active',j===idx);});}
+    function start(){timer=setInterval(function(){go(idx+1);},INTERVAL);}
+    function restart(){clearInterval(timer);start();}
+    // dots
+    var dwrap=document.createElement('div');dwrap.className='carousel__dots';
+    var dots=[];
+    for(var i=0;i<n;i++){(function(i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','照片 '+(i+1));b.addEventListener('click',function(){go(i);restart();});dwrap.appendChild(b);dots.push(b);})(i);}
+    c.appendChild(dwrap);
+    // arrows
+    var prev=document.createElement('button');prev.type='button';prev.className='carousel__nav carousel__nav--prev';prev.setAttribute('aria-label','上一張 Previous');prev.innerHTML='&#10094;';
+    var next=document.createElement('button');next.type='button';next.className='carousel__nav carousel__nav--next';next.setAttribute('aria-label','下一張 Next');next.innerHTML='&#10095;';
+    prev.addEventListener('click',function(){go(idx-1);restart();});
+    next.addEventListener('click',function(){go(idx+1);restart();});
+    c.appendChild(prev);c.appendChild(next);
+    // pause on hover
+    c.addEventListener('mouseenter',function(){clearInterval(timer);});
+    c.addEventListener('mouseleave',function(){restart();});
+    // swipe (touch)
+    var x0=null;
+    c.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    c.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));restart();}x0=null;},{passive:true});
+    go(0);start();
+  });
+})();
+</script>
 <script defer src="/assets/js/motion.js"></script>
 </body>
 </html>
