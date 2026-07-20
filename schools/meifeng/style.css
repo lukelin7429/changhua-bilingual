@@ -45,6 +45,16 @@ a:hover{color:var(--gold-deep);}
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
     linear-gradient(165deg,var(--b1,#2f9e5a),var(--b2,#1f7a45) 54%,var(--b3,#14532e));}
 @media(min-width:720px){.chero{min-height:392px;}}
+/* Photo hero — real campus photo, zero dark mask so colour stays true and
+   lively; legibility comes from a heavier text-shadow on the headline
+   instead of a gradient over the image. */
+.chero--photo{background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
+    var(--photo) center/cover no-repeat;}
+.chero--photo::before,.chero--photo::after,.chero--photo .chero__fx{display:none;}
+.chero--photo .eyebrow{background:rgba(0,0,0,.32);}
+.chero--photo h1{text-shadow:0 2px 18px rgba(0,0,0,.7),0 1px 4px rgba(0,0,0,.75);}
+.chero--photo .h1-zh{text-shadow:0 2px 14px rgba(0,0,0,.7),0 1px 4px rgba(0,0,0,.7);}
 .chero::before,.chero::after{content:"";position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;z-index:0;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.82),transparent 70%);}
 .chero::before{width:320px;height:320px;left:-70px;top:-90px;opacity:.5;animation:heroOrb 15s ease-in-out infinite,heroGlow 7s ease-in-out infinite;}
 .chero::after{width:240px;height:240px;right:7%;bottom:-30px;opacity:.4;animation:heroOrb 19s ease-in-out infinite reverse,heroGlow 9s ease-in-out infinite;}
@@ -166,6 +176,12 @@ section:last-of-type{border-bottom:none;}
 .ocard h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--green-deep);font-weight:700;margin-top:8px;line-height:1.25;}
 .ocard h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
 .ocard .date{font-size:14px;color:var(--ink-soft);margin-top:8px;}
+
+/* ===== Principal portrait (photo + caption) ===== */
+.pportrait{margin:6px auto 2px;max-width:420px;}
+.pportrait img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;border-radius:20px;box-shadow:var(--shadow);display:block;border:1px solid var(--line);}
+.pportrait figcaption{margin-top:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;color:var(--green-deep);font-weight:700;text-align:center;}
+.pportrait figcaption small{display:block;font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
 
 /* ===== Fact cards (principal "at a glance") ===== */
 .facts{display:grid;grid-template-columns:1fr;gap:18px;}
