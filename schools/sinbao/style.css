@@ -3,7 +3,8 @@
    Card engine + colour heroes cloned from pitou-jhs (Ru-Yi signature
    colourful cards: per-card hue, corner glow, coloured shadow + lift).
    Palette: coastal teal + coral-gold — Fangyuan's wetland coast, and a
-   proudly multicultural campus. Colour-only build (NO banner photos).
+   proudly multicultural campus. .chero--photo variant (2026-07-20) adds
+   real campus-photo banners on all four pages, tachu-style.
    ===================================================================== */
 :root{
   /* coral-gold accent (was --gold) */
@@ -47,10 +48,19 @@ a:hover{color:var(--gold-deep);}
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
     linear-gradient(165deg,var(--b1,#0f8fa3),var(--b2,#0c6f80) 54%,var(--b3,#0a5c6b));}
 @media(min-width:720px){.chero{min-height:392px;}}
+/* Photo hero — true campus colour, no heavy dark mask. Just enough of a
+   bottom fade for the white headline to stay legible; the photo itself
+   stays bright and true-colour above the caption zone. */
+.chero--photo{background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3C/svg%3E") bottom/100% 88px no-repeat,
+    linear-gradient(0deg,rgba(10,40,45,.42) 0%,rgba(10,40,45,.10) 32%,rgba(10,40,45,0) 55%),
+    var(--photo) center/cover no-repeat;}
 .chero::before,.chero::after{content:"";position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;z-index:0;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.82),transparent 70%);}
 .chero::before{width:320px;height:320px;left:-70px;top:-90px;opacity:.5;animation:heroOrb 15s ease-in-out infinite,heroGlow 7s ease-in-out infinite;}
 .chero::after{width:240px;height:240px;right:7%;bottom:-30px;opacity:.4;animation:heroOrb 19s ease-in-out infinite reverse,heroGlow 9s ease-in-out infinite;}
 .chero__fx{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.18) 50%,transparent 68%);background-size:240% 100%;animation:heroSweep 6.5s linear infinite;}
+/* the white glow orbs + sweep are made for the flat-gradient hero; on a real photo they just wash the colour out */
+.chero--photo::before,.chero--photo::after,.chero--photo .chero__fx{display:none;}
 .chero__inner{position:relative;z-index:1;max-width:var(--max);margin:0 auto;width:100%;padding:0 24px 58px;}
 .chero__inner>*{opacity:0;transform:translateY(22px);animation:bandUp .9s cubic-bezier(.2,.7,.2,1) forwards;}
 .chero__inner h1{animation-delay:.12s;}
@@ -173,6 +183,24 @@ section:last-of-type{border-bottom:none;}
 .ocard h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--green-deep);font-weight:700;margin-top:8px;line-height:1.25;}
 .ocard h3 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:3px;}
 .ocard .date{font-size:14px;color:var(--ink-soft);margin-top:8px;}
+
+/* ===== Illustration figure (home, marked as illustration not photo) ===== */
+.illus-figure{margin-top:36px;background:#fff;border-radius:18px;border:1px solid var(--line);padding:14px;box-shadow:var(--shadow);}
+@media(min-width:720px){.illus-figure{padding:18px;}}
+.illus-figure img{width:100%;height:auto;display:block;border-radius:10px;}
+.illus-figure figcaption{margin-top:12px;text-align:center;font-style:italic;font-size:15px;color:var(--ink-soft);line-height:1.5;}
+
+/* ===== Principal portrait + "in action" gallery ===== */
+.pportrait{margin:6px auto 32px;max-width:300px;}
+.pportrait img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;border-radius:20px;box-shadow:var(--shadow);display:block;border:1px solid var(--line);}
+.pportrait figcaption{margin-top:14px;font-family:'Playfair Display','PingFang TC',serif;font-size:18px;color:var(--green-deep);font-weight:700;text-align:center;}
+.pportrait figcaption small{display:block;font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);font-weight:500;margin-top:3px;}
+.po-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+@media(max-width:760px){.po-gallery-grid{grid-template-columns:1fr;}}
+.po-g-photo{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.po-g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.po-g-photo:hover img{transform:scale(1.06);}
+.po-g-photo .cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(10,30,25,.82) 0%,transparent 100%);color:#fff;padding:14px 14px 10px;font-family:'PingFang TC',sans-serif;font-size:15px;line-height:1.4;}
 
 /* ===== Fact cards (principal "at a glance") ===== */
 .facts{display:grid;grid-template-columns:1fr;gap:18px;}
