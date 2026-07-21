@@ -72,39 +72,62 @@
 </section>
 
 <section class="hub-section" style="padding-bottom:0">
-  <a class="fet-meetings-banner" href="/fets/meetings/">
-    <div class="fet-meetings-thumb">
-      <img src="/fets/meetings/2026-06-17/photos/p01.jpg" alt="FETs at a monthly meeting" loading="lazy">
-    </div>
-    <div class="fet-meetings-text">
-      <span class="fet-meetings-eyebrow">Monthly Meetings · 外師會議</span>
-      <h2 class="fet-meetings-title">See what we share when we get together</h2>
-      <p class="fet-meetings-desc">Discussion highlights and photos from our FET monthly meetings — classroom ideas, activities, and tools shared by teachers, for teachers.</p>
-      <span class="fet-meetings-cta">Browse meeting highlights →</span>
-    </div>
-  </a>
+  <div class="fet-cards-grid">
+    <a class="fet-card" href="/fets/meetings/">
+      <div class="fet-card-media"><img src="/fets/meetings/2026-06-17/photos/p01.jpg" alt="FETs at a monthly meeting" loading="lazy"></div>
+      <div class="fet-card-text">
+        <span class="fet-card-eyebrow">Monthly Meetings · 外師會議</span>
+        <h2 class="fet-card-title">See what we share when we get together</h2>
+        <p class="fet-card-desc">Discussion highlights and photos from our FET monthly meetings — classroom ideas, activities, and tools shared by teachers, for teachers.</p>
+        <span class="fet-card-cta">Browse meeting highlights →</span>
+      </div>
+    </a>
+    <a class="fet-card" href="/fets/mandarin-challenge/">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🀄</div>
+      <div class="fet-card-text">
+        <span class="fet-card-eyebrow">Mandarin Challenges · 中文挑戰</span>
+        <h2 class="fet-card-title">Everyday Mandarin you'll hear on campus</h2>
+        <p class="fet-card-desc">A monthly 20-question quiz on the phrases teachers, staff, and students actually use around school.</p>
+        <span class="fet-card-cta">Take this month's challenge →</span>
+      </div>
+    </a>
+    <a class="fet-card" href="/fets/school-culture/">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🏮</div>
+      <div class="fet-card-text">
+        <span class="fet-card-eyebrow">School Culture · 學校文化</span>
+        <h2 class="fet-card-title">Know before you go: campus culture notes</h2>
+        <p class="fet-card-desc">Practical dos and don'ts for navigating Changhua school life with confidence.</p>
+        <span class="fet-card-cta">Take this round →</span>
+      </div>
+    </a>
+  </div>
 </section>
 <style>
-  .fet-meetings-banner {
-    display:grid; grid-template-columns: minmax(0,0.9fr) minmax(0,1.1fr); align-items:stretch;
+  .fet-cards-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+  .fet-card {
+    display:flex; flex-direction:column;
     border:1px solid var(--hub-line); border-radius: 16px; overflow:hidden;
     background: linear-gradient(180deg,#fff 0%, #fbf3eb 100%);
     text-decoration:none; color:inherit; box-shadow: 0 8px 28px -16px rgba(138,63,23,.30);
     transition: transform .18s, box-shadow .18s;
   }
-  .fet-meetings-banner:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(138,63,23,.40); text-decoration:none; }
-  .fet-meetings-thumb { overflow:hidden; min-height: 200px; background:#11201f; }
-  .fet-meetings-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }
-  .fet-meetings-banner:hover .fet-meetings-thumb img { transform: scale(1.05); }
-  .fet-meetings-text { padding: 32px 36px; display:flex; flex-direction:column; justify-content:center; }
-  .fet-meetings-eyebrow { font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--c66830,#c66830); }
-  .fet-meetings-title { font-family: var(--hub-serif); font-size: clamp(1.4rem,2.4vw,1.95rem); line-height:1.18; margin:10px 0 10px; color:var(--hub-ink); }
-  .fet-meetings-desc { margin:0 0 16px; color:var(--hub-ink-soft); font-size:1.02rem; line-height:1.55; max-width:48ch; }
-  .fet-meetings-cta { font-weight:700; color:#a85a0c; font-size:.98rem; }
-  @media (max-width: 760px) {
-    .fet-meetings-banner { grid-template-columns: 1fr; }
-    .fet-meetings-thumb { aspect-ratio: 16/9; min-height:0; }
-    .fet-meetings-text { padding: 24px 22px 28px; }
+  .fet-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(138,63,23,.40); text-decoration:none; }
+  .fet-card-media { aspect-ratio:16/9; overflow:hidden; background:#11201f; }
+  .fet-card-media img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }
+  .fet-card:hover .fet-card-media img { transform: scale(1.05); }
+  .fet-card-media--icon { display:flex; align-items:center; justify-content:center; font-size:52px; background:linear-gradient(135deg,#fbf3eb 0%,#f3e2cb 100%); }
+  .fet-card-text { padding:22px 24px 26px; display:flex; flex-direction:column; flex:1 1 auto; }
+  .fet-card-eyebrow { font-size:13px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--hub-accent); }
+  .fet-card-title { font-family: var(--hub-serif); font-size:21px; line-height:1.25; margin:10px 0 8px; color:var(--hub-ink); }
+  .fet-card-desc { margin:0 0 14px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; max-width:42ch; }
+  .fet-card-cta { margin-top:auto; font-weight:700; color:#a85a0c; font-size:18px; }
+  @media (min-width:720px) {
+    .fet-card-title { font-size:24px; }
+    .fet-card-desc { font-size:20px; }
+    .fet-card-cta { font-size:20px; }
+  }
+  @media (max-width: 900px) {
+    .fet-cards-grid { grid-template-columns: 1fr; }
   }
 </style>
 

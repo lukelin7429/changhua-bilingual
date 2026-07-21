@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/school-culture/">
+  <title>School Culture · Changhua Bilingual Hub</title>
+  <meta name="description" content="A monthly quiz on the campus culture, etiquette, and dos-and-don'ts foreign English teachers navigate at Changhua schools.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="School Culture · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <style>
+    .mtg-crumbs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; font-size: 17px; color: var(--hub-ink-faint); }
+    .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
+    .mtg-crumbs a:hover { text-decoration: underline; }
+
+    .qz-round { display:inline-block; margin:18px 0 6px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); background:var(--hub-line-soft); padding:5px 12px; border-radius:999px; }
+
+    .qz-gate { display:grid; gap:14px; max-width:440px; margin-top:22px; }
+    .qz-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
+    .qz-field input {
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink); font-size:18px; font-family:var(--hub-en-font);
+    }
+    .qz-field input:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .qz-start-btn, .qz-submit-btn, .qz-btn-ghost {
+      appearance:none; border:none; border-radius:10px; padding:13px 24px; font-size:18px; font-weight:700;
+      font-family:var(--hub-en-font); cursor:pointer; background:var(--hub-primary); color:#fff;
+      transition:opacity .15s ease; justify-self:start;
+    }
+    .qz-start-btn:hover, .qz-submit-btn:hover, .qz-btn-ghost:hover { opacity:.88; }
+    .qz-submit-btn:disabled { opacity:.4; cursor:not-allowed; }
+    .qz-btn-ghost { background:transparent; color:var(--hub-primary); border:1px solid var(--hub-line); }
+
+    .qz-progress { height:8px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; margin:26px 0 30px; }
+    .qz-progress-fill { height:100%; width:0; background:var(--hub-accent); border-radius:999px; transition:width .25s ease; }
+
+    .qz { border-top:1px solid var(--hub-line); padding:22px 0; max-width:78ch; }
+    .qz:first-child { border-top:none; padding-top:0; }
+    .qz__q { display:flex; align-items:flex-start; gap:10px; font-size:19px; line-height:1.5; }
+    .qz__q .num { font-weight:700; color:var(--hub-primary); flex-shrink:0; }
+    .qz__zh { font-size:17px; color:var(--hub-ink-faint); margin:6px 0 14px; font-family:var(--hub-zh-font); }
+    .qz__opts { display:grid; gap:10px; }
+    .opt {
+      display:flex; align-items:center; gap:10px; text-align:left;
+      border:1px solid var(--hub-line); border-radius:10px; padding:12px 14px;
+      background:#fff; cursor:pointer; font-size:18px; font-family:var(--hub-en-font); color:var(--hub-ink);
+      transition:border-color .15s ease, background .15s ease;
+    }
+    .opt .key { font-weight:700; color:var(--hub-ink-faint); width:18px; flex-shrink:0; }
+    .opt:hover { border-color:var(--hub-primary); }
+    .opt.picked { border-color:var(--hub-primary); background:var(--hub-line-soft); }
+    .opt.is-correct { border-color:#2f7d5c; background:#e3f1e9; }
+    .opt.is-wrong { border-color:#b8493f; background:#fbe7e4; }
+    .opt:disabled { cursor:default; }
+    .qz__fb { display:none; margin-top:12px; font-size:17px; color:var(--hub-ink-soft); background:var(--hub-line-soft); border-radius:10px; padding:12px 14px; line-height:1.6; font-family:var(--hub-zh-font); }
+    .qz.graded .qz__fb { display:block; }
+
+    .qz-submit-row { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--hub-line); flex-wrap:wrap; }
+    .qz-submit-row .hint { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+
+    .qz-results { text-align:center; padding:20px 0 8px; max-width:480px; margin:0 auto; }
+    .qz-score-ring { width:140px; height:140px; margin:8px auto 20px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center; background:conic-gradient(#2f7d5c calc(var(--pct)*1%), var(--hub-line-soft) 0); }
+    .qz-score-ring::before { content:""; position:absolute; inset:10px; border-radius:50%; background:#fff; }
+    .qz-score-ring span { position:relative; font-size:28px; font-weight:700; color:var(--hub-ink); font-variant-numeric:tabular-nums; }
+    .qz-results h2 { font-family:var(--hub-serif); font-size:24px; margin:0 0 8px; color:var(--hub-ink); }
+    .qz-results p { margin:0 0 22px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; }
+
+    .hidden { display:none !important; }
+
+    @media (min-width:720px) {
+      .qz__q { font-size:21px; }
+      .qz__zh { font-size:18px; }
+      .opt { font-size:19px; }
+      .qz__fb { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<nav class="mtg-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; School Culture
+</nav>
+
+<section class="hub-section" style="padding-top:28px">
+  <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
+  <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">School Culture</h1>
+  <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:19px;line-height:1.6">Know before you go: a monthly round on the everyday etiquette and campus norms that help you navigate Changhua school life with confidence — and avoid common cultural missteps.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85;font-size:18px">每月一次的校園文化小測驗，幫助外師了解彰化教育現場的文化習慣，避免不小心犯下的文化誤會。</p>
+  <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
+
+  <div class="qz-gate" id="qzGate">
+    <div class="qz-field">
+      <label for="qzTeacherId">Teacher ID · 教師編號</label>
+      <input id="qzTeacherId" type="text" placeholder="e.g. FET-014" autocomplete="off">
+    </div>
+    <div class="qz-field">
+      <label for="qzTeacherName">Name · 姓名</label>
+      <input id="qzTeacherName" type="text" placeholder="Your name" autocomplete="off">
+    </div>
+    <button class="qz-start-btn" id="qzStartBtn">Start this round · 開始作答</button>
+  </div>
+
+  <div class="qz-body hidden" id="qzBody">
+    <div class="qz-progress"><div class="qz-progress-fill" id="qzProgressFill"></div></div>
+    <div id="qzList"></div>
+    <div class="qz-submit-row">
+      <span class="hint" id="qzAnsweredHint">0 / 20 answered</span>
+      <button class="qz-submit-btn" id="qzSubmitBtn" disabled>Submit · 提交</button>
+    </div>
+  </div>
+
+  <div class="qz-results hidden" id="qzResults">
+    <div class="qz-score-ring" id="qzScoreRing" style="--pct:0"><span id="qzScoreNum">0/20</span></div>
+    <h2 id="qzResultHeadline">Nice work!</h2>
+    <p id="qzResultSub"></p>
+    <button class="qz-btn-ghost" id="qzReviewBtn">Review answers · 查看檢討</button>
+  </div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+<script>
+(function () {
+  // TODO(Luke): paste the deployed Apps Script Web App exec URL here (same one used
+  // site-wide for quiz submissions — see apps-script/Code.gs). Leave blank to keep the
+  // quiz fully working with scoring, just without saving to the Google Sheet yet.
+  var CONFIG = { WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbysIUhxMu3fRMGzlkNgNtRU7BgqiZAkSxocdnA2xP5gzb4mRtddNPnRzcTJO5HXZvJsRA/exec' };
+  var ROUND = '2026-07';
+
+  var QUESTIONS = [
+    { q: 'Entering the teachers’ office each morning, it’s polite to:',
+      zh: '每天早上進辦公室時的禮貌習慣。',
+      opts: ['Walk past silently', 'Greet colleagues with a nod or a quick “早安/早”', 'Wait to be greeted first', 'Knock loudly before entering'], correct: 1,
+      explain: '進辦公室時點頭或說聲「早安」是常見的基本禮貌，同事間會這樣互相打招呼。' },
+    { q: 'If a senior teacher or the principal offers you food at a school event, it’s best to:',
+      zh: '資深老師或校長在活動中請你吃東西時。',
+      opts: ['Firmly refuse every time', 'Ask for a different dish', 'Take the largest portion', 'Accept graciously, even just a small amount'], correct: 3,
+      explain: '直接拒絕可能顯得不給面子，即使不餓，禮貌性地接受一點會更得體。' },
+    { q: 'Regarding indoor shoes on many Taiwanese school campuses, foreign teachers should:',
+      zh: '關於校園室內鞋規定。',
+      opts: ['Change into slippers wherever the school requires it', 'Always keep outdoor shoes on everywhere', 'Go barefoot indoors', 'Ignore posted signage about shoes'], correct: 0,
+      explain: '許多校舍入口有換室內拖鞋的規定，看到鞋櫃或標示就要換鞋。' },
+    { q: 'When receiving a gift or a business card from a colleague, it’s respectful to:',
+      zh: '從同事手中接過名片或禮物時。',
+      opts: ['Accept with one hand while looking away', 'Put it straight in your pocket', 'Accept with both hands', 'Politely decline it'], correct: 2,
+      explain: '雙手接遞物品是台灣（及許多亞洲文化）表達尊重的常見方式。' },
+    { q: 'You disagree with a decision made by school administration. The culturally appropriate first step is:',
+      zh: '對學校行政決定有不同意見時。',
+      opts: ['Announce your disagreement in the staff group chat', 'Raise it privately and respectfully with your contact teacher', 'Ignore the policy going forward', 'Post about it on social media'], correct: 1,
+      explain: '私下、尊重地先跟窗口老師反映，是比較合適且能保留雙方顏面的做法。' },
+    { q: 'During a flag-raising ceremony (升旗), foreign teachers are generally expected to:',
+      zh: '升旗典禮時，外師通常被期待。',
+      opts: ['Stay inside the office', 'Continue teaching class as usual', 'Leave campus', 'Stand respectfully with staff and students'], correct: 3,
+      explain: '升旗是全校共同參與的儀式，教師通常會與班級一起站著參加。' },
+    { q: 'When addressing your homeroom partner teacher in front of students, it’s best to use:',
+      zh: '在學生面前稱呼你的班級導師時。',
+      opts: ['Their title, e.g. “Teacher Chen” (老師)', 'Their first name only', 'A nickname you created', '“Hey you”'], correct: 0,
+      explain: '在學生面前使用「老師」加姓氏，示範了學生本身對老師應有的稱呼方式。' },
+    { q: 'A parent sends a red envelope (紅包) or an expensive gift after a holiday. The safest response is:',
+      zh: '節日後收到家長送的紅包或貴重禮物時。',
+      opts: ['Accept and say nothing to the school', 'Ask for more next time', 'Politely decline and check your school’s gift policy', 'Return it by mail with no note'], correct: 2,
+      explain: '許多學校對收受家長禮物有規範，不確定時最好婉拒並告知窗口老師。' },
+    { q: 'You’re walking down a hallway and pass the principal or a senior teacher. The polite habit is to:',
+      zh: '在走廊遇到校長或資深老師時。',
+      opts: ['Avoid eye contact and keep walking', 'Wait for them to speak first, always', 'Only greet them if you know them well', 'Give a small nod or brief greeting as you pass'], correct: 3,
+      explain: '經過時點頭或簡短問候，是同事間表達基本尊重的習慣動作。' },
+    { q: 'For a class or duty that starts at a set time, the expected norm is to arrive:',
+      zh: '對於有固定開始時間的課程或值勤。',
+      opts: ['Right on the minute it starts', 'A few minutes early', 'A few minutes late is fine', 'Whenever convenient'], correct: 1,
+      explain: '提早幾分鐘到場被視為基本的準時與尊重，而不是壓線抵達。' },
+    { q: 'At a school event, staff are asked to gather for a big group photo. The expected norm is to:',
+      zh: '學校活動要求全體教職員合照時。',
+      opts: ['Stay at your desk and skip it', 'Join only if photographed for something specific', 'Join in — group photos are a normal part of school culture', 'Ask to be edited out afterward'], correct: 2,
+      explain: '團體合照是台灣校園活動很常見的一環，教職員通常都會一起入鏡。' },
+    { q: 'You’re invited to a staff dinner (聚餐) after a busy semester. It’s considered polite to:',
+      zh: '學期結束後受邀參加同事聚餐時。',
+      opts: ['Attend, even just for part of it, if you reasonably can', 'Decline all staff social invitations', 'Only attend if food is free', 'Bring your own separate meal'], correct: 0,
+      explain: '即使只能待一部分時間，盡量出席聚餐有助於融入同事間的情誼。' },
+    { q: 'At a staff dinner, you notice colleagues topping up each other’s drinks. The custom being followed is:',
+      zh: '聚餐時發現同事會互相幫忙倒飲料。',
+      opts: ['Pouring only for yourself', 'Waiting for the host to pour every glass', 'Refusing to let anyone pour for you', 'Filling others’ cups before your own as a small gesture of care'], correct: 3,
+      explain: '先幫別人倒滿再倒自己的，是聚餐場合中常見的體貼小舉動。' },
+    { q: 'A student is having a serious personal or family problem. The appropriate step is to:',
+      zh: '學生有嚴重的個人或家庭問題時。',
+      opts: ['Discuss it openly in front of the class', 'Quietly refer it to the homeroom teacher or counselor', 'Post about it in the staff group chat', 'Handle discipline yourself without involving anyone else'], correct: 1,
+      explain: '涉及學生隱私與家庭狀況的議題，應私下轉知導師或輔導老師處理。' },
+    { q: 'You have feedback about how the school is run. The most effective and respectful channel is to:',
+      zh: '對學校運作有建議或想法時。',
+      opts: ['Post it publicly online first', 'Bring it up loudly in a full staff meeting', 'Share it privately through your contact teacher or supervisor', 'Wait until your contract ends to mention it'], correct: 2,
+      explain: '透過窗口老師或主管私下反映，通常比公開場合更有效也更受尊重。' },
+    { q: 'During the national anthem or a formal school ceremony, foreign teachers are expected to:',
+      zh: '國歌演奏或正式典禮進行時。',
+      opts: ['Stand quietly and respectfully like other staff', 'Continue any side conversations', 'Use the time to check their phone', 'Step outside until it’s over'], correct: 0,
+      explain: '和其他教職員一樣安靜肅立，是參加正式典禮時應有的態度。' },
+    { q: 'For a formal school event (e.g. opening ceremony, official visit), appropriate attire is:',
+      zh: '參加開學典禮或官方參訪等正式場合時的服裝。',
+      opts: ['Whatever is most comfortable', 'Beachwear if the weather is hot', 'Costume or novelty clothing', 'Conservative, professional dress similar to other staff'], correct: 3,
+      explain: '正式場合建議穿著與其他教職員相近的端莊服裝，展現對場合的重視。' },
+    { q: 'When speaking with a student’s parent for the first time, it’s respectful to address them as:',
+      zh: '第一次與學生家長交談時的稱呼方式。',
+      opts: ['By their first name only', 'With an appropriate title (e.g. Mr./Mrs., or 家長) rather than their first name', '“Hey”', 'Their child’s nickname for them'], correct: 1,
+      explain: '使用適當的稱謂而非直呼名字，是對家長表達禮貌與尊重的方式。' },
+    { q: 'A colleague makes a small mistake in front of others. The culturally sensitive approach is to:',
+      zh: '同事在他人面前犯了小錯時。',
+      opts: ['Address it privately and gently rather than correcting them publicly', 'Point it out immediately in front of the group', 'Post about it afterward to other coworkers', 'Bring it up loudly to make sure everyone learns from it'], correct: 0,
+      explain: '私下溫和地提醒能顧全對方的面子，公開糾正容易造成尷尬或不快。' },
+    { q: 'Overall, when you’re unsure whether something is culturally appropriate at your school, the best move is to:',
+      zh: '不確定某件事在學校是否合乎文化習慣時。',
+      opts: ['Guess and hope for the best', 'Assume it’s the same as back home', 'Ask your contact teacher or a trusted colleague', 'Avoid the situation entirely going forward'], correct: 2,
+      explain: '直接詢問窗口老師或信任的同事，永遠比自己猜測更保險。' }
+  ];
+
+  window.__QZ_CONFIG__ = { webhookUrl: CONFIG.WEBHOOK_URL, round: ROUND, quizId: 'fet-school-culture', questions: QUESTIONS, hasSpeech: false };
+})();
+</script>
+<script src="/assets/js/fet-quiz.js"></script>
+</body>
+</html>

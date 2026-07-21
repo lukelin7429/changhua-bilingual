@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/mandarin-challenge/">
+  <title>Mandarin Challenges · Changhua Bilingual Hub</title>
+  <meta name="description" content="A monthly 20-question quiz on the everyday Mandarin phrases foreign English teachers hear around Changhua school campuses.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Mandarin Challenges · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <style>
+    .mtg-crumbs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; font-size: 17px; color: var(--hub-ink-faint); }
+    .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
+    .mtg-crumbs a:hover { text-decoration: underline; }
+
+    .qz-round { display:inline-block; margin:18px 0 6px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); background:var(--hub-line-soft); padding:5px 12px; border-radius:999px; }
+
+    .qz-gate { display:grid; gap:14px; max-width:440px; margin-top:22px; }
+    .qz-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
+    .qz-field input {
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink); font-size:18px; font-family:var(--hub-en-font);
+    }
+    .qz-field input:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .qz-start-btn, .qz-submit-btn, .qz-btn-ghost {
+      appearance:none; border:none; border-radius:10px; padding:13px 24px; font-size:18px; font-weight:700;
+      font-family:var(--hub-en-font); cursor:pointer; background:var(--hub-primary); color:#fff;
+      transition:opacity .15s ease; justify-self:start;
+    }
+    .qz-start-btn:hover, .qz-submit-btn:hover, .qz-btn-ghost:hover { opacity:.88; }
+    .qz-submit-btn:disabled { opacity:.4; cursor:not-allowed; }
+    .qz-btn-ghost { background:transparent; color:var(--hub-primary); border:1px solid var(--hub-line); }
+
+    .qz-progress { height:8px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; margin:26px 0 30px; }
+    .qz-progress-fill { height:100%; width:0; background:var(--hub-accent); border-radius:999px; transition:width .25s ease; }
+
+    .qz { border-top:1px solid var(--hub-line); padding:22px 0; max-width:78ch; }
+    .qz:first-child { border-top:none; padding-top:0; }
+    .qz__q { display:flex; align-items:flex-start; gap:10px; font-size:19px; line-height:1.5; }
+    .qz__q .num { font-weight:700; color:var(--hub-primary); flex-shrink:0; }
+    .qz__q .speak {
+      border:none; background:var(--hub-line-soft); color:var(--hub-primary); border-radius:8px;
+      width:34px; height:34px; font-size:16px; cursor:pointer; flex-shrink:0; margin-left:auto;
+    }
+    .qz__q .speak.is-speaking { background:var(--hub-primary); color:#fff; }
+    .qz__zh { font-size:17px; color:var(--hub-ink-faint); margin:6px 0 14px; font-family:var(--hub-zh-font); }
+    .qz__opts { display:grid; gap:10px; }
+    .opt {
+      display:flex; align-items:center; gap:10px; text-align:left;
+      border:1px solid var(--hub-line); border-radius:10px; padding:12px 14px;
+      background:#fff; cursor:pointer; font-size:18px; font-family:var(--hub-en-font); color:var(--hub-ink);
+      transition:border-color .15s ease, background .15s ease;
+    }
+    .opt .key { font-weight:700; color:var(--hub-ink-faint); width:18px; flex-shrink:0; }
+    .opt:hover { border-color:var(--hub-primary); }
+    .opt.picked { border-color:var(--hub-primary); background:var(--hub-line-soft); }
+    .opt.is-correct { border-color:#2f7d5c; background:#e3f1e9; }
+    .opt.is-wrong { border-color:#b8493f; background:#fbe7e4; }
+    .opt:disabled { cursor:default; }
+    .qz__fb { display:none; margin-top:12px; font-size:17px; color:var(--hub-ink-soft); background:var(--hub-line-soft); border-radius:10px; padding:12px 14px; line-height:1.6; font-family:var(--hub-zh-font); }
+    .qz.graded .qz__fb { display:block; }
+
+    .qz-submit-row { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--hub-line); flex-wrap:wrap; }
+    .qz-submit-row .hint { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+
+    .qz-results { text-align:center; padding:20px 0 8px; max-width:480px; margin:0 auto; }
+    .qz-score-ring { width:140px; height:140px; margin:8px auto 20px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center; background:conic-gradient(#2f7d5c calc(var(--pct)*1%), var(--hub-line-soft) 0); }
+    .qz-score-ring::before { content:""; position:absolute; inset:10px; border-radius:50%; background:#fff; }
+    .qz-score-ring span { position:relative; font-size:28px; font-weight:700; color:var(--hub-ink); font-variant-numeric:tabular-nums; }
+    .qz-results h2 { font-family:var(--hub-serif); font-size:24px; margin:0 0 8px; color:var(--hub-ink); }
+    .qz-results p { margin:0 0 22px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; }
+
+    .hidden { display:none !important; }
+
+    @media (min-width:720px) {
+      .qz__q { font-size:21px; }
+      .qz__zh { font-size:18px; }
+      .opt { font-size:19px; }
+      .qz__fb { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<nav class="mtg-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; Mandarin Challenges
+</nav>
+
+<section class="hub-section" style="padding-top:28px">
+  <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
+  <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">Mandarin Challenges</h1>
+  <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:19px;line-height:1.6">A short monthly quiz on the everyday Mandarin phrases teachers, staff, and students actually use around campus — tap 🔊 to hear each phrase spoken aloud.</p>
+  <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85;font-size:18px">每月一次的中文小挑戰，聽聽看、答答看校園中最常聽到的中文用語。完成後算作當月作業。</p>
+  <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
+
+  <div class="qz-gate" id="qzGate">
+    <div class="qz-field">
+      <label for="qzTeacherId">Teacher ID · 教師編號</label>
+      <input id="qzTeacherId" type="text" placeholder="e.g. FET-014" autocomplete="off">
+    </div>
+    <div class="qz-field">
+      <label for="qzTeacherName">Name · 姓名</label>
+      <input id="qzTeacherName" type="text" placeholder="Your name" autocomplete="off">
+    </div>
+    <button class="qz-start-btn" id="qzStartBtn">Start this round · 開始作答</button>
+  </div>
+
+  <div class="qz-body hidden" id="qzBody">
+    <div class="qz-progress"><div class="qz-progress-fill" id="qzProgressFill"></div></div>
+    <div id="qzList"></div>
+    <div class="qz-submit-row">
+      <span class="hint" id="qzAnsweredHint">0 / 20 answered</span>
+      <button class="qz-submit-btn" id="qzSubmitBtn" disabled>Submit · 提交</button>
+    </div>
+  </div>
+
+  <div class="qz-results hidden" id="qzResults">
+    <div class="qz-score-ring" id="qzScoreRing" style="--pct:0"><span id="qzScoreNum">0/20</span></div>
+    <h2 id="qzResultHeadline">Nice work!</h2>
+    <p id="qzResultSub"></p>
+    <button class="qz-btn-ghost" id="qzReviewBtn">Review answers · 查看檢討</button>
+  </div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+<script>
+(function () {
+  // TODO(Luke): paste the deployed Apps Script Web App exec URL here (same one used
+  // site-wide for quiz submissions — see apps-script/Code.gs). Leave blank to keep the
+  // quiz fully working with scoring, just without saving to the Google Sheet yet.
+  var CONFIG = { WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbysIUhxMu3fRMGzlkNgNtRU7BgqiZAkSxocdnA2xP5gzb4mRtddNPnRzcTJO5HXZvJsRA/exec' };
+  var ROUND = '2026-07';
+
+  var QUESTIONS = [
+    { q: 'Your homeroom teacher says “辛苦了” to you after class. What does this mean here?',
+      zh: '同事下班前跟你說「辛苦了」。',
+      opts: ['You are in trouble', 'You did a great job, thanks for the hard work', 'Please clean the board', 'See you tomorrow'], correct: 1,
+      explain: '辛苦了 (xīnkǔ le) 是肯定對方付出的常用語，接近「謝謝你的辛勞」，不是字面上的「你辛苦了要休息」。', speak: '辛苦了' },
+    { q: 'A student tells you “朝會” is starting at 8am. What should you expect?',
+      zh: '學生說「朝會」要開始了。',
+      opts: ['Fire drill', 'Lunch break', 'A parent meeting', 'Morning assembly'], correct: 3,
+      explain: '朝會 (zhāohuì) 是每天／每週在操場或禮堂舉行的升旗＋朝會時間。', speak: '朝會' },
+    { q: 'A colleague asks, “你要不要一起吃便當？” What are they inviting you to do?',
+      zh: '同事問「你要不要一起吃便當？」',
+      opts: ['Eat a boxed lunch together', 'Go for a walk', 'Attend a meeting', 'Watch a movie'], correct: 0,
+      explain: '便當 (biàndāng) 是台灣校園最常見的午餐形式，一起訂便當也是同事間增進感情的方式。', speak: '便當' },
+    { q: 'Office staff say “麻煩你” before handing you a form. This phrase means:',
+      zh: '行政同仁遞表單前說「麻煩你」。',
+      opts: ['You are late', 'This is broken', 'Sorry to trouble you / please', 'Thank you very much'], correct: 2,
+      explain: '麻煩你 (máfan nǐ) 用來委婉地提出請求，接近「不好意思，麻煩你了」。', speak: '麻煩你' },
+    { q: 'A student greets you with “老師好” in the hallway. The appropriate response is to:',
+      zh: '學生在走廊向你說「老師好」。',
+      opts: ['Correct their pronunciation', 'Smile and greet them back briefly', 'Ignore and keep walking', 'Ask them to stop bowing'], correct: 1,
+      explain: '「老師好」是學生對老師的問候語，微笑簡短回應即可，不需要糾正或忽略。', speak: '老師好' },
+    { q: 'You hear “打掃時間” announced over the speakers. This means:',
+      zh: '廣播說「打掃時間」到了。',
+      opts: ['Snack time', 'Nap time', 'Test time', 'Cleaning time'], correct: 3,
+      explain: '打掃時間 (dǎsǎo shíjiān) 是學生每天負責整潔工作的時段。', speak: '打掃時間' },
+    { q: '“早自習” refers to:',
+      zh: '「早自習」是指什麼？',
+      opts: ['Morning self-study period', 'After-school detention', 'Sports day', 'Graduation ceremony'], correct: 0,
+      explain: '早自習 (zǎozìxí) 是第一節課前的安靜自習時段。', speak: '早自習' },
+    { q: 'Someone says “慢走” as you leave a meeting. This is a polite way to say:',
+      zh: '離開時對方說「慢走」。',
+      opts: ['Hurry up', 'Come back soon', 'Take care / safe travels', 'Goodbye forever'], correct: 2,
+      explain: '慢走 (màn zǒu) 字面是「走慢一點」，其實是送客時的客氣話，祝對方一路平安。', speak: '慢走' },
+    { q: 'A staff announcement mentions “升旗” happening on Monday morning. This is:',
+      zh: '公告說週一早上有「升旗」。',
+      opts: ['A fire drill', 'A club meeting', 'A school trip', 'The flag-raising ceremony'], correct: 3,
+      explain: '升旗 (shēngqí) 是全校師生共同參與的升旗典禮。', speak: '升旗' },
+    { q: 'Your students’ parents sometimes call you their child’s “導師”. This word refers to:',
+      zh: '家長稱呼你是孩子的「導師」。',
+      opts: ['The principal', 'The homeroom teacher', 'The school nurse', 'The librarian'], correct: 1,
+      explain: '導師 (dǎoshī) 就是班級導師／班導，負責該班的日常帶班工作。', speak: '導師' },
+    { q: 'A colleague mentions the “段考” is coming up next week. This is:',
+      zh: '同事說下週有「段考」。',
+      opts: ['A staff meeting', 'A holiday', 'A term exam', 'A field trip'], correct: 2,
+      explain: '段考 (duànkǎo) 是學期中的定期考試，通常一學期有兩到三次。', speak: '段考' },
+    { q: 'After lunch, an announcement says it’s “午休” time. Students should:',
+      zh: '午餐後廣播說「午休」時間到了。',
+      opts: ['Rest quietly at their desks', 'Go home', 'Start PE class', 'Line up for assembly'], correct: 0,
+      explain: '午休 (wǔxiū) 是午餐後的靜息／午睡時段，學生通常要趴睡或安靜休息。', speak: '午休' },
+    { q: 'You’re invited to a “班親會” this Friday evening. This is:',
+      zh: '週五晚上有「班親會」。',
+      opts: ['A staff birthday party', 'A parent-teacher meeting for your class', 'A student sports match', 'A teacher training session'], correct: 1,
+      explain: '班親會 (bānqīnhuì) 是導師與該班家長的班級家長會。', speak: '班親會' },
+    { q: 'The school newsletter mentions “校慶” is coming up next month. This is:',
+      zh: '校刊提到下個月有「校慶」。',
+      opts: ['A safety drill', 'A teacher’s retirement', 'An exam period', 'The school’s founding anniversary celebration'], correct: 3,
+      explain: '校慶 (xiàoqìng) 是學校創校紀念日的慶祝活動。', speak: '校慶' },
+    { q: 'A calendar note says next Monday is a “補假”. This means:',
+      zh: '行事曆註記下週一是「補假」。',
+      opts: ['A surprise exam day', 'A half-day of classes', 'A make-up day off for a holiday worked on the weekend', 'A field trip day'], correct: 2,
+      explain: '補假 (bǔjià) 是因假日補班／補課後，另外補回來的放假日。', speak: '補假' },
+    { q: 'A student proudly tells you they’re this week’s “值日生”. This means they are:',
+      zh: '學生說自己是這週的「值日生」。',
+      opts: ['The class duty helper for the day/week', 'The class president', 'A hall monitor for the whole school', 'The teacher’s assistant for exams'], correct: 0,
+      explain: '值日生 (zhírìshēng) 是輪值負責班級雜務的學生，如擦黑板、關燈等。', speak: '值日生' },
+    { q: 'The office mentions the “家長會” is organizing an event. This group is:',
+      zh: '學校提到「家長會」在辦活動。',
+      opts: ['The student council', 'A group of teachers', 'The alumni association', 'The parent association'], correct: 3,
+      explain: '家長會 (jiāzhǎnghuì) 是由學生家長組成的家長會組織。', speak: '家長會' },
+    { q: 'A student says they joined the “熱舞社” this semester. “社” here refers to a:',
+      zh: '學生說這學期加入了「熱舞社」。',
+      opts: ['A required class', 'A club / extracurricular activity', 'A punishment', 'A test group'], correct: 1,
+      explain: '社 (shè) 在這裡指社團，是學生課後自由參加的活動團體。', speak: '熱舞社' },
+    { q: 'Staff start talking about “期末” preparations in the office. This refers to:',
+      zh: '辦公室同事在討論「期末」的準備工作。',
+      opts: ['The end of the semester/term', 'The start of a new school year', 'A weekend trip', 'A teacher’s last day'], correct: 0,
+      explain: '期末 (qímò) 指學期即將結束的階段，常伴隨期末考與結業式。', speak: '期末' },
+    { q: 'A colleague pokes their head in and says “上課了” to you. This means:',
+      zh: '同事探頭跟你說「上課了」。',
+      opts: ['Lunch is ready', 'The meeting is over', 'Class is starting — time to go', 'School is closed today'], correct: 2,
+      explain: '上課了 (shàngkè le) 是提醒對方「該去上課了」的常用說法。', speak: '上課了' }
+  ];
+
+  window.__QZ_CONFIG__ = { webhookUrl: CONFIG.WEBHOOK_URL, round: ROUND, quizId: 'fet-mandarin-challenge', questions: QUESTIONS, hasSpeech: true };
+})();
+</script>
+<script src="/assets/js/fet-quiz.js"></script>
+</body>
+</html>
