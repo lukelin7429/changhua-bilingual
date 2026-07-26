@@ -97,7 +97,7 @@
   .spots{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
   @media (min-width:720px){ .spots{ grid-template-columns:1fr 1fr;gap:24px; } }
   @media (min-width:1000px){ .spots{ grid-template-columns:repeat(3,1fr); } }
-  .spot{background:#fff;border-radius:18px;border:1px solid var(--line);padding:26px 24px;box-shadow:var(--shadow-sm);border-top:8px solid var(--ink-blue);transition:transform .2s, box-shadow .2s;}
+  .spot{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-sm);border-top:6px solid var(--ink-blue);transition:transform .2s, box-shadow .2s;display:flex;flex-direction:column;}
   .spot:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
   .spot:nth-child(2){border-top-color:var(--green);}
   .spot:nth-child(3){border-top-color:var(--orange);}
@@ -106,9 +106,11 @@
   .spot:nth-child(6){border-top-color:var(--green);}
   .spot:nth-child(7){border-top-color:var(--orange);}
   .spot:nth-child(8){border-top-color:var(--ink-blue);}
-  .spot__emoji{font-size:48px;line-height:1;}
-  @media (min-width:720px){ .spot__emoji{ font-size:56px; } }
-  .spot__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--ink-deep);line-height:1.2;margin-top:12px;}
+  .spot__photo{width:100%;height:160px;object-fit:cover;display:block;background:var(--bg-soft);}
+  @media (min-width:720px){ .spot__photo{ height:180px; } }
+  .spot__photo.is-mascot{object-fit:contain;padding:14px;}
+  .spot__content{padding:20px 22px 24px;}
+  .spot__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--ink-deep);line-height:1.2;}
   @media (min-width:720px){ .spot__title{ font-size:28px; } }
   .spot__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;letter-spacing:1px;}
   @media (min-width:720px){ .spot__title-zh{ font-size:20px; } }
@@ -328,52 +330,68 @@
 
     <div class="spots">
       <article class="spot">
-        <div class="spot__emoji">🖋️</div>
+        <img class="spot__photo" src="photos/calligraphy-corridor.jpg" alt="Calligraphy Corridor 翰墨遊廊">
+        <div class="spot__content">
         <div class="spot__title">Calligraphy Corridor</div>
         <div class="spot__title-zh">翰墨遊廊</div>
         <div class="spot__body">A walkway alive with literary imagery — pillars and walls dressed in paper-cut kirin, brushwork, and Chinese characters. Walk through it and you've already had a lesson.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">📜</div>
+        <img class="spot__photo" src="photos/poetry-garden.jpg" alt="Green Poetry Garden 青青詩境">
+        <div class="spot__content">
         <div class="spot__title">Green Poetry Garden</div>
         <div class="spot__title-zh">青青詩境</div>
         <div class="spot__body">A row of pillars under banyan trees — each one a Chinese poem with a missing word. Daily passers-by become daily readers.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🦉</div>
+        <img class="spot__photo" src="photos/owl-theatre.jpg" alt="Owl Theatre 貓頭鷹劇場">
+        <div class="spot__content">
         <div class="spot__title">Owl Theatre</div>
         <div class="spot__title-zh">貓頭鷹劇場</div>
         <div class="spot__body">An open-air stage under the banyan canopy. Tiny owls — symbols of wisdom — perch on the trunk; flowering balls drape overhead like a musical staff.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🌈</div>
+        <img class="spot__photo" src="photos/rainbow-track-close.jpg" alt="Rainbow Track 彩虹跑道">
+        <div class="spot__content">
         <div class="spot__title">Rainbow Track</div>
         <div class="spot__title-zh">彩虹跑道</div>
         <div class="spot__body">A four-color PU track — blue, white, red, green — that makes morning laps feel like running through a painting.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🌻</div>
+        <img class="spot__photo" src="photos/memory-slope.jpg" alt="Memory Slope 拾憶坡">
+        <div class="spot__content">
         <div class="spot__title">Memory Slope</div>
         <div class="spot__title-zh">青青農場 · 拾憶坡</div>
         <div class="spot__body">A green hill dressed with windmills and storybook murals — Chang'e flying to the moon, the Jade Emperor, fairytales painted in open air.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🌳</div>
+        <div class="spot__photo" style="display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg, var(--ink-soft) 0%, var(--green-soft) 100%);">🌳</div>
+        <div class="spot__content">
         <div class="spot__title">Knowledge Tree</div>
         <div class="spot__title-zh">知識樹</div>
         <div class="spot__body">Painted on the bathroom walls — a tree heavy with fruit labeled <em>astronomy, geography, nature, humanities, fairytales</em>. Even bathrooms teach.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🎼</div>
+        <img class="spot__photo" src="photos/tile-mosaic.jpg" alt="800 Tile Mosaic 800片瓷板">
+        <div class="spot__content">
         <div class="spot__title">800 Tile Mosaic</div>
         <div class="spot__title-zh">800 片瓷板</div>
         <div class="spot__body">Behind the assembly stage — 800 ceramic tiles painted around five themes: strings, recorder, percussion, dance, reading. A wall that sings.</div>
+        </div>
       </article>
       <article class="spot">
-        <div class="spot__emoji">🐆</div>
+        <img class="spot__photo is-mascot" src="photos/mascot.png" alt="Sunshine Cheetah 陽光捷豹吉祥物">
+        <div class="spot__content">
         <div class="spot__title">Sunshine Cheetah</div>
         <div class="spot__title-zh">陽光捷豹吉祥物</div>
         <div class="spot__body">Our mascot — fast, sun-warmed, watching over the campus. The character every Luoqing child can draw with closed eyes.</div>
+        </div>
       </article>
     </div>
   </div>
