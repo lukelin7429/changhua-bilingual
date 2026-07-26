@@ -10,6 +10,9 @@
 <meta property="og:title" content="Luoqing Elementary · 彰化縣北斗鎮螺青國民小學">
 <meta property="og:description" content="From a Qing-dynasty academy to a fairytale bilingual campus in Beidou, Changhua.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/luoqing/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/luoqing/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/luoqing/favicon-180.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,8 +174,8 @@
   .official-cta{background:var(--orange);color:#fff;border-radius:14px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;transition:transform .15s, background .15s;box-shadow:0 8px 22px -8px rgba(232,138,60,.5);}
   @media (min-width:720px){ .official-cta{ padding:24px 30px; } }
   .official-cta:hover{background:#fff;color:var(--ink-deep);transform:translateY(-3px);}
-  .official-cta--green{background:var(--green);box-shadow:0 8px 22px -8px rgba(74,138,74,.5);}
-  .official-cta--green:hover{background:#fff;color:var(--green-deep);}
+  .official-cta--fb{background:#1877f2;box-shadow:0 8px 22px -8px rgba(24,119,242,.5);}
+  .official-cta--fb:hover{background:#fff;color:#0c63d4;}
   .official-cta__title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.2;}
   @media (min-width:720px){ .official-cta__title{ font-size:24px; } }
   .official-cta__zh{font-size:16px;margin-top:4px;font-weight:600;opacity:.92;}
@@ -180,36 +183,60 @@
   .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
   @media (min-width:720px){ .official-cta__arrow{ font-size:36px; } }
 
-  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft-text);line-height:1.65;}
-  @media (min-width:720px){ footer{ font-size:19px; } }
-  footer .org{font-weight:600;color:var(--ink-deep);}
+  /* === Footer === */
+  .ft{background:var(--ink-deep);color:rgba(255,255,255,.80);padding:44px 0 34px;}
+  .ft__inner{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:30px;}
+  @media (min-width:860px){ .ft__inner{ grid-template-columns:1.5fr 1fr 1.1fr;gap:40px; } }
+  .ft__brand{display:flex;gap:14px;align-items:flex-start;}
+  .ft__brand .ft__logo{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);flex-shrink:0;overflow:hidden;}
+  .ft__brand .ft__logo img{width:100%;height:100%;object-fit:cover;}
+  .ft__brand h4{font-family:'Cormorant Garamond',serif;font-size:21px;color:#fff;font-weight:700;line-height:1.2;}
+  .ft__brand .zh{font-size:14px;color:rgba(255,255,255,.78);margin-top:3px;}
+  .ft__addr{margin-top:10px;font-size:14px;color:rgba(255,255,255,.7);line-height:1.65;}
+  .ft__col h5{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-soft);margin-bottom:12px;}
+  .ft__col ul{list-style:none;}
+  .ft__col li{margin-bottom:8px;font-size:15px;}
+  .ft__col li a{color:rgba(255,255,255,.85);text-decoration:none;border-bottom:1px dashed rgba(255,225,194,.5);}
+  .ft__col li a:hover{color:var(--orange-soft);}
+  .ft-ctas{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
+  .cta-btn{background:var(--orange);color:#fff;border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:12px;text-decoration:none;box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transition:transform .18s,background .18s,color .18s;}
+  .cta-btn:hover{background:#fff;color:var(--orange-deep);transform:translateY(-3px);}
+  .cta-btn--fb{background:#1877f2;}
+  .cta-btn--fb:hover{background:#fff;color:#0c63d4;}
+  .cta-btn__ico{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;}
+  .cta-btn__tx{flex:1;min-width:0;}
+  .cta-btn__t{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;line-height:1.2;}
+  .cta-btn__zh{font-size:13px;margin-top:3px;font-weight:600;opacity:.94;}
+  .cta-btn__arrow{font-size:20px;font-weight:700;flex-shrink:0;transition:transform .18s;}
+  .cta-btn:hover .cta-btn__arrow{transform:translate(3px,-3px);}
+  .ft__bottom{max-width:1100px;margin:30px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.62);text-align:center;line-height:1.7;}
+  .ft__bottom a{color:var(--orange-soft);text-decoration:none;border-bottom:1px dashed rgba(255,225,194,.5);}
+  .ft__bottom a:hover{color:#fff;}
 
-  /* === Hero Banner — campus photo with academy-tone overlay === */
+  /* === Hero Banner — real campus photo, no overlay (text-shadow carries readability) === */
   .banner{
     position:relative;
-    background:#bfe0e8 url('photos/home-banner.jpg') center/cover no-repeat;
+    background:#bfe0e8 url('photos/home-banner-castle.jpg') center 62%/cover no-repeat;
     min-height:320px;
     display:flex;align-items:flex-end;
     overflow:hidden;
   }
-  @media (min-width:720px){ .banner{ min-height:400px; } }
-  @media (min-width:1080px){ .banner{ min-height:460px; } }
-  /* Photo-readability + fairytale-tone color overlay */
-  .banner::before{
-    content:'';position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg, transparent 0%, transparent 45%, rgba(15,37,66,.78) 100%);
-  }
+  @media (min-width:720px){ .banner{ min-height:420px; } }
+  @media (min-width:1080px){ .banner{ min-height:500px; } }
   .banner__deco{display:none;}
+  .banner__mascot{position:absolute;right:18px;bottom:0;width:110px;z-index:2;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35));}
+  @media (min-width:720px){ .banner__mascot{ width:150px;right:32px; } }
+  @media (min-width:1080px){ .banner__mascot{ width:190px;right:48px; } }
   .banner__inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;padding:36px 24px 30px;color:#fff;}
   @media (min-width:720px){ .banner__inner{ padding:52px 36px 44px; } }
-  .banner__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#ffd9b0;font-weight:600;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+  .banner__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4.5px;text-transform:uppercase;color:#ffd9b0;font-weight:600;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,.7),0 0 24px rgba(0,0,0,.5);}
   @media (min-width:720px){ .banner__brand{ font-size:16px; } }
-  .banner h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.0;letter-spacing:.5px;text-shadow:0 4px 22px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.5);}
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1.0;letter-spacing:.5px;text-shadow:0 4px 26px rgba(0,0,0,.75), 0 2px 8px rgba(0,0,0,.65);}
   @media (min-width:720px){ .banner h1{ font-size:78px; } }
   @media (min-width:1080px){ .banner h1{ font-size:96px; } }
-  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 16px rgba(0,0,0,.75);}
   @media (min-width:720px){ .banner__zh{ font-size:28px; } }
-  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.45;max-width:720px;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.45;max-width:720px;font-weight:500;text-shadow:0 2px 14px rgba(0,0,0,.7);}
   @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
 
   /* News teaser cards */
@@ -265,6 +292,7 @@
 <!-- ===== Hero Banner ===== -->
 <header class="banner">
   <div class="banner__deco"></div>
+  <img class="banner__mascot" src="photos/mascot.png" alt="螺青國小吉祥物">
   <div class="banner__inner">
     <div class="banner__brand">A Qing-dynasty Academy · A Fairytale Campus</div>
     <h1>Luoqing Elementary</h1>
@@ -582,10 +610,10 @@
           </div>
           <div class="official-cta__arrow">↗</div>
         </a>
-        <a class="official-cta official-cta--green" href="https://luoqing.mycultureconnect.org/home" target="_blank" rel="noopener">
+        <a class="official-cta official-cta--fb" href="https://www.facebook.com/rceschcedu?fref=nf&ref=embed_page" target="_blank" rel="noopener">
           <div>
-            <div class="official-cta__title">Bilingual Sub-site</div>
-            <div class="official-cta__zh">螺青雙語子網站 · 第 3 年運行</div>
+            <div class="official-cta__title">Facebook</div>
+            <div class="official-cta__zh">粉絲專頁 · 最新動態</div>
           </div>
           <div class="official-cta__arrow">↗</div>
         </a>
@@ -612,8 +640,41 @@
   els.forEach(function(el){io.observe(el);});
 })();
 </script>
-<footer>
-  © 螺青國小 Luoqing Elementary School</footer>
+<footer class="ft">
+  <div class="ft__inner">
+    <div class="ft__brand">
+      <span class="ft__logo"><img src="photos/mascot.png" alt="螺青國小吉祥物"></span>
+      <div>
+        <h4>Luoqing Elementary</h4>
+        <div class="zh">彰化縣北斗鎮螺青國民小學</div>
+        <div class="ft__addr">彰化縣北斗鎮東光里斗中路 712 號<br>No. 712, Douzhong Rd., Dongguang Vil., Beidou Township, Changhua<br>Tel · 電話：(04) 8882031</div>
+      </div>
+    </div>
+    <div class="ft__col">
+      <h5>This Site</h5>
+      <ul>
+        <li><a href="principal/">Principal · 校長室</a></li>
+        <li><a href="lessons/">Lessons · 課程</a></li>
+        <li><a href="news/">News · 新聞</a></li>
+      </ul>
+    </div>
+    <div class="ft__col">
+      <h5>Connect</h5>
+      <div class="ft-ctas">
+        <a class="cta-btn" href="https://rces.chc.edu.tw/" target="_blank" rel="noopener">
+          <span class="cta-btn__ico">🌐</span>
+          <span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">螺青國小官網</span></span>
+          <span class="cta-btn__arrow">↗</span>
+        </a>
+        <a class="cta-btn cta-btn--fb" href="https://www.facebook.com/rceschcedu?fref=nf&ref=embed_page" target="_blank" rel="noopener">
+          <span class="cta-btn__ico">f</span>
+          <span class="cta-btn__tx"><span class="cta-btn__t">Facebook</span><span class="cta-btn__zh">粉絲專頁 · 最新動態</span></span>
+          <span class="cta-btn__arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 <script defer src="/schools/luoqing/motion.js"></script>
