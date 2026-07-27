@@ -142,6 +142,56 @@
   @media (min-width:720px){ .culture p{ font-size:22px; } }
   .culture p.zh{color:var(--ink-soft-text);margin-top:18px;font-weight:500;}
 
+  /* Speak / TTS button */
+  .speak{width:44px;height:44px;border-radius:50%;border:none;background:var(--orange-soft);color:var(--orange-deep);font-size:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s, background .15s, color .15s;flex-shrink:0;vertical-align:middle;margin-left:8px;}
+  .speak:hover{background:var(--orange);color:#fff;}
+  .speak:active{transform:scale(.92);}
+  .speak.is-speaking{background:var(--orange);color:#fff;animation:spulse 1s infinite;}
+  @media (min-width:720px){ .speak{ width:50px;height:50px;font-size:23px; } }
+  @keyframes spulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+  .sent__row{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
+  .sent__row>div:first-child{flex:1;}
+
+  /* Advanced sentences */
+  .adv{display:flex;flex-direction:column;gap:16px;margin-top:36px;max-width:820px;margin-left:auto;margin-right:auto;}
+  .adv__row{display:flex;align-items:center;justify-content:space-between;gap:16px;border-radius:18px;padding:20px 24px;background:#fff;border:3px solid var(--teal);box-shadow:var(--shadow-sm);}
+  .adv__row:nth-child(4n+2){border-color:var(--orange);}
+  .adv__row:nth-child(4n+3){border-color:var(--pink);}
+  .adv__row:nth-child(4n+4){border-color:var(--purple);}
+  .adv__no{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:800;color:var(--teal-deep);letter-spacing:2px;flex-shrink:0;background:var(--teal-soft);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;}
+  .adv__row:nth-child(4n+2) .adv__no{color:var(--orange-deep);background:var(--orange-soft);}
+  .adv__row:nth-child(4n+3) .adv__no{color:var(--pink-deep);background:var(--pink-soft);}
+  .adv__row:nth-child(4n+4) .adv__no{color:var(--purple-deep);background:var(--purple-soft);}
+  .adv__text{flex:1;}
+  .adv__en{font-size:20px;font-weight:700;color:var(--ink);line-height:1.5;}
+  @media (min-width:720px){ .adv__en{ font-size:22px; } }
+  .adv__zh{font-size:17px;color:var(--ink-soft-text);margin-top:5px;font-weight:600;}
+  @media (min-width:720px){ .adv__zh{ font-size:18px; } }
+
+  /* Matching game */
+  .game-card{background:#fff;border-radius:26px;border:3px solid var(--line);box-shadow:var(--shadow);padding:30px 24px;max-width:640px;margin:36px auto 0;}
+  @media (min-width:720px){ .game-card{ padding:40px 40px; } }
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft-text);margin-bottom:20px;font-weight:600;}
+  .game-score b{color:var(--orange-deep);font-size:26px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;}
+  .gcol{display:flex;flex-direction:column;gap:12px;}
+  .gtile{font-family:inherit;font-size:19px;font-weight:800;color:var(--ink);background:#fff;border:3px solid var(--line);border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  @media (min-width:720px){ .gtile{ font-size:21px;padding:18px 12px; } }
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--orange);}
+  .gtile.sel{border-color:var(--teal);background:var(--teal-soft);color:var(--teal-deep);}
+  .gtile.done{background:#e9f7ec;border-color:#5cb274;color:#2f8049;cursor:default;}
+  .gtile.pop{animation:gpop .5s;}
+  @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;}
+  @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-done{display:none;text-align:center;margin-top:24px;font-family:'PingFang TC',sans-serif;font-size:26px;font-weight:800;color:var(--orange-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .game-reset{display:block;margin:24px auto 0;font-family:inherit;font-size:19px;font-weight:700;color:var(--orange-deep);background:#fff;border:3px solid var(--line);border-radius:12px;padding:12px 26px;cursor:pointer;}
+  .game-reset:hover{background:var(--orange-soft);border-color:var(--orange);}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{to{transform:translateY(110vh) rotate(600deg);}}
+
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft-text);line-height:1.65;border-top:1px solid var(--line);}
   @media (min-width:720px){ footer{ font-size:19px; } }
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
@@ -188,7 +238,7 @@
   <div class="wrap">
     <article class="vc rvl">
       <div class="vc__head">
-        <div class="vc__term">calligraphy<span class="vc__pos">n.</span></div>
+        <div class="vc__term">calligraphy<span class="vc__pos">n.</span><button class="speak" data-speak="calligraphy" aria-label="Hear pronunciation">🔊</button></div>
         <div class="vc__zh">書法</div>
       </div>
       <div class="vc__video">
@@ -203,11 +253,11 @@
           <span class="chip">copybook <span class="zh">字帖</span></span>
         </div>
         <div class="sent">
-          <div class="sent__row"><div class="sent__en">We practice <b>calligraphy</b> with copybooks.</div><div class="sent__zh">我們用字帖練習書法。</div></div>
-          <div class="sent__row"><div class="sent__en">All students learn <b>calligraphy</b> in third grade.</div><div class="sent__zh">所有的學生在三年級時學習書法。</div></div>
-          <div class="sent__row"><div class="sent__en">The teacher is showing her students how to <b>hold</b> a brush.</div><div class="sent__zh">這位老師正在示範給她的學生如何握毛筆。</div></div>
-          <div class="sent__row"><div class="sent__en">We use black <b>ink</b> to do calligraphy.</div><div class="sent__zh">我們用黑色的墨汁來寫書法。</div></div>
-          <div class="sent__row"><div class="sent__en">Learning <b>calligraphy</b> is fun.</div><div class="sent__zh">學習書法很有趣。</div></div>
+          <div class="sent__row"><div><div class="sent__en">We practice <b>calligraphy</b> with copybooks.</div><div class="sent__zh">我們用字帖練習書法。</div></div><button class="speak" data-speak="We practice calligraphy with copybooks." aria-label="Hear pronunciation">🔊</button></div>
+          <div class="sent__row"><div><div class="sent__en">All students learn <b>calligraphy</b> in third grade.</div><div class="sent__zh">所有的學生在三年級時學習書法。</div></div><button class="speak" data-speak="All students learn calligraphy in third grade." aria-label="Hear pronunciation">🔊</button></div>
+          <div class="sent__row"><div><div class="sent__en">The teacher is showing her students how to <b>hold</b> a brush.</div><div class="sent__zh">這位老師正在示範給她的學生如何握毛筆。</div></div><button class="speak" data-speak="The teacher is showing her students how to hold a brush." aria-label="Hear pronunciation">🔊</button></div>
+          <div class="sent__row"><div><div class="sent__en">We use black <b>ink</b> to do calligraphy.</div><div class="sent__zh">我們用黑色的墨汁來寫書法。</div></div><button class="speak" data-speak="We use black ink to do calligraphy." aria-label="Hear pronunciation">🔊</button></div>
+          <div class="sent__row"><div><div class="sent__en">Learning <b>calligraphy</b> is fun.</div><div class="sent__zh">學習書法很有趣。</div></div><button class="speak" data-speak="Learning calligraphy is fun." aria-label="Hear pronunciation">🔊</button></div>
         </div>
       </div>
     </article>
@@ -242,55 +292,93 @@
   </div>
 </section>
 
-<!-- ===== Introduce Your Club in English ===== -->
+<!-- ===== Basic Vocabulary ===== -->
 <section>
   <div class="wrap">
-    <h2 class="sec__title">Introduce Your Club in English</h2>
-    <div class="sec__title-zh">用英語介紹你的書法社</div>
+    <h2 class="sec__title">Basic Vocabulary</h2>
+    <div class="sec__title-zh">初階單字篇 · 用英語介紹你的書法社</div>
     <div class="sec__rule"></div>
     <p style="text-align:center;font-size:19px;color:var(--ink-soft-text);max-width:760px;margin:0 auto;">Learn these words one by one, and one day you'll be able to tell a visitor all about our Calligraphy Class — in English!<br><span style="font-size:17px;">一個一個學會這些單字，總有一天你可以用英語跟訪客介紹我們的書法社！</span></p>
 
     <div class="iv-grid">
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">📯</span><div><div class="iv-card__word">tradition<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">傳統</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">📯</span><div><div class="iv-card__word">tradition<span class="iv-card__pos">n.</span><button class="speak" data-speak="tradition" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">傳統</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Calligraphy is an important <b>tradition</b> at our school.</div><div class="iv-card__zhx">書法是我們學校重要的傳統。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🏛️</span><div><div class="iv-card__word">academy<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">書院</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🏛️</span><div><div class="iv-card__word">academy<span class="iv-card__pos">n.</span><button class="speak" data-speak="academy" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">書院</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Our school's name comes from an old <b>academy</b>.</div><div class="iv-card__zhx">我們學校的名字來自一座古老的書院。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">✍️</span><div><div class="iv-card__word">brushstroke<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">筆劃</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">✍️</span><div><div class="iv-card__word">brushstroke<span class="iv-card__pos">n.</span><button class="speak" data-speak="brushstroke" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">筆劃</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Each <b>brushstroke</b> takes patience and practice.</div><div class="iv-card__zhx">每一筆劃都需要耐心和練習。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🧘</span><div><div class="iv-card__word">patience<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">耐心</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🧘</span><div><div class="iv-card__word">patience<span class="iv-card__pos">n.</span><button class="speak" data-speak="patience" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">耐心</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Calligraphy teaches us <b>patience</b>.</div><div class="iv-card__zhx">書法教會我們耐心。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🔁</span><div><div class="iv-card__word">practice<span class="iv-card__pos">v./n.</span></div><div class="iv-card__zh">練習</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🔁</span><div><div class="iv-card__word">practice<span class="iv-card__pos">v./n.</span><button class="speak" data-speak="practice" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">練習</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">We <b>practice</b> calligraphy every week.</div><div class="iv-card__zhx">我們每週練習書法。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🌸</span><div><div class="iv-card__word">elegant<span class="iv-card__pos">adj.</span></div><div class="iv-card__zh">優雅的</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🌸</span><div><div class="iv-card__word">elegant<span class="iv-card__pos">adj.</span><button class="speak" data-speak="elegant" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">優雅的</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Good calligraphy looks <b>elegant</b> and balanced.</div><div class="iv-card__zhx">好的書法看起來優雅又平衡。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🎯</span><div><div class="iv-card__word">focus<span class="iv-card__pos">v./n.</span></div><div class="iv-card__zh">專注</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🎯</span><div><div class="iv-card__word">focus<span class="iv-card__pos">v./n.</span><button class="speak" data-speak="focus" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">專注</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">Calligraphy helps us <b>focus</b>.</div><div class="iv-card__zhx">書法幫助我們專注。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">字</span><div><div class="iv-card__word">Chinese character<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">漢字</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">字</span><div><div class="iv-card__word">Chinese character<span class="iv-card__pos">n.</span><button class="speak" data-speak="Chinese character" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">漢字</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">We write <b>Chinese characters</b> with a brush.</div><div class="iv-card__zhx">我們用毛筆寫漢字。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🎁</span><div><div class="iv-card__word">the Four Treasures of the Study<span class="iv-card__pos">n.</span></div><div class="iv-card__zh">文房四寶</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🎁</span><div><div class="iv-card__word">the Four Treasures of the Study<span class="iv-card__pos">n.</span><button class="speak" data-speak="the Four Treasures of the Study" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">文房四寶</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">We use <b>the Four Treasures of the Study</b>: brush, ink, paper, and inkstone.</div><div class="iv-card__zhx">我們使用文房四寶：毛筆、墨、紙和硯台。</div></div>
       </div>
       <div class="iv-card rvl">
-        <div class="iv-card__head"><span class="iv-card__emoji">🏆</span><div><div class="iv-card__word">proud<span class="iv-card__pos">adj.</span></div><div class="iv-card__zh">驕傲的</div></div></div>
+        <div class="iv-card__head"><span class="iv-card__emoji">🏆</span><div><div class="iv-card__word">proud<span class="iv-card__pos">adj.</span><button class="speak" data-speak="proud" aria-label="Hear pronunciation">🔊</button></div><div class="iv-card__zh">驕傲的</div></div></div>
         <div class="iv-card__body"><div class="iv-card__en">We are <b>proud</b> of our Calligraphy Class.</div><div class="iv-card__zhx">我們對自己的書法課感到驕傲。</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Advanced Sentences ===== -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <h2 class="sec__title">Advanced Sentences</h2>
+    <div class="sec__title-zh">進階句子篇 · 串成一段自我介紹</div>
+    <div class="sec__rule"></div>
+    <p style="text-align:center;font-size:19px;color:var(--ink-soft-text);max-width:760px;margin:0 auto;">Put the sentences together, and you have a whole introduction to our Calligraphy Class!<br><span style="font-size:17px;">把句子串起來，就是一段完整的書法社自我介紹！</span></p>
+
+    <div class="adv">
+      <div class="adv__row rvl"><span class="adv__no">1</span><div class="adv__text"><div class="adv__en">Welcome to our school's <b>Calligraphy Class</b>!</div><div class="adv__zh">歡迎來到我們學校的書法課！</div></div><button class="speak" data-speak="Welcome to our school's Calligraphy Class!" aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">2</span><div class="adv__text"><div class="adv__en">I <b>practice</b> Chinese calligraphy every day.</div><div class="adv__zh">我每天練習中國書法。</div></div><button class="speak" data-speak="I practice Chinese calligraphy every day." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">3</span><div class="adv__text"><div class="adv__en">It takes time and <b>patience</b> to write it well.</div><div class="adv__zh">要寫得好需要時間和耐心。</div></div><button class="speak" data-speak="It takes time and patience to write it well." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">4</span><div class="adv__text"><div class="adv__en">We use <b>the Four Treasures of the Study</b> — the brush, ink, paper, and inkstone.</div><div class="adv__zh">我們使用文房四寶——毛筆、墨、紙和硯台。</div></div><button class="speak" data-speak="We use the Four Treasures of the Study, the brush, ink, paper, and inkstone." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">5</span><div class="adv__text"><div class="adv__en">Every <b>brushstroke</b> has to be slow and careful.</div><div class="adv__zh">每一筆劃都要慢慢地、小心地寫。</div></div><button class="speak" data-speak="Every brushstroke has to be slow and careful." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">6</span><div class="adv__text"><div class="adv__en">Our school's name comes from an old <b>academy</b>, so calligraphy is part of our <b>tradition</b>.</div><div class="adv__zh">我們學校的名字來自一座古老的書院，所以書法是我們傳統的一部分。</div></div><button class="speak" data-speak="Our school's name comes from an old academy, so calligraphy is part of our tradition." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">7</span><div class="adv__text"><div class="adv__en">Learning calligraphy makes me feel calm and <b>focused</b>.</div><div class="adv__zh">學習書法讓我感到平靜又專注。</div></div><button class="speak" data-speak="Learning calligraphy makes me feel calm and focused." aria-label="Hear pronunciation">🔊</button></div>
+      <div class="adv__row rvl"><span class="adv__no">8</span><div class="adv__text"><div class="adv__en">I am <b>proud</b> to be a student in the Calligraphy Class.</div><div class="adv__zh">我很驕傲能成為書法課的學生。</div></div><button class="speak" data-speak="I am proud to be a student in the Calligraphy Class." aria-label="Hear pronunciation">🔊</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Matching Game ===== -->
+<section>
+  <div class="wrap">
+    <h2 class="sec__title">Word Match Game</h2>
+    <div class="sec__title-zh">英中配對遊戲</div>
+    <div class="sec__rule"></div>
+    <p style="text-align:center;font-size:19px;color:var(--ink-soft-text);">Tap an English word, then tap its Chinese match!<br><span style="font-size:17px;">先點一個英文單字，再點對應的中文！</span></p>
+
+    <div class="game-card rvl">
+      <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 8</p>
+      <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+      <div class="game-done" id="gDone">🎉 Great job! 你全部配對成功，太棒了！</div>
+      <button class="game-reset" id="gReset" type="button">↻ Play again · 再玩一次</button>
     </div>
   </div>
 </section>
@@ -316,6 +404,75 @@
 </section>
 
 <script>
+function speak(text, btn){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1;
+  if(btn){ btn.classList.add('is-speaking'); u.onend = function(){btn.classList.remove('is-speaking');}; u.onerror = function(){btn.classList.remove('is-speaking');}; }
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll('[data-speak]').forEach(function(b){ b.addEventListener('click', function(){ speak(b.dataset.speak, b); }); });
+
+(function(){
+  var enCol = document.getElementById('gEn'), zhCol = document.getElementById('gZh');
+  var sc = document.getElementById('gScore'), done = document.getElementById('gDone'), reset = document.getElementById('gReset');
+  if(!enCol || !zhCol) return;
+  var WORDS = [
+    {en:'tradition', zh:'傳統'},
+    {en:'academy', zh:'書院'},
+    {en:'brushstroke', zh:'筆劃'},
+    {en:'patience', zh:'耐心'},
+    {en:'practice', zh:'練習'},
+    {en:'elegant', zh:'優雅的'},
+    {en:'focus', zh:'專注'},
+    {en:'proud', zh:'驕傲的'}
+  ];
+  var selEn = null, matched = 0;
+  function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function fx(el, cls){ el.classList.add(cls); setTimeout(function(){ el.classList.remove(cls); }, 520); }
+  function tile(w, zh){ var b=document.createElement('button'); b.type='button'; b.className='gtile'+(zh?' zh':''); b.textContent = zh?w.zh:w.en; b.dataset.k = w.en; return b; }
+  function confetti(big){
+    var n = big?90:18, colors=['#e88a3c','#1e8f83','#7e5fa3','#d96b9a','#4a8a4a','#d9483c'];
+    for(var i=0;i<n;i++){
+      var d=document.createElement('div'); d.className='confetti';
+      d.style.left=(Math.random()*100)+'vw';
+      d.style.background=colors[Math.floor(Math.random()*colors.length)];
+      d.style.animationDuration=(1.1+Math.random()*1.3)+'s';
+      d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';
+      d.style.width=(7+Math.random()*7)+'px';
+      d.style.height=(10+Math.random()*8)+'px';
+      document.body.appendChild(d);
+      (function(el){ setTimeout(function(){ el.remove(); }, big?3400:2700); })(d);
+    }
+  }
+  function build(){
+    enCol.innerHTML=''; zhCol.innerHTML=''; selEn=null; matched=0;
+    sc.textContent='0'; done.classList.remove('show');
+    shuffle(WORDS).forEach(function(w){ var b=tile(w,false); b.addEventListener('click', function(){ pickEn(b); }); enCol.appendChild(b); });
+    shuffle(WORDS).forEach(function(w){ var b=tile(w,true); b.addEventListener('click', function(){ pickZh(b); }); zhCol.appendChild(b); });
+  }
+  function pickEn(b){
+    if(b.classList.contains('done')) return;
+    if(selEn) selEn.classList.remove('sel');
+    selEn = b; b.classList.add('sel');
+    speak(b.dataset.k);
+  }
+  function pickZh(b){
+    if(b.classList.contains('done') || !selEn) return;
+    if(b.dataset.k === selEn.dataset.k){
+      var e = selEn; e.classList.remove('sel'); e.classList.add('done'); b.classList.add('done');
+      fx(e,'pop'); fx(b,'pop'); confetti(false);
+      selEn = null; matched++; sc.textContent = matched;
+      if(matched === WORDS.length){ done.classList.add('show'); confetti(true); }
+    } else {
+      fx(b,'shake'); fx(selEn,'shake');
+    }
+  }
+  if(reset) reset.addEventListener('click', build);
+  build();
+})();
+
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var els=[].slice.call(document.querySelectorAll('.rvl'));
