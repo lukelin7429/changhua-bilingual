@@ -88,6 +88,17 @@
   .nc.cat--family .nc__cat{color:#a64475;background:var(--pink-soft);}
   .nc.cat--counseling .nc__cat{color:var(--red);background:var(--red-soft);}
 
+  .vid-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:30px;}
+  @media (min-width:860px){ .vid-grid{ grid-template-columns:1fr 1fr; } }
+  .vid-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
+  .vid-frame{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vid-body{padding:20px 22px 24px;}
+  .vid-title{font-size:18px;color:var(--ink-deep);font-weight:700;line-height:1.4;}
+  @media (min-width:720px){ .vid-title{ font-size:20px; } }
+  .vid-title-zh{font-size:15px;color:var(--ink-soft-text);font-weight:500;margin-top:6px;line-height:1.5;}
+  @media (min-width:720px){ .vid-title-zh{ font-size:16.5px; } }
+
   .empty-zone{margin-top:36px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:14px;padding:32px 28px;text-align:center;color:var(--ink-soft-text);font-size:17px;line-height:1.6;}
   @media (min-width:720px){ .empty-zone{ font-size:19px;padding:40px 36px; } }
   .empty-zone strong{color:var(--ink-deep);}
@@ -130,6 +141,43 @@
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
+    <h2 class="sec__title">Video Highlights</h2>
+    <div class="sec__title-zh">影音精選 · 校園活動側記</div>
+    <div class="sec__rule"></div>
+
+    <div class="vid-grid">
+
+      <div class="vid-card">
+        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/vpJ7t7nDJUw" title="Online Meeting with Teacher Shannon" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vid-body">
+          <div class="vid-title">Online Meeting with Teacher Shannon</div>
+          <div class="vid-title-zh">與 Shannon 老師的線上交流會議</div>
+        </div>
+      </div>
+
+      <div class="vid-card">
+        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/uE3SQVaSi5M" title="CCC Chinese School Visit — Calligraphy and Dragon Dance" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vid-body">
+          <div class="vid-title">CCC Chinese School Visit — Calligraphy &amp; Dragon Dance</div>
+          <div class="vid-title-zh">CCC 中文學校來訪交流 · 書法與舞龍體驗</div>
+        </div>
+      </div>
+
+      <div class="vid-card">
+        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/8YsnhfENKYA" title="Visiting Chinese School Students Making Tofu" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vid-body">
+          <div class="vid-title">A Taste of Local Life — Making Tofu Together</div>
+          <div class="vid-title-zh">紐約首府中文學校交流體驗 · 一起做豆腐</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">School News</h2>
     <div class="sec__title-zh">校園新聞 · 螺青國小最近動態</div>
     <div class="sec__rule"></div>
@@ -273,7 +321,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.vid-card';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
