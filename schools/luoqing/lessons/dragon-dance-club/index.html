@@ -71,6 +71,17 @@
   .mascot-float{position:absolute;top:-30px;right:-60px;width:110px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));}
   @media (max-width:900px){ .mascot-float{ display:none; } }
 
+  /* Photo gallery */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;}
+  @media (min-width:720px){ .gallery{ grid-template-columns:repeat(4,1fr);gap:18px; } }
+  .gallery figure{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:4px solid var(--red);position:relative;aspect-ratio:3/4;}
+  .gallery figure:nth-child(2){border-color:var(--gold);}
+  .gallery figure:nth-child(3){border-color:var(--teal);}
+  .gallery figure:nth-child(4){border-color:var(--purple);}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg, rgba(0,0,0,.72) 0%, transparent 100%);color:#fff;font-size:13px;font-weight:700;padding:20px 10px 8px;text-align:center;}
+  @media (min-width:720px){ .gallery figcaption{ font-size:14.5px; } }
+
   /* Speak / TTS button */
   .speak{width:44px;height:44px;border-radius:50%;border:none;background:var(--red-soft);color:var(--red-deep);font-size:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s, background .15s, color .15s;flex-shrink:0;vertical-align:middle;margin-left:8px;}
   .speak:hover{background:var(--red);color:#fff;}
@@ -231,6 +242,13 @@
       <iframe src="https://www.youtube-nocookie.com/embed/FqsuN6TENiU?rel=0" title="螺青舞龍社 Dragon Dance Club" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
     </div>
     <div class="video-cap">🐉 Dragon Dance Club · 舞龍社介紹</div>
+
+    <div class="gallery">
+      <figure class="rvl"><img src="../../photos/dragon-dance-trophy.jpg" alt="彰化縣舞龍舞獅比賽獲獎"><figcaption>🏆 County Competition · 縣長盃獲獎</figcaption></figure>
+      <figure class="rvl"><img src="../../photos/dragon-dance-campus.jpg" alt="校園練習"><figcaption>🏫 Practice on Campus · 校園練習</figcaption></figure>
+      <figure class="rvl"><img src="../../photos/dragon-dance-action.jpg" alt="街頭表演"><figcaption>🎪 Street Performance · 街頭表演</figcaption></figure>
+      <figure class="rvl"><img src="../../photos/dragon-dance-big.jpg" alt="大型表演"><figcaption>🐉 Big Show · 大型表演</figcaption></figure>
+    </div>
   </div>
 </section>
 
