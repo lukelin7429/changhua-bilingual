@@ -93,6 +93,10 @@
   .quote--purple{background:var(--purple-soft);border-left-color:var(--purple);}
   .quote--purple .quote__text{color:var(--purple-deep);}
 
+  .video-frame{margin-top:36px;position:relative;width:100%;max-width:780px;padding-bottom:56.25%;background:#000;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-cap{max-width:780px;text-align:center;font-size:16px;color:var(--ink-soft-text);margin-top:12px;font-weight:600;}
+
   /* === Campus highlights — 8 fairytale spots === */
   .spots{display:grid;grid-template-columns:1fr;gap:20px;margin-top:8px;}
   @media (min-width:720px){ .spots{ grid-template-columns:1fr 1fr;gap:24px; } }
@@ -308,6 +312,9 @@
       <div class="quote__text">"Tradition is not a museum — it is a child running across a rainbow track."</div>
       <div class="quote__zh">「傳統不是博物館——是一個孩子在彩虹跑道上奔跑的身影。」<br>—— 螺青國小辦學意象</div>
     </div>
+
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/TpugoY0h-Vs" title="螺青國小簡介 Welcome to Luoqing Elementary School!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video-cap">螺青國小簡介 · Welcome to Luoqing Elementary School!</div>
   </div>
 </section>
 
@@ -552,7 +559,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.video-frame';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
