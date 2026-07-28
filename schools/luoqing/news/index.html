@@ -88,6 +88,36 @@
   .nc.cat--family .nc__cat{color:#a64475;background:var(--pink-soft);}
   .nc.cat--counseling .nc__cat{color:var(--red);background:var(--red-soft);}
 
+  /* Featured Stories */
+  .lead-zh{font-size:17px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ .lead-zh{ font-size:19px; } }
+  .feat{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);margin-top:30px;transition:transform .2s,box-shadow .2s;}
+  .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  @media (min-width:760px){ .feat{ display:grid;grid-template-columns:1.1fr 1fr; } }
+  .feat__img{aspect-ratio:16/10;overflow:hidden;}
+  @media (min-width:760px){ .feat__img{ aspect-ratio:auto;height:100%; } }
+  .feat__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .feat__b{padding:26px 26px 28px;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .feat__b{ padding:34px 36px 36px; } }
+  .feat__badge{align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--orange);padding:5px 14px;border-radius:20px;}
+  .feat__t{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--ink-deep);line-height:1.25;margin-top:14px;}
+  @media (min-width:720px){ .feat__t{ font-size:32px; } }
+  .feat__t small{display:block;font-size:16px;color:var(--ink-soft-text);font-weight:500;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .feat__t small{ font-size:18px; } }
+  .feat__date{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:var(--orange-deep);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:10px;}
+  .feat__p{font-size:16.5px;color:var(--ink);line-height:1.7;margin-top:14px;}
+  @media (min-width:720px){ .feat__p{ font-size:18px; } }
+  .feat__cta{margin-top:18px;font-weight:700;color:var(--orange-deep);}
+  .cards{display:grid;grid-template-columns:1fr;gap:20px;margin-top:26px;}
+  @media (min-width:640px){ .cards.three{ grid-template-columns:repeat(3,1fr); } }
+  .lcard{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
+  .lcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .lcard .cover{aspect-ratio:4/3;overflow:hidden;}
+  .lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;}
+  .lcard .body{padding:18px 20px 20px;}
+  .lcard h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ink-deep);line-height:1.3;}
+  .lcard .zh{font-size:14px;color:var(--ink-soft-text);margin-top:6px;line-height:1.5;}
+
   .vid-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:30px;}
   @media (min-width:860px){ .vid-grid{ grid-template-columns:1fr 1fr; } }
   .vid-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
@@ -141,6 +171,33 @@
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
+    <h2 class="sec__title">Featured Stories</h2>
+    <div class="sec__title-zh">精選報導 · 校園近期大小事</div>
+    <div class="sec__rule"></div>
+    <p class="lead-zh" style="margin-top:0;">Full stories, with words to learn and a matching game to play. 完整版報導，附單字學習區與配對遊戲。</p>
+
+    <a class="feat" href="anti-violence-contest-awards/">
+      <div class="feat__img"><img src="/schools/luoqing/news-img/anti-violence-contest-awards-2.jpg" alt="居仁社區朗讀繪畫比賽頒獎典禮，螺青學生手持獎狀合影" loading="lazy"></div>
+      <div class="feat__b">
+        <span class="feat__badge">Latest · 最新</span>
+        <div class="feat__t">Champions of Care<small>居仁社區兒少保護宣導活動・朗讀繪畫比賽奪佳績</small></div>
+        <div class="feat__date">2026.07.09</div>
+        <p class="feat__p">Luoqing students placed across every category at the Beidou Township Juren Community's reading and painting competition — turning an important topic into art, story, and courage on stage.</p>
+        <div class="feat__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <div class="cards three">
+      <a class="lcard" href="beiguan-music-day/"><div class="cover"><img src="/schools/luoqing/news-img/beiguan-music-day-1.jpg" alt="北管樂師到校演出，螺青師生於體育館大合照" loading="lazy"></div><div class="body"><h3>The Sound of a Hundred-Year Heritage</h3><div class="zh">北管音樂戲曲進校園・彰化文化局校園推廣</div><div style="margin-top:10px;font-size:14px;color:var(--ink-soft-text);">2026.06.29</div></div></a>
+      <a class="lcard" href="restroom-renovation/"><div class="cover"><img src="/schools/luoqing/news-img/restroom-renovation-6.jpg" alt="廁所整修後牆面繪有劍蘭花朵壁畫" loading="lazy"></div><div class="body"><h3>A Fresh Bloom in the East Wing</h3><div class="zh">東側廁所整修完工・性別友善與無障礙升級</div><div style="margin-top:10px;font-size:14px;color:var(--ink-soft-text);">2026.06.22</div></div></a>
+      <a class="lcard" href="internet-safety-storytelling/"><div class="cover"><img src="/schools/luoqing/news-img/internet-safety-storytelling-1.jpg" alt="全校師生於體育館聆聽健康上網公益故事活動" loading="lazy"></div><div class="body"><h3>Stories for Smart Screen Time</h3><div class="zh">健康上網公益故事巡迴・種子教育基金會到校</div><div style="margin-top:10px;font-size:14px;color:var(--ink-soft-text);">2026.05.15</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">Video Highlights</h2>
     <div class="sec__title-zh">影音精選 · 校園活動側記</div>
     <div class="sec__rule"></div>
@@ -177,7 +234,7 @@
 
 <section>
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">School News</h2>
     <div class="sec__title-zh">校園新聞 · 螺青國小最近動態</div>
     <div class="sec__rule"></div>
@@ -321,7 +378,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.vid-card';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.feat,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.vid-card';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
