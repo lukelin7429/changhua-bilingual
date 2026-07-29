@@ -215,6 +215,28 @@ section:last-of-type{border-bottom:none;}
 .player-link__text strong{font-family:'Playfair Display',serif;font-size:18px;color:var(--green-deep);font-weight:700;line-height:1.3;}
 .player-link__text span{font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;}
 .player-link__arrow{font-size:22px;color:var(--gold);flex-shrink:0;}
+
+/* ===== Word of the Day cards ===== */
+.vocabs{display:grid;grid-template-columns:1fr;gap:28px;}
+@media(min-width:860px){.vocabs{grid-template-columns:1fr 1fr;gap:30px;}}
+.vc{background:#fff;border:1px solid var(--line);border-top:6px solid var(--gold);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+.vc__num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-soft);padding:6px 18px;}
+.vc__head{padding:14px 20px 12px;}
+.vc__term{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--green-deep);line-height:1.15;}
+.vc__pos{font-family:'Inter',sans-serif;font-size:13px;color:var(--ink-soft);font-style:italic;font-weight:500;margin-left:8px;vertical-align:middle;}
+.vc__zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:700;margin-top:2px;}
+.vc__video{position:relative;padding-top:56.25%;background:#000;}
+.vc__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vc__body{padding:16px 20px 20px;flex:1;}
+.vc__exs{display:flex;flex-direction:column;gap:10px;}
+.vc__ex{border-radius:12px;padding:12px 14px;}
+.vc__ex--1{background:var(--gold-soft);border-left:4px solid var(--gold);}
+.vc__ex--2{background:var(--green-soft);border-left:4px solid var(--green);}
+.vc__ex .en{font-size:16px;color:var(--ink);font-weight:600;line-height:1.5;}
+.vc__ex .en b{font-weight:800;color:var(--green-deep);}
+.vc__ex .zh{font-size:14px;color:var(--ink-soft);margin-top:4px;line-height:1.5;font-family:'PingFang TC',sans-serif;}
+.say{background:var(--gold);color:#fff;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;vertical-align:middle;margin-left:8px;transition:transform .18s,background .18s;}
+.say:hover{transform:scale(1.1);}
 .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
 @media(min-width:720px){.topics{grid-template-columns:repeat(3,1fr);gap:16px;}}
 @media(min-width:1000px){.topics{grid-template-columns:repeat(5,1fr);}}
