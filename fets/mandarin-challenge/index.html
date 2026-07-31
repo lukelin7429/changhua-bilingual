@@ -129,21 +129,34 @@
       border:1px solid var(--hub-line); border-radius:10px; padding:11px 14px; background:#fff;
     }
     .st__opt .k { font-weight:700; color:var(--hub-ink-faint); width:19px; flex-shrink:0; }
-    .st__opt.is-ok { border-color:#2f7d5c; background:#e3f1e9; color:var(--hub-ink); font-weight:600; }
-    .st__opt.is-ok .k { color:#2f7d5c; }
-    .st__opt.is-ok::after { content:"✓"; margin-left:auto; color:#2f7d5c; font-weight:700; }
-    .st__why {
-      font-size:18px; line-height:1.65; color:var(--hub-ink-soft);
-      background:var(--hub-line-soft); border-radius:10px; padding:13px 15px; margin:0;
+    /* Answers stay hidden until the reader asks for them — per question with the
+       "Show answer" button, or all at once with the toolbar switch. */
+    .st.is-revealed .st__opt.is-ok,
+    body.mc-show-all .st__opt.is-ok { border-color:#2f7d5c; background:#e3f1e9; color:var(--hub-ink); font-weight:600; }
+    .st.is-revealed .st__opt.is-ok .k,
+    body.mc-show-all .st__opt.is-ok .k { color:#2f7d5c; }
+    .st.is-revealed .st__opt.is-ok::after,
+    body.mc-show-all .st__opt.is-ok::after { content:"✓"; margin-left:auto; color:#2f7d5c; font-weight:700; }
+
+    .st__reveal {
+      appearance:none; cursor:pointer; font-family:var(--hub-en-font); font-size:17px; font-weight:700;
+      color:var(--hub-primary); background:transparent; border:1px solid var(--hub-line);
+      border-radius:10px; padding:10px 18px; transition:background .15s ease, border-color .15s ease;
     }
-    /* "Hide answers" turns the practice area into a self-test */
-    body.mc-hide-answers .st__opt.is-ok { border-color:var(--hub-line); background:#fff; color:var(--hub-ink-soft); font-weight:400; }
-    body.mc-hide-answers .st__opt.is-ok .k { color:var(--hub-ink-faint); }
-    body.mc-hide-answers .st__opt.is-ok::after { content:none; }
-    body.mc-hide-answers .st__why { display:none; }
-    /* Listening items keep their characters hidden until answers are shown */
-    body:not(.mc-hide-answers) .st--listen .st__zh { }
-    body.mc-hide-answers .st--listen .st__zh { visibility:hidden; height:0; margin:0; overflow:hidden; }
+    .st__reveal:hover { border-color:var(--hub-primary); background:var(--hub-line-soft); }
+    body.mc-show-all .st__reveal { display:none; }
+
+    .st__why {
+      display:none; font-size:18px; line-height:1.65; color:var(--hub-ink-soft);
+      background:var(--hub-line-soft); border-radius:10px; padding:13px 15px; margin:12px 0 0;
+    }
+    .st.is-revealed .st__why, body.mc-show-all .st__why { display:block; }
+
+    /* Listening items keep their characters hidden until the answer is revealed —
+       that is the whole point of the type. */
+    .st--listen .st__zh { visibility:hidden; height:0; margin:0; overflow:hidden; }
+    .st--listen.is-revealed .st__zh,
+    body.mc-show-all .st--listen .st__zh { visibility:visible; height:auto; margin:0 0 12px; }
 
     /* ---------- quiz: mode panels ---------- */
     .mc-panel { border:1px solid var(--hub-line); border-radius:16px; padding:24px 22px; margin:22px 0; background:#fff; }
@@ -275,8 +288,8 @@
 <section class="hub-section" style="padding-top:28px;padding-bottom:0">
   <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:44px;margin:6px 0 12px">Mandarin Challenge</h1>
-  <p class="mc-lede">Every question for all nine FET meetings, in one place. Browse the whole bank at your own pace — each item shows the phrase, its pinyin, a 🔊 button, the answer and an explanation — then take the quiz when you're ready.</p>
-  <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。你可以照自己的步調把整份題庫看過一遍——每題都有漢字、拼音、🔊 發音、正解與說明——準備好了再去測驗。</p>
+  <p class="mc-lede">Every question for all nine FET meetings, in one place. Work through the bank at your own pace — try each item first, then tap <strong>Show answer</strong> for the correct option and an explanation. Answers stay hidden until you ask for them.</p>
+  <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。照自己的步調一題一題想，想完再按<strong>「看答案」</strong>顯示正解與說明——<strong>答案預設是蓋起來的</strong>，你不按就不會看到。</p>
 
   <p class="mc-notice hidden" id="mcVoiceNotice">
     🔇 Your device has no Chinese voice installed, so the 🔊 buttons will be silent. Everything else works normally — on a Mac, iPhone or Android you can add one in your system Speech / Text-to-speech settings.
@@ -323,8 +336,8 @@
       Pinyin · 拼音
     </label>
     <label class="mc-switch">
-      <input type="checkbox" id="mcHideAnswers">
-      Hide answers · 隱藏答案
+      <input type="checkbox" id="mcShowAll">
+      Show all answers · 全部顯示答案
     </label>
   </div>
   <div class="mc-chips" id="mcTypeChips"></div>

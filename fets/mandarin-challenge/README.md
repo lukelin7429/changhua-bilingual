@@ -7,22 +7,30 @@ questions never means touching HTML.
 The page has two views, switched by the tabs under the level selector:
 
 - **Practice area 練習區** (default) — *every* question in the level laid out
-  openly, grouped under the nine meeting-round headings, with the answer marked
-  and the explanation shown. Search (matches Chinese, pinyin and English),
-  filter by question type, toggle pinyin, and "Hide answers" to self-test.
+  openly, grouped under the nine meeting-round headings. **Answers are hidden
+  until the reader asks for them**: each question has its own "Show answer 看答案"
+  button, and a toolbar switch reveals all of them at once. Listening items keep
+  their characters covered until revealed. Search (matches Chinese, pinyin and
+  English), filter by question type, toggle pinyin.
   This is the main thing FETs use; the quiz is secondary.
 - **Quiz 測驗** — practice quiz (random draw, not recorded) or a meeting round
   (fixed 20, identical for everyone, written to the Google Sheet).
 
 ## Target size
 
-| Level | Pilot (now) | Target |
+| Level | Questions | Rounds filled |
 |---|---|---|
-| `beginner.json` | 30 | 200 |
-| `intermediate.json` | 30 | 200 |
-| `advanced.json` | 30 | 200 |
+| `beginner.json` | 180 | M1–M9 |
+| `intermediate.json` | 180 | M1–M9 |
+| `advanced.json` | 180 | M1–M9 |
 
-200 per level = 9 meeting rounds × 20 questions (180) + 20 spare.
+180 per level = 9 meeting rounds × 20 questions. Anything added beyond 180
+appears in the practice area under "Extra practice 備用題".
+
+Answer distribution is kept exactly even (45 each on A/B/C/D) by
+`merge_banks.py`, which rotates each question's options so the correct one lands
+on an assigned letter — rotation reorders the options but never changes which is
+correct. Advanced carries 54 成語 items (30%).
 
 ## Meeting rounds
 

@@ -179,6 +179,7 @@
         '<span class="st__py">' + esc(q.py) + '</span></div>' +
       '<p class="st__q">' + esc(q.q) + '</p>' +
       '<ul class="st__opts">' + opts + '</ul>' +
+      '<button type="button" class="st__reveal">Show answer · 看答案</button>' +
       '<p class="st__why">' + esc(q.why) + '</p>' +
     '</div>';
   }
@@ -241,6 +242,14 @@
 
     $('mcStudyList').innerHTML = html.join('');
     wireSpeakButtons($('mcStudyList'));
+    // Answers are hidden until the reader asks — one question at a time.
+    $('mcStudyList').querySelectorAll('.st__reveal').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.st');
+        var open = card.classList.toggle('is-revealed');
+        btn.textContent = open ? 'Hide answer · 收起答案' : 'Show answer · 看答案';
+      });
+    });
     renderTypeChips();
     applyFilters();
   }
@@ -560,8 +569,8 @@
   $('mcPinyinToggle').addEventListener('change', function () {
     document.body.classList.toggle('mc-no-pinyin', !this.checked);
   });
-  $('mcHideAnswers').addEventListener('change', function () {
-    document.body.classList.toggle('mc-hide-answers', this.checked);
+  $('mcShowAll').addEventListener('change', function () {
+    document.body.classList.toggle('mc-show-all', this.checked);
   });
 
   document.querySelectorAll('[data-practice]').forEach(function (btn) {
