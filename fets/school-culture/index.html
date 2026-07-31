@@ -25,6 +25,27 @@
 
     .qz-round { display:inline-block; margin:18px 0 6px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); background:var(--hub-line-soft); padding:5px 12px; border-radius:999px; }
 
+    /* Practice-bank entry point */
+    .sc-practice-cta {
+      display:block; text-decoration:none; color:inherit;
+      border:1px solid var(--hub-line); border-left:5px solid var(--hub-primary);
+      border-radius:12px; background:#fff; padding:22px 24px; margin:28px 0 8px; max-width:70ch;
+      box-shadow:var(--hub-shadow); transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .sc-practice-cta:hover { box-shadow:var(--hub-shadow-hover); transform:translateY(-2px); border-color:var(--hub-primary); }
+    .sc-practice-cta:focus-visible { outline:2px solid var(--hub-accent); outline-offset:3px; }
+    .sc-practice-cta .eb { display:block; font-size:14px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--hub-accent); margin-bottom:8px; }
+    .sc-practice-cta h2 { margin:0 0 8px; font-family:var(--hub-serif); font-size:26px; font-weight:700; color:var(--hub-ink); }
+    .sc-practice-cta p { margin:0; font-size:18px; line-height:1.6; color:var(--hub-ink-soft); }
+    .sc-practice-cta .zh { display:block; margin-top:6px; font-family:var(--hub-zh-font); font-size:17px; color:var(--hub-ink-faint); }
+    .sc-practice-cta .go { display:inline-block; margin-top:14px; font-size:18px; font-weight:600; color:var(--hub-primary); }
+    @media (min-width:720px){
+      .sc-practice-cta h2 { font-size:30px; }
+      .sc-practice-cta p { font-size:20px; }
+      .sc-practice-cta .zh { font-size:19px; }
+      .sc-practice-cta .go { font-size:20px; }
+    }
+
     .qz-gate { display:grid; gap:14px; max-width:440px; margin-top:22px; }
     .qz-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
     .qz-field input {
@@ -114,6 +135,14 @@
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">School Culture</h1>
   <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:19px;line-height:1.6">Know before you go: a monthly round on the everyday etiquette and campus norms that help you navigate Changhua school life with confidence — and avoid common cultural missteps.</p>
   <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85;font-size:18px">每月一次的校園文化小測驗，幫助外師了解彰化教育現場的文化習慣，避免不小心犯下的文化誤會。</p>
+  <a class="sc-practice-cta" href="/fets/school-culture/practice/">
+    <span class="eb">Practice anytime · 隨時練習</span>
+    <h2>Practice Bank</h2>
+    <p>Every School Culture question in one place. Answer one at a time and see the correct answer and the reason straight away. No score, no time limit, nothing recorded.</p>
+    <span class="zh">全年題目集中一頁，一題一題作答、立即看到正解與說明。不計分、不上傳。</span>
+    <span class="go">Start practising →</span>
+  </a>
+
   <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
 
   <div class="qz-gate" id="qzGate">
