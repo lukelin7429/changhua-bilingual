@@ -32,7 +32,14 @@
       border-radius:12px; background:#fff; padding:22px 24px; margin:28px 0 8px; max-width:70ch;
       box-shadow:var(--hub-shadow); transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease;
     }
+    /* hub.css sets a global a:hover{text-decoration:underline}; this card IS an <a>,
+       so without these the whole card underlines on hover. Only the arrow should. */
+    .sc-practice-cta,
+    .sc-practice-cta:hover,
+    .sc-practice-cta:focus,
+    .sc-practice-cta * { text-decoration:none; }
     .sc-practice-cta:hover { box-shadow:var(--hub-shadow-hover); transform:translateY(-2px); border-color:var(--hub-primary); }
+    .sc-practice-cta:hover .go { text-decoration:underline; text-underline-offset:3px; }
     .sc-practice-cta:focus-visible { outline:2px solid var(--hub-accent); outline-offset:3px; }
     .sc-practice-cta .eb { display:block; font-size:14px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--hub-accent); margin-bottom:8px; }
     .sc-practice-cta h2 { margin:0 0 8px; font-family:var(--hub-serif); font-size:26px; font-weight:700; color:var(--hub-ink); }
@@ -140,7 +147,7 @@
     <h2>Practice Bank</h2>
     <p>Every School Culture question in one place. Answer one at a time and see the correct answer and the reason straight away. No score, no time limit, nothing recorded.</p>
     <span class="zh">全年題目集中一頁，一題一題作答、立即看到正解與說明。不計分、不上傳。</span>
-    <span class="go">Start practising →</span>
+    <span class="go">Start practicing →</span>
   </a>
 
   <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
