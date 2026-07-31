@@ -482,6 +482,14 @@ section.po-body + section.po-body{padding-top:0;}
     background:linear-gradient(90deg,var(--blue) 0%,var(--green) 35%,var(--gold) 60%,var(--orange) 85%,#d6486a 100%);
   }
   .po-hero{border-top:0;}
+
+/* Voices in Education — principal interview */
+.vie{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 14px 40px -18px rgba(20,20,20,.28)}
+.vie__ratio{position:relative;width:100%;padding-bottom:56.25%;border-radius:11px;overflow:hidden;background:#000}
+.vie__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vie__cap{margin-top:14px;text-align:center;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:17px;line-height:1.65;color:#5a615f}
+.vie__cap b{color:var(--blue-deep);font-weight:700}
+@media(min-width:720px){.vie{padding:22px}.vie__cap{font-size:19px}}
 </style>
 <header class="page-banner">
   <div class="wrap">
@@ -678,12 +686,16 @@ section.po-body + section.po-body{padding-top:0;}
   </div>
 </section>
 
+<section class="po-body"><div class="wrap-narrow"><h2>Voices in Education <span class="zh">教育之聲 · 校長為什麼成為校長</span></h2><div class="en-block"><p>After her assembly at Hubei Elementary, Dom Jones sat down with the principal to ask the question behind the work: why did you choose to lead a school — and what do English and international education mean for the children here?</p></div><div class="zh-block"><p>Dom Jones 在湖北國小的晨會之後，與校長坐下來對談：您為什麼選擇走上校長這條路？英語教育與國際教育，對這裡的孩子又意味著什麼？</p></div>
+<div class="vie"><div class="vie__ratio"><iframe src="https://www.youtube-nocookie.com/embed/EX9ECX_rOq4?rel=0" title="Voices in Education — Dom Jones interviews the principal of Hubei Elementary" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="vie__cap"><b>Voices in Education · Ep15</b> · Dom Jones 採訪湖北國小校長</div></div></div></section>
+
+
 <!-- Footer -->
 <script>
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.vie';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});

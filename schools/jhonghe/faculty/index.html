@@ -151,6 +151,18 @@
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+  /* Voices in Education — principal interview */
+  .vie{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:22px;
+       box-shadow:var(--shadow-sm);padding:22px 20px 18px;}
+  .vie__head{text-align:center;margin-bottom:16px;}
+  .vie__head .en{display:block;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blue-deep);}
+  .vie__head .zh{display:block;margin-top:4px;font-size:16px;color:var(--ink-soft);letter-spacing:.5px;}
+  .vie__ratio{position:relative;width:100%;padding-bottom:56.25%;border-radius:14px;overflow:hidden;background:#000;}
+  .vie__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vie__cap{margin-top:14px;text-align:center;font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;color:var(--ink-soft);line-height:1.6;}
+  .vie__cap b{color:var(--blue-deep);font-weight:700;}
+  @media (min-width:720px){ .vie{padding:28px 26px 22px;} .vie__head .en{font-size:26px;} .vie__head .zh{font-size:18px;} .vie__cap{font-size:18px;} }
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css">
@@ -187,9 +199,15 @@
       <div class="dept-hero__en">Principal's Office</div>
       <div class="dept-hero__zh">校長室</div>
       <div class="dept-hero__photo">
-        <img src="/schools/jhonghe/photos/principal-portrait.jpg" alt="Principal of Jhonghe Elementary">
+        <img src="/schools/jhonghe/photos/principal-portrait.jpg" alt="Principal Ou Hsiao-wen of Jhonghe Elementary">
       </div>
-      <div class="dept-hero__role"><span class="en">Principal</span><span class="zh">校長</span></div>
+      <div class="dept-hero__role"><span class="en">Principal Ou Hsiao-wen</span><span class="zh">歐曉玟 校長</span></div>
+    </div>
+
+    <div class="vie">
+      <div class="vie__head"><span class="en">Voices in Education</span><span class="zh">教育之聲 · 校長為什麼成為校長</span></div>
+      <div class="vie__ratio"><iframe src="https://www.youtube-nocookie.com/embed/Y1oyv7UuE7k?rel=0" title="Voices in Education — Dom Jones interviews Principal Ou Hsiao-wen of Jhonghe Elementary" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="vie__cap"><b>Voices in Education · Ep13</b> · Dom Jones 採訪中和國小校長</div>
     </div>
 
     <div class="dept-grid">
@@ -295,7 +313,7 @@
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.dept-hero,.dept-card,.contactcard';
+  var sel='.dept-hero,.vie,.dept-card,.contactcard';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
