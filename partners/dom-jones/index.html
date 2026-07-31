@@ -320,7 +320,68 @@
       .mission-grid, .sdg-intro, .story-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
-  </style>
+  
+    /* ===== School tour video library — sticky tabs, click-to-load ===== */
+    /* 絕對 px（本 repo CLAUDE.md 禁 rem）；色票沿用本頁 :root */
+    .videos { background: var(--light); }
+    .v-tabs {
+      position: sticky; top: 0; z-index: 30; display: flex; gap: 10px;
+      flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+      margin: 0 0 26px; padding: 14px 0;
+      background: var(--light); box-shadow: 0 1px 0 rgba(10,31,92,.12);
+    }
+    .v-tabs::-webkit-scrollbar { display: none; }
+    .v-tab {
+      flex: 0 0 auto; display: flex; align-items: center; gap: 10px; cursor: pointer;
+      background: var(--white); border: 1px solid rgba(10,31,92,.14); border-radius: 999px;
+      padding: 11px 22px; font: inherit; line-height: 1.25;
+    }
+    .v-tab .en { font-family: var(--en-font); font-size: 17px; font-weight: 700; color: var(--navy); }
+    .v-tab .zh { font-family: var(--zh-font); font-size: 15px; color: var(--muted); }
+    .v-tab .n {
+      font-family: var(--en-font); font-size: 14px; font-weight: 700; color: var(--muted);
+      background: rgba(10,31,92,.07); border-radius: 999px; padding: 2px 10px;
+      min-width: 30px; text-align: center;
+    }
+    .v-tab:hover { border-color: var(--blue); }
+    .v-tab.on { background: var(--navy); border-color: var(--navy); }
+    .v-tab.on .en, .v-tab.on .zh { color: var(--white); }
+    .v-tab.on .n { background: rgba(255,255,255,.22); color: var(--white); }
+
+    .v-panel { display: none; }
+    .v-panel.on { display: block; }
+    .v-note {
+      font-family: var(--zh-font); font-size: 19px; line-height: 1.8; color: var(--text);
+      max-width: 68ch; margin: 0 0 26px;
+    }
+    .v-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 560px) { .v-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 940px) { .v-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .v-card {
+      background: var(--white); border: 1px solid rgba(10,31,92,.10); border-radius: 14px;
+      overflow: hidden; box-shadow: 0 6px 18px -10px rgba(10,31,92,.28);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .v-card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px -14px rgba(10,31,92,.34); }
+    .v-thumb {
+      position: relative; display: block; width: 100%; aspect-ratio: 16/9;
+      padding: 0; border: 0; cursor: pointer; background: var(--navy); overflow: hidden;
+    }
+    .v-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .v-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 30px; color: var(--white); background: rgba(10,31,92,.30); transition: background .18s;
+    }
+    .v-thumb:hover .v-play { background: rgba(10,31,92,.12); }
+    .v-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .v-meta { padding: 15px 17px 17px; }
+    .v-meta h4 { font-family: var(--zh-font); font-size: 20px; font-weight: 700; color: var(--navy); margin: 0; }
+    .v-meta p { font-family: var(--zh-font); font-size: 17px; color: var(--muted); margin: 4px 0 0; }
+    .v-more { margin-top: 28px; text-align: center; }
+    .v-more a { font-family: var(--en-font); font-size: 17px; font-weight: 700; color: var(--blue); text-decoration: none; }
+    .v-more a:hover { color: var(--navy); }
+    @media (max-width: 560px) { .v-tab { padding: 10px 16px; } .v-tab .zh { display: none; } }
+</style>
   <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
@@ -560,6 +621,345 @@
 </section>
 
 <!-- CONTACT -->
+<section class="videos" id="videos">
+  <div class="container">
+    <p class="section-label">School Assembly Tour 校園巡迴</p>
+    <h2 class="section-title-zh">每一場巡迴，兩種聲音</h2>
+    <p class="section-title-en">The students' campus news, and the principals in their own words</p>
+
+    <div class="v-tabs" role="tablist" aria-label="影片分類">
+      <button class="v-tab on" role="tab" aria-selected="true" data-panel="interviews">
+        <span class="en">Voices in Education</span><span class="zh">教育之聲 · 校長專訪</span><span class="n">19</span>
+      </button>
+      <button class="v-tab" role="tab" aria-selected="false" data-panel="news">
+        <span class="en">Campus News</span><span class="zh">校園新聞 · 學生製作</span><span class="n">25</span>
+      </button>
+    </div>
+
+    <div class="v-panel on" id="vpanel-interviews">
+      <p class="v-note">每一場晨會之後，Dom 與該校校長對談，問的都是同樣兩個問題：您為什麼走上校長這條路？英語教育與國際教育，對您的孩子又意味著什麼？</p>
+      <div class="v-grid">
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="xp_DbyGqnAc" aria-label="播放：育華國小校長專訪">
+          <img src="https://i.ytimg.com/vi/xp_DbyGqnAc/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育華國小</h4><p>教育之聲 · Ep19 · 2026.06.02</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="01Wonw-UBRU" aria-label="播放：後寮國小校長專訪">
+          <img src="https://i.ytimg.com/vi/01Wonw-UBRU/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>後寮國小</h4><p>教育之聲 · Ep18 · 2026.06.02</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="zKw0WL7DGu8" aria-label="播放：育德國小校長專訪">
+          <img src="https://i.ytimg.com/vi/zKw0WL7DGu8/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育德國小</h4><p>教育之聲 · Ep17 · 2026.05.25</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="yuf8GLlfGLs" aria-label="播放：民生國小校長專訪">
+          <img src="https://i.ytimg.com/vi/yuf8GLlfGLs/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>民生國小</h4><p>教育之聲 · Ep16 · 2026.05.25</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="EX9ECX_rOq4" aria-label="播放：湖北國小校長專訪">
+          <img src="https://i.ytimg.com/vi/EX9ECX_rOq4/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>湖北國小</h4><p>教育之聲 · Ep15 · 2026.05.19</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="_AYlf-4OSl4" aria-label="播放：萬興國小校長專訪">
+          <img src="https://i.ytimg.com/vi/_AYlf-4OSl4/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>萬興國小</h4><p>教育之聲 · Ep14 · 2026.05.19</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="Y1oyv7UuE7k" aria-label="播放：中和國小校長專訪">
+          <img src="https://i.ytimg.com/vi/Y1oyv7UuE7k/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>中和國小</h4><p>教育之聲 · Ep13 · 2026.05.12</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="W57Ks6--3Tk" aria-label="播放：文昌國小校長專訪">
+          <img src="https://i.ytimg.com/vi/W57Ks6--3Tk/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>文昌國小</h4><p>教育之聲 · Ep12 · 2026.05.12</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="NW-Ld9NzOsA" aria-label="播放：溪州國小校長專訪">
+          <img src="https://i.ytimg.com/vi/NW-Ld9NzOsA/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>溪州國小</h4><p>教育之聲 · Ep11 · 2026.05.05</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="AmXnzSQCirc" aria-label="播放：快官國小校長專訪">
+          <img src="https://i.ytimg.com/vi/AmXnzSQCirc/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>快官國小</h4><p>教育之聲 · Ep10 · 2026.05.05</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="_wa-MmwTIWM" aria-label="播放：僑信國小校長專訪">
+          <img src="https://i.ytimg.com/vi/_wa-MmwTIWM/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>僑信國小</h4><p>教育之聲 · Ep9 · 2026.04.28</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="u9BiSr6LefI" aria-label="播放：仁豐國小校長專訪">
+          <img src="https://i.ytimg.com/vi/u9BiSr6LefI/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>仁豐國小</h4><p>教育之聲 · Ep8 · 2026.04.21</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="_SX6aqAFMoY" aria-label="播放：新民國小校長專訪">
+          <img src="https://i.ytimg.com/vi/_SX6aqAFMoY/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>新民國小</h4><p>教育之聲 · Ep7 · 2026.04.21</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="dlZvvwyHbfo" aria-label="播放：明禮國小校長專訪">
+          <img src="https://i.ytimg.com/vi/dlZvvwyHbfo/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>明禮國小</h4><p>教育之聲 · Ep6 · 2026.04.14</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="V75GdrMV9OQ" aria-label="播放：育新國小校長專訪">
+          <img src="https://i.ytimg.com/vi/V75GdrMV9OQ/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育新國小</h4><p>教育之聲 · Ep5 · 2026.04.07</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="7om_ARwwK7c" aria-label="播放：福興國中校長專訪">
+          <img src="https://i.ytimg.com/vi/7om_ARwwK7c/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>福興國中</h4><p>教育之聲 · Ep4 · 2026.04.07</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="VSKKtyrP8JI" aria-label="播放：福興國小校長專訪">
+          <img src="https://i.ytimg.com/vi/VSKKtyrP8JI/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>福興國小</h4><p>教育之聲 · Ep3 · 2026.03.31</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="as28NTe49ic" aria-label="播放：德興國小校長專訪">
+          <img src="https://i.ytimg.com/vi/as28NTe49ic/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>德興國小</h4><p>教育之聲 · Ep2 · 2026.03.31</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="LArd9gafybg" aria-label="播放：大城國中校長專訪">
+          <img src="https://i.ytimg.com/vi/LArd9gafybg/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>大城國中</h4><p>教育之聲 · Ep1 · 2026.03.24</p></div>
+      </article>
+      </div>
+      <p class="v-more"><a href="https://www.youtube.com/playlist?list=PLXjTAIiEub1Q" target="_blank" rel="noopener">在 YouTube 看完整 19 集 ↗</a></p>
+    </div>
+
+    <div class="v-panel" id="vpanel-news">
+      <p class="v-note">每一場巡迴都是全校英語集會，由各校學生記者拍成校園新聞。</p>
+      <div class="v-grid">
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="5Oghv3gQETU" aria-label="播放：育華國小校園新聞">
+          <img src="https://i.ytimg.com/vi/5Oghv3gQETU/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育華國小</h4><p>校園新聞 · 2026.06.02</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="-wW0IOjTUT4" aria-label="播放：後寮國小校園新聞">
+          <img src="https://i.ytimg.com/vi/-wW0IOjTUT4/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>後寮國小</h4><p>校園新聞 · 2026.06.02</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="WTxOjT5OXiE" aria-label="播放：民生國小校園新聞">
+          <img src="https://i.ytimg.com/vi/WTxOjT5OXiE/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>民生國小</h4><p>校園新聞 · 2026.05.25</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="rCQuOmELjbM" aria-label="播放：育德國小校園新聞">
+          <img src="https://i.ytimg.com/vi/rCQuOmELjbM/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育德國小</h4><p>校園新聞 · 2026.05.25</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="mlDqgsMuV0c" aria-label="播放：湖北國小校園新聞">
+          <img src="https://i.ytimg.com/vi/mlDqgsMuV0c/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>湖北國小</h4><p>校園新聞 · 2026.05.19</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="lPfb-TbozhU" aria-label="播放：萬興國小校園新聞">
+          <img src="https://i.ytimg.com/vi/lPfb-TbozhU/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>萬興國小</h4><p>校園新聞 · 2026.05.19</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="7VJodV2HwnE" aria-label="播放：文昌國小校園新聞">
+          <img src="https://i.ytimg.com/vi/7VJodV2HwnE/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>文昌國小</h4><p>校園新聞 · 2026.05.12</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="x--JEdN8xPY" aria-label="播放：中和國小校園新聞">
+          <img src="https://i.ytimg.com/vi/x--JEdN8xPY/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>中和國小</h4><p>校園新聞 · 2026.05.12</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="2flGVrz2fDE" aria-label="播放：快官國小校園新聞">
+          <img src="https://i.ytimg.com/vi/2flGVrz2fDE/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>快官國小</h4><p>校園新聞 · 2026.05.05</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="FY2SjU8L04w" aria-label="播放：溪州國小校園新聞">
+          <img src="https://i.ytimg.com/vi/FY2SjU8L04w/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>溪州國小</h4><p>校園新聞 · 2026.05.05</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="1CaTsQJHkpk" aria-label="播放：僑信國小校園新聞">
+          <img src="https://i.ytimg.com/vi/1CaTsQJHkpk/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>僑信國小</h4><p>校園新聞 · 2026.04.28</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="ul5CBsV0QkA" aria-label="播放：新民國小校園新聞">
+          <img src="https://i.ytimg.com/vi/ul5CBsV0QkA/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>新民國小</h4><p>校園新聞 · 2026.04.21</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="dH0MQxB4x8o" aria-label="播放：仁豐國小校園新聞">
+          <img src="https://i.ytimg.com/vi/dH0MQxB4x8o/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>仁豐國小</h4><p>校園新聞 · 2026.04.21</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="ugPeclZYyQM" aria-label="播放：明禮國小校園新聞">
+          <img src="https://i.ytimg.com/vi/ugPeclZYyQM/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>明禮國小</h4><p>校園新聞 · 2026.04.14</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="UHlL9GpBeco" aria-label="播放：陸豐國小校園新聞">
+          <img src="https://i.ytimg.com/vi/UHlL9GpBeco/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>陸豐國小</h4><p>校園新聞 · 2026.04.14</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="kYcVaoMnYBo" aria-label="播放：育新國小校園新聞">
+          <img src="https://i.ytimg.com/vi/kYcVaoMnYBo/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>育新國小</h4><p>校園新聞 · 2026.04.07</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="hMMbheEwZkI" aria-label="播放：福興國中校園新聞">
+          <img src="https://i.ytimg.com/vi/hMMbheEwZkI/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>福興國中</h4><p>校園新聞 · 2026.04.07</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="3a2LlsTmLIU" aria-label="播放：德興國小校園新聞">
+          <img src="https://i.ytimg.com/vi/3a2LlsTmLIU/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>德興國小</h4><p>校園新聞 · 2026.03.31</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="0CPDATRfMJ8" aria-label="播放：福興國小校園新聞">
+          <img src="https://i.ytimg.com/vi/0CPDATRfMJ8/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>福興國小</h4><p>校園新聞 · 2026.03.31</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="CRdHUTZHl_8" aria-label="播放：大城國中校園新聞">
+          <img src="https://i.ytimg.com/vi/CRdHUTZHl_8/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>大城國中</h4><p>校園新聞 · 2026.03.24</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="19rekCsqAjk" aria-label="播放：大城國小校園新聞">
+          <img src="https://i.ytimg.com/vi/19rekCsqAjk/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>大城國小</h4><p>校園新聞 · 2026.03.24</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="h9XbU-mVjsY" aria-label="播放：大同國小校園新聞">
+          <img src="https://i.ytimg.com/vi/h9XbU-mVjsY/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>大同國小</h4><p>小手大力量</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="exNWJilPGMo" aria-label="播放：大新國小校園新聞">
+          <img src="https://i.ytimg.com/vi/exNWJilPGMo/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>大新國小</h4><p>國際交流</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="xQ-aT5w1e9A" aria-label="播放：北斗國小校園新聞">
+          <img src="https://i.ytimg.com/vi/xQ-aT5w1e9A/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>北斗國小</h4><p>國際交流</p></div>
+      </article>
+      <article class="v-card">
+        <button class="v-thumb" type="button" data-yt="gcDCu03Io2k" aria-label="播放：陽明國中校園新聞">
+          <img src="https://i.ytimg.com/vi/gcDCu03Io2k/mqdefault.jpg" loading="lazy" alt="">
+          <span class="v-play">▶</span>
+        </button>
+        <div class="v-meta"><h4>陽明國中</h4><p>校園參訪</p></div>
+      </article>
+      </div>
+      <p class="v-more"><a href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U6ZR7rywO4yQ5OnuQ3fSPJ" target="_blank" rel="noopener">在 YouTube 看完整 25 支 ↗</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="container">
     <p class="section-label">Contact 聯絡</p>
@@ -624,5 +1024,35 @@
 </footer>
 
 <script defer src="/assets/js/motion.js"></script>
+<script>
+/* 影片庫：sticky 分頁 + 點擊才載入 YouTube（載入時不放任何 iframe） */
+(function () {
+  var bar = document.querySelector('.v-tabs');
+  if (bar) bar.addEventListener('click', function (e) {
+    var t = e.target.closest('.v-tab'); if (!t) return;
+    bar.querySelectorAll('.v-tab').forEach(function (b) {
+      var on = b === t;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on);
+    });
+    document.querySelectorAll('.v-panel').forEach(function (p) {
+      p.classList.toggle('on', p.id === 'vpanel-' + t.dataset.panel);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.v-thumb[data-yt]'); if (!b) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    var wrap = document.createElement('div');
+    wrap.className = 'v-thumb';
+    wrap.appendChild(f);
+    b.replaceWith(wrap);
+  });
+})();
+</script>
 </body>
 </html>
