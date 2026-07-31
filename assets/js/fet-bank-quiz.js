@@ -104,7 +104,15 @@
       var el = $(id);
       if (el) el.classList.toggle('hidden', id !== screen);
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to the screen itself, not the page top — the intro only needs
+    // reading once, and on a phone it is a long way back down to the questions.
+    var target = $(screen);
+    if (screen === 'mcLevelScreen' || !target) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 76;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
   }
 
   // Round n (1-based) covers questions [(n-1)*20, n*20).
@@ -237,7 +245,7 @@
         '<div class="mc-q__head">' +
           '<span class="mc-q__num">Q' + (i + 1) + '</span>' +
           '<span class="mc-q__tag">' + esc(typeLabel(q.type)) + '</span>' +
-          '<button type="button" class="speak" data-speak="' + esc(q.speak) + '" ' +
+          '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" ' +
             'aria-label="Listen · 播放發音">🔊</button>' +
         '</div>' +
         '<p class="mc-q__text">' + esc(q.q) + '</p>' +
@@ -367,7 +375,7 @@
             '<div class="mc-wrong__top">' +
               '<span class="mc-wrong__zh">' + esc(q.zh) + '</span>' +
               '<span class="mc-wrong__py">' + esc(q.py) + '</span>' +
-              '<button type="button" class="speak" data-speak="' + esc(q.speak) + '" aria-label="Listen · 播放發音">🔊</button>' +
+              '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
             '</div>' +
             '<p class="mc-wrong__ans"><strong>Answer:</strong> ' + esc(q.opts[q.ok]) + '</p>' +
             '<p class="mc-wrong__why">' + esc(q.why) + '</p>' +

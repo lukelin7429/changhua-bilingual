@@ -44,15 +44,17 @@ const HEADERS = [
 // FET 教師測驗（中文挑戰 / 學校文化）——同一份試算表、各自獨立分頁。
 // data.quiz 對到下面的 key 就會寫進對應分頁；不是這兩個 key 的請求，
 // 一律沿用舊的 'responses' 分頁與 HEADERS，既有節慶測驗行為不受影響。
+const FET_HEADERS = ['timestamp', 'teacher_id', 'teacher_name', 'round', 'score', 'total', 'percentage', 'answers_json', 'user_agent'];
+
 const FET_QUIZZES = {
-  'fet-mandarin-challenge': {
-    sheetName: 'fet_mandarin_challenge',
-    headers: ['timestamp', 'teacher_id', 'teacher_name', 'round', 'score', 'total', 'percentage', 'answers_json', 'user_agent'],
-  },
-  'fet-school-culture': {
-    sheetName: 'fet_school_culture',
-    headers: ['timestamp', 'teacher_id', 'teacher_name', 'round', 'score', 'total', 'percentage', 'answers_json', 'user_agent'],
-  },
+  // 舊版單一題組（2026-07 以前），保留讓歷史資料仍寫得進去
+  'fet-mandarin-challenge': { sheetName: 'fet_mandarin_challenge', headers: FET_HEADERS },
+  'fet-school-culture':     { sheetName: 'fet_school_culture',     headers: FET_HEADERS },
+
+  // 中文挑戰三級題庫（2026-09 起）——每一級各自一個分頁
+  'fet-mandarin-beginner':     { sheetName: 'mandarin_beginner',     headers: FET_HEADERS },
+  'fet-mandarin-intermediate': { sheetName: 'mandarin_intermediate', headers: FET_HEADERS },
+  'fet-mandarin-advanced':     { sheetName: 'mandarin_advanced',     headers: FET_HEADERS },
 };
 
 function doPost(e) {
@@ -160,5 +162,29 @@ function _smokeTestFetQuiz() {
         user_agent: 'smoke-test',
       }),
     },
+  });
+}
+
+/**
+ * 中文挑戰三級題庫的手動驗證 — 執行後應該看到
+ * mandarin_beginner / mandarin_intermediate / mandarin_advanced 三個分頁
+ * 各多一列 FET-000 的測試資料。
+ */
+function _smokeTestMandarinLevels() {
+  ['beginner', 'intermediate', 'advanced'].forEach(function (level) {
+    doPost({
+      postData: {
+        contents: JSON.stringify({
+          quiz: 'fet-mandarin-' + level,
+          level: level,
+          teacher_id: 'FET-000',
+          teacher_name: '測試外師',
+          round: 'M1',
+          score: 17, total: 20,
+          answers: [{ id: 'B001', type: 'word', picked: 1, correct: true }],
+          user_agent: 'smoke-test',
+        }),
+      },
+    });
   });
 }
