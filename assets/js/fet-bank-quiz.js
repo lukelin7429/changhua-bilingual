@@ -1,13 +1,15 @@
 /**
- * Mandarin Challenge — question-bank quiz engine (FETs).
- * ------------------------------------------------------
+ * Mandarin Challenge — question-bank engine (FETs).
+ * -------------------------------------------------
  * Three levels, each backed by its own JSON bank under
  * /fets/mandarin-challenge/data/<level>.json
  *
- * Two modes:
- *   practice  — random draw from the whole bank, unlimited retries, NOT recorded
- *   meeting   — round M1..M9, a fixed 20-question slice, identical for everyone,
- *               submitted to the Google Sheet tab for that level
+ * Two views:
+ *   study — the practice area: EVERY question in the level, laid out openly and
+ *           grouped by the nine FET meeting rounds. Answers and explanations are
+ *           visible by default; "Hide answers" turns it into a self-test.
+ *   quiz  — practice quiz (random draw, not recorded) or a meeting round
+ *           (fixed 20, identical for everyone, written to the Google Sheet).
  *
  * The page sets window.__MC_CONFIG__ before loading this file.
  * Grading is client-side, same trust model as the other Hub quizzes
@@ -18,23 +20,38 @@
   if (!cfg) return;
 
   var ROUND_SIZE = 20;
+  var LEVELS = ['beginner', 'intermediate', 'advanced'];
   var $ = function (id) { return document.getElementById(id); };
 
   var state = {
-    level: null,        // 'beginner' | 'intermediate' | 'advanced'
-    bank: null,         // parsed JSON for the current level
+    view: 'study',
+    level: 'beginner',
+    bank: null,
+    filterType: 'all',
+    query: '',
+    // quiz-only
     mode: null,         // 'practice' | 'meeting'
-    round: null,        // 'M1'..'M9' when mode === 'meeting'
-    items: [],          // the questions actually being asked, in display order
-    answers: {},        // itemIndex -> chosen option index
-    optOrder: {},       // itemIndex -> array mapping displayed slot -> original option index
+    round: null,        // 'M1'..'M9'
+    items: [],
+    answers: {},
+    optOrder: {},
     teacherId: '',
     teacherName: '',
-    showPinyin: true,
-    lastWrong: []       // question ids missed on the previous attempt
+    lastWrong: []
   };
 
-  var banks = {};       // level -> bank (cached after first fetch)
+  var banks = {};
+
+  var TYPE_LABEL = {
+    word: 'Vocabulary 字詞',
+    listen: 'Listening 聽力',
+    expression: 'Expression 用語',
+    dialogue: 'Response 應答',
+    situation: 'Situation 情境',
+    measure: 'Measure word 量詞',
+    idiom: 'Idiom 成語'
+  };
+  function typeLabel(t) { return TYPE_LABEL[t] || t; }
 
   // ---------------------------------------------------------------- speech
 
@@ -49,15 +66,12 @@
       || zhVoices.find(function (v) { return /^zh/i.test(v.lang); })
       || null;
   }
-  function hasZhVoice() {
-    // Before the voice list resolves we assume speech works rather than
-    // flashing a warning at every visitor on first paint.
-    return !zhVoices.length || !!pickZhVoice();
-  }
   function updateVoiceNotice() {
     var el = $('mcVoiceNotice');
     if (!el) return;
-    var ok = ('speechSynthesis' in window) && hasZhVoice();
+    // Before the voice list resolves, assume speech works rather than flashing
+    // a warning at every visitor on first paint.
+    var ok = ('speechSynthesis' in window) && (!zhVoices.length || !!pickZhVoice());
     el.classList.toggle('hidden', ok);
   }
   if ('speechSynthesis' in window) {
@@ -82,6 +96,11 @@
     }
     speechSynthesis.speak(u);
   }
+  function wireSpeakButtons(root) {
+    root.querySelectorAll('[data-speak]').forEach(function (b) {
+      b.addEventListener('click', function () { speak(b.getAttribute('data-speak'), b); });
+    });
+  }
 
   // ---------------------------------------------------------------- helpers
 
@@ -99,30 +118,24 @@
     return a;
   }
 
-  function show(screen) {
-    ['mcLevelScreen', 'mcModeScreen', 'mcQuizScreen', 'mcResultScreen'].forEach(function (id) {
-      var el = $(id);
-      if (el) el.classList.toggle('hidden', id !== screen);
-    });
-    // Scroll to the screen itself, not the page top — the intro only needs
-    // reading once, and on a phone it is a long way back down to the questions.
-    var target = $(screen);
-    if (screen === 'mcLevelScreen' || !target) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      var y = target.getBoundingClientRect().top + window.pageYOffset - 76;
-      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-    }
-  }
-
-  // Round n (1-based) covers questions [(n-1)*20, n*20).
-  function roundsAvailable(bank) {
-    return Math.floor(bank.questions.length / ROUND_SIZE);
-  }
-
   function roundLabel(n) {
     var m = cfg.meetings && cfg.meetings[n - 1];
     return m ? m : 'Meeting ' + n;
+  }
+  function meetingCount() { return (cfg.meetings || []).length || 9; }
+  function roundsAvailable(bank) { return Math.floor(bank.questions.length / ROUND_SIZE); }
+
+  function showSection(id) {
+    ['mcStudyView', 'mcQuizModeScreen', 'mcQuizScreen', 'mcResultScreen'].forEach(function (s) {
+      var el = $(s);
+      if (el) el.classList.toggle('hidden', s !== id);
+    });
+  }
+  function scrollToTop(id) {
+    var el = $(id);
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - 76;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   }
 
   // ---------------------------------------------------------------- loading
@@ -137,34 +150,183 @@
       .then(function (bank) { banks[level] = bank; return bank; });
   }
 
-  // ---------------------------------------------------------------- screens
+  // Load every level up front so the tabs can show real counts and switching
+  // levels is instant — three small JSON files, fetched in parallel.
+  function preloadAll() {
+    LEVELS.forEach(function (lv) {
+      loadBank(lv).then(function (bank) {
+        var el = document.querySelector('[data-count="' + lv + '"]');
+        if (el) el.textContent = bank.questions.length + ' questions · ' + bank.questions.length + ' 題';
+      }).catch(function () { /* the active level surfaces its own error */ });
+    });
+  }
 
-  function openLevel(level) {
-    var err = $('mcLoadError');
-    err.classList.add('hidden');
+  // ---------------------------------------------------------------- study view
+
+  function studyItemHtml(q) {
+    var opts = q.opts.map(function (o, i) {
+      return '<li class="st__opt' + (i === q.ok ? ' is-ok' : '') + '">' +
+        '<span class="k">' + String.fromCharCode(65 + i) + '</span><span>' + esc(o) + '</span></li>';
+    }).join('');
+    return '<div class="st' + (q.type === 'listen' ? ' st--listen' : '') + '" ' +
+        'data-type="' + esc(q.type) + '" data-hay="' + esc(searchHaystack(q)) + '">' +
+      '<div class="st__head">' +
+        '<span class="st__id">' + esc(q.id) + '</span>' +
+        '<span class="st__tag">' + esc(typeLabel(q.type)) + '</span>' +
+        '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
+      '</div>' +
+      '<div class="st__zh"><span class="st__hanzi">' + esc(q.zh) + '</span>' +
+        '<span class="st__py">' + esc(q.py) + '</span></div>' +
+      '<p class="st__q">' + esc(q.q) + '</p>' +
+      '<ul class="st__opts">' + opts + '</ul>' +
+      '<p class="st__why">' + esc(q.why) + '</p>' +
+    '</div>';
+  }
+
+  function searchHaystack(q) {
+    return (q.id + ' ' + q.zh + ' ' + q.py + ' ' + q.q + ' ' + q.opts.join(' ') + ' ' + q.why).toLowerCase();
+  }
+
+  function renderStudy() {
+    var bank = state.bank;
+    $('mcStudyBlurbZh').textContent = bank.blurbZh;
+
+    var qs = bank.questions;
+    var html = [];
+    var nRounds = meetingCount();
+
+    for (var r = 1; r <= nRounds; r++) {
+      var slice = qs.slice((r - 1) * ROUND_SIZE, r * ROUND_SIZE);
+      if (!slice.length) continue;
+      html.push(
+        '<div class="mc-round" data-round="M' + r + '">' +
+          '<div class="mc-round__h">' +
+            '<span class="mc-round__tag">M' + r + '</span>' +
+            '<h2 class="mc-round__title">' + esc(roundLabel(r)) + '</h2>' +
+            '<span class="mc-round__n">' + slice.length + ' questions</span>' +
+          '</div>' +
+          slice.map(studyItemHtml).join('') +
+        '</div>'
+      );
+    }
+
+    // Anything beyond the nine rounds is spare stock for substitutions.
+    var spare = qs.slice(nRounds * ROUND_SIZE);
+    if (spare.length) {
+      html.push(
+        '<div class="mc-round mc-round--spare" data-round="spare">' +
+          '<div class="mc-round__h">' +
+            '<span class="mc-round__tag">Spare</span>' +
+            '<h2 class="mc-round__title">Extra practice · 備用題</h2>' +
+            '<span class="mc-round__n">' + spare.length + ' questions</span>' +
+          '</div>' +
+          spare.map(studyItemHtml).join('') +
+        '</div>'
+      );
+    }
+
+    // Questions past the filled rounds but inside the nine — say so plainly
+    // rather than silently showing fewer meetings than promised.
+    var filled = Math.ceil(qs.length / ROUND_SIZE);
+    if (filled < nRounds) {
+      html.push(
+        '<p class="mc-notice" style="margin-top:28px">' +
+          'Rounds M' + (filled + 1) + '–M' + nRounds + ' are still being written. ' +
+          'This level currently holds ' + qs.length + ' of the ' + (nRounds * ROUND_SIZE) + ' questions needed for all nine meetings.' +
+          '<br><span style="font-family:var(--hub-zh-font)">M' + (filled + 1) + '–M' + nRounds +
+          ' 的題目還在編寫中，這一級目前有 ' + qs.length + ' 題，九場會議共需 ' + (nRounds * ROUND_SIZE) + ' 題。</span>' +
+        '</p>'
+      );
+    }
+
+    $('mcStudyList').innerHTML = html.join('');
+    wireSpeakButtons($('mcStudyList'));
+    renderTypeChips();
+    applyFilters();
+  }
+
+  function renderTypeChips() {
+    var counts = {};
+    state.bank.questions.forEach(function (q) { counts[q.type] = (counts[q.type] || 0) + 1; });
+    var chips = ['<button type="button" class="mc-chip' + (state.filterType === 'all' ? ' is-on' : '') +
+      '" data-type="all">All 全部 (' + state.bank.questions.length + ')</button>'];
+    Object.keys(counts).sort().forEach(function (t) {
+      chips.push('<button type="button" class="mc-chip' + (state.filterType === t ? ' is-on' : '') +
+        '" data-type="' + esc(t) + '">' + esc(typeLabel(t)) + ' (' + counts[t] + ')</button>');
+    });
+    var box = $('mcTypeChips');
+    box.innerHTML = chips.join('');
+    box.querySelectorAll('.mc-chip').forEach(function (c) {
+      c.addEventListener('click', function () {
+        state.filterType = c.dataset.type;
+        box.querySelectorAll('.mc-chip').forEach(function (x) { x.classList.toggle('is-on', x === c); });
+        applyFilters();
+      });
+    });
+  }
+
+  function applyFilters() {
+    var q = state.query.trim().toLowerCase();
+    var shown = 0;
+    $('mcStudyList').querySelectorAll('.st').forEach(function (el) {
+      var okType = state.filterType === 'all' || el.dataset.type === state.filterType;
+      var okText = !q || el.dataset.hay.indexOf(q) !== -1;
+      var on = okType && okText;
+      el.classList.toggle('hidden', !on);
+      if (on) shown++;
+    });
+    // hide a round heading whose questions are all filtered out
+    $('mcStudyList').querySelectorAll('.mc-round').forEach(function (grp) {
+      var any = grp.querySelector('.st:not(.hidden)');
+      grp.classList.toggle('hidden', !any);
+    });
+    var total = state.bank.questions.length;
+    $('mcStudyCount').textContent = (shown === total)
+      ? 'Showing all ' + total + ' questions · 顯示全部 ' + total + ' 題'
+      : 'Showing ' + shown + ' of ' + total + ' · 顯示 ' + shown + ' / ' + total + ' 題';
+  }
+
+  // ---------------------------------------------------------------- level & view
+
+  function setLevel(level) {
+    $('mcLoadError').classList.add('hidden');
     loadBank(level).then(function (bank) {
       state.level = level;
       state.bank = bank;
       state.lastWrong = [];
-      renderModeScreen();
-      show('mcModeScreen');
+      document.querySelectorAll('.mc-lvtab').forEach(function (t) {
+        var on = t.dataset.level === level;
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (state.view === 'study') renderStudy();
+      else renderQuizModeScreen();
     }).catch(function () {
-      err.classList.remove('hidden');
+      $('mcLoadError').classList.remove('hidden');
     });
   }
 
-  function renderModeScreen() {
+  function setView(view) {
+    state.view = view;
+    document.querySelectorAll('.mc-view').forEach(function (b) {
+      b.classList.toggle('is-on', b.dataset.view === view);
+    });
+    if (view === 'study') {
+      renderStudy();
+      showSection('mcStudyView');
+    } else {
+      renderQuizModeScreen();
+      showSection('mcQuizModeScreen');
+    }
+  }
+
+  // ---------------------------------------------------------------- quiz
+
+  function renderQuizModeScreen() {
     var bank = state.bank;
     var avail = roundsAvailable(bank);
-    var total = bank.questions.length;
-
-    $('mcModeLevelName').textContent = bank.label + ' · ' + bank.labelZh;
-    $('mcModeLevelBlurb').textContent = bank.blurb;
-    $('mcModeLevelBlurbZh').textContent = bank.blurbZh;
-    $('mcBankCount').textContent = total + ' questions in this bank · 題庫共 ' + total + ' 題';
-
     var opts = ['<option value="">— choose a round · 選擇場次 —</option>'];
-    for (var i = 1; i <= (cfg.meetings ? cfg.meetings.length : 9); i++) {
+    for (var i = 1; i <= meetingCount(); i++) {
       var ready = i <= avail;
       opts.push(
         '<option value="' + i + '"' + (ready ? '' : ' disabled') + '>' +
@@ -198,7 +360,6 @@
   function startMeeting(n) {
     state.mode = 'meeting';
     state.round = 'M' + n;
-    // Fixed slice, fixed order, fixed option order — everyone sits the same paper.
     state.items = state.bank.questions.slice((n - 1) * ROUND_SIZE, n * ROUND_SIZE);
     beginQuiz();
   }
@@ -207,14 +368,14 @@
     state.answers = {};
     state.optOrder = {};
     state.items.forEach(function (q, i) {
-      var order = [0, 1, 2, 3];
       // Practice shuffles the options too; meeting rounds keep them fixed so
       // everyone's review discussion refers to the same A/B/C/D.
-      state.optOrder[i] = (state.mode === 'practice') ? shuffled(order) : order;
+      state.optOrder[i] = (state.mode === 'practice') ? shuffled([0, 1, 2, 3]) : [0, 1, 2, 3];
     });
     renderQuiz();
     updateProgress();
-    show('mcQuizScreen');
+    showSection('mcQuizScreen');
+    scrollToTop('mcQuizScreen');
   }
 
   function renderQuiz() {
@@ -222,44 +383,33 @@
     $('mcQuizTitle').textContent = bank.label + ' · ' + bank.labelZh;
     $('mcQuizSub').textContent = state.mode === 'meeting'
       ? state.round + ' · ' + roundLabel(Number(state.round.slice(1))) + ' — recorded · 此場次會登錄成績'
-      : 'Practice · 自學練習 — not recorded · 不登錄成績';
+      : 'Practice · 自學測驗 — not recorded · 不登錄成績';
 
     $('mcQuizList').innerHTML = state.items.map(function (q, i) {
       var isListen = q.type === 'listen';
-      var order = state.optOrder[i];
-      var optHtml = order.map(function (origIdx, slot) {
-        var letter = String.fromCharCode(65 + slot);
+      var optHtml = state.optOrder[i].map(function (origIdx, slot) {
         return '<button type="button" class="opt" data-i="' + i + '" data-o="' + origIdx + '">' +
-          '<span class="key">' + letter + '</span><span>' + esc(q.opts[origIdx]) + '</span></button>';
+          '<span class="key">' + String.fromCharCode(65 + slot) + '</span><span>' + esc(q.opts[origIdx]) + '</span></button>';
       }).join('');
-
-      // Listening items hide the characters until the question is graded —
-      // that is the whole point of the type.
-      var zhBlock =
-        '<div class="mc-zh' + (isListen ? ' is-veiled' : '') + '">' +
-          '<span class="mc-zh__hanzi">' + esc(q.zh) + '</span>' +
-          '<span class="mc-zh__py">' + esc(q.py) + '</span>' +
-        '</div>';
-
       return '<div class="mc-q" data-i="' + i + '" data-type="' + esc(q.type) + '">' +
         '<div class="mc-q__head">' +
           '<span class="mc-q__num">Q' + (i + 1) + '</span>' +
           '<span class="mc-q__tag">' + esc(typeLabel(q.type)) + '</span>' +
-          '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" ' +
-            'aria-label="Listen · 播放發音">🔊</button>' +
+          '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
         '</div>' +
         '<p class="mc-q__text">' + esc(q.q) + '</p>' +
-        zhBlock +
+        // Listening items hide the characters until the question is graded —
+        // that is the whole point of the type.
+        '<div class="mc-zh' + (isListen ? ' is-veiled' : '') + '">' +
+          '<span class="mc-zh__hanzi">' + esc(q.zh) + '</span>' +
+          '<span class="mc-zh__py">' + esc(q.py) + '</span>' +
+        '</div>' +
         '<div class="mc-opts">' + optHtml + '</div>' +
         '<div class="mc-why"><strong>' + esc(q.zh) + '</strong> <em>' + esc(q.py) + '</em><br>' + esc(q.why) + '</div>' +
       '</div>';
     }).join('');
 
-    applyPinyinVisibility();
-
-    $('mcQuizList').querySelectorAll('[data-speak]').forEach(function (b) {
-      b.addEventListener('click', function () { speak(b.getAttribute('data-speak'), b); });
-    });
+    wireSpeakButtons($('mcQuizList'));
     $('mcQuizList').querySelectorAll('.opt').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var card = btn.closest('.mc-q');
@@ -273,22 +423,6 @@
     });
   }
 
-  function typeLabel(t) {
-    return {
-      word: 'Vocabulary 字詞',
-      listen: 'Listening 聽力',
-      expression: 'Expression 用語',
-      dialogue: 'Response 應答',
-      situation: 'Situation 情境',
-      measure: 'Measure word 量詞',
-      idiom: 'Idiom 成語'
-    }[t] || t;
-  }
-
-  function applyPinyinVisibility() {
-    document.body.classList.toggle('mc-no-pinyin', !state.showPinyin);
-  }
-
   function updateProgress() {
     var total = state.items.length;
     var done = Object.keys(state.answers).length;
@@ -297,13 +431,8 @@
     $('mcSubmitBtn').disabled = done < total;
   }
 
-  // ---------------------------------------------------------------- grading
-
   function grade() {
-    var score = 0;
-    var detail = [];
-    var wrongIds = [];
-
+    var score = 0, detail = [], wrongIds = [];
     state.items.forEach(function (q, i) {
       var picked = state.answers[i];
       var isCorrect = picked === q.ok;
@@ -321,7 +450,6 @@
         else if (o === picked) btn.classList.add('is-wrong');
       });
     });
-
     state.lastWrong = wrongIds;
     renderResults(score, detail, wrongIds);
     if (state.mode === 'meeting') submitToSheet(score, detail);
@@ -342,7 +470,7 @@
       'You scored ' + score + ' out of ' + total + ' (' + pct + '%). ' +
       (state.mode === 'meeting'
         ? 'This round has been recorded. 本場次成績已登錄。'
-        : 'Practice runs are not recorded — try again as often as you like. 自學練習不登錄成績，可以無限次重來。');
+        : 'Practice runs are not recorded — try again as often as you like. 自學測驗不登錄成績，可以無限次重來。');
 
     // Score by question type, so a teacher can see what kind of Mandarin trips them up.
     var byType = {};
@@ -353,10 +481,9 @@
     });
     $('mcTypeBreakdown').innerHTML = Object.keys(byType).map(function (t) {
       var b = byType[t];
-      var p = Math.round(b.ok / b.n * 100);
       return '<div class="mc-bd">' +
         '<span class="mc-bd__label">' + esc(typeLabel(t)) + '</span>' +
-        '<span class="mc-bd__bar"><i style="width:' + p + '%"></i></span>' +
+        '<span class="mc-bd__bar"><i style="width:' + Math.round(b.ok / b.n * 100) + '%"></i></span>' +
         '<span class="mc-bd__num">' + b.ok + '/' + b.n + '</span>' +
       '</div>';
     }).join('');
@@ -381,14 +508,13 @@
             '<p class="mc-wrong__why">' + esc(q.why) + '</p>' +
           '</div>';
         }).join('');
-      wrongBox.querySelectorAll('[data-speak]').forEach(function (b) {
-        b.addEventListener('click', function () { speak(b.getAttribute('data-speak'), b); });
-      });
+      wireSpeakButtons(wrongBox);
     }
 
     $('mcRetryWrongBtn').classList.toggle('hidden', !wrongIds.length);
     $('mcRetryWrongBtn').textContent = 'Practise these ' + wrongIds.length + ' again · 重練錯題';
-    show('mcResultScreen');
+    showSection('mcResultScreen');
+    scrollToTop('mcResultScreen');
   }
 
   function submitToSheet(score, detail) {
@@ -420,60 +546,62 @@
 
   // ---------------------------------------------------------------- wiring
 
-  document.querySelectorAll('[data-level]').forEach(function (card) {
-    card.addEventListener('click', function () { openLevel(card.dataset.level); });
+  document.querySelectorAll('.mc-lvtab').forEach(function (tab) {
+    tab.addEventListener('click', function () { setLevel(tab.dataset.level); });
+  });
+  document.querySelectorAll('.mc-view').forEach(function (b) {
+    b.addEventListener('click', function () { setView(b.dataset.view); });
   });
 
+  $('mcSearch').addEventListener('input', function () {
+    state.query = this.value;
+    applyFilters();
+  });
+  $('mcPinyinToggle').addEventListener('change', function () {
+    document.body.classList.toggle('mc-no-pinyin', !this.checked);
+  });
+  $('mcHideAnswers').addEventListener('change', function () {
+    document.body.classList.toggle('mc-hide-answers', this.checked);
+  });
+
+  document.querySelectorAll('[data-practice]').forEach(function (btn) {
+    btn.addEventListener('click', function () { startPractice(Number(btn.dataset.practice)); });
+  });
   $('mcRoundSelect').addEventListener('change', function () {
     $('mcStartMeeting').disabled = !this.value;
   });
-
   $('mcStartMeeting').addEventListener('click', function () {
     var n = Number($('mcRoundSelect').value);
     if (!n) return;
     var id = $('mcTeacherId').value.trim();
     var name = $('mcTeacherName').value.trim();
-    if (!id || !name) {
-      $('mcGateError').classList.remove('hidden');
-      return;
-    }
+    if (!id || !name) { $('mcGateError').classList.remove('hidden'); return; }
     $('mcGateError').classList.add('hidden');
     state.teacherId = id;
     state.teacherName = name;
     startMeeting(n);
   });
 
-  document.querySelectorAll('[data-practice]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      startPractice(Number(btn.dataset.practice));
-    });
-  });
-
-  $('mcPinyinToggle').addEventListener('change', function () {
-    state.showPinyin = this.checked;
-    applyPinyinVisibility();
-  });
-
   $('mcSubmitBtn').addEventListener('click', grade);
-
   $('mcQuitBtn').addEventListener('click', function () {
     if (Object.keys(state.answers).length &&
         !confirm('Leave this attempt? Your answers will be lost. 確定離開？作答會清空。')) return;
-    show('mcModeScreen');
+    showSection('mcQuizModeScreen');
   });
-
   $('mcReviewBtn').addEventListener('click', function () {
-    show('mcQuizScreen');
-    $('mcQuizList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showSection('mcQuizScreen');
+    scrollToTop('mcQuizScreen');
   });
-
   $('mcRetryWrongBtn').addEventListener('click', startWrongOnly);
-
   $('mcAnotherBtn').addEventListener('click', function () {
-    renderModeScreen();
-    show('mcModeScreen');
+    renderQuizModeScreen();
+    showSection('mcQuizModeScreen');
+    scrollToTop('mcQuizModeScreen');
   });
+  $('mcBackToStudy').addEventListener('click', function () { setView('study'); });
 
-  $('mcBackToLevels').addEventListener('click', function () { show('mcLevelScreen'); });
-  $('mcResultToLevels').addEventListener('click', function () { show('mcLevelScreen'); });
+  // ---------------------------------------------------------------- boot
+
+  preloadAll();
+  setLevel('beginner');
 })();

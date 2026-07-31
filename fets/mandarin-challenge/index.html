@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://changhua-bilingual.org/fets/mandarin-challenge/">
   <title>Mandarin Challenge · Changhua Bilingual Hub</title>
-  <meta name="description" content="A three-level Mandarin question bank for foreign English teachers in Changhua — everyday campus vocabulary, listening, dialogue and idioms, with pinyin and audio on every item.">
+  <meta name="description" content="A three-level Mandarin question bank for foreign English teachers in Changhua — browse every question for all nine FET meetings, with pinyin, audio and explanations on every item.">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
@@ -37,42 +37,115 @@
     .mc-btn-ghost { background:transparent; color:var(--hub-primary); border:1px solid var(--hub-line); }
     .hidden { display:none !important; }
 
-    .mc-toolbar { display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin:22px 0 4px; }
-    .mc-switch { display:inline-flex; align-items:center; gap:9px; font-size:17px; color:var(--hub-ink-soft); cursor:pointer; }
-    .mc-switch input { width:19px; height:19px; accent-color:var(--hub-primary); cursor:pointer; }
-
     .mc-notice {
       font-size:17px; line-height:1.6; color:#7a4a17; background:#fdf3e3; border:1px solid #f0d9b5;
       border-radius:10px; padding:12px 15px; margin:18px 0 0; max-width:64ch;
     }
     .mc-notice.is-error { color:#8a332b; background:#fbe7e4; border-color:#eec4be; }
 
-    /* ---------- level cards (Dajuang-style themed grid) ---------- */
-    .mc-levels { display:grid; gap:20px; margin:30px 0 8px; }
-    .mc-level {
-      display:block; width:100%; text-align:left; border:1px solid var(--hub-line); border-radius:16px;
-      overflow:hidden; background:#fff; cursor:pointer; padding:0; font-family:var(--hub-en-font);
-      box-shadow:var(--hub-shadow); transition:transform .18s ease, box-shadow .18s ease;
+    /* ---------- level tabs ---------- */
+    .mc-levelbar { display:grid; grid-template-columns:1fr; gap:10px; margin:26px 0 0; }
+    .mc-lvtab {
+      appearance:none; cursor:pointer; text-align:left; font-family:var(--hub-en-font);
+      border:1px solid var(--hub-line); border-left:6px solid var(--hub-line); border-radius:12px;
+      background:#fff; padding:14px 18px; transition:border-color .15s ease, background .15s ease, transform .15s ease;
     }
-    .mc-level:hover { transform:translateY(-4px); box-shadow:var(--hub-shadow-hover); }
-    .mc-level__hero {
-      height:150px; display:flex; align-items:center; justify-content:center; font-size:70px; line-height:1;
-    }
-    .mc-level--b .mc-level__hero { background:linear-gradient(135deg,#2f7d5c,#7cc4a1); }
-    .mc-level--i .mc-level__hero { background:linear-gradient(135deg,#1f6e6e,#5fb3c4); }
-    .mc-level--a .mc-level__hero { background:linear-gradient(135deg,#8a4b2a,#e89a3c); }
-    /* every part of the card is a <span> (it lives inside a <button>), so each
-       one needs display:block to stack. */
-    .mc-level__body, .mc-level__eyebrow, .mc-level__title,
-    .mc-level__zh, .mc-level__desc, .mc-level__cta { display:block; }
-    .mc-level__body { padding:20px 22px 24px; }
-    .mc-level__eyebrow { font-size:13px; letter-spacing:.11em; text-transform:uppercase; font-weight:700; color:var(--hub-ink-faint); }
-    .mc-level__title { font-family:var(--hub-serif); font-size:26px; margin:6px 0 4px; color:var(--hub-ink); }
-    .mc-level__zh { font-size:19px; color:var(--hub-ink-soft); font-family:var(--hub-zh-font); margin:0 0 10px; }
-    .mc-level__desc { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 14px; }
-    .mc-level__cta { font-size:18px; font-weight:700; color:var(--hub-primary); }
+    .mc-lvtab:hover { transform:translateY(-2px); }
+    .mc-lvtab__name { display:block; font-family:var(--hub-serif); font-size:23px; color:var(--hub-ink); }
+    .mc-lvtab__zh { display:block; font-size:18px; color:var(--hub-ink-soft); font-family:var(--hub-zh-font); margin-top:2px; }
+    .mc-lvtab__n { display:block; font-size:16px; color:var(--hub-ink-faint); margin-top:4px; font-variant-numeric:tabular-nums; }
+    .mc-lvtab--b { border-left-color:#7cc4a1; }
+    .mc-lvtab--i { border-left-color:#5fb3c4; }
+    .mc-lvtab--a { border-left-color:#e89a3c; }
+    .mc-lvtab.is-on { background:var(--hub-line-soft); border-color:var(--hub-primary); }
+    .mc-lvtab--b.is-on { border-left-color:#2f7d5c; }
+    .mc-lvtab--i.is-on { border-left-color:#1f6e6e; }
+    .mc-lvtab--a.is-on { border-left-color:#8a4b2a; }
 
-    /* ---------- mode screen ---------- */
+    /* ---------- view switch (practice area / quiz) ---------- */
+    .mc-views { display:flex; gap:10px; flex-wrap:wrap; margin:26px 0 0; border-bottom:1px solid var(--hub-line); }
+    .mc-view {
+      appearance:none; border:none; background:none; cursor:pointer; font-family:var(--hub-en-font);
+      font-size:19px; font-weight:700; color:var(--hub-ink-faint); padding:12px 4px; margin-right:14px;
+      border-bottom:3px solid transparent; transition:color .15s ease, border-color .15s ease;
+    }
+    .mc-view:hover { color:var(--hub-ink-soft); }
+    .mc-view.is-on { color:var(--hub-primary); border-bottom-color:var(--hub-primary); }
+
+    /* ---------- practice-area toolbar ---------- */
+    .mc-tools { display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin:22px 0 6px; }
+    .mc-switch { display:inline-flex; align-items:center; gap:9px; font-size:17px; color:var(--hub-ink-soft); cursor:pointer; }
+    .mc-switch input { width:19px; height:19px; accent-color:var(--hub-primary); cursor:pointer; }
+    .mc-search {
+      flex:1 1 240px; min-width:220px; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink); font-size:18px; font-family:var(--hub-en-font);
+    }
+    .mc-search:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .mc-chips { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 0; }
+    .mc-chip {
+      appearance:none; cursor:pointer; font-family:var(--hub-en-font); font-size:16px; font-weight:600;
+      border:1px solid var(--hub-line); background:#fff; color:var(--hub-ink-soft);
+      border-radius:999px; padding:7px 14px; transition:background .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .mc-chip:hover { border-color:var(--hub-primary); }
+    .mc-chip.is-on { background:var(--hub-primary); border-color:var(--hub-primary); color:#fff; }
+    .mc-resultcount { font-size:17px; color:var(--hub-ink-faint); margin:14px 0 0; font-variant-numeric:tabular-nums; }
+
+    /* ---------- round group ---------- */
+    .mc-round { margin:34px 0 0; }
+    .mc-round__h {
+      display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+      padding:0 0 10px; border-bottom:2px solid var(--hub-line);
+    }
+    .mc-round__tag {
+      font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:#fff;
+      background:var(--hub-primary); padding:5px 12px; border-radius:999px;
+    }
+    .mc-round--spare .mc-round__tag { background:var(--hub-ink-faint); }
+    .mc-round__title { font-family:var(--hub-serif); font-size:23px; color:var(--hub-ink); margin:0; }
+    .mc-round__n { font-size:17px; color:var(--hub-ink-faint); margin-left:auto; font-variant-numeric:tabular-nums; }
+
+    /* ---------- one question in the practice area ---------- */
+    .st { border-bottom:1px solid var(--hub-line); padding:22px 0; max-width:80ch; }
+    .st__head { display:flex; align-items:center; gap:10px; margin-bottom:9px; }
+    .st__id { font-size:16px; font-weight:700; color:var(--hub-primary); font-variant-numeric:tabular-nums; }
+    .st__tag { font-size:13px; letter-spacing:.07em; text-transform:uppercase; font-weight:700; color:var(--hub-ink-faint); background:var(--hub-line-soft); padding:4px 10px; border-radius:999px; }
+    .speak {
+      border:none; background:var(--hub-line-soft); color:var(--hub-primary); border-radius:9px;
+      width:44px; height:44px; font-size:20px; cursor:pointer; flex-shrink:0; margin-left:auto;
+    }
+    .speak:hover { background:#e2ded4; }
+    .speak.is-speaking { background:var(--hub-primary); color:#fff; }
+
+    .st__zh { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:0 0 12px; }
+    .st__hanzi { font-family:var(--hub-zh-font); font-size:24px; font-weight:600; color:var(--hub-ink); }
+    .st__py { font-size:20px; color:var(--hub-ink-faint); font-style:italic; }
+    body.mc-no-pinyin .st__py, body.mc-no-pinyin .mc-zh__py, body.mc-no-pinyin .mc-wrong__py { display:none; }
+
+    .st__q { font-size:20px; line-height:1.55; color:var(--hub-ink); margin:0 0 12px; }
+    .st__opts { list-style:none; margin:0 0 12px; padding:0; display:grid; gap:8px; }
+    .st__opt {
+      display:flex; align-items:flex-start; gap:11px; font-size:19px; line-height:1.45; color:var(--hub-ink-soft);
+      border:1px solid var(--hub-line); border-radius:10px; padding:11px 14px; background:#fff;
+    }
+    .st__opt .k { font-weight:700; color:var(--hub-ink-faint); width:19px; flex-shrink:0; }
+    .st__opt.is-ok { border-color:#2f7d5c; background:#e3f1e9; color:var(--hub-ink); font-weight:600; }
+    .st__opt.is-ok .k { color:#2f7d5c; }
+    .st__opt.is-ok::after { content:"✓"; margin-left:auto; color:#2f7d5c; font-weight:700; }
+    .st__why {
+      font-size:18px; line-height:1.65; color:var(--hub-ink-soft);
+      background:var(--hub-line-soft); border-radius:10px; padding:13px 15px; margin:0;
+    }
+    /* "Hide answers" turns the practice area into a self-test */
+    body.mc-hide-answers .st__opt.is-ok { border-color:var(--hub-line); background:#fff; color:var(--hub-ink-soft); font-weight:400; }
+    body.mc-hide-answers .st__opt.is-ok .k { color:var(--hub-ink-faint); }
+    body.mc-hide-answers .st__opt.is-ok::after { content:none; }
+    body.mc-hide-answers .st__why { display:none; }
+    /* Listening items keep their characters hidden until answers are shown */
+    body:not(.mc-hide-answers) .st--listen .st__zh { }
+    body.mc-hide-answers .st--listen .st__zh { visibility:hidden; height:0; margin:0; overflow:hidden; }
+
+    /* ---------- quiz: mode panels ---------- */
     .mc-panel { border:1px solid var(--hub-line); border-radius:16px; padding:24px 22px; margin:22px 0; background:#fff; }
     .mc-panel h2 { font-family:var(--hub-serif); font-size:24px; margin:0 0 6px; color:var(--hub-ink); }
     .mc-panel p { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 16px; }
@@ -88,7 +161,7 @@
     }
     .mc-field input:focus-visible, .mc-field select:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
 
-    /* ---------- quiz ---------- */
+    /* ---------- quiz: the paper ---------- */
     .mc-quiz-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
     .mc-quiz-head h2 { font-family:var(--hub-serif); font-size:26px; margin:0; color:var(--hub-ink); }
     .mc-quiz-head .sub { font-size:17px; color:var(--hub-ink-faint); }
@@ -101,19 +174,10 @@
     .mc-q__head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
     .mc-q__num { font-weight:700; color:var(--hub-primary); font-size:18px; }
     .mc-q__tag { font-size:13px; letter-spacing:.07em; text-transform:uppercase; font-weight:700; color:var(--hub-ink-faint); background:var(--hub-line-soft); padding:4px 10px; border-radius:999px; }
-    .speak {
-      border:none; background:var(--hub-line-soft); color:var(--hub-primary); border-radius:9px;
-      width:44px; height:44px; font-size:20px; cursor:pointer; flex-shrink:0; margin-left:auto;
-    }
-    .speak:hover { background:#e2ded4; }
-    .speak.is-speaking { background:var(--hub-primary); color:#fff; }
-
     .mc-q__text { font-size:20px; line-height:1.55; color:var(--hub-ink); margin:0 0 10px; }
     .mc-zh { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:0 0 16px; }
     .mc-zh__hanzi { font-family:var(--hub-zh-font); font-size:22px; font-weight:600; color:var(--hub-ink); }
     .mc-zh__py { font-size:19px; color:var(--hub-ink-faint); font-style:italic; }
-    body.mc-no-pinyin .mc-zh__py { display:none; }
-    /* Listening items: characters stay hidden until grading. */
     .mc-zh.is-veiled { visibility:hidden; height:0; margin:0 0 4px; overflow:hidden; }
 
     .mc-opts { display:grid; gap:10px; }
@@ -162,23 +226,25 @@
     .mc-wrong__top { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
     .mc-wrong__zh { font-family:var(--hub-zh-font); font-size:22px; font-weight:600; color:var(--hub-ink); }
     .mc-wrong__py { font-size:19px; color:var(--hub-ink-faint); font-style:italic; }
-    body.mc-no-pinyin .mc-wrong__py { display:none; }
     .mc-wrong__ans { font-size:18px; color:var(--hub-ink); margin:0 0 6px; line-height:1.5; }
     .mc-wrong__why { font-size:18px; color:var(--hub-ink-soft); margin:0; line-height:1.65; }
     .mc-allright { font-size:19px; color:#2f7d5c; font-weight:600; text-align:center; margin:26px 0; }
     .mc-result-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:26px 0 6px; }
 
     @media (min-width:720px) {
-      .mc-levels { grid-template-columns:repeat(3,1fr); }
+      .mc-levelbar { grid-template-columns:repeat(3,1fr); }
       .mc-lede { font-size:23px; }
       .mc-lede-zh { font-size:20px; }
-      .mc-q__text { font-size:23px; }
-      .opt { font-size:21px; }
+      .st__q, .mc-q__text { font-size:23px; }
+      .st__opt, .opt { font-size:21px; }
+      .st__hanzi { font-size:27px; }
+      .st__py { font-size:22px; }
       .mc-zh__hanzi { font-size:25px; }
       .mc-zh__py, .mc-wrong__py { font-size:21px; }
       .mc-wrong__zh { font-size:25px; }
-      .mc-why, .mc-wrong__ans, .mc-wrong__why { font-size:20px; }
-      .mc-panel p, .mc-level__desc { font-size:19px; }
+      .st__why, .mc-why, .mc-wrong__ans, .mc-wrong__why { font-size:20px; }
+      .mc-panel p { font-size:19px; }
+      .mc-round__title { font-size:25px; }
     }
   </style>
 </head>
@@ -206,18 +272,11 @@
   <a href="/fets/">FETs</a> &nbsp;›&nbsp; Mandarin Challenge
 </nav>
 
-<section class="hub-section" style="padding-top:28px">
+<section class="hub-section" style="padding-top:28px;padding-bottom:0">
   <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:44px;margin:6px 0 12px">Mandarin Challenge</h1>
-  <p class="mc-lede">A three-level question bank of the Mandarin you actually meet on a Changhua campus — greetings and daily routine, the offices and paperwork, and the formal language of memos and school news. Every item has pinyin and a 🔊 button, and every answer comes with an explanation.</p>
-  <p class="mc-lede-zh">分成三級的中文題庫，全部取材自彰化校園真正會遇到的用語。每一題都附拼音與 🔊 發音，答完後每題都有說明。這是給外師自學用的，答錯不扣分。</p>
-
-  <div class="mc-toolbar">
-    <label class="mc-switch">
-      <input type="checkbox" id="mcPinyinToggle" checked>
-      Show pinyin · 顯示拼音
-    </label>
-  </div>
+  <p class="mc-lede">Every question for all nine FET meetings, in one place. Browse the whole bank at your own pace — each item shows the phrase, its pinyin, a 🔊 button, the answer and an explanation — then take the quiz when you're ready.</p>
+  <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。你可以照自己的步調把整份題庫看過一遍——每題都有漢字、拼音、🔊 發音、正解與說明——準備好了再去測驗。</p>
 
   <p class="mc-notice hidden" id="mcVoiceNotice">
     🔇 Your device has no Chinese voice installed, so the 🔊 buttons will be silent. Everything else works normally — on a Mac, iPhone or Android you can add one in your system Speech / Text-to-speech settings.
@@ -226,57 +285,60 @@
   <p class="mc-notice is-error hidden" id="mcLoadError">
     Could not load the question bank. Please refresh the page. 題庫載入失敗，請重新整理頁面。
   </p>
-</section>
 
-<!-- ============ SCREEN 1 · pick a level ============ -->
-<section class="hub-section" id="mcLevelScreen" style="padding-top:0">
-  <div class="mc-levels">
-    <button type="button" class="mc-level mc-level--b" data-level="beginner">
-      <span class="mc-level__hero">🌱</span>
-      <span class="mc-level__body">
-        <span class="mc-level__eyebrow">Level 1</span>
-        <span class="mc-level__title">Beginner</span>
-        <span class="mc-level__zh">入門</span>
-        <span class="mc-level__desc">Greetings, the daily timetable, and the handful of replies that carry you through a hallway conversation.</p>
-        <span class="mc-level__cta">Start · 開始 →</span>
-      </span>
+  <!-- level tabs -->
+  <div class="mc-levelbar" role="tablist" aria-label="Level">
+    <button type="button" class="mc-lvtab mc-lvtab--b is-on" data-level="beginner" role="tab" aria-selected="true">
+      <span class="mc-lvtab__name">🌱 Beginner</span>
+      <span class="mc-lvtab__zh">入門</span>
+      <span class="mc-lvtab__n" data-count="beginner">…</span>
     </button>
+    <button type="button" class="mc-lvtab mc-lvtab--i" data-level="intermediate" role="tab" aria-selected="false">
+      <span class="mc-lvtab__name">🏫 Intermediate</span>
+      <span class="mc-lvtab__zh">進階</span>
+      <span class="mc-lvtab__n" data-count="intermediate">…</span>
+    </button>
+    <button type="button" class="mc-lvtab mc-lvtab--a" data-level="advanced" role="tab" aria-selected="false">
+      <span class="mc-lvtab__name">📜 Advanced</span>
+      <span class="mc-lvtab__zh">高階</span>
+      <span class="mc-lvtab__n" data-count="advanced">…</span>
+    </button>
+  </div>
 
-    <button type="button" class="mc-level mc-level--i" data-level="intermediate">
-      <span class="mc-level__hero">🏫</span>
-      <span class="mc-level__body">
-        <span class="mc-level__eyebrow">Level 2</span>
-        <span class="mc-level__title">Intermediate</span>
-        <span class="mc-level__zh">進階</span>
-        <span class="mc-level__desc">The offices you have to visit, the paperwork you get handed, and the words that come up with parents.</p>
-        <span class="mc-level__cta">Start · 開始 →</span>
-      </span>
-    </button>
-
-    <button type="button" class="mc-level mc-level--a" data-level="advanced">
-      <span class="mc-level__hero">📜</span>
-      <span class="mc-level__body">
-        <span class="mc-level__eyebrow">Level 3</span>
-        <span class="mc-level__title">Advanced</span>
-        <span class="mc-level__zh">高階</span>
-        <span class="mc-level__desc">Memos, meetings and school news — plus the high-frequency 成語 idioms you will genuinely hear.</p>
-        <span class="mc-level__cta">Start · 開始 →</span>
-      </span>
-    </button>
+  <!-- view switch -->
+  <div class="mc-views">
+    <button type="button" class="mc-view is-on" data-view="study">📖 Practice area · 練習區</button>
+    <button type="button" class="mc-view" data-view="quiz">✍️ Quiz · 測驗</button>
   </div>
 </section>
 
-<!-- ============ SCREEN 2 · practice or meeting round ============ -->
-<section class="hub-section hidden" id="mcModeScreen" style="padding-top:0">
-  <p class="hub-eyebrow" style="color:var(--hub-primary)" id="mcModeLevelName"></p>
-  <p class="mc-lede" id="mcModeLevelBlurb" style="margin-top:8px"></p>
-  <p class="mc-lede-zh" id="mcModeLevelBlurbZh"></p>
-  <p class="mc-count" id="mcBankCount"></p>
+<!-- ============ VIEW 1 · practice area (every question, grouped by meeting) ============ -->
+<section class="hub-section" id="mcStudyView" style="padding-top:12px">
+  <p class="mc-lede-zh" id="mcStudyBlurbZh" style="margin-top:6px"></p>
 
+  <div class="mc-tools">
+    <input type="search" class="mc-search" id="mcSearch" placeholder="Search 搜尋 — 便當, biàndāng, lunch…" autocomplete="off">
+    <label class="mc-switch">
+      <input type="checkbox" id="mcPinyinToggle" checked>
+      Pinyin · 拼音
+    </label>
+    <label class="mc-switch">
+      <input type="checkbox" id="mcHideAnswers">
+      Hide answers · 隱藏答案
+    </label>
+  </div>
+  <div class="mc-chips" id="mcTypeChips"></div>
+  <p class="mc-resultcount" id="mcStudyCount"></p>
+
+  <div id="mcStudyList"></div>
+</section>
+
+<!-- ============ VIEW 2 · quiz ============ -->
+<section class="hub-section hidden" id="mcQuizModeScreen" style="padding-top:12px">
   <div class="mc-panel">
-    <h2>Practice on your own · 自學練習</h2>
-    <p>Questions are drawn at random from the whole bank and the options are shuffled, so no two runs are the same. Nothing is recorded — repeat it as often as you like.</p>
-    <p class="zh">從整個題庫隨機抽題、選項也會打散，每次都不一樣。<strong>不會登錄成績</strong>，可以放心一直重來。</p>
+    <h2>Practice quiz · 自學測驗</h2>
+    <p>Questions are drawn at random from the whole level and the options are shuffled, so no two runs are the same. Nothing is recorded — repeat it as often as you like.</p>
+    <p class="zh">從整級題庫隨機抽題、選項也會打散，每次都不一樣。<strong>不會登錄成績</strong>，可以放心一直重來。</p>
     <div class="mc-actions">
       <button type="button" class="mc-btn" data-practice="10">Quick 10 · 快速 10 題</button>
       <button type="button" class="mc-btn-ghost" data-practice="20">Full 20 · 完整 20 題</button>
@@ -285,8 +347,8 @@
 
   <div class="mc-panel">
     <h2>Monthly meeting round · 外師會議場次</h2>
-    <p>A fixed set of 20 questions — the same paper for everyone at that month's FET meeting. Your score is recorded to the Google Sheet for this level.</p>
-    <p class="zh">固定 20 題，該場會議所有外師題目相同，成績會登錄到這一級對應的 Google Sheet 分頁。</p>
+    <p>The fixed 20 questions for that month's meeting — the same paper for everyone. Your score is recorded to the Google Sheet for this level.</p>
+    <p class="zh">該場會議的固定 20 題，所有外師題目相同，成績會登錄到這一級對應的 Google Sheet 分頁。</p>
 
     <div class="mc-field">
       <label for="mcRoundSelect">Round · 場次</label>
@@ -303,12 +365,9 @@
     <p class="mc-notice is-error hidden" id="mcGateError">Please fill in both your teacher ID and your name. 請填寫編號與姓名。</p>
     <button type="button" class="mc-btn" id="mcStartMeeting" disabled>Start this round · 開始作答</button>
   </div>
-
-  <button type="button" class="mc-btn-ghost" id="mcBackToLevels">← Choose a different level · 換一個級別</button>
 </section>
 
-<!-- ============ SCREEN 3 · the quiz ============ -->
-<section class="hub-section hidden" id="mcQuizScreen" style="padding-top:0">
+<section class="hub-section hidden" id="mcQuizScreen" style="padding-top:12px">
   <div class="mc-quiz-head">
     <h2 id="mcQuizTitle"></h2>
     <span class="sub" id="mcQuizSub"></span>
@@ -324,8 +383,7 @@
   </div>
 </section>
 
-<!-- ============ SCREEN 4 · results ============ -->
-<section class="hub-section hidden" id="mcResultScreen" style="padding-top:0">
+<section class="hub-section hidden" id="mcResultScreen" style="padding-top:12px">
   <div class="mc-result-top">
     <div class="mc-ring" id="mcScoreRing" style="--pct:0"><span id="mcScoreNum">0/0</span></div>
     <h2 id="mcResultHeadline"></h2>
@@ -334,14 +392,13 @@
   </div>
 
   <div style="max-width:620px;margin:26px auto 0" id="mcTypeBreakdown"></div>
-
   <div style="max-width:78ch;margin:0 auto" id="mcWrongList"></div>
 
   <div class="mc-result-actions">
     <button type="button" class="mc-btn-ghost" id="mcReviewBtn">Review every question · 逐題檢討</button>
     <button type="button" class="mc-btn hidden" id="mcRetryWrongBtn">Practise wrong ones again · 重練錯題</button>
     <button type="button" class="mc-btn-ghost" id="mcAnotherBtn">Another round · 再做一組</button>
-    <button type="button" class="mc-btn-ghost" id="mcResultToLevels">Change level · 換級別</button>
+    <button type="button" class="mc-btn-ghost" id="mcBackToStudy">Back to the practice area · 回練習區</button>
   </div>
 </section>
 

@@ -4,6 +4,16 @@ Three levels for foreign English teachers, each in its own JSON file under `data
 The page (`index.html`) is a shell; all content lives in the banks, so adding
 questions never means touching HTML.
 
+The page has two views, switched by the tabs under the level selector:
+
+- **Practice area 練習區** (default) — *every* question in the level laid out
+  openly, grouped under the nine meeting-round headings, with the answer marked
+  and the explanation shown. Search (matches Chinese, pinyin and English),
+  filter by question type, toggle pinyin, and "Hide answers" to self-test.
+  This is the main thing FETs use; the quiz is secondary.
+- **Quiz 測驗** — practice quiz (random draw, not recorded) or a meeting round
+  (fixed 20, identical for everyone, written to the Google Sheet).
+
 ## Target size
 
 | Level | Pilot (now) | Target |
@@ -18,8 +28,11 @@ questions never means touching HTML.
 
 Round **M*n*** is questions `[(n-1)*20, n*20)` of the bank, in file order —
 so **the order of questions in the file is the order of the meeting rounds.**
-Anything past `floor(length / 20) * 20` is practice-only, and the round selector
-greys out rounds the bank cannot fill yet.
+The practice area uses the same slicing for its round headings; anything past
+the ninth round shows under "Extra practice 備用題", and the quiz's round
+selector greys out rounds the bank cannot fill yet. While a level is short of
+180 questions the practice area prints an explicit note saying which rounds are
+still being written — no silent gaps.
 
 Round labels live in `window.__MC_CONFIG__.meetings` in `index.html`
 (first meeting September 2026). Change the calendar there, not in the JS.
