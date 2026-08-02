@@ -219,6 +219,22 @@
   .back-link{display:inline-block;margin-top:30px;color:var(--blue-deep);text-decoration:none;font-weight:700;font-size:19px;border-bottom:2px solid var(--olive);padding-bottom:2px;}
   .back-link:hover{color:var(--red);border-color:var(--red);}
 
+  /* === Word of the Day cards === */
+  .wotd-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:32px;}
+  @media (min-width:820px){ .wotd-grid{ grid-template-columns:1fr 1fr;gap:28px; } }
+  .wotd-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
+  .wotd-card__video{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+  .wotd-card__video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .wotd-card__body{padding:20px 22px 24px;}
+  .wotd-card__word{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--blue-deep);}
+  @media (min-width:720px){ .wotd-card__word{ font-size:32px; } }
+  .wotd-card__pos{font-size:16px;color:var(--ink-soft);font-weight:500;margin-left:6px;}
+  .wotd-card__zh{font-family:'PingFang TC',sans-serif;font-size:20px;color:var(--ink);font-weight:600;margin-left:12px;}
+  .wotd-card__sent{list-style:none;margin-top:14px;}
+  .wotd-card__sent li{font-size:17px;line-height:1.6;color:var(--ink);margin-top:10px;padding-left:16px;border-left:3px solid var(--orange);}
+  @media (min-width:720px){ .wotd-card__sent li{ font-size:18px; } }
+  .wotd-card__sent .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:3px;}
+
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
@@ -276,6 +292,7 @@
     </div>
 
     <div class="jump">
+      <a href="#wotd"><span class="jump__icon">📖</span> Word of the Day</a>
       <a href="#classroom"><span class="jump__icon">🎬</span> Classroom English</a>
       <a href="#broadcast"><span class="jump__icon">📻</span> Announcements</a>
       <a href="#festivals"><span class="jump__icon">🎊</span> Festivals</a>
@@ -284,10 +301,55 @@
   </div>
 </section>
 
-<!-- ===== II. Classroom English ===== -->
-<section class="alt" id="classroom">
+<!-- ===== II. Word of the Day ===== -->
+<section id="wotd">
   <div class="wrap">
     <div class="sec__no">II.</div>
+    <h2 class="sec__title">Word of the Day</h2>
+    <div class="sec__title-zh">每日一字 · 校園實境拍攝</div>
+    <div class="sec__rule"></div>
+
+    <div class="body" style="max-width:880px;">
+      <p>
+        Two words filmed right on the Fusing campus — each video comes with two example sentences, spoken and shown on screen.
+      </p>
+      <p class="zh">
+        兩個在福興校園實地拍攝的單字，每支影片都附兩句例句，口說搭配畫面呈現。
+      </p>
+    </div>
+
+    <div class="wotd-grid">
+
+      <div class="wotd-card">
+        <div class="wotd-card__video"><iframe src="https://www.youtube-nocookie.com/embed/M_fVdmZuz3A?rel=0" title="Word of the Day: sweep 掃" allowfullscreen></iframe></div>
+        <div class="wotd-card__body">
+          <div class="wotd-card__word">sweep <span class="wotd-card__pos">(v)</span><span class="wotd-card__zh">掃</span></div>
+          <ul class="wotd-card__sent">
+            <li>Every day, students sweep away fallen leaves on school grounds.<span class="zh">每天學生打掃校園的落葉。</span></li>
+            <li>Students in Taiwan sweep the school grounds, keeping them clean and neat.<span class="zh">台灣的學生打掃校園，讓校園保持乾淨整潔。</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wotd-card">
+        <div class="wotd-card__video"><iframe src="https://www.youtube-nocookie.com/embed/9Zj9o-EiYHU?rel=0" title="Word of the Day: basketball 籃球" allowfullscreen></iframe></div>
+        <div class="wotd-card__body">
+          <div class="wotd-card__word">basketball <span class="wotd-card__pos">(n)</span><span class="wotd-card__zh">籃球</span></div>
+          <ul class="wotd-card__sent">
+            <li>Students love to play basketball during recess.<span class="zh">學生們喜歡在下課時打籃球。</span></li>
+            <li>A pick-up game is an on-the-spot game for basketball.<span class="zh">Pick-up game 是籃球臨時組隊、當場開打的比賽。</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== III. Classroom English ===== -->
+<section class="alt" id="classroom">
+  <div class="wrap">
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Classroom English</h2>
     <div class="sec__title-zh">課室英語 · 30 集 · Sarah Thomas 老師主講</div>
     <div class="sec__rule"></div>
@@ -659,10 +721,10 @@
   </div>
 </section>
 
-<!-- ===== III. Bilingual Announcements ===== -->
+<!-- ===== IV. Bilingual Announcements ===== -->
 <section id="broadcast">
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Bilingual Announcements</h2>
     <div class="sec__title-zh">廣播英語 · 13 集 · 校園四處室自我介紹</div>
     <div class="sec__rule"></div>
@@ -837,10 +899,10 @@
   </div>
 </section>
 
-<!-- ===== IV. Festivals English ===== -->
+<!-- ===== V. Festivals English ===== -->
 <section class="alt" id="festivals">
   <div class="wrap">
-    <div class="sec__no">IV.</div>
+    <div class="sec__no">V.</div>
     <h2 class="sec__title">Festivals English</h2>
     <div class="sec__title-zh">節慶英語 · 16 個節慶</div>
     <div class="sec__rule"></div>
@@ -867,10 +929,10 @@
   </div>
 </section>
 
-<!-- ===== V. International Partners ===== -->
+<!-- ===== VI. International Partners ===== -->
 <section id="international">
   <div class="wrap">
-    <div class="sec__no">V.</div>
+    <div class="sec__no">VI.</div>
     <h2 class="sec__title">English with the World</h2>
     <div class="sec__title-zh">出走校園 · 與國際夥伴學校交流</div>
     <div class="sec__rule"></div>
@@ -912,7 +974,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.wotd-card';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
