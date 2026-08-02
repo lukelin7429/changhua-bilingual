@@ -61,8 +61,9 @@
   @media (min-width:720px){ .story-hero__date{ font-size:19px; } }
   .story-hero__date b{color:var(--blue-deep);font-weight:700;}
 
-  article{padding:48px 0;}
-  @media (min-width:720px){ article{ padding:64px 0; } }
+  article{padding:48px 0 0;}
+  @media (min-width:720px){ article{ padding:64px 0 0; } }
+  .article{max-width:800px;margin:0 auto;}
   article h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:38px;letter-spacing:.3px;border-left:6px solid var(--red-deep);padding-left:14px;}
   @media (min-width:720px){ article h3{ font-size:34px; } }
   article h3:first-child{margin-top:0;}
@@ -71,16 +72,53 @@
   @media (min-width:720px){ article p{ font-size:22px; } }
   article p strong{color:var(--blue-deep);font-weight:700;}
 
-  .gallery-section{padding:48px 0;background:var(--bg-soft);border-top:1px solid var(--line);}
-  @media (min-width:720px){ .gallery-section{ padding:64px 0; } }
-  .gallery-section h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;letter-spacing:.3px;text-align:center;}
-  @media (min-width:720px){ .gallery-section h3{ font-size:34px; } }
-  .h3-zh{text-align:center;font-size:18px;color:var(--ink-soft);margin-top:6px;}
-  @media (min-width:720px){ .h3-zh{ font-size:20px; } }
-  .gallery{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
-  @media (min-width:720px){ .gallery{ grid-template-columns:1fr 1fr;gap:22px; } }
-  .gallery figure{background:#fff;border-radius:18px;padding:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);}
-  .gallery img{width:100%;height:auto;display:block;border-radius:10px;}
+  .frame{background:#fff;padding:10px;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px -14px rgba(26,71,145,.34);transition:transform .22s,box-shadow .22s;margin:32px 0 8px;}
+  .frame:hover{transform:translateY(-3px);box-shadow:0 20px 42px -16px rgba(26,71,145,.42);}
+  .frame img{display:block;width:100%;border-radius:9px;}
+  .photo-row{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0 8px;}
+  .photo-row .frame{margin:0;display:flex;} .photo-row .frame img{aspect-ratio:4/3;height:100%;object-fit:cover;}
+  @media(min-width:600px){.photo-row.two{grid-template-columns:1fr 1fr;}.photo-row.three{grid-template-columns:repeat(3,1fr);}}
+
+  .learn{max-width:900px;margin:54px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .learn-head{text-align:center;margin-bottom:28px;}
+  .learn-head .eyebrow{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;font-family:'Playfair Display',serif;}
+  .learn-head h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(24px,4vw,32px);font-weight:700;color:var(--blue-deep);line-height:1.25;}
+  .vlist{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.vlist{grid-template-columns:1fr 1fr;}}
+  .vcard{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px 64px;box-shadow:var(--shadow-sm);}
+  .vsay{position:absolute;left:16px;top:20px;width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 10px -3px rgba(26,71,145,.5);}
+  .vsay:hover{transform:scale(1.08);} .vsay:active{transform:scale(.92);}
+  .vsay.ring{box-shadow:0 0 0 7px var(--blue-soft);}
+  .vmain{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;}
+  .vword{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,38px);font-weight:700;color:var(--blue-deep);line-height:1.08;}
+  .vipa{font-size:15px;color:var(--orange-deep);font-weight:600;}
+  .vzh{font-family:'PingFang TC',sans-serif;font-size:21px;font-weight:700;color:var(--ink);}
+  .vsent{font-size:18px;line-height:1.6;color:var(--ink);margin-top:12px;}
+  .vsent b{color:var(--blue);}
+  .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:4px;}
+
+  .vgame{max-width:900px;margin:48px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-bottom:18px;}
+  .game-score b{color:var(--blue);font-size:22px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+  .gcol{display:flex;flex-direction:column;gap:10px;}
+  .gtile{font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 8px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--orange);}
+  .gtile.sel{border-color:var(--blue);background:var(--blue-soft);color:var(--blue-deep);}
+  .gtile.done{background:#e8f3e8;border-color:#5cb274;color:#2f8049;cursor:default;}
+  .gtile.pop{animation:gpop .5s;} @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;} @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--blue-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;} .game-reset:hover{background:var(--orange-soft);border-color:var(--orange);}
+  .game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:23px;font-weight:700;color:var(--blue-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
+
+  .zhwrap{max-width:800px;margin:44px auto 0;padding-top:20px;border-top:1px solid var(--line);}
+  .zhwrap .zhlabel{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);border-radius:20px;padding:5px 14px;margin-bottom:10px;}
+  .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.95;margin-top:16px;color:var(--ink);}
+  @media(min-width:720px){.zh-body p{font-size:21px;}}
 
   .back-cta{text-align:center;padding:36px 24px 56px;}
   .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
@@ -89,7 +127,6 @@
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
-  /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -126,30 +163,143 @@
 </header>
 
 <article>
-  <div class="wrap">
+  <div class="wrap"><div class="article">
 
-    <h3>English</h3>
-    <p>From July 1 to July 17, Fusing ran two back-to-back ten-day camps for incoming seventh graders: an English immersion camp and a Maker Tech camp. Every day of the English camp brought a foreign teacher, a fresh lesson, and hands-on games — building teamwork, creativity, and confidence one activity at a time.</p>
-    <p>Our teaching team came from as far as Peru, the US, and Canada, with backgrounds ranging from pastor to musician, dentist to nurse to police officer. In the summer water-fight challenge, students raced to fill buckets with sponges; in the balloon game, they learned about action and reaction without popping a single balloon; in the instruction game, they sharpened their listening and focus to finish tasks the fastest.</p>
-    <p>A typhoon even threatened to cancel classes mid-camp — and students asked not to have the day off, because they didn't want to miss out. Parents said they'd never seen their kids so eager to go to school. In the Maker Tech camp's final five afternoons, students explored woodworking, electronics, and astronomy with our Maker Center teachers, combining Science, Technology, Engineering, Arts, and Math into hands-on creations they could call their own.</p>
+    <p>From July 1 to July 17, Fusing ran two back-to-back ten-day camps for incoming seventh graders: an <strong>English immersion camp</strong> and a <strong>Maker Tech camp</strong>. Every day brought a foreign teacher, a fresh lesson, and hands-on games — building teamwork, creativity, and confidence one activity at a time.</p>
 
-    <h3 class="zh">中文</h3>
-    <p>1150701 至 1150717 期間，福興國中為即將升上七年級的新生規劃了各為期十天的英語營隊與創客科技營隊。營隊結合沉浸式英語課程，每天都有外師帶來的有趣課程與互動遊戲，讓孩子在活動中學習團隊合作、激發創意、互相鼓勵。</p>
-    <p>外師團隊來自秘魯、美國、加拿大等地，職業橫跨牧師、音樂家、牙醫師、護理師、警察等各行各業。夏日水戰中，學生要學習用海綿分工合作快速注滿水桶；水球遊戲練習作用力與反作用力原理，不讓水球破裂；指令遊戲則考驗英語聽力與專注力，迅速完成各項指令。</p>
-    <p>課程期間適逢颱風來襲，同學們紛紛許願不要放颱風假，因為捨不得錯過營隊的精彩內容，連家長都直呼沒看過孩子這麼想上學。創客科技營隊最後五天下午，福興國中自造中心老師帶著孩子體驗木工、電子、天文等主題課程，結合科學、技術、工程、藝術與數學的跨學科教育，讓每個孩子都完成一項專屬於自己的創作。</p>
+    <div class="frame"><img src="photo_01.jpg" alt="The whole camp of students, foreign teachers, and staff posing together on the closing day" loading="lazy"></div>
 
-  </div>
+    <p>Our teaching team came from as far as <strong>Peru, the US, and Canada</strong>, with backgrounds ranging from pastor to musician, dentist to nurse to police officer. Students formed teams with names like the Blue Elephants and lived by simple classroom rules: be respectful, participate, have fun.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_02.jpg" alt="A chalkboard reading Class Rules: Be Respectful, Participate, Have Fun with two foreign teachers" loading="lazy"></div>
+      <div class="frame"><img src="photo_03.jpg" alt="The Blue Elephants team posing with foreign teachers and a Fusing teacher" loading="lazy"></div>
+    </div>
+
+    <p>Classroom time mixed games with culture lessons — from card games with a foreign teacher to a crash course on only-in-America snacks like Dr Pepper.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_04.jpg" alt="A foreign teacher playing a card game with students at their desks" loading="lazy"></div>
+      <div class="frame"><img src="photo_05.jpg" alt="A foreign teacher presenting a slide about American culture, including Dr Pepper" loading="lazy"></div>
+    </div>
+
+    <p>In the summer water-fight challenge, students raced to fill buckets with sponges; in the balloon pool game, teams cooled off together under the trees.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_06.jpg" alt="Students playing a water gun target game" loading="lazy"></div>
+      <div class="frame"><img src="photo_07.jpg" alt="A crowd of students gathered around a balloon pool for an outdoor water game" loading="lazy"></div>
+    </div>
+
+    <p>Hands-on learning even reached the kitchen, where teams cooked their own stew together — chopping, stirring, and tasting as a team.</p>
+
+    <div class="photo-row three">
+      <div class="frame"><img src="photo_08.jpg" alt="Students stirring a pot of stew together on a portable stove" loading="lazy"></div>
+      <div class="frame"><img src="photo_09.jpg" alt="Students gathered around a kitchen counter preparing vegetables" loading="lazy"></div>
+      <div class="frame"><img src="photo_10.jpg" alt="Students chopping vegetables at a sink during the cooking activity" loading="lazy"></div>
+    </div>
+
+    <p>A typhoon even threatened to cancel classes mid-camp — and students asked not to have the day off, because they didn't want to miss out. In the Maker Tech camp, students tackled a classic engineering challenge: building the tallest tower out of spaghetti and marshmallows.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_11.jpg" alt="Students building a tower out of spaghetti and marshmallows at their desks" loading="lazy"></div>
+      <div class="frame"><img src="photo_12.jpg" alt="A foreign teacher drawing a cartoon character on the chalkboard for Team Perry" loading="lazy"></div>
+    </div>
+
+    <p>Outdoor games and hands-on crafts rounded out the days, combining <strong>Science, Technology, Engineering, Arts, and Math</strong> into activities students could call their own.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_13.jpg" alt="A foreign teacher explaining the rules of an outdoor ball game to students" loading="lazy"></div>
+      <div class="frame"><img src="photo_14.jpg" alt="A foreign teacher working with students on a paper craft activity at their desks" loading="lazy"></div>
+    </div>
+
+    <p>Parents said they'd never seen their kids so eager to go to school. Fusing is grateful to every foreign teacher who volunteered their summer to make these two weeks unforgettable.</p>
+
+    <div class="frame"><img src="photo_15.jpg" alt="Foreign teacher volunteers sharing a meal together during a break" loading="lazy"></div>
+
+  </div></div>
+
+  <div class="wrap"><div class="zhwrap">
+    <span class="zhlabel">中文原文 · Chinese</span>
+    <div class="zh-body">
+      <p>1150701 至 1150717 期間，福興國中為即將升上七年級的新生規劃了各為期十天的<strong>英語營隊</strong>與<strong>創客科技營隊</strong>。每天都有外師帶來的有趣課程與互動遊戲，讓孩子在活動中學習團隊合作、激發創意、互相鼓勵。</p>
+      <p>外師團隊來自<strong>秘魯、美國、加拿大</strong>等地，職業橫跨牧師、音樂家、牙醫師、護理師、警察等各行各業。同學組成像「藍色大象隊」這樣的隊伍，並遵守簡單的班規：尊重他人、積極參與、玩得開心。</p>
+      <p>課堂時間結合遊戲與文化課程——從外師帶領的紙牌遊戲，到只有美國才有的零食速成班，像是 Dr Pepper 汽水。</p>
+      <p>夏日水戰中，學生要學習用海綿分工合作快速注滿水桶；水球池遊戲則讓大家在樹蔭下一起消暑。</p>
+      <p>動手做的學習甚至延伸到廚房，小組一起烹煮燉湯——切菜、拌炒、試味道，全都團隊合作完成。</p>
+      <p>課程期間適逢颱風來襲，同學們紛紛許願不要放颱風假，因為捨不得錯過營隊的精彩內容。創客科技營隊中，學生挑戰經典工程任務：用義大利麵和棉花糖蓋出最高的塔。</p>
+      <p>戶外遊戲與手作活動貫穿每一天，結合<strong>科學、技術、工程、藝術與數學</strong>的跨學科教育，讓每個孩子都完成專屬於自己的創作。</p>
+      <p>連家長都直呼沒看過孩子這麼想上學。福興國中由衷感謝每一位犧牲暑假前來擔任志工的外師，讓這兩週成為難忘的回憶。</p>
+    </div>
+  </div></div>
 </article>
 
-<section class="gallery-section">
-  <div class="wrap">
-    <h3>Photo Gallery · 活動花絮</h3>
-    <div class="h3-zh">From the Fusing Junior High Facebook page · 福興國中粉絲頁紀錄</div>
-    <div class="gallery">
-      <figure><img src="photo_01.jpg" alt="Ten Days of Water Fights, Robots, and English: Summer Learning 2026 · photo 1" loading="lazy"></figure>
-      <figure><img src="photo_02.jpg" alt="Ten Days of Water Fights, Robots, and English: Summer Learning 2026 · photo 2" loading="lazy"></figure>
-    </div>
+<section class="learn">
+  <div class="learn-head">
+    <span class="eyebrow">Words to Learn · 單字學習</span>
+    <h2>Tap 🔊 to listen · 點喇叭聽發音</h2>
   </div>
+  <div class="vlist">
+
+    <div class="vcard">
+      <button class="vsay" data-say="immersion" aria-label="Listen to immersion">🔊</button>
+      <div class="vmain"><span class="vword">immersion</span><span class="vipa">/ɪˈmɜːrʒən/</span><span class="vzh">沉浸式</span></div>
+      <p class="vsent">The English camp uses an <b>immersion</b> approach.<span class="vsent-zh">英語營採用沉浸式教學法。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="teamwork" aria-label="Listen to teamwork">🔊</button>
+      <div class="vmain"><span class="vword">teamwork</span><span class="vipa">/ˈtiːmwɜːrk/</span><span class="vzh">團隊合作</span></div>
+      <p class="vsent">Every game required <b>teamwork</b> to win.<span class="vsent-zh">每個遊戲都需要團隊合作才能獲勝。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="confidence" aria-label="Listen to confidence">🔊</button>
+      <div class="vmain"><span class="vword">confidence</span><span class="vipa">/ˈkɑːnfɪdəns/</span><span class="vzh">自信</span></div>
+      <p class="vsent">Camp activities build students' <b>confidence</b>.<span class="vsent-zh">營隊活動培養學生的自信心。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="instruction" aria-label="Listen to instruction">🔊</button>
+      <div class="vmain"><span class="vword">instruction</span><span class="vipa">/ɪnˈstrʌkʃən/</span><span class="vzh">指令</span></div>
+      <p class="vsent">Students had to follow English <b>instructions</b> quickly.<span class="vsent-zh">學生必須快速聽懂並遵循英文指令。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="maker" aria-label="Listen to maker">🔊</button>
+      <div class="vmain"><span class="vword">maker</span><span class="vipa">/ˈmeɪkər/</span><span class="vzh">自造者</span></div>
+      <p class="vsent">The <b>Maker</b> Center teaches hands-on building skills.<span class="vsent-zh">自造中心教導動手實作的技能。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="engineering" aria-label="Listen to engineering">🔊</button>
+      <div class="vmain"><span class="vword">engineering</span><span class="vipa">/ˌendʒɪˈnɪrɪŋ/</span><span class="vzh">工程</span></div>
+      <p class="vsent">Building a tower took real <b>engineering</b> skill.<span class="vsent-zh">蓋一座塔需要真正的工程技巧。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="creativity" aria-label="Listen to creativity">🔊</button>
+      <div class="vmain"><span class="vword">creativity</span><span class="vipa">/ˌkriːeɪˈtɪvəti/</span><span class="vzh">創意</span></div>
+      <p class="vsent">The activities encouraged <b>creativity</b> and teamwork.<span class="vsent-zh">這些活動鼓勵創意與團隊合作。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="volunteer" aria-label="Listen to volunteer">🔊</button>
+      <div class="vmain"><span class="vword">volunteer</span><span class="vipa">/ˌvɑːlənˈtɪr/</span><span class="vzh">志工</span></div>
+      <p class="vsent">Our foreign teachers came as <b>volunteers</b>.<span class="vsent-zh">我們的外師是以志工身分前來的。</span></p>
+    </div>
+
+  </div>
+</section>
+
+<section class="vgame">
+  <div class="learn-head">
+    <span class="eyebrow">Matching Game · 配對遊戲</span>
+    <h2>Match the word to its meaning<br>把英文和中文配對</h2>
+  </div>
+  <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 8</p>
+  <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+  <div class="game-done" id="gDone">🎉 Great job! 你全部配對成功，太棒了！</div>
+  <button class="game-reset" id="gReset" type="button">↻ Play again · 再玩一次</button>
 </section>
 
 <div class="back-cta">
@@ -157,21 +307,34 @@
 </div>
 
 <script>
-/* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
+  var els=[].slice.call(document.querySelectorAll('.frame,.photo-row,.learn,.vgame'));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var vlist=document.querySelector('.vlist');
+  if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
+  function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
+  var WORDS=[{en:'immersion',zh:'沉浸式'},{en:'teamwork',zh:'團隊合作'},{en:'confidence',zh:'自信'},{en:'instruction',zh:'指令'},{en:'maker',zh:'自造者'},{en:'engineering',zh:'工程'},{en:'creativity',zh:'創意'},{en:'volunteer',zh:'志工'}];
+  var enCol=document.getElementById('gEn'),zhCol=document.getElementById('gZh');
+  var sc=document.getElementById('gScore'),done=document.getElementById('gDone'),reset=document.getElementById('gReset');
+  if(enCol&&zhCol){
+    var selEn=null,matched=0;
+    function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}
+    function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;return b;}
+    function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}
+    function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.k);}
+    function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){done.classList.add('show');confetti(true);}}else{fx(b,'shake');fx(selEn,'shake');}}
+    if(reset)reset.addEventListener('click',build);
+    build();
+  }
 })();
 </script>
 <footer>

@@ -61,8 +61,9 @@
   @media (min-width:720px){ .story-hero__date{ font-size:19px; } }
   .story-hero__date b{color:var(--blue-deep);font-weight:700;}
 
-  article{padding:48px 0;}
-  @media (min-width:720px){ article{ padding:64px 0; } }
+  article{padding:48px 0 0;}
+  @media (min-width:720px){ article{ padding:64px 0 0; } }
+  .article{max-width:800px;margin:0 auto;}
   article h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:38px;letter-spacing:.3px;border-left:6px solid var(--red-deep);padding-left:14px;}
   @media (min-width:720px){ article h3{ font-size:34px; } }
   article h3:first-child{margin-top:0;}
@@ -71,16 +72,53 @@
   @media (min-width:720px){ article p{ font-size:22px; } }
   article p strong{color:var(--blue-deep);font-weight:700;}
 
-  .gallery-section{padding:48px 0;background:var(--bg-soft);border-top:1px solid var(--line);}
-  @media (min-width:720px){ .gallery-section{ padding:64px 0; } }
-  .gallery-section h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;letter-spacing:.3px;text-align:center;}
-  @media (min-width:720px){ .gallery-section h3{ font-size:34px; } }
-  .h3-zh{text-align:center;font-size:18px;color:var(--ink-soft);margin-top:6px;}
-  @media (min-width:720px){ .h3-zh{ font-size:20px; } }
-  .gallery{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
-  @media (min-width:720px){ .gallery{ grid-template-columns:1fr 1fr;gap:22px; } }
-  .gallery figure{background:#fff;border-radius:18px;padding:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);}
-  .gallery img{width:100%;height:auto;display:block;border-radius:10px;}
+  .frame{background:#fff;padding:10px;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px -14px rgba(26,71,145,.34);transition:transform .22s,box-shadow .22s;margin:32px 0 8px;}
+  .frame:hover{transform:translateY(-3px);box-shadow:0 20px 42px -16px rgba(26,71,145,.42);}
+  .frame img{display:block;width:100%;border-radius:9px;}
+  .photo-row{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0 8px;}
+  .photo-row .frame{margin:0;display:flex;} .photo-row .frame img{aspect-ratio:4/3;height:100%;object-fit:cover;}
+  @media(min-width:600px){.photo-row.two{grid-template-columns:1fr 1fr;}.photo-row.three{grid-template-columns:repeat(3,1fr);}}
+
+  .learn{max-width:900px;margin:54px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .learn-head{text-align:center;margin-bottom:28px;}
+  .learn-head .eyebrow{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;font-family:'Playfair Display',serif;}
+  .learn-head h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(24px,4vw,32px);font-weight:700;color:var(--blue-deep);line-height:1.25;}
+  .vlist{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.vlist{grid-template-columns:1fr 1fr;}}
+  .vcard{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px 64px;box-shadow:var(--shadow-sm);}
+  .vsay{position:absolute;left:16px;top:20px;width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 10px -3px rgba(26,71,145,.5);}
+  .vsay:hover{transform:scale(1.08);} .vsay:active{transform:scale(.92);}
+  .vsay.ring{box-shadow:0 0 0 7px var(--blue-soft);}
+  .vmain{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;}
+  .vword{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,38px);font-weight:700;color:var(--blue-deep);line-height:1.08;}
+  .vipa{font-size:15px;color:var(--orange-deep);font-weight:600;}
+  .vzh{font-family:'PingFang TC',sans-serif;font-size:21px;font-weight:700;color:var(--ink);}
+  .vsent{font-size:18px;line-height:1.6;color:var(--ink);margin-top:12px;}
+  .vsent b{color:var(--blue);}
+  .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:4px;}
+
+  .vgame{max-width:900px;margin:48px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-bottom:18px;}
+  .game-score b{color:var(--blue);font-size:22px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+  .gcol{display:flex;flex-direction:column;gap:10px;}
+  .gtile{font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 8px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--orange);}
+  .gtile.sel{border-color:var(--blue);background:var(--blue-soft);color:var(--blue-deep);}
+  .gtile.done{background:#e8f3e8;border-color:#5cb274;color:#2f8049;cursor:default;}
+  .gtile.pop{animation:gpop .5s;} @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;} @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--blue-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;} .game-reset:hover{background:var(--orange-soft);border-color:var(--orange);}
+  .game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:23px;font-weight:700;color:var(--blue-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
+
+  .zhwrap{max-width:800px;margin:44px auto 0;padding-top:20px;border-top:1px solid var(--line);}
+  .zhwrap .zhlabel{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);border-radius:20px;padding:5px 14px;margin-bottom:10px;}
+  .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.95;margin-top:16px;color:var(--ink);}
+  @media(min-width:720px){.zh-body p{font-size:21px;}}
 
   .back-cta{text-align:center;padding:36px 24px 56px;}
   .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
@@ -89,7 +127,6 @@
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
-  /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -126,28 +163,107 @@
 </header>
 
 <article>
-  <div class="wrap">
+  <div class="wrap"><div class="article">
 
-    <h3>English</h3>
-    <p>These days, catching a glimpse of budaixi (Taiwanese glove puppetry) usually means finding it on TV or waiting for a big temple festival to come around. As part of Fusing's Taiwanese-language immersion program, our seventh graders got something better: a private puppet-show experience at the Yunlin Puppet Theater Museum, sitting on long wooden benches with lunch boxes in hand, watching the puppets take the stage. Next door at the Yunlin Story House, students cooled off with popsicles and listened to local Taiwanese-language folktales told by older student guides.</p>
+    <p>These days, catching a glimpse of <strong>budaixi</strong> (Taiwanese glove puppetry) usually means finding it on TV or waiting for a big temple festival to come around. As part of Fusing's <strong>Taiwanese-language immersion program</strong>, our seventh graders got something better: a private puppet-show experience at the Yunlin Puppet Theater Museum.</p>
+
+    <div class="frame"><img src="photo_01.jpg" alt="A colorful traditional puppet stage performance at the Yunlin Puppet Theater Museum" loading="lazy"></div>
+
+    <p>Students sat on long wooden benches with lunch boxes in hand, watching the puppets take the stage, then got hands-on with the puppets themselves — feeling the weight and movement behind every character.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_02.jpg" alt="Students seated on wooden benches inside the puppet theater with a class banner" loading="lazy"></div>
+      <div class="frame"><img src="photo_06.jpg" alt="Students trying out hand puppets after the show" loading="lazy"></div>
+    </div>
+
+    <p>Next door at the <strong>Yunlin Story House</strong>, students cooled off with popsicles under shady trees and listened to local Taiwanese-language folktales told by older student guides.</p>
+
+    <div class="frame"><img src="photo_03.jpg" alt="Students seated together outdoors under umbrellas at the Yunlin Story House" loading="lazy"></div>
+
+    <p>The museum itself has quite a history — it's housed in a Japanese-era <strong>district office building</strong> completed in 1922, which once faced demolition before being preserved as a heritage site and reopened as a puppet museum in 2005.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_04.jpg" alt="The historic Japanese-era building that now houses the Yunlin Puppet Theater Museum" loading="lazy"></div>
+      <div class="frame"><img src="photo_05.jpg" alt="An information panel explaining the history of the museum building" loading="lazy"></div>
+    </div>
+
     <p>The day wrapped up with a visit to Taiwan Sugar's Huwei Sugar Factory, where a lively railway-history quiz let Fusing students show off their knowledge and good sportsmanship — earning praise from the factory's own director.</p>
 
-    <h3 class="zh">中文</h3>
-    <p>「金光閃閃、瑞氣千條～」以往想看布袋戲，大概只能從電視或大型廟會中偶遇。這次福興國中七年級的孩子們前進雲林布袋戲館，進行包場體驗：坐在長板凳上吃便當，看著台上的布袋戲偶演出；接著到雲林故事館吹冷氣、吃冰棒，聽學長姐用台語說在地故事繪本。</p>
-    <p>最後一行人來到台糖虎尾糖廠參訪，豐富有趣的台灣鐵路知識搶答，福興國中孩子展現大方氣度與廣博學識，讓虎尾糖廠所長讚不絕口。</p>
+  </div></div>
 
-  </div>
+  <div class="wrap"><div class="zhwrap">
+    <span class="zhlabel">中文原文 · Chinese</span>
+    <div class="zh-body">
+      <p>「金光閃閃、瑞氣千條～」以往想看布袋戲，大概只能從電視或大型廟會中偶遇。這次福興國中七年級的孩子們前進<strong>雲林布袋戲館</strong>，進行<strong>台語沉浸式教學</strong>的包場體驗。</p>
+      <p>同學坐在長板凳上吃便當，看著台上的布袋戲偶演出，接著親手體驗操作布袋戲偶，感受角色背後的重量與動作。</p>
+      <p>接著到<strong>雲林故事館</strong>，在樹蔭下吹著涼風、吃冰棒，聽學長姐用台語說在地故事繪本。</p>
+      <p>布袋戲館本身也很有來頭——它座落在一棟 1922 年落成的日治時期郡役所建築裡，這棟建築曾一度面臨拆除命運，後來被保存下來，於 2005 年重新開放為布袋戲館。</p>
+      <p>最後一行人來到台糖虎尾糖廠參訪，豐富有趣的台灣鐵路知識搶答，福興國中孩子展現大方氣度與廣博學識，讓虎尾糖廠所長讚不絕口。</p>
+    </div>
+  </div></div>
 </article>
 
-<section class="gallery-section">
-  <div class="wrap">
-    <h3>Photo Gallery · 活動花絮</h3>
-    <div class="h3-zh">From the Fusing Junior High Facebook page · 福興國中粉絲頁紀錄</div>
-    <div class="gallery">
-      <figure><img src="photo_01.jpg" alt="Curtain Up in Taiwanese: A Field Trip to the Yunlin Puppet Theater Museum · photo 1" loading="lazy"></figure>
-      <figure><img src="photo_02.jpg" alt="Curtain Up in Taiwanese: A Field Trip to the Yunlin Puppet Theater Museum · photo 2" loading="lazy"></figure>
-    </div>
+<section class="learn">
+  <div class="learn-head">
+    <span class="eyebrow">Words to Learn · 單字學習</span>
+    <h2>Tap 🔊 to listen · 點喇叭聽發音</h2>
   </div>
+  <div class="vlist">
+
+    <div class="vcard">
+      <button class="vsay" data-say="puppetry" aria-label="Listen to puppetry">🔊</button>
+      <div class="vmain"><span class="vword">puppetry</span><span class="vipa">/ˈpʌpətri/</span><span class="vzh">木偶戲</span></div>
+      <p class="vsent">Budaixi is a traditional form of <b>puppetry</b>.<span class="vsent-zh">布袋戲是一種傳統的木偶戲。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="heritage" aria-label="Listen to heritage">🔊</button>
+      <div class="vmain"><span class="vword">heritage</span><span class="vipa">/ˈherɪtɪdʒ/</span><span class="vzh">文化資產</span></div>
+      <p class="vsent">The museum protects Taiwan's puppet <b>heritage</b>.<span class="vsent-zh">這座博物館守護著台灣的布袋戲文化資產。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="immersion" aria-label="Listen to immersion">🔊</button>
+      <div class="vmain"><span class="vword">immersion</span><span class="vipa">/ɪˈmɜːrʒən/</span><span class="vzh">沉浸式</span></div>
+      <p class="vsent">This trip is part of an <b>immersion</b> program.<span class="vsent-zh">這趟旅行是沉浸式課程的一部分。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="folktale" aria-label="Listen to folktale">🔊</button>
+      <div class="vmain"><span class="vword">folktale</span><span class="vipa">/ˈfoʊkteɪl/</span><span class="vzh">民間故事</span></div>
+      <p class="vsent">Students listened to local <b>folktales</b>.<span class="vsent-zh">學生聆聽了在地的民間故事。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="exhibit" aria-label="Listen to exhibit">🔊</button>
+      <div class="vmain"><span class="vword">exhibit</span><span class="vipa">/ɪɡˈzɪbɪt/</span><span class="vzh">展示品</span></div>
+      <p class="vsent">Each <b>exhibit</b> told a piece of local history.<span class="vsent-zh">每一件展示品都訴說著一段在地歷史。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="sportsmanship" aria-label="Listen to sportsmanship">🔊</button>
+      <div class="vmain"><span class="vword">sportsmanship</span><span class="vipa">/ˈspɔːrtsmənʃɪp/</span><span class="vzh">運動家精神</span></div>
+      <p class="vsent">The quiz showed the students' <b>sportsmanship</b>.<span class="vsent-zh">這場搶答展現了學生的運動家精神。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="district" aria-label="Listen to district">🔊</button>
+      <div class="vmain"><span class="vword">district</span><span class="vipa">/ˈdɪstrɪkt/</span><span class="vzh">地區；郡</span></div>
+      <p class="vsent">The building once served as a <b>district</b> office.<span class="vsent-zh">這棟建築曾經是郡役所。</span></p>
+    </div>
+
+  </div>
+</section>
+
+<section class="vgame">
+  <div class="learn-head">
+    <span class="eyebrow">Matching Game · 配對遊戲</span>
+    <h2>Match the word to its meaning<br>把英文和中文配對</h2>
+  </div>
+  <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 7</p>
+  <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+  <div class="game-done" id="gDone">🎉 Great job! 你全部配對成功，太棒了！</div>
+  <button class="game-reset" id="gReset" type="button">↻ Play again · 再玩一次</button>
 </section>
 
 <div class="back-cta">
@@ -155,21 +271,34 @@
 </div>
 
 <script>
-/* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
+  var els=[].slice.call(document.querySelectorAll('.frame,.photo-row,.learn,.vgame'));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var vlist=document.querySelector('.vlist');
+  if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
+  function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
+  var WORDS=[{en:'puppetry',zh:'木偶戲'},{en:'heritage',zh:'文化資產'},{en:'immersion',zh:'沉浸式'},{en:'folktale',zh:'民間故事'},{en:'exhibit',zh:'展示品'},{en:'sportsmanship',zh:'運動家精神'},{en:'district',zh:'地區；郡'}];
+  var enCol=document.getElementById('gEn'),zhCol=document.getElementById('gZh');
+  var sc=document.getElementById('gScore'),done=document.getElementById('gDone'),reset=document.getElementById('gReset');
+  if(enCol&&zhCol){
+    var selEn=null,matched=0;
+    function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}
+    function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;return b;}
+    function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}
+    function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.k);}
+    function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){done.classList.add('show');confetti(true);}}else{fx(b,'shake');fx(selEn,'shake');}}
+    if(reset)reset.addEventListener('click',build);
+    build();
+  }
 })();
 </script>
 <footer>

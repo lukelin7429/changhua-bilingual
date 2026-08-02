@@ -61,8 +61,9 @@
   @media (min-width:720px){ .story-hero__date{ font-size:19px; } }
   .story-hero__date b{color:var(--blue-deep);font-weight:700;}
 
-  article{padding:48px 0;}
-  @media (min-width:720px){ article{ padding:64px 0; } }
+  article{padding:48px 0 0;}
+  @media (min-width:720px){ article{ padding:64px 0 0; } }
+  .article{max-width:800px;margin:0 auto;}
   article h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:38px;letter-spacing:.3px;border-left:6px solid var(--red-deep);padding-left:14px;}
   @media (min-width:720px){ article h3{ font-size:34px; } }
   article h3:first-child{margin-top:0;}
@@ -71,16 +72,53 @@
   @media (min-width:720px){ article p{ font-size:22px; } }
   article p strong{color:var(--blue-deep);font-weight:700;}
 
-  .gallery-section{padding:48px 0;background:var(--bg-soft);border-top:1px solid var(--line);}
-  @media (min-width:720px){ .gallery-section{ padding:64px 0; } }
-  .gallery-section h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;letter-spacing:.3px;text-align:center;}
-  @media (min-width:720px){ .gallery-section h3{ font-size:34px; } }
-  .h3-zh{text-align:center;font-size:18px;color:var(--ink-soft);margin-top:6px;}
-  @media (min-width:720px){ .h3-zh{ font-size:20px; } }
-  .gallery{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
-  @media (min-width:720px){ .gallery{ grid-template-columns:1fr 1fr;gap:22px; } }
-  .gallery figure{background:#fff;border-radius:18px;padding:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);}
-  .gallery img{width:100%;height:auto;display:block;border-radius:10px;}
+  .frame{background:#fff;padding:10px;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px -14px rgba(26,71,145,.34);transition:transform .22s,box-shadow .22s;margin:32px 0 8px;}
+  .frame:hover{transform:translateY(-3px);box-shadow:0 20px 42px -16px rgba(26,71,145,.42);}
+  .frame img{display:block;width:100%;border-radius:9px;}
+  .photo-row{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0 8px;}
+  .photo-row .frame{margin:0;display:flex;} .photo-row .frame img{aspect-ratio:4/3;height:100%;object-fit:cover;}
+  @media(min-width:600px){.photo-row.two{grid-template-columns:1fr 1fr;}.photo-row.three{grid-template-columns:repeat(3,1fr);}}
+
+  .learn{max-width:900px;margin:54px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .learn-head{text-align:center;margin-bottom:28px;}
+  .learn-head .eyebrow{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;font-family:'Playfair Display',serif;}
+  .learn-head h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(24px,4vw,32px);font-weight:700;color:var(--blue-deep);line-height:1.25;}
+  .vlist{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.vlist{grid-template-columns:1fr 1fr;}}
+  .vcard{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px 64px;box-shadow:var(--shadow-sm);}
+  .vsay{position:absolute;left:16px;top:20px;width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 10px -3px rgba(26,71,145,.5);}
+  .vsay:hover{transform:scale(1.08);} .vsay:active{transform:scale(.92);}
+  .vsay.ring{box-shadow:0 0 0 7px var(--blue-soft);}
+  .vmain{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;}
+  .vword{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,38px);font-weight:700;color:var(--blue-deep);line-height:1.08;}
+  .vipa{font-size:15px;color:var(--orange-deep);font-weight:600;}
+  .vzh{font-family:'PingFang TC',sans-serif;font-size:21px;font-weight:700;color:var(--ink);}
+  .vsent{font-size:18px;line-height:1.6;color:var(--ink);margin-top:12px;}
+  .vsent b{color:var(--blue);}
+  .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:4px;}
+
+  .vgame{max-width:900px;margin:48px auto 0;padding:42px 24px 0;border-top:1px solid var(--line);}
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-bottom:18px;}
+  .game-score b{color:var(--blue);font-size:22px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+  .gcol{display:flex;flex-direction:column;gap:10px;}
+  .gtile{font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 8px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--orange);}
+  .gtile.sel{border-color:var(--blue);background:var(--blue-soft);color:var(--blue-deep);}
+  .gtile.done{background:#e8f3e8;border-color:#5cb274;color:#2f8049;cursor:default;}
+  .gtile.pop{animation:gpop .5s;} @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;} @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--blue-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;} .game-reset:hover{background:var(--orange-soft);border-color:var(--orange);}
+  .game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:23px;font-weight:700;color:var(--blue-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
+
+  .zhwrap{max-width:800px;margin:44px auto 0;padding-top:20px;border-top:1px solid var(--line);}
+  .zhwrap .zhlabel{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);border-radius:20px;padding:5px 14px;margin-bottom:10px;}
+  .zh-body p{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.95;margin-top:16px;color:var(--ink);}
+  @media(min-width:720px){.zh-body p{font-size:21px;}}
 
   .back-cta{text-align:center;padding:36px 24px 56px;}
   .back-cta a{display:inline-block;background:var(--blue-deep);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:20px;}
@@ -89,7 +127,6 @@
   footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--blue-deep);}
-  /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
@@ -126,28 +163,105 @@
 </header>
 
 <article>
-  <div class="wrap">
+  <div class="wrap"><div class="article">
 
-    <h3>English</h3>
-    <p>Fusing's ninth graders spent last semester battling it out in an interclass basketball tournament. After two months of elimination rounds, Class 902 and Class 905 met in the championship game — a tight, nail-biting contest that came down to a free-throw shootout to decide the winner. In the end, Class 902 took the boys' division title, while Class 903 claimed the girls' division championship.</p>
-    <p>Special thanks go to Molten distributor Zuoyi Co., Ltd., which donated 40 basketballs to the school, and to alumni association chair Shih Chin-hsing, who presented two commemorative Slam Dunk basketballs to the winning classes.</p>
+    <p>Fusing's ninth graders spent last semester battling it out in an <strong>interclass basketball tournament</strong>. After two months of elimination rounds, the whole school celebrated together, tossing basketballs into the air in a joyful send-off to the finals.</p>
 
-    <h3 class="zh">中文</h3>
-    <p>九年級班級於上學期舉辦了班際籃球比賽，經過兩個月的層層比賽，最後由 902 和 905 兩個班級進行冠亞軍賽。緊張又刺激的比賽過程，兩班比分不相上下，最後採用投籃得分的方式決定冠亞軍，由 902 班獲得班際籃球賽男生組冠軍，903 班則獲得女生組冠軍殊榮。</p>
-    <p>特別感謝佐儀股份有限公司（MOLTEN）捐贈學校 40 顆籃球，以及校友會理事長施進興學長捐贈兩顆灌籃高手紀念球給獲獎的班級。</p>
+    <div class="frame"><img src="photo_01.jpg" alt="The whole school throwing basketballs into the air in celebration on the auditorium stage" loading="lazy"></div>
 
-  </div>
+    <p>Class 902 and Class 905 met in the <strong>championship game</strong> — a tight, nail-biting contest that came down to a free-throw shootout to decide the winner, with the whole gym packed and watching.</p>
+
+    <div class="frame"><img src="photo_02.jpg" alt="Students jumping for the opening tip-off at the start of the championship game, gym packed with spectators" loading="lazy"></div>
+
+    <p>In the end, Class 902 took the boys' division title, while Class 903 claimed the girls' division championship. The celebration was made even sweeter by a generous donation: Molten distributor <strong>Zuoyi Co., Ltd.</strong> gave the school 40 new basketballs.</p>
+
+    <div class="photo-row three">
+      <div class="frame"><img src="photo_03.jpg" alt="Zuoyi Co. representative handing over a basketball donation beside a car full of balls" loading="lazy"></div>
+      <div class="frame"><img src="photo_04.jpg" alt="Close-up of the donation handoff of a Molten basketball" loading="lazy"></div>
+      <div class="frame"><img src="photo_05.jpg" alt="The whole basketball team and staff posing in the gym at the donation ceremony" loading="lazy"></div>
+    </div>
+
+    <p>At the closing <strong>Championship Award Ceremony</strong>, alumni association chair <strong>Shih Chin-hsing</strong> presented two commemorative Slam Dunk basketballs to the winning classes — a fitting finish to a season built on teamwork and school spirit.</p>
+
+    <div class="photo-row two">
+      <div class="frame"><img src="photo_06.jpg" alt="Winning girls' team members holding their trophies and commemorative basketballs" loading="lazy"></div>
+      <div class="frame"><img src="photo_07.jpg" alt="The formal championship award ceremony on stage with a screen reading Championship Award Ceremony" loading="lazy"></div>
+    </div>
+
+  </div></div>
+
+  <div class="wrap"><div class="zhwrap">
+    <span class="zhlabel">中文原文 · Chinese</span>
+    <div class="zh-body">
+      <p>九年級班級於上學期舉辦了<strong>班際籃球比賽</strong>，經過兩個月的層層比賽，全校師生在體育館歡欣鼓舞，將籃球拋向空中，為總決賽熱情送行。</p>
+      <p>最後由 902 和 905 兩個班級進行<strong>冠亞軍賽</strong>，緊張又刺激的比賽過程，兩班比分不相上下，最後採用投籃得分的方式決定冠亞軍，全場座無虛席。</p>
+      <p>最終由 902 班獲得班際籃球賽男生組冠軍，903 班則獲得女生組冠軍殊榮。這份喜悅還多了一份驚喜——佐儀股份有限公司（MOLTEN）慷慨捐贈學校 40 顆籃球。</p>
+      <p>在最後的頒獎典禮上，校友會理事長<strong>施進興學長</strong>捐贈兩顆灌籃高手紀念球給獲獎的班級，為這個充滿團隊精神與校園向心力的球季畫下完美句點。</p>
+    </div>
+  </div></div>
 </article>
 
-<section class="gallery-section">
-  <div class="wrap">
-    <h3>Photo Gallery · 活動花絮</h3>
-    <div class="h3-zh">From the Fusing Junior High Facebook page · 福興國中粉絲頁紀錄</div>
-    <div class="gallery">
-      <figure><img src="photo_01.jpg" alt="Buzzer-Beaters and a Generous Assist: Interclass Basketball Finals · photo 1" loading="lazy"></figure>
-      <figure><img src="photo_02.jpg" alt="Buzzer-Beaters and a Generous Assist: Interclass Basketball Finals · photo 2" loading="lazy"></figure>
-    </div>
+<section class="learn">
+  <div class="learn-head">
+    <span class="eyebrow">Words to Learn · 單字學習</span>
+    <h2>Tap 🔊 to listen · 點喇叭聽發音</h2>
   </div>
+  <div class="vlist">
+
+    <div class="vcard">
+      <button class="vsay" data-say="championship" aria-label="Listen to championship">🔊</button>
+      <div class="vmain"><span class="vword">championship</span><span class="vipa">/ˈtʃæmpiənʃɪp/</span><span class="vzh">冠軍賽</span></div>
+      <p class="vsent">Class 902 and 905 met in the <b>championship</b> game.<span class="vsent-zh">902班和905班晉級冠軍賽。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="tournament" aria-label="Listen to tournament">🔊</button>
+      <div class="vmain"><span class="vword">tournament</span><span class="vipa">/ˈtʊrnəmənt/</span><span class="vzh">錦標賽</span></div>
+      <p class="vsent">The interclass <b>tournament</b> lasted two months.<span class="vsent-zh">班際錦標賽歷時兩個月。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="donate" aria-label="Listen to donate">🔊</button>
+      <div class="vmain"><span class="vword">donate</span><span class="vipa">/doʊˈneɪt/</span><span class="vzh">捐贈</span></div>
+      <p class="vsent">The company <b>donated</b> 40 basketballs to the school.<span class="vsent-zh">這間公司捐贈了40顆籃球給學校。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="alumni" aria-label="Listen to alumni">🔊</button>
+      <div class="vmain"><span class="vword">alumni</span><span class="vipa">/əˈlʌmnaɪ/</span><span class="vzh">校友（複數）</span></div>
+      <p class="vsent"><b>Alumni</b> support helps every Fusing team.<span class="vsent-zh">校友的支持幫助著福興的每一支隊伍。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="division" aria-label="Listen to division">🔊</button>
+      <div class="vmain"><span class="vword">division</span><span class="vipa">/dɪˈvɪʒən/</span><span class="vzh">組別</span></div>
+      <p class="vsent">There was a boys' <b>division</b> and a girls' <b>division</b>.<span class="vsent-zh">比賽分成男生組與女生組。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="commemorative" aria-label="Listen to commemorative">🔊</button>
+      <div class="vmain"><span class="vword">commemorative</span><span class="vipa">/kəˈmemərətɪv/</span><span class="vzh">紀念的</span></div>
+      <p class="vsent">Winners received a <b>commemorative</b> basketball.<span class="vsent-zh">冠軍隊獲得一顆紀念籃球。</span></p>
+    </div>
+
+    <div class="vcard">
+      <button class="vsay" data-say="sponsor" aria-label="Listen to sponsor">🔊</button>
+      <div class="vmain"><span class="vword">sponsor</span><span class="vipa">/ˈspɑːnsər/</span><span class="vzh">贊助商</span></div>
+      <p class="vsent">Molten's distributor was a generous <b>sponsor</b>.<span class="vsent-zh">Molten經銷商是慷慨的贊助商。</span></p>
+    </div>
+
+  </div>
+</section>
+
+<section class="vgame">
+  <div class="learn-head">
+    <span class="eyebrow">Matching Game · 配對遊戲</span>
+    <h2>Match the word to its meaning<br>把英文和中文配對</h2>
+  </div>
+  <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 7</p>
+  <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+  <div class="game-done" id="gDone">🎉 Great job! 你全部配對成功，太棒了！</div>
+  <button class="game-reset" id="gReset" type="button">↻ Play again · 再玩一次</button>
 </section>
 
 <div class="back-cta">
@@ -155,21 +269,34 @@
 </div>
 
 <script>
-/* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
-  var els=[].slice.call(document.querySelectorAll(sel));
+  var els=[].slice.call(document.querySelectorAll('.frame,.photo-row,.learn,.vgame'));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
   if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){
-    if(!e.isIntersecting)return;
-    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
-    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*80)+'ms';
-    e.target.classList.add('in');io.unobserve(e.target);
-  });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var vlist=document.querySelector('.vlist');
+  if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
+  function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
+  var WORDS=[{en:'championship',zh:'冠軍賽'},{en:'tournament',zh:'錦標賽'},{en:'donate',zh:'捐贈'},{en:'alumni',zh:'校友（複數）'},{en:'division',zh:'組別'},{en:'commemorative',zh:'紀念的'},{en:'sponsor',zh:'贊助商'}];
+  var enCol=document.getElementById('gEn'),zhCol=document.getElementById('gZh');
+  var sc=document.getElementById('gScore'),done=document.getElementById('gDone'),reset=document.getElementById('gReset');
+  if(enCol&&zhCol){
+    var selEn=null,matched=0;
+    function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}
+    function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;return b;}
+    function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}
+    function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.k);}
+    function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){done.classList.add('show');confetti(true);}}else{fx(b,'shake');fx(selEn,'shake');}}
+    if(reset)reset.addEventListener('click',build);
+    build();
+  }
 })();
 </script>
 <footer>
