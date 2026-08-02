@@ -170,6 +170,51 @@
     max-width:680px;font-weight:500;text-shadow:0 2px 5px rgba(0,0,0,.65),0 2px 12px rgba(0,0,0,.5);
   }
   @media (min-width:720px){ .banner__tagline{ font-size:19px;margin-top:16px; } }
+
+  /* === Featured Stories (full-version articles) === */
+  .cards{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:680px){ .cards{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:980px){ .cards.three{ grid-template-columns:repeat(3,1fr); } }
+
+  .feat{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);margin-bottom:28px;color:inherit;text-decoration:none;
+    transition:transform .22s, box-shadow .22s;
+  }
+  .feat:hover{transform:translateY(-4px);box-shadow:0 26px 50px -18px rgba(26,71,145,.34);}
+  @media (min-width:820px){ .feat{ grid-template-columns:1.05fr 1fr; } }
+  .feat__img{aspect-ratio:16/11;background:var(--blue-soft);overflow:hidden;}
+  .feat__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .feat__b{padding:30px 32px 34px;display:flex;flex-direction:column;justify-content:center;}
+  @media (min-width:720px){ .feat__b{ padding:36px 38px 40px; } }
+  .feat__badge{
+    align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--red);
+    border-radius:99px;padding:5px 14px;margin-bottom:14px;
+  }
+  .feat__t{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(24px,3.2vw,32px);font-weight:800;color:var(--blue-deep);line-height:1.2;}
+  .feat__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.4;}
+  @media (min-width:720px){ .feat__t small{ font-size:20px; } }
+  .feat__date{font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--ink-soft);margin-top:12px;}
+  .feat__p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  .feat__cta{margin-top:18px;font-family:'Playfair Display',serif;font-weight:700;color:var(--blue-deep);font-size:19px;}
+
+  .lcard{
+    display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+    border-top:8px solid var(--blue);border-radius:20px;overflow:hidden;
+    box-shadow:var(--shadow-sm);color:inherit;text-decoration:none;
+    transition:transform .22s, box-shadow .22s;
+  }
+  .lcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .lcard .cover{aspect-ratio:16/9;overflow:hidden;}
+  .lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+  .lcard:hover .cover img{transform:scale(1.06);}
+  .lcard .body{padding:20px 22px 24px;}
+  .lcard h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--blue-deep);font-weight:700;line-height:1.2;}
+  .lcard .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink);font-weight:600;margin-top:5px;}
+  .lcard .meta{margin-top:10px;font-size:14px;font-weight:600;color:var(--ink-soft);}
+
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -202,6 +247,35 @@
   </div>
 </header>
 
+<!-- ===== Featured Stories (full-version articles) ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec__no">★</div>
+    <h2 class="sec__title">Featured Stories</h2>
+    <div class="sec__title-zh">精選報導</div>
+    <div class="sec__rule"></div>
+    <p style="margin-top:0;font-size:18px;color:var(--ink-soft);">Full stories, with English and Chinese versions side by side. 完整版報導，英中對照。</p>
+
+    <a class="feat" href="fongle-ranch-biogas-tour/">
+      <div class="feat__img"><img src="fongle-ranch-biogas-tour/photo_01.jpg" alt="Dairy cows at Fongle Ranch's barn" loading="lazy"></div>
+      <div class="feat__b">
+        <span class="feat__badge">Latest · 最新</span>
+        <div class="feat__t">From Dairy Barn to Biogas Dome<small>豐樂牧場及裕程沼氣能源參訪 · 傑出校友黃常禎學長的綠色事業</small></div>
+        <div class="feat__date">2026.07.29</div>
+        <p class="feat__p">Fusing teachers visited alumnus Huang Chang-jhen's Fongle Ranch to see its humane dairy operation and a biogas plant that turns livestock waste into clean energy — a green business built by one of Fusing's own.</p>
+        <div class="feat__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <div class="cards three">
+      <a class="lcard" href="summer-camps-2026/"><div class="cover"><img src="summer-camps-2026/photo_01.jpg" alt="Students playing a water gun game during summer camp" loading="lazy"></div><div class="body"><h3>Ten Days of Water Fights, Robots &amp; English</h3><div class="zh">夏日樂學英語與創客科技營隊</div><div class="meta">2026.07.17</div></div></a>
+      <a class="lcard" href="yunlin-puppet-theater-tour/"><div class="cover"><img src="yunlin-puppet-theater-tour/photo_01.jpg" alt="Students on stage at the Yunlin Puppet Theater Museum" loading="lazy"></div><div class="body"><h3>Curtain Up in Taiwanese</h3><div class="zh">雲林布袋戲館及雲林故事館參訪</div><div class="meta">2026.07.02</div></div></a>
+      <a class="lcard" href="npm-southern-branch-visit/"><div class="cover"><img src="npm-southern-branch-visit/photo_01.jpg" alt="Students touring the National Palace Museum Southern Branch" loading="lazy"></div><div class="body"><h3>A Summer Morning at the NPM Southern Branch</h3><div class="zh">故宮南院參訪</div><div class="meta">2026.07.01</div></div></a>
+      <a class="lcard" href="taekwondo-training-spirit/"><div class="cover"><img src="taekwondo-training-spirit/photo_01.jpg" alt="Fusing Taekwondo team with the school flag" loading="lazy"></div><div class="body"><h3>More Than Kicks and Punches</h3><div class="zh">跆拳道教會孩子的不只是自保</div><div class="meta">2026.03.16</div></div></a>
+      <a class="lcard" href="interclass-basketball-molten-donation/"><div class="cover"><img src="interclass-basketball-molten-donation/photo_01.jpg" alt="Students playing in the interclass basketball final" loading="lazy"></div><div class="body"><h3>Buzzer-Beaters and a Generous Assist</h3><div class="zh">班際籃球比賽・佐儀致贈籃球</div><div class="meta">2026.02.13</div></div></a>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -415,7 +489,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.feat,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
