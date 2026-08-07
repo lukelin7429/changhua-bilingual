@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://changhua-bilingual.org/fets/mandarin-challenge/">
-  <title>Mandarin Challenges · Changhua Bilingual Hub</title>
-  <meta name="description" content="A monthly 20-question quiz on the everyday Mandarin phrases foreign English teachers hear around Changhua school campuses.">
+  <title>Mandarin Challenge · Changhua Bilingual Hub</title>
+  <meta name="description" content="A three-level Mandarin question bank for foreign English teachers in Changhua — browse every question for all nine FET meetings, with pinyin, audio and explanations on every item.">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
   <meta name="theme-color" content="#1f6e6e">
-  <meta property="og:title" content="Mandarin Challenges · Changhua Bilingual Hub">
+  <meta property="og:title" content="Mandarin Challenge · Changhua Bilingual Hub">
   <meta property="og:image" content="/assets/logo/icon-512.png">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,74 +19,245 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/hub.css">
   <style>
-    .mtg-crumbs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; font-size: 17px; color: var(--hub-ink-faint); }
-    .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
-    .mtg-crumbs a:hover { text-decoration: underline; }
+    .mc-crumbs { max-width:1200px; margin:0 auto; padding:20px 24px 0; font-size:17px; color:var(--hub-ink-faint); }
+    .mc-crumbs a { color:var(--hub-primary); text-decoration:none; }
+    .mc-crumbs a:hover { text-decoration:underline; }
 
-    .qz-round { display:inline-block; margin:18px 0 6px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); background:var(--hub-line-soft); padding:5px 12px; border-radius:999px; }
+    .mc-lede { color:var(--hub-ink-soft); max-width:64ch; font-size:20px; line-height:1.65; }
+    .mc-lede-zh { color:var(--hub-ink-faint); max-width:64ch; font-size:19px; line-height:1.9; font-family:var(--hub-zh-font); }
 
-    .qz-gate { display:grid; gap:14px; max-width:440px; margin-top:22px; }
-    .qz-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
-    .qz-field input {
-      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
+    /* ---------- shared controls ---------- */
+    .mc-btn, .mc-btn-ghost {
+      appearance:none; border:none; border-radius:10px; padding:14px 26px; font-size:19px; font-weight:700;
+      font-family:var(--hub-en-font); cursor:pointer; background:var(--hub-primary); color:#fff;
+      transition:opacity .15s ease, border-color .15s ease;
+    }
+    .mc-btn:hover, .mc-btn-ghost:hover { opacity:.88; }
+    .mc-btn:disabled { opacity:.35; cursor:not-allowed; }
+    .mc-btn-ghost { background:transparent; color:var(--hub-primary); border:1px solid var(--hub-line); }
+    .hidden { display:none !important; }
+
+    .mc-notice {
+      font-size:17px; line-height:1.6; color:#7a4a17; background:#fdf3e3; border:1px solid #f0d9b5;
+      border-radius:10px; padding:12px 15px; margin:18px 0 0; max-width:64ch;
+    }
+    .mc-notice.is-error { color:#8a332b; background:#fbe7e4; border-color:#eec4be; }
+
+    /* ---------- level tabs ---------- */
+    .mc-levelbar { display:grid; grid-template-columns:1fr; gap:10px; margin:26px 0 0; }
+    .mc-lvtab {
+      appearance:none; cursor:pointer; text-align:left; font-family:var(--hub-en-font);
+      border:1px solid var(--hub-line); border-left:6px solid var(--hub-line); border-radius:12px;
+      background:#fff; padding:14px 18px; transition:border-color .15s ease, background .15s ease, transform .15s ease;
+    }
+    .mc-lvtab:hover { transform:translateY(-2px); }
+    .mc-lvtab__name { display:block; font-family:var(--hub-serif); font-size:23px; color:var(--hub-ink); }
+    .mc-lvtab__zh { display:block; font-size:18px; color:var(--hub-ink-soft); font-family:var(--hub-zh-font); margin-top:2px; }
+    .mc-lvtab__n { display:block; font-size:16px; color:var(--hub-ink-faint); margin-top:4px; font-variant-numeric:tabular-nums; }
+    .mc-lvtab--b { border-left-color:#7cc4a1; }
+    .mc-lvtab--i { border-left-color:#5fb3c4; }
+    .mc-lvtab--a { border-left-color:#e89a3c; }
+    .mc-lvtab.is-on { background:var(--hub-line-soft); border-color:var(--hub-primary); }
+    .mc-lvtab--b.is-on { border-left-color:#2f7d5c; }
+    .mc-lvtab--i.is-on { border-left-color:#1f6e6e; }
+    .mc-lvtab--a.is-on { border-left-color:#8a4b2a; }
+
+    /* ---------- view switch (practice area / quiz) ---------- */
+    .mc-views { display:flex; gap:10px; flex-wrap:wrap; margin:26px 0 0; border-bottom:1px solid var(--hub-line); }
+    .mc-view {
+      appearance:none; border:none; background:none; cursor:pointer; font-family:var(--hub-en-font);
+      font-size:19px; font-weight:700; color:var(--hub-ink-faint); padding:12px 4px; margin-right:14px;
+      border-bottom:3px solid transparent; transition:color .15s ease, border-color .15s ease;
+    }
+    .mc-view:hover { color:var(--hub-ink-soft); }
+    .mc-view.is-on { color:var(--hub-primary); border-bottom-color:var(--hub-primary); }
+
+    /* ---------- practice-area toolbar ---------- */
+    .mc-tools { display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin:22px 0 6px; }
+    .mc-switch { display:inline-flex; align-items:center; gap:9px; font-size:17px; color:var(--hub-ink-soft); cursor:pointer; }
+    .mc-switch input { width:19px; height:19px; accent-color:var(--hub-primary); cursor:pointer; }
+    .mc-search {
+      flex:1 1 240px; min-width:220px; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
       background:#fff; color:var(--hub-ink); font-size:18px; font-family:var(--hub-en-font);
     }
-    .qz-field input:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
-    .qz-start-btn, .qz-submit-btn, .qz-btn-ghost {
-      appearance:none; border:none; border-radius:10px; padding:13px 24px; font-size:18px; font-weight:700;
-      font-family:var(--hub-en-font); cursor:pointer; background:var(--hub-primary); color:#fff;
-      transition:opacity .15s ease; justify-self:start;
+    .mc-search:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .mc-chips { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 0; }
+    .mc-chip {
+      appearance:none; cursor:pointer; font-family:var(--hub-en-font); font-size:16px; font-weight:600;
+      border:1px solid var(--hub-line); background:#fff; color:var(--hub-ink-soft);
+      border-radius:999px; padding:7px 14px; transition:background .15s ease, border-color .15s ease, color .15s ease;
     }
-    .qz-start-btn:hover, .qz-submit-btn:hover, .qz-btn-ghost:hover { opacity:.88; }
-    .qz-submit-btn:disabled { opacity:.4; cursor:not-allowed; }
-    .qz-btn-ghost { background:transparent; color:var(--hub-primary); border:1px solid var(--hub-line); }
+    .mc-chip:hover { border-color:var(--hub-primary); }
+    .mc-chip.is-on { background:var(--hub-primary); border-color:var(--hub-primary); color:#fff; }
+    .mc-resultcount { font-size:17px; color:var(--hub-ink-faint); margin:14px 0 0; font-variant-numeric:tabular-nums; }
 
-    .qz-progress { height:8px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; margin:26px 0 30px; }
-    .qz-progress-fill { height:100%; width:0; background:var(--hub-accent); border-radius:999px; transition:width .25s ease; }
-
-    .qz { border-top:1px solid var(--hub-line); padding:22px 0; max-width:78ch; }
-    .qz:first-child { border-top:none; padding-top:0; }
-    .qz__q { display:flex; align-items:flex-start; gap:10px; font-size:19px; line-height:1.5; }
-    .qz__q .num { font-weight:700; color:var(--hub-primary); flex-shrink:0; }
-    .qz__q .speak {
-      border:none; background:var(--hub-line-soft); color:var(--hub-primary); border-radius:8px;
-      width:34px; height:34px; font-size:16px; cursor:pointer; flex-shrink:0; margin-left:auto;
+    /* ---------- round group ---------- */
+    .mc-round { margin:34px 0 0; }
+    .mc-round__h {
+      display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+      padding:0 0 10px; border-bottom:2px solid var(--hub-line);
     }
-    .qz__q .speak.is-speaking { background:var(--hub-primary); color:#fff; }
-    .qz__zh { font-size:17px; color:var(--hub-ink-faint); margin:6px 0 14px; font-family:var(--hub-zh-font); }
-    .qz__opts { display:grid; gap:10px; }
+    .mc-round__tag {
+      font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:#fff;
+      background:var(--hub-primary); padding:5px 12px; border-radius:999px;
+    }
+    .mc-round--spare .mc-round__tag { background:var(--hub-ink-faint); }
+    .mc-round__title { font-family:var(--hub-serif); font-size:23px; color:var(--hub-ink); margin:0; }
+    .mc-round__n { font-size:17px; color:var(--hub-ink-faint); margin-left:auto; font-variant-numeric:tabular-nums; }
+
+    /* ---------- one question in the practice area ---------- */
+    .st { border-bottom:1px solid var(--hub-line); padding:22px 0; max-width:80ch; }
+    .st__head { display:flex; align-items:center; gap:10px; margin-bottom:9px; }
+    .st__id { font-size:16px; font-weight:700; color:var(--hub-primary); font-variant-numeric:tabular-nums; }
+    .st__tag { font-size:13px; letter-spacing:.07em; text-transform:uppercase; font-weight:700; color:var(--hub-ink-faint); background:var(--hub-line-soft); padding:4px 10px; border-radius:999px; }
+    .speak {
+      border:none; background:var(--hub-line-soft); color:var(--hub-primary); border-radius:9px;
+      width:44px; height:44px; font-size:20px; cursor:pointer; flex-shrink:0; margin-left:auto;
+    }
+    .speak:hover { background:#e2ded4; }
+    .speak.is-speaking { background:var(--hub-primary); color:#fff; }
+
+    .st__zh { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:0 0 12px; }
+    .st__hanzi { font-family:var(--hub-zh-font); font-size:24px; font-weight:600; color:var(--hub-ink); }
+    .st__py { font-size:20px; color:var(--hub-ink-faint); font-style:italic; }
+    body.mc-no-pinyin .st__py, body.mc-no-pinyin .mc-zh__py, body.mc-no-pinyin .mc-wrong__py { display:none; }
+
+    .st__q { font-size:20px; line-height:1.55; color:var(--hub-ink); margin:0 0 12px; }
+    .st__opts { list-style:none; margin:0 0 12px; padding:0; display:grid; gap:8px; }
+    .st__opt {
+      display:flex; align-items:flex-start; gap:11px; font-size:19px; line-height:1.45; color:var(--hub-ink-soft);
+      border:1px solid var(--hub-line); border-radius:10px; padding:11px 14px; background:#fff;
+    }
+    .st__opt .k { font-weight:700; color:var(--hub-ink-faint); width:19px; flex-shrink:0; }
+    /* Answers stay hidden until the reader asks for them — per question with the
+       "Show answer" button, or all at once with the toolbar switch. */
+    .st.is-revealed .st__opt.is-ok,
+    body.mc-show-all .st__opt.is-ok { border-color:#2f7d5c; background:#e3f1e9; color:var(--hub-ink); font-weight:600; }
+    .st.is-revealed .st__opt.is-ok .k,
+    body.mc-show-all .st__opt.is-ok .k { color:#2f7d5c; }
+    .st.is-revealed .st__opt.is-ok::after,
+    body.mc-show-all .st__opt.is-ok::after { content:"✓"; margin-left:auto; color:#2f7d5c; font-weight:700; }
+
+    .st__reveal {
+      appearance:none; cursor:pointer; font-family:var(--hub-en-font); font-size:17px; font-weight:700;
+      color:var(--hub-primary); background:transparent; border:1px solid var(--hub-line);
+      border-radius:10px; padding:10px 18px; transition:background .15s ease, border-color .15s ease;
+    }
+    .st__reveal:hover { border-color:var(--hub-primary); background:var(--hub-line-soft); }
+    body.mc-show-all .st__reveal { display:none; }
+
+    .st__why {
+      display:none; font-size:18px; line-height:1.65; color:var(--hub-ink-soft);
+      background:var(--hub-line-soft); border-radius:10px; padding:13px 15px; margin:12px 0 0;
+    }
+    .st.is-revealed .st__why, body.mc-show-all .st__why { display:block; }
+
+    /* Listening items keep their characters hidden until the answer is revealed —
+       that is the whole point of the type. */
+    .st--listen .st__zh { visibility:hidden; height:0; margin:0; overflow:hidden; }
+    .st--listen.is-revealed .st__zh,
+    body.mc-show-all .st--listen .st__zh { visibility:visible; height:auto; margin:0 0 12px; }
+
+    /* ---------- quiz: mode panels ---------- */
+    .mc-panel { border:1px solid var(--hub-line); border-radius:16px; padding:24px 22px; margin:22px 0; background:#fff; }
+    .mc-panel h2 { font-family:var(--hub-serif); font-size:24px; margin:0 0 6px; color:var(--hub-ink); }
+    .mc-panel p { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 16px; }
+    .mc-panel p.zh { font-family:var(--hub-zh-font); font-size:18px; color:var(--hub-ink-faint); }
+    .mc-count { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+    .mc-actions { display:flex; gap:12px; flex-wrap:wrap; }
+
+    .mc-field { margin-bottom:14px; max-width:420px; }
+    .mc-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
+    .mc-field input, .mc-field select {
+      width:100%; padding:13px 14px; border-radius:10px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink); font-size:19px; font-family:var(--hub-en-font);
+    }
+    .mc-field input:focus-visible, .mc-field select:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+
+    /* ---------- quiz: the paper ---------- */
+    .mc-quiz-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+    .mc-quiz-head h2 { font-family:var(--hub-serif); font-size:26px; margin:0; color:var(--hub-ink); }
+    .mc-quiz-head .sub { font-size:17px; color:var(--hub-ink-faint); }
+
+    .mc-progress { height:8px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; margin:18px 0 26px; }
+    .mc-progress i { display:block; height:100%; width:0; background:var(--hub-accent); border-radius:999px; transition:width .25s ease; }
+
+    .mc-q { border-top:1px solid var(--hub-line); padding:24px 0; max-width:78ch; }
+    .mc-q:first-child { border-top:none; padding-top:0; }
+    .mc-q__head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .mc-q__num { font-weight:700; color:var(--hub-primary); font-size:18px; }
+    .mc-q__tag { font-size:13px; letter-spacing:.07em; text-transform:uppercase; font-weight:700; color:var(--hub-ink-faint); background:var(--hub-line-soft); padding:4px 10px; border-radius:999px; }
+    .mc-q__text { font-size:20px; line-height:1.55; color:var(--hub-ink); margin:0 0 10px; }
+    .mc-zh { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:0 0 16px; }
+    .mc-zh__hanzi { font-family:var(--hub-zh-font); font-size:22px; font-weight:600; color:var(--hub-ink); }
+    .mc-zh__py { font-size:19px; color:var(--hub-ink-faint); font-style:italic; }
+    .mc-zh.is-veiled { visibility:hidden; height:0; margin:0 0 4px; overflow:hidden; }
+
+    .mc-opts { display:grid; gap:10px; }
     .opt {
-      display:flex; align-items:center; gap:10px; text-align:left;
-      border:1px solid var(--hub-line); border-radius:10px; padding:12px 14px;
-      background:#fff; cursor:pointer; font-size:18px; font-family:var(--hub-en-font); color:var(--hub-ink);
+      display:flex; align-items:flex-start; gap:11px; text-align:left;
+      border:1px solid var(--hub-line); border-radius:10px; padding:13px 15px;
+      background:#fff; cursor:pointer; font-size:19px; line-height:1.45;
+      font-family:var(--hub-en-font); color:var(--hub-ink);
       transition:border-color .15s ease, background .15s ease;
     }
-    .opt .key { font-weight:700; color:var(--hub-ink-faint); width:18px; flex-shrink:0; }
+    .opt .key { font-weight:700; color:var(--hub-ink-faint); width:19px; flex-shrink:0; }
     .opt:hover { border-color:var(--hub-primary); }
     .opt.picked { border-color:var(--hub-primary); background:var(--hub-line-soft); }
     .opt.is-correct { border-color:#2f7d5c; background:#e3f1e9; }
     .opt.is-wrong { border-color:#b8493f; background:#fbe7e4; }
     .opt:disabled { cursor:default; }
-    .qz__fb { display:none; margin-top:12px; font-size:17px; color:var(--hub-ink-soft); background:var(--hub-line-soft); border-radius:10px; padding:12px 14px; line-height:1.6; font-family:var(--hub-zh-font); }
-    .qz.graded .qz__fb { display:block; }
 
-    .qz-submit-row { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--hub-line); flex-wrap:wrap; }
-    .qz-submit-row .hint { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+    .mc-why {
+      display:none; margin-top:13px; font-size:18px; line-height:1.65; color:var(--hub-ink-soft);
+      background:var(--hub-line-soft); border-radius:10px; padding:13px 15px;
+    }
+    .mc-why strong { font-family:var(--hub-zh-font); font-size:19px; color:var(--hub-ink); }
+    .mc-why em { color:var(--hub-ink-faint); }
+    .mc-q.graded .mc-why { display:block; }
+    .mc-q.was-wrong { border-left:4px solid #b8493f; padding-left:14px; }
 
-    .qz-results { text-align:center; padding:20px 0 8px; max-width:480px; margin:0 auto; }
-    .qz-score-ring { width:140px; height:140px; margin:8px auto 20px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center; background:conic-gradient(#2f7d5c calc(var(--pct)*1%), var(--hub-line-soft) 0); }
-    .qz-score-ring::before { content:""; position:absolute; inset:10px; border-radius:50%; background:#fff; }
-    .qz-score-ring span { position:relative; font-size:28px; font-weight:700; color:var(--hub-ink); font-variant-numeric:tabular-nums; }
-    .qz-results h2 { font-family:var(--hub-serif); font-size:24px; margin:0 0 8px; color:var(--hub-ink); }
-    .qz-results p { margin:0 0 22px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; }
+    .mc-submit-row { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--hub-line); flex-wrap:wrap; }
+    .mc-submit-row .hint { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
 
-    .hidden { display:none !important; }
+    /* ---------- results ---------- */
+    .mc-result-top { text-align:center; padding:8px 0 4px; }
+    .mc-ring { width:150px; height:150px; margin:8px auto 20px; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center; background:conic-gradient(#2f7d5c calc(var(--pct)*1%), var(--hub-line-soft) 0); }
+    .mc-ring::before { content:""; position:absolute; inset:11px; border-radius:50%; background:#fff; }
+    .mc-ring span { position:relative; font-size:30px; font-weight:700; color:var(--hub-ink); font-variant-numeric:tabular-nums; }
+    .mc-result-top h2 { font-family:var(--hub-serif); font-size:27px; margin:0 0 10px; color:var(--hub-ink); }
+    .mc-result-top p { margin:0 auto 8px; color:var(--hub-ink-soft); font-size:19px; line-height:1.6; max-width:56ch; }
+
+    .mc-bd { display:flex; align-items:center; gap:12px; margin:9px 0; }
+    .mc-bd__label { font-size:17px; color:var(--hub-ink-soft); width:190px; flex-shrink:0; }
+    .mc-bd__bar { flex:1; height:9px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; }
+    .mc-bd__bar i { display:block; height:100%; background:var(--hub-primary); border-radius:999px; }
+    .mc-bd__num { font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; width:48px; text-align:right; }
+
+    .mc-wrong-h { font-family:var(--hub-serif); font-size:23px; margin:28px 0 14px; color:var(--hub-ink); }
+    .mc-wrong { border:1px solid var(--hub-line); border-left:4px solid #b8493f; border-radius:10px; padding:15px 17px; margin-bottom:12px; }
+    .mc-wrong__top { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+    .mc-wrong__zh { font-family:var(--hub-zh-font); font-size:22px; font-weight:600; color:var(--hub-ink); }
+    .mc-wrong__py { font-size:19px; color:var(--hub-ink-faint); font-style:italic; }
+    .mc-wrong__ans { font-size:18px; color:var(--hub-ink); margin:0 0 6px; line-height:1.5; }
+    .mc-wrong__why { font-size:18px; color:var(--hub-ink-soft); margin:0; line-height:1.65; }
+    .mc-allright { font-size:19px; color:#2f7d5c; font-weight:600; text-align:center; margin:26px 0; }
+    .mc-result-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:26px 0 6px; }
 
     @media (min-width:720px) {
-      .qz__q { font-size:21px; }
-      .qz__zh { font-size:18px; }
-      .opt { font-size:19px; }
-      .qz__fb { font-size:18px; }
+      .mc-levelbar { grid-template-columns:repeat(3,1fr); }
+      .mc-lede { font-size:23px; }
+      .mc-lede-zh { font-size:20px; }
+      .st__q, .mc-q__text { font-size:23px; }
+      .st__opt, .opt { font-size:21px; }
+      .st__hanzi { font-size:27px; }
+      .st__py { font-size:22px; }
+      .mc-zh__hanzi { font-size:25px; }
+      .mc-zh__py, .mc-wrong__py { font-size:21px; }
+      .mc-wrong__zh { font-size:25px; }
+      .st__why, .mc-why, .mc-wrong__ans, .mc-wrong__why { font-size:20px; }
+      .mc-panel p { font-size:19px; }
+      .mc-round__title { font-size:25px; }
     }
   </style>
 </head>
@@ -110,43 +281,137 @@
 </header>
 <main>
 
-<nav class="mtg-crumbs" aria-label="Breadcrumb">
-  <a href="/fets/">FETs</a> &nbsp;›&nbsp; Mandarin Challenges
+<nav class="mc-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; Mandarin Challenge
 </nav>
 
-<section class="hub-section" style="padding-top:28px">
+<section class="hub-section" style="padding-top:28px;padding-bottom:0">
   <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
-  <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">Mandarin Challenges</h1>
-  <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:19px;line-height:1.6">A short monthly quiz on the everyday Mandarin phrases teachers, staff, and students actually use around campus — tap 🔊 to hear each phrase spoken aloud.</p>
-  <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85;font-size:18px">每月一次的中文小挑戰，聽聽看、答答看校園中最常聽到的中文用語。完成後算作當月作業。</p>
-  <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
+  <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:44px;margin:6px 0 12px">Mandarin Challenge</h1>
+  <p class="mc-lede">Every question for all nine FET meetings, in one place. Work through the bank at your own pace — try each item first, then tap <strong>Show answer</strong> for the correct option and an explanation. Answers stay hidden until you ask for them.</p>
+  <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。照自己的步調一題一題想，想完再按<strong>「看答案」</strong>顯示正解與說明——<strong>答案預設是蓋起來的</strong>，你不按就不會看到。</p>
 
-  <div class="qz-gate" id="qzGate">
-    <div class="qz-field">
-      <label for="qzTeacherId">Teacher ID · 教師編號</label>
-      <input id="qzTeacherId" type="text" placeholder="e.g. FET-014" autocomplete="off">
-    </div>
-    <div class="qz-field">
-      <label for="qzTeacherName">Name · 姓名</label>
-      <input id="qzTeacherName" type="text" placeholder="Your name" autocomplete="off">
-    </div>
-    <button class="qz-start-btn" id="qzStartBtn">Start this round · 開始作答</button>
+  <p class="mc-notice hidden" id="mcVoiceNotice">
+    🔇 Your device has no Chinese voice installed, so the 🔊 buttons will be silent. Everything else works normally — on a Mac, iPhone or Android you can add one in your system Speech / Text-to-speech settings.
+    <br><span style="font-family:var(--hub-zh-font)">你的裝置沒有安裝中文語音，🔊 會沒有聲音；其餘功能正常。</span>
+  </p>
+  <p class="mc-notice is-error hidden" id="mcLoadError">
+    Could not load the question bank. Please refresh the page. 題庫載入失敗，請重新整理頁面。
+  </p>
+
+  <!-- level tabs -->
+  <div class="mc-levelbar" role="tablist" aria-label="Level">
+    <button type="button" class="mc-lvtab mc-lvtab--b is-on" data-level="beginner" role="tab" aria-selected="true">
+      <span class="mc-lvtab__name">🌱 Beginner</span>
+      <span class="mc-lvtab__zh">入門</span>
+      <span class="mc-lvtab__n" data-count="beginner">…</span>
+    </button>
+    <button type="button" class="mc-lvtab mc-lvtab--i" data-level="intermediate" role="tab" aria-selected="false">
+      <span class="mc-lvtab__name">🏫 Intermediate</span>
+      <span class="mc-lvtab__zh">進階</span>
+      <span class="mc-lvtab__n" data-count="intermediate">…</span>
+    </button>
+    <button type="button" class="mc-lvtab mc-lvtab--a" data-level="advanced" role="tab" aria-selected="false">
+      <span class="mc-lvtab__name">📜 Advanced</span>
+      <span class="mc-lvtab__zh">高階</span>
+      <span class="mc-lvtab__n" data-count="advanced">…</span>
+    </button>
   </div>
 
-  <div class="qz-body hidden" id="qzBody">
-    <div class="qz-progress"><div class="qz-progress-fill" id="qzProgressFill"></div></div>
-    <div id="qzList"></div>
-    <div class="qz-submit-row">
-      <span class="hint" id="qzAnsweredHint">0 / 20 answered</span>
-      <button class="qz-submit-btn" id="qzSubmitBtn" disabled>Submit · 提交</button>
+  <!-- view switch -->
+  <div class="mc-views">
+    <button type="button" class="mc-view is-on" data-view="study">📖 Practice area · 練習區</button>
+    <button type="button" class="mc-view" data-view="quiz">✍️ Quiz · 測驗</button>
+  </div>
+</section>
+
+<!-- ============ VIEW 1 · practice area (every question, grouped by meeting) ============ -->
+<section class="hub-section" id="mcStudyView" style="padding-top:12px">
+  <p class="mc-lede-zh" id="mcStudyBlurbZh" style="margin-top:6px"></p>
+
+  <div class="mc-tools">
+    <input type="search" class="mc-search" id="mcSearch" placeholder="Search 搜尋 — 便當, biàndāng, lunch…" autocomplete="off">
+    <label class="mc-switch">
+      <input type="checkbox" id="mcPinyinToggle" checked>
+      Pinyin · 拼音
+    </label>
+    <label class="mc-switch">
+      <input type="checkbox" id="mcShowAll">
+      Show all answers · 全部顯示答案
+    </label>
+  </div>
+  <div class="mc-chips" id="mcTypeChips"></div>
+  <p class="mc-resultcount" id="mcStudyCount"></p>
+
+  <div id="mcStudyList"></div>
+</section>
+
+<!-- ============ VIEW 2 · quiz ============ -->
+<section class="hub-section hidden" id="mcQuizModeScreen" style="padding-top:12px">
+  <div class="mc-panel">
+    <h2>Practice quiz · 自學測驗</h2>
+    <p>Questions are drawn at random from the whole level and the options are shuffled, so no two runs are the same. Nothing is recorded — repeat it as often as you like.</p>
+    <p class="zh">從整級題庫隨機抽題、選項也會打散，每次都不一樣。<strong>不會登錄成績</strong>，可以放心一直重來。</p>
+    <div class="mc-actions">
+      <button type="button" class="mc-btn" data-practice="10">Quick 10 · 快速 10 題</button>
+      <button type="button" class="mc-btn-ghost" data-practice="20">Full 20 · 完整 20 題</button>
     </div>
   </div>
 
-  <div class="qz-results hidden" id="qzResults">
-    <div class="qz-score-ring" id="qzScoreRing" style="--pct:0"><span id="qzScoreNum">0/20</span></div>
-    <h2 id="qzResultHeadline">Nice work!</h2>
-    <p id="qzResultSub"></p>
-    <button class="qz-btn-ghost" id="qzReviewBtn">Review answers · 查看檢討</button>
+  <div class="mc-panel">
+    <h2>Monthly meeting round · 外師會議場次</h2>
+    <p>The fixed 20 questions for that month's meeting — the same paper for everyone. Your score is recorded to the Google Sheet for this level.</p>
+    <p class="zh">該場會議的固定 20 題，所有外師題目相同，成績會登錄到這一級對應的 Google Sheet 分頁。</p>
+
+    <div class="mc-field">
+      <label for="mcRoundSelect">Round · 場次</label>
+      <select id="mcRoundSelect"></select>
+    </div>
+    <div class="mc-field">
+      <label for="mcTeacherId">Teacher ID · 教師編號</label>
+      <input id="mcTeacherId" type="text" placeholder="e.g. FET-014" autocomplete="off">
+    </div>
+    <div class="mc-field">
+      <label for="mcTeacherName">Name · 姓名</label>
+      <input id="mcTeacherName" type="text" placeholder="Your name" autocomplete="off">
+    </div>
+    <p class="mc-notice is-error hidden" id="mcGateError">Please fill in both your teacher ID and your name. 請填寫編號與姓名。</p>
+    <button type="button" class="mc-btn" id="mcStartMeeting" disabled>Start this round · 開始作答</button>
+  </div>
+</section>
+
+<section class="hub-section hidden" id="mcQuizScreen" style="padding-top:12px">
+  <div class="mc-quiz-head">
+    <h2 id="mcQuizTitle"></h2>
+    <span class="sub" id="mcQuizSub"></span>
+  </div>
+  <div class="mc-progress"><i id="mcProgressFill"></i></div>
+  <div id="mcQuizList"></div>
+  <div class="mc-submit-row">
+    <span class="hint" id="mcAnsweredHint">0 / 0 answered · 已作答</span>
+    <span style="display:flex;gap:12px;flex-wrap:wrap">
+      <button type="button" class="mc-btn-ghost" id="mcQuitBtn">Exit · 離開</button>
+      <button type="button" class="mc-btn" id="mcSubmitBtn" disabled>Submit · 提交</button>
+    </span>
+  </div>
+</section>
+
+<section class="hub-section hidden" id="mcResultScreen" style="padding-top:12px">
+  <div class="mc-result-top">
+    <div class="mc-ring" id="mcScoreRing" style="--pct:0"><span id="mcScoreNum">0/0</span></div>
+    <h2 id="mcResultHeadline"></h2>
+    <p id="mcResultSub"></p>
+    <p class="mc-count hidden" id="mcSaveNote"></p>
+  </div>
+
+  <div style="max-width:620px;margin:26px auto 0" id="mcTypeBreakdown"></div>
+  <div style="max-width:78ch;margin:0 auto" id="mcWrongList"></div>
+
+  <div class="mc-result-actions">
+    <button type="button" class="mc-btn-ghost" id="mcReviewBtn">Review every question · 逐題檢討</button>
+    <button type="button" class="mc-btn hidden" id="mcRetryWrongBtn">Practise wrong ones again · 重練錯題</button>
+    <button type="button" class="mc-btn-ghost" id="mcAnotherBtn">Another round · 再做一組</button>
+    <button type="button" class="mc-btn-ghost" id="mcBackToStudy">Back to the practice area · 回練習區</button>
   </div>
 </section>
 
@@ -172,99 +437,17 @@
 </footer>
 <script src="/assets/js/hub.js"></script>
 <script>
-(function () {
-  // TODO(Luke): paste the deployed Apps Script Web App exec URL here (same one used
-  // site-wide for quiz submissions — see apps-script/Code.gs). Leave blank to keep the
-  // quiz fully working with scoring, just without saving to the Google Sheet yet.
-  var CONFIG = { WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbysIUhxMu3fRMGzlkNgNtRU7BgqiZAkSxocdnA2xP5gzb4mRtddNPnRzcTJO5HXZvJsRA/exec' };
-  var ROUND = '2026-07';
-
-  var QUESTIONS = [
-    { q: 'Your homeroom teacher says “辛苦了” to you after class. What does this mean here?',
-      zh: '同事下班前跟你說「辛苦了」。',
-      opts: ['You are in trouble', 'You did a great job, thanks for the hard work', 'Please clean the board', 'See you tomorrow'], correct: 1,
-      explain: '辛苦了 (xīnkǔ le) 是肯定對方付出的常用語，接近「謝謝你的辛勞」，不是字面上的「你辛苦了要休息」。', speak: '辛苦了' },
-    { q: 'A student tells you “朝會” is starting at 8am. What should you expect?',
-      zh: '學生說「朝會」要開始了。',
-      opts: ['Fire drill', 'Lunch break', 'A parent meeting', 'Morning assembly'], correct: 3,
-      explain: '朝會 (zhāohuì) 是每天／每週在操場或禮堂舉行的升旗＋朝會時間。', speak: '朝會' },
-    { q: 'A colleague asks, “你要不要一起吃便當？” What are they inviting you to do?',
-      zh: '同事問「你要不要一起吃便當？」',
-      opts: ['Eat a boxed lunch together', 'Go for a walk', 'Attend a meeting', 'Watch a movie'], correct: 0,
-      explain: '便當 (biàndāng) 是台灣校園最常見的午餐形式，一起訂便當也是同事間增進感情的方式。', speak: '便當' },
-    { q: 'Office staff say “麻煩你” before handing you a form. This phrase means:',
-      zh: '行政同仁遞表單前說「麻煩你」。',
-      opts: ['You are late', 'This is broken', 'Sorry to trouble you / please', 'Thank you very much'], correct: 2,
-      explain: '麻煩你 (máfan nǐ) 用來委婉地提出請求，接近「不好意思，麻煩你了」。', speak: '麻煩你' },
-    { q: 'A student greets you with “老師好” in the hallway. The appropriate response is to:',
-      zh: '學生在走廊向你說「老師好」。',
-      opts: ['Correct their pronunciation', 'Smile and greet them back briefly', 'Ignore and keep walking', 'Ask them to stop bowing'], correct: 1,
-      explain: '「老師好」是學生對老師的問候語，微笑簡短回應即可，不需要糾正或忽略。', speak: '老師好' },
-    { q: 'You hear “打掃時間” announced over the speakers. This means:',
-      zh: '廣播說「打掃時間」到了。',
-      opts: ['Snack time', 'Nap time', 'Test time', 'Cleaning time'], correct: 3,
-      explain: '打掃時間 (dǎsǎo shíjiān) 是學生每天負責整潔工作的時段。', speak: '打掃時間' },
-    { q: '“早自習” refers to:',
-      zh: '「早自習」是指什麼？',
-      opts: ['Morning self-study period', 'After-school detention', 'Sports day', 'Graduation ceremony'], correct: 0,
-      explain: '早自習 (zǎozìxí) 是第一節課前的安靜自習時段。', speak: '早自習' },
-    { q: 'Someone says “慢走” as you leave a meeting. This is a polite way to say:',
-      zh: '離開時對方說「慢走」。',
-      opts: ['Hurry up', 'Come back soon', 'Take care / safe travels', 'Goodbye forever'], correct: 2,
-      explain: '慢走 (màn zǒu) 字面是「走慢一點」，其實是送客時的客氣話，祝對方一路平安。', speak: '慢走' },
-    { q: 'A staff announcement mentions “升旗” happening on Monday morning. This is:',
-      zh: '公告說週一早上有「升旗」。',
-      opts: ['A fire drill', 'A club meeting', 'A school trip', 'The flag-raising ceremony'], correct: 3,
-      explain: '升旗 (shēngqí) 是全校師生共同參與的升旗典禮。', speak: '升旗' },
-    { q: 'Your students’ parents sometimes call you their child’s “導師”. This word refers to:',
-      zh: '家長稱呼你是孩子的「導師」。',
-      opts: ['The principal', 'The homeroom teacher', 'The school nurse', 'The librarian'], correct: 1,
-      explain: '導師 (dǎoshī) 就是班級導師／班導，負責該班的日常帶班工作。', speak: '導師' },
-    { q: 'A colleague mentions the “段考” is coming up next week. This is:',
-      zh: '同事說下週有「段考」。',
-      opts: ['A staff meeting', 'A holiday', 'A term exam', 'A field trip'], correct: 2,
-      explain: '段考 (duànkǎo) 是學期中的定期考試，通常一學期有兩到三次。', speak: '段考' },
-    { q: 'After lunch, an announcement says it’s “午休” time. Students should:',
-      zh: '午餐後廣播說「午休」時間到了。',
-      opts: ['Rest quietly at their desks', 'Go home', 'Start PE class', 'Line up for assembly'], correct: 0,
-      explain: '午休 (wǔxiū) 是午餐後的靜息／午睡時段，學生通常要趴睡或安靜休息。', speak: '午休' },
-    { q: 'You’re invited to a “班親會” this Friday evening. This is:',
-      zh: '週五晚上有「班親會」。',
-      opts: ['A staff birthday party', 'A parent-teacher meeting for your class', 'A student sports match', 'A teacher training session'], correct: 1,
-      explain: '班親會 (bānqīnhuì) 是導師與該班家長的班級家長會。', speak: '班親會' },
-    { q: 'The school newsletter mentions “校慶” is coming up next month. This is:',
-      zh: '校刊提到下個月有「校慶」。',
-      opts: ['A safety drill', 'A teacher’s retirement', 'An exam period', 'The school’s founding anniversary celebration'], correct: 3,
-      explain: '校慶 (xiàoqìng) 是學校創校紀念日的慶祝活動。', speak: '校慶' },
-    { q: 'A calendar note says next Monday is a “補假”. This means:',
-      zh: '行事曆註記下週一是「補假」。',
-      opts: ['A surprise exam day', 'A half-day of classes', 'A make-up day off for a holiday worked on the weekend', 'A field trip day'], correct: 2,
-      explain: '補假 (bǔjià) 是因假日補班／補課後，另外補回來的放假日。', speak: '補假' },
-    { q: 'A student proudly tells you they’re this week’s “值日生”. This means they are:',
-      zh: '學生說自己是這週的「值日生」。',
-      opts: ['The class duty helper for the day/week', 'The class president', 'A hall monitor for the whole school', 'The teacher’s assistant for exams'], correct: 0,
-      explain: '值日生 (zhírìshēng) 是輪值負責班級雜務的學生，如擦黑板、關燈等。', speak: '值日生' },
-    { q: 'The office mentions the “家長會” is organizing an event. This group is:',
-      zh: '學校提到「家長會」在辦活動。',
-      opts: ['The student council', 'A group of teachers', 'The alumni association', 'The parent association'], correct: 3,
-      explain: '家長會 (jiāzhǎnghuì) 是由學生家長組成的家長會組織。', speak: '家長會' },
-    { q: 'A student says they joined the “熱舞社” this semester. “社” here refers to a:',
-      zh: '學生說這學期加入了「熱舞社」。',
-      opts: ['A required class', 'A club / extracurricular activity', 'A punishment', 'A test group'], correct: 1,
-      explain: '社 (shè) 在這裡指社團，是學生課後自由參加的活動團體。', speak: '熱舞社' },
-    { q: 'Staff start talking about “期末” preparations in the office. This refers to:',
-      zh: '辦公室同事在討論「期末」的準備工作。',
-      opts: ['The end of the semester/term', 'The start of a new school year', 'A weekend trip', 'A teacher’s last day'], correct: 0,
-      explain: '期末 (qímò) 指學期即將結束的階段，常伴隨期末考與結業式。', speak: '期末' },
-    { q: 'A colleague pokes their head in and says “上課了” to you. This means:',
-      zh: '同事探頭跟你說「上課了」。',
-      opts: ['Lunch is ready', 'The meeting is over', 'Class is starting — time to go', 'School is closed today'], correct: 2,
-      explain: '上課了 (shàngkè le) 是提醒對方「該去上課了」的常用說法。', speak: '上課了' }
-  ];
-
-  window.__QZ_CONFIG__ = { webhookUrl: CONFIG.WEBHOOK_URL, round: ROUND, quizId: 'fet-mandarin-challenge', questions: QUESTIONS, hasSpeech: true };
-})();
+window.__MC_CONFIG__ = {
+  webhookUrl: 'https://script.google.com/macros/s/AKfycbysIUhxMu3fRMGzlkNgNtRU7BgqiZAkSxocdnA2xP5gzb4mRtddNPnRzcTJO5HXZvJsRA/exec',
+  dataBase: '/fets/mandarin-challenge/data/',
+  // Nine FET meetings, first one September 2026. Adjust the labels here if the
+  // calendar shifts — the engine reads the round names straight from this list.
+  meetings: [
+    'September 2026', 'October 2026', 'November 2026', 'December 2026',
+    'January 2027', 'March 2027', 'April 2027', 'May 2027', 'June 2027'
+  ]
+};
 </script>
-<script src="/assets/js/fet-quiz.js"></script>
+<script src="/assets/js/fet-bank-quiz.js"></script>
 </body>
 </html>

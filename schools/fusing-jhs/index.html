@@ -92,12 +92,6 @@
   }
   @media (min-width:720px){ .banner{ min-height:420px; } }
   @media (min-width:1080px){ .banner{ min-height:480px; } }
-  /* No full overlay — only a soft gradient at the very bottom for text legibility */
-  .banner::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 0%, transparent 42%, rgba(10,20,42,.66) 100%);
-    pointer-events:none;
-  }
   .banner::after{
     content:'';position:absolute;top:0;left:0;right:0;height:6px;
     background:linear-gradient(90deg, var(--orange) 0%, var(--olive) 33%, var(--red) 66%, var(--blue) 100%);
@@ -112,25 +106,25 @@
     font-family:'Playfair Display',serif;
     font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
     color:#fde6c2;font-weight:600;margin-bottom:12px;
-    text-shadow:0 1px 10px rgba(0,0,0,.5);
+    text-shadow:0 2px 5px rgba(0,0,0,.7),0 2px 12px rgba(0,0,0,.5);
   }
   @media (min-width:720px){ .banner__brand{ font-size:16px; } }
   .banner h1{
     font-family:'Playfair Display',serif;
     font-size:44px;font-weight:800;line-height:1.0;letter-spacing:.5px;
-    text-shadow:0 4px 20px rgba(0,0,0,.45);
+    text-shadow:0 2px 8px rgba(0,0,0,.7),0 4px 26px rgba(0,0,0,.55);
   }
   @media (min-width:720px){ .banner h1{ font-size:74px; } }
   @media (min-width:1080px){ .banner h1{ font-size:92px; } }
   .banner__zh{
     font-size:20px;color:#eef0f9;margin-top:6px;font-weight:500;letter-spacing:1.5px;
-    text-shadow:0 2px 12px rgba(0,0,0,.45);
+    text-shadow:0 2px 6px rgba(0,0,0,.7),0 2px 14px rgba(0,0,0,.55);
   }
   @media (min-width:720px){ .banner__zh{ font-size:28px; } }
   .banner__tagline{
     font-family:'Playfair Display',serif;font-style:italic;
     font-size:17px;color:#ffe7c8;margin-top:14px;line-height:1.45;
-    max-width:680px;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4);
+    max-width:680px;font-weight:500;text-shadow:0 2px 5px rgba(0,0,0,.65),0 2px 12px rgba(0,0,0,.5);
   }
   @media (min-width:720px){ .banner__tagline{ font-size:21px;margin-top:18px; } }
 
@@ -389,11 +383,9 @@
       <span class="subnav__sep">·</span>
       <a href="principal/">Principal</a>
       <span class="subnav__sep">·</span>
-      <a href="bilingual/">Bilingual</a>
+      <a href="lessons/">Lessons</a>
       <span class="subnav__sep">·</span>
       <a href="news/">News</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/fusing-jhs/festivals/">Festivals</a>
     </div>
   </div>
 </nav>
@@ -677,8 +669,8 @@
         <figcaption class="gphoto__cap"><div class="gphoto__en">The School Gate</div><div class="gphoto__zh">校門意象</div></figcaption>
       </figure>
       <figure class="gphoto">
-        <img src="photos/fx-shangyi.jpg" alt="The colorful main teaching block under dramatic clouds · 尚毅樓教學主樓" loading="lazy">
-        <figcaption class="gphoto__cap"><div class="gphoto__en">Shang-Yi Building</div><div class="gphoto__zh">尚毅樓 · 教學主樓</div></figcaption>
+        <img src="photos/fx-shangyi.jpg" alt="The colorful main teaching block under dramatic clouds · 鴻達樓教學主樓" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Hong-Da Building</div><div class="gphoto__zh">鴻達樓 · 教學主樓</div></figcaption>
       </figure>
       <figure class="gphoto">
         <img src="photos/fx-plaza.jpg" alt="The running track and circular central plaza · 操場跑道與中庭司令台" loading="lazy">
@@ -689,8 +681,8 @@
         <figcaption class="gphoto__cap"><div class="gphoto__en">Golden Trumpet Trees</div><div class="gphoto__zh">黃花風鈴木花開</div></figcaption>
       </figure>
       <figure class="gphoto">
-        <img src="photos/fx-wave.jpg" alt="A curved façade decorated with an ocean-wave art banner · 海洋意象立面" loading="lazy">
-        <figcaption class="gphoto__cap"><div class="gphoto__en">Ocean-Spirit Façade</div><div class="gphoto__zh">海洋意象立面</div></figcaption>
+        <img src="photos/fx-wave.jpg" alt="A curved façade decorated with a dragon-boat paddling art banner · 龍舟划槳意象立面" loading="lazy">
+        <figcaption class="gphoto__cap"><div class="gphoto__en">Dragon-Boat Paddle Façade</div><div class="gphoto__zh">龍舟划槳意象立面</div></figcaption>
       </figure>
       <figure class="gphoto">
         <img src="photos/fx-herb.jpg" alt="Garden classroom plots beside a colorful campus building · 校園食農教育園圃" loading="lazy">

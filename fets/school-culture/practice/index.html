@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/school-culture/practice/">
+  <title>Practice Bank · School Culture · Changhua Bilingual Hub</title>
+  <meta name="description" content="Every School Culture question for foreign English teachers in Changhua, in one place. Answer one at a time, see the correct answer and why. Nothing is scored or recorded.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Practice Bank · School Culture · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <style>
+    /* ---------------------------------------------------------------
+       School Culture practice bank. Every rule is scoped .sc- so that
+       nothing here can reach the hub nav, hero or footer.
+       Type sizes are absolute px per CLAUDE.md (no rem in this block):
+       body 20/23, anything read 17/19 minimum, breakpoint 720.
+       --------------------------------------------------------------- */
+    .sc-crumbs { max-width:1200px; margin:0 auto; padding:20px 24px 0; font-size:17px; color:var(--hub-ink-faint); }
+    .sc-crumbs a { color:var(--hub-primary); text-decoration:none; }
+    .sc-crumbs a:hover { text-decoration:underline; }
+    @media (min-width:720px){ .sc-crumbs{ font-size:19px } }
+
+    .sc { --sc-ok:#2f7d5c; --sc-ok-soft:#e3f1e9; --sc-ok-line:#a9d3c0;
+          --sc-rev:#b8493f; --sc-rev-soft:#fbe7e4; --sc-rev-line:#e8bdb6;
+          font-size:20px; line-height:1.65; color:var(--hub-ink); }
+    @media (min-width:720px){ .sc{ font-size:23px } }
+    .sc .zh { font-family:var(--hub-zh-font); }
+
+    .sc-notice {
+      border:1px solid var(--hub-line); border-left:5px solid var(--hub-primary);
+      background:#eef5f4; border-radius:12px; padding:20px 22px; max-width:70ch; margin:0 0 8px;
+    }
+    .sc-notice p { margin:0; font-size:18px; line-height:1.6; color:var(--hub-ink-soft); }
+    .sc-notice p + p { margin-top:10px; }
+    .sc-notice b { color:var(--hub-primary-deep); }
+    @media (min-width:720px){ .sc-notice{ padding:24px 26px } .sc-notice p{ font-size:20px } }
+
+    .sc-toolbar {
+      display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center;
+      padding:26px 0 22px; border-bottom:1px solid var(--hub-line); margin-top:26px;
+    }
+    .sc-tool { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .sc-lbl { font-size:14px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--hub-ink-faint); }
+    .sc-toolbar select {
+      font-family:var(--hub-en-font); font-size:18px; color:var(--hub-ink);
+      padding:10px 14px; border-radius:10px; border:1px solid var(--hub-line); background:#fff; max-width:100%;
+    }
+    .sc-toolbar select:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    @media (min-width:720px){ .sc-toolbar select{ font-size:20px } }
+
+    .sc-chip {
+      font-family:var(--hub-en-font); font-size:18px; font-weight:600; cursor:pointer;
+      padding:9px 18px; border-radius:999px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink-soft);
+      transition:background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    @media (min-width:720px){ .sc-chip{ font-size:19px } }
+    .sc-chip:hover { border-color:var(--hub-primary); color:var(--hub-primary); }
+    .sc-chip[aria-pressed="true"] { background:var(--hub-primary); border-color:var(--hub-primary); color:#fff; }
+    .sc-chip:focus-visible { outline:2px solid var(--hub-accent); outline-offset:2px; }
+
+    .sc-spacer { flex:1 1 auto; }
+    .sc-tally { font-size:18px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+    @media (min-width:720px){ .sc-tally{ font-size:19px } }
+    .sc-bar { flex:1 1 100%; height:8px; border-radius:999px; background:var(--hub-line-soft); overflow:hidden; }
+    .sc-bar i { display:block; height:100%; width:0; background:var(--hub-primary); border-radius:999px; transition:width .3s cubic-bezier(.4,0,.2,1); }
+
+    .sc-stage { padding:32px 0 8px; }
+    .sc-card {
+      border:1px solid var(--hub-line); border-radius:16px; background:#fff;
+      padding:24px 20px; box-shadow:var(--hub-shadow); max-width:1000px;
+    }
+    @media (min-width:720px){ .sc-card{ padding:36px 40px } }
+    .sc-stage.is-list .sc-card { margin-bottom:20px; }
+    .sc-card.sc-in { animation:scIn .32s cubic-bezier(.2,.7,.3,1) both; }
+    @keyframes scIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+    .sc-qmeta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+    .sc-mchip {
+      display:inline-flex; align-items:baseline; gap:9px;
+      border:1px solid var(--hub-line); border-radius:999px; padding:6px 16px;
+      font-size:17px; color:var(--hub-ink-soft); background:var(--hub-line-soft);
+    }
+    .sc-mchip .sc-n { font-family:var(--hub-serif); font-weight:700; font-size:19px; color:var(--hub-primary); }
+    .sc-mchip .sc-z { font-family:var(--hub-zh-font); color:var(--hub-ink-faint); font-size:16px; }
+    @media (min-width:720px){ .sc-mchip{ font-size:19px } .sc-mchip .sc-n{ font-size:21px } .sc-mchip .sc-z{ font-size:18px } }
+    .sc-tchip {
+      font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:5px 12px; border-radius:999px; border:1px solid var(--hub-accent);
+      background:#fdf1e0; color:#a2691d;
+    }
+    .sc-qidx { margin-left:auto; font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
+    @media (min-width:720px){ .sc-qidx{ font-size:19px } }
+
+    .sc-stem { font-size:24px; font-weight:600; line-height:1.45; margin:0 0 24px; color:var(--hub-ink); }
+    @media (min-width:720px){ .sc-stem{ font-size:30px; line-height:1.4 } }
+
+    .sc-opts { display:flex; flex-direction:column; gap:12px; }
+    .sc-opt {
+      display:flex; align-items:flex-start; gap:14px; text-align:left; width:100%;
+      font-family:var(--hub-en-font); font-size:20px; line-height:1.5; cursor:pointer;
+      padding:16px 18px; border-radius:12px; border:1px solid var(--hub-line);
+      background:#fff; color:var(--hub-ink);
+      transition:border-color .15s ease, background .15s ease, transform .12s ease;
+    }
+    @media (min-width:720px){ .sc-opt{ font-size:23px; padding:18px 22px } }
+    .sc-opt:hover:not(:disabled) { border-color:var(--hub-primary); transform:translateX(3px); }
+    .sc-opt:focus-visible { outline:2px solid var(--hub-primary); outline-offset:2px; }
+    .sc-opt:disabled { cursor:default; }
+    .sc-opt .sc-key { font-weight:700; color:var(--hub-ink-faint); flex:0 0 auto; min-width:24px; }
+    .sc-opt .sc-mk { margin-left:auto; flex:0 0 auto; font-size:15px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; padding-top:5px; }
+    @media (min-width:720px){ .sc-opt .sc-mk{ font-size:16px } }
+    .sc-opt.is-answer { border-color:var(--sc-ok-line); background:var(--sc-ok-soft); }
+    .sc-opt.is-answer .sc-key, .sc-opt.is-answer .sc-mk { color:var(--sc-ok); }
+    .sc-opt.is-wrong { border-color:var(--sc-rev-line); background:var(--sc-rev-soft); }
+    .sc-opt.is-wrong .sc-key, .sc-opt.is-wrong .sc-mk { color:var(--sc-rev); }
+
+    .sc-why {
+      margin-top:22px; padding:20px 22px; border-radius:12px;
+      background:var(--hub-line-soft); border:1px solid var(--hub-line);
+      animation:scIn .3s cubic-bezier(.2,.7,.3,1) both;
+    }
+    .sc-why > b { display:block; font-size:14px; letter-spacing:.13em; text-transform:uppercase; color:var(--hub-ink-faint); margin-bottom:9px; }
+    .sc-why p { margin:0; font-size:19px; line-height:1.65; color:var(--hub-ink-soft); }
+    @media (min-width:720px){ .sc-why{ padding:24px 26px } .sc-why p{ font-size:21px } }
+    .sc-src { display:inline-block; margin-top:14px; font-size:18px; color:var(--hub-primary); font-weight:600; }
+    @media (min-width:720px){ .sc-src{ font-size:20px } }
+
+    .sc-navrow { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:26px; }
+    .sc-btn {
+      font-family:var(--hub-en-font); font-size:19px; font-weight:600; cursor:pointer;
+      padding:14px 30px; border-radius:999px; border:1px solid var(--hub-primary);
+      background:var(--hub-primary); color:#fff; box-shadow:var(--hub-shadow);
+      transition:box-shadow .18s ease, transform .18s ease;
+    }
+    @media (min-width:720px){ .sc-btn{ font-size:21px } }
+    .sc-btn:hover { box-shadow:var(--hub-shadow-hover); transform:translateY(-1px); }
+    .sc-btn:focus-visible { outline:2px solid var(--hub-accent); outline-offset:3px; }
+    .sc-btn.sc-ghost { background:transparent; color:var(--hub-primary); border-color:var(--hub-line); box-shadow:none; }
+    .sc-btn.sc-ghost:hover { border-color:var(--hub-primary); }
+    .sc-btn[hidden] { display:none; }
+    .sc-empty { padding:40px 0; font-size:20px; color:var(--hub-ink-faint); }
+
+    .cb-credit { background:#241f1b; color:#cfc6bb; padding:28px 24px; font-size:17px; line-height:1.9; text-align:center; }
+    .cb-credit a { color:#e6c179; text-decoration:none; }
+    .cb-credit a:hover { text-decoration:underline; }
+    .cb-credit div + div { margin-top:2px; }
+    @media (min-width:720px){ .cb-credit{ padding:32px 40px; font-size:18px } }
+
+    @media (prefers-reduced-motion:reduce) {
+      .sc *, .sc-card { animation:none !important; transition:none !important; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<nav class="sc-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; <a href="/fets/school-culture/">School Culture</a> &nbsp;›&nbsp; Practice
+</nav>
+
+<section class="hub-curve-hero hub-curve-hero--fets">
+  <svg class="hub-curve-hero-bg" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true"><path d="M 0,0 L 760,0 C 720,140 800,290 720,420 C 660,520 760,560 700,600 L 0,600 Z"/></svg>
+  <div class="hub-curve-hero-inner">
+    <div class="hub-curve-hero-block">
+      <p class="hub-eyebrow">School Culture · Practice</p>
+      <h1 class="hub-curve-hero-title">Practice<br>Bank.</h1>
+      <p class="hub-curve-hero-lede">Every question from the whole year, in one place. Answer one, see the right answer and why, move on.</p>
+      <p class="hub-curve-hero-lede-zh">全年題目集中在這一頁，一題一題作答，答完立刻看到正解與解析。</p>
+    </div>
+    <aside class="hub-curve-hero-side">
+      <p class="hub-curve-hero-pull">No score.<br>No record.</p>
+      <p class="hub-curve-hero-pull-zh">不計分，不留紀錄。</p>
+      <p class="hub-curve-hero-attr">Changhua Bilingual Hub</p>
+    </aside>
+  </div>
+</section>
+
+<section class="hub-section sc" style="padding-top:40px">
+
+  <div class="sc-notice">
+    <p><b>This is practice, not a submission.</b> There is no score and no pass mark, and nothing you do here is uploaded or recorded anywhere — your progress stays in this browser. Get things wrong freely; that is what a practice bank is for.</p>
+    <p class="zh" style="font-size:17px">這是練習區，不計分、不上傳、不留紀錄。每月會議當天的繳交是另一個頁面。</p>
+  </div>
+
+  <div class="sc-toolbar">
+    <div class="sc-tool">
+      <span class="sc-lbl">Topic</span>
+      <select id="scTopic" aria-label="Filter by topic"></select>
+    </div>
+    <div class="sc-tool">
+      <span class="sc-lbl">Track</span>
+      <button class="sc-chip" type="button" data-track="all" aria-pressed="true">All</button>
+      <button class="sc-chip" type="button" data-track="a" aria-pressed="false">Year 1</button>
+      <button class="sc-chip" type="button" data-track="b" aria-pressed="false">Returning</button>
+    </div>
+    <div class="sc-tool">
+      <span class="sc-lbl">View</span>
+      <button class="sc-chip" type="button" data-view="one" aria-pressed="true">One at a time</button>
+      <button class="sc-chip" type="button" data-view="all" aria-pressed="false">Show all</button>
+    </div>
+    <div class="sc-spacer"></div>
+    <span class="sc-tally" id="scTally">Loading…</span>
+    <div class="sc-bar"><i id="scBar"></i></div>
+  </div>
+
+  <div class="sc-stage" id="scStage"></div>
+
+  <div class="sc-navrow" style="padding-bottom:20px">
+    <button class="sc-btn sc-ghost" type="button" id="scShuffle">Shuffle</button>
+    <button class="sc-btn sc-ghost" type="button" id="scMissed" hidden>Practice what I missed</button>
+    <button class="sc-btn sc-ghost" type="button" id="scClear">Start over</button>
+  </div>
+
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+</footer>
+<div class="cb-credit">
+  <div>Site by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect</a> · <a href="https://www.twrses.org" target="_blank" rel="noopener">人師教育協會</a></div>
+  <div>Guided by <a href="https://www.cieetrc.chc.edu.tw" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a></div>
+  <div><a href="https://changhua-bilingual.org" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+</div>
+<script src="/assets/js/hub.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var LS = "chb-sc-practice";
+  var LTR = ["A", "B", "C", "D", "E"];
+  var BANK = [];
+
+  var state = { topic: "all", track: "all", view: "one", i: 0, order: [], seen: {}, shuffled: false };
+  var missedOnly = false;
+  var seed = 1;
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(LS) || "null");
+    if (saved && saved.seen) { state.seen = saved.seen; state.topic = saved.topic || "all"; state.track = saved.track || "all"; }
+  } catch (e) { /* private mode: run without persistence */ }
+  function save() { try { localStorage.setItem(LS, JSON.stringify({ seen: state.seen, topic: state.topic, track: state.track })); } catch (e) {} }
+
+  var $stage = document.getElementById("scStage");
+  var $tally = document.getElementById("scTally");
+  var $bar = document.getElementById("scBar");
+  var $topic = document.getElementById("scTopic");
+  var $missed = document.getElementById("scMissed");
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+  function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+  function byId(id) { for (var k = 0; k < BANK.length; k++) { if (BANK[k].id === id) return BANK[k]; } return null; }
+
+  function buildTopics() {
+    var mods = [], seenM = {};
+    BANK.forEach(function (q) { if (!seenM[q.m]) { seenM[q.m] = 1; mods.push({ m: q.m, t: q.mt }); } });
+    mods.sort(function (a, b) { return a.m - b.m; });
+    var html = '<option value="all">All topics · 全部 (' + BANK.length + ')</option>';
+    mods.forEach(function (o) {
+      var n = BANK.filter(function (q) { return q.m === o.m; }).length;
+      html += '<option value="' + o.m + '">' + o.m + ' · ' + esc(o.t) + ' (' + n + ')</option>';
+    });
+    $topic.innerHTML = html;
+    $topic.value = state.topic;
+  }
+
+  function pool() {
+    return BANK.filter(function (q) {
+      if (state.topic !== "all" && String(q.m) !== String(state.topic)) return false;
+      if (state.track !== "all" && q.track !== "shared" && q.track !== state.track) return false;
+      if (missedOnly && state.seen[q.id] !== "wrong") return false;
+      return true;
+    });
+  }
+
+  function rebuild(keepIndex) {
+    state.order = pool().map(function (q) { return q.id; });
+    if (state.shuffled) {
+      for (var k = state.order.length - 1; k > 0; k--) {
+        var j = Math.floor(rnd() * (k + 1));
+        var t = state.order[k]; state.order[k] = state.order[j]; state.order[j] = t;
+      }
+    }
+    if (!keepIndex || state.i >= state.order.length) state.i = 0;
+    render();
+  }
+
+  function cardHTML(q, idx, total) {
+    var trackTag = q.track === "a" ? "Year 1" : q.track === "b" ? "Returning" : "";
+    var h = '<div class="sc-card sc-in" data-id="' + q.id + '">';
+    h += '<div class="sc-qmeta"><span class="sc-mchip"><span class="sc-n">' + (q.m < 10 ? "0" : "") + q.m + '</span>' + esc(q.mt) + ' <span class="sc-z">' + esc(q.mz) + '</span></span>';
+    if (trackTag) h += '<span class="sc-tchip">' + trackTag + '</span>';
+    h += '<span class="sc-qidx">' + idx + ' / ' + total + '</span></div>';
+    h += '<p class="sc-stem">' + esc(q.stem) + '</p><div class="sc-opts">';
+    q.options.forEach(function (o, oi) {
+      h += '<button type="button" class="sc-opt" data-oi="' + oi + '"><span class="sc-key">' + LTR[oi] + '</span><span>' + esc(o) + '</span><span class="sc-mk"></span></button>';
+    });
+    return h + '</div></div>';
+  }
+
+  function reveal(cardEl, q, picked) {
+    cardEl.querySelectorAll(".sc-opt").forEach(function (b) {
+      var oi = Number(b.dataset.oi);
+      b.disabled = true;
+      if (oi === q.answer) { b.classList.add("is-answer"); b.querySelector(".sc-mk").textContent = "Correct"; }
+      else if (oi === picked) { b.classList.add("is-wrong"); b.querySelector(".sc-mk").textContent = "You chose"; }
+    });
+    if (cardEl.querySelector(".sc-why")) return;
+    var d = document.createElement("div");
+    d.className = "sc-why";
+    d.innerHTML = "<b>Why</b><p>" + esc(q.why) + "</p>" +
+      (q.src ? '<a class="sc-src" href="' + q.src.url + '" target="_blank" rel="noopener">' + esc(q.src.label) + '</a>' : "");
+    cardEl.appendChild(d);
+    if (state.view === "one") {
+      var nav = document.createElement("div");
+      nav.className = "sc-navrow";
+      nav.innerHTML = '<button class="sc-btn" type="button" data-next>Next question →</button>';
+      cardEl.appendChild(nav);
+      var nb = nav.querySelector("[data-next]");
+      nb.addEventListener("click", function () {
+        state.i = (state.i < state.order.length - 1) ? state.i + 1 : 0;
+        render();
+        var top = document.getElementById("scStage");
+        if (top) window.scrollTo({ top: top.offsetTop - 80, behavior: "smooth" });
+      });
+      nb.focus();
+    }
+  }
+
+  function render() {
+    var total = state.order.length;
+    updateTally();
+    if (!total) {
+      $stage.innerHTML = '<p class="sc-empty">No questions match these filters. Try widening the topic or track.</p>';
+      return;
+    }
+    if (state.view === "all") {
+      $stage.className = "sc-stage is-list";
+      $stage.innerHTML = state.order.map(function (id, k) { return cardHTML(byId(id), k + 1, total); }).join("");
+    } else {
+      $stage.className = "sc-stage";
+      $stage.innerHTML = cardHTML(byId(state.order[state.i]), state.i + 1, total);
+    }
+    $stage.querySelectorAll(".sc-card").forEach(function (cardEl) {
+      var q = byId(cardEl.dataset.id);
+      cardEl.querySelectorAll(".sc-opt").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var picked = Number(b.dataset.oi);
+          state.seen[q.id] = picked === q.answer ? "right" : "wrong";
+          save(); reveal(cardEl, q, picked); updateTally();
+        });
+      });
+    });
+  }
+
+  function updateTally() {
+    var p = pool();
+    var done = p.filter(function (q) { return state.seen[q.id]; }).length;
+    var wrong = BANK.filter(function (q) { return state.seen[q.id] === "wrong"; }).length;
+    $tally.textContent = done + " of " + p.length + " attempted";
+    $bar.style.width = (p.length ? done / p.length * 100 : 0) + "%";
+    $missed.hidden = wrong === 0;
+    $missed.textContent = missedOnly ? "Back to all questions" : "Practice what I missed (" + wrong + ")";
+  }
+
+  $topic.addEventListener("change", function () { state.topic = $topic.value; missedOnly = false; save(); rebuild(); });
+  document.querySelectorAll("[data-track]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.track = b.dataset.track; missedOnly = false;
+      document.querySelectorAll("[data-track]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      save(); rebuild();
+    });
+  });
+  document.querySelectorAll("[data-view]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.view = b.dataset.view;
+      document.querySelectorAll("[data-view]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      rebuild(true);
+    });
+  });
+  document.getElementById("scShuffle").addEventListener("click", function () { state.shuffled = true; seed = (seed + 7919) % 2147483648; rebuild(); });
+  $missed.addEventListener("click", function () { missedOnly = !missedOnly; rebuild(); });
+  document.getElementById("scClear").addEventListener("click", function () {
+    if (!window.confirm("Clear your progress on this device and start over? · 清除這台裝置上的作答紀錄？")) return;
+    state.seen = {}; missedOnly = false; save(); rebuild();
+  });
+
+  fetch("/fets/school-culture/data/practice-bank.json")
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (data) {
+      BANK = data;
+      buildTopics();
+      document.querySelectorAll("[data-track]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.track === state.track)); });
+      rebuild();
+    })
+    .catch(function () {
+      $tally.textContent = "";
+      $stage.innerHTML = '<p class="sc-empty">The question bank could not be loaded. Please refresh, or email luke@mycultureconnect.org.</p>';
+    });
+})();
+</script>
+</body>
+</html>

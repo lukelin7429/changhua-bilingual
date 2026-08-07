@@ -31,6 +31,30 @@ apps-script/       共用的 Apps Script 後端，收集學生作答到 Google S
 2. 執行 `python3 build.py` 重新生成 `index.html` / `schools/index.html` / `fets/index.html` / `resources/index.html`。
 3. `git add . && git commit && git push`。GitHub Pages 自動部署。
 
+### ⚠️ 剛 clone 完的人請先讀這段
+
+`build.py` 產生圖片網址時，`?v=` 快取碼取的是**檔案的 mtime**。git 不保存 mtime，所以**重新 clone 之後所有檔案的 mtime 都是 clone 當下的時間**——這時候直接跑 `build.py`，130 多張圖的 `?v=` 會全部被改掉，`git diff` 出現一大坨與你的修改無關的雜訊，很容易誤 commit。
+
+跑 `build.py` 前先把 mtime 還原成 committed HTML 裡記錄的值：
+
+```bash
+python3 - <<'PY'
+import re, os
+n = 0
+for f in ['schools/index.html', 'index.html']:
+    s = open(f, encoding='utf-8').read()
+    for m in re.finditer(r'"(/assets/[^"?]+)\?v=(\d+)"', s):
+        p, ts = m.group(1).lstrip('/'), int(m.group(2))
+        if os.path.exists(p):
+            os.utime(p, (ts, ts)); n += 1
+print('restored mtimes:', n)
+PY
+```
+
+跑完再 `python3 build.py`，diff 就只會剩下你真正改的東西。（只有真的換了圖檔時，才該讓那一張的 `?v=` 更新。）
+
+**另外**：`schools/index.html` 是產生出來的，**不要手改**。手改的內容下次有人跑 `build.py` 就會被蓋掉，而且會讓 HTML 與 `schools.yml` 不同步（2026-07 就出現過大城鄉卡片排序錯誤、校數顯示 3 但實際 4 的情形）。要改內容一律改 `data/schools.yml`。
+
 ## 設計原則
 
 - **定高 App**：iframe 高度固定 720px，內部以階段切換不出現捲軸

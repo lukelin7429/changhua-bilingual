@@ -35,19 +35,17 @@
   .subnav__sep{color:var(--ink-soft-text);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Compact Banner === */
-  .banner{background:linear-gradient(135deg, var(--ink-deep) 0%, var(--ink-blue) 45%, var(--purple-deep) 100%);color:#fff;padding:36px 24px 44px;position:relative;overflow:hidden;text-align:center;}
+  /* === Compact Banner — photo, no overlay === */
+  .banner{background:#bfe0e8 url('../photos/rainbow-track.jpg') center 60%/cover no-repeat;color:#fff;padding:36px 24px 44px;position:relative;overflow:hidden;text-align:center;}
   @media (min-width:720px){ .banner{ padding:52px 24px 60px; } }
-  .banner::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:radial-gradient(circle, var(--orange) 0%, transparent 70%);opacity:.35;border-radius:50%;}
-  .banner::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle, var(--green) 0%, transparent 70%);opacity:.35;border-radius:50%;}
   .banner__inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
-  .banner__eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:var(--orange-soft);text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+  .banner__eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:var(--orange-soft);text-transform:uppercase;font-weight:600;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.7),0 0 20px rgba(0,0,0,.5);}
   @media (min-width:720px){ .banner__eyebrow{ font-size:16px; } }
-  .banner h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:1px;line-height:1.1;}
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:1px;line-height:1.1;text-shadow:0 4px 24px rgba(0,0,0,.75),0 2px 8px rgba(0,0,0,.65);}
   @media (min-width:720px){ .banner h1{ font-size:62px; } }
-  .banner__zh{font-size:20px;color:#dde5f0;margin-top:8px;font-weight:500;letter-spacing:1.5px;}
+  .banner__zh{font-size:20px;color:#dde5f0;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 16px rgba(0,0,0,.75);}
   @media (min-width:720px){ .banner__zh{ font-size:24px; } }
-  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.5;font-weight:500;}
+  .banner__tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#ffe1c2;margin-top:14px;line-height:1.5;font-weight:500;text-shadow:0 2px 14px rgba(0,0,0,.7);}
   @media (min-width:720px){ .banner__tagline{ font-size:20px; } }
 
   /* === Section === */
@@ -63,47 +61,47 @@
   .sec__lede .zh{display:block;font-size:16px;color:var(--ink-soft-text);margin-top:8px;line-height:1.6;}
   @media (min-width:720px){ .sec__lede .zh{ font-size:18px; } }
 
-  /* === Unit cards === */
-  .units{display:grid;grid-template-columns:1fr;gap:24px;margin-top:42px;}
-  @media (min-width:720px){ .units{ grid-template-columns:repeat(2,1fr);gap:30px; } }
-  @media (min-width:1080px){ .units{ grid-template-columns:repeat(3,1fr); } }
+  /* === Horizontal course cards === */
+  .courses{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);background:#fff;margin-top:42px;}
+  .course{display:flex;flex-direction:row;align-items:stretch;background:#fff;text-decoration:none;color:inherit;border-bottom:1px solid var(--line);transition:background .18s;min-height:150px;}
+  .course:last-child{border-bottom:none;}
+  .course:hover{background:var(--bg-soft);}
+  .course:hover .course__emoji{transform:scale(1.12) rotate(-3deg);}
+  .course:hover .course__cta .arrow{transform:translateX(4px);}
 
-  .unit{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;text-decoration:none;color:inherit;position:relative;}
-  .unit:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 50px -18px rgba(29,58,95,.35);}
-
-  .unit__hero{height:160px;display:flex;align-items:center;justify-content:center;font-size:84px;position:relative;overflow:hidden;}
-  @media (min-width:720px){ .unit__hero{ height:180px;font-size:104px; } }
-  .unit__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:160px;height:160px;background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 60%);border-radius:50%;}
-  .unit__hero::after{content:'';position:absolute;bottom:-40%;left:-40%;width:180px;height:180px;background:radial-gradient(circle, rgba(255,255,255,.25) 0%, transparent 60%);border-radius:50%;}
-  .unit__emoji{position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));transition:transform .3s;}
-  .unit:hover .unit__emoji{transform:scale(1.1) rotate(-3deg);}
+  .course__hero{width:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden;}
+  @media (min-width:720px){ .course__hero{ width:150px;font-size:58px; } }
+  .course__hero::before{content:'';position:absolute;top:-30%;right:-30%;width:140px;height:140px;background:radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 60%);border-radius:50%;}
+  .course__emoji{position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));transition:transform .3s;}
 
   /* Bilingual PE colors (basketball/running/calligraphy) */
-  .unit.pe-1 .unit__hero{background:linear-gradient(135deg, #f4a04d 0%, #b86515 100%);}
-  .unit.pe-2 .unit__hero{background:linear-gradient(135deg, #6ea8d4 0%, #1d3a5f 100%);}
-  .unit.pe-3 .unit__hero{background:linear-gradient(135deg, #7dc47d 0%, #2f5e2f 100%);}
+  .course.pe-1 .course__hero{background:linear-gradient(135deg, #f4a04d 0%, #b86515 100%);}
+  .course.pe-2 .course__hero{background:linear-gradient(135deg, #6ea8d4 0%, #1d3a5f 100%);}
+  .course.pe-3 .course__hero{background:linear-gradient(135deg, #7dc47d 0%, #2f5e2f 100%);}
   /* Topics colors */
-  .unit.t-1 .unit__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}
-  .unit.t-2 .unit__hero{background:linear-gradient(135deg, #e899ba 0%, #a64475 100%);}
+  .course.t-1 .course__hero{background:linear-gradient(135deg, #a585c4 0%, #5b417d 100%);}
+  .course.t-2 .course__hero{background:linear-gradient(135deg, #e899ba 0%, #a64475 100%);}
   /* Club colors */
-  .unit.c-1 .unit__hero{background:linear-gradient(135deg, #d97070 0%, #8c2828 100%);}
-  .unit.c-2 .unit__hero{background:linear-gradient(135deg, #d4b56e 0%, #8c6f15 100%);}
-  .unit.c-3 .unit__hero{background:linear-gradient(135deg, #6e8cb8 0%, #2b5687 100%);}
+  .course.c-1 .course__hero{background:linear-gradient(135deg, #d97070 0%, #8c2828 100%);}
+  .course.c-2 .course__hero{background:linear-gradient(135deg, #d4b56e 0%, #8c6f15 100%);}
+  .course.c-3 .course__hero{background:linear-gradient(135deg, #6e8cb8 0%, #2b5687 100%);}
 
-  .unit__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column;}
-  @media (min-width:720px){ .unit__body{ padding:30px 30px 34px; } }
-  .unit__no{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-deep);}
-  @media (min-width:720px){ .unit__no{ font-size:14px; } }
-  .unit__title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--ink-deep);line-height:1.2;margin-top:6px;}
-  @media (min-width:720px){ .unit__title{ font-size:30px; } }
-  .unit__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;}
-  @media (min-width:720px){ .unit__title-zh{ font-size:19px; } }
-  .unit__desc{font-size:16px;color:var(--ink-soft-text);margin-top:14px;line-height:1.65;flex:1;}
-  @media (min-width:720px){ .unit__desc{ font-size:18px; } }
-  .unit__cta{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);color:var(--orange-deep);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;letter-spacing:.5px;display:flex;justify-content:flex-end;align-items:center;gap:6px;}
-  @media (min-width:720px){ .unit__cta{ font-size:19px; } }
-  .unit__cta .arrow{font-size:1.2em;transition:transform .2s;}
-  .unit:hover .unit__cta .arrow{transform:translateX(4px);}
+  .course__body{flex:1;padding:16px 14px 16px 20px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto auto;align-content:center;column-gap:12px;row-gap:4px;}
+  @media (min-width:720px){ .course__body{ padding:20px 26px 20px 30px;column-gap:22px;row-gap:6px; } }
+  .course__tag{grid-column:1;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange-deep);}
+  @media (min-width:720px){ .course__tag{ font-size:14px; } }
+  .course.t-1 .course__tag, .course.t-2 .course__tag{color:var(--purple-deep);}
+  .course.c-1 .course__tag, .course.c-2 .course__tag, .course.c-3 .course__tag{color:var(--pink-deep);}
+  .course__title{grid-column:1;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink-deep);line-height:1.2;}
+  @media (min-width:720px){ .course__title{ font-size:28px; } }
+  .course__title-zh{grid-column:1;font-size:15px;color:var(--ink);font-weight:600;}
+  @media (min-width:720px){ .course__title-zh{ font-size:17px; } }
+  .course__pills{grid-column:1;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+  .course__pill{background:var(--ink-soft);color:var(--ink-deep);border-radius:99px;padding:4px 12px;font-size:13px;font-weight:600;}
+  @media (min-width:720px){ .course__pill{ font-size:14.5px; } }
+  .course__cta{grid-column:2;grid-row:1/span 4;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--orange-deep);font-family:'Cormorant Garamond',serif;white-space:nowrap;gap:4px;}
+  @media (min-width:720px){ .course__cta{ font-size:17px; } }
+  .course__cta .arrow{font-size:1.2em;transition:transform .2s;}
 
   /* === Video block === */
   .video-block{background:linear-gradient(135deg, var(--bg-soft) 0%, var(--ink-soft) 100%);border-radius:22px;padding:32px 22px;border:1px solid var(--line);margin-top:40px;}
@@ -151,11 +149,7 @@
       <span class="subnav__sep">·</span>
       <a href="./" class="is-active">Lessons</a>
       <span class="subnav__sep">·</span>
-      <a href="../bilingual-campus/">Bilingual Campus</a>
-      <span class="subnav__sep">·</span>
       <a href="../news/">News</a>
-      <span class="subnav__sep">·</span>
-      <a href="/schools/luoqing/festivals/">Festivals</a>
     </div>
   </div>
 </nav>
@@ -169,88 +163,37 @@
   </div>
 </header>
 
-<!-- ===== Bilingual PE ===== -->
-<section>
-  <div class="wrap">
-    <h2 class="sec__title">Bilingual PE</h2>
-    <div class="sec__title-zh">雙語體育 · 在場上學英語 · 螺青招牌系列</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lede">
-      Luoqing's signature bilingual subject — English-medium instruction during PE class. Three flagship videos cover basketball, running, and even calligraphy. More units coming, sequenced from beginner to advanced.
-      <span class="zh">螺青招牌雙語課——用英語指令上體育課。三支旗艦影片涵蓋籃球、跑步、書法。後續更多單元由淺入深進行中。</span>
-    </p>
-
-    <div class="units">
-
-      <a class="unit pe-1" href="https://www.youtube.com/watch?v=Uhsvp4Envrs" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🏀</span></div>
-        <div class="unit__body">
-          <div class="unit__no">PE 01 · Video</div>
-          <div class="unit__title">Basketball English</div>
-          <div class="unit__title-zh">籃球英語教學</div>
-          <div class="unit__desc">Dribble, pass, shoot — the English vocabulary that turns basketball drills into language drills.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
-        </div>
-      </a>
-
-      <a class="unit pe-2" href="https://www.youtube.com/watch?v=OdgUFNUN1rk" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🏃</span></div>
-        <div class="unit__body">
-          <div class="unit__no">PE 02 · Video</div>
-          <div class="unit__title">Running English</div>
-          <div class="unit__title-zh">跑步英語教學</div>
-          <div class="unit__desc">Warm-up, sprint, cool-down — the vocabulary of bodies in motion. Watch the rainbow track come alive in two languages.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
-        </div>
-      </a>
-
-      <a class="unit pe-3" href="https://www.youtube.com/watch?v=-nzFqCTO6Pg" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🖌️</span></div>
-        <div class="unit__body">
-          <div class="unit__no">PE 03 · Video</div>
-          <div class="unit__title">Calligraphy in English</div>
-          <div class="unit__title-zh">書法課英語教學</div>
-          <div class="unit__desc">Brush, ink, paper, stroke — the centuries-old craft introduced through English. Luoqing's school name comes from an academy; the calligraphy never left.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
 <!-- ===== Word of the Day ===== -->
 <section style="background:var(--bg-soft);">
   <div class="wrap">
-    <h2 class="sec__title">Word of the Day</h2>
-    <div class="sec__title-zh">每日一字 · 螺青英語園地系列</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lede">
-      A daily English habit — recorded as short clips by our students and teachers. Ten videos from late November to the last day of the year. <strong>Tap the card to open the full ten-day page</strong> (one card per day, one word per card).
-      <span class="zh">螺青孩子的每天英文小儀式——由師生親自錄製、按日期上架。從 11 月底一路到 12 月 31 日共十支。點下方卡片進入「每日一字」集中頁面（一天一卡、一卡一字）。</span>
-    </p>
+    <div class="courses">
 
-    <div class="units">
-
-      <a class="unit t-1" href="word-of-the-day/">
-        <div class="unit__hero"><span class="unit__emoji">📅</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Daily · Nov–Dec</div>
-          <div class="unit__title">Word of the Day</div>
-          <div class="unit__title-zh">每日一字 · 十天十字</div>
-          <div class="unit__desc">Ten short bilingual clips, dated by the day they were posted. Watch one a day or binge the month — either way you go home with new words.</div>
-          <div class="unit__cta">Open all ten days <span class="arrow">→</span></div>
+      <a class="course t-1" href="word/">
+        <div class="course__hero"><span class="course__emoji">📅</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 01 · Vocabulary</div>
+          <div class="course__title">Word of the Day</div>
+          <div class="course__title-zh">每日一字 · 全收錄</div>
+          <div class="course__pills">
+            <span class="course__pill">📅 20 Videos</span>
+            <span class="course__pill">🔤 13 Words</span>
+            <span class="course__pill">🏀 7 Topics</span>
+          </div>
+          <div class="course__cta">Open all videos <span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a class="unit t-2" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8WMRLoYZ9CmZvCyGpWJKE5v" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🎬</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Full Playlist</div>
-          <div class="unit__title">English Garden Playlist</div>
-          <div class="unit__title-zh">螺青英語園地 完整播放清單</div>
-          <div class="unit__desc">Every Luoqing-made English clip in one playlist — Word of the Day, student introductions, festival celebrations.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
+      <a class="course t-2" href="basic-english/">
+        <div class="course__hero"><span class="course__emoji">🔠</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 02 · Beginners</div>
+          <div class="course__title">Basic English</div>
+          <div class="course__title-zh">奠基英語</div>
+          <div class="course__pills">
+            <span class="course__pill">🔠 21 Videos</span>
+            <span class="course__pill">🎓 Grade 1-2</span>
+          </div>
+          <div class="course__cta">Open all videos <span class="arrow">→</span></div>
         </div>
       </a>
 
@@ -258,75 +201,65 @@
   </div>
 </section>
 
-<!-- ===== Student Voices ===== -->
+<!-- ===== More From English Garden ===== -->
 <section>
   <div class="wrap">
-    <h2 class="sec__title">Student Voices</h2>
-    <div class="sec__title-zh">學生英語自我介紹 · 16 位螺青孩子親自上鏡</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lede">
-      Sixteen short English self-introduction clips — recorded by Luoqing students from 3rd to 6th grade. Real names, real voices, real English.
-      <span class="zh">十六支英文自我介紹短片，由螺青三至六年級孩子親自錄製。真實的名字、真實的聲音、真實的英文。</span>
-    </p>
+    <div class="courses">
 
-    <div class="video-block" style="background:linear-gradient(135deg, var(--pink-soft) 0%, var(--orange-soft) 100%);border-radius:22px;padding:32px 22px;border:1px solid var(--line);margin-top:36px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--ink-deep);text-align:center;">Meet the kids of Luoqing</div>
-      <div style="text-align:center;font-size:16px;color:var(--ink-soft-text);margin-top:6px;">點擊播放器右上角的播放清單圖示，可瀏覽全部 16 支學生影片</div>
-      <div class="video-frame" style="margin-top:24px;position:relative;width:100%;padding-bottom:56.25%;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8WMRLoYZ9CmZvCyGpWJKE5v&rel=0"
-          title="Luoqing English Garden · Student Voices"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Festival Celebrations ===== -->
-<section style="background:var(--bg-soft);">
-  <div class="wrap">
-    <h2 class="sec__title">Festival Celebrations</h2>
-    <div class="sec__title-zh">校園節慶英語活動 · 萬聖節 · 感恩節 · 母親節</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lede">
-      Three short videos from Luoqing's English-themed festival days. Halloween in costume, a Thanksgiving classroom, and a Mother's Day full of cards and smiles.
-      <span class="zh">三支螺青校園英語節慶活動短片——萬聖節變裝、感恩節教室、母親節感謝卡片。</span>
-    </p>
-
-    <div class="units">
-
-      <a class="unit c-1" href="https://www.youtube.com/watch?v=3PYi_0e134c&list=PL01OhMUI2G8WMRLoYZ9CmZvCyGpWJKE5v" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🎃</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Festival 01</div>
-          <div class="unit__title">Halloween</div>
-          <div class="unit__title-zh">萬聖節慶祝活動</div>
-          <div class="unit__desc">Luoqing students in costume — the day the campus turns into a small Halloween street, with English along the way.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
+      <a class="course t-1" href="story-reading/">
+        <div class="course__hero"><span class="course__emoji">📖</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 03 · Reading</div>
+          <div class="course__title">Student Story Reading</div>
+          <div class="course__title-zh">學生朗讀故事</div>
+          <div class="course__pills">
+            <span class="course__pill">📖 9 Videos</span>
+            <span class="course__pill">🎓 Grades 4–6</span>
+          </div>
+          <div class="course__cta">Watch all readings <span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a class="unit c-2" href="https://www.youtube.com/watch?v=tWU9x_WohLg&list=PL01OhMUI2G8WMRLoYZ9CmZvCyGpWJKE5v" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">🦃</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Festival 02</div>
-          <div class="unit__title">Happy Thanksgiving</div>
-          <div class="unit__title-zh">感恩節慶祝活動</div>
-          <div class="unit__desc">A classroom of small thank-yous — the Thanksgiving tradition adapted into a Taiwanese elementary school, in English and Chinese together.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
+      <a class="course t-2" href="phonics/">
+        <div class="course__hero"><span class="course__emoji">🔤</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 04 · Pronunciation</div>
+          <div class="course__title">Phonics</div>
+          <div class="course__title-zh">發音練習</div>
+          <div class="course__pills">
+            <span class="course__pill">🔤 8 Videos</span>
+            <span class="course__pill">🎓 Grade 3</span>
+          </div>
+          <div class="course__cta">Watch all videos <span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a class="unit c-3" href="https://www.youtube.com/watch?v=CkoIiGRvcAw&list=PL01OhMUI2G8WMRLoYZ9CmZvCyGpWJKE5v" target="_blank" rel="noopener">
-        <div class="unit__hero"><span class="unit__emoji">💐</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Festival 03</div>
-          <div class="unit__title">Mother's Day</div>
-          <div class="unit__title-zh">母親節活動</div>
-          <div class="unit__desc">Cards, songs, a few first English thank-yous to mom — Luoqing's annual Mother's Day, captured in one bilingual clip.</div>
-          <div class="unit__cta">Watch on YouTube <span class="arrow">→</span></div>
+      <a class="course c-2" href="lunch/">
+        <div class="course__hero"><span class="course__emoji">🍱</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 05 · Lunchtime English</div>
+          <div class="course__title">Tasty Tidbits Time</div>
+          <div class="course__title-zh">午餐時間</div>
+          <div class="course__pills">
+            <span class="course__pill">🍱 10 Videos</span>
+            <span class="course__pill">📅 Nov–Dec</span>
+          </div>
+          <div class="course__cta">Watch all videos <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="course c-1" href="celebrations/">
+        <div class="course__hero"><span class="course__emoji">🎉</span></div>
+        <div class="course__body">
+          <div class="course__tag">Course 06 · Campus Life</div>
+          <div class="course__title">Festival Celebrations</div>
+          <div class="course__title-zh">校園節慶活動</div>
+          <div class="course__pills">
+            <span class="course__pill">🎃 Halloween</span>
+            <span class="course__pill">🦃 Thanksgiving</span>
+            <span class="course__pill">💐 Mother's Day</span>
+          </div>
+          <div class="course__cta">Watch all videos <span class="arrow">→</span></div>
         </div>
       </a>
 
@@ -337,46 +270,82 @@
 <!-- ===== Campus Clubs ===== -->
 <section>
   <div class="wrap">
-    <h2 class="sec__title">Campus Clubs</h2>
-    <div class="sec__title-zh">校園社團 · 螺青的三個招牌</div>
-    <div class="sec__rule"></div>
-    <p class="sec__lede">
-      Tradition isn't a curriculum chapter at Luoqing — it's a club roster. Dragon dance, recorder ensemble, and calligraphy live as student-led practice.
-      <span class="zh">在螺青，傳統不是課程的某一章——是社團的名冊。舞龍、直笛、書法，三件事由學生親自延續。</span>
-    </p>
+    <div class="courses">
 
-    <div class="units">
-
-      <a class="unit c-1" href="../#luoqing-clubs">
-        <div class="unit__hero"><span class="unit__emoji">🐉</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Club 01</div>
-          <div class="unit__title">Dragon Dance Club</div>
-          <div class="unit__title-zh">舞龍社</div>
-          <div class="unit__desc">Performed at "Flowers in Changhua" (2019) and the County 300th-Anniversary showcase (2022). Folk art, choreography, history — all at once.</div>
-          <div class="unit__cta">More about the club <span class="arrow">→</span></div>
+      <a class="course c-1" href="dragon-dance-club/">
+        <div class="course__hero"><span class="course__emoji">🐉</span></div>
+        <div class="course__body">
+          <div class="course__tag">Club 01</div>
+          <div class="course__title">Dragon Dance Club</div>
+          <div class="course__title-zh">舞龍社</div>
+          <div class="course__pills">
+            <span class="course__pill">🐉 Since 2019</span>
+            <span class="course__pill">🏆 County 300th</span>
+          </div>
+          <div class="course__cta">More about the club <span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a class="unit c-2" href="../#luoqing-clubs">
-        <div class="unit__hero"><span class="unit__emoji">🎶</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Club 02</div>
-          <div class="unit__title">Recorder Ensemble</div>
-          <div class="unit__title-zh">直笛社</div>
-          <div class="unit__desc">A school-wide recorder tradition starting from lower grades. The ensemble plays at every ceremony, visit, and inter-school event.</div>
-          <div class="unit__cta">More about the club <span class="arrow">→</span></div>
+      <a class="course c-2" href="recorder-ensemble/">
+        <div class="course__hero"><span class="course__emoji">🎶</span></div>
+        <div class="course__body">
+          <div class="course__tag">Club 02</div>
+          <div class="course__title">Recorder Ensemble</div>
+          <div class="course__title-zh">直笛社</div>
+          <div class="course__pills">
+            <span class="course__pill">🎶 School-wide</span>
+          </div>
+          <div class="course__cta">More about the club <span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a class="unit c-3" href="../#luoqing-clubs">
-        <div class="unit__hero"><span class="unit__emoji">🖋️</span></div>
-        <div class="unit__body">
-          <div class="unit__no">Club 03</div>
-          <div class="unit__title">Calligraphy Class</div>
-          <div class="unit__title-zh">書法課</div>
-          <div class="unit__desc">Every student takes brush in hand. The same Chinese characters that line the Calligraphy Corridor are what Luoqing students learn to write themselves.</div>
-          <div class="unit__cta">More about the club <span class="arrow">→</span></div>
+      <a class="course c-3" href="calligraphy-class/">
+        <div class="course__hero"><span class="course__emoji">🖋️</span></div>
+        <div class="course__body">
+          <div class="course__tag">Club 03</div>
+          <div class="course__title">Calligraphy Class</div>
+          <div class="course__title-zh">書法課</div>
+          <div class="course__pills">
+            <span class="course__pill">🖋️ Every Student</span>
+          </div>
+          <div class="course__cta">More about the club <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Bilingual Campus & Festivals ===== -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="courses">
+
+      <a class="course t-1" href="../bilingual-campus/">
+        <div class="course__hero"><span class="course__emoji">🏫</span></div>
+        <div class="course__body">
+          <div class="course__tag">Campus-wide</div>
+          <div class="course__title">Bilingual Campus</div>
+          <div class="course__title-zh">雙語校園 · 課室英語 + 雙語廣播</div>
+          <div class="course__pills">
+            <span class="course__pill">📢 10 Situations</span>
+            <span class="course__pill">📻 13 Episodes</span>
+          </div>
+          <div class="course__cta">Explore Bilingual Campus <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="course t-2" href="/schools/luoqing/festivals/">
+        <div class="course__hero"><span class="course__emoji">🎉</span></div>
+        <div class="course__body">
+          <div class="course__tag">16 Festivals</div>
+          <div class="course__title">Festivals English</div>
+          <div class="course__title-zh">節慶英語 · 十六個節日課程與測驗</div>
+          <div class="course__pills">
+            <span class="course__pill">🎊 16 Festivals</span>
+            <span class="course__pill">📝 Quizzes</span>
+          </div>
+          <div class="course__cta">Browse all festivals <span class="arrow">→</span></div>
         </div>
       </a>
 

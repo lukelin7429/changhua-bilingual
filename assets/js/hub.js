@@ -27,7 +27,8 @@
       'main .lcoy-intro', 'main .lcoy-stat', 'main .lcoy-stage', 'main .lcoy-benefit',
       'main .lcoy-model-step', 'main .lcoy-cert', 'main .lcoy-contact', 'main .lcoy-chips',
       'main .lcoy-section-lede', 'main .lcoy-section-lede-zh',
-      'main .fet-card', 'main .qz'
+      'main .fet-card', 'main .qz',
+      'main .mc-level', 'main .mc-panel', 'main .mc-q'
     ].join(',');
     var els = Array.prototype.slice.call(document.querySelectorAll(sel));
     if (!els.length) return;
