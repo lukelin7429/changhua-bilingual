@@ -35,7 +35,7 @@ jobs:
           mkdir -p _site
           rsync -a \
             --exclude='.git' --exclude='.github' --exclude='_site' \
-            --exclude='.pages-exclude' --exclude='tools' \
+            --exclude='.pages-exclude' --exclude='tools' --exclude='worker' \
             --exclude-from='.pages-exclude' \
             ./ _site/
 
