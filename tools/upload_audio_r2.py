@@ -15,13 +15,18 @@ Needs wrangler and a logged-in Cloudflare session:
 
 Re-running is safe: objects already present are skipped unless --force.
 """
-import argparse, json, pathlib, shutil, subprocess, sys
+import argparse, concurrent.futures, json, pathlib, shutil, subprocess, sys
 
 BUCKET = "bilingual-schools-media"
 PREFIX = "changhua-bilingual/learn/audio/"
 
 
 def wrangler_cmd():
+    # A locally installed binary is far faster than npx, which pays Node start-up
+    # plus a package-resolution round trip on every one of the 536 calls.
+    local = pathlib.Path("worker/node_modules/.bin/wrangler")
+    if local.exists():
+        return [str(local)]
     if shutil.which("wrangler"):
         return ["wrangler"]
     if shutil.which("npx"):
@@ -48,6 +53,8 @@ def main():
     ap.add_argument("--dir", default="learn/audio")
     ap.add_argument("--force", action="store_true", help="re-upload even if present")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--jobs", type=int, default=8,
+                    help="parallel uploads (each is a separate wrangler call)")
     args = ap.parse_args()
 
     src = pathlib.Path(args.dir)
@@ -75,18 +82,22 @@ def main():
             print("  would upload", f.name)
         return
 
-    failed = []
-    for i, f in enumerate(todo, 1):
-        key = PREFIX + f.name
+    def put(f):
         r = subprocess.run(
-            w + ["r2", "object", "put", f"{BUCKET}/{key}",
+            w + ["r2", "object", "put", f"{BUCKET}/{PREFIX}{f.name}",
                  "--file", str(f), "--content-type", "audio/mpeg", "--remote"],
             capture_output=True, text=True,
         )
-        if r.returncode != 0:
-            failed.append((f.name, (r.stderr or r.stdout).strip()[:120]))
-        if i % 25 == 0 or i == len(todo):
-            print(f"  {i}/{len(todo)}")
+        return None if r.returncode == 0 else (f.name, (r.stderr or r.stdout).strip()[:140])
+
+    failed, done = [], 0
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
+        for res in pool.map(put, todo):
+            done += 1
+            if res:
+                failed.append(res)
+            if done % 50 == 0 or done == len(todo):
+                print(f"  {done}/{len(todo)}  ({len(failed)} failed)")
 
     if failed:
         print(f"\n{len(failed)} FAILED:")
