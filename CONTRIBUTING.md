@@ -67,6 +67,8 @@ https://changhua-bilingual.org/schools/<學校slug>/bilingual-campus/
 4. **上線**：確認 OK 後說「**沒問題了，commit 並 push 到 main**」。Claude 會寫好 commit message、推上去。
 5. **確認上線**：等 1–2 分鐘，打開 `https://changhua-bilingual.org/schools/<你的學校>/` 重新整理，確認真的更新了。
 
+   > 換的是照片（banner、校長照等）的話，畫面更新前會先經過一層 Cloudflare R2 同步（`.github/workflows/sync-r2.yml` 自動處理，你不用做什麼）。正常一樣 1–2 分鐘內會生效；**如果超過 5 分鐘還是舊圖，先別懷疑瀏覽器快取**，去 repo 的 **Actions 分頁**看「Sync school photos to R2」那次跑的紀錄是不是失敗了（失敗通常是 R2 的金鑰過期，找 Luke 處理）。
+
 ### 3. 怎麼避免「撞車」（人人可改任何學校，所以這段要懂）
 
 每個人都能改任何一間學校，所以理論上有可能兩個人同時改到**同一間學校的同一個檔案**。預防很簡單：
