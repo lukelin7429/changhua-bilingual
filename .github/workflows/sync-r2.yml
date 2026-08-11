@@ -1,0 +1,51 @@
+name: Sync school photos to R2
+
+# Keeps the R2 bucket that worker/worker.js serves /schools/* from up to
+# date. Without this, a photo change only shows up on the live site after
+# someone with R2 access manually re-uploads it — see worker/worker.js for
+# why (R2 miss falls back to the stale GitHub Pages copy instead of 404ing).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'schools/**'
+  workflow_dispatch: # manual "resync everything" button in the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # need the previous commit to diff against
+
+      - name: Determine which photos to upload
+        id: files
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            find schools -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) > changed_files.txt
+          else
+            git diff --name-only --diff-filter=ACMR HEAD^ HEAD -- schools/ \
+              | grep -Ei '\.(jpg|jpeg|png|webp|gif)$' > changed_files.txt || true
+          fi
+          count=$(wc -l < changed_files.txt | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "$count file(s) to upload:"
+          cat changed_files.txt
+
+      - name: Upload to R2
+        if: steps.files.outputs.count != '0'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: |
+          endpoint="https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com"
+          bucket="${{ secrets.R2_BUCKET_NAME }}"
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            [ -f "$f" ] || continue # skip deleted files
+            key="changhua-bilingual/$f"
+            echo "Uploading $f -> s3://$bucket/$key"
+            aws s3 cp "$f" "s3://$bucket/$key" --endpoint-url "$endpoint"
+          done < changed_files.txt
