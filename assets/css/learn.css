@@ -1,0 +1,201 @@
+/* Changhua Mandarin — learn app.
+   App-shaped rather than page-shaped: fixed top bar, one card at a time,
+   thumb-reachable buttons. Palette and type stack follow assets/css/hub.css.
+   Absolute px only, per the repo's typography rule. */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-faint: #8a8a8a;
+  --primary: #1f6e6e;
+  --accent: #e89a3c;
+  --line: #e7e3dc;
+  --line-soft: #f1ede5;
+  --right: #2f7d5c;
+  --right-bg: #e3f1e9;
+  --wrong: #b8493f;
+  --wrong-bg: #fbe7e4;
+  --en: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --zh: 'PingFang TC', 'Apple LiGothic Medium', 'Microsoft JhengHei', sans-serif;
+  --serif: 'Playfair Display', 'PingFang TC', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--en);
+  color: var(--ink);
+  background: #fff;
+  font-size: 20px;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+.hidden { display: none !important; }
+button { font-family: inherit; }
+
+/* ---------------- top bar ---------------- */
+.lx-top {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: max(10px, env(safe-area-inset-top)) 18px 10px;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.lx-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.lx-brand img { border-radius: 8px; }
+.lx-brand span { font-weight: 700; font-size: 18px; line-height: 1.15; }
+.lx-brand small { display: block; font-family: var(--zh); font-size: 13px; font-weight: 400; color: var(--ink-faint); }
+.lx-meters { display: flex; gap: 12px; }
+.lx-meter { font-size: 17px; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lx-meter b { color: var(--ink); }
+
+main { max-width: 640px; margin: 0 auto; padding: 22px 18px 60px; }
+
+/* ---------------- home ---------------- */
+.lx-eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin: 6px 0 0; }
+h1 { font-family: var(--serif); font-size: 40px; line-height: 1.1; margin: 8px 0 14px; }
+.lx-lede { font-size: 20px; color: var(--ink-soft); margin: 0 0 12px; }
+.lx-lede-zh { font-family: var(--zh); font-size: 19px; line-height: 1.85; color: var(--ink-faint); margin: 0 0 8px; }
+.lx-loading { font-size: 18px; color: var(--ink-faint); }
+
+.lx-levels { display: grid; gap: 14px; margin: 26px 0 20px; }
+.lx-lv {
+  display: flex; align-items: flex-start; gap: 16px; width: 100%; text-align: left;
+  padding: 18px 18px 20px; border: 1px solid var(--line); border-left: 6px solid var(--primary);
+  border-radius: 16px; background: #fff; cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.lx-lv:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 14px 32px rgba(0,0,0,.10); }
+.lx-lv:active { transform: translateY(0); }
+.lx-lv--b { border-left-color: #2f7d5c; }
+.lx-lv--i { border-left-color: #1f6e6e; }
+.lx-lv--a { border-left-color: #8a4b2a; }
+.lx-lv-emoji { font-size: 40px; line-height: 1; flex-shrink: 0; }
+.lx-lv-body { display: block; flex: 1; }
+.lx-lv-name { display: block; font-family: var(--serif); font-size: 24px; margin-bottom: 4px; }
+.lx-lv-name b { font-family: var(--zh); font-size: 20px; font-weight: 600; color: var(--ink-soft); }
+.lx-lv-desc { display: block; font-size: 18px; color: var(--ink-soft); margin-bottom: 12px; }
+.lx-bar { display: block; height: 8px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
+.lx-bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 999px; transition: width .4s ease; }
+.lx-lvstat { display: block; font-size: 16px; color: var(--ink-faint); margin-top: 7px; font-variant-numeric: tabular-nums; }
+
+.lx-foot { font-size: 17px; color: var(--ink-faint); line-height: 1.6; }
+.lx-foot a { color: var(--primary); }
+.lx-foot .zh, .lx-install .zh { font-family: var(--zh); display: block; }
+
+.lx-install {
+  margin-top: 22px; padding: 15px 17px; border: 1px dashed var(--line);
+  border-radius: 12px; background: var(--line-soft); font-size: 17px; color: var(--ink-soft);
+}
+.lx-install b { display: block; color: var(--ink); margin-bottom: 4px; font-size: 18px; }
+#lxInstallBtn {
+  margin-top: 12px; border: none; border-radius: 10px; padding: 11px 20px;
+  background: var(--primary); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer;
+}
+
+/* ---------------- round ---------------- */
+.lx-roundbar { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+#lxQuit {
+  border: none; background: none; color: var(--ink-faint); font-size: 24px;
+  cursor: pointer; padding: 4px 8px; line-height: 1;
+}
+.lx-track { flex: 1; height: 12px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
+.lx-track i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 999px; transition: width .3s ease; }
+.lx-num { font-size: 16px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.lx-roundtitle { font-size: 16px; color: var(--ink-faint); margin: 0 0 18px; }
+
+.lx-card { min-height: 300px; }
+.lx-head { margin-bottom: 22px; }
+.lx-instr { font-size: 17px; color: var(--ink-faint); margin: 0 0 14px; }
+.lx-zh { font-family: var(--zh); font-size: 34px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+.lx-py { display: block; font-family: var(--en); font-size: 20px; font-style: italic; color: var(--ink-faint); font-weight: 400; margin-top: 2px; }
+.lx-q { font-size: 21px; line-height: 1.5; margin: 0; }
+.lx-prompt-en { font-size: 26px; font-weight: 600; margin: 0; }
+.lx-prompt-py { font-size: 28px; font-style: italic; color: var(--ink-soft); margin: 0; }
+.lx-audio { display: flex; justify-content: center; padding: 20px 0 6px; }
+
+.lx-say {
+  border: none; background: var(--line-soft); color: var(--primary); border-radius: 10px;
+  width: 46px; height: 46px; font-size: 20px; cursor: pointer; flex-shrink: 0;
+  vertical-align: middle; transition: background .15s ease, transform .15s ease;
+}
+.lx-say:hover { background: #e2ded4; }
+.lx-say.on { background: var(--primary); color: #fff; }
+.lx-say--big { width: 108px; height: 108px; border-radius: 50%; font-size: 42px; }
+.lx-say--big.on { transform: scale(1.05); }
+
+.lx-opts { display: grid; gap: 11px; }
+.lx-opt {
+  text-align: left; border: 2px solid var(--line); border-radius: 14px;
+  padding: 16px 18px; background: #fff; color: var(--ink);
+  font-size: 19px; line-height: 1.45; cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+.lx-opt:hover:not(:disabled) { border-color: var(--primary); }
+.lx-opt:disabled { cursor: default; }
+.lx-opt-zh { font-family: var(--zh); font-size: 26px; font-weight: 600; }
+.lx-opt.right { border-color: var(--right); background: var(--right-bg); }
+.lx-opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+.lx-opt.shake { animation: lxshake .4s; }
+@keyframes lxshake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+.lx-why {
+  display: none; margin-top: 18px; padding: 15px 17px; border-radius: 12px;
+  background: var(--line-soft); font-size: 18px; line-height: 1.65; color: var(--ink-soft);
+}
+.lx-card.graded .lx-why { display: block; }
+.lx-why strong { font-family: var(--zh); font-size: 21px; color: var(--ink); }
+.lx-why em { color: var(--ink-faint); margin-right: 6px; }
+.lx-why span { display: block; margin-top: 8px; }
+
+.lx-next, .lx-btn {
+  display: block; width: 100%; margin-top: 22px; border: none; border-radius: 14px;
+  padding: 17px 24px; background: var(--primary); color: #fff;
+  font-size: 20px; font-weight: 700; cursor: pointer;
+}
+.lx-next:hover, .lx-btn:hover { opacity: .9; }
+.lx-btn--ghost { background: transparent; color: var(--primary); border: 1px solid var(--line); }
+
+/* ---------------- done ---------------- */
+#lxDone h2 { font-family: var(--serif); font-size: 30px; margin: 10px 0 20px; text-align: center; }
+.lx-tally { display: flex; gap: 12px; margin-bottom: 26px; }
+.lx-tally span {
+  flex: 1; text-align: center; padding: 16px 8px; border: 1px solid var(--line);
+  border-radius: 14px; font-size: 15px; color: var(--ink-faint); line-height: 1.35;
+}
+.lx-tally b { display: block; font-size: 26px; color: var(--ink); font-variant-numeric: tabular-nums; margin-bottom: 3px; }
+
+#lxDoneWrong h3 { font-family: var(--serif); font-size: 21px; margin: 0 0 12px; }
+.lx-rev {
+  display: flex; align-items: center; gap: 11px; flex-wrap: wrap;
+  border: 1px solid var(--line); border-left: 4px solid var(--wrong);
+  border-radius: 12px; padding: 13px 15px; margin-bottom: 10px;
+}
+.lx-rev .zh { font-family: var(--zh); font-size: 24px; font-weight: 600; }
+.lx-rev em { font-size: 18px; color: var(--ink-faint); }
+.lx-rev .en { flex-basis: 100%; font-size: 18px; color: var(--ink-soft); }
+.lx-allright { text-align: center; font-size: 19px; color: var(--right); font-weight: 600; }
+.lx-done-actions { margin-top: 26px; }
+
+@media (min-width: 720px) {
+  body { font-size: 23px; }
+  h1 { font-size: 48px; }
+  .lx-lede { font-size: 23px; }
+  .lx-lede-zh { font-size: 21px; }
+  .lx-q { font-size: 24px; }
+  .lx-opt { font-size: 21px; }
+  .lx-zh { font-size: 40px; }
+  .lx-why { font-size: 20px; }
+  .lx-lv-desc { font-size: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

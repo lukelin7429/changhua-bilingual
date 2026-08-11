@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="canonical" href="https://changhua-bilingual.org/learn/">
+  <title>Learn Mandarin · Changhua Bilingual Hub</title>
+  <meta name="description" content="A short daily Mandarin practice app for foreign English teachers in Changhua — campus vocabulary, listening and character recognition, with real audio.">
+  <link rel="manifest" href="/learn/manifest.json">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mandarin">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta property="og:title" content="Learn Mandarin · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/learn.css">
+</head>
+<body>
+
+<header class="lx-top">
+  <a class="lx-brand" href="/fets/">
+    <img src="/assets/logo/icon-180.png" alt="" width="34" height="34">
+    <span>Mandarin<small>彰化外師中文</small></span>
+  </a>
+  <div class="lx-meters">
+    <span class="lx-meter" title="Day streak 連續天數">🔥 <b id="lxStreak">0</b></span>
+    <span class="lx-meter" title="XP">⭐ <b id="lxXp">0</b></span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="lxHome">
+  <p class="lx-eyebrow">Foreign English Teachers</p>
+  <h1>Five minutes a day.</h1>
+  <p class="lx-lede">Short rounds of twelve questions, drawn from the same bank as the Mandarin Challenge. Everything you get wrong comes back tomorrow; everything you get right comes back later and later.</p>
+  <p class="lx-lede-zh">每回合 12 題，約五分鐘。答錯的明天再出現，答對的間隔會愈拉愈長——不用自己安排進度。</p>
+
+  <p class="lx-loading" id="lxLoading">Loading the banks… 題庫載入中…</p>
+
+  <div class="lx-levels">
+    <button type="button" class="lx-lv lx-lv--b" id="lxCard-beginner">
+      <span class="lx-lv-emoji">🌱</span>
+      <span class="lx-lv-body">
+        <span class="lx-lv-name">Beginner <b>入門</b></span>
+        <span class="lx-lv-desc">Greetings, the daily timetable, the replies you need in a hallway.</span>
+        <span class="lx-bar"><i></i></span>
+        <span class="lx-lvstat">loading…</span>
+      </span>
+    </button>
+    <button type="button" class="lx-lv lx-lv--i" id="lxCard-intermediate">
+      <span class="lx-lv-emoji">🏫</span>
+      <span class="lx-lv-body">
+        <span class="lx-lv-name">Intermediate <b>進階</b></span>
+        <span class="lx-lv-desc">The offices, the paperwork, the words that come up with parents.</span>
+        <span class="lx-bar"><i></i></span>
+        <span class="lx-lvstat">loading…</span>
+      </span>
+    </button>
+    <button type="button" class="lx-lv lx-lv--a" id="lxCard-advanced">
+      <span class="lx-lv-emoji">📜</span>
+      <span class="lx-lv-body">
+        <span class="lx-lv-name">Advanced <b>高階</b></span>
+        <span class="lx-lv-desc">Memos, meetings, school news — plus the idioms you will really hear.</span>
+        <span class="lx-bar"><i></i></span>
+        <span class="lx-lvstat">loading…</span>
+      </span>
+    </button>
+  </div>
+
+  <p class="lx-foot">
+    Prefer to browse everything at once? The full bank with answers is on the
+    <a href="/fets/mandarin-challenge/">Mandarin Challenge</a> page.
+    <span class="zh">想一次看完整題庫，請到中文挑戰頁。</span>
+  </p>
+
+  <div class="lx-install hidden" id="lxInstall">
+    <b>Add this to your home screen</b>
+    <span id="lxInstallHow"></span>
+    <button type="button" id="lxInstallBtn" class="hidden">Install · 安裝</button>
+  </div>
+</section>
+
+<!-- ============ ROUND ============ -->
+<section id="lxRound" class="hidden">
+  <div class="lx-roundbar">
+    <button type="button" id="lxQuit" aria-label="Leave this round 離開">✕</button>
+    <span class="lx-track"><i id="lxProgress"></i></span>
+    <span class="lx-num" id="lxCount">1 / 12</span>
+  </div>
+  <p class="lx-roundtitle" id="lxRoundTitle"></p>
+  <div class="lx-card" id="lxCard"></div>
+  <button type="button" class="lx-next hidden" id="lxNext">Continue · 繼續</button>
+</section>
+
+<!-- ============ DONE ============ -->
+<section id="lxDone" class="hidden">
+  <h2 id="lxDoneHead"></h2>
+  <div class="lx-tally">
+    <span><b id="lxDoneScore">0 / 12</b>correct 答對</span>
+    <span><b id="lxDoneStreak">0</b>day streak 連續</span>
+    <span><b id="lxDoneXp">0</b>XP</span>
+  </div>
+  <div id="lxDoneWrong"></div>
+  <div class="lx-done-actions">
+    <button type="button" class="lx-btn" id="lxAgain">Another round · 再一回合</button>
+    <button type="button" class="lx-btn lx-btn--ghost" id="lxHomeBtn">Done for now · 先到這裡</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+window.__LEARN_CONFIG__ = {
+  dataBase:  '/fets/mandarin-challenge/data/',
+  audioBase: '/learn/audio/',
+  manifestUrl: '/learn/audio-manifest.json'
+};
+</script>
+<script src="/assets/js/learn-engine.js"></script>
+<script>
+// Install hint: Android gets a real button, iOS gets instructions (Safari has
+// no beforeinstallprompt).
+(function () {
+  var box = document.getElementById('lxInstall');
+  var how = document.getElementById('lxInstallHow');
+  var btn = document.getElementById('lxInstallBtn');
+  var standalone = window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone;
+  if (standalone) return;
+
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    how.textContent = 'One tap and it lives on your home screen, offline. 一鍵加到主畫面，離線可用。';
+    btn.classList.remove('hidden');
+    box.classList.remove('hidden');
+  });
+  btn.addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred = null;
+    box.classList.add('hidden');
+  });
+
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    how.innerHTML = 'Tap the Share button <b>⎋</b> below, then <b>Add to Home Screen</b>.'
+      + '<span class="zh">按下方的分享鍵，選「加入主畫面」，就能離線使用。</span>';
+    box.classList.remove('hidden');
+  }
+})();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/learn/sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
