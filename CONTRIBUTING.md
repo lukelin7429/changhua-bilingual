@@ -87,6 +87,35 @@ https://changhua-bilingual.org/schools/<學校slug>/bilingual-campus/
 - ❌ 不要 `git add .` 或 `git add -A`，只 add 你這次真的有改的學校資料夾（叫 Claude「只 add `schools/<學校slug>/`」）。
 - ❌ 不要 commit `.env`、Google API key、家長/老師個資、薪資資料、簽名圖片（見第十一節）。
 - ❌ 沒在本機預覽過就 push（跳過第 2 節第 3 步）。
+- ❌ 跑完 `build.py` 不看 diff 就 commit（見下一節，會無聲洗掉別人的改版）。
+
+### 5. 跑 build.py 前必讀
+
+首頁、`/schools/`、`/fets/` 這些頁是 `build.py` 從 `data/` 產生的。新增學校的正規做法是
+**改 `data/schools.yml` 再跑 `python3 build.py`**。但目前跑 build 有兩個已知副作用，
+commit 前務必逐一確認：
+
+**① `fets/index.html` 會被打回舊版（-28 行）**
+該檔在 build 之後被手動改版過（三級題庫、每日練習卡、對應 CSS），這些內容**不在 build.py 裡**，
+一跑 build 就消失，而且不會報錯。跑完先看：
+
+```bash
+git diff --stat -- fets/index.html     # 應該是 0；有變動就是把改版洗掉了
+```
+
+要保留就 `git checkout -- fets/index.html`。根治方式是把那次改版寫回 build.py 的樣板。
+
+**② 學校縮圖的 `?v=` 會整批跳動（約 264 行）**
+版本號取自檔案 mtime（`build.py:476`），而 **git 不保存 mtime**——它等於「你 clone 的時間」，
+所以每個人 build 出來的號碼都不同，還可能比 commit 裡的**更舊**（版本號倒退 = 瀏覽器續用舊快取）。
+症狀是 diff 出現上百行只差 `?v=` 的雜訊，真正的改動被埋在裡面。
+
+暫時做法：只留下你這次真正需要的那幾行，其餘用 `git checkout -- <檔>` 還原；
+或直接手動把新學校的卡片插進 `schools/index.html`（記得同步更新該鎮的 `N schools` 與
+首頁 `HUB_TOWNSHIP_INDEX` 的 `school_count`），並照樣更新 `data/schools.yml` 保持資料一致。
+
+根治方式：把 `?v=` 改成內容雜湊（例如 `hashlib.md5(photo_path.read_bytes()).hexdigest()[:8]`），
+檔案內容變才變號碼，任何人 build 結果都一致。**要動 `build.py` 請先問 Luke。**
 
 ---
 
