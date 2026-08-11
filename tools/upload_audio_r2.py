@@ -16,9 +16,11 @@ Needs wrangler and a logged-in Cloudflare session:
 Re-running is safe: objects already present are skipped unless --force.
 """
 import argparse, concurrent.futures, json, pathlib, shutil, subprocess, sys
+import urllib.request
 
 BUCKET = "bilingual-schools-media"
 PREFIX = "changhua-bilingual/learn/audio/"
+PUBLIC_BASE = "https://changhua-bilingual.org/learn/audio/"
 
 
 def wrangler_cmd():
@@ -34,18 +36,29 @@ def wrangler_cmd():
     sys.exit("Neither wrangler nor npx found. Install Node, then: npx wrangler login")
 
 
-def existing_keys(w):
-    """Keys already in the bucket, so a re-run doesn't re-upload everything."""
-    try:
-        out = subprocess.run(
-            w + ["r2", "object", "list", BUCKET, "--prefix", PREFIX, "--remote"],
-            capture_output=True, text=True, timeout=180,
-        )
-        if out.returncode != 0:
+def already_live(names, jobs):
+    """Which clips are already reachable by a learner.
+
+    wrangler has no way to list the objects in a bucket — `r2 object` is only
+    get/put/delete and `r2 bucket list` lists buckets — so instead of asking R2
+    what it holds, ask the site what it actually serves. That is the thing we
+    care about anyway: an object present in the bucket but not reachable
+    through the Worker is no use to anyone.
+    """
+    def head(name):
+        # Cloudflare answers urllib's default User-Agent with a 403, so every
+        # probe would look like a miss and the whole set would re-upload.
+        req = urllib.request.Request(
+            PUBLIC_BASE + name, method="HEAD",
+            headers={"User-Agent": "changhua-bilingual-upload/1.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return name if r.status == 200 else None
+        except Exception:                                # noqa: BLE001
             return None
-        return {ln.strip() for ln in out.stdout.splitlines() if ln.strip().endswith(".mp3")}
-    except Exception:                                    # noqa: BLE001
-        return None
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=jobs * 3) as pool:
+        return {n for n in pool.map(head, names) if n}
 
 
 def main():
@@ -71,11 +84,17 @@ def main():
                  f"(e.g. {sorted(missing)[:3]}). Run tools/gen_audio.py first.")
 
     w = wrangler_cmd()
-    skip = set() if args.force else (existing_keys(w) or set())
-    if skip:
-        print(f"{len(skip)} objects already in R2 — skipping those.")
+    if args.force:
+        skip = set()
+    else:
+        print(f"Checking which of the {len(files)} clips are already live…")
+        skip = already_live([f.name for f in files], args.jobs)
+        print(f"  {len(skip)} already served — skipping those.")
 
-    todo = [f for f in files if (PREFIX + f.name) not in skip]
+    todo = [f for f in files if f.name not in skip]
+    if not todo:
+        print("Nothing to upload — every clip is already live.")
+        return
     print(f"{len(todo)} of {len(files)} to upload -> r2://{BUCKET}/{PREFIX}")
     if args.dry_run:
         for f in todo[:10]:
