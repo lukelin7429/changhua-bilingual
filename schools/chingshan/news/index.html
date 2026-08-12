@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="canonical" href="https://changhua-bilingual.org/schools/chingshan/news/">
-<title>News · 新聞 · Chingshan Elementary</title>
-<meta name="description" content="Chingshan Elementary School's news page — coming soon. 青山國小新聞頁面，籌備中。">
+<title>News · 校園新聞 · Chingshan Elementary</title>
+<meta name="description" content="School news from Chingshan Elementary — bilingual stories from a campus at the foot of Baiguo Mountain, Yuanlin, Changhua. 青山國小校園新聞——彰化縣員林市百果山麓校園的最新動態。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/chingshan/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/chingshan/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/chingshan/favicon-180.png">
@@ -15,38 +15,84 @@
 <style>
   :root{
     --ink-deep:#1b4a52;--ink-blue:#2c6b74;--ink-soft:#e4eef0;
+    --green:#4f9d5c;--green-deep:#2f6b3a;--green-soft:#e4f2e6;
     --orange:#e2932f;--orange-deep:#a86f1a;--orange-soft:#fbe8d0;
+    --purple:#7e6fa3;--purple-deep:#5b4d7d;--purple-soft:#ece7f4;
+    --pink:#d98aa0;--pink-soft:#fbe4ec;
     --bg-soft:#f5f9f8;--line:#dde8e6;--ink:#1f2530;--ink-soft-text:#5a606e;
-    --shadow:0 14px 38px -16px rgba(27,74,82,.30);
+    --shadow:0 14px 38px -16px rgba(27,74,82,.30);--shadow-sm:0 6px 16px -6px rgba(27,74,82,.18);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:var(--ink);font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased;}
   @media (min-width:720px){ body{ font-size:23px; } }
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-  section{padding:56px 0;}
-  @media (min-width:720px){ section{ padding:80px 0; } }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  @media (min-width:720px){ section{ padding:72px 0; } }
+  section:last-of-type{border-bottom:none;}
   .sec__no{font-family:'Cormorant Garamond',serif;color:var(--orange);font-size:22px;font-weight:700;letter-spacing:5px;}
+  @media (min-width:720px){ .sec__no{ font-size:25px; } }
   .sec__title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--ink-deep);line-height:1.15;margin-top:6px;letter-spacing:.5px;}
   @media (min-width:720px){ .sec__title{ font-size:60px; } }
   .sec__title-zh{font-size:20px;color:var(--ink-soft-text);font-weight:500;margin-top:10px;letter-spacing:1px;}
+  @media (min-width:720px){ .sec__title-zh{ font-size:24px; } }
   .sec__rule{width:96px;height:6px;background:var(--orange);border-radius:3px;margin:22px 0 36px;}
-  .lead{font-size:22px;color:var(--ink);line-height:1.7;max-width:700px;}
-  .lead-zh{font-size:19px;color:var(--ink-soft-text);margin-top:8px;line-height:1.65;max-width:700px;}
+
   .subnav{background:var(--ink-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
   .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
+  @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
   .subnav a{color:var(--ink-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--orange-deep);}
   .subnav a.is-active{background:var(--orange);color:#fff;}
   .subnav__sep{color:var(--ink-soft-text);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
-  .hero{background:#bfe0e8 url('../photos/corridor.jpg') center 55%/cover no-repeat;color:#fff;padding:56px 24px 60px;text-align:center;position:relative;}
-  @media (min-width:720px){ .hero{ padding:80px 24px 88px; } }
-  .hero__brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;color:#ffd9b0;text-transform:uppercase;font-weight:600;margin-bottom:14px;text-shadow:0 2px 10px rgba(0,0,0,.7);}
-  .hero h1{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;letter-spacing:.5px;line-height:1.05;text-shadow:0 4px 26px rgba(0,0,0,.75);}
-  @media (min-width:720px){ .hero h1{ font-size:72px; } }
-  .hero__zh{font-size:22px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 16px rgba(0,0,0,.75);}
-  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft-text);}
+
+  .banner{background:#bfe0e8 url('../photos/corridor.jpg') center 55%/cover no-repeat;color:#fff;padding:36px 24px 44px;position:relative;overflow:hidden;text-align:center;}
+  @media (min-width:720px){ .banner{ padding:52px 24px 60px; } }
+  .banner__inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
+  .banner__eyebrow{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:var(--orange-soft);text-transform:uppercase;font-weight:600;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.7),0 0 20px rgba(0,0,0,.5);}
+  @media (min-width:720px){ .banner__eyebrow{ font-size:16px; } }
+  .banner h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:1px;line-height:1.1;text-shadow:0 4px 24px rgba(0,0,0,.75),0 2px 8px rgba(0,0,0,.65);}
+  @media (min-width:720px){ .banner h1{ font-size:62px; } }
+  .banner__zh{font-size:20px;color:#f0f4f9;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-shadow:0 2px 16px rgba(0,0,0,.75);}
+  @media (min-width:720px){ .banner__zh{ font-size:24px; } }
+
+  .lead-zh{font-size:17px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ .lead-zh{ font-size:19px; } }
+  .feat{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);margin-top:30px;transition:transform .2s,box-shadow .2s;}
+  .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  @media (min-width:760px){ .feat{ display:grid;grid-template-columns:1.1fr 1fr; } }
+  .feat__img{aspect-ratio:16/10;overflow:hidden;}
+  @media (min-width:760px){ .feat__img{ aspect-ratio:auto;height:100%; } }
+  .feat__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .feat__b{padding:26px 26px 28px;display:flex;flex-direction:column;}
+  @media (min-width:720px){ .feat__b{ padding:34px 36px 36px; } }
+  .feat__badge{align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--orange);padding:5px 14px;border-radius:20px;}
+  .feat__t{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--ink-deep);line-height:1.25;margin-top:14px;}
+  @media (min-width:720px){ .feat__t{ font-size:32px; } }
+  .feat__t small{display:block;font-size:16px;color:var(--ink-soft-text);font-weight:500;margin-top:6px;letter-spacing:.5px;}
+  @media (min-width:720px){ .feat__t small{ font-size:18px; } }
+  .feat__date{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:var(--orange-deep);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:10px;}
+  .feat__p{font-size:16.5px;color:var(--ink);line-height:1.7;margin-top:14px;}
+  @media (min-width:720px){ .feat__p{ font-size:18px; } }
+  .feat__cta{margin-top:18px;font-weight:700;color:var(--orange-deep);}
+  .cards{display:grid;grid-template-columns:1fr;gap:20px;margin-top:26px;}
+  @media (min-width:640px){ .cards.two{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:640px){ .cards.three{ grid-template-columns:repeat(3,1fr); } }
+  .lcard{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
+  .lcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .lcard .cover{aspect-ratio:4/3;overflow:hidden;}
+  .lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;}
+  .lcard .body{padding:18px 20px 20px;}
+  .lcard h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ink-deep);line-height:1.3;}
+  .lcard .zh{font-size:14px;color:var(--ink-soft-text);margin-top:6px;line-height:1.5;}
+
+  footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft-text);line-height:1.65;}
+  @media (min-width:720px){ footer{ font-size:18px; } }
+  /* reveal-fx */
+  .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rvl.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
   <link rel="stylesheet" href="/schools/chingshan/motion.css">
   <link rel="stylesheet" href="/assets/css/motion.css">
@@ -67,20 +113,37 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero__brand">Chingshan Elementary · 青山國小</div>
-  <h1>News</h1>
-  <div class="hero__zh">校園新聞</div>
+<header class="banner">
+  <div class="banner__inner">
+    <div class="banner__eyebrow">Chingshan Elementary · 青山國小</div>
+    <h1>News</h1>
+    <div class="banner__zh">校園新聞 · 最近動態</div>
+  </div>
 </header>
 
 <section>
   <div class="wrap">
     <div class="sec__no">I.</div>
-    <h2 class="sec__title">Coming Soon</h2>
-    <div class="sec__title-zh">新聞籌備中</div>
+    <h2 class="sec__title">Featured Stories</h2>
+    <div class="sec__title-zh">精選報導 · 校園近期大小事</div>
     <div class="sec__rule"></div>
-    <p class="lead">Stories from Chingshan's campus are on the way.</p>
-    <p class="lead-zh">來自青山國小校園的新聞故事，正在籌備中，敬請期待。</p>
+    <p class="lead-zh" style="margin-top:0;">Full stories, with words to learn and a matching game to play. 完整版報導，附單字學習區與配對遊戲。</p>
+
+    <a class="feat" href="easter-egg-hunt/">
+      <div class="feat__img"><img src="/schools/chingshan/news-img/easter-egg-hunt-3.jpg" alt="青山國小學生在校園拿著彩繪復活節彩蛋合影" loading="lazy"></div>
+      <div class="feat__b">
+        <span class="feat__badge">Latest · 最新</span>
+        <div class="feat__t">Easter Egg Adventure<small>復活節彩蛋大冒險：青山國小變身英文遊樂園</small></div>
+        <div class="feat__date">2026 · Spring</div>
+        <p class="feat__p">Colors, directions, and a campus-wide treasure hunt — Chingshan students used English instructions to find hidden eggs and win capsule-toy prizes.</p>
+        <div class="feat__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <div class="cards two">
+      <a class="lcard" href="new-year-blessing/"><div class="cover"><img src="/schools/chingshan/news-img/new-year-blessing-2.jpg" alt="財神爺在校門口向青山國小學生賀年" loading="lazy"></div><div class="body"><h3>New Year Magic at Chingshan</h3><div class="zh">財神報喜、英語傳情：青山歲末大驚喜</div></div></a>
+      <a class="lcard" href="red-tortoise-cake/"><div class="cover"><img src="/schools/chingshan/news-img/red-tortoise-cake-1.jpg" alt="青山國小學生製作紅龜粿" loading="lazy"></div><div class="body"><h3>Making Traditional Red Tortoise Cakes</h3><div class="zh">青山國小手作紅龜粿：體驗米食文化 傳承本土記憶</div></div></a>
+    </div>
   </div>
 </section>
 
