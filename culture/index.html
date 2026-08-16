@@ -18,8 +18,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
   <link rel="stylesheet" href="/assets/css/learn.css">
   <style>
+    /* In a browser tab this is a page on the Hub and carries the site nav.
+       Installed to a home screen it is an app, where a website menu and footer
+       would only be in the way — so they are dropped in standalone mode and the
+       app's own bar takes over the sticky slot. */
+    .lx-top { position: static; }
+    @media (display-mode: standalone) {
+      .hub-nav, .hub-footer { display: none !important; }
+      .lx-top { position: sticky; top: 0; }
+    }
+
     /* This app runs warm-brown where the Mandarin one runs teal, so a teacher
        with both on the home screen can tell them apart at a glance. */
     :root { --primary: #8a4b2a; --accent: #c9762f; }
@@ -79,6 +90,37 @@
   </style>
 </head>
 <body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" id="hubNavToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<div class="hub-mob-drawer" id="hubMobDrawer" aria-hidden="true">
+  <nav><a href="/">Home</a><a href="/schools/">Schools</a><a href="/fets/" class="active">FETs</a><a href="/word-of-the-day/">Word of the Day</a><a href="/resources/">Resources</a><a href="/partners/">Partners</a></nav>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('hubNavToggle');
+  var dr=document.getElementById('hubMobDrawer');
+  if(!btn||!dr)return;
+  function open(){dr.classList.add('is-open');dr.setAttribute('aria-hidden','false');btn.classList.add('is-open');btn.setAttribute('aria-expanded','true');document.body.classList.add('mob-nav-open');}
+  function close(){dr.classList.remove('is-open');dr.setAttribute('aria-hidden','true');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('mob-nav-open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();dr.classList.contains('is-open')?close():open();});
+  document.addEventListener('click',function(e){if(dr.classList.contains('is-open')&&!dr.contains(e.target)&&!btn.contains(e.target))close();});
+})();
+</script>
 
 <header class="lx-top">
   <a class="lx-brand" href="/fets/">
@@ -211,6 +253,24 @@
 </section>
 
 </main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+</footer>
 
 <script>
 window.__LEARN_CONFIG__ = {
@@ -257,5 +317,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+<script src="/assets/js/hub.js"></script>
 </body>
 </html>
