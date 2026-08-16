@@ -1,13 +1,13 @@
 /* Campus Culture — service worker.
  *
- * Shell and question banks: stale-while-revalidate, so a deploy reaches
- * everyone on their next visit without ever leaving them staring at a spinner.
+ * Shell and question banks: network first, falling back to cache when offline,
+ * so a deploy is live immediately and no one ever runs a half-updated build.
  * Audio: cache-first and kept forever — the filenames are content hashes, so a
  * changed phrase gets a new name and the old file simply falls out of use.
  * Audio is shared with the Mandarin app (same clips, same cache), so it is
  * fetched on play rather than precached.
  */
-var VERSION = 'v1';
+var VERSION = 'v2';
 var PREFIX = 'culture-shell-';
 var SHELL = 'culture-shell-' + VERSION;
 var AUDIO = 'mandarin-audio';           // unversioned: content-hashed filenames
@@ -83,14 +83,17 @@ self.addEventListener('fetch', function (e) {
       url.pathname.indexOf('/assets/js/learn-engine.js') === 0 ||
       url.pathname.indexOf('/assets/js/culture-extras.js') === 0 ||
       url.pathname.indexOf('/culture/data/') === 0) {
+    // Network first. Stale-while-revalidate would hand back the previous build
+    // and only refresh afterwards, so every deploy landed one visit late — and
+    // a visit that mixes a new page with the previous engine is simply broken.
+    // Offline still works: the cached copy is the fallback, not the default.
     e.respondWith(
       caches.open(SHELL).then(function (c) {
-        return c.match(req).then(function (hit) {
-          var net = fetch(req).then(function (res) {
-            if (res && res.ok) c.put(req, res.clone());
-            return res;
-          }).catch(function () { return hit; });
-          return hit || net;
+        return fetch(req).then(function (res) {
+          if (res && res.ok) c.put(req, res.clone());
+          return res;
+        }).catch(function () {
+          return c.match(req);
         });
       })
     );
