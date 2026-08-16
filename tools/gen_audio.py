@@ -30,17 +30,33 @@ def phrase_hash(zh: str) -> str:
     return hashlib.sha1(zh.encode("utf-8")).hexdigest()[:12]
 
 
+TERMS = pathlib.Path("culture/data/terms.json")   # School Culture vocabulary
+
+
 def load_phrases(data_dir: pathlib.Path):
-    """Return [(hash, zh, [ids])] in stable order, de-duplicated across banks."""
+    """Every phrase needing audio, de-duplicated by content hash.
+
+    Both apps draw from one pool: a phrase shared between the Mandarin banks and
+    the School Culture terms (教務處, 導師 …) is one file, used by both.
+    """
     seen, order = {}, []
+
+    def add(zh, py, ref):
+        h = phrase_hash(zh)
+        if h not in seen:
+            seen[h] = {"hash": h, "zh": zh, "py": py, "ids": []}
+            order.append(h)
+        seen[h]["ids"].append(ref)
+
     for name in BANKS:
         bank = json.loads((data_dir / f"{name}.json").read_text(encoding="utf-8"))
         for q in bank["questions"]:
-            h = phrase_hash(q["zh"])
-            if h not in seen:
-                seen[h] = {"hash": h, "zh": q["zh"], "py": q["py"], "ids": []}
-                order.append(h)
-            seen[h]["ids"].append(q["id"])
+            add(q["zh"], q["py"], q["id"])
+
+    if TERMS.exists():
+        for t in json.loads(TERMS.read_text(encoding="utf-8"))["terms"]:
+            add(t["zh"], t["py"], "term:" + t["zh"])
+
     return [seen[h] for h in order]
 
 

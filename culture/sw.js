@@ -1,27 +1,31 @@
-/* Changhua Mandarin — service worker.
+/* Campus Culture — service worker.
  *
  * Shell and question banks: stale-while-revalidate, so a deploy reaches
  * everyone on their next visit without ever leaving them staring at a spinner.
  * Audio: cache-first and kept forever — the filenames are content hashes, so a
  * changed phrase gets a new name and the old file simply falls out of use.
- * The 536 clips are deliberately NOT precached; they arrive as they are played.
+ * Audio is shared with the Mandarin app (same clips, same cache), so it is
+ * fetched on play rather than precached.
  */
 var VERSION = 'v1';
-var PREFIX = 'mandarin-shell-';
-var SHELL = 'mandarin-shell-' + VERSION;
+var PREFIX = 'culture-shell-';
+var SHELL = 'culture-shell-' + VERSION;
 var AUDIO = 'mandarin-audio';           // unversioned: content-hashed filenames
 
 var PRECACHE = [
-  '/learn/',
-  '/learn/manifest.json',
+  '/culture/',
+  '/culture/manifest.json',
   '/learn/audio-manifest.json',
   '/assets/css/learn.css',
   '/assets/js/learn-engine.js',
+  '/assets/js/culture-extras.js',
   '/assets/logo/icon-192.png',
   '/assets/logo/icon-512.png',
-  '/fets/mandarin-challenge/data/beginner.json',
-  '/fets/mandarin-challenge/data/intermediate.json',
-  '/fets/mandarin-challenge/data/advanced.json'
+  '/culture/data/terms.json',
+  '/culture/data/m1.json',
+  '/culture/data/m2.json',
+  '/culture/data/m8.json',
+  '/culture/data/reference.json'
 ];
 
 self.addEventListener('install', function (e) {
@@ -74,10 +78,11 @@ self.addEventListener('fetch', function (e) {
   }
 
   // Shell and banks — serve cached immediately, refresh in the background.
-  if (url.pathname.indexOf('/learn/') === 0 ||
+  if (url.pathname.indexOf('/culture/') === 0 ||
       url.pathname.indexOf('/assets/css/learn.css') === 0 ||
       url.pathname.indexOf('/assets/js/learn-engine.js') === 0 ||
-      url.pathname.indexOf('/fets/mandarin-challenge/data/') === 0) {
+      url.pathname.indexOf('/assets/js/culture-extras.js') === 0 ||
+      url.pathname.indexOf('/culture/data/') === 0) {
     e.respondWith(
       caches.open(SHELL).then(function (c) {
         return c.match(req).then(function (hit) {

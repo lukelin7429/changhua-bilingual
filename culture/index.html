@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="canonical" href="https://changhua-bilingual.org/culture/">
+  <title>Campus Culture · Changhua Bilingual Hub</title>
+  <meta name="description" content="How a Taiwanese campus actually works — offices, calendar, co-teaching — plus a searchable reference for the rules on discipline, reporting, gender equity, bullying and privacy.">
+  <link rel="manifest" href="/culture/manifest.json">
+  <meta name="theme-color" content="#8a4b2a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Campus">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta property="og:title" content="Campus Culture · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/learn.css">
+  <style>
+    /* This app runs warm-brown where the Mandarin one runs teal, so a teacher
+       with both on the home screen can tell them apart at a glance. */
+    :root { --primary: #8a4b2a; --accent: #c9762f; }
+    .lx-lv--b { border-left-color:#8a4b2a; }
+    .lx-lv--i { border-left-color:#a8672f; }
+    .lx-lv--a { border-left-color:#c9762f; }
+
+    .cu-tabs { display:flex; gap:8px; margin:22px 0 4px; flex-wrap:wrap; }
+    .cu-tab {
+      border:1px solid var(--line); background:#fff; border-radius:999px;
+      padding:11px 20px; font-size:18px; font-weight:600; color:var(--ink-soft); cursor:pointer;
+    }
+    .cu-tab.is-on { background:var(--primary); border-color:var(--primary); color:#fff; }
+
+    .cu-warn {
+      border:1px solid #f0d9b5; background:#fdf3e3; color:#7a4a17;
+      border-radius:12px; padding:15px 17px; font-size:18px; line-height:1.6; margin:0 0 20px;
+    }
+    .cu-warn b { display:block; color:#5c3610; margin-bottom:5px; font-size:19px; }
+    .cu-warn .zh { display:block; margin-top:7px; font-family:var(--zh); font-size:17px; }
+
+    .cu-search {
+      width:100%; padding:15px 17px; border:1px solid var(--line); border-radius:12px;
+      font-size:19px; font-family:var(--en); margin-bottom:8px; color:var(--ink);
+    }
+    .cu-search:focus-visible { outline:2px solid var(--primary); outline-offset:1px; }
+    .cu-count { font-size:17px; color:var(--ink-faint); margin:0 0 18px; }
+
+    .cu-mod { font-family:var(--serif); font-size:23px; margin:30px 0 4px; color:var(--ink); }
+    .cu-mod-zh { font-family:var(--zh); font-size:18px; color:var(--ink-faint); margin:0 0 14px; }
+
+    .cu-item { border-top:1px solid var(--line); padding:20px 0; }
+    .cu-item__q { font-size:20px; line-height:1.5; margin:0 0 12px; }
+    .cu-item__a {
+      display:flex; gap:10px; align-items:flex-start; font-size:19px; line-height:1.5;
+      background:#e3f1e9; border:1px solid #2f7d5c; border-radius:10px;
+      padding:12px 15px; margin:0 0 12px; color:var(--ink);
+    }
+    .cu-item__a b { color:#2f7d5c; flex-shrink:0; }
+    .cu-item__why { font-size:18px; line-height:1.65; color:var(--ink-soft); margin:0; }
+    .cu-empty { font-size:19px; color:var(--ink-faint); text-align:center; padding:40px 0; }
+
+    /* Vocabulary browser */
+    .cu-terms { display:grid; gap:12px; margin-top:6px; }
+    .cu-term { display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      border:1px solid var(--line); border-left:4px solid var(--primary);
+      border-radius:12px; padding:14px 16px; }
+    .cu-term__zh { font-family:var(--zh); font-size:26px; font-weight:600; }
+    .cu-term__py { font-size:18px; font-style:italic; color:var(--ink-faint); }
+    .cu-term__en { font-size:19px; font-weight:600; }
+    .cu-term__why { flex-basis:100%; font-size:17px; line-height:1.6; color:var(--ink-soft); margin:0; }
+
+    @media (min-width:720px) {
+      .cu-item__q { font-size:23px; }
+      .cu-item__a, .cu-item__why { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="lx-top">
+  <a class="lx-brand" href="/fets/">
+    <img src="/assets/logo/icon-180.png" alt="" width="34" height="34">
+    <span>Campus Culture<small>校園文化</small></span>
+  </a>
+  <div class="lx-meters">
+    <span class="lx-meter" title="Day streak 連續天數">🔥 <b id="lxStreak">0</b></span>
+    <span class="lx-meter" title="XP">⭐ <b id="lxXp">0</b></span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="lxHome">
+  <p class="lx-eyebrow">Foreign English Teachers</p>
+  <h1>How this campus works.</h1>
+  <p class="lx-lede">The practical side of a Taiwanese school — who does what, how the year runs, and the words on the office doors. Short rounds, and nothing anyone else sees.</p>
+  <p class="lx-lede-zh">台灣校園的實務面：誰負責什麼、一年怎麼運作、辦公室門上那幾個字是什麼意思。每回合很短，沒有人看得到你的分數。</p>
+
+  <div class="cu-tabs" role="tablist">
+    <button type="button" class="cu-tab is-on" data-tab="practice">🎯 Practise · 練習</button>
+    <button type="button" class="cu-tab" data-tab="terms">🚪 Names on doors · 門上的名字</button>
+    <button type="button" class="cu-tab" data-tab="rules">⚖️ Rules &amp; Safeguarding · 法規速查</button>
+  </div>
+
+  <p class="lx-loading" id="lxLoading">Loading… 載入中…</p>
+
+  <!-- practice decks -->
+  <div id="cuPractice">
+    <div class="lx-levels">
+      <button type="button" class="lx-lv lx-lv--b" id="lxCard-terms">
+        <span class="lx-lv-emoji">🚪</span>
+        <span class="lx-lv-body">
+          <span class="lx-lv-name">Names on doors <b>門上的名字</b></span>
+          <span class="lx-lv-desc">The offices, roles and terms you have to recognise written down — with audio.</span>
+          <span class="lx-bar"><i></i></span>
+          <span class="lx-lvstat">loading…</span>
+        </span>
+      </button>
+      <button type="button" class="lx-lv lx-lv--i" id="lxCard-m1">
+        <span class="lx-lv-emoji">🗂️</span>
+        <span class="lx-lv-body">
+          <span class="lx-lv-name">Who's who <b>校園組織</b></span>
+          <span class="lx-lv-desc">Which office handles your contract, your leave, your broken projector.</span>
+          <span class="lx-bar"><i></i></span>
+          <span class="lx-lvstat">loading…</span>
+        </span>
+      </button>
+      <button type="button" class="lx-lv lx-lv--i" id="lxCard-m2">
+        <span class="lx-lv-emoji">📅</span>
+        <span class="lx-lv-body">
+          <span class="lx-lv-name">The school year <b>作息與行事曆</b></span>
+          <span class="lx-lv-desc">Timetable, calendar, exams, and the Saturdays that are secretly school days.</span>
+          <span class="lx-bar"><i></i></span>
+          <span class="lx-lvstat">loading…</span>
+        </span>
+      </button>
+      <button type="button" class="lx-lv lx-lv--a" id="lxCard-m8">
+        <span class="lx-lv-emoji">🤝</span>
+        <span class="lx-lv-body">
+          <span class="lx-lv-name">Co-teaching <b>協同教學與職場文化</b></span>
+          <span class="lx-lv-desc">Working with your partner teacher, and the staffroom habits nobody writes down.</span>
+          <span class="lx-bar"><i></i></span>
+          <span class="lx-lvstat">loading…</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- vocabulary browser -->
+  <div id="cuTerms" class="hidden">
+    <input type="search" class="cu-search" id="cuTermSearch"
+           placeholder="Search 搜尋 — 教務處, jiàowùchù, academic…">
+    <p class="cu-count" id="cuTermCount"></p>
+    <div class="cu-terms" id="cuTermList"></div>
+  </div>
+
+  <!-- rules reference -->
+  <div id="cuRules" class="hidden">
+    <p class="cu-warn">
+      <b>Read these — don't drill them.</b>
+      These five modules are law and child-safety duties. They are deliberately kept out of the daily rounds: knowing what to do when a child discloses something must not depend on whether that card happened to come up this week, and repeated multiple-choice practice is very good at producing confidence without competence. Read them through once, and come back here to search when something happens.
+      <span class="zh">這五個模組是法規與兒少保護義務，刻意不放進每日抽考——孩子開口求助時你該怎麼做，不能取決於這張卡剛好有沒有被抽到，而反覆做選擇題最容易養出「有信心但其實不會」。請完整讀過一次，出狀況時再回來搜尋。</span>
+    </p>
+    <input type="search" class="cu-search" id="cuRuleSearch"
+           placeholder="Search 搜尋 — reporting, 通報, bullying, photo…">
+    <p class="cu-count" id="cuRuleCount"></p>
+    <div id="cuRuleList"></div>
+  </div>
+
+  <p class="lx-foot">
+    Practising Mandarin too? <a href="/learn/">Daily Practice 每日練習</a> ·
+    The full culture bank is on the <a href="/fets/school-culture/">School Culture</a> page.
+  </p>
+
+  <div class="lx-install hidden" id="lxInstall">
+    <b>Add this to your home screen</b>
+    <span id="lxInstallHow"></span>
+    <button type="button" id="lxInstallBtn" class="hidden">Install · 安裝</button>
+  </div>
+</section>
+
+<!-- ============ ROUND ============ -->
+<section id="lxRound" class="hidden">
+  <div class="lx-roundbar">
+    <button type="button" id="lxQuit" aria-label="Leave this round 離開">✕</button>
+    <span class="lx-track"><i id="lxProgress"></i></span>
+    <span class="lx-num" id="lxCount">1 / 8</span>
+  </div>
+  <p class="lx-roundtitle" id="lxRoundTitle"></p>
+  <div class="lx-card" id="lxCard"></div>
+  <button type="button" class="lx-next hidden" id="lxNext">Continue · 繼續</button>
+</section>
+
+<!-- ============ DONE ============ -->
+<section id="lxDone" class="hidden">
+  <h2 id="lxDoneHead"></h2>
+  <div class="lx-tally">
+    <span><b id="lxDoneScore">0 / 8</b>correct 答對</span>
+    <span><b id="lxDoneStreak">0</b>day streak 連續</span>
+    <span><b id="lxDoneXp">0</b>XP</span>
+  </div>
+  <div id="lxDoneWrong"></div>
+  <div class="lx-done-actions">
+    <button type="button" class="lx-btn" id="lxAgain">Another round · 再一回合</button>
+    <button type="button" class="lx-btn lx-btn--ghost" id="lxHomeBtn">Done for now · 先到這裡</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+window.__LEARN_CONFIG__ = {
+  storeKey: 'chb-culture-v1',
+  sessionSize: 8,                     // shorter rounds than Mandarin: this is
+                                      // knowledge to keep fresh, not vocabulary
+                                      // to build from nothing
+  audioBase: '/learn/audio/',         // one shared pool — 教務處 is the same clip
+  manifestUrl: '/learn/audio-manifest.json',
+  banks: [
+    { key: 'terms', url: '/culture/data/terms.json', kind: 'terms' },
+    { key: 'm1', url: '/culture/data/m1.json', fields: { q: 'stem', opts: 'options', ok: 'answer' } },
+    { key: 'm2', url: '/culture/data/m2.json', fields: { q: 'stem', opts: 'options', ok: 'answer' } },
+    { key: 'm8', url: '/culture/data/m8.json', fields: { q: 'stem', opts: 'options', ok: 'answer' } }
+  ]
+};
+</script>
+<script src="/assets/js/learn-engine.js"></script>
+<script src="/assets/js/culture-extras.js"></script>
+<script>
+(function () {
+  var box = document.getElementById('lxInstall');
+  var how = document.getElementById('lxInstallHow');
+  var btn = document.getElementById('lxInstallBtn');
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) return;
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    how.textContent = 'One tap and it lives on your home screen, offline. 一鍵加到主畫面，離線可用。';
+    btn.classList.remove('hidden'); box.classList.remove('hidden');
+  });
+  btn.addEventListener('click', function () {
+    if (!deferred) return; deferred.prompt(); deferred = null; box.classList.add('hidden');
+  });
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    how.innerHTML = 'Tap the Share button <b>⎋</b> below, then <b>Add to Home Screen</b>.'
+      + '<span class="zh">按下方的分享鍵，選「加入主畫面」，就能離線使用。</span>';
+    box.classList.remove('hidden');
+  }
+})();
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/culture/sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>

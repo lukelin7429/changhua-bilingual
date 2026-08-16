@@ -78,6 +78,8 @@
     Prefer to browse everything at once? The full bank with answers is on the
     <a href="/fets/mandarin-challenge/">Mandarin Challenge</a> page.
     <span class="zh">想一次看完整題庫，請到中文挑戰頁。</span>
+    <span style="display:block;margin-top:10px">Learning how the campus works too?
+    <a href="/culture/">Campus Culture 校園文化</a></span>
   </p>
 
   <div class="lx-install hidden" id="lxInstall">
@@ -118,9 +120,14 @@
 
 <script>
 window.__LEARN_CONFIG__ = {
-  dataBase:  '/fets/mandarin-challenge/data/',
+  storeKey: 'chb-learn-v1',
   audioBase: '/learn/audio/',
-  manifestUrl: '/learn/audio-manifest.json'
+  manifestUrl: '/learn/audio-manifest.json',
+  banks: [
+    { key: 'beginner',     url: '/fets/mandarin-challenge/data/beginner.json' },
+    { key: 'intermediate', url: '/fets/mandarin-challenge/data/intermediate.json' },
+    { key: 'advanced',     url: '/fets/mandarin-challenge/data/advanced.json' }
+  ]
 };
 </script>
 <script src="/assets/js/learn-engine.js"></script>

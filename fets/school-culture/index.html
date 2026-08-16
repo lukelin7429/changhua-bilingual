@@ -111,6 +111,22 @@
       .opt { font-size:19px; }
       .qz__fb { font-size:18px; }
     }
+    .sc-app { display:flex; align-items:center; gap:26px; flex-wrap:wrap;
+      margin:26px 0 20px; padding:22px 24px; border:1px solid var(--hub-line);
+      border-left:6px solid #8a4b2a; border-radius:16px; background:var(--hub-line-soft); }
+    .sc-app__text { flex:1 1 340px; }
+    .sc-app__eyebrow { font-size:14px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#8a4b2a; margin:0 0 6px; }
+    .sc-app__h { font-family:var(--hub-serif); font-size:26px; margin:0 0 10px; color:var(--hub-ink); }
+    .sc-app__p { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 10px; max-width:58ch; }
+    .sc-app__p--zh { font-family:var(--hub-zh-font); color:var(--hub-ink-faint); line-height:1.85; }
+    .sc-app__btn { display:inline-block; margin-top:8px; padding:13px 24px; border-radius:10px;
+      background:#8a4b2a; color:#fff; font-size:18px; font-weight:700; text-decoration:none; }
+    .sc-app__btn:hover { opacity:.9; }
+    .sc-app__qr { text-align:center; flex:0 0 auto; }
+    .sc-app__qr img { display:block; width:150px; height:150px; background:#fff; padding:8px; border-radius:10px; }
+    .sc-app__qr span { display:block; margin-top:8px; font-size:15px; color:var(--hub-ink-faint); font-family:var(--hub-zh-font); line-height:1.5; }
+    .sc-app__qr small { font-size:13px; font-family:var(--hub-en-font); }
+    @media (max-width:520px) { .sc-app__qr { display:none; } }
   </style>
 </head>
 <body>
@@ -142,6 +158,23 @@
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">School Culture</h1>
   <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:19px;line-height:1.6">Know before you go: a monthly round on the everyday etiquette and campus norms that help you navigate Changhua school life with confidence — and avoid common cultural missteps.</p>
   <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85;font-size:18px">每月一次的校園文化小測驗，幫助外師了解彰化教育現場的文化習慣，避免不小心犯下的文化誤會。</p>
+  <!-- Companion app. Repeated on this page so a teacher who loses the link can
+       always find it from the page they already know. -->
+  <aside class="sc-app">
+    <div class="sc-app__text">
+      <p class="sc-app__eyebrow">Campus Culture app · 校園文化 App</p>
+      <h2 class="sc-app__h">Carry this campus in your pocket</h2>
+      <p class="sc-app__p">Short rounds on who does what, how the year runs, and the words on the office doors — with audio. The rules on discipline, reporting, gender equity, bullying and privacy are kept as a searchable reference instead, so you can find them the moment you need them.</p>
+      <p class="sc-app__p sc-app__p--zh">誰負責什麼、一年怎麼運作、門上那幾個字怎麼念——做成每天幾分鐘的小回合。管教、通報、性平、霸凌與個資這幾塊則做成可搜尋的速查，出狀況時立刻查得到。加到主畫面就能離線使用。</p>
+      <a class="sc-app__btn" href="/culture/">Open Campus Culture · 開啟校園文化 →</a>
+    </div>
+    <div class="sc-app__qr">
+      <img src="/assets/images/culture-qr.svg" width="150" height="150"
+           alt="QR code linking to changhua-bilingual.org/culture/">
+      <span>掃描帶著走<br><small>changhua-bilingual.org/culture/</small></span>
+    </div>
+  </aside>
+
   <a class="sc-practice-cta" href="/fets/school-culture/practice/">
     <span class="eb">Practice anytime · 隨時練習</span>
     <h2>Practice Bank</h2>

@@ -12,11 +12,14 @@
   var cfg = window.__LEARN_CONFIG__;
   if (!cfg) return;
 
-  var STORE = 'chb-learn-v1';
-  var SESSION_SIZE = 12;      // items per round — about 3-4 minutes
-  var MAX_REVIEWS = 8;        // of which at most this many are due reviews
+  // Two apps share this engine — Mandarin at /learn/ and School Culture at
+  // /culture/ — with their own banks, their own saved progress and their own
+  // icon. Everything content-specific comes in through __LEARN_CONFIG__.
+  var STORE = cfg.storeKey || 'chb-learn-v1';
+  var SESSION_SIZE = cfg.sessionSize || 12;   // items per round — 3-4 minutes
+  var MAX_REVIEWS = Math.ceil((cfg.sessionSize || 12) * 2 / 3);
   var BOX_DAYS = [0, 1, 3, 7, 21];
-  var LEVELS = ['beginner', 'intermediate', 'advanced'];
+  var LEVELS = cfg.banks.map(function (b) { return b.key; });
 
   var $ = function (id) { return document.getElementById(id); };
   var today = function () { return Math.floor(Date.now() / 86400000); };
@@ -148,6 +151,9 @@
    * character-recognition drills, which is what the bank could not test before.
    */
   function chooseExercise(q) {
+    // Situational-judgement questions carry no single phrase to hear or read —
+    // there is nothing to drill but the question itself.
+    if (!q.zh) return 'stem';
     var scenario = /^(idiom|expression|situation|dialogue)$/.test(q.type);
     var s = state.items[q.id] || { n: 0 };
     var kinds = scenario ? ['stem', 'listen'] : ['stem', 'listen', 'audio2zh', 'meaning2zh', 'pinyin2zh'];
@@ -184,8 +190,10 @@
     var head, opts, correctIdx;
 
     if (kind === 'stem') {
-      head = '<div class="lx-zh">' + esc(q.zh) + ' ' + sayBtn(q.zh) +
-        '<span class="lx-py">' + esc(q.py) + '</span></div>' +
+      head = (q.zh
+        ? '<div class="lx-zh">' + esc(q.zh) + ' ' + sayBtn(q.zh) +
+          '<span class="lx-py">' + esc(q.py) + '</span></div>'
+        : '') +
         '<p class="lx-q">' + esc(q.q) + '</p>';
       opts = q.opts.map(esc);
       correctIdx = q.ok;
@@ -230,8 +238,9 @@
       '<div class="lx-opts">' + opts.map(function (o, i) {
         return '<button type="button" class="lx-opt" data-i="' + i + '">' + o + '</button>';
       }).join('') + '</div>' +
-      '<div class="lx-why"><strong>' + esc(q.zh) + '</strong> <em>' + esc(q.py) + '</em> ' +
-      sayBtn(q.zh) + '<span>' + esc(q.why) + '</span></div>';
+      '<div class="lx-why">' +
+        (q.zh ? '<strong>' + esc(q.zh) + '</strong> <em>' + esc(q.py) + '</em> ' + sayBtn(q.zh) : '') +
+        '<span>' + esc(q.why) + '</span></div>';
 
     $('lxCard').querySelectorAll('.lx-say').forEach(function (b) {
       b.addEventListener('click', function (e) {
@@ -280,7 +289,7 @@
     s.d = today() + BOX_DAYS[s.b];
     save();
 
-    if (ok) play(q.zh, card.querySelector('.lx-why .lx-say'));
+    if (ok && q.zh) play(q.zh, card.querySelector('.lx-why .lx-say'));
     $('lxNext').classList.remove('hidden');
     $('lxNext').focus();
   }
@@ -316,8 +325,9 @@
     $('lxDoneWrong').innerHTML = uniq.length
       ? '<h3>Worth reviewing · 需要複習</h3>' + uniq.map(function (id) {
           var q = byId[id];
-          return '<div class="lx-rev"><span class="zh">' + esc(q.zh) + '</span>' +
-            '<em>' + esc(q.py) + '</em>' + sayBtn(q.zh) +
+          return '<div class="lx-rev">' +
+            (q.zh ? '<span class="zh">' + esc(q.zh) + '</span><em>' + esc(q.py) + '</em>' + sayBtn(q.zh)
+                  : '<span class="zh lx-rev--noun">' + esc(q.q) + '</span>') +
             '<span class="en">' + esc(q.opts[q.ok]) + '</span></div>';
         }).join('')
       : '<p class="lx-allright">No mistakes this round. 這回合全對！</p>';
@@ -369,10 +379,52 @@
 
   // ------------------------------------------------------------------- boot
 
+  /**
+   * Bring a bank into the one shape the rest of the engine speaks:
+   * {id, zh?, py?, q, opts[], ok, why, type}. Banks that use different field
+   * names declare a mapping; a vocabulary list is expanded into questions so
+   * the same drills work on it.
+   */
+  function normalise(bank, spec) {
+    var f = spec.fields || {};
+    if (spec.kind === 'terms') {
+      var terms = bank.terms;
+      bank.questions = terms.map(function (t, i) {
+        // Three sibling terms as distractors, chosen deterministically so the
+        // same item reads the same way each time it comes round.
+        var others = terms.filter(function (o) { return o.zh !== t.zh; });
+        var picks = [];
+        for (var k = 1; k <= 3; k++) picks.push(others[(i * 7 + k * 5) % others.length]);
+        var opts = shuffled([t].concat(picks));
+        return {
+          id: 'T' + (i + 1 < 10 ? '0' : '') + (i + 1),
+          type: 'term', zh: t.zh, py: t.py, why: t.why,
+          q: 'What does this mean, and where would you see it?',
+          opts: opts.map(function (o) { return o.en; }),
+          ok: opts.indexOf(t),
+        };
+      });
+    } else if (f.q || f.opts || f.ok) {
+      bank.questions = bank.questions.map(function (q) {
+        return {
+          id: q.id,
+          type: q.type || spec.key,
+          zh: q.zh, py: q.py,
+          q: q[f.q || 'q'],
+          opts: q[f.opts || 'opts'],
+          ok: q[f.ok || 'ok'],
+          why: q.why,
+          m: q.m, mt: q.mt, mz: q.mz,
+        };
+      });
+    }
+    return bank;
+  }
+
   function loadAll() {
-    var jobs = LEVELS.map(function (lv) {
-      return fetch(cfg.dataBase + lv + '.json').then(function (r) { return r.json(); })
-        .then(function (b) { banks[lv] = b; });
+    var jobs = cfg.banks.map(function (spec) {
+      return fetch(spec.url).then(function (r) { return r.json(); })
+        .then(function (b) { banks[spec.key] = normalise(b, spec); });
     });
     jobs.push(
       fetch(cfg.manifestUrl)
