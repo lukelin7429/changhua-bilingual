@@ -23,6 +23,28 @@
     .mc-crumbs a { color:var(--hub-primary); text-decoration:none; }
     .mc-crumbs a:hover { text-decoration:underline; }
 
+    /* companion-app call-out */
+    .mc-app {
+      display:flex; align-items:center; gap:26px; flex-wrap:wrap;
+      margin:26px 0 4px; padding:22px 24px; border:1px solid var(--hub-line);
+      border-left:6px solid var(--hub-accent); border-radius:16px; background:var(--hub-line-soft);
+    }
+    .mc-app__text { flex:1 1 340px; }
+    .mc-app__eyebrow { font-size:14px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--hub-accent); margin:0 0 6px; }
+    .mc-app__h { font-family:var(--hub-serif); font-size:26px; margin:0 0 10px; color:var(--hub-ink); }
+    .mc-app__p { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 10px; max-width:56ch; }
+    .mc-app__p--zh { font-family:var(--hub-zh-font); font-size:18px; color:var(--hub-ink-faint); line-height:1.85; }
+    .mc-app__btn {
+      display:inline-block; margin-top:8px; padding:13px 24px; border-radius:10px;
+      background:var(--hub-primary); color:#fff; font-size:18px; font-weight:700; text-decoration:none;
+    }
+    .mc-app__btn:hover { opacity:.9; }
+    .mc-app__qr { text-align:center; flex:0 0 auto; }
+    .mc-app__qr img { display:block; width:150px; height:150px; background:#fff; padding:8px; border-radius:10px; }
+    .mc-app__qr span { display:block; margin-top:8px; font-size:15px; color:var(--hub-ink-faint); font-family:var(--hub-zh-font); line-height:1.5; }
+    .mc-app__qr small { font-size:13px; font-family:var(--hub-en-font); }
+    @media (max-width:520px) { .mc-app__qr { display:none; } }
+
     .mc-lede { color:var(--hub-ink-soft); max-width:64ch; font-size:20px; line-height:1.65; }
     .mc-lede-zh { color:var(--hub-ink-faint); max-width:64ch; font-size:19px; line-height:1.9; font-family:var(--hub-zh-font); }
 
@@ -290,6 +312,23 @@
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:44px;margin:6px 0 12px">Mandarin Challenge</h1>
   <p class="mc-lede">Every question for all nine FET meetings, in one place. Work through the bank at your own pace — try each item first, then tap <strong>Show answer</strong> for the correct option and an explanation. Answers stay hidden until you ask for them.</p>
   <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。照自己的步調一題一題想，想完再按<strong>「看答案」</strong>顯示正解與說明——<strong>答案預設是蓋起來的</strong>，你不按就不會看到。</p>
+
+  <!-- Companion app. Kept here as well as on /fets/ so a teacher who loses the
+       link can always find it again from the page they already know. -->
+  <aside class="mc-app">
+    <div class="mc-app__text">
+      <p class="mc-app__eyebrow">Daily Practice · 每日練習</p>
+      <h2 class="mc-app__h">Practise on your phone, five minutes a day</h2>
+      <p class="mc-app__p">The same questions, turned into short rounds with recorded audio. It remembers what you get wrong and brings it back at the right time. Add it to your home screen and it works offline.</p>
+      <p class="mc-app__p mc-app__p--zh">同一份題庫，變成每天五分鐘的小回合，每題都有真人發音。答錯的會自動排到隔天再出現。加到手機主畫面就能離線使用。</p>
+      <a class="mc-app__btn" href="/learn/">Open Daily Practice · 開始每日練習 →</a>
+    </div>
+    <div class="mc-app__qr">
+      <img src="/assets/images/learn-qr.svg" width="150" height="150"
+           alt="QR code linking to changhua-bilingual.org/learn/">
+      <span>掃描帶著走<br><small>changhua-bilingual.org/learn/</small></span>
+    </div>
+  </aside>
 
   <p class="mc-notice hidden" id="mcVoiceNotice">
     🔇 Your device has no Chinese voice installed, so the 🔊 buttons will be silent. Everything else works normally — on a Mac, iPhone or Android you can add one in your system Speech / Text-to-speech settings.
