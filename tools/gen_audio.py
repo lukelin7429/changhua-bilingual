@@ -129,6 +129,9 @@ async def main():
         encoding="utf-8")
     shutil.rmtree(tmp, ignore_errors=True)
 
+    print(f"\n*** learn/audio-manifest.json rewritten with {len(manifest)} entries — "
+          f"COMMIT IT. The apps look phrases up here; an uncommitted manifest "
+          f"means new clips resolve to undefined.mp3 and 404 in production. ***")
     print(f"\n{len(manifest) - len(failed)} files · {total/1024/1024:.1f} MB total · "
           f"{total/max(1, len(manifest) - len(failed))/1024:.1f} KB average")
     if failed:
