@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/meetings/discussions/">
+  <title>Discussion Topics · FET Meetings · Changhua Bilingual Hub</title>
+  <meta name="description" content="One hundred discussion prompts for the peer-discussion hour at the Changhua FET monthly meetings — classroom management, activities, games, work ethic, and relationships.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Discussion Topics · FET Meetings">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <style>
+    .dc-crumbs { max-width:1200px; margin:0 auto; padding:20px 24px 0; font-size:17px; color:var(--hub-ink-faint); }
+    .dc-crumbs a { color:var(--hub-primary); text-decoration:none; }
+    .dc-crumbs a:hover { text-decoration:underline; }
+
+    .dc-lede { color:var(--hub-ink-soft); max-width:64ch; font-size:20px; line-height:1.65; }
+    .dc-lede-zh { color:var(--hub-ink-faint); max-width:64ch; font-size:19px; line-height:1.9; font-family:var(--hub-zh-font); }
+
+    /* how to run the hour */
+    .dc-how { border:1px solid var(--hub-line); border-left:6px solid var(--hub-accent);
+      border-radius:16px; padding:24px 26px; margin:30px 0; background:var(--hub-line-soft); }
+    .dc-how h2 { font-family:var(--hub-serif); font-size:25px; margin:0 0 6px; color:var(--hub-ink); }
+    .dc-how > p { font-size:18px; line-height:1.65; color:var(--hub-ink-soft); margin:0 0 18px; max-width:62ch; }
+    .dc-how > p.zh { font-family:var(--hub-zh-font); color:var(--hub-ink-faint); line-height:1.85; }
+    .dc-steps { display:grid; gap:12px; margin:0; padding:0; list-style:none; }
+    .dc-step { display:flex; gap:15px; align-items:flex-start; }
+    .dc-step__t { flex:0 0 74px; font-weight:700; color:var(--hub-primary); font-size:18px;
+      font-variant-numeric:tabular-nums; padding-top:1px; }
+    .dc-step__b { font-size:18px; line-height:1.6; color:var(--hub-ink); }
+    .dc-step__b b { display:block; }
+    .dc-step__b span { color:var(--hub-ink-faint); font-family:var(--hub-zh-font); font-size:17px; }
+    .dc-why { margin:18px 0 0; padding-top:16px; border-top:1px solid var(--hub-line);
+      font-size:17px; line-height:1.65; color:var(--hub-ink-soft); }
+    .dc-why b { color:var(--hub-ink); }
+
+    /* controls */
+    .dc-tools { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:32px 0 10px; }
+    .dc-search { flex:1 1 280px; padding:14px 16px; border:1px solid var(--hub-line);
+      border-radius:12px; font-size:18px; font-family:var(--hub-en-font); color:var(--hub-ink); }
+    .dc-search:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .dc-chips { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+    .dc-chip { border:1px solid var(--hub-line); background:#fff; border-radius:999px;
+      padding:10px 17px; font-size:17px; font-weight:600; color:var(--hub-ink-soft); cursor:pointer; }
+    .dc-chip.is-on { background:var(--hub-primary); border-color:var(--hub-primary); color:#fff; }
+    .dc-count { font-size:17px; color:var(--hub-ink-faint); margin:0 0 20px; }
+
+
+    /* With a hundred topics, scrolling back to the filters is the whole cost of
+       using this page — so they ride along, pinned under the site nav. */
+    .dc-sticky {
+      position: sticky; top: var(--dc-navh, 76px); z-index: 30;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: saturate(180%) blur(10px);
+      margin: 0 -24px; padding: 14px 24px 4px;
+      border-bottom: 1px solid var(--hub-line);
+    }
+    .dc-sticky .dc-tools { margin: 0 0 10px; }
+    .dc-sticky .dc-count { margin: 0 0 10px; }
+    /* Six chips wrap to three rows on a phone and eat the screen; keep them on
+       one swipeable line instead. */
+    .dc-chips { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px;
+      scrollbar-width: none; -ms-overflow-style: none; }
+    .dc-chips::-webkit-scrollbar { display: none; }
+    .dc-chip { white-space: nowrap; flex: 0 0 auto; }
+    @media (min-width: 900px) { .dc-chips { flex-wrap: wrap; overflow: visible; } }
+
+    /* topics */
+    .dc-area { font-size:14px; letter-spacing:.12em; text-transform:uppercase; font-weight:700;
+      color:var(--hub-accent); margin:36px 0 4px; }
+    .dc-dom { font-family:var(--hub-serif); font-size:26px; margin:0 0 2px; color:var(--hub-ink); }
+    .dc-dom-zh { font-family:var(--hub-zh-font); font-size:19px; color:var(--hub-ink-faint); margin:0 0 16px; }
+    .dc-list { display:grid; gap:11px; margin-bottom:8px; }
+    .dc-topic { display:flex; gap:15px; align-items:flex-start; border:1px solid var(--hub-line);
+      border-radius:12px; padding:15px 17px; background:#fff; }
+    .dc-topic__id { flex:0 0 auto; font-size:14px; font-weight:700; color:var(--hub-primary);
+      background:var(--hub-line-soft); border-radius:6px; padding:4px 9px; font-variant-numeric:tabular-nums; }
+    .dc-topic__b { flex:1; }
+    .dc-topic__en { font-size:19px; line-height:1.55; color:var(--hub-ink); margin:0 0 6px; }
+    .dc-topic__zh { font-family:var(--hub-zh-font); font-size:18px; line-height:1.75;
+      color:var(--hub-ink-faint); margin:0; }
+    .dc-empty { text-align:center; padding:50px 0; font-size:19px; color:var(--hub-ink-faint); }
+
+    @media (min-width:720px) {
+      .dc-lede { font-size:23px; }
+      .dc-lede-zh { font-size:20px; }
+      .dc-topic__en { font-size:21px; }
+      .dc-topic__zh { font-size:19px; }
+      .dc-how > p, .dc-step__b { font-size:19px; }
+    }
+    @media print {
+      .hub-nav, .hub-footer, .dc-tools, .dc-chips, .dc-crumbs, .dc-how { display:none !important; }
+      .dc-sticky { display:none !important; }
+      .dc-topic { break-inside:avoid; border-color:#ccc; }
+      .dc-list { gap:6px; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" id="hubNavToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<div class="hub-mob-drawer" id="hubMobDrawer" aria-hidden="true">
+  <nav><a href="/">Home</a><a href="/schools/">Schools</a><a href="/fets/" class="active">FETs</a><a href="/word-of-the-day/">Word of the Day</a><a href="/resources/">Resources</a><a href="/partners/">Partners</a></nav>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('hubNavToggle');
+  var dr=document.getElementById('hubMobDrawer');
+  if(!btn||!dr)return;
+  function open(){dr.classList.add('is-open');dr.setAttribute('aria-hidden','false');btn.classList.add('is-open');btn.setAttribute('aria-expanded','true');document.body.classList.add('mob-nav-open');}
+  function close(){dr.classList.remove('is-open');dr.setAttribute('aria-hidden','true');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('mob-nav-open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();dr.classList.contains('is-open')?close():open();});
+  document.addEventListener('click',function(e){if(dr.classList.contains('is-open')&&!dr.contains(e.target)&&!btn.contains(e.target))close();});
+})();
+</script>
+<main>
+
+<nav class="dc-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; <a href="/fets/meetings/">Monthly Meetings</a> &nbsp;›&nbsp; Discussion Topics
+</nav>
+
+<section class="hub-section" style="padding-top:28px;padding-bottom:0">
+  <p class="hub-eyebrow" style="color:var(--hub-accent)">Foreign English Teachers</p>
+  <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:44px;margin:6px 0 12px">Discussion Topics</h1>
+  <p class="dc-lede">One hundred prompts for the discussion hour at each monthly meeting — <span id="dcYearEn">School Year 2026–27</span>. Nothing here is assigned to a particular month. Pick whatever your group actually wants to talk about.</p>
+  <p class="dc-lede-zh">每月外師會議討論時段用的 100 道提綱（<span id="dcYearZh">115 學年度</span>）。<strong>沒有指定哪個月討論哪一塊</strong>，各組自由挑選真正想談的。</p>
+
+  <div class="dc-how">
+    <h2>Making the hour count</h2>
+    <p>Eighty people cannot have one conversation. Small groups can — and if each group writes one thing down, a year of these meetings becomes a handbook for whoever comes next.</p>
+    <p class="zh">八十個人沒辦法一起討論，小組可以。而只要每組留下一張紀錄，一年下來就會累積成給下一屆外師的實戰手冊。</p>
+    <ul class="dc-steps">
+      <li class="dc-step"><span class="dc-step__t">0–5 min</span><span class="dc-step__b"><b>Form groups of five or six and pick one topic.</b><span>五六人一組，從下面挑一題。</span></span></li>
+      <li class="dc-step"><span class="dc-step__t">5–35</span><span class="dc-step__b"><b>Talk it through: What happened? What did you try? What would you do differently?</b><span>討論三個問題：發生了什麼？你試過什麼？下次會怎麼做？</span></span></li>
+      <li class="dc-step"><span class="dc-step__t">35–50</span><span class="dc-step__b"><b>Write one card — the situation, what was tried, what you would recommend.</b><span>每組寫一張卡：情境、試過的作法、你們的建議。</span></span></li>
+      <li class="dc-step"><span class="dc-step__t">50–60</span><span class="dc-step__b"><b>Three groups read theirs out.</b><span>抽三組唸出來。</span></span></li>
+    </ul>
+    <p class="dc-why"><b>Why the card matters.</b> Without it the hour is enjoyable and gone. With it, fifteen groups across nine meetings leave roughly a hundred and thirty pieces of first-hand advice — which is the point.
+      <span style="display:block;margin-top:8px;font-family:var(--hub-zh-font)">沒有那張卡，這一小時聊得再好也是散掉；有了它，十五組乘以九次，就是約一百三十則第一手經驗。</span></p>
+  </div>
+</section>
+
+<section class="hub-section" style="padding-top:0">
+  <div class="dc-sticky">
+    <div class="dc-tools">
+      <input type="search" class="dc-search" id="dcSearch" placeholder="Search 搜尋 — co-teacher, 遊戲, prizes, 請假…">
+    </div>
+    <div class="dc-chips" id="dcChips"></div>
+    <p class="dc-count" id="dcCount">Loading… 載入中…</p>
+  </div>
+  <div id="dcList"></div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/hub.js"></script>
+<script src="/assets/js/discussion-topics.js"></script>
+</body>
+</html>

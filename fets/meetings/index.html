@@ -22,7 +22,18 @@
     .mtg-crumbs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; font-size: .9rem; color: var(--hub-ink-faint); }
     .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
     .mtg-crumbs a:hover { text-decoration: underline; }
-    .mtg-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 24px; margin-top: 28px; }
+    .mtg-topics { display:block; margin:26px 0 30px; padding:24px 26px; border:1px solid var(--hub-line);
+    border-left:6px solid var(--hub-accent); border-radius:16px; background:var(--hub-line-soft);
+    text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
+  .mtg-topics:hover { transform:translateY(-3px); box-shadow:var(--hub-shadow-hover); text-decoration:none; }
+  .mtg-topics__eb { display:block; font-size:14px; letter-spacing:.11em; text-transform:uppercase;
+    font-weight:700; color:var(--hub-accent); margin-bottom:8px; }
+  .mtg-topics__h { display:block; font-family:var(--hub-serif); font-size:27px; color:var(--hub-ink); margin-bottom:10px; }
+  .mtg-topics__p { display:block; font-size:18px; line-height:1.6; color:var(--hub-ink-soft); max-width:62ch; margin-bottom:8px; }
+  .mtg-topics__zh { display:block; font-family:var(--hub-zh-font); font-size:18px; line-height:1.85;
+    color:var(--hub-ink-faint); max-width:62ch; margin-bottom:14px; }
+  .mtg-topics__go { display:block; font-size:18px; font-weight:700; color:var(--hub-primary); }
+  .mtg-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 24px; margin-top: 28px; }
     .mtg-tile {
       display:block; text-decoration:none; color:inherit;
       border:1px solid var(--hub-line); border-radius: var(--hub-radius); overflow:hidden; background:#fff;
@@ -71,6 +82,14 @@
   <h1 class="hub-h1" style="font-family:var(--hub-serif);font-size:clamp(2rem,4vw,2.8rem);margin:.1em 0 10px">Monthly Meetings</h1>
   <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:1.08rem;line-height:1.6">Discussion highlights and photos from our foreign English teachers' monthly meetings — practical classroom ideas shared by teachers, for teachers.</p>
   <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85">每月外師會議的討論重點與活動相片。點選任一場會議查看當次各組分享的教學重點。</p>
+
+  <a class="mtg-topics" href="/fets/meetings/discussions/">
+    <span class="mtg-topics__eb">Discussion Topics · 討論提綱　115 學年度</span>
+    <span class="mtg-topics__h">100 things worth arguing about</span>
+    <span class="mtg-topics__p">Prompts for the discussion hour — classroom management, activities, games, work ethic, relationships and co-teaching. Pick whatever your group actually wants to talk about; nothing is assigned to a particular month.</span>
+    <span class="mtg-topics__zh">會議討論時段用的 100 道提綱：課堂管理、活動設計、遊戲設計、工作倫理、人際關係與協同教學。各組自由挑選，沒有指定哪個月談哪一塊。</span>
+    <span class="mtg-topics__go">Browse the topics · 瀏覽提綱 →</span>
+  </a>
 
   <div class="mtg-grid">
     <a class="mtg-tile" href="/fets/meetings/2026-06-17/">
