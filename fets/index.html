@@ -4,6 +4,9 @@
   手改的部分：中文挑戰（Mandarin Challenge）卡改為三級題庫（拼音 + 🔊 音檔）、
   新增「Daily Practice 每日練習」卡（連 /learn/，可加到主畫面離線使用）、
   以及 .fet-levels 與 .fet-lv 的三個分級修飾類別（b / i / a）樣式。
+  2026-08-17 再加：Explore 自學平台卡（連 /explore/）、卡片網格由 3 欄改 2 欄、
+  兩處 practising 改回美式 practicing。Explore 卡本身已同步寫進 build.py，
+  其餘手改仍未回寫。
 
   👉 跑 python3 build.py 會把上面這些通通蓋掉（-28 行）。
      跑完務必先看這個檔案的 git diff，確認沒有洗掉改版再 commit
@@ -105,7 +108,7 @@
           <span class="fet-lv fet-lv--i">Characters 認字</span>
           <span class="fet-lv fet-lv--a">Offline 離線可用</span>
         </span>
-        <a class="fet-card-cta fet-card-go" href="/learn/">Start practising →</a>
+        <a class="fet-card-cta fet-card-go" href="/learn/">Start practicing →</a>
         <span class="fet-card-sub">Full bank &amp; the monthly meeting round:
           <a href="/fets/mandarin-challenge/">Mandarin Challenge 中文挑戰 →</a></span>
       </div>
@@ -121,15 +124,29 @@
           <span class="fet-lv fet-lv--i">Calendar 行事曆</span>
           <span class="fet-lv fet-lv--a">Rules 法規速查</span>
         </span>
-        <a class="fet-card-cta fet-card-go" href="/culture/">Start practising →</a>
+        <a class="fet-card-cta fet-card-go" href="/culture/">Start practicing →</a>
         <span class="fet-card-sub">Full bank &amp; the monthly meeting round:
           <a href="/fets/school-culture/">School Culture 學校文化 →</a></span>
       </div>
     </div>
+    <a class="fet-card" href="/explore/">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🧭</div>
+      <div class="fet-card-text">
+        <span class="fet-card-eyebrow">Explore · 自學平台</span>
+        <h2 class="fet-card-title">Learn whatever you want — nobody is keeping score</h2>
+        <p class="fet-card-desc">Optional topic packs you read at your own pace, on your own interests. Co-teaching with your local English teacher, Changhua worth visiting, building your own class website. Nothing is recorded, nothing is uploaded, nothing comes to the monthly meeting.</p>
+        <span class="fet-levels">
+          <span class="fet-lv fet-lv--b">Co-teaching 協同教學</span>
+          <span class="fet-lv fet-lv--i">Changhua 在地</span>
+          <span class="fet-lv fet-lv--a">Web basics 網頁入門</span>
+        </span>
+        <span class="fet-card-cta">Browse topic packs →</span>
+      </div>
+    </a>
   </div>
 </section>
 <style>
-  .fet-cards-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+  .fet-cards-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }
   .fet-card {
     display:flex; flex-direction:column;
     border:1px solid var(--hub-line); border-radius: 16px; overflow:hidden;

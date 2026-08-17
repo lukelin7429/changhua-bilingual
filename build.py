@@ -688,10 +688,19 @@ def build_fets(fets_data, schools_data):
         <span class="fet-card-cta">Take this round →</span>
       </div>
     </a>
+    <a class="fet-card" href="/explore/">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🧭</div>
+      <div class="fet-card-text">
+        <span class="fet-card-eyebrow">Explore · 自學平台</span>
+        <h2 class="fet-card-title">Learn whatever you want — nobody is keeping score</h2>
+        <p class="fet-card-desc">Optional topic packs you read at your own pace: co-teaching, Changhua worth visiting, building your own class website. Nothing is recorded, nothing is uploaded.</p>
+        <span class="fet-card-cta">Browse topic packs →</span>
+      </div>
+    </a>
   </div>
 </section>
 <style>
-  .fet-cards-grid {{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }}
+  .fet-cards-grid {{ display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }}
   .fet-card {{
     display:flex; flex-direction:column;
     border:1px solid var(--hub-line); border-radius: 16px; overflow:hidden;
