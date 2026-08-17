@@ -162,6 +162,62 @@
     if (resetBtn) resetBtn.addEventListener('click', reset);
   }
 
+  /* ---------- Pronunciation buttons ----------
+     Clips live in Cloudflare R2 and are served through the worker at
+     /learn/audio/<hash>.mp3 — the same pool the Mandarin and School Culture
+     apps use. A phrase with no entry in the manifest simply gets no button. */
+  var MANIFEST_URL = '/learn/audio-manifest.json';
+  var AUDIO_BASE = '/learn/audio/';
+  var _manifest = null;
+
+  function loadManifest() {
+    if (_manifest) return _manifest;
+    _manifest = fetch(MANIFEST_URL)
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; });
+    return _manifest;
+  }
+
+  function initAudio() {
+    var els = [].slice.call(document.querySelectorAll('[data-audio]'));
+    if (!els.length) return;
+
+    loadManifest().then(function (manifest) {
+      var player = new Audio();
+      var active = null;
+
+      function clear() {
+        if (active) active.classList.remove('is-playing');
+        active = null;
+      }
+      player.addEventListener('ended', clear);
+      player.addEventListener('error', clear);
+
+      els.forEach(function (el) {
+        var hash = manifest[el.getAttribute('data-audio')];
+        if (!hash) return;
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'xp-speak';
+        btn.textContent = '🔊';
+        btn.setAttribute('aria-label', 'Play pronunciation · 播放發音');
+
+        btn.addEventListener('click', function () {
+          player.pause();
+          clear();
+          player.src = AUDIO_BASE + hash + '.mp3';
+          active = btn;
+          btn.classList.add('is-playing');
+          var p = player.play();
+          if (p && p.catch) p.catch(clear);
+        });
+
+        el.appendChild(btn);
+      });
+    });
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
     var wall = document.querySelector('[data-explore-wall]');
@@ -169,6 +225,7 @@
     var chapters = document.querySelector('[data-explore-chapters]');
     if (chapters) renderChapters(chapters);
     [].slice.call(document.querySelectorAll('[data-quiz]')).forEach(initQuiz);
+    initAudio();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

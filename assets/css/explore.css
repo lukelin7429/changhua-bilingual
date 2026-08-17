@@ -249,6 +249,19 @@ a.xp-chapter:hover { border-color: var(--hub-primary); transform: translateY(-2p
 .xp-phrase .lit { font-size: 17px; color: var(--hub-ink-soft); margin: 8px 0 0; font-style: italic; }
 @media (min-width: 720px) { .xp-phrase .lit { font-size: 19px; } }
 
+/* Pronunciation button, injected by explore.js next to each phrase */
+.xp-speak {
+  appearance: none; -webkit-appearance: none; border: none; cursor: pointer;
+  margin-left: 12px; vertical-align: middle;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #e7f2f0; color: var(--hub-primary-deep);
+  font-size: 20px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background .15s ease, transform .15s ease;
+}
+.xp-speak:hover { background: #d3e9e4; }
+.xp-speak.is-playing { background: var(--hub-primary); transform: scale(1.08); }
+
 /* ---------- Code blocks (Apps Script chapters) ---------- */
 .xp-code {
   background: #16211f; color: #e8f2ee; border-radius: 14px;

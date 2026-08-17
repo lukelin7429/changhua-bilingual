@@ -126,7 +126,7 @@
           <h4>Make the spreadsheet that will hold the answers</h4>
           <p>Create a new Google Sheet. Rename the first tab to <code>responses</code> and put a
             header row across the top: <code>time</code>, <code>name</code>, <code>class</code>,
-            <code>question</code>, <code>answer</code>, <code>result</code>.</p>
+            <code>set</code>, <code>question</code>, <code>answer</code>, <code>result</code>.</p>
           <p>Look at the address bar. The long string between <code>/d/</code> and <code>/edit</code>
             is the sheet ID — copy it, you need it in step 3.</p>
           <p class="zh">開一份新的 Google 試算表，把第一個分頁改名為 <code>responses</code>，第一列打上欄位名稱。
@@ -161,12 +161,14 @@ function doGet() {
 }
 
 // Called from the page when a student answers.
+// One row per answer — see section 4 for why this shape matters.
 function saveAnswer(payload) {
   const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
   sheet.appendRow([
     new Date(),
     payload.studentName,
     payload.className,
+    payload.setId,        // which worksheet / unit this question belongs to
     payload.questionId,
     payload.answer,
     payload.correct ? 'correct' : 'wrong'
@@ -225,6 +227,7 @@ function saveAnswer(payload) {
         .saveAnswer({
           studentName: name,
           className:   '5A',
+          setId:       'U5-directions',   // same for every question on this page
           questionId:  'Q1',
           answer:      choice,
           correct:     correct
@@ -321,7 +324,153 @@ function saveAnswer(payload) {
         </p>
       </div>
 
-      <h2><span class="n">Section 04</span>Making it worth more than paper</h2>
+      <h2><span class="n">Section 04</span>The spreadsheet is the point</h2>
+
+      <p>
+        The web app is just the collector. The spreadsheet is the thing you will actually live in, and
+        five minutes of setting it up properly is the difference between a file full of rows and a
+        back office that tells you what to do on Monday.
+      </p>
+      <p class="zh">
+        網頁應用程式只是收件的工具，試算表才是你真正會待著的地方。
+        花五分鐘把它設定好，就是「一個裝滿資料列的檔案」和「一個會告訴你星期一該做什麼的後台」之間的差別。
+      </p>
+
+      <h3>One row per answer, not one row per student</h3>
+
+      <p>
+        The tempting layout is one row per student with a column for each question. Do not do it. The
+        script writes <strong>one row per answer</strong> — name, class, set, question, answer, result
+        — and that shape is why everything below is a single formula. Add an eleventh question and
+        nothing changes; in the other layout you would be rebuilding the sheet.
+      </p>
+      <p class="zh">
+        很多人第一直覺是「一個學生一列、一題一欄」。不要那樣做。這支程式寫的是
+        <strong>一個答案一列</strong>——姓名、班級、單元、題號、作答、對錯——
+        正因為是這個形狀，下面每一項分析都只要一條公式。加第十一題什麼都不用改；
+        換成另一種排法，你得把整張表重做。
+      </p>
+
+      <p>
+        The <code>set</code> column is what lets one spreadsheet serve your whole year. Give every
+        page of questions its own set name (<code>U5-directions</code>, <code>U7-food</code>), and you
+        never need a second sheet or a second script — you just change one string in the query.
+      </p>
+      <p class="zh">
+        <code>set</code> 這一欄，是讓同一份試算表撐得住你整個學年的關鍵。
+        每一組題目給一個自己的 set 名稱（<code>U5-directions</code>、<code>U7-food</code>），
+        你就永遠不需要第二份試算表、第二支程式——查詢時改一個字串就好。
+      </p>
+
+      <div class="xp-note">
+        <h4>The one rule that keeps this working</h4>
+        <p>
+          <strong>Never type in the <code>responses</code> tab, never sort it, never insert rows.</strong>
+          The script appends to the bottom; your hands go somewhere else. Make a second tab called
+          <code>dashboard</code> and do every human thing there. When it is set up, use
+          <strong>Data → Protect sheets and ranges</strong> on <code>responses</code> so you cannot
+          break it by accident at eleven at night.
+        </p>
+        <p class="zh">
+          <strong><code>responses</code> 分頁不要手動打字、不要排序、不要插入列。</strong>
+          程式是往最下面加資料的；你的手要放在別的地方。另開一個叫 <code>dashboard</code> 的分頁，
+          所有人為的操作都在那裡做。設定好之後用<strong>資料 → 保護工作表和範圍</strong>鎖住
+          <code>responses</code>，免得你半夜十一點不小心把它弄壞。
+        </p>
+      </div>
+
+      <h3>Four formulas, four questions you actually have</h3>
+
+      <p>
+        Put these on the <code>dashboard</code> tab. Each one is typed into a single cell and fills the
+        area below it by itself. Change <code>U5-directions</code> to whichever set you want to look at.
+      </p>
+      <p class="zh">
+        把這幾條放在 <code>dashboard</code> 分頁。每一條只要打進一格，下面的範圍會自己長出來。
+        想看哪一組題目，就把 <code>U5-directions</code> 換成那一組的名稱。
+      </p>
+
+      <p><strong>1. Which question broke the class?</strong> The one you most need before you teach
+        them again.</p>
+      <p class="zh"><strong>1. 哪一題打敗了全班？</strong>——再教他們之前，最需要知道的就是這個。</p>
+      <div class="xp-code"><pre><code>=QUERY(responses!A:G,
+  "select E, count(G)
+   where G = 'wrong' and D = 'U5-directions'
+   group by E order by count(G) desc
+   label E 'question', count(G) 'got it wrong'", 1)</code></pre></div>
+
+      <p><strong>2. Which students need you before Monday?</strong></p>
+      <p class="zh"><strong>2. 星期一之前，哪些學生需要你？</strong></p>
+      <div class="xp-code"><pre><code>=QUERY(responses!A:G,
+  "select B, count(G)
+   where G = 'wrong' and D = 'U5-directions'
+   group by B order by count(G) desc
+   label B 'student', count(G) 'wrong'", 1)</code></pre></div>
+
+      <p><strong>3. What did they choose instead?</strong> This is the one people forget, and it is
+        the most useful of the four. A wrong option picked by fifteen students is not noise — it is a
+        misconception with a name, and it is your next lesson.</p>
+      <p class="zh"><strong>3. 他們選的是什麼？</strong>——這是最常被忘記、卻最有用的一條。
+        一個被十五個學生選走的錯誤選項不是雜訊，那是一個叫得出名字的迷思概念，也就是你的下一堂課。</p>
+      <div class="xp-code"><pre><code>=QUERY(responses!A:G,
+  "select F, count(G)
+   where E = 'Q4' and G = 'wrong'
+   group by F order by count(G) desc
+   label F 'chose this instead', count(G) 'how many'", 1)</code></pre></div>
+
+      <p><strong>4. One student's whole history</strong>, for the conversation with a parent, a
+        homeroom teacher, or the student themselves.</p>
+      <p class="zh"><strong>4. 單一學生的完整紀錄</strong>——要跟家長、導師，或學生本人談的時候用。</p>
+      <div class="xp-code"><pre><code>=QUERY(responses!A:G,
+  "select A, D, E, F, G
+   where B = 'Ming'
+   order by A desc
+   label A 'when', D 'set', E 'question', F 'answer', G 'result'", 1)</code></pre></div>
+
+      <h3>Who has not done it at all</h3>
+
+      <p>
+        The rows tell you about the students who came. The ones you need to chase are the students who
+        are <em>not</em> in the sheet — and no query over the responses can show you an absence. Paste
+        your class roll down column A of a third tab, then put this beside the first name and drag it
+        down:
+      </p>
+      <p class="zh">
+        資料列只告訴你「有來的人」。你真正要追的是<em>不在</em>表裡的那些學生——
+        而任何針對作答資料的查詢，都變不出「不存在」這件事。
+        在第三個分頁的 A 欄貼上你的班級名條，然後在第一個名字旁邊放這條、往下拖：
+      </p>
+      <div class="xp-code"><pre><code>=COUNTIF(responses!$B:$B, $A2)</code></pre></div>
+      <p>
+        Zero means that child never opened it. That column is the one you act on first, and it is the
+        single thing this whole setup gives you that a stack of paper never could — because on paper,
+        the sheet you never received looks exactly like the sheet you lost.
+      </p>
+      <p class="zh">
+        0 代表那個孩子從來沒打開過。那一欄是你最該先處理的，也是整套做法給你、而一疊紙永遠給不了的東西——
+        因為在紙本上，「沒有交」和「被你弄丟」看起來一模一樣。
+      </p>
+
+      <h3>Two more things worth five minutes</h3>
+
+      <ul>
+        <li><strong>Color the numbers so you can read them at a glance.</strong> Select the count
+          column on the dashboard, then <strong>Format → Conditional formatting → Color scale</strong>.
+          After that you are reading a shape, not a table, and it takes five seconds instead of two
+          minutes.
+          <span class="zh">把數字上色，讓你一眼就讀得完。選取 dashboard 上的數量欄，
+            <strong>格式 → 條件式格式設定 → 色階</strong>。之後你讀的是形狀而不是表格，五秒鐘就夠，不用兩分鐘。</span></li>
+
+        <li><strong>Let students redo it, and keep every attempt.</strong> Each retry is a new row, on
+          purpose — "got it wrong twice then right" is more useful to you than a single clean score.
+          Do not turn this into a gradebook; it is a diagnostic, and it is not a secure record anyway
+          (see section 3).
+          <span class="zh">讓學生重做，而且每一次都留著。每次重試都是新的一列，這是刻意的——
+            「錯兩次之後對了」對你的價值高過一個乾淨的分數。不要把它變成成績簿；
+            它是診斷工具，而且本來就不是安全的紀錄（見第三節）。</span></li>
+      </ul>
+
+      <h2><span class="n">Section 05</span>Making it worth more than paper</h2>
 
       <p>
         A digital worksheet that is just a paper worksheet on a screen is not worth the setup. Three
@@ -337,11 +486,11 @@ function saveAnswer(payload) {
           two seconds and the student tries again.
           <span class="zh">即時回饋，讓「答錯」的代價很低。在紙上，錯誤要好幾天後才被發現，那時想知道答案的那股勁早就過了；在螢幕上，兩秒鐘就更正，學生會再試一次。</span></li>
 
-        <li><strong>A pivot table instead of a stack.</strong> Once the answers are in a sheet, one
-          pivot table tells you which question the class failed most — the thing you actually need in
-          order to plan Monday, and the thing you never get from marking twenty-five sheets in a
-          hurry.
-          <span class="zh">用樞紐分析表取代一疊紙。答案進了試算表之後，一張樞紐分析表就告訴你全班錯最多的是哪一題——那正是你排星期一的課真正需要的資訊，也是你趕著改二十五張紙時永遠得不到的。</span></li>
+        <li><strong>A dashboard instead of a stack.</strong> Once the answers are in a sheet, the four
+          formulas in section 4 tell you which question the class failed, which students need you,
+          what they chose instead, and who never opened it — the things you actually need in order to
+          plan Monday, and the things you never get from marking twenty-five sheets in a hurry.
+          <span class="zh">用一個後台取代一疊紙。答案進了試算表之後，第四節那四條公式會告訴你：全班錯最多的是哪一題、哪些學生需要你、他們錯選了什麼、以及誰從來沒打開過——那些正是你排星期一的課真正需要的資訊，也是你趕著改二十五張紙時永遠得不到的。</span></li>
 
         <li><strong>It is evidence for your co-teacher.</strong> "Eighteen of them got question four
           wrong" is a conversation about the class. "I think they did not really understand" is a
@@ -351,18 +500,18 @@ function saveAnswer(payload) {
           <span class="zh">它是給協同老師看的證據。「第四題有十八個人錯」談的是這個班；「我覺得他們好像沒真的懂」談的是感覺。<a href="/explore/co-teaching/when-you-disagree/">協同教學那一包</a>要你們講好一個看得見的判準——這就是一個。</span></li>
       </ol>
 
-      <h2><span class="n">Section 05</span>Three sentences to take into next week</h2>
+      <h2><span class="n">Section 06</span>Three sentences to take into next week</h2>
 
       <ol>
         <li><strong>Deploy a new version, or students keep seeing the old code.</strong> This is the
           mistake everyone makes once.
           <span class="zh">要部署「新版本」，否則學生看到的還是舊程式碼。這個錯每個人都會犯一次。</span></li>
-        <li><strong>Set access deliberately, and collect the minimum.</strong> You are holding
-          children's names attached to their mistakes.
-          <span class="zh">刻意設定存取權，只收最少的資料。你手上是「孩子的名字連著他們的錯誤」。</span></li>
-        <li><strong>If it is only paper on a screen, do not bother.</strong> Build it for the instant
-          feedback and the pivot table.
-          <span class="zh">如果那只是把紙搬到螢幕上，就別做了。要做是為了即時回饋和樞紐分析表。</span></li>
+        <li><strong>One row per answer, and never touch the responses tab by hand.</strong> That shape
+          is what turns a file of rows into a back office.
+          <span class="zh">一個答案一列，而且 responses 分頁絕不手動去動。是那個形狀把一個檔案變成一個後台。</span></li>
+        <li><strong>The most valuable column is the one counting who never opened it.</strong> On
+          paper, "never handed in" and "I lost it" look identical.
+          <span class="zh">最有價值的一欄是「誰從來沒打開過」。在紙本上，「沒交」和「我弄丟了」長得一模一樣。</span></li>
       </ol>
 
     </div>
@@ -444,16 +593,16 @@ function saveAnswer(payload) {
     </div>
 
     <div class="qz">
-      <div class="qz__q"><span class="num">Q6.</span><span>What makes this worth building rather than just printing the worksheet?</span></div>
-      <div class="qz__zh">相較於直接印學習單，這個做法值得做的理由是什麼？</div>
+      <div class="qz__q"><span class="num">Q6.</span><span>Why does the script write one row per <em>answer</em> rather than one row per student?</span></div>
+      <div class="qz__zh">為什麼這支程式是「一個<em>答案</em>一列」，而不是「一個學生一列」？</div>
       <div class="qz__opts">
-        <button class="opt" data-ok><span class="key">A</span>Instant feedback, and a pivot table that tells you which question the class failed.</button>
-        <button class="opt"><span class="key">B</span>It looks more modern and professional.</button>
-        <button class="opt"><span class="key">C</span>It saves paper.</button>
-        <button class="opt"><span class="key">D</span>Students prefer using screens.</button>
+        <button class="opt" data-ok><span class="key">A</span>Adding an eleventh question changes nothing, and every analysis stays a single formula.</button>
+        <button class="opt"><span class="key">B</span>It uses less storage in Google Drive.</button>
+        <button class="opt"><span class="key">C</span>Apps Script can only write one column at a time.</button>
+        <button class="opt"><span class="key">D</span>It makes the sheet easier for students to read.</button>
       </div>
-      <div class="qz__fb"><b>A.</b> If it is only paper on a screen, do not bother. The two real gains are that being wrong becomes cheap and instantly correctable, and that you walk into Monday knowing which question broke the class — which is also the observable evidence to bring to your co-teacher.
-        <span class="zh">如果只是把紙搬到螢幕上，那就別做。真正的兩個收穫是：答錯的代價變低且能立刻更正；以及你走進星期一時已經知道是哪一題打敗了全班——那同時也是可以拿給協同老師看的證據。</span></div>
+      <div class="qz__fb"><b>A.</b> One row per student with a column per question breaks the moment you add a question — you would be rebuilding the sheet. The long shape is also what lets the <code>set</code> column carry your whole year in one spreadsheet: change one string in the query and you are looking at a different unit.
+        <span class="zh">「一個學生一列、一題一欄」在你加一題的那一刻就垮了，你得把整張表重做。這個長形的排法，也正是 <code>set</code> 這一欄能讓一份試算表撐住整個學年的原因：查詢時改一個字串，看的就是另一個單元。</span></div>
     </div>
 
     <div class="qz__score">

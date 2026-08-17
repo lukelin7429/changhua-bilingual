@@ -30,14 +30,16 @@ def phrase_hash(zh: str) -> str:
     return hashlib.sha1(zh.encode("utf-8")).hexdigest()[:12]
 
 
-TERMS = pathlib.Path("culture/data/terms.json")   # School Culture vocabulary
+TERMS = pathlib.Path("culture/data/terms.json")        # School Culture vocabulary
+EXPLORE = pathlib.Path("explore/data/phrases.json")    # Explore travel phrases
 
 
 def load_phrases(data_dir: pathlib.Path):
     """Every phrase needing audio, de-duplicated by content hash.
 
-    Both apps draw from one pool: a phrase shared between the Mandarin banks and
-    the School Culture terms (教務處, 導師 …) is one file, used by both.
+    All three apps draw from one pool: a phrase shared between the Mandarin
+    banks, the School Culture terms (教務處, 導師 …) and the Explore travel
+    phrases is one file, used by all of them.
     """
     seen, order = {}, []
 
@@ -56,6 +58,10 @@ def load_phrases(data_dir: pathlib.Path):
     if TERMS.exists():
         for t in json.loads(TERMS.read_text(encoding="utf-8"))["terms"]:
             add(t["zh"], t["py"], "term:" + t["zh"])
+
+    if EXPLORE.exists():
+        for p in json.loads(EXPLORE.read_text(encoding="utf-8"))["phrases"]:
+            add(p["zh"], p["py"], "explore:" + p["chapter"])
 
     return [seen[h] for h in order]
 
