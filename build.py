@@ -697,19 +697,10 @@ def build_fets(fets_data, schools_data):
         <span class="fet-card-cta">Browse topic packs →</span>
       </div>
     </a>
-    <a class="fet-card" href="https://ai-for-teachers.org/" target="_blank" rel="noopener">
-      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🤖</div>
-      <div class="fet-card-text">
-        <span class="fet-card-eyebrow">AI for Teachers · 外部網站</span>
-        <h2 class="fet-card-title">Build it yourself, with AI doing the heavy lifting</h2>
-        <p class="fet-card-desc">A separate site built for you: making your own class website, and using AI to produce worksheets, games, picture books, and differentiated materials. The hands-on technical side — the Hub covers the principles behind them.</p>
-        <span class="fet-card-cta">Open ai-for-teachers.org ↗</span>
-      </div>
-    </a>
   </div>
 </section>
 <style>
-  .fet-cards-grid {{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }}
+  .fet-cards-grid {{ display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }}
   .fet-card {{
     display:flex; flex-direction:column;
     border:1px solid var(--hub-line); border-radius: 16px; overflow:hidden;
@@ -734,6 +725,57 @@ def build_fets(fets_data, schools_data):
   }}
   @media (max-width: 900px) {{
     .fet-cards-grid {{ grid-template-columns: 1fr; }}
+  }}
+</style>
+
+<section class="hub-section" style="padding-bottom:0">
+  <a class="fet-web-band" href="https://ai-for-teachers.org/" target="_blank" rel="noopener">
+    <div class="fet-web-band-icon" aria-hidden="true">🤖</div>
+    <div class="fet-web-band-body">
+      <span class="fet-web-band-eyebrow">Your class website · 你的班級網站</span>
+      <h2 class="fet-web-band-title">Every FET website below is reviewed once a year — on design and on content.</h2>
+      <p class="fet-web-band-zh">下方每一位外師的網站，每年都會就設計與內容進行一次評閱。</p>
+      <p class="fet-web-band-desc">
+        Whether you are building your first site or sharpening one you have run for years,
+        <strong>ai-for-teachers.org</strong> is the how-to: making a clean bilingual class website with
+        AI and without coding, plus generating worksheets, games, picture books, and differentiated
+        materials. Built for you, by a teacher.
+      </p>
+      <p class="fet-web-band-zh">
+        不論你是第一次做網站，還是想把經營多年的網站再磨利，<strong>ai-for-teachers.org</strong> 就是那份操作指南：
+        用 AI、免寫程式做出乾淨的雙語班級網站，以及產出學習單、遊戲、繪本與差異化教材。為你們而做，由老師做的。
+      </p>
+      <span class="fet-web-band-cta">Open ai-for-teachers.org ↗</span>
+    </div>
+  </a>
+</section>
+<style>
+  .fet-web-band {{
+    display:flex; gap:26px; align-items:flex-start;
+    padding:30px 32px; border-radius:20px; text-decoration:none; color:inherit;
+    background:linear-gradient(135deg,#123f3d 0%,#1f6e6e 58%,#2b7f6d 100%);
+    box-shadow:0 14px 40px -20px rgba(18,63,61,.6);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }}
+  .fet-web-band:hover {{ transform:translateY(-3px); box-shadow:0 22px 52px -22px rgba(18,63,61,.7); text-decoration:none; }}
+  .fet-web-band-icon {{ font-size:56px; line-height:1; flex:0 0 auto; }}
+  .fet-web-band-body {{ flex:1 1 auto; }}
+  .fet-web-band-eyebrow {{ display:block; font-size:14px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9fdcd0; }}
+  .fet-web-band-title {{ font-family:var(--hub-serif); font-size:26px; line-height:1.25; margin:10px 0 6px; color:#fff; }}
+  .fet-web-band-desc {{ font-size:18px; line-height:1.6; color:#e6f4f0; margin:14px 0 0; max-width:74ch; }}
+  .fet-web-band-desc strong {{ color:#fff; }}
+  .fet-web-band-zh {{ font-family:var(--hub-zh-font); font-size:17px; line-height:1.8; color:#b9dcd4; margin:8px 0 0; max-width:66ch; }}
+  .fet-web-band-zh strong {{ color:#e8f5f1; }}
+  .fet-web-band-cta {{ display:inline-block; margin-top:18px; font-weight:700; font-size:18px; color:#ffd9a3; }}
+  @media (min-width:720px) {{
+    .fet-web-band-title {{ font-size:32px; }}
+    .fet-web-band-desc {{ font-size:20px; }}
+    .fet-web-band-zh {{ font-size:19px; }}
+    .fet-web-band-cta {{ font-size:20px; }}
+  }}
+  @media (max-width:720px) {{
+    .fet-web-band {{ flex-direction:column; gap:14px; padding:26px 22px; }}
+    .fet-web-band-icon {{ font-size:46px; }}
   }}
 </style>
 
