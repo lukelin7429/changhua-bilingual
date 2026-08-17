@@ -231,6 +231,24 @@ a.xp-chapter:hover { border-color: var(--hub-primary); transform: translateY(-2p
 /* Term chip: English term + Chinese gloss inline */
 .xp-term { white-space: nowrap; font-family: var(--hub-zh-font); color: var(--hub-primary-deep); font-weight: 600; }
 
+/* Phrase cards — the Mandarin you actually say on the spot */
+.xp-phrases { display: grid; gap: 14px; margin: 8px 0 32px; max-width: 100%; }
+.xp-phrase {
+  border: 1px solid var(--hub-line); border-left: 6px solid var(--hub-primary);
+  border-radius: 0 14px 14px 0; padding: 18px 20px; background: #fcfbf9;
+}
+.xp-phrase .situ { font-size: 18px; line-height: 1.5; color: var(--hub-ink-soft); margin: 0 0 10px; }
+@media (min-width: 720px) { .xp-phrase .situ { font-size: 20px; } }
+.xp-phrase .han {
+  font-family: var(--hub-zh-font); font-size: 24px; font-weight: 600;
+  line-height: 1.45; color: var(--hub-ink); margin: 0;
+}
+@media (min-width: 720px) { .xp-phrase .han { font-size: 28px; } }
+.xp-phrase .py { font-size: 17px; color: var(--hub-ink-faint); margin: 6px 0 0; letter-spacing: .01em; }
+@media (min-width: 720px) { .xp-phrase .py { font-size: 19px; } }
+.xp-phrase .lit { font-size: 17px; color: var(--hub-ink-soft); margin: 8px 0 0; font-style: italic; }
+@media (min-width: 720px) { .xp-phrase .lit { font-size: 19px; } }
+
 /* ---------- Self-check quiz ---------- */
 .xp-quiz { background: #f7f5f0; border-top: 1px solid var(--hub-line); }
 .xp-quiz-intro { font-size: 18px; color: var(--hub-ink-soft); margin: 0 0 6px; max-width: 68ch; }
