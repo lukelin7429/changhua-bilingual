@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/explore/designing-what-you-teach/apps-script-interactive-questions/">
+  <title>Apps Script: Questions That Write Back to Your Site · Designing What You Teach · Changhua Bilingual Hub</title>
+  <meta name="description" content="A working Google Apps Script skeleton: interactive questions embedded in your own Google Site, with every answer landing in a spreadsheet you control. Apps Script：會回寫到你網站的互動題目。">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="Apps Script: Questions That Write Back to Your Site">
+  <meta property="og:description" content="A working skeleton you can copy: interactive questions on your own site, answers landing in a sheet you control.">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css">
+  <link rel="stylesheet" href="/assets/css/explore.css">
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+    <button class="hub-nav-toggle" id="hubNavToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="hub-mob-drawer" id="hubMobDrawer" aria-hidden="true">
+  <nav><a href="/">Home</a><a href="/schools/">Schools</a><a href="/fets/" class="active">FETs</a><a href="/word-of-the-day/">Word of the Day</a><a href="/resources/">Resources</a><a href="/partners/">Partners</a></nav>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('hubNavToggle');
+  var dr=document.getElementById('hubMobDrawer');
+  if(!btn||!dr)return;
+  function open(){dr.classList.add('is-open');dr.setAttribute('aria-hidden','false');btn.classList.add('is-open');btn.setAttribute('aria-expanded','true');document.body.classList.add('mob-nav-open');}
+  function close(){dr.classList.remove('is-open');dr.setAttribute('aria-hidden','true');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('mob-nav-open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();dr.classList.contains('is-open')?close():open();});
+  document.addEventListener('click',function(e){if(dr.classList.contains('is-open')&&!dr.contains(e.target)&&!btn.contains(e.target))close();});
+})();
+</script>
+<main class="xp">
+
+<section class="xp-hero">
+  <div class="xp-wrap">
+    <p class="xp-crumb"><a href="/explore/designing-what-you-teach/">← Designing What You Teach</a></p>
+    <p class="xp-hero-eyebrow">Chapter 03 · 第三章</p>
+    <h1>Apps Script:<br>Questions That Write<br>Back to Your Site</h1>
+    <p class="xp-hero-zh">Apps Script：會回寫到你網站的互動題目</p>
+    <p class="xp-hero-lede">
+      About 14 minutes, and there is code you can copy. Six self-check questions at the end.
+      Nothing on this page is recorded or uploaded.
+    </p>
+    <p class="xp-hero-lede-zh">約十四分鐘讀完，附可直接複製的程式碼。末尾六題自我檢查。本頁不記錄、不上傳任何作答。</p>
+  </div>
+</section>
+
+<section class="xp-section">
+  <div class="xp-wrap xp-read">
+    <div class="xp-prose">
+
+      <p class="xp-lede">
+        Everything in this pack so far has ended with paper you have to carry home. This chapter
+        removes the paper from the part that matters most — finding out who is stuck — and it does it
+        with tools you already have and do not have to pay for.
+      </p>
+      <p class="zh">
+        這一包到目前為止的一切，最後都會變成你得帶回家的紙。這一章把紙從最重要的那個環節拿掉——
+        找出誰卡住了——而且用的是你本來就有、也不必付費的工具。
+      </p>
+
+      <h2><span class="n">Section 01</span>What you are building, and why it is worth it</h2>
+
+      <p>
+        The end state: a set of questions living on your own site. A student answers, sees whether
+        they were right, and their answer lands as a row in a spreadsheet only you can open. On Sunday
+        evening you glance at one sheet and know which three students have not understood the target
+        structure — before you teach them again on Monday.
+      </p>
+      <p class="zh">
+        最終的樣子：一組題目放在你自己的網站上。學生作答、當場看到自己對不對，
+        而他的答案會變成一列資料，落進一份只有你打得開的試算表。星期天晚上你掃一眼，
+        就知道哪三個學生沒懂那個目標句型——在星期一再教他們之前。
+      </p>
+
+      <p>
+        Google Forms can already collect answers. What it cannot do is live inside your own site as a
+        seamless piece of it, give instant feedback in the shape you want, or be reshaped into
+        something that is not a form. Apps Script is the step up, and it is a small step.
+      </p>
+      <p class="zh">
+        Google 表單本來就能收答案。它做不到的是：像網站的一部分那樣無縫嵌在你自己的站裡、
+        用你要的方式即時回饋，或被改造成「不是一份表單」的東西。Apps Script 是往上的那一步，而且那一步不大。
+      </p>
+
+      <div class="xp-note">
+        <h4>You need three things, and you already have all of them</h4>
+        <p>
+          A Google account, a Google Sheet, and about forty minutes the first time. There is nothing
+          to install and nothing to pay for. Once the first one works, the second takes ten minutes.
+        </p>
+        <p class="zh">
+          你需要三樣東西，而且都已經有了：一個 Google 帳號、一份 Google 試算表，以及第一次做時大約四十分鐘。
+          不用安裝任何東西，不用付費。第一個跑起來之後，第二個只要十分鐘。
+        </p>
+      </div>
+
+      <h2><span class="n">Section 02</span>Build it — seven steps</h2>
+
+      <div class="xp-steps">
+        <div class="xp-step">
+          <h4>Make the spreadsheet that will hold the answers</h4>
+          <p>Create a new Google Sheet. Rename the first tab to <code>responses</code> and put a
+            header row across the top: <code>time</code>, <code>name</code>, <code>class</code>,
+            <code>question</code>, <code>answer</code>, <code>result</code>.</p>
+          <p>Look at the address bar. The long string between <code>/d/</code> and <code>/edit</code>
+            is the sheet ID — copy it, you need it in step 3.</p>
+          <p class="zh">開一份新的 Google 試算表，把第一個分頁改名為 <code>responses</code>，第一列打上欄位名稱。
+            網址列中 <code>/d/</code> 與 <code>/edit</code> 之間那一長串就是試算表 ID，複製起來，第三步要用。</p>
+        </div>
+
+        <div class="xp-step">
+          <h4>Open Apps Script from inside that sheet</h4>
+          <p>In the sheet, choose <strong>Extensions → Apps Script</strong>. A code editor opens in a
+            new tab with an empty <code>Code.gs</code> file.</p>
+          <p class="zh">在試算表裡選<strong>擴充功能 → Apps Script</strong>，會開啟一個程式碼編輯器，裡面有一個空的 <code>Code.gs</code>。</p>
+        </div>
+
+        <div class="xp-step">
+          <h4>Paste the server code</h4>
+          <p>Replace everything in <code>Code.gs</code> with the code below, and put your own sheet ID
+            in the first line.</p>
+          <p class="zh">把 <code>Code.gs</code> 裡的內容全部換成下面的程式碼，並在第一行填入你自己的試算表 ID。</p>
+        </div>
+      </div>
+
+      <span class="xp-code-label">Code.gs</span>
+      <div class="xp-code"><pre><code>const SHEET_ID   = 'PASTE_YOUR_SHEET_ID_HERE';
+const SHEET_NAME = 'responses';
+
+// Serves the page. ALLOWALL is what lets Google Sites embed it —
+// without it the browser refuses to show the page in a frame.
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile('Index')
+    .setTitle('Practice')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+// Called from the page when a student answers.
+function saveAnswer(payload) {
+  const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
+  sheet.appendRow([
+    new Date(),
+    payload.studentName,
+    payload.className,
+    payload.questionId,
+    payload.answer,
+    payload.correct ? 'correct' : 'wrong'
+  ]);
+  return 'saved';
+}</code></pre></div>
+
+      <div class="xp-steps" style="counter-reset:xpstep 3">
+        <div class="xp-step">
+          <h4>Add the page the students see</h4>
+          <p>In the editor, click <strong>+</strong> next to Files and choose <strong>HTML</strong>.
+            Name it exactly <code>Index</code> — that name is what <code>doGet</code> looks for.
+            Replace its contents with the code below.</p>
+          <p class="zh">在編輯器的 Files 旁按 <strong>+</strong>、選 <strong>HTML</strong>，
+            命名為 <code>Index</code>（要完全一致，<code>doGet</code> 找的就是這個名字），內容換成下面這段。</p>
+        </div>
+      </div>
+
+      <span class="xp-code-label">Index.html</span>
+      <div class="xp-code"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;base target="_top"&gt;
+  &lt;style&gt;
+    body { font-family: system-ui, sans-serif; font-size: 18px; padding: 16px; }
+    input, button { font-size: 18px; }
+    button { display: block; width: 100%; text-align: left;
+             padding: 12px 14px; margin: 6px 0; cursor: pointer; }
+    #done { display: none; font-weight: 700; margin-top: 14px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;&lt;label&gt;Your name 姓名&lt;br&gt;&lt;input id="name"&gt;&lt;/label&gt;&lt;/p&gt;
+
+  &lt;p id="q"&gt;&lt;b&gt;Q1.&lt;/b&gt; The oysters come ____ the tidal flats.&lt;/p&gt;
+  &lt;div id="opts"&gt;
+    &lt;button onclick="answer('from', true)"&gt;from&lt;/button&gt;
+    &lt;button onclick="answer('at', false)"&gt;at&lt;/button&gt;
+    &lt;button onclick="answer('on', false)"&gt;on&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;p id="done"&gt;&lt;/p&gt;
+
+  &lt;script&gt;
+    function answer(choice, correct) {
+      var name = document.getElementById('name').value.trim();
+      if (!name) { alert('Please write your name first.'); return; }
+
+      document.getElementById('opts').style.display = 'none';
+      var done = document.getElementById('done');
+      done.textContent = correct ? 'Correct! 答對了' : 'Not this time. 再想想';
+      done.style.display = 'block';
+
+      google.script.run
+        .withFailureHandler(function (e) { alert('Not saved: ' + e.message); })
+        .saveAnswer({
+          studentName: name,
+          className:   '5A',
+          questionId:  'Q1',
+          answer:      choice,
+          correct:     correct
+        });
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+
+      <div class="xp-steps" style="counter-reset:xpstep 4">
+        <div class="xp-step">
+          <h4>Deploy it as a web app</h4>
+          <p><strong>Deploy → New deployment</strong>. Choose type <strong>Web app</strong>. Set
+            <strong>Execute as: Me</strong> and <strong>Who has access: Anyone</strong>. Google will
+            ask you to authorize the script the first time — it is your own script writing to your own
+            sheet.</p>
+          <p>Copy the web app URL it gives you. It ends in <code>/exec</code>.</p>
+          <p class="zh"><strong>部署 → 新增部署作業</strong>，類型選<strong>網頁應用程式</strong>，
+            <strong>執行身分：我</strong>，<strong>誰可以存取：所有人</strong>。第一次會要求你授權——
+            那是你自己的指令碼在寫你自己的試算表。複製它給你的網址，結尾是 <code>/exec</code>。</p>
+        </div>
+
+        <div class="xp-step">
+          <h4>Test it before you show anyone</h4>
+          <p>Open the <code>/exec</code> URL in a new tab, type a name, click an answer. Then look at
+            your spreadsheet — a row should have appeared. If it did not, the sheet ID or the tab name
+            is wrong; those two are the usual culprits.</p>
+          <p class="zh">在新分頁開那個 <code>/exec</code> 網址，打名字、按一個答案，然後回試算表看——
+            應該多了一列。沒有的話，多半是試算表 ID 或分頁名稱錯了，這兩個是最常見的原因。</p>
+        </div>
+
+        <div class="xp-step">
+          <h4>Embed it in your site</h4>
+          <p>In Google Sites: <strong>Insert → Embed → By URL</strong>, paste the <code>/exec</code>
+            URL, and place the block on the page. That is the whole integration — this is the step
+            that <code>ALLOWALL</code> in step 3 exists for.</p>
+          <p class="zh">在 Google Sites：<strong>插入 → 內嵌 → 依網址</strong>，貼上 <code>/exec</code> 網址，
+            把區塊放到頁面上。整個整合就是這樣——第三步那行 <code>ALLOWALL</code> 存在的理由就是為了這一步。</p>
+        </div>
+      </div>
+
+      <h2><span class="n">Section 03</span>The three things that will trip you up</h2>
+
+      <div class="xp-note xp-note--caution">
+        <h4>1. Editing the code does not change what students see</h4>
+        <p>
+          This is the one that wastes an entire evening. A deployment is frozen at a version. After
+          you edit the code you must go to <strong>Deploy → Manage deployments</strong>, click the
+          pencil, and set <strong>Version: New version</strong>. Only then does the <code>/exec</code>
+          URL serve your changes — and the URL stays the same, so your site does not need updating.
+        </p>
+        <p class="zh">
+          這一條會浪費你一整個晚上。部署是「凍結在某個版本」的。改完程式碼之後，必須到
+          <strong>部署 → 管理部署作業</strong>、點鉛筆、把<strong>版本改成「新版本」</strong>，
+          <code>/exec</code> 網址才會提供你的新程式碼——而網址不會變，所以網站那邊不必動。
+        </p>
+      </div>
+
+      <div class="xp-note xp-note--caution">
+        <h4>2. "Anyone" really means anyone</h4>
+        <p>
+          Access set to <strong>Anyone</strong> is what makes it work for students who are not signed
+          in to a school account — and it also means whoever has the URL can submit. Expect the
+          occasional nonsense row. Never put anything confidential in the page or the sheet, and do
+          not treat the results as a secure assessment record.
+        </p>
+        <p>
+          If every student has a school Google account, you have a better option: set access to
+          <strong>Anyone with a Google account</strong> and <strong>Execute as: User accessing the
+          web app</strong>, then read their identity on the server with
+          <code>Session.getActiveUser().getEmail()</code> instead of asking them to type a name.
+        </p>
+        <p class="zh">
+          存取權設成<strong>所有人</strong>，是為了讓沒登入學校帳號的學生也能用——同時也代表拿到網址的人都能送資料。
+          預期會有一些亂填的列。頁面和試算表裡不要放任何機密，也不要把這份結果當成正式的成績紀錄。
+          如果每個學生都有學校 Google 帳號，還有更好的做法：存取權設成<strong>擁有 Google 帳戶的使用者</strong>、
+          執行身分設成<strong>存取網頁應用程式的使用者</strong>，然後在伺服器端用
+          <code>Session.getActiveUser().getEmail()</code> 取得身分，不必叫他們自己打名字。
+        </p>
+      </div>
+
+      <div class="xp-note xp-note--caution">
+        <h4>3. Collect the minimum, and decide that on purpose</h4>
+        <p>
+          You are now holding a file of children's names attached to their mistakes. Ask for a given
+          name and a class, not a full name and a student number, unless you genuinely need more.
+          Keep the sheet in your own Drive, do not share the link, and delete the file when the unit
+          is over. None of this is difficult — it just has to be a decision rather than an accident.
+        </p>
+        <p class="zh">
+          你手上現在有一份「孩子的名字連著他們的錯誤」的檔案。除非真的需要，只要名字和班級就好，
+          不要全名加學號。試算表放在自己的雲端硬碟、不要分享連結、單元結束就刪掉。
+          這些都不難，重點是它必須是一個決定，而不是一個意外。
+        </p>
+      </div>
+
+      <h2><span class="n">Section 04</span>Making it worth more than paper</h2>
+
+      <p>
+        A digital worksheet that is just a paper worksheet on a screen is not worth the setup. Three
+        things this can do that paper cannot:
+      </p>
+      <p class="zh">
+        一份「只是把紙搬到螢幕上」的數位學習單，不值得你花這些工。這個做法能做到、而紙做不到的有三件事：
+      </p>
+
+      <ol>
+        <li><strong>Instant feedback, so being wrong is cheap.</strong> On paper a mistake is
+          discovered days later, after the moment of caring has passed. On screen it is corrected in
+          two seconds and the student tries again.
+          <span class="zh">即時回饋，讓「答錯」的代價很低。在紙上，錯誤要好幾天後才被發現，那時想知道答案的那股勁早就過了；在螢幕上，兩秒鐘就更正，學生會再試一次。</span></li>
+
+        <li><strong>A pivot table instead of a stack.</strong> Once the answers are in a sheet, one
+          pivot table tells you which question the class failed most — the thing you actually need in
+          order to plan Monday, and the thing you never get from marking twenty-five sheets in a
+          hurry.
+          <span class="zh">用樞紐分析表取代一疊紙。答案進了試算表之後，一張樞紐分析表就告訴你全班錯最多的是哪一題——那正是你排星期一的課真正需要的資訊，也是你趕著改二十五張紙時永遠得不到的。</span></li>
+
+        <li><strong>It is evidence for your co-teacher.</strong> "Eighteen of them got question four
+          wrong" is a conversation about the class. "I think they did not really understand" is a
+          conversation about opinions. The
+          <a href="/explore/co-teaching/when-you-disagree/">co-teaching pack</a> asked you to agree on
+          one observable sign — this is one.
+          <span class="zh">它是給協同老師看的證據。「第四題有十八個人錯」談的是這個班；「我覺得他們好像沒真的懂」談的是感覺。<a href="/explore/co-teaching/when-you-disagree/">協同教學那一包</a>要你們講好一個看得見的判準——這就是一個。</span></li>
+      </ol>
+
+      <h2><span class="n">Section 05</span>Three sentences to take into next week</h2>
+
+      <ol>
+        <li><strong>Deploy a new version, or students keep seeing the old code.</strong> This is the
+          mistake everyone makes once.
+          <span class="zh">要部署「新版本」，否則學生看到的還是舊程式碼。這個錯每個人都會犯一次。</span></li>
+        <li><strong>Set access deliberately, and collect the minimum.</strong> You are holding
+          children's names attached to their mistakes.
+          <span class="zh">刻意設定存取權，只收最少的資料。你手上是「孩子的名字連著他們的錯誤」。</span></li>
+        <li><strong>If it is only paper on a screen, do not bother.</strong> Build it for the instant
+          feedback and the pivot table.
+          <span class="zh">如果那只是把紙搬到螢幕上，就別做了。要做是為了即時回饋和樞紐分析表。</span></li>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Self-check ============ -->
+<section class="xp-section xp-quiz" data-quiz>
+  <div class="xp-wrap xp-read">
+    <h2 class="xp-h2">Check yourself</h2>
+    <p class="xp-h2-zh">自我檢查</p>
+    <div class="xp-rule"></div>
+    <p class="xp-quiz-intro">Six questions. Nothing here is scored, saved, or seen by anyone else.</p>
+    <p class="xp-quiz-intro-zh">六題。不計分、不存檔、不會有第二個人看到。</p>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q1.</span><span>You edited your Apps Script code, but students still see the old questions. Why?</span></div>
+      <div class="qz__zh">你改了 Apps Script 的程式碼，但學生看到的還是舊題目。為什麼？</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>A deployment is frozen at a version — you must deploy a new version.</button>
+        <button class="opt"><span class="key">B</span>The spreadsheet needs to be re-shared.</button>
+        <button class="opt"><span class="key">C</span>Google Sites caches embedded content for 24 hours.</button>
+        <button class="opt"><span class="key">D</span>You need a new web app URL after every edit.</button>
+      </div>
+      <div class="qz__fb"><b>A.</b> Deploy → Manage deployments → pencil → Version: New version. The URL stays the same, so your site never needs updating — which is exactly why this mistake is so easy to miss.
+        <span class="zh">部署 → 管理部署作業 → 鉛筆 → 版本：新版本。網址不會變，所以網站那邊完全不用動——這也正是為什麼這個錯特別容易被忽略。</span></div>
+    </div>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q2.</span><span>What does <code>setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)</code> do?</span></div>
+      <div class="qz__zh"><code>setXFrameOptionsMode(...ALLOWALL)</code> 的作用是什麼？</div>
+      <div class="qz__opts">
+        <button class="opt"><span class="key">A</span>It lets anyone submit answers without signing in.</button>
+        <button class="opt"><span class="key">B</span>It gives the script permission to write to your spreadsheet.</button>
+        <button class="opt" data-ok><span class="key">C</span>It allows the page to be displayed inside a frame, which is how Google Sites embeds it.</button>
+        <button class="opt"><span class="key">D</span>It makes the page work on mobile phones.</button>
+      </div>
+      <div class="qz__fb"><b>C.</b> Without it the browser refuses to render the web app inside the embed and you get an empty box on your site. Access permissions (A) and authorization (B) are set separately, at deployment.
+        <span class="zh">沒有它，瀏覽器會拒絕在內嵌框裡顯示這個網頁應用程式，你的網站上就只會出現一個空白框。存取權限（A）與授權（B）是部署時另外設定的。</span></div>
+    </div>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q3.</span><span>You test the web app and it works, but no row appears in the spreadsheet. What is the most likely cause?</span></div>
+      <div class="qz__zh">你測試網頁應用程式，畫面正常，但試算表沒有新增資料列。最可能的原因是什麼？</div>
+      <div class="qz__opts">
+        <button class="opt"><span class="key">A</span>The deployment access is set to Anyone.</button>
+        <button class="opt"><span class="key">B</span>Google Sites has not refreshed.</button>
+        <button class="opt"><span class="key">C</span>The student did not enter a name.</button>
+        <button class="opt" data-ok><span class="key">D</span>The sheet ID or the tab name is wrong.</button>
+      </div>
+      <div class="qz__fb"><b>D.</b> Those two are the usual culprits — the ID is the string between <code>/d/</code> and <code>/edit</code> in the sheet's address, and the tab must be named exactly <code>responses</code> to match <code>SHEET_NAME</code>.
+        <span class="zh">這兩個是最常見的原因——ID 是試算表網址中 <code>/d/</code> 與 <code>/edit</code> 之間那一串，而分頁名稱必須跟 <code>SHEET_NAME</code> 完全一致。</span></div>
+    </div>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q4.</span><span>Every student in your school has a school Google account. What is the better deployment setting?</span></div>
+      <div class="qz__zh">你們學校每個學生都有學校 Google 帳號。比較好的部署設定是什麼？</div>
+      <div class="qz__opts">
+        <button class="opt"><span class="key">A</span>Anyone, and ask them to type their full name and student number.</button>
+        <button class="opt" data-ok><span class="key">B</span>Anyone with a Google account, executing as the user, and read their identity on the server.</button>
+        <button class="opt"><span class="key">C</span>Only myself, and enter their answers for them.</button>
+        <button class="opt"><span class="key">D</span>Anyone, with no name field at all.</button>
+      </div>
+      <div class="qz__fb"><b>B.</b> <code>Session.getActiveUser().getEmail()</code> then identifies them without typing, which is both more reliable and less data to handle. A collects more personal data than you need; D gives you rows you cannot act on.
+        <span class="zh"><code>Session.getActiveUser().getEmail()</code> 不必打字就能辨識身分，既可靠又少收資料。A 收了超過需要的個資；D 收到的資料你無法據以行動。</span></div>
+    </div>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q5.</span><span>What should you do with the response sheet once the unit is finished?</span></div>
+      <div class="qz__zh">單元結束後，這份作答試算表該怎麼處理？</div>
+      <div class="qz__opts">
+        <button class="opt"><span class="key">A</span>Share it with the whole English department for reference.</button>
+        <button class="opt"><span class="key">B</span>Publish a summary on your site so students can compare.</button>
+        <button class="opt" data-ok><span class="key">C</span>Keep it in your own Drive, unshared, and delete it when you no longer need it.</button>
+        <button class="opt"><span class="key">D</span>Keep it indefinitely as an assessment record.</button>
+      </div>
+      <div class="qz__fb"><b>C.</b> This is a file of children's names attached to their mistakes. Collect the minimum, keep it unshared, delete it when done — and make that a decision rather than an accident. It is also not a secure assessment record, since anyone with the URL can submit.
+        <span class="zh">這是一份「孩子的名字連著他們的錯誤」的檔案。只收最少、不要分享、用完就刪——而且要是一個決定，不是一個意外。它也不是正式的成績紀錄，因為拿到網址的人都能送資料。</span></div>
+    </div>
+
+    <div class="qz">
+      <div class="qz__q"><span class="num">Q6.</span><span>What makes this worth building rather than just printing the worksheet?</span></div>
+      <div class="qz__zh">相較於直接印學習單，這個做法值得做的理由是什麼？</div>
+      <div class="qz__opts">
+        <button class="opt" data-ok><span class="key">A</span>Instant feedback, and a pivot table that tells you which question the class failed.</button>
+        <button class="opt"><span class="key">B</span>It looks more modern and professional.</button>
+        <button class="opt"><span class="key">C</span>It saves paper.</button>
+        <button class="opt"><span class="key">D</span>Students prefer using screens.</button>
+      </div>
+      <div class="qz__fb"><b>A.</b> If it is only paper on a screen, do not bother. The two real gains are that being wrong becomes cheap and instantly correctable, and that you walk into Monday knowing which question broke the class — which is also the observable evidence to bring to your co-teacher.
+        <span class="zh">如果只是把紙搬到螢幕上，那就別做。真正的兩個收穫是：答錯的代價變低且能立刻更正；以及你走進星期一時已經知道是哪一題打敗了全班——那同時也是可以拿給協同老師看的證據。</span></div>
+    </div>
+
+    <div class="qz__score">
+      <span class="qz__score-text"></span>
+      <button class="qz__reset" type="button">Try again · 再做一次</button>
+    </div>
+  </div>
+</section>
+
+<section class="xp-section xp-refs">
+  <div class="xp-wrap xp-read">
+    <h2 class="xp-h2">Sources &amp; related</h2>
+    <p class="xp-h2-zh">參考與延伸</p>
+    <div class="xp-rule"></div>
+    <ol>
+      <li><a href="https://developers.google.com/apps-script/guides/web" target="_blank" rel="noopener">Apps Script — Web Apps</a> (Google for Developers): deployment types, execution identity, and access settings.</li>
+      <li><a href="https://developers.google.com/apps-script/reference/html/x-frame-options-mode" target="_blank" rel="noopener">Enum XFrameOptionsMode</a> — what <code>ALLOWALL</code> does and the security note attached to it.</li>
+      <li><a href="https://developers.google.com/apps-script/guides/html/communication" target="_blank" rel="noopener">Client-to-server communication</a> — <code>google.script.run</code>, success and failure handlers.</li>
+      <li><a href="/explore/designing-what-you-teach/worksheets-that-work/">Chapter 2: Making a Worksheet That Actually Works</a> — the design rules still apply on a screen.</li>
+      <li><strong>Menu names change.</strong> Google renames things in the Apps Script and Sites interfaces from time to time; if a menu item is not where this chapter says, the concept is still right and the label has moved.
+        <span class="zh">選單名稱會變。Google 偶爾會調整 Apps Script 與 Sites 的介面用語；如果某個選項不在本章說的位置，觀念仍然正確，只是標籤搬家了。</span></li>
+    </ol>
+
+    <nav class="xp-lnav">
+      <a href="/explore/designing-what-you-teach/worksheets-that-work/">← Chapter 2 · Worksheets</a>
+      <a href="/explore/designing-what-you-teach/">↑ All chapters · 回本包章節</a>
+      <a href="/explore/">Explore · 更多主題包 →</a>
+    </nav>
+  </div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a>
+      <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+  <p class="hub-footer-credit">Map data: <a href="https://github.com/ronnywang/twgeojson" target="_blank" rel="noopener">ronnywang/twgeojson</a></p>
+</footer>
+<script src="/assets/js/hub.js"></script>
+<script src="/assets/js/explore.js"></script>
+</body>
+</html>
