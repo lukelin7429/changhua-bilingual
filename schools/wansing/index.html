@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="https://changhua-bilingual.org/schools/wansing/">
+<link rel="canonical" href="https://changhua-bilingual.org/schools/wansing/">
 <title>Wansing Elementary School · 彰化縣二林鎮萬興國民小學</title>
 <meta name="description" content="Wansing Elementary School — A century-old country school in Erlin, Changhua County, Taiwan. Founded 1919 as a sub-class, established 1924. Home of the Star Lounge library and the 3D campus murals. 彰化縣二林鎮萬興國民小學 — 創校於 1919，1924 年獨立設校，星星閣圖書館與 3D 彩繪牆的家。">
 <meta property="og:title" content="Wansing Elementary School · 彰化縣二林鎮萬興國民小學">
 <meta property="og:description" content="A century of stories, still being written · 百年故事，仍在書寫">
-<meta property="og:image" content="photos/banner-panorama.jpg">
+<meta property="og:image" content="photos/campus-hero.jpg">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="shortcut icon" href="favicon.ico">
 
 <style>
   :root{
@@ -49,50 +53,72 @@
   a:hover{color:var(--brick-deep);}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 
-  /* ============ TITLE (clean, no banner) ============ */
+  /* ── TOPBAR ── */
+  .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+  .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
+  .topbar-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover;background:var(--night-soft);}
+  .topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18.7px;font-weight:700;color:var(--night-deep);line-height:1.15;}
+  .topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+  .topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+  .topbar-nav a{font-size:18.2px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
+  .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--night-deep);background:var(--night-soft);}
+  @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
+
+  /* ── HERO TITLE (photo banner) ── */
   .title{
-    background:#fff;
-    padding:56px 0 36px;
-    text-align:center;
-    border-bottom:1px solid var(--line);
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(13,20,36,0) 0%, rgba(13,20,36,0) 40%, rgba(13,20,36,.68) 100%),
+      url('photos/campus-hero.jpg') center 42% / cover no-repeat;
+    text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);
+    padding:96px 0 0;text-align:center;color:#fff;
+    border-bottom:5px solid var(--gold);
   }
   .title__eyebrow{
-    display:inline-block;
-    font-size:14.5px;letter-spacing:.22em;
-    color:var(--gold-deep);font-weight:700;
-    text-transform:uppercase;
-    margin-bottom:18px;
+    display:inline-block;font-size:15px;letter-spacing:.24em;
+    color:var(--gold-soft);font-weight:700;text-transform:uppercase;
+    margin-bottom:20px;text-shadow:0 1px 6px rgba(0,0,0,.4);
   }
   .title h1{
     font-family:'Cormorant Garamond','PingFang TC',serif;
-    font-size:clamp(46px,7.5vw,76px);
+    font-size:clamp(46px,7.2vw,76px);
     line-height:1.1;font-weight:600;letter-spacing:.01em;
-    color:var(--night-deep);
-    margin-bottom:10px;
+    color:#fff;margin-bottom:8px;text-shadow:0 2px 14px rgba(0,0,0,.45);
   }
   .title .h1-zh{
-    font-size:clamp(21px,2.7vw,28px);
-    font-weight:500;letter-spacing:.06em;
-    color:var(--ink-soft);
-    margin-top:6px;
+    font-size:clamp(21px,2.7vw,28px);font-weight:500;letter-spacing:.06em;
+    color:rgba(255,255,255,.92);margin-top:10px;
     font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;
+    text-shadow:0 1px 8px rgba(0,0,0,.4);
   }
+  .title__divider{width:56px;height:2px;background:var(--gold);margin:22px auto 16px;border:0;}
   .title__tagline{
-    max-width:600px;margin:18px auto 0;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:21px;
-    color:var(--ink);
-    line-height:1.55;
+    max-width:600px;margin:0 auto;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:21px;color:rgba(255,255,255,.96);line-height:1.55;
+    text-shadow:0 1px 8px rgba(0,0,0,.42);
   }
   .title__tagline .tagline-zh{
-    display:block;
-    font-style:normal;
-    font-family:'PingFang TC',sans-serif;
-    font-size:17.5px;
-    margin-top:6px;
-    color:var(--ink-soft);
-    letter-spacing:.05em;
+    display:block;font-style:normal;font-family:'PingFang TC',sans-serif;
+    font-size:17.5px;margin-top:8px;color:rgba(255,255,255,.82);letter-spacing:.05em;
+  }
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    max-width:860px;margin:36px auto 0;
+    background:rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.18);
+    border-bottom:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
+  }
+  .stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.16);}
+  .stat:last-child{border-right:none;}
+  .stat__label-en{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:.02em;color:#fff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+  .stat__label-zh{font-size:15.5px;margin-top:8px;color:var(--gold-soft);font-family:'PingFang TC',sans-serif;letter-spacing:.04em;}
+  @media (max-width:880px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .stat:nth-child(2){border-right:none;}
+    .stats .stat:nth-child(1),.stats .stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16);}
   }
 
   /* ============ Section base ============ */
@@ -264,7 +290,7 @@
     font-size:18px;color:var(--ink);line-height:1.85;
   }
 
-  /* ============ Principal ============ */
+  /* ============ Principal (home teaser) ============ */
   .principal{background:#fff;}
   .principal-card{
     display:grid;
@@ -342,6 +368,13 @@
     font-size:15.5px;color:var(--ink-soft);
     margin-top:4px;letter-spacing:.06em;
   }
+  .principal-more{margin-top:24px;text-align:center;}
+  .principal-more a{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:16.5px;font-weight:700;color:var(--night-deep);
+    border-bottom:1px solid var(--gold);padding-bottom:2px;
+  }
+  .principal-more a:hover{color:var(--brick-deep);}
 
   /* ============ Student Life ============ */
   .life{background:linear-gradient(180deg,var(--night-soft) 0%,var(--cream) 100%);}
@@ -366,17 +399,6 @@
   }
   .life-card__img img{
     width:100%;height:100%;object-fit:cover;
-  }
-  .life-card__art{
-    text-align:center;color:var(--night-deep);
-    font-family:'Cormorant Garamond',serif;
-    padding:0 16px;
-  }
-  .life-card__art .glyph{font-size:60px;line-height:1.05;}
-  .life-card__art .label{
-    font-family:'PingFang TC',sans-serif;
-    font-style:normal;font-size:17.5px;color:var(--ink);
-    margin-top:8px;letter-spacing:.06em;
   }
   .life-card__body{padding:26px 28px 30px;}
   .life-card .tag{
@@ -462,7 +484,7 @@
 
   /* ============ Mobile ============ */
   @media (max-width: 880px) {
-    .title{padding:42px 0 28px;}
+    .title{padding:44px 0 0;}
     section{padding:64px 0;}
     .about-grid{grid-template-columns:1fr;gap:36px;}
     .pillars{grid-template-columns:1fr;}
@@ -481,22 +503,56 @@
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 <script defer src="/analytics.js"></script>
-  <link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
 
-<!-- ============ TITLE ============ -->
+<!-- ── TOPBAR ── -->
+<nav class="topbar" role="navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="/schools/wansing/">
+      <img class="topbar-logo" src="/schools/wansing/logo.png" alt="萬興國小校徽">
+      <div class="topbar-name">Wansing Elementary<small>彰化縣二林鎮萬興國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="/schools/wansing/" class="is-active">Home</a>
+      <a href="principal/">Principal</a>
+      <a href="lessons/">Lessons</a>
+      <a href="news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO TITLE ── -->
 <header class="title">
   <div class="wrap">
-    <span class="title__eyebrow">Changhua County · Taiwan · Est. 1919 · Chartered 1924</span>
+    <span class="title__eyebrow">Changhua County · Taiwan · Erlin Township</span>
     <h1>Wansing Elementary School
       <div class="h1-zh">彰化縣二林鎮萬興國民小學</div>
     </h1>
-
+    <hr class="title__divider">
     <p class="title__tagline">
       A century of stories, still being written
       <span class="tagline-zh">百年故事，仍在書寫</span>
     </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__label-en">Since 1919</div>
+        <div class="stat__label-zh">創校於1919年</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Erlin Township</div>
+        <div class="stat__label-zh">二林鎮萬興村</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">Bilingual Campus</div>
+        <div class="stat__label-zh">雙語校園</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label-en">~220 Students</div>
+        <div class="stat__label-zh">約220位學生</div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -513,18 +569,18 @@
     <div class="about-grid">
       <div class="about-photos">
         <div class="about-photo">
-          <img src="photos/banner-panorama.jpg" alt="Aerial panorama of Wansing Elementary School — a U-shaped two-story white campus surrounding a red running track, framed by paddy fields and village houses" loading="lazy">
+          <img src="photos/banner-facade.jpg" alt="Front gate of Wansing Elementary School with the school name in gold lettering, seahorse murals on either wall" loading="lazy">
           <div class="badge">Since 1919</div>
           <div class="caption">
-            <span class="en">A bird's-eye view of Wansing's century-old campus</span>
-            萬興國民小學校園全景・百年校園鳥瞰
+            <span class="en">The front gate every Wansing child walks through</span>
+            萬興國民小學校門・每個孩子每天經過的地方
           </div>
         </div>
         <div class="about-photo">
-          <img src="photos/banner-facade.jpg" alt="Front facade of the Wansing main teaching building, with the school's plum-blossom emblem on the second-floor balcony wall" loading="lazy">
+          <img src="photos/banner-garden.jpg" alt="A stone garden walkway inside Wansing's campus, with a bust statue and manicured pine trees" loading="lazy">
           <div class="caption">
-            <span class="en">The plum-blossom emblem on our teaching building</span>
-            教學樓正面・梅花校徽
+            <span class="en">A quiet stone garden along the teaching building</span>
+            教學樓旁的石景庭園一隅
           </div>
         </div>
       </div>
@@ -565,7 +621,7 @@
 
     <div class="pillars">
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="icon">百</div>
         <h3>One Hundred Years of Stories
           <small>百年校史 · 19 任校長</small>
@@ -575,7 +631,7 @@
         <p class="zh-body">彰化的偏鄉小校裡，能完整列出歷任 19 位校長的不多。萬興可以。從 1924 年的首任校長柿原啟六，到 2021 年 8 月上任的第 19 任校長吳貴枝，每一個名字都是二林這片土地，照顧自己孩子的一個章節。我們慎重地保留這份紀錄——不是出於懷舊，而是承諾：下一個章節，也會值得寫下來。</p>
       </article>
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="icon">閱</div>
         <h3>The Star Lounge
           <small>星星閣・閱讀的家</small>
@@ -585,7 +641,7 @@
         <p class="zh-body">2024 年，萬興以彰化縣府「書福悅讀計畫」190 萬補助、結合室內設計師余杰茂的規劃，將校內一個閒置空間改造為「<em>星星閣</em>」——以白色與原木為基調，讓孩子<strong>遇見</strong>故事，而不只是讀過故事。負責閱讀的范承英主任，更於 2026 年獲彰化縣線上閱讀認證命題徵選全縣第四。萬興的書，有自己的房間；房門後，有一位專屬的守護者。</p>
       </article>
 
-      <article class="pillar">
+      <article class="pillar rvl">
         <div class="icon">畫</div>
         <h3>The 3D Murals
           <small>3D 彩繪牆 · 校園地標</small>
@@ -600,7 +656,7 @@
 </section>
 
 
-<!-- ============ PRINCIPAL ============ -->
+<!-- ============ PRINCIPAL (teaser) ============ -->
 <section class="principal" id="principal">
   <div class="wrap">
     <div class="section-head">
@@ -609,15 +665,15 @@
       <div class="h2-zh">百年校史的守門人</div>
     </div>
 
-    <div class="principal-card">
+    <div class="principal-card rvl">
       <div class="principal-photo">
-        <img src="photos/principal-portrait.jpg" alt="Principal Wu Kuei-chih of Wansing Elementary School, standing in front of a stone garden waterfall" loading="lazy">
+        <img src="photos/principal-portrait.jpg" alt="Principal Wu Kuei-chih of Wansing Elementary School, standing in front of a stone garden" loading="lazy">
       </div>
 
       <div class="principal-text">
-        <div class="role">Principal · 校長</div>
+        <div class="role">Principal · 校長 · 19th · 第19任</div>
         <h3>Wu Kuei-chih
-          <small>吳貴枝 校長 · 第 19 任，2021/8 起</small>
+          <small>吳貴枝 校長 · 2021/8 起</small>
         </h3>
 
         <blockquote>
@@ -646,6 +702,10 @@
             <div class="label-zh">班級數</div>
           </div>
         </div>
+
+        <div class="principal-more">
+          <a href="principal/">Read the full story of our 19 principals · 校長室：百年校史全紀錄 →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -663,9 +723,12 @@
 
     <div class="life-grid">
 
-      <article class="life-card">
-        <div class="life-card__img">
-          <img src="photos/banner-garden.jpg" alt="A Japanese-style courtyard inside Wansing's campus, with carefully shaped bonsai pines and white stones under a blue sky" loading="lazy">
+      <article class="life-card rvl">
+        <div class="life-card__img" style="background:linear-gradient(135deg,var(--night-soft) 0%,var(--gold-soft) 100%);">
+          <div style="text-align:center;color:var(--night-deep);font-family:'Cormorant Garamond',serif;padding:0 16px;">
+            <div style="font-size:56px;line-height:1.05;">星星閣</div>
+            <div style="font-family:'PingFang TC',sans-serif;font-style:normal;font-size:17px;color:var(--ink);margin-top:8px;letter-spacing:.06em;">The Star Lounge</div>
+          </div>
         </div>
         <div class="life-card__body">
           <span class="tag">Reading · 閱讀</span>
@@ -677,12 +740,9 @@
         </div>
       </article>
 
-      <article class="life-card">
-        <div class="life-card__img" style="background:linear-gradient(160deg,#1c2542 0%,#3b3a6e 50%,#7c4d8f 100%);">
-          <div class="life-card__art" style="color:#f4e8cc;">
-            <div class="glyph">銀河 · 鯨鯊 · 恐龍</div>
-            <div class="label" style="color:rgba(255,255,255,.85);">Galaxy · Whale shark · Dinosaur</div>
-          </div>
+      <article class="life-card rvl">
+        <div class="life-card__img">
+          <img src="photos/mural-galaxy.jpg" alt="A 3D galaxy mural along Wansing's outdoor corridor beside the running track" loading="lazy">
         </div>
         <div class="life-card__body">
           <span class="tag">Campus Landmark · 校園地標</span>
@@ -694,11 +754,11 @@
         </div>
       </article>
 
-      <article class="life-card">
+      <article class="life-card rvl">
         <div class="life-card__img" style="background:linear-gradient(135deg,var(--gold-soft) 0%,var(--brick-soft) 100%);">
-          <div class="life-card__art">
-            <div class="glyph">每週英語</div>
-            <div class="label">Weekly English</div>
+          <div style="text-align:center;color:var(--night-deep);font-family:'Cormorant Garamond',serif;padding:0 16px;">
+            <div style="font-size:56px;line-height:1.05;">每週英語</div>
+            <div style="font-family:'PingFang TC',sans-serif;font-style:normal;font-size:17px;color:var(--ink);margin-top:8px;letter-spacing:.06em;">Weekly English</div>
           </div>
         </div>
         <div class="life-card__body">
@@ -711,9 +771,9 @@
         </div>
       </article>
 
-      <article class="life-card">
+      <article class="life-card rvl">
         <div class="life-card__img">
-          <img src="photos/banner-courtyard.jpg" alt="The front courtyard of Wansing Elementary School with white balustrades, manicured gardens and the main teaching building behind" loading="lazy">
+          <img src="photos/banner-courtyard.jpg" alt="The front of Wansing's teaching building with a large purple 3D mural on the entrance gate" loading="lazy">
         </div>
         <div class="life-card__body">
           <span class="tag">Community · 校園社群</span>
@@ -757,6 +817,10 @@
             <dt>Website · 學校官網</dt>
             <dd><a href="https://wsps.chc.edu.tw/" target="_blank" rel="noopener">wsps.chc.edu.tw</a></dd>
           </div>
+          <div>
+            <dt>Facebook · 臉書粉絲專頁</dt>
+            <dd><a href="https://www.facebook.com/p/%E5%BD%B0%E5%8C%96%E7%B8%A3%E8%90%AC%E8%88%88%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8-100076900798006/?locale=zh_TW" target="_blank" rel="noopener">彰化縣萬興國民小學</a></dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -766,10 +830,9 @@
 
 <!-- ============ FOOTER ============ -->
 <script>
-/* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.pillar,.about-photo,.principal-card,.life-card';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
@@ -787,40 +850,10 @@
   <div class="wrap">
     <div>© 2026 彰化縣二林鎮萬興國民小學 · Wansing Elementary School</div>
     <div class="partner">526 彰化縣二林鎮永興里二溪路六段 433 號 · TEL 04-8682759</div>
-    
   </div>
 </footer>
 
-<script>
-/* iframe height auto-report — eliminates double-scroll when embedded.
-   Parent container listens for {type:'wansing-iframe-height', height} and
-   resizes the iframe accordingly. */
-(function(){
-  if (window.parent === window) return;  /* not embedded; do nothing */
-  function report(){
-    var h = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight
-    );
-    window.parent.postMessage({type:'wansing-iframe-height', height: h}, '*');
-  }
-  window.addEventListener('load', report);
-  window.addEventListener('resize', report);
-  setTimeout(report, 300);
-  setTimeout(report, 1200);
-  setTimeout(report, 3000);
-  if ('ResizeObserver' in window) {
-    new ResizeObserver(report).observe(document.body);
-  }
-  Array.from(document.images).forEach(function(img){
-    if (!img.complete) img.addEventListener('load', report);
-  });
-})();
-</script>
-
-<div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 <script defer src="/assets/js/motion.js"></script>
 </body>
 </html>
