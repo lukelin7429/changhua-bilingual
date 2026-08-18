@@ -290,92 +290,6 @@
     font-size:18px;color:var(--ink);line-height:1.85;
   }
 
-  /* ============ Principal (home teaser) ============ */
-  .principal{background:#fff;}
-  .principal-card{
-    display:grid;
-    grid-template-columns:.85fr 1.4fr;
-    gap:50px;align-items:center;
-    background:#fff;border-radius:22px;
-    padding:50px;border:1px solid var(--line);
-    box-shadow:var(--shadow);
-    max-width:1000px;margin:0 auto;
-  }
-  .principal-photo{
-    position:relative;
-    border-radius:16px;overflow:hidden;
-    aspect-ratio:1/1;
-    box-shadow:var(--shadow-sm);
-    background:var(--night-soft);
-  }
-  .principal-photo img{
-    width:100%;height:100%;
-    object-fit:cover;object-position:center 22%;
-  }
-  .principal-text .role{
-    color:var(--gold-deep);font-size:14.5px;font-weight:700;
-    letter-spacing:.2em;text-transform:uppercase;
-    margin-bottom:10px;
-  }
-  .principal-text h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:40px;font-weight:600;color:var(--night-deep);
-    line-height:1.15;margin-bottom:6px;
-  }
-  .principal-text h3 small{
-    display:block;
-    font-family:'PingFang TC',sans-serif;
-    font-size:22.5px;color:var(--ink-soft);
-    font-weight:500;margin-top:6px;
-  }
-  .principal-text blockquote{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:22.5px;color:var(--ink);
-    line-height:1.65;margin:24px 0 14px;
-    padding-left:22px;
-    border-left:3px solid var(--gold);
-  }
-  .principal-text .zh-quote{
-    font-family:'PingFang TC',sans-serif;
-    font-style:normal;
-    font-size:19.5px;color:var(--ink);
-    line-height:1.85;
-    padding-left:22px;
-    border-left:3px solid var(--night);
-    margin-top:18px;
-  }
-  .century-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    gap:14px;margin-top:26px;
-  }
-  .century-grid .cell{
-    background:#fff;border:1px solid var(--line);
-    border-radius:12px;padding:14px 14px 16px;
-    text-align:center;
-  }
-  .century-grid .num{
-    font-family:'Cormorant Garamond',serif;
-    font-size:37.5px;font-weight:600;line-height:1;
-    color:var(--night-deep);margin-bottom:4px;
-  }
-  .century-grid .label-en{
-    font-size:14px;font-weight:700;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--gold-deep);
-  }
-  .century-grid .label-zh{
-    font-family:'PingFang TC',sans-serif;
-    font-size:15.5px;color:var(--ink-soft);
-    margin-top:4px;letter-spacing:.06em;
-  }
-  .principal-more{margin-top:24px;text-align:center;}
-  .principal-more a{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:16.5px;font-weight:700;color:var(--night-deep);
-    border-bottom:1px solid var(--gold);padding-bottom:2px;
-  }
-  .principal-more a:hover{color:var(--brick-deep);}
-
   /* ============ Student Life ============ */
   .life{background:linear-gradient(180deg,var(--night-soft) 0%,var(--cream) 100%);}
   .life-grid{
@@ -488,11 +402,6 @@
     section{padding:64px 0;}
     .about-grid{grid-template-columns:1fr;gap:36px;}
     .pillars{grid-template-columns:1fr;}
-    .principal-card{grid-template-columns:1fr;padding:32px 26px;gap:26px;}
-    .principal-photo{max-width:240px;margin:0 auto;}
-    .century-grid{grid-template-columns:repeat(3,1fr);gap:8px;}
-    .century-grid .cell{padding:10px 8px 12px;}
-    .century-grid .num{font-size:30px;}
     .life-grid{grid-template-columns:1fr;}
     .visit-grid{grid-template-columns:1fr;gap:30px;}
     footer .wrap{flex-direction:column;text-align:center;}
@@ -596,14 +505,6 @@
           <p style="margin-top:14px;">今日的萬興，12 個班、約 220 名學生，駐守著一座靜謐而完整的校園——白色教學樓圍著紅色跑道、日式庭園、跨二林與芳苑兩個鄉鎮的學區。我們不是大校，但我們在這裡夠久了，久到已經成為二林這一角土地，記憶自己的方式之一。</p>
         </div>
 
-        <dl class="quick">
-          <dt>Location · 校址</dt>
-          <dd>526 彰化縣二林鎮永興里二溪路六段 433 號</dd>
-          <dt>School District · 學區</dt>
-          <dd>萬興・永興・振興・部分西庄里 (Wansing · Yongxing · Zhenxing · part of Xizhuang Vil.) ・芳苑鄉建平村第 6 鄰</dd>
-          <dt>Age Range · 招收</dt>
-          <dd>Grade 1 – Grade 6 (一年級至六年級)</dd>
-        </dl>
       </div>
     </div>
   </div>
@@ -656,56 +557,42 @@
 </section>
 
 
-<!-- ============ PRINCIPAL (teaser) ============ -->
-<section class="principal" id="principal">
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">A Word from Our Principal</div>
-      <h2>Stewards of a Century</h2>
-      <div class="h2-zh">百年校史的守門人</div>
-    </div>
-
-    <div class="principal-card rvl">
-      <div class="principal-photo">
-        <img src="photos/principal-portrait.jpg" alt="Principal Wu Kuei-chih of Wansing Elementary School, standing in front of a stone garden" loading="lazy">
+    <div class="visit-grid">
+      <div>
+        <h2>Come Visit
+          <small>歡迎蒞臨指導</small>
+        </h2>
+        <p>We welcome educators, parents, and friends from around the world to walk our hundred-year campus, sit a while in the Star Lounge, and meet the murals on the way out.</p>
+        <p class="zh">歡迎國內外教育工作者、家長與友人蒞校交流——走一趟我們的百年校園，在星星閣坐一會兒，離開前再跟 3D 彩繪牆打個招呼。</p>
       </div>
 
-      <div class="principal-text">
-        <div class="role">Principal · 校長 · 19th · 第19任</div>
-        <h3>Wu Kuei-chih
-          <small>吳貴枝 校長 · 2021/8 起</small>
-        </h3>
-
-        <blockquote>
-          "A century-old school is not a museum. It is a promise &mdash; that every child who walks in today walks into a story already a hundred years long, and walks out adding a chapter of their own."
-        </blockquote>
-
-        <div class="zh-quote">
-          「一所百年校園，不是博物館——是一份承諾：每一個今天走進來的孩子，走進的是一個已經一百年的故事；他們走出去時，會多加一頁自己的篇章。」<br>
-          <span style="font-size:16px;color:var(--ink-soft);">——萬興國小辦學精神，自第一任校長柿原啟六起，傳承至今</span>
-        </div>
-
-        <div class="century-grid">
-          <div class="cell">
-            <div class="num">19</div>
-            <div class="label-en">Principals</div>
-            <div class="label-zh">歷任校長</div>
+      <div class="contact">
+        <dl>
+          <div>
+            <dt>Address · 地址</dt>
+            <dd>526 彰化縣二林鎮永興里二溪路六段 433 號<br>
+            No. 433, Sec. 6, Erxi Rd., Yongxing Vil., Erlin Twp., Changhua County 526, Taiwan</dd>
           </div>
-          <div class="cell">
-            <div class="num">107</div>
-            <div class="label-en">Years</div>
-            <div class="label-zh">校齡（自 1919）</div>
+          <div>
+            <dt>School District · 學區</dt>
+            <dd>萬興・永興・振興・部分西庄里 (Wansing · Yongxing · Zhenxing · part of Xizhuang Vil.) ・芳苑鄉建平村第 6 鄰</dd>
           </div>
-          <div class="cell">
-            <div class="num">12</div>
-            <div class="label-en">Classes</div>
-            <div class="label-zh">班級數</div>
+          <div>
+            <dt>Phone · 電話</dt>
+            <dd><a href="tel:+886486 82759">04-8682759</a> &nbsp;·&nbsp; Fax 04-8682850</dd>
           </div>
-        </div>
-
-        <div class="principal-more">
-          <a href="principal/">Read the full story of our 19 principals · 校長室：百年校史全紀錄 →</a>
-        </div>
+          <div>
+            <dt>Website · 學校官網</dt>
+            <dd><a href="https://wsps.chc.edu.tw/" target="_blank" rel="noopener">wsps.chc.edu.tw</a></dd>
+          </div>
+          <div>
+            <dt>Facebook · 臉書粉絲專頁</dt>
+            <dd><a href="https://www.facebook.com/p/%E5%BD%B0%E5%8C%96%E7%B8%A3%E8%90%AC%E8%88%88%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8-100076900798006/?locale=zh_TW" target="_blank" rel="noopener">彰化縣萬興國民小學</a></dd>
+          </div>
+        </dl>
       </div>
     </div>
   </div>
@@ -724,11 +611,8 @@
     <div class="life-grid">
 
       <article class="life-card rvl">
-        <div class="life-card__img" style="background:linear-gradient(135deg,var(--night-soft) 0%,var(--gold-soft) 100%);">
-          <div style="text-align:center;color:var(--night-deep);font-family:'Cormorant Garamond',serif;padding:0 16px;">
-            <div style="font-size:56px;line-height:1.05;">星星閣</div>
-            <div style="font-family:'PingFang TC',sans-serif;font-style:normal;font-size:17px;color:var(--ink);margin-top:8px;letter-spacing:.06em;">The Star Lounge</div>
-          </div>
+        <div class="life-card__img">
+          <img src="photos/star-lounge.jpg" alt="Visitors browsing an exhibition inside Wansing's Star Lounge, a warm wood-and-white reading space" loading="lazy">
         </div>
         <div class="life-card__body">
           <span class="tag">Reading · 閱讀</span>
@@ -790,49 +674,11 @@
 </section>
 
 
-<!-- ============ VISIT ============ -->
-<section class="visit" id="visit">
-  <div class="wrap">
-    <div class="visit-grid">
-      <div>
-        <h2>Come Visit
-          <small>歡迎蒞臨指導</small>
-        </h2>
-        <p>We welcome educators, parents, and friends from around the world to walk our hundred-year campus, sit a while in the Star Lounge, and meet the murals on the way out.</p>
-        <p class="zh">歡迎國內外教育工作者、家長與友人蒞校交流——走一趟我們的百年校園，在星星閣坐一會兒，離開前再跟 3D 彩繪牆打個招呼。</p>
-      </div>
-
-      <div class="contact">
-        <dl>
-          <div>
-            <dt>Address · 地址</dt>
-            <dd>526 彰化縣二林鎮永興里二溪路六段 433 號<br>
-            No. 433, Sec. 6, Erxi Rd., Yongxing Vil., Erlin Twp., Changhua County 526, Taiwan</dd>
-          </div>
-          <div>
-            <dt>Phone · 電話</dt>
-            <dd><a href="tel:+886486 82759">04-8682759</a> &nbsp;·&nbsp; Fax 04-8682850</dd>
-          </div>
-          <div>
-            <dt>Website · 學校官網</dt>
-            <dd><a href="https://wsps.chc.edu.tw/" target="_blank" rel="noopener">wsps.chc.edu.tw</a></dd>
-          </div>
-          <div>
-            <dt>Facebook · 臉書粉絲專頁</dt>
-            <dd><a href="https://www.facebook.com/p/%E5%BD%B0%E5%8C%96%E7%B8%A3%E8%90%AC%E8%88%88%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8-100076900798006/?locale=zh_TW" target="_blank" rel="noopener">彰化縣萬興國民小學</a></dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- ============ FOOTER ============ -->
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.pillar,.about-photo,.principal-card,.life-card';
+  var sel='.pillar,.about-photo,.life-card';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
