@@ -2,37 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="canonical" href="https://changhua-bilingual.org/schools/wansing/lessons/">
 <title>Lessons · 課程 · Wansing Elementary School</title>
-<meta name="description" content="Weekly English lessons and bilingual learning content from Wansing Elementary — coming soon. 萬興國小每週英語與雙語課程內容，籌備中。">
+<meta name="description" content="Wansing Elementary's bilingual lessons: Word of the Day filmed on our own campus, Classroom English, and Bilingual Announcements. 萬興國小雙語課程：校園拍攝的每日一字、課室英語、雙語廣播。">
 <meta property="og:title" content="Lessons · 課程 · Wansing Elementary School">
 <meta property="og:type" content="website">
 
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
-<link rel="apple-touch-icon" href="../favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png">
+<link rel="shortcut icon" href="../favicon.ico">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --brick:#a44a3a;--brick-deep:#6f2e22;--brick-soft:#f5dfd6;
   --night:#2a3957;--night-deep:#16223c;--night-soft:#dde2ee;
   --gold:#c89a3e;--gold-deep:#8a6618;--gold-soft:#f4e8cc;
-  --ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;
+  --ink:#1f1a16;--ink-soft:#5e5750;--line:#e7dfd2;--bg-soft:#faf7f2;
   --max:1080px;
   --shadow:0 14px 40px -16px rgba(22,34,60,.30);
   --shadow-sm:0 4px 14px -4px rgba(22,34,60,.20);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:18px;color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:19px;color:var(--ink);background:#fff;line-height:1.68;-webkit-font-smoothing:antialiased;}
+@media(min-width:720px){body{font-size:21px;}}
 img{max-width:100%;display:block;}
 a{color:var(--night-deep);text-decoration:none;transition:color .2s;}
 a:hover{color:var(--brick-deep);}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+section{padding:64px 0;border-bottom:1px solid var(--line);}
+@media(min-width:720px){section{padding:90px 0;}}
+section:last-of-type{border-bottom:none;}
 
 /* topbar */
 .topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
@@ -46,33 +52,111 @@ a:hover{color:var(--brick-deep);}
 .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--night-deep);background:var(--night-soft);}
 @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
 
-/* hero (photo banner) */
-.ph-hero{
-  position:relative;
-  background:
-    linear-gradient(180deg, rgba(13,20,36,.25) 0%, rgba(13,20,36,.7) 100%),
-    url('../photos/mural-galaxy.jpg') center 40% / cover no-repeat;
-  padding:70px 0 54px;text-align:center;border-bottom:5px solid var(--gold);
-  text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.5);
-}
-.ph-hero__eyebrow{display:inline-block;font-size:16px;letter-spacing:.22em;font-weight:700;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;text-shadow:0 1px 6px rgba(0,0,0,.4);}
-.ph-hero h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(44px,6.6vw,68px);line-height:1.1;font-weight:600;color:#fff;margin-bottom:10px;text-shadow:0 2px 14px rgba(0,0,0,.45);}
-.ph-hero h1 .zh{display:block;font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:clamp(21px,2.5vw,27px);font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.92);margin-top:10px;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+/* hero */
+.lessons-hero{background:linear-gradient(135deg,var(--night-deep) 0%,var(--night) 55%,#3a4d74 100%);color:#fff;padding:72px 0 78px;text-align:center;border-bottom:5px solid var(--gold);}
+.lessons-hero__eyebrow{font-size:16px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:16px;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+.lessons-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,80px);font-weight:700;line-height:1.08;text-shadow:0 2px 14px rgba(0,0,0,.4);}
+.lessons-hero__zh{font-family:'PingFang TC',sans-serif;font-size:22px;color:rgba(255,255,255,.9);margin-top:12px;letter-spacing:.08em;}
+@media(min-width:720px){.lessons-hero__zh{font-size:26px;}}
+.lessons-hero__sub{font-size:19px;color:rgba(255,255,255,.82);margin-top:20px;line-height:1.65;max-width:640px;margin-left:auto;margin-right:auto;}
+@media(min-width:720px){.lessons-hero__sub{font-size:21px;}}
+.lessons-hero__sub .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:rgba(255,255,255,.7);margin-top:8px;}
 
-/* placeholder card */
-section.ph-body{padding:70px 0;}
-.ph-card{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:52px 44px;text-align:center;box-shadow:var(--shadow);}
-.ph-card .glyph{font-size:52px;margin-bottom:18px;}
-.ph-card h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:32px;font-weight:600;color:var(--night-deep);margin-bottom:8px;}
-.ph-card h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);font-weight:500;margin-top:6px;}
-.ph-card p{font-size:18.5px;color:var(--ink);margin-top:20px;line-height:1.8;}
-.ph-card p.zh{font-family:'PingFang TC',sans-serif;font-size:17.5px;color:var(--ink-soft);margin-top:12px;}
-.ph-tag{display:inline-block;margin-top:26px;font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-soft);padding:8px 18px;border-radius:99px;}
-.ph-back{margin-top:30px;}
-.ph-back a{font-size:16px;font-weight:600;border-bottom:1px solid var(--gold);padding-bottom:2px;}
+/* section headings */
+.sec__label{font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;}
+.sec__title{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:38px;font-weight:700;color:var(--night-deep);line-height:1.18;}
+@media(min-width:720px){.sec__title{font-size:52px;}}
+.sec__title-zh{font-size:19px;color:var(--ink-soft);margin-top:8px;font-weight:500;letter-spacing:.05em;}
+@media(min-width:720px){.sec__title-zh{font-size:21.5px;}}
+.sec__rule{width:80px;height:5px;background:var(--gold);border-radius:3px;margin:20px 0 34px;}
+.sec__lede{font-size:19px;color:var(--ink-soft);line-height:1.7;max-width:800px;}
+@media(min-width:720px){.sec__lede{font-size:21px;}}
+.sec__lede .zh{display:block;font-size:17px;margin-top:8px;font-family:'PingFang TC',sans-serif;}
+@media(min-width:720px){.sec__lede .zh{font-size:18.5px;}}
+
+/* course cards */
+.course-list{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+.course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+@media(min-width:760px){.course{grid-template-columns:300px 1fr;align-items:stretch;}}
+.course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);}
+.course__emoji{font-size:100px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));transition:transform .3s;}
+@media(min-width:720px){.course__emoji{font-size:126px;}}
+.course:hover .course__emoji{transform:scale(1.07) rotate(-4deg);}
+.course__badge{font-size:14.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 18px;border-radius:99px;}
+.course__body{padding:34px 30px 36px;display:flex;flex-direction:column;justify-content:center;}
+@media(min-width:720px){.course__body{padding:46px 52px;}}
+.course__no{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);}
+.course__title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--night-deep);line-height:1.1;margin-top:8px;}
+@media(min-width:720px){.course__title{font-size:50px;}}
+.course__title-zh{font-size:20.5px;color:var(--ink);font-weight:600;margin-top:8px;font-family:'PingFang TC',sans-serif;letter-spacing:.05em;}
+@media(min-width:720px){.course__title-zh{font-size:23px;}}
+.course__desc{font-size:18.5px;color:var(--ink-soft);line-height:1.65;margin-top:16px;}
+@media(min-width:720px){.course__desc{font-size:20px;}}
+.course__desc .zh{display:block;font-size:16.5px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:6px;}
+@media(min-width:720px){.course__desc .zh{font-size:18px;}}
+.course__cta{margin-top:24px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fff;background:var(--brick);padding:14px 28px;border-radius:14px;box-shadow:0 8px 22px -8px rgba(111,46,34,.5);text-decoration:none;transition:background .15s,transform .15s;}
+@media(min-width:720px){.course__cta{font-size:22.5px;}}
+.course__cta .arrow{transition:transform .15s;display:inline-block;}
+.course:hover .course__cta{background:var(--brick-deep);transform:translateY(-2px);}
+.course:hover .course__cta .arrow{transform:translateX(6px);}
+
+/* learning modules */
+.module{--accent:var(--night);--accent-deep:var(--night-deep);--accent-soft:var(--night-soft);}
+.module--brick{--accent:var(--brick);--accent-deep:var(--brick-deep);--accent-soft:var(--brick-soft);}
+.module__body{font-size:18.5px;color:var(--ink);line-height:1.72;margin-top:18px;max-width:860px;}
+@media(min-width:720px){.module__body{font-size:20px;}}
+.module__body p{margin-bottom:14px;}
+.module__body .zh{font-family:'PingFang TC','Apple LiGothic Medium',sans-serif;font-size:17.5px;color:var(--ink-soft);line-height:1.85;}
+@media(min-width:720px){.module__body .zh{font-size:19px;}}
+
+.credits{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+.credits__cell{flex:1 1 190px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:14px 20px;}
+.credits__label{font-size:14.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);}
+.credits__value{font-size:17.5px;font-weight:600;color:var(--ink);margin-top:4px;line-height:1.4;}
+@media(min-width:720px){.credits__value{font-size:19px;}}
+
+.player{margin-top:28px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+.player__ratio{position:relative;width:100%;aspect-ratio:16/9;}
+.player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+.player-link{display:flex;align-items:center;gap:16px;margin-top:16px;padding:17px 20px;border-radius:16px;background:var(--accent-soft);text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s;}
+.player-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+.player-link__icon{font-size:18px;color:#fff;background:var(--accent);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.player-link__text strong{display:block;font-size:18.5px;font-weight:700;color:var(--accent-deep);}
+@media(min-width:720px){.player-link__text strong{font-size:20px;}}
+.player-link__text span{display:block;font-size:15.5px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:2px;}
+@media(min-width:720px){.player-link__text span{font-size:17px;}}
+.player-link__arrow{margin-left:auto;font-size:22px;color:var(--accent);}
+
+/* topics grid */
+.topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
+@media(min-width:600px){.topics{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:860px){.topics{grid-template-columns:repeat(5,1fr);}}
+.topic{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:14px;padding:16px 15px 15px;box-shadow:var(--shadow-sm);}
+.topic__no{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--accent);line-height:1;}
+.topic__en{font-size:16.5px;font-weight:700;color:var(--ink);margin-top:8px;line-height:1.25;}
+.topic__zh{font-size:15px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:5px;line-height:1.4;}
+
+/* offices grid */
+.offices{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px;}
+@media(min-width:760px){.offices{grid-template-columns:repeat(2,1fr);}}
+.office{background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow-sm);}
+.office__title{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;color:var(--accent-deep);line-height:1.1;}
+@media(min-width:720px){.office__title{font-size:31px;}}
+.office__title-zh{font-size:16.5px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:4px;font-weight:600;}
+.office__list{list-style:none;margin-top:13px;}
+.office__list li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-top:1px dashed var(--line);font-size:16.5px;color:var(--ink);line-height:1.45;}
+@media(min-width:720px){.office__list li{font-size:18px;}}
+.office__list .ep{flex-shrink:0;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff;background:var(--accent);border-radius:8px;padding:3px 9px;letter-spacing:.03em;}
 
 /* footer */
-.site-footer{background:#0d1424;color:rgba(255,255,255,.6);padding:32px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.08);text-align:center;}
+footer{text-align:center;padding:36px 24px;font-size:16px;color:var(--ink-soft);line-height:1.6;}
+
+/* reveal-fx */
+.rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+.rvl.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 </style>
 <script defer src="/analytics.js"></script>
 <link rel="stylesheet" href="/assets/css/motion.css">
@@ -96,39 +180,177 @@ section.ph-body{padding:70px 0;}
 </nav>
 
 <!-- HERO -->
-<header class="ph-hero">
+<header class="lessons-hero">
   <div class="wrap">
-    <span class="ph-hero__eyebrow">Bilingual Learning</span>
-    <h1>Lessons
-      <span class="zh">課程</span>
-    </h1>
+    <div class="lessons-hero__eyebrow">Wansing Elementary · 萬興國小</div>
+    <h1>Lessons</h1>
+    <div class="lessons-hero__zh">雙語課程</div>
+    <p class="lessons-hero__sub">
+      Bilingual English lessons made right here at Wansing — words, phrases, and voices from our own hundred-year campus.
+      <span class="zh">在萬興校園製作的雙語英語課程——來自這座百年校園自己的單字、短語與聲音。</span>
+    </p>
   </div>
 </header>
 
-<!-- PLACEHOLDER -->
-<section class="ph-body">
+<!-- COURSES -->
+<section>
   <div class="wrap">
-    <div class="ph-card">
-      <div class="glyph">📖</div>
-      <h2>Coming Soon
-        <span class="zh">內容籌備中</span>
-      </h2>
-      <p>We're preparing Wansing's Weekly English and bilingual lesson content for this page &mdash; check back soon.</p>
-      <p class="zh">萬興國小的每週英語與雙語課程內容正在整理中，之後會陸續放上這一頁。</p>
-      <span class="ph-tag">Weekly English · 每週英語</span>
-      <div class="ph-back"><a href="../">← Back to Home · 回首頁</a></div>
+    <div class="sec__label">Our Courses · 課程總覽</div>
+    <h2 class="sec__title">What We Teach</h2>
+    <div class="sec__title-zh">萬興的雙語課</div>
+    <div class="sec__rule"></div>
+    <p class="sec__lede">
+      Real words, filmed by real teachers and students, on our own campus.
+      <span class="zh">真實的單字，由萬興的老師和學生在自己的校園裡拍攝而成。</span>
+    </p>
+
+    <div class="course-list">
+      <a class="course rvl" href="word/">
+        <div class="course__art">
+          <div class="course__emoji">📖</div>
+          <div class="course__badge">Now Available · 現在開放</div>
+        </div>
+        <div class="course__body">
+          <div class="course__no">Course 01</div>
+          <div class="course__title">Word of the Day</div>
+          <div class="course__title-zh">每日一字</div>
+          <p class="course__desc">
+            Bilingual videos filmed on Wansing's own campus — one word at a time, from the art room to the school garden.
+            <span class="zh">在萬興校園拍攝的雙語影片，每次一個英文單字——從美勞教室到校園花圃，處處都是課本。</span>
+          </p>
+          <div class="course__cta">Start Learning <span class="arrow">→</span></div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
+<!-- CLASSROOM ENGLISH -->
+<section class="module" id="classroom-english" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div>© 2026 彰化縣二林鎮萬興國民小學 · Wansing Elementary School</div>
+    <div class="sec__label">For Teachers · 給老師</div>
+    <h2 class="sec__title">Classroom English</h2>
+    <div class="sec__title-zh">課室英語 · 老師每天說的英文</div>
+    <div class="sec__rule"></div>
+    <div class="module__body rvl">
+      <p>A practical video library of the everyday English a teacher actually uses in the classroom: <strong>greetings and roll call, pre-class set-up, instructions, praise and correction, classroom management, lesson activities, assigning homework, wrapping up, and exam directions.</strong> Each video isolates one situation so the phrases stick on first hearing.</p>
+      <p class="zh">涵蓋臺灣老師每天在課堂使用的英語——問候點名、課前準備、講解、回饋讚美糾正、教室管理、課堂活動、分派作業、課堂收尾、考試指令。每支影片只處理一個情境，第一次聽就能記住。</p>
+    </div>
+    <div class="credits rvl">
+      <div class="credits__cell"><div class="credits__label">Instructor</div><div class="credits__value">Sarah Thomas · Sarah Thomas 老師</div></div>
+      <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>
+      <div class="credits__cell"><div class="credits__label">Audience</div><div class="credits__value">In-service teachers · 在職教師</div></div>
+    </div>
+    <div class="player rvl">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ&rel=0" title="Classroom English playlist by Sarah Thomas" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <a class="player-link rvl" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8UDZ8tSZ6MTGyjXsGEJ24wZ" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 直接跳到想看的那一支</span></span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+    <div class="topics">
+      <div class="topic rvl"><div class="topic__no">01</div><div class="topic__en">Greetings &amp; Roll Call</div><div class="topic__zh">問候、點名</div></div>
+      <div class="topic rvl"><div class="topic__no">02</div><div class="topic__en">Pre-Class Preparation</div><div class="topic__zh">課前準備</div></div>
+      <div class="topic rvl"><div class="topic__no">03</div><div class="topic__en">Explanations</div><div class="topic__zh">講解</div></div>
+      <div class="topic rvl"><div class="topic__no">04</div><div class="topic__en">Pre-Teaching Activities</div><div class="topic__zh">課前教學活動</div></div>
+      <div class="topic rvl"><div class="topic__no">05</div><div class="topic__en">Feedback &amp; Praise</div><div class="topic__zh">回饋、讚美、糾正</div></div>
+      <div class="topic rvl"><div class="topic__no">06</div><div class="topic__en">Order &amp; Handouts</div><div class="topic__zh">教室管理、分發講義</div></div>
+      <div class="topic rvl"><div class="topic__no">07</div><div class="topic__en">Lesson Activities</div><div class="topic__zh">課堂教學活動</div></div>
+      <div class="topic rvl"><div class="topic__no">08</div><div class="topic__en">Assigning Homework</div><div class="topic__zh">分派作業</div></div>
+      <div class="topic rvl"><div class="topic__no">09</div><div class="topic__en">Class Conclusion</div><div class="topic__zh">課堂收尾</div></div>
+      <div class="topic rvl"><div class="topic__no">10</div><div class="topic__en">Examinations</div><div class="topic__zh">考試</div></div>
+    </div>
   </div>
-</footer>
+</section>
 
+<!-- BILINGUAL ANNOUNCEMENTS -->
+<section class="module module--brick" id="announcements">
+  <div class="wrap">
+    <div class="sec__label">Around Campus · 校園廣播</div>
+    <h2 class="sec__title">Bilingual Announcements</h2>
+    <div class="sec__title-zh">英語廣播 · 校園的英語之聲</div>
+    <div class="sec__rule"></div>
+    <div class="module__body rvl">
+      <p>The morning intercom in two languages — written and recorded by the four school offices: <strong>Academic Affairs (教務處), Student Affairs (學務處), General Affairs (總務處), and Counseling (輔導室).</strong> Each office introduces what it does in both languages — turning the daily public-address routine into real-world bilingual exposure.</p>
+      <p class="zh">早上的校園廣播，雙語版本——由教務、學務、總務、輔導四個處室共同寫稿、共同上鏡。各組親自介紹自己的工作，雙語對照，把每天的廣播時間，變成全校學生在走廊上就能接收的英語浸潤。</p>
+    </div>
+    <div class="credits rvl">
+      <div class="credits__cell"><div class="credits__label">Hosts</div><div class="credits__value">Sarah Thomas &amp; Susan Rose</div></div>
+      <div class="credits__cell"><div class="credits__label">Producer</div><div class="credits__value">My Culture Connect · 人師</div></div>
+      <div class="credits__cell"><div class="credits__label">Format</div><div class="credits__value">By the four offices · 四處室分集</div></div>
+    </div>
+    <div class="player rvl">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy&rel=0" title="Bilingual Announcements playlist" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <a class="player-link rvl" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8U2l5LnxUpEA_Uvi-5wdTKy" target="_blank" rel="noopener">
+      <span class="player-link__icon">▶</span>
+      <span class="player-link__text"><strong>Browse the full playlist on YouTube</strong><span>在 YouTube 開啟完整 playlist · 各處室任你選擇</span></span>
+      <span class="player-link__arrow">↗</span>
+    </a>
+    <div class="offices">
+      <div class="office rvl">
+        <div class="office__title">Academic Affairs</div>
+        <div class="office__title-zh">教務處 · 5 集</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 1-1</span><span>Curriculum &amp; Instruction · 教學組</span></li>
+          <li><span class="ep">EP 1-2</span><span>Registrar · 註冊組</span></li>
+          <li><span class="ep">EP 1-3</span><span>Equipment &amp; Facilities · 設備組</span></li>
+          <li><span class="ep">EP 1-4</span><span>Library · 圖書室</span></li>
+          <li><span class="ep">EP 1-5</span><span>Information Technology · 資訊組</span></li>
+        </ul>
+      </div>
+      <div class="office rvl">
+        <div class="office__title">Student Affairs</div>
+        <div class="office__title-zh">學務處 · 3 集</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 2-1</span><span>Discipline &amp; Activities · 訓育組</span></li>
+          <li><span class="ep">EP 2-2</span><span>Student Guidance · 生教組</span></li>
+          <li><span class="ep">EP 2-3</span><span>Physical Education · 體育組</span></li>
+        </ul>
+      </div>
+      <div class="office rvl">
+        <div class="office__title">General Affairs</div>
+        <div class="office__title-zh">總務處 · 校園後勤</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 3-x</span><span>Documents, Cashier &amp; Maintenance · 文書、出納、事務</span></li>
+        </ul>
+      </div>
+      <div class="office rvl">
+        <div class="office__title">Counseling Office</div>
+        <div class="office__title-zh">輔導室 · 心理與生涯支持</div>
+        <ul class="office__list">
+          <li><span class="ep">EP 4-x</span><span>Student support &amp; career guidance · 學生支持與生涯輔導</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 彰化縣二林鎮萬興國民小學 · Wansing Elementary School
+</footer>
 <div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=[].slice.call(document.querySelectorAll('.rvl'));
+  if(!els.length)return;
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*90)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 <script defer src="/assets/js/motion.js"></script>
 </body>
 </html>
