@@ -102,6 +102,10 @@ section:last-of-type{border-bottom:none}
 .pillars,.facts{display:grid;grid-template-columns:1fr;gap:22px}
 @media(min-width:720px){.pillars{grid-template-columns:1fr 1fr;gap:26px}.facts{grid-template-columns:repeat(3,1fr)}}
 .pillar,.factcard{background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent);border-radius:20px;padding:30px 28px;box-shadow:var(--shadow-sm)}
+.pillar:has(.pillar__photo){padding:0;overflow:hidden}
+.pillar__photo{position:relative;overflow:hidden;aspect-ratio:16/9}
+.pillar__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pillar__body{padding:24px 28px 30px}
 .pillar__icon{font-size:52px;line-height:1;margin-bottom:10px}
 .pillar__t,.factcard__v{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;color:var(--crimson-deep);line-height:1.15}
 .pillar__zh,.factcard__zh{font-size:17px;color:var(--ink-soft);font-weight:600;margin-top:6px;line-height:1.5}
