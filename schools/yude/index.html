@@ -386,10 +386,41 @@
   .official-cta__arrow{font-size:28px;font-weight:700;flex-shrink:0;}
   @media (min-width:720px){ .official-cta__arrow{ font-size:36px; } }
 
-  footer{text-align:center;padding:40px 24px;font-size:17px;color:var(--ink-soft);line-height:1.65;}
-  @media (min-width:720px){ footer{ font-size:19px; } }
-  footer .org{font-weight:600;color:var(--blue-deep);}
-  footer a{color:var(--blue-deep);}
+  /* === Footer === */
+  .ft-ctas{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
+  .cta-btn{background:var(--blue);color:#fff;border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 16px -8px rgba(0,0,0,.4);transition:transform .18s,background .18s,color .18s,box-shadow .18s;text-decoration:none;}
+  .cta-btn:hover{background:#fff;color:var(--blue-deep);transform:translateY(-4px);box-shadow:var(--shadow);}
+  .cta-btn--yt{background:#ff0000;}
+  .cta-btn--yt:hover{background:#fff;color:#cc0000;}
+  .cta-btn__ico{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;}
+  .cta-btn__tx{flex:1;min-width:0;}
+  .cta-btn__t{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.2;}
+  .cta-btn__zh{font-size:13px;margin-top:3px;font-weight:600;opacity:.94;}
+  .cta-btn__arrow{font-size:20px;font-weight:700;flex-shrink:0;transition:transform .18s;}
+  .cta-btn:hover .cta-btn__arrow{transform:translate(3px,-3px);}
+  .ft-ctas .cta-btn--archive{background:rgba(255,255,255,.07);border:1.5px dashed rgba(255,255,255,.38);color:#fff;box-shadow:none;}
+  .ft-ctas .cta-btn--archive:hover{background:rgba(255,255,255,.16);color:#fff;transform:translateY(-4px);box-shadow:none;}
+  .cta-btn--archive .cta-btn__ico{background:rgba(255,255,255,.14);color:#fff;}
+  .cta-btn--archive:hover .cta-btn__ico{background:rgba(255,255,255,.24);}
+  .cta-btn--archive .cta-btn__t{color:#fff;}
+  .cta-btn--archive .cta-btn__zh{color:rgba(255,255,255,.72);opacity:1;}
+  .cta-btn--archive .cta-btn__arrow{color:rgba(255,255,255,.85);}
+  .ft{background:var(--blue-deep);color:rgba(255,255,255,.80);padding:44px 0 34px;}
+  .ft__inner{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:26px;}
+  @media(min-width:760px){ .ft__inner{grid-template-columns:1.6fr 1fr 1.1fr;gap:40px;} }
+  .ft__brand{display:flex;gap:14px;align-items:flex-start;}
+  .ft__brand .ft__logo{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:800;background:rgba(255,255,255,.12);color:var(--cream);flex-shrink:0;}
+  .ft__brand h4{font-family:'Playfair Display',serif;font-size:21px;color:#fff;font-weight:700;line-height:1.15;}
+  .ft__brand .zh{font-size:14px;color:rgba(255,255,255,.78);margin-top:3px;}
+  .ft__addr{margin-top:10px;font-size:14px;color:rgba(255,255,255,.7);line-height:1.65;}
+  .ft__col h5{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px;}
+  .ft__col ul{list-style:none;}
+  .ft__col li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,.85);}
+  .ft__col a{color:rgba(255,255,255,.85);border-bottom:1px dashed rgba(245,234,208,.5);text-decoration:none;}
+  .ft__col a:hover{color:var(--gold-soft);}
+  .ft__bottom{max-width:1100px;margin:30px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.62);text-align:center;line-height:1.7;}
+  .ft__bottom a{color:var(--gold-soft);border-bottom:1px dashed rgba(245,234,208,.5);text-decoration:none;}
+  .ft__bottom a:hover{color:#fff;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -839,10 +870,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 </script>
-<footer>
-  © 育德國小 Yude Elementary School</footer>
-
-<div class="cb-credit" style="background:#241f1b;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+<footer class="ft"><div class="ft__inner"><div class="ft__brand"><span class="ft__logo">育</span><div><h4>Yude Elementary School</h4><div class="zh">彰化縣二林鎮育德國民小學</div><div class="ft__addr">52652 彰化縣二林鎮外竹里中南巷 41-1 號<br>No. 41-1, Zhongnan Ln., Waizhu Vil., Erlin, Changhua<br>Tel · 電話：(04) 8962574</div></div></div><div class="ft__col"><h5>This Site</h5><ul><li><a href="/schools/yude/">Home · 首頁</a></li><li><a href="/schools/yude/principal/">Principal · 校長室</a></li><li><a href="/schools/yude/lessons/">Lessons · 課程</a></li><li><a href="/schools/yude/news/">News · 新聞</a></li></ul></div><div class="ft__col"><h5>Connect</h5><div class="ft-ctas"><a class="cta-btn" href="https://ydes.chc.edu.tw/" target="_blank" rel="noopener"><span class="cta-btn__ico">🌐</span><span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">育德國小官網</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--yt" href="https://www.youtube.com/playlist?list=PL01OhMUI2G8VPG8YYfTRA1TN_sgz3idFj" target="_blank" rel="noopener"><span class="cta-btn__ico">▶</span><span class="cta-btn__tx"><span class="cta-btn__t">YouTube Playlist</span><span class="cta-btn__zh">育德雙語影片播放清單</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--archive" href="https://yude.twrses.org/home" target="_blank" rel="noopener"><span class="cta-btn__ico">🗂️</span><span class="cta-btn__tx"><span class="cta-btn__t">Previous Website</span><span class="cta-btn__zh">舊網站存檔</span></span><span class="cta-btn__arrow">↗</span></a></div></div></div><div class="ft__bottom">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> · <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div></footer>
 <script defer src="/assets/js/motion.js"></script>
 </body>
 </html>
