@@ -175,16 +175,16 @@
   @media (min-width:720px){ .pillars{ grid-template-columns:1fr 1fr;gap:22px; } }
   .pillar{
     background:#fff;border-radius:18px;border:1px solid var(--line);
-    padding:28px 26px;box-shadow:var(--shadow-sm);
+    overflow:hidden;box-shadow:var(--shadow-sm);
     border-top:6px solid var(--blue);transition:transform .2s, box-shadow .2s;
   }
-  @media (min-width:720px){ .pillar{ padding:36px 32px; } }
   .pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
   .pillar:nth-child(2){border-top-color:var(--gold);}
   .pillar:nth-child(3){border-top-color:var(--bamboo);}
   .pillar:nth-child(4){border-top-color:var(--blue-deep);}
-  .pillar__icon{font-size:46px;line-height:1;margin-bottom:12px;}
-  @media (min-width:720px){ .pillar__icon{ font-size:56px; } }
+  .pillar__photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+  .pillar__inner{padding:28px 26px;}
+  @media (min-width:720px){ .pillar__inner{ padding:36px 32px; } }
   .pillar__title{
     font-family:'Playfair Display',serif;
     font-size:28px;font-weight:700;color:var(--blue-deep);line-height:1.2;
@@ -487,28 +487,36 @@
 
     <div class="pillars">
       <article class="pillar">
-        <div class="pillar__icon">🎷</div>
+        <img class="pillar__photo" src="photos/pillar-soaring-arts.jpg" alt="Yude students performing on stage · 育德學生才藝表演">
+        <div class="pillar__inner">
         <div class="pillar__title">Soaring Arts</div>
         <div class="pillar__title-zh">藝翔天開</div>
         <div class="pillar__body">A full-spectrum arts curriculum — <strong>ocarina, ukulele, keyboard, saxophone, drawing, calligraphy, dance</strong> — anchored by our saxophone ensemble and the biennial <em>Soaring Arts Exhibition</em> at the Erlin Township Library.</div>
+        </div>
       </article>
       <article class="pillar">
-        <div class="pillar__icon">📖</div>
+        <img class="pillar__photo" src="photos/pillar-reading-time.jpg" alt="Students reading beside the mobile library truck · 學生在行動圖書車旁閱讀">
+        <div class="pillar__inner">
         <div class="pillar__title">Yude Reading Time</div>
         <div class="pillar__title-zh">育德愛閱</div>
         <div class="pillar__body">From the Fo Guang Shan <strong>mobile-library truck</strong> that pulls into our courtyard, to daily reading rituals and community read-alongs — books are how Yude children meet the world beyond Outer Bamboo.</div>
+        </div>
       </article>
       <article class="pillar">
-        <div class="pillar__icon">🌾</div>
+        <img class="pillar__photo" src="photos/pillar-outer-bamboo.jpg" alt="Students visiting a local temple in Outer Bamboo · 學生走讀外竹在地廟宇">
+        <div class="pillar__inner">
         <div class="pillar__title">Exploring Outer Bamboo</div>
         <div class="pillar__title-zh">走讀外竹</div>
         <div class="pillar__body">The village is the syllabus. Our students <strong>walk Outer Bamboo</strong> — its lanes, temples, fields, and elders — turning the place they live into the place they learn.</div>
+        </div>
       </article>
       <article class="pillar">
-        <div class="pillar__icon">🥟</div>
+        <img class="pillar__photo" src="photos/pillar-taste-of-erlin.jpg" alt="Students visiting a local food workshop in Erlin · 學生走訪二林在地食農工坊">
+        <div class="pillar__inner">
         <div class="pillar__title">A Taste of Erlin</div>
         <div class="pillar__title-zh">蕎見二林</div>
         <div class="pillar__body">Erlin grows <strong>more buckwheat than anywhere else in Taiwan</strong>. From the autumn buckwheat-flower fields to our winter dumpling festival with community partners, taste is how Yude children learn what it means to be from here.</div>
+        </div>
       </article>
     </div>
 

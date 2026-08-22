@@ -127,8 +127,9 @@ section:last-of-type{border-bottom:none;}
 /* ===== Pillars ===== */
 .pillars{display:grid;grid-template-columns:1fr;gap:22px;}
 @media(min-width:720px){.pillars{grid-template-columns:1fr 1fr;gap:26px;}}
-.pillar{background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--blue));border-radius:20px;padding:30px 28px;box-shadow:var(--shadow-sm);}
-.pillar__icon{font-size:52px;line-height:1;margin-bottom:10px;}
+.pillar{background:#fff;border:1px solid var(--line);border-top:8px solid var(--accent,var(--blue));border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.pillar__photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.pillar__body{padding:24px 28px 30px;}
 .pillar__t{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;color:var(--blue-deep);line-height:1.15;}
 .pillar__zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:4px;}
 .pillar__b{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.65;}
@@ -179,16 +180,16 @@ section:last-of-type{border-bottom:none;}
 .player__caption b{color:var(--blue-deep);font-style:normal;}
 
 /* ===== Teacher personal-site card ===== */
-.tsite{display:flex;flex-direction:column;gap:24px;margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm);}
-@media(min-width:680px){.tsite{flex-direction:row;align-items:center;padding:28px;gap:32px;}}
-.tsite__photo{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%;border-radius:14px;border:1px solid var(--line);flex-shrink:0;}
-@media(min-width:680px){.tsite__photo{width:280px;}}
-.tsite__body{flex:1;min-width:0;}
-.tsite__name{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--blue-deep);line-height:1.2;}
-.tsite__zh{display:block;font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
-.tsite__desc{margin-top:14px;font-size:17px;line-height:1.6;color:var(--ink);}
-.tsite__desc.zh{color:var(--ink-soft);font-size:15px;margin-top:6px;}
-.tsite__cta{margin-top:18px;max-width:340px;}
+.tcard{display:grid;grid-template-columns:1fr;margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+@media(min-width:720px){.tcard{grid-template-columns:260px 1fr;}}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.tcard__photo{background-size:cover;background-position:center 22%;min-height:220px;}
+.tcard__body{padding:26px 28px 30px;display:flex;flex-direction:column;justify-content:center;}
+.tcard__name{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--blue-deep);line-height:1.15;}
+.tcard__zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:4px;}
+.tcard__desc{font-size:17px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+.tcard__cta{margin-top:18px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;background:var(--blue);padding:11px 22px;border-radius:12px;transition:background .18s;}
+.tcard:hover .tcard__cta{background:var(--blue-deep);}
 
 /* ===== WOTD embedded video cards ===== */
 .vocabs{display:grid;grid-template-columns:1fr;gap:30px;margin-top:34px;}
