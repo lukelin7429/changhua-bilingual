@@ -134,6 +134,14 @@
   @media (min-width:720px){ .about__body .zh{ font-size:21px; } }
   .about__body strong{color:var(--blue-deep);font-weight:700;}
 
+  /* === Welcome video player === */
+  .player{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);}
+  @media (min-width:720px){ .player{ padding:18px; } }
+  .player__ratio{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+  .player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player__caption{margin-top:14px;text-align:center;font-style:italic;font-size:17px;color:var(--ink-soft);line-height:1.5;padding:0 8px;}
+  .player__caption b{color:var(--blue-deep);font-style:normal;}
+
   .figure{
     margin-top:36px;background:#fff;border-radius:18px;border:1px solid var(--line);
     padding:14px;box-shadow:var(--shadow);
@@ -407,10 +415,24 @@
   </div>
 </header>
 
-<!-- ===== I. About ===== -->
-<section id="about">
+<!-- ===== I. Welcome Video ===== -->
+<section id="welcome">
   <div class="wrap">
     <div class="sec__no">I.</div>
+    <h2 class="sec__title">Welcome to Yude</h2>
+    <div class="sec__title-zh">一段歡迎短片，從這裡開始</div>
+    <div class="sec__rule"></div>
+    <p class="lead">Before anything else, a welcome.</p>
+    <p class="lead-zh">在認識育德之前，先讓我們向你打聲招呼。</p>
+    <div class="player"><div class="player__ratio"><iframe src="https://www.youtube.com/embed/zvmyUvjo3wo" title="Welcome to Yude Elementary School" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <div class="player__caption"><b>Welcome to Yude Elementary School</b> · 育德國小英語歡迎影片</div></div>
+  </div>
+</section>
+
+<!-- ===== II. About ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">About Yude</h2>
     <div class="sec__title-zh">關於育德 · 一所逆勢生長的南境小校</div>
     <div class="sec__rule"></div>
@@ -446,10 +468,10 @@
   </div>
 </section>
 
-<!-- ===== II. Four Pillars ===== -->
+<!-- ===== III. Four Pillars ===== -->
 <section id="pillars">
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Four School-Based Curricula</h2>
     <div class="sec__title-zh">四大校本課程 · 育德辦學的四根柱子</div>
     <div class="sec__rule"></div>
@@ -497,10 +519,10 @@
   </div>
 </section>
 
-<!-- ===== III. Soaring Arts Spotlight ===== -->
+<!-- ===== IV. Soaring Arts Spotlight ===== -->
 <section id="arts">
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Soaring Arts</h2>
     <div class="sec__title-zh">藝翔天開 · 育德的招牌課程</div>
     <div class="sec__rule"></div>
@@ -568,10 +590,10 @@
   </div>
 </section>
 
-<!-- ===== IV. Featured Programs ===== -->
+<!-- ===== V. Featured Programs ===== -->
 <section>
   <div class="wrap">
-    <div class="sec__no">IV.</div>
+    <div class="sec__no">V.</div>
     <h2 class="sec__title">Programs & Moments</h2>
     <div class="sec__title-zh">特色課程與校園時刻</div>
     <div class="sec__rule"></div>
@@ -636,7 +658,7 @@
   </div>
 </section>
 
-<!-- ===== V. Teacher Amanda ===== -->
+<!-- ===== VI. Teacher Amanda ===== -->
 <section id="amanda">
   <div class="wrap">
     <div class="amanda">
@@ -679,10 +701,10 @@
   </div>
 </section>
 
-<!-- ===== VI. Timeline ===== -->
+<!-- ===== VII. Timeline ===== -->
 <section id="story">
   <div class="wrap">
-    <div class="sec__no">VI.</div>
+    <div class="sec__no">VII.</div>
     <h2 class="sec__title">Our Story</h2>
     <div class="sec__title-zh">校史時間軸 · 從分班到 11 任校長</div>
     <div class="sec__rule"></div>
@@ -732,7 +754,7 @@
   </div>
 </section>
 
-<!-- ===== VII. Contact ===== -->
+<!-- ===== VIII. Contact ===== -->
 <section id="contact">
   <div class="wrap">
     <div class="contact">
@@ -795,7 +817,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.player';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
