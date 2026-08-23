@@ -339,6 +339,8 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 
 /* ===== Photo gallery grid (campus life / principal in action) ===== */
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.gallery-grid.four{grid-template-columns:repeat(4,1fr);}
+@media(max-width:880px){.gallery-grid.four{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:880px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
 .g-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3;}
 .g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
