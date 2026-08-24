@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://changhua-bilingual.org/fets/school-culture/contact-card/">
+  <title>My School Contact Card · School Culture · Changhua Bilingual Hub</title>
+  <meta name="description" content="A one-page card foreign English teachers fill in with their own school's key extensions — who to call, and the three duties with a 24-hour clock.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta property="og:title" content="My School Contact Card">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css?v=050bbde4">
+  <style>
+    .cc-crumbs { max-width:1200px; margin:0 auto; padding:20px 24px 0; font-size:17px; color:var(--hub-ink-faint); }
+    .cc-crumbs a { color:var(--hub-primary); text-decoration:none; }
+    .cc-crumbs a:hover { text-decoration:underline; }
+    @media (min-width:720px){ .cc-crumbs{ font-size:19px } }
+
+    .cc-intro { font-size:20px; line-height:1.65; color:var(--hub-ink); }
+    @media (min-width:720px){ .cc-intro{ font-size:23px } }
+    .cc-intro p { max-width:74ch; margin:0 0 18px; }
+    .cc-intro .zh { font-family:var(--hub-zh-font); color:var(--hub-ink-soft); }
+    .cc-print {
+      appearance:none; font-family:var(--hub-en-font); font-size:19px; font-weight:600; cursor:pointer;
+      padding:14px 30px; border-radius:999px; border:1px solid var(--hub-primary);
+      background:var(--hub-primary); color:#fff; box-shadow:var(--hub-shadow); margin:6px 0 8px;
+      transition:box-shadow .18s ease, transform .18s ease;
+    }
+    .cc-print:hover { box-shadow:var(--hub-shadow-hover); transform:translateY(-1px); }
+    .cc-print:focus-visible { outline:2px solid var(--hub-accent); outline-offset:3px; }
+    @media (min-width:720px){ .cc-print{ font-size:21px } }
+
+    /* ---- the card itself ---- */
+    .card {
+      background:#fff; border:1px solid var(--hub-line); border-radius:14px;
+      padding:26px; margin:34px 0 0; max-width:780px; box-shadow:var(--hub-shadow);
+    }
+    .card h2 {
+      font-family:var(--hub-serif); font-size:27px; font-weight:700; margin:0 0 4px; color:var(--hub-ink);
+    }
+    .card .sub { font-size:17px; color:var(--hub-ink-faint); margin:0 0 22px; font-family:var(--hub-zh-font); }
+    @media (min-width:720px){ .card h2{ font-size:31px } .card .sub{ font-size:19px } }
+
+    .cc-line { display:flex; align-items:flex-end; gap:14px; padding:11px 0; border-bottom:1px solid var(--hub-line); flex-wrap:wrap; }
+    .cc-line .lab { flex:0 0 250px; font-size:18px; font-weight:600; color:var(--hub-ink); line-height:1.4; }
+    .cc-line .lab span { display:block; font-family:var(--hub-zh-font); font-weight:400; font-size:16px; color:var(--hub-ink-faint); }
+    .cc-line .fill { flex:1 1 220px; min-height:30px; border-bottom:1.5px dotted var(--hub-ink-faint); }
+    @media (min-width:720px){ .cc-line .lab{ font-size:20px } .cc-line .lab span{ font-size:18px } }
+
+    .cc-group { margin:0 0 26px; }
+    .cc-group > h3 {
+      font-size:15px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--hub-primary-deep); margin:22px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--hub-primary);
+    }
+    .cc-group:first-of-type > h3 { margin-top:0; }
+
+    .cc-24 { border:1px solid #e8bdb6; background:#fbe7e4; border-radius:12px; padding:18px 20px; margin:22px 0 0; }
+    .cc-24 b { color:#b8493f; }
+    .cc-24 p { margin:0 0 8px; font-size:17px; line-height:1.55; color:var(--hub-ink-soft); }
+    .cc-24 p:last-child { margin:0; }
+    @media (min-width:720px){ .cc-24 p{ font-size:19px } }
+
+    .cc-hot { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px; }
+    .cc-hot div { border:1px solid var(--hub-line); border-radius:10px; padding:12px 14px; background:var(--hub-line-soft); }
+    .cc-hot b { display:block; font-size:24px; font-variant-numeric:tabular-nums; color:var(--hub-primary); line-height:1.2; }
+    .cc-hot span { font-size:16px; color:var(--hub-ink-soft); }
+    @media (min-width:720px){ .cc-hot span{ font-size:17px } }
+
+    .cc-foot { margin-top:22px; font-size:16px; color:var(--hub-ink-faint); line-height:1.6; }
+
+    .cb-credit { background:#241f1b; color:#cfc6bb; padding:28px 24px; font-size:17px; line-height:1.9; text-align:center; }
+    .cb-credit a { color:#e6c179; text-decoration:none; }
+    .cb-credit a:hover { text-decoration:underline; }
+    .cb-credit div + div { margin-top:2px; }
+    @media (min-width:720px){ .cb-credit{ padding:32px 40px; font-size:18px } }
+
+    /* ---- print: just the card, A5 ---- */
+    @media print {
+      @page { size:A5 portrait; margin:10mm; }
+      .hub-nav, .hub-footer, .cb-credit, .cc-crumbs, .cc-intro, .cc-print, .hub-curve-hero { display:none !important; }
+      body { background:#fff; }
+      .hub-section { padding:0 !important; max-width:none !important; }
+      .card { border:none; box-shadow:none; padding:0; margin:0; max-width:none; }
+      .card h2 { font-size:19pt; }
+      .card .sub { font-size:9pt; margin-bottom:10pt; }
+      .cc-group > h3 { font-size:8pt; margin:10pt 0 3pt; }
+      .cc-line { padding:6pt 0; }
+      .cc-line .lab { font-size:9.5pt; flex-basis:44mm; }
+      .cc-line .lab span { font-size:8pt; }
+      .cc-24 { padding:8pt 10pt; margin-top:10pt; break-inside:avoid; }
+      .cc-24 p { font-size:8.5pt; }
+      .cc-hot b { font-size:14pt; }
+      .cc-hot span { font-size:8pt; }
+      .cc-foot { font-size:7.5pt; margin-top:8pt; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<nav class="cc-crumbs" aria-label="Breadcrumb">
+  <a href="/fets/">FETs</a> &nbsp;›&nbsp; <a href="/fets/school-culture/">School Culture</a> &nbsp;›&nbsp; Contact card
+</nav>
+
+<section class="hub-section" style="padding-top:32px">
+  <div class="cc-intro">
+    <p class="hub-eyebrow" style="color:var(--hub-accent)">September meeting · 九月會議</p>
+    <h1 class="hub-h1" style="font-family:var(--hub-serif)">My School Contact Card</h1>
+    <p>Ten minutes with your co-teacher fills this in. Print it, keep it in your desk drawer, and photograph it for your phone. <b>Nobody can make this list for you</b> — the names differ at every school and change every year, so a county-wide list would be out of date before the first exam week.</p>
+    <p class="zh">請在九月的第一次會議，花十分鐘和協同教師一起填完，列印後放辦公桌抽屜，並拍一張存在手機裡。這份名單每校不同、每年會換人，所以由你自己填最可靠。</p>
+    <button class="cc-print" type="button" onclick="window.print()">Print this card · 列印</button>
+  </div>
+
+  <div class="card">
+    <h2>My School Contact Card</h2>
+    <p class="sub">我的學校聯絡卡　·　Changhua FET School Culture</p>
+
+    <div class="cc-group">
+      <h3>My school · 我的學校</h3>
+      <div class="cc-line"><span class="lab">School <span>學校</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Main office number <span>學校總機</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">My co-teacher <span>協同教師</span></span><span class="fill"></span></div>
+    </div>
+
+    <div class="cc-group">
+      <h3>The one to call first · 通報窗口</h3>
+      <div class="cc-line"><span class="lab">Designated person for reports <span>權責人員（通報）</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Their extension <span>分機</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Their mobile, if given <span>手機（若願意提供）</span></span><span class="fill"></span></div>
+    </div>
+
+    <div class="cc-group">
+      <h3>The five offices · 五處室</h3>
+      <div class="cc-line"><span class="lab">Student Affairs <span>學務處</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Counseling <span>輔導室</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Academic Affairs <span>教務處</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Personnel <span>人事室</span></span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">General Affairs <span>總務處</span></span><span class="fill"></span></div>
+    </div>
+
+    <div class="cc-group">
+      <h3>Homeroom teachers for my classes · 我任教班級的導師</h3>
+      <div class="cc-line"><span class="lab">Class / 班級</span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Class / 班級</span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Class / 班級</span><span class="fill"></span></div>
+      <div class="cc-line"><span class="lab">Class / 班級</span><span class="fill"></span></div>
+    </div>
+
+    <div class="cc-24">
+      <p><b>Three things carry a 24-hour reporting duty.</b> Suspected harm to a child, a suspected campus gender incident, and suspected bullying. You do not investigate and you do not need proof — you tell the person named at the top of this card, the same day.</p>
+      <p class="zh" style="font-size:16px"><b>三種情形有 24 小時法定通報義務</b>：疑似兒少受害、疑似校園性別事件、疑似霸凌。你不必調查、不需要證據，當天告訴上面那位權責人員即可。</p>
+    </div>
+
+    <div class="cc-hot">
+      <div><b>110</b><span>Police 警察</span></div>
+      <div><b>119</b><span>Fire &amp; ambulance 消防救護</span></div>
+      <div><b>113</b><span>Protection Hotline 保護專線<br>24h · English</span></div>
+      <div><b>1990</b><span>Foreigners in Taiwan<br>外籍人士諮詢 · 24h</span></div>
+    </div>
+
+    <p class="cc-foot">changhua-bilingual.org/fets/school-culture/ &nbsp;·&nbsp; CIEETRC × My Culture Connect 人師教育協會</p>
+  </div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+  </div>
+</footer>
+<div class="cb-credit">
+  <div>Site by <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">My Culture Connect</a> · <a href="https://www.twrses.org" target="_blank" rel="noopener">人師教育協會</a></div>
+  <div>Guided by <a href="https://www.cieetrc.chc.edu.tw" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a></div>
+  <div><a href="https://changhua-bilingual.org" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+</div>
+<script src="/assets/js/hub.js?v=ce2e63dc"></script>
+</body>
+</html>
