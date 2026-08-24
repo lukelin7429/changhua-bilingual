@@ -39,6 +39,13 @@ jobs:
             --exclude-from='.pages-exclude' \
             ./ _site/
 
+      # /assets/* is served with max-age=14400. Without a content hash in the URL
+      # a returning visitor keeps the old CSS/JS for up to four hours, with no
+      # symptom beyond "the change didn't happen". Stamping the staged copy means
+      # production is always correct even if someone forgot to run the script.
+      - name: Stamp asset URLs with content hashes
+        run: python3 tools/stamp_assets.py --root _site
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

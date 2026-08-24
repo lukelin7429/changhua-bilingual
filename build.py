@@ -21,6 +21,8 @@ import yaml
 YT_ID_RX = re.compile(r"(?:v=|/shorts/|youtu\.be/|/embed/)([A-Za-z0-9_-]{11})")
 
 sys.path.insert(0, str(Path(__file__).parent / "data"))
+sys.path.insert(0, str(Path(__file__).parent / "tools"))
+from asset_version import stamp_html  # noqa: E402
 from sdgs_content import SDG_CONTENT  # noqa: E402
 
 ROOT = Path(__file__).parent
@@ -3541,6 +3543,9 @@ def _with_canonical(path, html):
 
 def write(path, html):
     html = _with_canonical(path, html)
+    # /assets/* is served with max-age=14400, so a reference without a content
+    # hash leaves returning visitors on the old file for up to four hours.
+    html = stamp_html(html, ROOT)
     p = ROOT / path.lstrip("/")
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(html, encoding="utf-8")
