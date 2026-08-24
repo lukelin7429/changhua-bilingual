@@ -99,6 +99,12 @@
       padding:5px 12px; border-radius:999px; border:1px solid var(--hub-accent);
       background:#fdf1e0; color:#a2691d;
     }
+    .sc-tchip--shared { border-color:var(--hub-line); background:var(--hub-line-soft); color:var(--hub-ink-faint); }
+    .sc-trackinfo { margin:14px 0 0; font-size:18px; line-height:1.6; color:var(--hub-ink-soft); }
+    .sc-trackinfo b { color:var(--hub-ink); }
+    .sc-trackinfo .zh { font-family:var(--hub-zh-font); }
+    .sc-trackinfo[hidden] { display:none; }
+    @media (min-width:720px){ .sc-trackinfo{ font-size:20px } }
     .sc-qidx { margin-left:auto; font-size:17px; color:var(--hub-ink-faint); font-variant-numeric:tabular-nums; }
     @media (min-width:720px){ .sc-qidx{ font-size:19px } }
 
@@ -226,10 +232,15 @@
       <button class="sc-chip" type="button" data-view="one" aria-pressed="true">One at a time</button>
       <button class="sc-chip" type="button" data-view="all" aria-pressed="false">Show all</button>
     </div>
+    <div class="sc-tool" id="scOnlyWrap" hidden>
+      <button class="sc-chip" type="button" id="scOnly" aria-pressed="false">Only my track's questions</button>
+    </div>
     <div class="sc-spacer"></div>
     <span class="sc-tally" id="scTally">Loading…</span>
     <div class="sc-bar"><i id="scBar"></i></div>
   </div>
+
+  <p class="sc-trackinfo" id="scTrackInfo" hidden></p>
 
   <div class="sc-stage" id="scStage"></div>
 
@@ -287,6 +298,7 @@
 
   var state = { topic: "all", track: "all", view: "one", i: 0, order: [], seen: {}, shuffled: false };
   var missedOnly = false;
+  var specificOnly = false;   // within a track: hide the shared core
   var seed = 1;
 
   try {
@@ -300,6 +312,9 @@
   var $bar = document.getElementById("scBar");
   var $topic = document.getElementById("scTopic");
   var $missed = document.getElementById("scMissed");
+  var $only = document.getElementById("scOnly");
+  var $onlyWrap = document.getElementById("scOnlyWrap");
+  var $info = document.getElementById("scTrackInfo");
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
   function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
@@ -321,7 +336,10 @@
   function pool() {
     return BANK.filter(function (q) {
       if (state.topic !== "all" && String(q.m) !== String(state.topic)) return false;
-      if (state.track !== "all" && q.track !== "shared" && q.track !== state.track) return false;
+      if (state.track !== "all") {
+        if (q.track !== "shared" && q.track !== state.track) return false;
+        if (specificOnly && q.track === "shared") return false;
+      }
       if (missedOnly && state.seen[q.id] !== "wrong") return false;
       return true;
     });
@@ -340,10 +358,12 @@
   }
 
   function cardHTML(q, idx, total) {
-    var trackTag = q.track === "a" ? "Year 1" : q.track === "b" ? "Returning" : "";
+    var tag = q.track === "a" ? { t: "Year 1", c: "" }
+            : q.track === "b" ? { t: "Returning", c: "" }
+            : { t: "Both tracks · 兩軌共用", c: " sc-tchip--shared" };
     var h = '<div class="sc-card sc-in" data-id="' + q.id + '">';
     h += '<div class="sc-qmeta"><span class="sc-mchip"><span class="sc-n">' + (q.m < 10 ? "0" : "") + q.m + '</span>' + esc(q.mt) + ' <span class="sc-z">' + esc(q.mz) + '</span></span>';
-    if (trackTag) h += '<span class="sc-tchip">' + trackTag + '</span>';
+    h += '<span class="sc-tchip' + tag.c + '">' + tag.t + '</span>';
     h += '<span class="sc-qidx">' + idx + ' / ' + total + '</span></div>';
     h += '<p class="sc-stem">' + esc(q.stem) + '</p><div class="sc-opts">';
     q.options.forEach(function (o, oi) {
@@ -407,7 +427,35 @@
     });
   }
 
+  var TRACK_NAME = { a: "Year 1", b: "Returning" };
+
+  function updateTrackInfo() {
+    $onlyWrap.hidden = state.track === "all";
+    if (state.track === "all") { $info.hidden = true; specificOnly = false; return; }
+
+    var scope = BANK.filter(function (q) {
+      return state.topic === "all" || String(q.m) === String(state.topic);
+    });
+    var shared = scope.filter(function (q) { return q.track === "shared"; }).length;
+    var own = scope.filter(function (q) { return q.track === state.track; }).length;
+    var name = TRACK_NAME[state.track];
+
+    $info.hidden = false;
+    $info.innerHTML =
+      '<b>' + (shared + own) + ' questions: ' + shared + ' shared with the other track, ' +
+      own + ' written for ' + name + ' teachers.</b> ' +
+      'The shared core comes first in every topic, so the first questions you see are the same either way — ' +
+      'the ' + name + ' ones are further in. ' +
+      '<span class="zh">共用 ' + shared + ' 題排在每個主題前面，' + own + ' 題為' +
+      (state.track === "a" ? "新手" : "續任") + '軌專屬；想直接看專屬題請按「Only my track\u2019s questions」。</span>';
+
+    $only.textContent = specificOnly
+      ? "Show the shared core too" : "Only my track's questions (" + own + ")";
+    $only.setAttribute("aria-pressed", String(specificOnly));
+  }
+
   function updateTally() {
+    updateTrackInfo();
     var p = pool();
     var done = p.filter(function (q) { return state.seen[q.id]; }).length;
     var wrong = BANK.filter(function (q) { return state.seen[q.id] === "wrong"; }).length;
@@ -420,7 +468,7 @@
   $topic.addEventListener("change", function () { state.topic = $topic.value; missedOnly = false; save(); rebuild(); });
   document.querySelectorAll("[data-track]").forEach(function (b) {
     b.addEventListener("click", function () {
-      state.track = b.dataset.track; missedOnly = false;
+      state.track = b.dataset.track; missedOnly = false; specificOnly = false;
       document.querySelectorAll("[data-track]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
       save(); rebuild();
     });
@@ -434,6 +482,7 @@
   });
   document.getElementById("scShuffle").addEventListener("click", function () { state.shuffled = true; seed = (seed + 7919) % 2147483648; rebuild(); });
   $missed.addEventListener("click", function () { missedOnly = !missedOnly; rebuild(); });
+  $only.addEventListener("click", function () { specificOnly = !specificOnly; missedOnly = false; rebuild(); });
   document.getElementById("scClear").addEventListener("click", function () {
     if (!window.confirm("Clear your progress on this device and start over? · 清除這台裝置上的作答紀錄？")) return;
     state.seen = {}; missedOnly = false; save(); rebuild();
