@@ -22,7 +22,7 @@ YT_ID_RX = re.compile(r"(?:v=|/shorts/|youtu\.be/|/embed/)([A-Za-z0-9_-]{11})")
 
 sys.path.insert(0, str(Path(__file__).parent / "data"))
 sys.path.insert(0, str(Path(__file__).parent / "tools"))
-from asset_version import stamp_html  # noqa: E402
+from asset_version import content_hash, stamp_html  # noqa: E402
 from sdgs_content import SDG_CONTENT  # noqa: E402
 
 ROOT = Path(__file__).parent
@@ -201,7 +201,9 @@ def build_home(townships_data, schools_data, wotd_items):
     contributing_rounded = "100+"
     # Cache-buster for the township geojson (browsers cache fetched JSON aggressively)
     geojson_path = ROOT / "assets" / "map" / "changhua-townships.geojson"
-    geojson_v = int(geojson_path.stat().st_mtime)
+    # Content hash, not mtime: mtime changes on every checkout and made every
+    # build produce a spurious diff on this line.
+    geojson_v = content_hash(geojson_path)
 
     content = f"""
 <div class="hub-hero-wrap">
@@ -486,8 +488,8 @@ def build_schools(townships_data, schools_data):
             # Photo: /assets/images/schools/<slug>.jpg if it exists, else fallback to Chinese char tile
             photo_path = ROOT / "assets" / "images" / "schools" / f"{slug}.jpg"
             if photo_path.exists():
-                mtime = int(photo_path.stat().st_mtime)
-                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg?v={mtime}" alt="{s["name"]}" loading="lazy">'
+                ver = content_hash(photo_path)
+                photo_html = f'<img class="photo" src="/assets/images/schools/{slug}.jpg?v={ver}" alt="{s["name"]}" loading="lazy">'
             else:
                 zh = s.get("zh","") or s["name"]
                 # show first 2 chars
@@ -683,30 +685,49 @@ def build_fets(fets_data, schools_data):
         <span class="fet-card-cta">Browse meeting highlights →</span>
       </div>
     </a>
-    <a class="fet-card" href="/fets/mandarin-challenge/">
-      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🀄</div>
+    <div class="fet-card">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🎧</div>
       <div class="fet-card-text">
-        <span class="fet-card-eyebrow">Mandarin Challenges · 中文挑戰</span>
-        <h2 class="fet-card-title">Everyday Mandarin you'll hear on campus</h2>
-        <p class="fet-card-desc">A monthly 20-question quiz on the phrases teachers, staff, and students actually use around school.</p>
-        <span class="fet-card-cta">Take this month's challenge →</span>
+        <span class="fet-card-eyebrow">Mandarin · 中文</span>
+        <h2 class="fet-card-title">Five minutes a day of campus Mandarin</h2>
+        <p class="fet-card-desc">540 questions turned into short rounds with real recorded audio. It remembers what you get wrong and brings it back at the right time. Add it to your home screen and it works offline.</p>
+        <span class="fet-levels">
+          <span class="fet-lv fet-lv--b">Listening 聽力</span>
+          <span class="fet-lv fet-lv--i">Characters 認字</span>
+          <span class="fet-lv fet-lv--a">Offline 離線可用</span>
+        </span>
+        <a class="fet-card-cta fet-card-go" href="/learn/">Start practicing →</a>
+        <span class="fet-card-sub">Full bank &amp; the monthly meeting round:
+          <a href="/fets/mandarin-challenge/">Mandarin Challenge 中文挑戰 →</a></span>
       </div>
-    </a>
-    <a class="fet-card" href="/fets/school-culture/">
-      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🏮</div>
+    </div>
+    <div class="fet-card">
+      <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🚪</div>
       <div class="fet-card-text">
-        <span class="fet-card-eyebrow">School Culture · 學校文化</span>
-        <h2 class="fet-card-title">Know before you go: campus culture notes</h2>
-        <p class="fet-card-desc">Practical dos and don'ts for navigating Changhua school life with confidence.</p>
-        <span class="fet-card-cta">Take this round →</span>
+        <span class="fet-card-eyebrow">Campus Culture · 校園文化</span>
+        <h2 class="fet-card-title">How this campus actually works</h2>
+        <p class="fet-card-desc">Who does what, how the year runs, and the words on the office doors — in short rounds with audio. The rules on reporting, gender equity, bullying and privacy stay as a searchable reference, so you can find them the moment you need them.</p>
+        <span class="fet-levels">
+          <span class="fet-lv fet-lv--b">Offices 處室</span>
+          <span class="fet-lv fet-lv--i">Calendar 行事曆</span>
+          <span class="fet-lv fet-lv--a">Rules 法規速查</span>
+        </span>
+        <a class="fet-card-cta fet-card-go" href="/culture/">Start practicing →</a>
+        <span class="fet-card-sub">Full bank &amp; the monthly meeting round:
+          <a href="/fets/school-culture/">School Culture 學校文化 →</a></span>
       </div>
-    </a>
+    </div>
     <a class="fet-card" href="/explore/">
       <div class="fet-card-media fet-card-media--icon" aria-hidden="true">🧭</div>
       <div class="fet-card-text">
         <span class="fet-card-eyebrow">Explore · 自學平台</span>
         <h2 class="fet-card-title">Learn whatever you want — nobody is keeping score</h2>
-        <p class="fet-card-desc">Optional topic packs you read at your own pace: co-teaching, Changhua worth visiting, designing lesson plans and worksheets. Nothing is recorded, nothing is uploaded.</p>
+        <p class="fet-card-desc">Optional topic packs you read at your own pace, on your own interests. Co-teaching with your local English teacher, Changhua worth visiting, designing lesson plans and worksheets. Nothing is recorded, nothing is uploaded, nothing comes to the monthly meeting.</p>
+        <span class="fet-levels">
+          <span class="fet-lv fet-lv--b">Co-teaching 協同教學</span>
+          <span class="fet-lv fet-lv--i">Changhua 在地</span>
+          <span class="fet-lv fet-lv--a">Lesson design 教學設計</span>
+        </span>
         <span class="fet-card-cta">Browse topic packs →</span>
       </div>
     </a>
@@ -725,6 +746,22 @@ def build_fets(fets_data, schools_data):
   .fet-card-media {{ aspect-ratio:16/9; overflow:hidden; background:#11201f; }}
   .fet-card-media img {{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }}
   .fet-card:hover .fet-card-media img {{ transform: scale(1.05); }}
+  .fet-card-go {{ display:block; }}
+  .fet-card-go::after {{ content:""; position:absolute; inset:0; z-index:0; }}
+  .fet-card-sub {{ position:relative; z-index:1; }}
+  div.fet-card:hover {{ transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(138,63,23,.40); }}
+  .fet-card-sub {{ display:block; margin-top:10px; font-size:16px; color:var(--hub-ink-faint); line-height:1.5; }}
+  .fet-card-sub a {{ color:var(--hub-primary); font-weight:600; }}
+  /* three-level chips on the Mandarin Challenge card */
+  /* Cards that carry a second link can't be one big <a> — nesting links is
+     invalid and splits the card in two. The primary link is stretched over the
+     whole card instead, and the secondary link sits above that overlay. */
+  div.fet-card {{ position:relative; }}
+  .fet-levels {{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; }}
+  .fet-lv {{ font-size:15px; font-weight:600; padding:6px 12px; border-radius:999px; white-space:nowrap; }}
+  .fet-lv--b {{ background:#e3f1e9; color:#2a6a4e; }}
+  .fet-lv--i {{ background:#e0eff2; color:#1c5f66; }}
+  .fet-lv--a {{ background:#f7e8d6; color:#8a4b2a; }}
   .fet-card-media--icon {{ display:flex; align-items:center; justify-content:center; font-size:52px; background:linear-gradient(135deg,#fbf3eb 0%,#f3e2cb 100%); }}
   .fet-card-text {{ padding:22px 24px 26px; display:flex; flex-direction:column; flex:1 1 auto; }}
   .fet-card-eyebrow {{ font-size:13px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--hub-accent); }}
@@ -2792,7 +2829,7 @@ def build_about_changhua():
     <div class="about-card about-card--green">
       <span class="about-card-icon">🌸</span>
       <h4>Tianwei flowers<span class="about-card-zh">田尾公路花園</span></h4>
-      <p>Taiwan's largest cluster of nurseries and florists. Six kilometres of greenhouses along Highway 1, supplying flowers to the entire island.</p>
+      <p>Taiwan's largest cluster of nurseries and florists. Six kilometers of greenhouses along Highway 1, supplying flowers to the entire island.</p>
     </div>
     <div class="about-card about-card--blue">
       <span class="about-card-icon">🧦</span>
@@ -2850,7 +2887,7 @@ def build_about_changhua():
     <div class="about-card about-card--purple">
       <span class="about-card-icon">🌊</span>
       <h4>Wanggong Fishing Port<span class="about-card-zh">王功漁港</span></h4>
-      <p>Sunset over the oyster farms, ox-cart rides at low tide, and the red-and-white Wanggong Lighthouse. The west-coast Changhua experience in one afternoon.</p>
+      <p>Sunset over the oyster farms, cart rides out onto the flats at low tide, and the black-and-white striped Fangyuan Lighthouse — the tallest in Taiwan. The west-coast Changhua experience in one afternoon.</p>
     </div>
     <div class="about-card about-card--blue">
       <span class="about-card-icon">🏛️</span>
@@ -2860,7 +2897,7 @@ def build_about_changhua():
     <div class="about-card about-card--green">
       <span class="about-card-icon">🌷</span>
       <h4>Tianwei Highway Garden<span class="about-card-zh">田尾公路花園</span></h4>
-      <p>Six kilometres of nurseries and flower farms — a slow drive past every orchid, rose, hydrangea, and bonsai you can imagine. Best in spring and autumn.</p>
+      <p>Six kilometers of nurseries and flower farms — a slow drive past every orchid, rose, hydrangea, and bonsai you can imagine. Best in spring and autumn.</p>
     </div>
   </div>
 </section>

@@ -36,6 +36,11 @@ def _hash(path: Path) -> str | None:
     return h
 
 
+def content_hash(path: Path) -> str:
+    """Short hash of a file's contents, for versioning any asset URL."""
+    return _hash(path) or "0"
+
+
 def stamp_html(html: str, root: Path) -> str:
     """Return `html` with every /assets/*.{css,js} reference carrying ?v=<hash>."""
     def sub(m):

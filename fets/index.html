@@ -1,19 +1,4 @@
 <!doctype html>
-<!--
-  ⚠️ 本檔已在 build.py 產生之後被手動改版，內容比產生器新。
-  手改的部分：中文挑戰（Mandarin Challenge）卡改為三級題庫（拼音 + 🔊 音檔）、
-  新增「Daily Practice 每日練習」卡（連 /learn/，可加到主畫面離線使用）、
-  以及 .fet-levels 與 .fet-lv 的三個分級修飾類別（b / i / a）樣式。
-  2026-08-17 再加：Explore 自學平台卡（連 /explore/）、卡片網格由 3 欄改 2 欄、
-  兩處 practising 改回美式 practicing。Explore 卡本身已同步寫進 build.py，
-  其餘手改仍未回寫。
-
-  👉 跑 python3 build.py 會把上面這些通通蓋掉（-28 行）。
-     跑完務必先看這個檔案的 git diff，確認沒有洗掉改版再 commit
-     （指令寫在 CONTRIBUTING.md，這裡避免出現會提前結束註解的字元）。
-     長期解法是把這些改動寫回 build.py 的樣板，讓本檔恢復可重生。
-  （2026-08 記錄；詳見 CONTRIBUTING.md「跑 build.py 前必讀」）
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -158,28 +143,28 @@
   .fet-card-media { aspect-ratio:16/9; overflow:hidden; background:#11201f; }
   .fet-card-media img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }
   .fet-card:hover .fet-card-media img { transform: scale(1.05); }
-  .fet-card-media--icon { display:flex; align-items:center; justify-content:center; font-size:52px; background:linear-gradient(135deg,#fbf3eb 0%,#f3e2cb 100%); }
-  .fet-card-text { padding:22px 24px 26px; display:flex; flex-direction:column; flex:1 1 auto; }
-  .fet-card-eyebrow { font-size:13px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--hub-accent); }
-  .fet-card-title { font-family: var(--hub-serif); font-size:21px; line-height:1.25; margin:10px 0 8px; color:var(--hub-ink); }
-  .fet-card-desc { margin:0 0 14px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; max-width:42ch; }
-  /* Cards that carry a second link can't be one big <a> — nesting links is
-     invalid and splits the card in two. The primary link is stretched over the
-     whole card instead, and the secondary link sits above that overlay. */
-  div.fet-card { position:relative; }
   .fet-card-go { display:block; }
   .fet-card-go::after { content:""; position:absolute; inset:0; z-index:0; }
   .fet-card-sub { position:relative; z-index:1; }
   div.fet-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(138,63,23,.40); }
   .fet-card-sub { display:block; margin-top:10px; font-size:16px; color:var(--hub-ink-faint); line-height:1.5; }
   .fet-card-sub a { color:var(--hub-primary); font-weight:600; }
-  .fet-card-cta { margin-top:auto; font-weight:700; color:#a85a0c; font-size:18px; }
   /* three-level chips on the Mandarin Challenge card */
+  /* Cards that carry a second link can't be one big <a> — nesting links is
+     invalid and splits the card in two. The primary link is stretched over the
+     whole card instead, and the secondary link sits above that overlay. */
+  div.fet-card { position:relative; }
   .fet-levels { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; }
   .fet-lv { font-size:15px; font-weight:600; padding:6px 12px; border-radius:999px; white-space:nowrap; }
   .fet-lv--b { background:#e3f1e9; color:#2a6a4e; }
   .fet-lv--i { background:#e0eff2; color:#1c5f66; }
   .fet-lv--a { background:#f7e8d6; color:#8a4b2a; }
+  .fet-card-media--icon { display:flex; align-items:center; justify-content:center; font-size:52px; background:linear-gradient(135deg,#fbf3eb 0%,#f3e2cb 100%); }
+  .fet-card-text { padding:22px 24px 26px; display:flex; flex-direction:column; flex:1 1 auto; }
+  .fet-card-eyebrow { font-size:13px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--hub-accent); }
+  .fet-card-title { font-family: var(--hub-serif); font-size:21px; line-height:1.25; margin:10px 0 8px; color:var(--hub-ink); }
+  .fet-card-desc { margin:0 0 14px; color:var(--hub-ink-soft); font-size:18px; line-height:1.55; max-width:42ch; }
+  .fet-card-cta { margin-top:auto; font-weight:700; color:#a85a0c; font-size:18px; }
   @media (min-width:720px) {
     .fet-card-title { font-size:24px; }
     .fet-card-desc { font-size:20px; }
