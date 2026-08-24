@@ -305,6 +305,16 @@
     var saved = JSON.parse(localStorage.getItem(LS) || "null");
     if (saved && saved.seen) { state.seen = saved.seen; state.topic = saved.topic || "all"; state.track = saved.track || "all"; }
   } catch (e) { /* private mode: run without persistence */ }
+
+  // ?topic=4&track=b — the module pages link straight to their own questions, so
+  // a URL wins over whatever this browser was last set to.
+  (function fromUrl() {
+    var q = new URLSearchParams(location.search);
+    var t = q.get("topic");
+    if (t && /^([1-9]|all)$/.test(t)) state.topic = t;
+    var k = q.get("track");
+    if (k && /^(a|b|all)$/.test(k)) state.track = k;
+  })();
   function save() { try { localStorage.setItem(LS, JSON.stringify({ seen: state.seen, topic: state.topic, track: state.track })); } catch (e) {} }
 
   var $stage = document.getElementById("scStage");

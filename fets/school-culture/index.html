@@ -25,6 +25,35 @@
 
     .qz-round { display:inline-block; margin:18px 0 6px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); background:var(--hub-line-soft); padding:5px 12px; border-radius:999px; }
 
+
+    /* Nine module briefings */
+    .scg { margin:40px 0 8px; }
+    .scg-eyebrow { font-size:14px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--hub-accent); margin:0 0 10px; }
+    .scg-title { font-family:var(--hub-serif); font-size:28px; font-weight:700; line-height:1.15; margin:0 0 12px; color:var(--hub-ink); }
+    .scg-dek { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 6px; max-width:64ch; }
+    .scg-dek-zh { font-family:var(--hub-zh-font); font-size:17px; color:var(--hub-ink-faint); margin:0 0 28px; max-width:44em; }
+    @media (min-width:720px){ .scg-title{ font-size:34px } .scg-dek{ font-size:20px } .scg-dek-zh{ font-size:19px } }
+    .scg-grid { display:grid; grid-template-columns:1fr; gap:16px; list-style:none; padding:0; margin:0; }
+    @media (min-width:560px){ .scg-grid{ grid-template-columns:repeat(2,1fr) } }
+    @media (min-width:900px){ .scg-grid{ grid-template-columns:repeat(3,1fr) } }
+    .scg-card {
+      display:flex; flex-direction:column; height:100%; text-decoration:none; color:inherit;
+      border:1px solid var(--hub-line); border-radius:14px; background:#fff; padding:22px;
+      box-shadow:var(--hub-shadow); transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .scg-card, .scg-card:hover, .scg-card * { text-decoration:none; }
+    .scg-card:hover { box-shadow:var(--hub-shadow-hover); transform:translateY(-2px); border-color:var(--hub-primary); }
+    .scg-card:hover .scg-go { text-decoration:underline; text-underline-offset:3px; }
+    .scg-card:focus-visible { outline:2px solid var(--hub-accent); outline-offset:3px; }
+    .scg-top { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .scg-n { font-family:var(--hub-serif); font-size:28px; font-weight:700; line-height:1; color:var(--hub-primary); font-variant-numeric:tabular-nums; }
+    .scg-when { margin-left:auto; font-size:14px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--hub-ink-faint); }
+    .scg-name { font-size:19px; font-weight:700; line-height:1.35; color:var(--hub-ink); margin:0 0 4px; }
+    .scg-zh { font-family:var(--hub-zh-font); font-size:17px; color:var(--hub-ink-faint); margin:0 0 12px; }
+    .scg-blurb { font-size:17px; line-height:1.55; color:var(--hub-ink-soft); margin:0 0 18px; }
+    .scg-go { margin-top:auto; font-size:18px; font-weight:600; color:var(--hub-primary); }
+    @media (min-width:720px){ .scg-name{ font-size:21px } .scg-zh{ font-size:19px } .scg-blurb{ font-size:19px } .scg-go{ font-size:20px } }
+
     /* Practice-bank entry point */
     .sc-practice-cta {
       display:block; text-decoration:none; color:inherit;
@@ -174,6 +203,105 @@
       <span>掃描帶著走<br><small>changhua-bilingual.org/culture/</small></span>
     </div>
   </aside>
+
+
+  <section class="scg" aria-labelledby="scg-h">
+    <p class="scg-eyebrow">2026–27 · Nine modules</p>
+    <h2 class="scg-title" id="scg-h">Know the rules. Read the room.</h2>
+    <p class="scg-dek">One short briefing a month: what the regulations actually require of you, and how a Taiwanese school actually works. Read it, then check yourself in the practice bank.</p>
+    <p class="scg-dek-zh">每月一個主題，先讀說明再作答。<b>與考評、續聘完全無關。</b></p>
+    <ul class="scg-grid">
+      <li>
+        <a class="scg-card" href="/fets/school-culture/01-who-is-who/">
+          <div class="scg-top"><span class="scg-n">01</span><span class="scg-when">Sep 2026</span></div>
+          <h3 class="scg-name">Who's Who &amp; Your Legal Status</h3>
+          <p class="scg-zh">認識校園組織、你的法律身分，以及一定不能踩的那條線。</p>
+          <p class="scg-blurb">Five offices, three key people, one legal red line, five phone numbers.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/02-school-day-calendar/">
+          <div class="scg-top"><span class="scg-n">02</span><span class="scg-when">Oct 2026</span></div>
+          <h3 class="scg-name">The School Day &amp; the Calendar</h3>
+          <p class="scg-zh">作息與行事曆</p>
+          <p class="scg-blurb">Exam weeks, whole-school events, and the Saturdays you have to work.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/03-discipline/">
+          <div class="scg-top"><span class="scg-n">03</span><span class="scg-when">Nov 2026</span></div>
+          <h3 class="scg-name">Discipline Without Corporal Punishment</h3>
+          <p class="scg-zh">零體罰的班級經營</p>
+          <p class="scg-blurb">What you may do, what you may never do, and where the homeroom teacher takes over.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/04-child-protection/">
+          <div class="scg-top"><span class="scg-n">04</span><span class="scg-when">Dec 2026</span></div>
+          <h3 class="scg-name">Child Protection &amp; Mandatory Reporting</h3>
+          <p class="scg-zh">兒少保護與法定通報</p>
+          <p class="scg-blurb">The 24-hour duty. You are not the investigator — you are the person who tells someone.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/05-gender-equity/">
+          <div class="scg-top"><span class="scg-n">05</span><span class="scg-when">Jan 2027</span></div>
+          <h3 class="scg-name">Gender Equity &amp; Professional Boundaries</h3>
+          <p class="scg-zh">性別平等與師生界線</p>
+          <p class="scg-blurb">Campus gender incidents, the 24-hour duty again, and where the line sits online.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/06-bullying/">
+          <div class="scg-top"><span class="scg-n">06</span><span class="scg-when">Mar 2027</span></div>
+          <h3 class="scg-name">Bullying Prevention</h3>
+          <p class="scg-zh">校園霸凌防制</p>
+          <p class="scg-blurb">What counts as bullying under the 2024 rules, and what to do the moment you see it.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/07-privacy-parents/">
+          <div class="scg-top"><span class="scg-n">07</span><span class="scg-when">Apr 2027</span></div>
+          <h3 class="scg-name">Privacy, Photos &amp; Talking to Parents</h3>
+          <p class="scg-zh">個資、照片、教材著作權與親師溝通</p>
+          <p class="scg-blurb">Before you post that classroom photo. Before you answer that LINE message.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/08-co-teaching/">
+          <div class="scg-top"><span class="scg-n">08</span><span class="scg-when">May 2027</span></div>
+          <h3 class="scg-name">Co-teaching &amp; Workplace Culture</h3>
+          <p class="scg-zh">協同教學與職場文化</p>
+          <p class="scg-blurb">Face, indirect no's, meeting etiquette, and how to disagree without costing anyone face.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+      <li>
+        <a class="scg-card" href="/fets/school-culture/09-assessment/">
+          <div class="scg-top"><span class="scg-n">09</span><span class="scg-when">Jun 2027</span></div>
+          <h3 class="scg-name">Assessment &amp; Closing the Year</h3>
+          <p class="scg-zh">評量與學年結束</p>
+          <p class="scg-blurb">Grading bands, why rankings are never published, and the six-week checklist if you are leaving.</p>
+          <span class="scg-go">Read the briefing →</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <a class="sc-practice-cta" href="/fets/school-culture/contact-card/" style="border-left-color:var(--hub-accent)">
+    <span class="eb" style="color:var(--hub-accent)">Fill this in at the September meeting · 九月會議填寫</span>
+    <h2>My School Contact Card</h2>
+    <p>Ten minutes with your co-teacher and you have the one page that matters in an emergency: who to call first, the five office extensions, and the three duties with a 24-hour clock. Print it for your desk, photograph it for your phone.</p>
+    <span class="zh">每校窗口不同、每年會換人，所以這份由你自己填最可靠。可列印成 A5。</span>
+    <span class="go">Open the card →</span>
+  </a>
 
   <a class="sc-practice-cta" href="/fets/school-culture/practice/">
     <span class="eb">Practice anytime · 隨時練習</span>
