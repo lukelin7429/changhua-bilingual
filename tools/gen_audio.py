@@ -10,6 +10,7 @@ normalise loudness, mono 48kbps).
 
     python3 gen_audio.py --sample        # a hand-picked spread, for review
     python3 gen_audio.py                 # everything
+    ./upload_audio.sh                    # REQUIRED — publish the clips to R2
 
 Requires: edge-tts, ffmpeg.
 """
@@ -135,7 +136,12 @@ async def main():
         encoding="utf-8")
     shutil.rmtree(tmp, ignore_errors=True)
 
-    print(f"\n*** learn/audio-manifest.json rewritten with {len(manifest)} entries — "
+    print("\n*** NOT DONE YET — the mp3s are only on this machine. ***")
+    print("    learn/audio/ is gitignored and worker/worker.js serves /learn/audio/")
+    print("    straight from R2 with no origin copy, so a clip that is not uploaded")
+    print("    is a hard 404 and every app falls back to the device voice.")
+    print("\n      ./tools/upload_audio.sh\n")
+    print(f"*** learn/audio-manifest.json rewritten with {len(manifest)} entries — "
           f"COMMIT IT. The apps look phrases up here; an uncommitted manifest "
           f"means new clips resolve to undefined.mp3 and 404 in production. ***")
     print(f"\n{len(manifest) - len(failed)} files · {total/1024/1024:.1f} MB total · "
