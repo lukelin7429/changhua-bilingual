@@ -11,6 +11,10 @@
  *   quiz  — practice quiz (random draw, not recorded) or a meeting round
  *           (fixed 20, identical for everyone, written to the Google Sheet).
  *
+ * Audio: every phrase has a pre-generated Azure zh-TW clip (see tools/gen_audio.py),
+ * shared with /learn/ and /culture/ and named by a hash of the phrase. We play the
+ * recording; the device's own voice is only a fallback for a clip we cannot fetch.
+ *
  * The page sets window.__MC_CONFIG__ before loading this file.
  * Grading is client-side, same trust model as the other Hub quizzes
  * (see CONTRIBUTING.md §8).
@@ -71,19 +75,25 @@
     if (!el) return;
     // Before the voice list resolves, assume speech works rather than flashing
     // a warning at every visitor on first paint.
-    var ok = ('speechSynthesis' in window) && (!zhVoices.length || !!pickZhVoice());
+    // With recordings loaded the device voice no longer matters, so the warning
+    // would be misleading — it only applies when we are relying on the fallback.
+    var ok = !!manifest
+      || (('speechSynthesis' in window) && (!zhVoices.length || !!pickZhVoice()));
     el.classList.toggle('hidden', ok);
   }
   if ('speechSynthesis' in window) {
     loadVoices();
     speechSynthesis.onvoiceschanged = loadVoices;
   }
-  function speak(text, btn) {
+  /**
+   * Last resort when the recording can't be fetched (manifest missing, offline,
+   * or a phrase added since the last audio build). The device voice is uneven —
+   * that unevenness is exactly why this page ships real clips — but a listening
+   * prompt with no sound at all is worse than an uneven one.
+   */
+  function speakFallback(text, btn) {
     if (!('speechSynthesis' in window) || !text) return;
     speechSynthesis.cancel();
-    document.querySelectorAll('.speak.is-speaking').forEach(function (b) {
-      b.classList.remove('is-speaking');
-    });
     var u = new SpeechSynthesisUtterance(text);
     u.lang = 'zh-TW';
     u.rate = 0.85;
@@ -96,6 +106,51 @@
     }
     speechSynthesis.speak(u);
   }
+  // Pre-generated clips, keyed by phrase. Loaded once; failure is non-fatal and
+  // simply leaves every 🔊 on the device-voice fallback.
+  var manifest = null;
+  var current = null;
+  if (cfg.audioManifest) {
+    fetch(cfg.audioManifest)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) { if (m) { manifest = m; updateVoiceNotice(); } })
+      .catch(function () { /* fallback voice still works */ });
+  }
+
+  function stopAll() {
+    if (current) { current.pause(); current = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    document.querySelectorAll('.speak.is-speaking').forEach(function (b) {
+      b.classList.remove('is-speaking');
+    });
+  }
+
+  function speak(text, btn) {
+    if (!text) return;
+    stopAll();
+    var hash = manifest && manifest[text];
+    if (!hash || !cfg.audioBase) { speakFallback(text, btn); return; }
+
+    var a = new Audio(cfg.audioBase + hash + '.mp3');
+    current = a;
+    if (btn) btn.classList.add('is-speaking');
+    var failed = false;
+    function fail() {
+      if (failed) return;
+      failed = true;
+      if (btn) btn.classList.remove('is-speaking');
+      current = null;
+      speakFallback(text, btn);
+    }
+    a.onended = function () {
+      if (btn) btn.classList.remove('is-speaking');
+      current = null;
+    };
+    a.onerror = fail;
+    var p = a.play();
+    if (p && p.catch) p.catch(fail);
+  }
+
   function wireSpeakButtons(root) {
     root.querySelectorAll('[data-speak]').forEach(function (b) {
       b.addEventListener('click', function () { speak(b.getAttribute('data-speak'), b); });
