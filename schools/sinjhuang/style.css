@@ -320,13 +320,14 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 
 /* ===== News article: photo frame ===== */
 .article{max-width:780px;margin:0 auto;}
-.frame{background:#fff;padding:10px;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px -14px rgba(18,59,82,.34);transition:transform .22s,box-shadow .22s;margin:36px 0 8px;}
-.frame:hover{transform:translateY(-3px);box-shadow:0 20px 42px -16px rgba(18,59,82,.42);}
-.frame img{display:block;width:100%;border-radius:9px;}
-.photo-row{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 8px;}
+.frame{background:#fff;padding:6px;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 22px -12px rgba(18,59,82,.34);transition:transform .22s,box-shadow .22s;margin:36px 0 8px;}
+.frame:hover{transform:translateY(-3px);box-shadow:0 16px 32px -14px rgba(18,59,82,.42);}
+.frame img{display:block;width:100%;border-radius:8px;}
+.photo-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:28px auto 8px;max-width:420px;}
+.photo-row.three{grid-template-columns:repeat(3,1fr);max-width:520px;}
 .photo-row .frame{margin:0;display:flex;}
 .photo-row .frame img{aspect-ratio:4/3;height:100%;object-fit:cover;}
-@media(min-width:600px){.photo-row.two{grid-template-columns:1fr 1fr;}.photo-row.three{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:380px){.photo-row.three{grid-template-columns:repeat(2,1fr);max-width:340px;}}
 
 /* ===== News article: vocabulary cards (Words to Learn) ===== */
 .learn{max-width:780px;margin:54px auto 0;padding-top:42px;border-top:1px solid var(--line);}
