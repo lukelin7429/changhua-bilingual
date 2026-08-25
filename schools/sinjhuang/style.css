@@ -212,6 +212,61 @@ section:last-of-type{border-bottom:none;}
 .sec-tint-a{background:var(--cream);}
 .sec-tint-b{background:linear-gradient(180deg,var(--forest-soft) 0%,#fff 100%);}
 
+/* ===== Video player link (back-link / external playlist link) ===== */
+.player-link{margin-top:14px;display:flex;align-items:center;gap:14px;padding:16px 22px;background:#fff;border:1.5px solid var(--line);border-radius:14px;color:var(--forest-deep);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.player-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:var(--rose);color:var(--forest-deep);}
+.player-link__icon{flex-shrink:0;width:42px;height:30px;border-radius:6px;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;}
+.player-link__text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.player-link__text strong{font-family:'Playfair Display',serif;font-size:18px;color:var(--forest-deep);font-weight:700;line-height:1.3;}
+.player-link__text span{font-family:'PingFang TC',sans-serif;font-size:14px;color:var(--ink-soft);line-height:1.45;}
+.player-link__arrow{font-size:22px;color:var(--rose);flex-shrink:0;}
+
+/* ===== Course cards (Lessons hub) ===== */
+.course-list{display:flex;flex-direction:column;gap:26px;}
+.course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+@media(min-width:720px){.course{grid-template-columns:260px 1fr;}}
+.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 24px;background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);}
+.course__art--photo{background-size:cover;background-position:center;min-height:180px;}
+.course__emoji{font-size:76px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));}
+.course__badge{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:99px;}
+.course__art--photo .course__badge{background:rgba(0,0,0,.55);}
+.course--soon .course__art{background:linear-gradient(135deg,#8a94a8 0%,#5c6478 100%);}
+.course__body{padding:26px 28px 30px;display:flex;flex-direction:column;justify-content:center;}
+.course__no{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);}
+.course__t{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--forest-deep);line-height:1.15;margin-top:6px;}
+.course__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px;}
+.course__desc{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+.course__cta{margin-top:18px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;background:var(--rose);padding:11px 22px;border-radius:12px;}
+.course:hover .course__cta{background:var(--rose-deep);}
+.course__cta--soon{margin-top:18px;display:inline-flex;align-self:flex-start;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--forest-deep);background:var(--forest-soft);padding:11px 22px;border-radius:12px;}
+
+/* ===== WOTD vocabulary cards ===== */
+.cat-head{display:flex;align-items:center;gap:14px;margin:38px 0 18px;}
+.cat-head__icon{font-size:36px;line-height:1;}
+.cat-head__title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--forest-deep);}
+@media(min-width:720px){.cat-head__title{font-size:34px;}}
+.cat-head__zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);font-weight:600;margin-top:3px;}
+
+.vocabs{display:grid;grid-template-columns:1fr;gap:26px;}
+@media(min-width:720px){.vocabs{grid-template-columns:1fr 1fr;}}
+
+.vc{background:#fff;border:1px solid var(--line);border-top:6px solid var(--accent,var(--rose));border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+.vc__num{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent,var(--rose-deep));background:var(--rose-soft);padding:6px 18px;}
+.vc__head{padding:16px 20px 12px;}
+.vc__term{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--accent,var(--forest-deep));line-height:1.15;}
+.vc__pos{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-soft);font-style:italic;font-weight:500;margin-left:8px;vertical-align:middle;}
+.vc__zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink);font-weight:700;margin-top:3px;}
+.vc__video{position:relative;padding-top:56.25%;background:#000;}
+.vc__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vc__body{padding:18px 20px 22px;flex:1;}
+.vc__exs{display:flex;flex-direction:column;gap:12px;}
+.vc__ex{border-radius:12px;padding:14px 16px;}
+.vc__ex--1{background:var(--rose-soft);border-left:4px solid var(--rose);}
+.vc__ex--2{background:var(--forest-soft);border-left:4px solid var(--forest);}
+.vc__ex .en{font-size:20px;color:var(--ink);font-weight:600;line-height:1.5;}
+.vc__ex .en b{font-weight:800;color:var(--accent,var(--forest-deep));}
+.vc__ex .zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.55;font-family:'PingFang TC',sans-serif;}
+
 /* ===== Coming soon (unbuilt page placeholder) ===== */
 .soon{max-width:640px;margin:0 auto;text-align:center;background:#fff;border:1.5px dashed var(--rose);border-radius:20px;padding:48px 32px;box-shadow:var(--shadow-sm);}
 .soon__icon{font-size:52px;line-height:1;margin-bottom:18px;}
