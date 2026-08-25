@@ -268,6 +268,42 @@ section:last-of-type{border-bottom:none;}
 .vc__ex .en b{font-weight:800;color:var(--accent,var(--forest-deep));}
 .vc__ex .zh{font-size:17px;color:var(--ink-soft);margin-top:5px;line-height:1.55;font-family:'PingFang TC',sans-serif;}
 
+/* ===== Speak-aloud button ===== */
+.say{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:var(--rose-deep);background:var(--rose-soft);border:1px solid var(--rose);border-radius:99px;padding:5px 14px;cursor:pointer;transition:background .15s,transform .15s;}
+.say:hover{background:var(--rose);color:#fff;transform:translateY(-1px);}
+.say:active{transform:translateY(0);}
+
+/* ===== Word-chip vocabulary grid ===== */
+.word-chip-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:560px){.word-chip-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:900px){.word-chip-grid{grid-template-columns:1fr 1fr 1fr;}}
+.word-chip{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow-sm);}
+.word-chip__en{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--forest-deep);line-height:1.25;}
+.word-chip__zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:2px;}
+.word-chip .say{margin-top:10px;padding:4px 12px;font-size:13px;}
+
+/* ===== Event list (inside factcard) ===== */
+.ev-list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;}
+.ev-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);}
+.ev-list li:last-child{border-bottom:none;}
+.ev-list .ev-en{font-size:16.5px;color:var(--ink);font-weight:600;}
+.ev-list .ev-zh{font-family:'PingFang TC',sans-serif;font-size:14.5px;color:var(--ink-soft);margin-left:6px;}
+.ev-list .say{margin-top:0;padding:3px 10px;font-size:12.5px;flex-shrink:0;}
+
+/* ===== Module credits (instructor/producer/audience) ===== */
+.credits{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+.credits__cell{flex:1 1 170px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;}
+.credits__label{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose-deep);}
+.credits__value{font-size:16px;font-weight:600;color:var(--ink);margin-top:3px;line-height:1.4;}
+
+/* ===== Topics grid (category overview cards) ===== */
+.topics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
+@media(min-width:720px){.topics{grid-template-columns:repeat(3,1fr);gap:16px;}}
+.topic{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent,var(--rose));border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-sm);}
+.topic__no{font-family:'Playfair Display',serif;color:var(--accent,var(--forest-deep));font-weight:800;font-size:14px;letter-spacing:2px;}
+.topic__en{margin-top:4px;font-size:15px;font-weight:700;color:var(--forest-deep);line-height:1.35;}
+.topic__zh{margin-top:3px;font-size:13px;color:var(--ink-soft);line-height:1.4;}
+
 /* ===== Coming soon (unbuilt page placeholder) ===== */
 .soon{max-width:640px;margin:0 auto;text-align:center;background:#fff;border:1.5px dashed var(--rose);border-radius:20px;padding:48px 32px;box-shadow:var(--shadow-sm);}
 .soon__icon{font-size:52px;line-height:1;margin-bottom:18px;}
