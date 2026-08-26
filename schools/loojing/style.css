@@ -278,6 +278,24 @@ section:last-of-type{border-bottom:none}
 .lnav a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep)}
 .lnav a.center{background:var(--crimson-deep);color:#fff;border-color:var(--crimson-deep)}
 
+/* ── Lessons: course-list (topic menu cards) ── */
+.course-list{display:flex;flex-direction:column;gap:26px}
+.course{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+@media(min-width:720px){.course{grid-template-columns:260px 1fr}}
+.course:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 24px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%)}
+.course__art--photo{background-size:cover;background-position:center;min-height:180px;position:relative}
+.course__emoji{font-size:76px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))}
+.course__badge{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:99px}
+.course__art--photo .course__badge{background:rgba(0,0,0,.55);position:absolute;bottom:14px;left:14px}
+.course__body{padding:26px 28px 30px;display:flex;flex-direction:column;justify-content:center}
+.course__no{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep)}
+.course__t{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--crimson-deep);line-height:1.15;margin-top:6px}
+.course__zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:4px}
+.course__desc{font-size:18px;color:var(--ink-soft);margin-top:12px;line-height:1.6}
+.course__cta{margin-top:18px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;background:var(--crimson);padding:11px 22px;border-radius:12px}
+.course:hover .course__cta{background:var(--crimson-deep)}
+
 .ft{background:var(--crimson-deep);color:rgba(255,255,255,.8);padding:44px 0 34px}
 .ft__inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:26px}
 @media(min-width:760px){.ft__inner{grid-template-columns:1.6fr 1fr 1.1fr;gap:40px}}
