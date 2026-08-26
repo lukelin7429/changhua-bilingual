@@ -48,8 +48,16 @@ a:hover{color:var(--azure);}
 .topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brick-deep);background:var(--brick-soft);}
 @media(max-width:680px){.topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}.topbar-nav{gap:1px;}.topbar-nav a{font-size:16.5px;padding:8px 10px;}}
 
+/* photo banner */
+.po-banner{position:relative;min-height:clamp(280px,38vh,400px);display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 38px;background-size:cover;background-position:center 50%;border-bottom:4px solid var(--brick);}
+.po-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,10,6,.08) 0%,rgba(30,10,6,.1) 40%,rgba(30,10,6,.62) 100%);}
+.po-banner>.wrap{position:relative;z-index:1;}
+.po-banner__eyebrow{display:inline-block;font-size:16px;letter-spacing:.22em;font-weight:700;text-transform:uppercase;color:#ffd9d0;margin-bottom:14px;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.po-banner h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(40px,5.6vw,60.5px);line-height:1.08;font-weight:600;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.55);}
+.po-banner h1 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:clamp(20px,2.3vw,25px);font-weight:500;color:rgba(255,255,255,.94);margin-top:10px;letter-spacing:.06em;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+
 /* hero */
-.po-hero{background:linear-gradient(180deg,var(--brick-soft) 0%,#fff 100%);padding:64px 0 50px;border-top:4px solid var(--brick);border-bottom:1px solid var(--line);}
+.po-hero{background:linear-gradient(180deg,var(--brick-soft) 0%,#fff 100%);padding:44px 0 50px;border-bottom:1px solid var(--line);}
 .po-hero__grid{display:grid;grid-template-columns:1fr .8fr;gap:54px;align-items:center;}
 .po-hero__eyebrow{display:inline-block;font-size:16px;letter-spacing:.22em;font-weight:700;text-transform:uppercase;color:var(--brick);margin-bottom:18px;}
 .po-hero h1{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(48.4px,6.6vw,74.8px);line-height:1.05;font-weight:600;letter-spacing:.005em;color:var(--brick-deep);margin-bottom:14px;}
@@ -145,7 +153,8 @@ section.po-body+section.po-body{padding-top:0;}
   .po-visit__grid{grid-template-columns:1fr;gap:30px;}
 }
 @media(max-width:640px){
-  .po-hero{padding:48px 0 36px;}
+  .po-banner{min-height:240px;}
+  .po-hero{padding:36px 0 36px;}
   section.po-body{padding:42px 0;}
   .po-values{grid-template-columns:1fr;}
   .po-philosophy{padding:28px 24px;}
@@ -172,16 +181,22 @@ section.po-body+section.po-body{padding-top:0;}
   </div>
 </nav>
 
+<!-- PHOTO BANNER -->
+<header class="po-banner" style="background-image:url('../photos/banner-principal.jpg')">
+  <div class="wrap">
+    <span class="po-banner__eyebrow">A Word from the Principal</span>
+    <h1>The Principal's Office
+      <span class="zh">校長室</span>
+    </h1>
+  </div>
+</header>
+
 <!-- HERO -->
 <header class="po-hero">
   <div class="wrap">
     <div class="po-hero__grid">
 
       <div>
-        <span class="po-hero__eyebrow">A Word from the Principal</span>
-        <h1>The Principal's Office
-          <span class="h1-zh">校長室</span>
-        </h1>
         <p style="font-size:22px;color:var(--ink);line-height:1.6;font-family:'Cormorant Garamond',serif;font-style:italic;margin-top:8px;">
           A warm village school surrounded by rice paddies — where every child explores with curiosity and shines with confidence, in two languages.
         </p>
