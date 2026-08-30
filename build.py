@@ -643,6 +643,17 @@ def build_fets(fets_data, schools_data):
     total = len(fets)
     total_r = f"{round_down(total, 10)}+"
 
+    senior_section = ""
+    if senior:
+        senior_section = f"""
+  <div class="fet-group" style="margin-top:72px">
+    <h2 class="hub-h2">Senior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">高中</span></h2>
+    <div class="fet-grid" style="margin-top:24px">
+      {''.join(senior)}
+    </div>
+  </div>
+"""
+
     past_section = ""
     if past:
         past_section = f"""
@@ -842,12 +853,7 @@ def build_fets(fets_data, schools_data):
     </div>
   </div>
 
-  <div class="fet-group" style="margin-top:72px">
-    <h2 class="hub-h2">Senior High <span style="font-family:var(--hub-zh-font);font-size:.7em;color:var(--hub-ink-faint);font-weight:400">高中</span></h2>
-    <div class="fet-grid" style="margin-top:24px">
-      {''.join(senior)}
-    </div>
-  </div>
+{senior_section}
 {past_section}
 </section>
 """.strip()
