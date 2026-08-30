@@ -200,12 +200,20 @@ section:last-of-type{border-bottom:none;}
 /* ===== Photo gallery grid ===== */
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .gallery-grid.four{grid-template-columns:repeat(4,1fr);}
+.gallery-grid.two{grid-template-columns:repeat(2,1fr);}
 @media(max-width:880px){.gallery-grid.four{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:880px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
 .g-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3;}
 .g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .g-photo:hover img{transform:scale(1.06);}
 .g-photo .g-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(14,32,64,.82) 0%,transparent 100%);color:#fff;padding:28px 14px 12px;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:500;letter-spacing:.02em;}
+/* 手機：說明改放圖片下方，避免文字蓋住照片 */
+@media(max-width:640px){
+  .gallery-grid.two{gap:16px;align-items:start;}
+  .gallery-grid.two .g-photo{aspect-ratio:auto;overflow:visible;border-radius:0;box-shadow:none;}
+  .gallery-grid.two .g-photo img{height:auto;aspect-ratio:4/3;border-radius:12px;box-shadow:var(--shadow-sm);}
+  .gallery-grid.two .g-cap{position:static;background:none;color:var(--ink-soft);padding:8px 2px 0;font-size:14px;line-height:1.5;}
+}
 
 /* ===== Principal portrait ===== */
 .pportrait{margin:6px auto 2px;max-width:420px;}
