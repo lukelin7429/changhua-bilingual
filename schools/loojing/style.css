@@ -248,9 +248,12 @@ section:last-of-type{border-bottom:none}
 
 .sentence-cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
 @media(min-width:640px){.sentence-cards{grid-template-columns:1fr 1fr}}
-.scard{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+.scard{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 62px;box-shadow:var(--shadow-sm)}
 .scard .en{font-size:19px;font-weight:700;color:var(--crimson-deep);line-height:1.5}
 .scard .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:5px}
+.ssay{position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;border:0;background:var(--crimson);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:transform .15s,box-shadow .2s}
+.ssay:hover{transform:scale(1.08)}.ssay:active{transform:scale(.92)}
+.ssay.ring{box-shadow:0 0 0 7px var(--crimson-soft)}
 
 .vgame{max-width:760px;margin:46px auto 0;padding-top:40px;border-top:1px solid var(--line)}
 .game-score{text-align:center;font-size:16px;color:var(--ink-soft);margin-bottom:16px}
