@@ -126,6 +126,29 @@ section:last-of-type{border-bottom:none;}
 .player-link__text span{display:block;font-size:16.5px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:2px;}
 @media(min-width:720px){.player-link__text span{font-size:18.2px;}}
 .player-link__arrow{margin-left:auto;font-size:24.2px;color:var(--accent);}
+.resultcard{display:block;position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:#fff;min-height:280px;background-size:cover;background-position:center 30%;transition:transform .2s;}
+.resultcard:hover{transform:translateY(-3px);}
+@media(min-width:720px){.resultcard{min-height:340px;}}
+.resultcard::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,6,.15) 0%,rgba(20,10,6,.2) 40%,rgba(20,10,6,.82) 100%);}
+.resultcard__body{position:relative;padding:28px 26px 30px;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px;}
+@media(min-width:720px){.resultcard__body{padding:34px 36px;min-height:340px;}}
+.resultcard__eyebrow{font-family:'Cormorant Garamond',serif;font-size:15.4px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-soft);text-shadow:0 1px 8px rgba(0,0,0,.5);}
+.resultcard__title{font-family:'Cormorant Garamond',serif;font-size:29.7px;font-weight:800;line-height:1.2;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+@media(min-width:720px){.resultcard__title{font-size:39.6px;}}
+.resultcard__zh{font-size:19.8px;font-weight:600;margin-top:6px;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+@media(min-width:720px){.resultcard__zh{font-size:22px;}}
+.resultcard__cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:17.6px;font-weight:700;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);padding:9px 18px;border-radius:99px;width:fit-content;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+@media(min-width:720px){.resultcard__cta{font-size:19.8px;}}
+.note{background:linear-gradient(135deg,#fff 0%,var(--brick-soft) 100%);border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:var(--shadow-sm);}
+@media(min-width:720px){.note{padding:32px 34px;}}
+.note__en{font-size:20.9px;color:var(--ink);font-weight:600;line-height:1.6;}
+@media(min-width:720px){.note__en{font-size:23.1px;}}
+.note__zh{font-size:18.7px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+@media(min-width:720px){.note__zh{font-size:20.9px;}}
+.note__links{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+.note__links a{color:var(--brick-deep);text-decoration:none;font-weight:700;font-size:17.6px;padding:9px 18px;border-radius:99px;border:2px solid var(--brick-soft);background:#fff;transition:all .15s;}
+@media(min-width:720px){.note__links a{font-size:18.7px;}}
+.note__links a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);}
 .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:34px;}
 @media(min-width:600px){.topics{grid-template-columns:repeat(3,1fr);}}
 @media(min-width:860px){.topics{grid-template-columns:repeat(5,1fr);}}
@@ -264,22 +287,23 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
         </div>
       </a>
 
-      <a class="course rvl" href="topics/2025-summer-fun/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--azure) 0%,var(--azure-deep) 100%);">
-          <div class="course__emoji">☀️</div>
-          <div class="course__badge">Summer 2025 · 暑假限定</div>
+      <div class="rvl">
+        <a class="resultcard" href="topics/2026-summer-camp/" style="background-image:url(topics/2026-summer-camp/img/hero-group.jpg);">
+          <div class="resultcard__body">
+            <div class="resultcard__eyebrow">Student Photos &amp; Film</div>
+            <div class="resultcard__title">2026 Summer Camp Highlights</div>
+            <div class="resultcard__zh">晴耕雨讀福德園 · 學生實作照片與活動紀錄影片</div>
+            <span class="resultcard__cta">View All Highlights · 看所有成果 →</span>
+          </div>
+        </a>
+        <div class="note" style="margin-top:16px;">
+          <div class="note__en">Looking for past years? Fude's Summer Camp has been running for a while — see how it looked before.</div>
+          <div class="note__zh">想看看過去的夏日樂學嗎？來看看之前的紀錄。</div>
+          <div class="note__links">
+            <a href="topics/2025-summer-fun/">See 2025 Camp · 看 2025</a>
+          </div>
         </div>
-        <div class="course__body">
-          <div class="course__no">Course 05</div>
-          <div class="course__title">2025 Summer Camp</div>
-          <div class="course__title-zh">夏日樂學</div>
-          <p class="course__desc">
-            Summer is the best season for learning something new! Join Fude's 2025 Summer Fun Camp — a week of English games, creative crafts, outdoor adventures, and new friendships. Learning that feels like play.
-            <span class="zh">暑假是學新東西最好的季節！參加福德 2025 夏日樂學營——一週的英語遊戲、創意手作、戶外探索與新朋友。讓學習感覺像在玩！</span>
-          </p>
-          <div class="course__cta">See the Camp <span class="arrow">→</span></div>
-        </div>
-      </a>
+      </div>
 
     </div>
   </div>
