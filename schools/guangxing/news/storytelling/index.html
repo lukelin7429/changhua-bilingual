@@ -75,6 +75,49 @@
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+  /* ===== 單字學習區 · Words to Learn ===== */
+  .learn{margin:52px 0 0;padding-top:42px;border-top:1px solid var(--line);}
+  .learn-head{text-align:center;margin-bottom:28px;}
+  .learn-head .eyebrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:14.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--terra);margin-bottom:8px;}
+  .learn-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--cane-deep);line-height:1.24;}
+  .learn-head .rule{width:74px;height:4px;background:var(--gold);border-radius:3px;margin:16px auto 0;}
+  .vlist{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.vlist{grid-template-columns:1fr 1fr;}}
+  .vcard{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px 64px;box-shadow:var(--shadow-sm);}
+  .vsay{position:absolute;left:16px;top:20px;width:38px;height:38px;border-radius:50%;border:0;background:var(--cane-deep);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s,background .2s;box-shadow:var(--shadow-sm);}
+  .vsay:hover{transform:scale(1.08);background:var(--terra);}
+  .vsay:active{transform:scale(.92);}
+  .vsay.ring{box-shadow:0 0 0 7px var(--cane-soft);}
+  .vmain{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;}
+  .vword{font-family:'Cormorant Garamond',serif;font-size:clamp(29px,5vw,38px);font-weight:700;color:var(--cane-deep);line-height:1.1;}
+  .vipa{font-size:16px;color:var(--terra);font-weight:600;}
+  .vzh{font-family:'PingFang TC',sans-serif;font-size:20px;font-weight:700;color:var(--ink);}
+  .vsent{font-size:18px;line-height:1.62;color:var(--ink);margin-top:12px;}
+  .vsent b{color:var(--terra-deep);}
+  .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:4px;}
+
+  /* ===== 配對遊戲 · Matching game ===== */
+  .vgame{margin:48px 0 0;padding-top:42px;border-top:1px solid var(--line);}
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-bottom:16px;}
+  .game-score b{color:var(--terra);font-size:21px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+  .gcol{display:flex;flex-direction:column;gap:10px;}
+  .gtile{font-family:inherit;font-size:19px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px 10px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--cane);}
+  .gtile.sel{border-color:var(--terra);background:var(--terra-soft);color:var(--terra-deep);}
+  .gtile.done{background:var(--cane-soft);border-color:var(--cane);color:var(--cane-deep);cursor:default;}
+  .gtile.pop{animation:gpop .5s;}
+  @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fbe7df;border-color:#d8a08a;}
+  @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--cane-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;}
+  .game-reset:hover{background:var(--cane-soft);border-color:var(--cane);}
+  .game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:23px;font-weight:700;color:var(--cane-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/schools/guangxing/motion.css">
@@ -121,6 +164,38 @@
   <p class="zh"><em>故事的力量源於無限的想像！在說故事協會老師的引導下，我們將腦中的故事畫面，透過巧手轉化為具體的藝術作品。無論是黏土捏塑、剪貼彩繪，還是製作立體場景，孩子們在創作過程中，不僅激發了創意，也學習了如何將抽象的想法具象化，為他們的故事增添了更多細節與生命力。</em></p>
   <p class="zh"><em>動手完成作品後，就是最精彩的成果發表時間！孩子們帶著自己的創作，勇敢地站上舞台，與老師和同學們分享故事的由來與靈感。雖然有些緊張，但看著他們自信地展現作品、清楚地回答問題，每個孩子都化身為小小故事家。</em></p>
 
+
+<section class="learn">
+  <div class="learn-head">
+    <span class="eyebrow">Words to Learn · 單字學習</span>
+    <h2>Tap &#128266; to listen<br>點喇叭聽發音</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="vlist">
+    <div class="vcard"><button class="vsay" data-say="story" aria-label="Listen to story">&#128266;</button><div class="vmain"><span class="vword">story</span><span class="vipa">/ˈstɔːri/</span><span class="vzh">故事</span></div><p class="vsent">A <b>story</b> is for creating, not just listening.<span class="vsent-zh"><b>故事</b>是拿來創作的，不只是聽的。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="storyteller" aria-label="Listen to storyteller">&#128266;</button><div class="vmain"><span class="vword">storyteller</span><span class="vipa">/ˈstɔːritelər/</span><span class="vzh">說故事的人</span></div><p class="vsent">We became little <b>storytellers</b>.<span class="vsent-zh">我們成為小小<b>說故事人</b>。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="clay" aria-label="Listen to clay">&#128266;</button><div class="vmain"><span class="vword">clay</span><span class="vipa">/kleɪ/</span><span class="vzh">黏土</span></div><p class="vsent">We shaped our characters out of <b>clay</b>.<span class="vsent-zh">我們用<b>黏土</b>捏出故事角色。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="sculpt" aria-label="Listen to sculpt">&#128266;</button><div class="vmain"><span class="vword">sculpt</span><span class="vipa">/skʌlpt/</span><span class="vzh">捏塑、雕塑</span></div><p class="vsent">We <b>sculpted</b>, painted and pasted.<span class="vsent-zh">我們<b>捏塑</b>、彩繪、拼貼。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="collage" aria-label="Listen to collage">&#128266;</button><div class="vmain"><span class="vword">collage</span><span class="vipa">/kəˈlɑːʒ/</span><span class="vzh">拼貼</span></div><p class="vsent">Some classmates made a paper <b>collage</b>.<span class="vsent-zh">有些同學做了紙<b>拼貼</b>。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="inspiration" aria-label="Listen to inspiration">&#128266;</button><div class="vmain"><span class="vword">inspiration</span><span class="vipa">/ˌɪnspəˈreɪʃn/</span><span class="vzh">靈感</span></div><p class="vsent">The teachers' tales gave us <b>inspiration</b>.<span class="vsent-zh">老師的故事給了我們<b>靈感</b>。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="showcase" aria-label="Listen to showcase">&#128266;</button><div class="vmain"><span class="vword">showcase</span><span class="vipa">/ˈʃoʊkeɪs/</span><span class="vzh">成果發表</span></div><p class="vsent">The final <b>showcase</b> was the best part.<span class="vsent-zh">最後的<b>成果發表</b>最精彩。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="confidence" aria-label="Listen to confidence">&#128266;</button><div class="vmain"><span class="vword">confidence</span><span class="vipa">/ˈkɑːnfɪdəns/</span><span class="vzh">自信</span></div><p class="vsent">Standing on stage built our <b>confidence</b>.<span class="vsent-zh">站上舞台讓我們更有<b>自信</b>。</span></p></div>
+  </div>
+</section>
+
+<section class="vgame">
+  <div class="learn-head">
+    <span class="eyebrow">Matching Game &middot; 配對遊戲</span>
+    <h2>Match the word to its meaning<br>把英文和中文配對</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 8</p>
+  <div id="gPraise" style="min-height:34px;text-align:center;margin:-6px 0 14px;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:21px;font-weight:700;color:var(--cane-deep);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s"></div>
+  <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+  <div class="game-done" id="gDone">&#127881; Great job! 你全部配對成功，太棒了！</div>
+  <button class="game-reset" id="gReset" type="button">&#8635; Play again · 再玩一次</button>
+</section>
+
   <div class="back"><a href="../">← Back to News · 回到新聞</a></div>
 </div></article>
 
@@ -140,6 +215,31 @@
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  document.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});
+  function confetti(big){var n=big?90:18,colors=['#5b9c3f','#c89a3a','#b85f33','#e3f1d6','#f6e8c4','#f5dac9'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
+  var WORDS=[{"en": "story", "zh": "故事"}, {"en": "storyteller", "zh": "說故事的人"}, {"en": "clay", "zh": "黏土"}, {"en": "sculpt", "zh": "捏塑、雕塑"}, {"en": "collage", "zh": "拼貼"}, {"en": "inspiration", "zh": "靈感"}, {"en": "showcase", "zh": "成果發表"}, {"en": "confidence", "zh": "自信"}];
+  var enCol=document.getElementById('gEn'),zhCol=document.getElementById('gZh');
+  var sc=document.getElementById('gScore'),done=document.getElementById('gDone'),reset=document.getElementById('gReset');
+  var praiseEl=document.getElementById('gPraise'),praiseTimer=null;
+  var PRAISE=['\uD83C\uDF1F Great! \u7b54\u5c0d\u4e86\uff01','\uD83D\uDC4F Nice work! \u5f88\u68d2\uff01','\uD83C\uDF89 Excellent! \u592a\u5389\u5bb3\u4e86\uff01','\u2728 Perfect! \u5b8c\u5168\u6b63\u78ba\uff01','\uD83D\uDC4D Well done! \u505a\u5f97\u597d\uff01','\uD83D\uDE80 Awesome! \u597d\u5389\u5bb3\uff01','\uD83C\uDF08 You got it! \u5c31\u662f\u9019\u500b\uff01'];
+  var pool=[];
+  function praise(){if(!praiseEl)return;if(!pool.length){pool=PRAISE.slice();for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=pool[i];pool[i]=pool[j];pool[j]=t;}}praiseEl.textContent=pool.pop();praiseEl.style.opacity='1';praiseEl.style.transform='none';clearTimeout(praiseTimer);praiseTimer=setTimeout(function(){praiseEl.style.opacity='0';praiseEl.style.transform='translateY(6px)';},1600);}
+  if(enCol&&zhCol){
+    var selEn=null,matched=0;
+    function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}
+    function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;return b;}
+    function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');if(praiseEl){clearTimeout(praiseTimer);praiseEl.style.opacity='0';praiseEl.style.transform='translateY(6px)';}shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}
+    function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.k);}
+    function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){if(praiseEl){clearTimeout(praiseTimer);praiseEl.style.opacity='0';}done.classList.add('show');confetti(true);}else{praise();}}else{fx(b,'shake');fx(selEn,'shake');}}
+    if(reset)reset.addEventListener('click',build);
+    build();
+  }
 })();
 </script>
 <footer class="site"><div class="wrap">

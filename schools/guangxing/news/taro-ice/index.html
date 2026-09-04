@@ -75,6 +75,49 @@
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+
+  /* ===== 單字學習區 · Words to Learn ===== */
+  .learn{margin:52px 0 0;padding-top:42px;border-top:1px solid var(--line);}
+  .learn-head{text-align:center;margin-bottom:28px;}
+  .learn-head .eyebrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:14.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--terra);margin-bottom:8px;}
+  .learn-head h2{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--cane-deep);line-height:1.24;}
+  .learn-head .rule{width:74px;height:4px;background:var(--gold);border-radius:3px;margin:16px auto 0;}
+  .vlist{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.vlist{grid-template-columns:1fr 1fr;}}
+  .vcard{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px 64px;box-shadow:var(--shadow-sm);}
+  .vsay{position:absolute;left:16px;top:20px;width:38px;height:38px;border-radius:50%;border:0;background:var(--cane-deep);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s,background .2s;box-shadow:var(--shadow-sm);}
+  .vsay:hover{transform:scale(1.08);background:var(--terra);}
+  .vsay:active{transform:scale(.92);}
+  .vsay.ring{box-shadow:0 0 0 7px var(--cane-soft);}
+  .vmain{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;}
+  .vword{font-family:'Cormorant Garamond',serif;font-size:clamp(29px,5vw,38px);font-weight:700;color:var(--cane-deep);line-height:1.1;}
+  .vipa{font-size:16px;color:var(--terra);font-weight:600;}
+  .vzh{font-family:'PingFang TC',sans-serif;font-size:20px;font-weight:700;color:var(--ink);}
+  .vsent{font-size:18px;line-height:1.62;color:var(--ink);margin-top:12px;}
+  .vsent b{color:var(--terra-deep);}
+  .vsent-zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:4px;}
+
+  /* ===== 配對遊戲 · Matching game ===== */
+  .vgame{margin:48px 0 0;padding-top:42px;border-top:1px solid var(--line);}
+  .game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-bottom:16px;}
+  .game-score b{color:var(--terra);font-size:21px;}
+  .game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+  .gcol{display:flex;flex-direction:column;gap:10px;}
+  .gtile{font-family:inherit;font-size:19px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px 10px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+  .gtile.zh{font-family:'PingFang TC',sans-serif;}
+  .gtile:hover{border-color:var(--cane);}
+  .gtile.sel{border-color:var(--terra);background:var(--terra-soft);color:var(--terra-deep);}
+  .gtile.done{background:var(--cane-soft);border-color:var(--cane);color:var(--cane-deep);cursor:default;}
+  .gtile.pop{animation:gpop .5s;}
+  @keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+  .gtile.shake{animation:gshake .36s;background:#fbe7df;border-color:#d8a08a;}
+  @keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:17px;font-weight:700;color:var(--cane-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;}
+  .game-reset:hover{background:var(--cane-soft);border-color:var(--cane);}
+  .game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:23px;font-weight:700;color:var(--cane-deep);}
+  .game-done.show{display:block;animation:gpop .55s;}
+  .confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+  @keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/schools/guangxing/motion.css">
@@ -112,6 +155,38 @@
   <p class="zh">夏日炎炎，還有什麼比親手做冰更消暑的呢？學校特別舉辦了「手作芋頭冰」活動，讓孩子們體驗在地食材與消暑樂趣！</p>
   <p class="zh">在老師的帶領下，同學們從處理香甜綿密的芋頭開始，親自將芋泥和牛奶攪拌均勻，一步步製作出美味的芋頭冰。大家不僅體驗了製作過程的樂趣，更在炎熱的天氣中，享受了這份充滿成就感的清涼滋味。</p>
 
+
+<section class="learn">
+  <div class="learn-head">
+    <span class="eyebrow">Words to Learn · 單字學習</span>
+    <h2>Tap &#128266; to listen<br>點喇叭聽發音</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="vlist">
+    <div class="vcard"><button class="vsay" data-say="taro" aria-label="Listen to taro">&#128266;</button><div class="vmain"><span class="vword">taro</span><span class="vipa">/ˈtɑːroʊ/</span><span class="vzh">芋頭</span></div><p class="vsent">We started by cooking the <b>taro</b> soft.<span class="vsent-zh">我們先把<b>芋頭</b>煮軟。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="ice cream" aria-label="Listen to ice cream">&#128266;</button><div class="vmain"><span class="vword">ice cream</span><span class="vipa">/aɪs kriːm/</span><span class="vzh">冰淇淋</span></div><p class="vsent">We made our very own <b>ice cream</b>!<span class="vsent-zh">我們做出自己的<b>冰淇淋</b>！</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="milk" aria-label="Listen to milk">&#128266;</button><div class="vmain"><span class="vword">milk</span><span class="vipa">/mɪlk/</span><span class="vzh">牛奶</span></div><p class="vsent">We mixed the taro paste with <b>milk</b>.<span class="vsent-zh">我們把芋泥和<b>牛奶</b>拌在一起。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="mix" aria-label="Listen to mix">&#128266;</button><div class="vmain"><span class="vword">mix</span><span class="vipa">/mɪks/</span><span class="vzh">混合、攪拌</span></div><p class="vsent"><b>Mix</b> it well until it turns smooth.<span class="vsent-zh">好好<b>攪拌</b>，直到變得滑順。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="sweet" aria-label="Listen to sweet">&#128266;</button><div class="vmain"><span class="vword">sweet</span><span class="vipa">/swiːt/</span><span class="vzh">甜的</span></div><p class="vsent">The taro was soft and <b>sweet</b>.<span class="vsent-zh">芋頭又軟又<b>甜</b>。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="summer" aria-label="Listen to summer">&#128266;</button><div class="vmain"><span class="vword">summer</span><span class="vipa">/ˈsʌmər/</span><span class="vzh">夏天</span></div><p class="vsent">Nothing beats ice cream in <b>summer</b>.<span class="vsent-zh"><b>夏天</b>沒有比冰淇淋更棒的了。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="cool" aria-label="Listen to cool">&#128266;</button><div class="vmain"><span class="vword">cool</span><span class="vipa">/kuːl/</span><span class="vzh">涼爽的</span></div><p class="vsent">It was a <b>cool</b> treat on a hot day.<span class="vsent-zh">大熱天來一份<b>清涼</b>的點心。</span></p></div>
+    <div class="vcard"><button class="vsay" data-say="local" aria-label="Listen to local">&#128266;</button><div class="vmain"><span class="vword">local</span><span class="vipa">/ˈloʊkl/</span><span class="vzh">在地的</span></div><p class="vsent">We used <b>local</b> ingredients from our town.<span class="vsent-zh">我們用家鄉的<b>在地</b>食材。</span></p></div>
+  </div>
+</section>
+
+<section class="vgame">
+  <div class="learn-head">
+    <span class="eyebrow">Matching Game &middot; 配對遊戲</span>
+    <h2>Match the word to its meaning<br>把英文和中文配對</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="game-score">Matched 配對成功：<b id="gScore">0</b> / 8</p>
+  <div id="gPraise" style="min-height:34px;text-align:center;margin:-6px 0 14px;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:21px;font-weight:700;color:var(--cane-deep);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s"></div>
+  <div class="game-board"><div class="gcol" id="gEn"></div><div class="gcol" id="gZh"></div></div>
+  <div class="game-done" id="gDone">&#127881; Great job! 你全部配對成功，太棒了！</div>
+  <button class="game-reset" id="gReset" type="button">&#8635; Play again · 再玩一次</button>
+</section>
+
   <div class="back"><a href="../">← Back to News · 回到新聞</a></div>
 </div></article>
 
@@ -131,6 +206,31 @@
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  document.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});
+  function confetti(big){var n=big?90:18,colors=['#5b9c3f','#c89a3a','#b85f33','#e3f1d6','#f6e8c4','#f5dac9'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
+  var WORDS=[{"en": "taro", "zh": "芋頭"}, {"en": "ice cream", "zh": "冰淇淋"}, {"en": "milk", "zh": "牛奶"}, {"en": "mix", "zh": "混合、攪拌"}, {"en": "sweet", "zh": "甜的"}, {"en": "summer", "zh": "夏天"}, {"en": "cool", "zh": "涼爽的"}, {"en": "local", "zh": "在地的"}];
+  var enCol=document.getElementById('gEn'),zhCol=document.getElementById('gZh');
+  var sc=document.getElementById('gScore'),done=document.getElementById('gDone'),reset=document.getElementById('gReset');
+  var praiseEl=document.getElementById('gPraise'),praiseTimer=null;
+  var PRAISE=['\uD83C\uDF1F Great! \u7b54\u5c0d\u4e86\uff01','\uD83D\uDC4F Nice work! \u5f88\u68d2\uff01','\uD83C\uDF89 Excellent! \u592a\u5389\u5bb3\u4e86\uff01','\u2728 Perfect! \u5b8c\u5168\u6b63\u78ba\uff01','\uD83D\uDC4D Well done! \u505a\u5f97\u597d\uff01','\uD83D\uDE80 Awesome! \u597d\u5389\u5bb3\uff01','\uD83C\uDF08 You got it! \u5c31\u662f\u9019\u500b\uff01'];
+  var pool=[];
+  function praise(){if(!praiseEl)return;if(!pool.length){pool=PRAISE.slice();for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=pool[i];pool[i]=pool[j];pool[j]=t;}}praiseEl.textContent=pool.pop();praiseEl.style.opacity='1';praiseEl.style.transform='none';clearTimeout(praiseTimer);praiseTimer=setTimeout(function(){praiseEl.style.opacity='0';praiseEl.style.transform='translateY(6px)';},1600);}
+  if(enCol&&zhCol){
+    var selEn=null,matched=0;
+    function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}
+    function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;return b;}
+    function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');if(praiseEl){clearTimeout(praiseTimer);praiseEl.style.opacity='0';praiseEl.style.transform='translateY(6px)';}shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}
+    function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.k);}
+    function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){if(praiseEl){clearTimeout(praiseTimer);praiseEl.style.opacity='0';}done.classList.add('show');confetti(true);}else{praise();}}else{fx(b,'shake');fx(selEn,'shake');}}
+    if(reset)reset.addEventListener('click',build);
+    build();
+  }
 })();
 </script>
 <footer class="site"><div class="wrap">
