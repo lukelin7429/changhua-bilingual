@@ -83,18 +83,18 @@ section:last-of-type{border-bottom:none;}
   text-decoration:none;color:inherit;
   transition:transform .2s,box-shadow .2s;
 }
-@media(min-width:760px){.course{grid-template-columns:320px 1fr;align-items:stretch;}}
+.course-grid{display:grid;grid-template-columns:1fr;gap:30px;}
+@media(min-width:860px){.course-grid{grid-template-columns:1fr 1fr;}}
 .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
-.course__art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:52px 24px;background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);}
-.course__emoji{font-size:114.4px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25));transition:transform .3s;}
-@media(min-width:720px){.course__emoji{font-size:143px;}}
-.course:hover .course__emoji{transform:scale(1.07) rotate(-4deg);}
-.course__badge{font-size:16.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:7px 20px;border-radius:99px;}
-.course__body{padding:36px 32px 38px;display:flex;flex-direction:column;justify-content:center;}
-@media(min-width:720px){.course__body{padding:50px 56px;}}
+.course__art{position:relative;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);}
+.course__art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.course:hover .course__art img{transform:scale(1.04);}
+.course__badge{position:absolute;left:18px;bottom:18px;z-index:1;font-size:16.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(20,10,6,.55);backdrop-filter:blur(4px);padding:7px 20px;border-radius:99px;}
+.course__body{padding:28px 28px 30px;display:flex;flex-direction:column;justify-content:flex-start;}
+@media(min-width:720px){.course__body{padding:32px 34px 34px;}}
 .course__no{font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);}
-.course__title{font-family:'Cormorant Garamond',serif;font-size:41.8px;font-weight:800;color:var(--brick-deep);line-height:1.1;margin-top:8px;}
-@media(min-width:720px){.course__title{font-size:57.2px;}}
+.course__title{font-family:'Cormorant Garamond',serif;font-size:38.5px;font-weight:800;color:var(--brick-deep);line-height:1.12;margin-top:8px;}
+@media(min-width:720px){.course__title{font-size:44px;}}
 .course__title-zh{font-size:23.1px;color:var(--ink);font-weight:600;margin-top:8px;font-family:'PingFang TC',sans-serif;letter-spacing:.06em;}
 @media(min-width:720px){.course__title-zh{font-size:27.5px;}}
 .course__desc{font-size:20.9px;color:var(--ink-soft);line-height:1.65;margin-top:18px;}
@@ -240,9 +240,11 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
         </div>
       </div>
 
+      <div class="course-grid">
+
       <a class="course rvl" href="word/">
         <div class="course__art">
-          <div class="course__emoji">📖</div>
+          <img src="cover-word.jpg" alt="福德國小校園 · Word of the Day 拍攝場景" loading="lazy">
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__body">
@@ -250,16 +252,16 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
           <div class="course__title">Word of the Day</div>
           <div class="course__title-zh">每日一字</div>
           <p class="course__desc">
-            Bilingual videos filmed on Fude's own campus — one word at a time. Watch our teachers and students bring English to life through the drum-dance troupe, the school garden, food education, and everyday moments at Fude.
-            <span class="zh">在福德國小校園拍攝的雙語影片，每次一個英文單字。看老師和同學用跳鼓陣、學校菜園、黃豆食農，還有每天的校園生活，把英文變得活起來！</span>
+            Bilingual videos filmed on Fude's own campus — one English word at a time.
+            <span class="zh">在福德校園拍攝的雙語影片，每次學一個英文單字。</span>
           </p>
           <div class="course__cta">Start Learning <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="course rvl" href="../festivals/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);">
-          <div class="course__emoji">🎉</div>
+        <div class="course__art">
+          <img src="../news-img/cultural-experience-2.jpg" alt="福德學生手作團扇文化體驗" loading="lazy">
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__body">
@@ -267,16 +269,16 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
           <div class="course__title">Festivals English</div>
           <div class="course__title-zh">節慶英語</div>
           <p class="course__desc">
-            From Lunar New Year and the Lantern Festival to Halloween, Thanksgiving, and Christmas — sixteen bilingual festival lessons, each with a printable handout and a fun quiz. Explore the holidays of Taiwan and the wider world, all in English and Chinese.
-            <span class="zh">從農曆新年、元宵節，到萬聖節、感恩節、聖誕節——十六個雙語節慶單元，每一個都有學習單和趣味小測驗。用中英雙語認識臺灣與世界的節日！</span>
+            Sixteen bilingual festival lessons, each with a printable handout and a fun quiz.
+            <span class="zh">十六個雙語節慶單元，每個都有學習單和趣味小測驗。</span>
           </p>
           <div class="course__cta">Explore Festivals <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="course rvl" href="topics/character/">
-        <div class="course__art" style="background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);">
-          <div class="course__emoji">🌟</div>
+        <div class="course__art">
+          <img src="topics/character/char-1.jpg" alt="The 5 Fude Superpowers · 福德國小五種核心品格" loading="lazy">
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__body">
@@ -284,16 +286,16 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
           <div class="course__title">Character Education</div>
           <div class="course__title-zh">品格教育</div>
           <p class="course__desc">
-            Virtue is the root of everything we do at Fude. Explore how our school nurtures honesty, respect, gratitude, and responsibility — through classroom moments, ceremonies, and everyday acts of kindness.
-            <span class="zh">品德是福德國小一切的根本。探索我們如何在課堂、典禮與日常生活中，培養孩子誠信、尊重、感恩與責任的品格。</span>
+            Five character superpowers, learned through stories, badges, and everyday school life.
+            <span class="zh">五種品格超能力，從故事、徽章與每天的校園生活中學會。</span>
           </p>
           <div class="course__cta">Explore Character <span class="arrow">→</span></div>
         </div>
       </a>
 
       <a class="course rvl" href="topics/agriculture-education/">
-        <div class="course__art" style="background:linear-gradient(135deg,#7a5230 0%,#4a2f18 100%);">
-          <div class="course__emoji">🌱</div>
+        <div class="course__art">
+          <img src="topics/agriculture-education/agri-wide-1.jpg" alt="福德學生在樸學農園採收蔬菜" loading="lazy">
           <div class="course__badge">Now Available · 現在開放</div>
         </div>
         <div class="course__body">
@@ -301,12 +303,14 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
           <div class="course__title">Puxue Farm Garden</div>
           <div class="course__title-zh">樸學農園</div>
           <p class="course__desc">
-            From seed to table — Fude's food education garden brings children into living contact with the soil, the seasons, and the story of what they eat. Soybeans, vegetables, and nature's classroom, all in one place.
-            <span class="zh">從播種到餐桌——福德的食農教育農園讓孩子親身接觸土壤、四季與食物的故事。黃豆、蔬菜，還有大自然的教室，就在校園裡。</span>
+            From seed to table — soybeans, vegetables, and nature's classroom right on campus.
+            <span class="zh">從播種到餐桌——黃豆、蔬菜，還有校園裡的自然教室。</span>
           </p>
           <div class="course__cta">Visit the Garden <span class="arrow">→</span></div>
         </div>
       </a>
+
+      </div>
 
     </div>
   </div>
