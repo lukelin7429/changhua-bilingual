@@ -13,7 +13,7 @@ handled the same way:
                   happened to surface that card this week, and repeated
                   multiple-choice practice breeds a false sense of mastery.
                   These are read through and searched instead.
-  terms.json      The offices, roles and legal terms an FET has to recognise on
+  terms.json      The offices, roles and legal terms an FET has to recognize on
                   a door or in an email, with pinyin and audio.
 
 Run from the repo root:  python3 tools/build_culture_banks.py
@@ -24,7 +24,7 @@ SRC = pathlib.Path("fets/school-culture/data/practice-bank.json")
 OUT = pathlib.Path("culture/data")
 DRILL_MODULES = (1, 2, 8)
 
-# Hand-curated: what an FET actually needs to recognise. Auto-extracting the
+# Hand-curated: what an FET actually needs to recognize. Auto-extracting the
 # Chinese from the options pulls in sentence fragments, so this is written out.
 TERMS = [
     # 處室
@@ -34,13 +34,13 @@ TERMS = [
      "Discipline, health, clubs, safety. The office you deal with most outside your own classes."),
     ("總務處", "zǒngwùchù", "Office of General Affairs", "office",
      "Buildings, equipment, repairs, purchasing. Broken air conditioner? Here."),
-    ("輔導室", "fǔdǎoshì", "Counselling Office", "office",
-     "Student counselling and support. If you are worried about a child, this office and the 導師 are your first stop."),
+    ("輔導室", "fǔdǎoshì", "Counseling Office", "office",
+     "Student counseling and support. If you are worried about a child, this office and the 導師 are your first stop."),
     ("人事室", "rénshìshì", "Personnel Office", "office",
      "Contract, leave records, insurance, work permit. In your first week, learn who works here."),
     ("會計室", "kuàijìshì", "Accounting Office", "office",
      "Payments and reimbursements. Sometimes called 主計室 and sometimes the same person as 人事室 in a small school."),
-    ("健康中心", "jiànkāng zhōngxīn", "Health Centre", "office",
+    ("健康中心", "jiànkāng zhōngxīn", "Health Center", "office",
      "The school nurse's room, also called 保健室. Where you send a student who is hurt or unwell."),
     ("校長室", "xiàozhǎngshì", "Principal's Office", "office",
      "Where visitors are received. You will be brought here to meet guests more often than you expect."),
@@ -118,7 +118,7 @@ def main():
 
     (OUT / "terms.json").write_text(json.dumps({
         "label": "Names on doors", "labelZh": "門上的名字",
-        "blurb": "The offices, roles and terms you have to recognise written down — on a door, in an email, on the calendar.",
+        "blurb": "The offices, roles and terms you have to recognize written down — on a door, in an email, on the calendar.",
         "blurbZh": "你必須看得懂的處室、職稱與制度用語——門牌上、信件裡、行事曆上。",
         "terms": [{"zh": zh, "py": py, "en": en, "kind": kind, "why": why, "audio": h(zh)}
                   for zh, py, en, kind, why in TERMS],

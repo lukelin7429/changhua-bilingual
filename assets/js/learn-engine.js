@@ -151,7 +151,7 @@
    * character-recognition drills, which is what the bank could not test before.
    */
   function chooseExercise(q) {
-    // Situational-judgement questions carry no single phrase to hear or read —
+    // Situational-judgment questions carry no single phrase to hear or read —
     // there is nothing to drill but the question itself.
     if (!q.zh) return 'stem';
     var scenario = /^(idiom|expression|situation|dialogue)$/.test(q.type);
