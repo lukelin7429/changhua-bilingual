@@ -467,3 +467,18 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 .lcard.rvl.in:hover,.pillar.rvl.in:hover,.factcard.rvl.in:hover{transform:translateY(-8px);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
 
+/* ===== 口號框裡的中文標語 =====
+   照校門拱圈的寫法：活力小、橋頭大，享受學習小、愛特別大，
+   放大的字用校徽的磚紅，其餘用深綠。兩個半句各自 nowrap，
+   窄螢幕只會在中間斷成兩行，不會從詞中間拆開。 */
+.quote--slogan{padding:26px 30px 28px;}
+@media(min-width:720px){.quote--slogan{padding:30px 34px 32px;}}
+.quote__slogan{
+  margin-top:14px;
+  font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--green-deep);font-weight:700;line-height:1.22;letter-spacing:.05em;
+  font-size:clamp(22px,4.4vw,36px);
+}
+.quote__half{display:inline-block;white-space:nowrap;}
+.quote__half + .quote__half{margin-left:.5em;}
+.quote__big{color:var(--brick);letter-spacing:.03em;font-size:clamp(34px,6.8vw,58px);}
