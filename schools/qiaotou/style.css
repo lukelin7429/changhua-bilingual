@@ -466,3 +466,47 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 .rvl.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 .lcard.rvl.in:hover,.pillar.rvl.in:hover,.factcard.rvl.in:hover{transform:translateY(-8px);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
+
+/* ===== Motto showcase — 校訓：校門拱圈上的六個字 =====
+   The front gate is a cream arch with 活力橋頭　享受愛學習 lettered across it,
+   the crest at its left, 橋頭 and 愛 blown up in red against the green.
+   This block rebuilds that arch on the page so the motto reads as the
+   school's own, not as a line of body copy. */
+.motto{
+  margin:30px 0 8px;
+  background:linear-gradient(180deg,#D8EBD3 0%,#EAF5E6 55%,#F9FCF7 100%);
+  border:1px solid rgba(30,122,44,.20);
+  border-radius:22px;
+  padding:30px 16px 26px;
+  box-shadow:var(--shadow-sm);
+}
+@media(min-width:720px){.motto{padding:48px 40px 38px;}}
+.motto__arch{
+  max-width:720px;margin:0 auto;text-align:center;
+  background:#fff;
+  border:3px solid var(--green);
+  border-radius:280px 280px 18px 18px;
+  padding:30px 20px 28px;
+  box-shadow:0 20px 44px -24px rgba(15,82,35,.50);
+}
+@media(min-width:720px){.motto__arch{padding:40px 34px 34px;}}
+.motto__crest{width:70px;height:auto;margin:0 auto 14px;}
+@media(min-width:720px){.motto__crest{width:88px;margin-bottom:18px;}}
+.motto__zh{
+  font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  color:var(--green-deep);font-weight:700;line-height:1.16;letter-spacing:.06em;
+  font-size:clamp(30px,6.2vw,54px);
+}
+.motto__zh + .motto__zh{margin-top:8px;}
+.motto__big{color:var(--brick);letter-spacing:.03em;font-size:clamp(46px,9.6vw,88px);}
+.motto__rule{width:72px;height:5px;background:var(--red);border-radius:3px;margin:22px auto 0;}
+.motto__en{
+  margin-top:20px;font-family:'Playfair Display','PingFang TC',serif;
+  font-weight:700;color:var(--green-deep);line-height:1.24;
+  font-size:clamp(25px,4.8vw,42px);letter-spacing:.01em;
+}
+.motto__cap{
+  margin-top:18px;text-align:center;color:var(--ink-soft);
+  font-size:17px;line-height:1.6;
+}
+@media(min-width:720px){.motto__cap{font-size:19px;margin-top:22px;}}
