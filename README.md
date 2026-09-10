@@ -70,6 +70,22 @@ GitHub Pages 自動發佈於 `main` 分支，網址：
 
 每所合作學校的 `index.html` 只需修改 `CONFIG.SCHOOL_ID` 一處。
 
+## 授權
+
+本專案分三部分授權，完整條款見 [LICENSE](./LICENSE)。
+
+| 範圍 | 授權 |
+|---|---|
+| **教材內容與程式碼**<br>`festivals/` `explore/` `learn/` `resources/` `contributing/`、各校頁面的文字與版面、`build.py` `scripts/` `worker/` `apps-script/` `assets/css/` `assets/js/` `data/*.yml` | **CC BY-NC-SA 4.0**<br>歡迎其他縣市直接取用。須標示出處、不得商用、改作後須以相同條款釋出。 |
+| **校園活動照片與外師照片**<br>`schools/*/news-img/` `schools/*/photos/` `schools/*/lessons/**/img/` `assets/images/fets/` | **保留所有權利**<br>內含學生與教師肖像，各校僅授權本站使用，**不開放第三方重製或改作**。要改作教材請自行替換照片。 |
+| **校徽、機關標誌與名稱** | 屬各該單位所有，本授權不授予商標使用權。 |
+
+第三方素材（`assets/map/changhua-townships.geojson` 來自 [ronnywang/twgeojson](https://github.com/ronnywang/twgeojson)、Google Fonts 字型）依其原授權。
+
+> ⚠️ **新增照片時請注意**：只要是含學生或教師人像的影像，一律放進上表第二列的目錄（`news-img/`、`photos/`、`lessons/**/img/`），不要放到 `assets/images/` 的共用區，以免落入 CC 授權範圍。
+
+商業使用或授權疑問請聯繫 luke@mycultureconnect.org。
+
 ## 協作者
 
 加入此專案的協作者請先閱讀 [CONTRIBUTING.md](./CONTRIBUTING.md)。
