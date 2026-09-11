@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://changhua-bilingual.org/schools/sijhou-jhs/lessons/listening/01/">
+<title>Listening Challenge #01 · 聽力挑戰第 01 期 · Sijhou Junior High 溪州國中</title>
+<meta name="description" content="Sijhou Junior High Listening Challenge #01 — listen to the recording, answer five questions, and see your score right away. 溪州國中聽力挑戰第 01 期：聽錄音、答 5 題、馬上知道成績。">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/sijhou-jhs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/sijhou-jhs/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/sijhou-jhs/favicon-180.png">
+<link rel="shortcut icon" href="/schools/sijhou-jhs/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/schools/sijhou-jhs/style.css">
+<link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
+<style>
+.zh-font{font-family:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;}
+/* teacher player */
+.lq-player{background:linear-gradient(160deg,var(--azure-deep) 0%,#0b2e40 100%);color:#fff;border-radius:22px;padding:26px 24px 24px;box-shadow:var(--shadow);}
+@media(min-width:720px){.lq-player{padding:32px 34px 30px;}}
+.lq-player__tag{display:inline-block;font:700 13px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:7px 14px;}
+.lq-player__t{font-family:'Playfair Display','PingFang TC',serif;font-size:26px;font-weight:700;margin-top:14px;line-height:1.25;}
+@media(min-width:720px){.lq-player__t{font-size:32px;}}
+.lq-player__zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:rgba(255,255,255,.88);margin-top:6px;line-height:1.6;}
+.lq-player audio{display:block;width:100%;margin-top:20px;}
+.lq-player__note{font-family:'PingFang TC',sans-serif;font-size:16px;color:#ffe3a3;margin-top:14px;line-height:1.6;}
+/* class + name */
+.lq-meta{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
+@media(min-width:600px){.lq-meta{grid-template-columns:1fr 1.4fr;}}
+.lq-field label{display:block;font-weight:700;font-size:18px;color:var(--azure-deep);}
+.lq-field label span{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-weight:600;margin-left:6px;}
+.lq-field input{width:100%;margin-top:8px;font:600 22px/1.3 'Inter','PingFang TC',sans-serif;color:var(--ink);padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:#fff;-webkit-appearance:none;appearance:none;}
+.lq-field input:focus{outline:none;border-color:var(--azure);box-shadow:0 0 0 4px var(--azure-soft);}
+.lq-field.err input{border-color:var(--crimson);background:var(--crimson-soft);}
+/* questions */
+.lq-qs{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+.lq-q{background:#fff;border:1px solid var(--line);border-left:7px solid var(--azure);border-radius:18px;padding:22px 20px 20px;box-shadow:var(--shadow-sm);}
+@media(min-width:720px){.lq-q{padding:26px 28px 24px;}}
+.lq-q.missing{border-left-color:var(--crimson);background:#fffafa;}
+.lq-q__no{font:700 14px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-deep);display:flex;align-items:center;gap:10px;}
+.lq-q__mark{display:none;font-size:15px;letter-spacing:0;text-transform:none;padding:4px 10px;border-radius:99px;}
+.lq-q__text{font-size:22px;font-weight:700;color:var(--azure-deep);margin-top:10px;line-height:1.4;}
+@media(min-width:720px){.lq-q__text{font-size:25px;}}
+.lq-opts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px;}
+@media(min-width:720px){.lq-opts{grid-template-columns:1fr 1fr;gap:12px;}}
+.lq-opt{position:relative;display:flex;align-items:center;gap:14px;min-height:60px;padding:12px 16px;border:2px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s;}
+.lq-opt input{position:absolute;opacity:0;pointer-events:none;}
+.lq-opt__letter{flex-shrink:0;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 18px/1 'Inter',sans-serif;color:var(--azure-deep);background:var(--azure-soft);transition:background .15s,color .15s;}
+.lq-opt__text{font-size:20px;font-weight:600;color:var(--ink);line-height:1.35;}
+.lq-opt:hover{border-color:var(--azure);}
+.lq-opt.sel{border-color:var(--crimson);background:var(--crimson-soft);}
+.lq-opt.sel .lq-opt__letter{background:var(--crimson);color:#fff;}
+.lq-opt input:focus-visible+.lq-opt__letter{outline:3px solid var(--azure);outline-offset:2px;}
+/* graded state: only right / wrong on the student's own choice — the key is not revealed */
+.lq-graded .lq-opt{cursor:default;}
+.lq-graded .lq-opt:not(.sel){opacity:.55;}
+.lq-q.is-right{border-left-color:#2f9e44;}
+.lq-q.is-wrong{border-left-color:var(--crimson);}
+.lq-q.is-right .lq-q__mark{display:inline-block;background:#e6f6ea;color:#237a36;}
+.lq-q.is-wrong .lq-q__mark{display:inline-block;background:var(--crimson-soft);color:var(--crimson-deep);}
+.lq-q.is-right .lq-opt.sel{border-color:#2f9e44;background:#e6f6ea;}
+.lq-q.is-right .lq-opt.sel .lq-opt__letter{background:#2f9e44;}
+/* submit */
+.lq-warn{display:none;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:18px;font-weight:700;color:var(--crimson-deep);background:var(--crimson-soft);border-radius:12px;padding:12px 16px;}
+.lq-warn.show{display:block;}
+.lq-submit{display:block;width:100%;margin-top:26px;font:800 24px/1.2 'Playfair Display','PingFang TC',serif;color:#fff;background:var(--crimson);border:0;border-radius:16px;padding:20px 18px;cursor:pointer;box-shadow:0 12px 26px -12px rgba(138,42,30,.6);transition:background .2s,transform .12s;}
+.lq-submit:hover{background:var(--crimson-deep);}
+.lq-submit:active{transform:scale(.99);}
+.lq-submit:disabled{background:#9aa5ad;box-shadow:none;cursor:default;}
+/* result */
+.lq-result{display:none;text-align:center;background:linear-gradient(160deg,#fff 0%,var(--azure-soft) 100%);border:2px solid var(--azure-deep);border-radius:24px;padding:30px 22px 26px;box-shadow:var(--shadow);margin-bottom:30px;}
+.lq-result.show{display:block;}
+.lq-result.perfect{background:linear-gradient(135deg,#fff6db 0%,#f3cb5e 100%);border-color:#a9741a;}
+.lq-result__label{font:700 14px/1 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson-deep);}
+.lq-result__score{font-family:'Playfair Display',serif;font-size:86px;font-weight:800;color:var(--azure-deep);line-height:1;margin-top:10px;}
+.lq-result__score small{font-size:30px;color:var(--ink-soft);}
+.lq-result__who{font-family:'PingFang TC',sans-serif;font-size:19px;font-weight:600;color:var(--ink);margin-top:8px;}
+.lq-result__msg{font-size:22px;font-weight:700;color:var(--azure-deep);margin-top:14px;line-height:1.4;}
+.lq-result__msg span{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);margin-top:4px;}
+.lq-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.lq-chip{font:700 16px/1 'Inter',sans-serif;padding:8px 12px;border-radius:99px;}
+.lq-chip.ok{background:#e6f6ea;color:#237a36;}
+.lq-chip.no{background:var(--crimson-soft);color:var(--crimson-deep);}
+.lq-sent{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:16px;line-height:1.6;}
+.lq-sent.ok{color:#237a36;font-weight:700;}
+.lq-sent.fail{color:var(--crimson-deep);font-weight:700;}
+.lq-retry{display:none;margin:12px auto 0;font:700 18px/1 'Inter','PingFang TC',sans-serif;color:#fff;background:var(--azure-deep);border:0;border-radius:12px;padding:13px 22px;cursor:pointer;}
+.lq-retry.show{display:inline-block;}
+.lq-script{background:var(--cream);border:1.5px dashed var(--azure);border-radius:16px;padding:22px 24px;}
+.lq-script p{font-size:19px;color:var(--ink);line-height:1.6;}
+.lq-script p.zh-font{font-size:17px;color:var(--ink-soft);margin-top:6px;}
+</style>
+</head>
+<body>
+<div class="tb"><div class="tb__inner"><a class="tb__brand" href="/schools/sijhou-jhs/"><img class="tb__logo" src="/schools/sijhou-jhs/logo.png" alt="溪州國中校徽 Sijhou Junior High crest"><div class="tb__name">Sijhou Junior High<small>溪州國民中學</small></div></a><nav class="tb__nav"><a href="/schools/sijhou-jhs/">Home</a><a href="/schools/sijhou-jhs/principal/">Principal</a><a href="/schools/sijhou-jhs/lessons/" class="is-active">Lessons</a><a href="/schools/sijhou-jhs/news/">News</a></nav></div></div>
+
+<header class="chero" style="--b1:#c0392b;--b2:#8a2a1e;--b3:#134a68;"><div class="chero__fx"></div><div class="chero__inner"><span class="eyebrow">Listening Challenge #01 · 聽力挑戰第 01 期</span><h1>Teacher Morgan Gets a Scooter License</h1><div class="h1-zh">2026 年 9 月 18 日（五）上午 8:00 · 全校一起聽</div></div></header>
+
+<section><div class="wrap">
+<div class="sec__no">I.</div><h2 class="sec__title">Listen</h2><div class="sec__title-zh">仔細聽 · 老師統一播放</div><div class="sec__rule"></div>
+<div class="lq-player">
+  <span class="lq-player__tag">For Teachers · 老師播放用</span>
+  <div class="lq-player__t">Teacher Morgan Gets a Scooter License</div>
+  <div class="lq-player__zh">約 1 分 30 秒 · 開頭有一小段前奏音樂</div>
+  <audio controls preload="metadata" src="/learn/audio/606b8a48cff2.mp3">Your browser does not support audio playback. 你的瀏覽器無法播放音檔。</audio>
+  <p class="lq-player__note">同學請不用按播放，專心聽老師播放的錄音，聽完再作答。<br>Students: no need to press play — listen to your teacher's recording, then answer.</p>
+</div>
+</div></section>
+
+<section class="sec-tint-a"><div class="wrap">
+<div class="sec__no">II.</div><h2 class="sec__title">Answer</h2><div class="sec__title-zh">作答 · 填好班級姓名，答完 5 題再送出</div><div class="sec__rule"></div>
+
+<div class="lq-result" id="result" aria-live="polite">
+  <div class="lq-result__label">Your Score · 你的成績</div>
+  <div class="lq-result__score"><span id="scoreNum">0</span><small> / 100</small></div>
+  <div class="lq-result__who" id="resultWho"></div>
+  <div class="lq-result__msg" id="resultMsg"></div>
+  <div class="lq-chips" id="chips"></div>
+  <p class="lq-sent" id="sent"></p>
+  <button type="button" class="lq-retry" id="retry">Send again · 重新送出</button>
+</div>
+
+<form id="quiz" novalidate>
+  <div class="lq-meta">
+    <div class="lq-field" id="fCls"><label for="cls">Class<span>班級</span></label><input id="cls" name="cls" inputmode="numeric" autocomplete="off" maxlength="6" placeholder="例：701"></div>
+    <div class="lq-field" id="fName"><label for="nm">Name<span>姓名</span></label><input id="nm" name="nm" autocomplete="off" maxlength="20" placeholder="你的名字"></div>
+  </div>
+  <div class="lq-qs" id="qs"></div>
+  <p class="lq-warn" id="warn">請填好班級、姓名，並答完每一題。Please fill in your class and name, and answer every question.</p>
+  <button type="submit" class="lq-submit" id="submitBtn">Submit · 送出答案</button>
+</form>
+</div></section>
+
+<section><div class="wrap">
+<div class="sec__no">III.</div><h2 class="sec__title">Script</h2><div class="sec__title-zh">講稿與中文翻譯</div><div class="sec__rule"></div>
+<div class="lq-script">
+  <p>The script and its Chinese translation will be posted after the listening challenge.</p>
+  <p class="zh-font">講稿與中文翻譯將在測驗結束後公布。</p>
+</div>
+<a class="player-link" style="margin-top:28px" href="/schools/sijhou-jhs/lessons/listening/"><span class="player-link__icon">←</span><span class="player-link__text"><strong>All Listening Challenges</strong><span>回到聽力挑戰總覽</span></span></a>
+</div></section>
+
+<script>
+(function(){
+  /* Apps Script Web App URL — paste after deploying apps-script.gs (../apps-script.gs). */
+  var ENDPOINT = "";
+  var ISSUE = "01";
+  var LETTERS = ["A","B","C","D"];
+  var QUESTIONS = [
+    { q: "What can Teacher Morgan drive?", o: ["Car","Truck","Scooter","Plane"], a: 2 },
+    { q: "How did Teacher Morgan feel before the test?", o: ["Happy and Calm","Nervous and Confident","Angry and Sad","Tired and Lazy"], a: 1 },
+    { q: "Did Teacher Morgan pass the test?", o: ["Yes","No"], a: 0 },
+    { q: "Where does Teacher Morgan really want to go?", o: ["Taichung","Kenting","Jiufen","Sun Moon Lake"], a: 3 },
+    { q: "With whom does Teacher Morgan plan to travel?", o: ["Her family","Her dog","Her friends","Her neighbors"], a: 2 }
+  ];
+  var POINTS = 100 / QUESTIONS.length;
+
+  var qs = document.getElementById("qs");
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  QUESTIONS.forEach(function(item, qi){
+    var card = document.createElement("div");
+    card.className = "lq-q";
+    var opts = item.o.map(function(t, oi){
+      return '<label class="lq-opt"><input type="radio" name="q'+qi+'" value="'+oi+'">' +
+             '<span class="lq-opt__letter">'+LETTERS[oi]+'</span><span class="lq-opt__text">'+esc(t)+'</span></label>';
+    }).join("");
+    card.innerHTML = '<div class="lq-q__no">Question '+(qi+1)+' · 第 '+(qi+1)+' 題<span class="lq-q__mark"></span></div>' +
+                     '<div class="lq-q__text">'+esc(item.q)+'</div><div class="lq-opts">'+opts+'</div>';
+    qs.appendChild(card);
+  });
+
+  var form = document.getElementById("quiz");
+  form.addEventListener("change", function(e){
+    if (e.target.type !== "radio") return;
+    var card = e.target.closest(".lq-q");
+    card.classList.remove("missing");
+    card.querySelectorAll(".lq-opt").forEach(function(l){ l.classList.toggle("sel", l.contains(e.target)); });
+  });
+  ["cls","nm"].forEach(function(id){
+    document.getElementById(id).addEventListener("input", function(){ this.parentNode.classList.remove("err"); });
+  });
+
+  var payload = null, done = false;
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (done) return;
+    var cls = document.getElementById("cls").value.trim();
+    var nm = document.getElementById("nm").value.trim();
+    var picks = QUESTIONS.map(function(_, qi){
+      var c = form.querySelector('input[name="q'+qi+'"]:checked');
+      return c ? parseInt(c.value, 10) : -1;
+    });
+    document.getElementById("fCls").classList.toggle("err", !cls);
+    document.getElementById("fName").classList.toggle("err", !nm);
+    picks.forEach(function(p, qi){ qs.children[qi].classList.toggle("missing", p < 0); });
+    if (!cls || !nm || picks.indexOf(-1) >= 0) {
+      document.getElementById("warn").classList.add("show");
+      var first = !cls ? document.getElementById("cls") : !nm ? document.getElementById("nm") : qs.children[picks.indexOf(-1)];
+      first.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    document.getElementById("warn").classList.remove("show");
+    done = true;
+
+    var correct = 0, chips = "", marks = [];
+    picks.forEach(function(p, qi){
+      var ok = p === QUESTIONS[qi].a;
+      if (ok) correct++;
+      var card = qs.children[qi];
+      card.classList.add(ok ? "is-right" : "is-wrong");
+      card.querySelector(".lq-q__mark").textContent = ok ? "✓ Correct 答對" : "✗ 答錯";
+      chips += '<span class="lq-chip '+(ok?"ok":"no")+'">Q'+(qi+1)+' '+(ok?"✓":"✗")+'</span>';
+      marks.push(LETTERS[p] + (ok ? " ✓" : " ✗"));
+    });
+    form.classList.add("lq-graded");
+    form.querySelectorAll("input").forEach(function(i){ i.disabled = true; });
+    var score = Math.round(correct * POINTS);
+
+    var btn = document.getElementById("submitBtn");
+    btn.disabled = true; btn.textContent = "Submitted · 已送出";
+    document.getElementById("scoreNum").textContent = score;
+    document.getElementById("resultWho").textContent = cls + " · " + nm;
+    var msg = score === 100 ? ["Perfect score! You're in the raffle. 🎉", "滿分！你可以參加抽獎！"]
+            : score >= 60   ? ["Great listening — almost there!", "聽得很好，再加油就滿分了！"]
+            :                 ["Good try — keep listening!", "繼續加油，下次一定更好！"];
+    document.getElementById("resultMsg").innerHTML = esc(msg[0]) + "<span>" + esc(msg[1]) + "</span>";
+    document.getElementById("chips").innerHTML = chips;
+    var result = document.getElementById("result");
+    result.classList.toggle("perfect", score === 100);
+    result.classList.add("show");
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    payload = { quiz: "sijhou-listening", issue: ISSUE, cls: cls, name: nm, score: score, total: 100,
+                answers: marks, user_agent: navigator.userAgent };
+    send(0);
+  });
+
+  var sent = document.getElementById("sent"), retry = document.getElementById("retry");
+  function setSent(text, cls){ sent.textContent = text; sent.className = "lq-sent" + (cls ? " " + cls : ""); }
+  function send(attempt){
+    retry.classList.remove("show");
+    if (!ENDPOINT) { setSent("（測試模式：成績尚未連接 Google Sheet）"); return; }
+    setSent("Sending… 成績送出中…");
+    var body = JSON.stringify(payload);
+    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (j && j.ok) setSent("✓ 成績已送出 Your score has been recorded.", "ok");
+        else throw new Error((j && j.error) || "not ok");
+      })
+      .catch(function(){
+        if (attempt < 2) { setTimeout(function(){ send(attempt + 1); }, 1500 * (attempt + 1)); return; }
+        setSent("✗ 成績還沒送出，請確認網路後按「重新送出」。Not sent yet — check the Wi-Fi and tap Send again.", "fail");
+        retry.classList.add("show");
+      });
+  }
+  retry.addEventListener("click", function(){ if (payload) send(0); });
+})();
+</script>
+<footer class="ft"><div class="ft__inner"><div class="ft__brand"><img class="ft__logo" src="/schools/sijhou-jhs/logo-footer.png" alt="溪州國中校徽"><div><h4>Sijhou Junior High School</h4><div class="zh">彰化縣立溪州國民中學</div><div class="ft__addr">524 彰化縣溪州鄉溪州村中央路三段300號<br>No. 300, Sec. 3, Zhongyang Rd., Sijhou Township, Changhua<br>Tel · 電話：(04) 889-5054</div></div></div><div class="ft__col"><h5>This Site</h5><ul><li><a href="/schools/sijhou-jhs/principal/">Principal · 校長室</a></li><li><a href="/schools/sijhou-jhs/lessons/">Lessons · 課程</a></li><li><a href="/schools/sijhou-jhs/news/">News · 新聞</a></li></ul></div><div class="ft__col"><h5>Connect</h5><div class="ft-ctas"><a class="cta-btn" href="https://ccjh.chc.edu.tw/" target="_blank" rel="noopener"><span class="cta-btn__ico">🌐</span><span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">溪州國中官網</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--fb" href="https://www.facebook.com/ccjh20/" target="_blank" rel="noopener"><span class="cta-btn__ico">f</span><span class="cta-btn__tx"><span class="cta-btn__t">Facebook</span><span class="cta-btn__zh">溪州國中 · 粉絲專頁</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--archive" href="https://sijhoujh.mycultureconnect.org/home" target="_blank" rel="noopener"><span class="cta-btn__ico">🗂️</span><span class="cta-btn__tx"><span class="cta-btn__t">Previous Website</span><span class="cta-btn__zh">舊網站存檔</span></span><span class="cta-btn__arrow">↗</span></a></div></div></div><div class="ft__bottom">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div></footer>
+<script defer src="/assets/js/motion.js?v=b0540bb5"></script>
+</body>
+</html>
