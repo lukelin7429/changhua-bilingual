@@ -89,9 +89,12 @@ function setupRaffle() {
   var st = ss.getSheetByName('滿分名單 Perfect') || ss.insertSheet('滿分名單 Perfect');
   st.clear();
   st.getRange('A1:C1').setValues([['期數 Issue', '班級 Class', '姓名 Name']]).setFontWeight('bold');
+  // 只算同一期、同班、同名的「第一次」交卷——交卷後看得到答案，重交拿到的 100 分不算
   st.getRange('A2').setFormula(
-    '=IFERROR(SORT(UNIQUE(FILTER({' + TAB + '!B2:B,' + TAB + '!C2:C,' + TAB + '!D2:D},' +
-    TAB + '!E2:E=100,' + TAB + '!B2:B<>"TEST")),1,TRUE,2,TRUE),"（目前還沒有滿分）")');
+    '=LET(resp,' + TAB + '!A2:E,ks,ARRAYFORMULA(INDEX(resp,,2)&"|"&INDEX(resp,,3)&"|"&INDEX(resp,,4)),' +
+    'isfirst,MAP(ks,SEQUENCE(ROWS(ks)),LAMBDA(kk,pp,MATCH(kk,ks,0)=pp)),' +
+    'IFERROR(SORT(UNIQUE(FILTER(CHOOSECOLS(resp,2,3,4),INDEX(resp,,5)=100,INDEX(resp,,2)<>"TEST",isfirst)),1,TRUE,2,TRUE),"（目前還沒有滿分）"))');
+  st.getRange('E1').setValue('※ 只算同一期、同班同名的第一次交卷');
   st.setFrozenRows(1);
   st.setColumnWidth(1, 110); st.setColumnWidth(2, 110); st.setColumnWidth(3, 160);
 }

@@ -109,6 +109,9 @@
 .lq-result__who{font-family:'PingFang TC',sans-serif;font-size:19px;font-weight:600;color:var(--ink);margin-top:8px;}
 .lq-result__msg{font-size:22px;font-weight:700;color:var(--azure-deep);margin-top:14px;line-height:1.4;}
 .lq-result__msg span{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);margin-top:4px;}
+.lq-again{display:none;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:700;color:var(--crimson-deep);background:var(--crimson-soft);border-radius:12px;padding:10px 14px;margin:14px auto 0;max-width:560px;line-height:1.5;}
+.lq-again.show{display:block;}
+.lq-again small{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
 .lq-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px;}
 .lq-chip{font:700 16px/1 'Inter',sans-serif;padding:8px 12px;border-radius:99px;}
 .lq-chip.ok{background:#e6f6ea;color:#237a36;}
@@ -162,6 +165,7 @@
   <div class="lq-result__label">Your Score · 你的成績</div>
   <div class="lq-result__score"><span id="scoreNum">0</span><small> / 100</small></div>
   <div class="lq-result__who" id="resultWho"></div>
+  <p class="lq-again" id="again">這台平板已經交過這一期了，成績以第一次為準。<br><small>This tablet has already submitted this challenge — only the first try counts.</small></p>
   <div class="lq-result__msg" id="resultMsg"></div>
   <div class="lq-chips" id="chips"></div>
   <p class="lq-sent" id="sent"></p>
@@ -242,7 +246,14 @@
     document.getElementById(id).addEventListener("input", function(){ this.parentNode.classList.remove("err"); });
   });
 
-  var payload = null, done = false;
+  /* One submission per tablet: the result is remembered, so reloading shows the first result
+     instead of a fresh form. Teachers can clear it for testing with ?reset=1 */
+  var STORE = "sijhou-listening-" + ISSUE;
+  function load(){ try { return JSON.parse(localStorage.getItem(STORE) || "null"); } catch (err) { return null; } }
+  function save(o){ try { localStorage.setItem(STORE, JSON.stringify(o)); } catch (err) {} }
+  if (/[?&]reset=1(&|$)/.test(location.search)) { try { localStorage.removeItem(STORE); } catch (err) {} }
+
+  var payload = null, done = false, record = null;
   form.addEventListener("submit", function(e){
     e.preventDefault();
     if (done) return;
@@ -262,8 +273,14 @@
       return;
     }
     document.getElementById("warn").classList.remove("show");
-    done = true;
+    grade(cls, nm, picks, true);
+    record = { cls: cls, nm: nm, picks: picks, sent: false };
+    save(record);
+    send(0);
+  });
 
+  function grade(cls, nm, picks, scroll){
+    done = true;
     var correct = 0, chips = "", marks = [];
     picks.forEach(function(p, qi){
       var item = QUESTIONS[qi], ok = p === item.a;
@@ -296,12 +313,11 @@
     var result = document.getElementById("result");
     result.classList.toggle("perfect", score === 100);
     result.classList.add("show");
-    result.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll) result.scrollIntoView({ behavior: "smooth", block: "start" });
 
     payload = { quiz: "sijhou-listening", issue: ISSUE, cls: cls, name: nm, score: score, total: 100,
                 answers: marks, user_agent: navigator.userAgent };
-    send(0);
-  });
+  }
 
   var sent = document.getElementById("sent"), retry = document.getElementById("retry");
   function setSent(text, cls){ sent.textContent = text; sent.className = "lq-sent" + (cls ? " " + cls : ""); }
@@ -313,8 +329,9 @@
     fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
       .then(function(r){ return r.json(); })
       .then(function(j){
-        if (j && j.ok) setSent("✓ 成績已送出 Your score has been recorded.", "ok");
-        else throw new Error((j && j.error) || "not ok");
+        if (!(j && j.ok)) throw new Error((j && j.error) || "not ok");
+        setSent("✓ 成績已送出 Your score has been recorded.", "ok");
+        if (record) { record.sent = true; save(record); }
       })
       .catch(function(){
         if (attempt < 2) { setTimeout(function(){ send(attempt + 1); }, 1500 * (attempt + 1)); return; }
@@ -323,6 +340,24 @@
       });
   }
   retry.addEventListener("click", function(){ if (payload) send(0); });
+
+  var prev = load();
+  var validPrev = prev && prev.cls && prev.nm && Array.isArray(prev.picks) && prev.picks.length === QUESTIONS.length &&
+    prev.picks.every(function(p, qi){ return p >= 0 && p < QUESTIONS[qi].o.length; });
+  if (validPrev) {
+    record = prev;
+    document.getElementById("cls").value = prev.cls;
+    document.getElementById("nm").value = prev.nm;
+    prev.picks.forEach(function(p, qi){
+      var input = form.querySelector('input[name="q'+qi+'"][value="'+p+'"]');
+      input.checked = true;
+      input.closest(".lq-opt").classList.add("sel");
+    });
+    grade(prev.cls, prev.nm, prev.picks, false);
+    document.getElementById("again").classList.add("show");
+    if (prev.sent) setSent("✓ 成績已送出 Your score has been recorded.", "ok");
+    else send(0);
+  }
 })();
 </script>
 <footer class="ft"><div class="ft__inner"><div class="ft__brand"><img class="ft__logo" src="/schools/sijhou-jhs/logo-footer.png" alt="溪州國中校徽"><div><h4>Sijhou Junior High School</h4><div class="zh">彰化縣立溪州國民中學</div><div class="ft__addr">524 彰化縣溪州鄉溪州村中央路三段300號<br>No. 300, Sec. 3, Zhongyang Rd., Sijhou Township, Changhua<br>Tel · 電話：(04) 889-5054</div></div></div><div class="ft__col"><h5>This Site</h5><ul><li><a href="/schools/sijhou-jhs/principal/">Principal · 校長室</a></li><li><a href="/schools/sijhou-jhs/lessons/">Lessons · 課程</a></li><li><a href="/schools/sijhou-jhs/news/">News · 新聞</a></li></ul></div><div class="ft__col"><h5>Connect</h5><div class="ft-ctas"><a class="cta-btn" href="https://ccjh.chc.edu.tw/" target="_blank" rel="noopener"><span class="cta-btn__ico">🌐</span><span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">溪州國中官網</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--fb" href="https://www.facebook.com/ccjh20/" target="_blank" rel="noopener"><span class="cta-btn__ico">f</span><span class="cta-btn__tx"><span class="cta-btn__t">Facebook</span><span class="cta-btn__zh">溪州國中 · 粉絲專頁</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--archive" href="https://sijhoujh.mycultureconnect.org/home" target="_blank" rel="noopener"><span class="cta-btn__ico">🗂️</span><span class="cta-btn__tx"><span class="cta-btn__t">Previous Website</span><span class="cta-btn__zh">舊網站存檔</span></span><span class="cta-btn__arrow">↗</span></a></div></div></div><div class="ft__bottom">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div></footer>
