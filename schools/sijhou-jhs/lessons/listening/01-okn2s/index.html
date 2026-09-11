@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel="canonical" href="https://changhua-bilingual.org/schools/sijhou-jhs/lessons/listening/01/">
+<link rel="canonical" href="https://changhua-bilingual.org/schools/sijhou-jhs/lessons/listening/01-okn2s/">
+<meta name="robots" content="noindex, nofollow">
 <title>Listening Challenge #01 · 聽力挑戰第 01 期 · Sijhou Junior High 溪州國中</title>
 <meta name="description" content="Sijhou Junior High Listening Challenge #01 — listen to the recording, answer five questions, and see your score right away. 溪州國中聽力挑戰第 01 期：聽錄音、答 5 題、馬上知道成績。">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/sijhou-jhs/favicon-32.png">
@@ -51,7 +52,7 @@
 .lq-opt.sel{border-color:var(--crimson);background:var(--crimson-soft);}
 .lq-opt.sel .lq-opt__letter{background:var(--crimson);color:#fff;}
 .lq-opt input:focus-visible+.lq-opt__letter{outline:3px solid var(--azure);outline-offset:2px;}
-/* graded state: only right / wrong on the student's own choice — the key is not revealed */
+/* graded state: correct answer + explanation shown after submit */
 .lq-graded .lq-opt{cursor:default;}
 .lq-graded .lq-opt:not(.sel){opacity:.55;}
 .lq-q.is-right{border-left-color:#2f9e44;}
@@ -60,6 +61,14 @@
 .lq-q.is-wrong .lq-q__mark{display:inline-block;background:var(--crimson-soft);color:var(--crimson-deep);}
 .lq-q.is-right .lq-opt.sel{border-color:#2f9e44;background:#e6f6ea;}
 .lq-q.is-right .lq-opt.sel .lq-opt__letter{background:#2f9e44;}
+.lq-graded .lq-opt.is-key{opacity:1;border-color:#2f9e44;background:#e6f6ea;}
+.lq-graded .lq-opt.is-key .lq-opt__letter{background:#2f9e44;color:#fff;}
+.lq-graded .lq-opt.is-miss{border-color:var(--crimson);background:var(--crimson-soft);}
+.lq-ex{display:none;margin-top:16px;background:var(--cream);border-left:5px solid #2f9e44;border-radius:0 12px 12px 0;padding:14px 18px;}
+.lq-ex.show{display:block;}
+.lq-ex__k{font:700 13px/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#237a36;}
+.lq-ex p{font-size:19px;color:var(--ink);margin-top:8px;line-height:1.55;}
+.lq-ex p.zh-font{font-size:17px;color:var(--ink-soft);margin-top:4px;}
 /* submit */
 .lq-warn{display:none;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:18px;font-weight:700;color:var(--crimson-deep);background:var(--crimson-soft);border-radius:12px;padding:12px 16px;}
 .lq-warn.show{display:block;}
@@ -145,11 +154,21 @@
   var ISSUE = "01";
   var LETTERS = ["A","B","C","D"];
   var QUESTIONS = [
-    { q: "What can Teacher Morgan drive?", o: ["Car","Truck","Scooter","Plane"], a: 2 },
-    { q: "How did Teacher Morgan feel before the test?", o: ["Happy and Calm","Nervous and Confident","Angry and Sad","Tired and Lazy"], a: 1 },
-    { q: "Did Teacher Morgan pass the test?", o: ["Yes","No"], a: 0 },
-    { q: "Where does Teacher Morgan really want to go?", o: ["Taichung","Kenting","Jiufen","Sun Moon Lake"], a: 3 },
-    { q: "With whom does Teacher Morgan plan to travel?", o: ["Her family","Her dog","Her friends","Her neighbors"], a: 2 }
+    { q: "What can Teacher Morgan drive?", o: ["Car","Truck","Scooter","Plane"], a: 2,
+      ex: "Teacher Morgan studied for the scooter license test and passed, so now she can ride a scooter.",
+      exZh: "Morgan 老師準備的是機車駕照考試，而且考過了，所以現在可以騎機車。" },
+    { q: "How did Teacher Morgan feel before the test?", o: ["Happy and Calm","Nervous and Confident","Angry and Sad","Tired and Lazy"], a: 1,
+      ex: "She says, “I was a little bit nervous, but mostly confident.”",
+      exZh: "她說考試那天「有一點點緊張，但更多的是自信」。" },
+    { q: "Did Teacher Morgan pass the test?", o: ["Yes","No"], a: 0,
+      ex: "She says, “And, I passed!”",
+      exZh: "她說：「結果，我通過了！」" },
+    { q: "Where does Teacher Morgan really want to go?", o: ["Taichung","Kenting","Jiufen","Sun Moon Lake"], a: 3,
+      ex: "She says, “I really want to visit Sun Moon Lake,” because she heard it is very beautiful there.",
+      exZh: "她很想去日月潭，因為聽說那裡非常漂亮。" },
+    { q: "With whom does Teacher Morgan plan to travel?", o: ["Her family","Her dog","Her friends","Her neighbors"], a: 2,
+      ex: "She says, “I plan to travel with my friends all across Taiwan.”",
+      exZh: "她打算和朋友們一起環遊全台灣。" }
   ];
   var POINTS = 100 / QUESTIONS.length;
 
@@ -163,7 +182,7 @@
              '<span class="lq-opt__letter">'+LETTERS[oi]+'</span><span class="lq-opt__text">'+esc(t)+'</span></label>';
     }).join("");
     card.innerHTML = '<div class="lq-q__no">Question '+(qi+1)+' · 第 '+(qi+1)+' 題<span class="lq-q__mark"></span></div>' +
-                     '<div class="lq-q__text">'+esc(item.q)+'</div><div class="lq-opts">'+opts+'</div>';
+                     '<div class="lq-q__text">'+esc(item.q)+'</div><div class="lq-opts">'+opts+'</div><div class="lq-ex"></div>';
     qs.appendChild(card);
   });
 
@@ -202,11 +221,17 @@
 
     var correct = 0, chips = "", marks = [];
     picks.forEach(function(p, qi){
-      var ok = p === QUESTIONS[qi].a;
+      var item = QUESTIONS[qi], ok = p === item.a;
       if (ok) correct++;
       var card = qs.children[qi];
       card.classList.add(ok ? "is-right" : "is-wrong");
-      card.querySelector(".lq-q__mark").textContent = ok ? "✓ Correct 答對" : "✗ 答錯";
+      card.querySelector(".lq-q__mark").textContent = ok ? "✓ Correct 答對" : "✗ 答錯 · 正確答案 " + LETTERS[item.a];
+      var labels = card.querySelectorAll(".lq-opt");
+      labels[item.a].classList.add("is-key");
+      if (!ok) labels[p].classList.add("is-miss");
+      var ex = card.querySelector(".lq-ex");
+      ex.innerHTML = '<div class="lq-ex__k">Answer ' + LETTERS[item.a] + ' · 解析</div><p>' + esc(item.ex) + '</p><p class="zh-font">' + esc(item.exZh) + '</p>';
+      ex.classList.add("show");
       chips += '<span class="lq-chip '+(ok?"ok":"no")+'">Q'+(qi+1)+' '+(ok?"✓":"✗")+'</span>';
       marks.push(LETTERS[p] + (ok ? " ✓" : " ✗"));
     });
