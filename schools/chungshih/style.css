@@ -493,10 +493,13 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 .cert{background:var(--brick-soft);border:1px solid var(--brick);color:var(--brick-deep);border-radius:99px;padding:8px 16px;font-size:16px;font-weight:700}
 .cert span{font-family:'PingFang TC',sans-serif;font-weight:500;color:var(--ink-soft);margin-left:6px;font-size:14px}
 
-/* ===== Three-up video grid (news video collections) ===== */
-.players-3{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
-@media(min-width:700px){.players-3{grid-template-columns:1fr 1fr;gap:20px;}}
-@media(min-width:1000px){.players-3{grid-template-columns:repeat(3,1fr);gap:20px;}}
-.players-3 .player{margin-top:0;padding:10px;}
-.players-3 .player__cap{font-size:14px;margin-top:10px;line-height:1.5;}
-.players-3 .player__cap b{display:block;font-family:'Playfair Display',serif;font-size:16px;color:var(--green-deep);font-weight:700;}
+/* ===== Three-up video grid (news video collections) =====
+   A clean thumbnail gallery: no card chrome, just the rounded video and a
+   caption beneath it. Two up on phones, three up from 760px. */
+.players-3{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 16px;margin-top:30px;}
+@media(max-width:420px){.players-3{grid-template-columns:1fr;gap:24px;}}
+@media(min-width:760px){.players-3{grid-template-columns:repeat(3,1fr);gap:30px 22px;}}
+.players-3 .player{margin:0;padding:0;background:none;border:0;box-shadow:none;}
+.players-3 .player__ratio{border-radius:12px;box-shadow:var(--shadow-sm);}
+.players-3 .player__cap{margin-top:11px;text-align:left;font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
+.players-3 .player__cap b{display:block;font-family:'Playfair Display',serif;font-size:17px;color:var(--green-deep);font-weight:700;line-height:1.25;margin-bottom:3px;}
