@@ -468,3 +468,27 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 .rvl.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
 .lcard.rvl.in:hover,.pillar.rvl.in:hover,.factcard.rvl.in:hover{transform:translateY(-8px);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;transition-delay:0s!important;}
+
+/* ===== Key sentence cards (department pages) ===== */
+.sentence-cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
+@media(min-width:640px){.sentence-cards{grid-template-columns:1fr 1fr}}
+.scard{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 62px;box-shadow:var(--shadow-sm)}
+.scard .en{font-size:19px;font-weight:700;color:var(--green-deep);line-height:1.5}
+.scard .zh{font-family:'PingFang TC',sans-serif;font-size:16px;color:var(--ink-soft);margin-top:5px}
+.ssay{position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;border:0;background:var(--brick);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:transform .15s,box-shadow .2s}
+.ssay:hover{transform:scale(1.08)}.ssay:active{transform:scale(.92)}
+.ssay.ring{box-shadow:0 0 0 7px var(--brick-soft)}
+
+/* ===== Department page: study areas / careers / certificates ===== */
+.dlist{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+@media(min-width:680px){.dlist.two{grid-template-columns:1fr 1fr}}
+.dbox{background:#fff;border:1px solid var(--line);border-left:6px solid var(--accent,var(--brick));border-radius:16px;padding:22px 24px 24px;box-shadow:var(--shadow-sm)}
+.dbox__k{font:700 13px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:var(--accent,var(--brick-deep))}
+.dbox__t{font-family:'Playfair Display',serif;font-size:23px;color:var(--green-deep);font-weight:700;margin-top:9px;line-height:1.25}
+.dbox ul{margin:12px 0 0 20px;padding:0}
+.dbox li{font-size:18px;line-height:1.7;color:var(--ink);margin-top:4px}
+.dbox li .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);line-height:1.5}
+.dbox .dnote{margin-top:12px;font-family:'PingFang TC',sans-serif;font-size:15px;color:var(--ink-soft);line-height:1.7}
+.certs{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.cert{background:var(--brick-soft);border:1px solid var(--brick);color:var(--brick-deep);border-radius:99px;padding:8px 16px;font-size:16px;font-weight:700}
+.cert span{font-family:'PingFang TC',sans-serif;font-weight:500;color:var(--ink-soft);margin-left:6px;font-size:14px}
