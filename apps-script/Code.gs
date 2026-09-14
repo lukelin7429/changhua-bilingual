@@ -15,7 +15,7 @@
  *
  * 注意：每次修改 .gs 後要「管理部署 → 編輯 → 版本選新版本 → 部署」才會生效
  *
- * FET 測驗（中文挑戰／學校文化）走 FET_SHEET_ID 那張獨立的試算表，
+ * FET 測驗（中文挑戰／校園文化）走 FET_SHEET_ID 那張獨立的試算表，
  * 跟其他節慶測驗共用的 SHEET_ID 分開——兩張都必須是這個 Google 帳號
  * 自己擁有或至少有編輯權限的試算表，openById 才寫得進去。
  */
@@ -41,20 +41,36 @@ const HEADERS = [
   'user_agent',     // 瀏覽器資訊（除錯用）
 ];
 
-// FET 教師測驗（中文挑戰 / 學校文化）——同一份試算表、各自獨立分頁。
-// data.quiz 對到下面的 key 就會寫進對應分頁；不是這兩個 key 的請求，
-// 一律沿用舊的 'responses' 分頁與 HEADERS，既有節慶測驗行為不受影響。
-const FET_HEADERS = ['timestamp', 'teacher_id', 'teacher_name', 'round', 'score', 'total', 'percentage', 'answers_json', 'user_agent'];
+// FET 教師測驗 —— 兩個分頁：中文挑戰一個、校園文化一個。
+// 級別不再拆分頁，改成 level 欄位，這樣一個分頁就能看出這個月誰交了、誰沒交，
+// 用篩選器切 round / level 即可。
+const FET_HEADERS = [
+  'timestamp',      // 提交時間
+  'teacher_id',     // 教師編號 F01–F74
+  'teacher_name',   // 姓名
+  'level',          // 中文：beginner / intermediate / advanced
+                    // 文化：first-year / experienced
+  'round',          // M1–M9（對應九次外師會議）
+  'score',          // 得分
+  'total',          // 總題數
+  'percentage',     // 百分比
+  'answers_json',   // 詳細作答紀錄（JSON）
+  'user_agent',     // 瀏覽器資訊（除錯用）
+];
 
+// key = 網頁送來的 data.quiz。level 是這個 key 的預設級別，
+// 網頁若另外送 data.level 就以網頁送的為準。
 const FET_QUIZZES = {
-  // 舊版單一題組（2026-07 以前），保留讓歷史資料仍寫得進去
-  'fet-mandarin-challenge': { sheetName: 'fet_mandarin_challenge', headers: FET_HEADERS },
-  'fet-school-culture':     { sheetName: 'fet_school_culture',     headers: FET_HEADERS },
+  // 中文挑戰
+  'fet-mandarin-beginner':     { sheetName: 'mandarin', level: 'beginner' },
+  'fet-mandarin-intermediate': { sheetName: 'mandarin', level: 'intermediate' },
+  'fet-mandarin-advanced':     { sheetName: 'mandarin', level: 'advanced' },
+  'fet-mandarin-challenge':    { sheetName: 'mandarin', level: '' },  // 2026-07 以前的舊版單一題組
 
-  // 中文挑戰三級題庫（2026-09 起）——每一級各自一個分頁
-  'fet-mandarin-beginner':     { sheetName: 'mandarin_beginner',     headers: FET_HEADERS },
-  'fet-mandarin-intermediate': { sheetName: 'mandarin_intermediate', headers: FET_HEADERS },
-  'fet-mandarin-advanced':     { sheetName: 'mandarin_advanced',     headers: FET_HEADERS },
+  // 校園文化
+  'fet-culture-first-year':    { sheetName: 'culture',  level: 'first-year' },
+  'fet-culture-experienced':   { sheetName: 'culture',  level: 'experienced' },
+  'fet-school-culture':        { sheetName: 'culture',  level: '' },  // 舊版，沒有分級
 };
 
 function doPost(e) {
@@ -63,11 +79,12 @@ function doPost(e) {
     const fetQuiz = FET_QUIZZES[data.quiz];
 
     if (fetQuiz) {
-      const sheet = getOrCreateSheet_(FET_SHEET_ID, fetQuiz.sheetName, fetQuiz.headers);
+      const sheet = getOrCreateSheet_(FET_SHEET_ID, fetQuiz.sheetName, FET_HEADERS);
       sheet.appendRow([
         new Date(),
         String(data.teacher_id   || ''),
         String(data.teacher_name || ''),
+        String(data.level        || fetQuiz.level || ''),
         String(data.round        || ''),
         Number(data.score        || 0),
         Number(data.total        || 0),
@@ -146,37 +163,25 @@ function _smokeTest() {
 }
 
 /**
- * FET 測驗（中文挑戰 / 學校文化）的手動驗證 — 執行後檢查
- * fet_mandarin_challenge 分頁是否多了一列測試資料
+ * FET 兩個分頁的手動驗證 —— 在編輯器選這個函式按「執行」，跑完後應該看到：
+ *   mandarin 分頁：三筆 FET-000（beginner / intermediate / advanced）
+ *   culture  分頁：兩筆 FET-000（first-year / experienced）
+ * 確認完把這五列刪掉即可。
  */
-function _smokeTestFetQuiz() {
-  doPost({
-    postData: {
-      contents: JSON.stringify({
-        quiz: 'fet-mandarin-challenge',
-        teacher_id: 'FET-000',
-        teacher_name: '測試外師',
-        round: '2026-08',
-        score: 18, total: 20,
-        answers: [{ q: 0, picked: 0, correct: true }],
-        user_agent: 'smoke-test',
-      }),
-    },
-  });
-}
-
-/**
- * 中文挑戰三級題庫的手動驗證 — 執行後應該看到
- * mandarin_beginner / mandarin_intermediate / mandarin_advanced 三個分頁
- * 各多一列 FET-000 的測試資料。
- */
-function _smokeTestMandarinLevels() {
-  ['beginner', 'intermediate', 'advanced'].forEach(function (level) {
+function _smokeTestFetSheets() {
+  const cases = [
+    { quiz: 'fet-mandarin-beginner',     level: 'beginner' },
+    { quiz: 'fet-mandarin-intermediate', level: 'intermediate' },
+    { quiz: 'fet-mandarin-advanced',     level: 'advanced' },
+    { quiz: 'fet-culture-first-year',    level: 'first-year' },
+    { quiz: 'fet-culture-experienced',   level: 'experienced' },
+  ];
+  cases.forEach(function (c) {
     doPost({
       postData: {
         contents: JSON.stringify({
-          quiz: 'fet-mandarin-' + level,
-          level: level,
+          quiz: c.quiz,
+          level: c.level,
           teacher_id: 'FET-000',
           teacher_name: '測試外師',
           round: 'M1',

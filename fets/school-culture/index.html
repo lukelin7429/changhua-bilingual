@@ -84,11 +84,12 @@
 
     .qz-gate { display:grid; gap:14px; max-width:440px; margin-top:22px; }
     .qz-field label { display:block; font-size:17px; font-weight:600; color:var(--hub-ink-soft); margin-bottom:6px; }
-    .qz-field input {
+    .qz-field input, .qz-field select {
       width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--hub-line);
       background:#fff; color:var(--hub-ink); font-size:18px; font-family:var(--hub-en-font);
     }
-    .qz-field input:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .qz-field input:focus-visible, .qz-field select:focus-visible { outline:2px solid var(--hub-primary); outline-offset:1px; }
+    .qz-field .hint { display:block; margin-top:5px; font-size:15px; color:var(--hub-ink-faint); font-family:var(--hub-zh-font); line-height:1.6; }
     .qz-start-btn, .qz-submit-btn, .qz-btn-ghost {
       appearance:none; border:none; border-radius:10px; padding:13px 24px; font-size:18px; font-weight:700;
       font-family:var(--hub-en-font); cursor:pointer; background:var(--hub-primary); color:#fff;
@@ -311,9 +312,22 @@
     <span class="go">Start practicing →</span>
   </a>
 
-  <span class="qz-round" id="qzRoundBadge">Round 2026-07 · 20 questions</span>
+  <span class="qz-round" id="qzRoundBadge">20 questions · 20 題</span>
 
   <div class="qz-gate" id="qzGate">
+    <div class="qz-field">
+      <label for="qzRoundSelect">Round · 場次</label>
+      <select id="qzRoundSelect"></select>
+    </div>
+    <div class="qz-field">
+      <label for="qzLevelSelect">Which describes you? · 你是哪一種</label>
+      <select id="qzLevelSelect">
+        <option value="">— choose one · 請選擇 —</option>
+        <option value="first-year">First year in a Taiwanese school · 第一年</option>
+        <option value="experienced">I have taught here before · 比較資深</option>
+      </select>
+      <span class="hint">只是讓我們知道你在台灣校園的年資，不影響成績。</span>
+    </div>
     <div class="qz-field">
       <label for="qzTeacherId">Teacher ID · 教師編號</label>
       <input id="qzTeacherId" type="text" placeholder="e.g. F01" autocomplete="off">
@@ -376,11 +390,13 @@
 <script src="/assets/js/hub.js?v=ce2e63dc"></script>
 <script>
 (function () {
-  // TODO(Luke): paste the deployed Apps Script Web App exec URL here (same one used
-  // site-wide for quiz submissions — see apps-script/Code.gs). Leave blank to keep the
-  // quiz fully working with scoring, just without saving to the Google Sheet yet.
   var CONFIG = { WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbysIUhxMu3fRMGzlkNgNtRU7BgqiZAkSxocdnA2xP5gzb4mRtddNPnRzcTJO5HXZvJsRA/exec' };
-  var ROUND = '2026-07';
+
+  // The nine FET meetings, same order and labels as the Mandarin Challenge.
+  var MEETINGS = [
+    'September 2026', 'October 2026', 'November 2026', 'December 2026',
+    'January 2027', 'March 2027', 'April 2027', 'May 2027', 'June 2027'
+  ];
 
   var QUESTIONS = [
     { q: 'Entering the teachers’ office each morning, it’s polite to:',
@@ -465,9 +481,17 @@
       explain: '直接詢問窗口老師或信任的同事，永遠比自己猜測更保險。' }
   ];
 
-  window.__QZ_CONFIG__ = { webhookUrl: CONFIG.WEBHOOK_URL, round: ROUND, quizId: 'fet-school-culture', questions: QUESTIONS, hasSpeech: false };
+  window.__QZ_CONFIG__ = {
+    webhookUrl: CONFIG.WEBHOOK_URL,
+    meetings: MEETINGS,
+    // The teacher picks first-year / experienced; that choice becomes both the
+    // quiz key and the level column in the Google Sheet.
+    quizIdPrefix: 'fet-culture-',
+    questions: QUESTIONS,
+    hasSpeech: false
+  };
 })();
 </script>
-<script src="/assets/js/fet-quiz.js?v=79ac4ee2"></script>
+<script src="/assets/js/fet-quiz.js?v=cc93781f"></script>
 </body>
 </html>

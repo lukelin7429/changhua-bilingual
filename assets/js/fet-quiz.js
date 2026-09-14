@@ -21,6 +21,18 @@
   var answers = {};
   var teacherId = '';
   var teacherName = '';
+  var round = '';
+  var level = '';
+
+  var roundSelect = document.getElementById('qzRoundSelect');
+  var levelSelect = document.getElementById('qzLevelSelect');
+
+  if (roundSelect && cfg.meetings) {
+    roundSelect.innerHTML = ['<option value="">— choose a round · 選擇場次 —</option>']
+      .concat(cfg.meetings.map(function (label, i) {
+        return '<option value="M' + (i + 1) + '">M' + (i + 1) + ' · ' + label + '</option>';
+      })).join('');
+  }
 
   // ----- Web Speech (Mandarin phrase playback, zh-TW) -----
   var zhVoices = [];
@@ -97,6 +109,16 @@
   startBtn.addEventListener('click', function () {
     teacherId = document.getElementById('qzTeacherId').value.trim();
     teacherName = document.getElementById('qzTeacherName').value.trim();
+    round = roundSelect ? roundSelect.value : (cfg.round || '');
+    level = levelSelect ? levelSelect.value : '';
+    if (roundSelect && !round) {
+      alert('Please choose which meeting this is for · 請選擇場次');
+      return;
+    }
+    if (levelSelect && !level) {
+      alert('Please choose whether this is your first year · 請選擇年資');
+      return;
+    }
     if (!teacherId || !teacherName) {
       alert('Please enter both your teacher ID and name · 請填寫編號與姓名');
       return;
@@ -144,16 +166,30 @@
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
-          quiz: cfg.quizId,
+          quiz: cfg.quizIdPrefix ? cfg.quizIdPrefix + level : cfg.quizId,
           teacher_id: teacherId,
           teacher_name: teacherName,
-          round: cfg.round,
+          level: level,
+          round: round,
           score: score,
           total: total,
           answers: detail,
           user_agent: navigator.userAgent,
         }),
-      }).catch(function () { /* non-blocking: score already shown either way */ });
+      }).then(function (res) { return res.text(); })
+        .then(function (text) {
+          // Apps Script answers HTTP 200 even when it caught an error, so a
+          // resolved fetch is not proof the row was written. Check the body.
+          var data;
+          try { data = JSON.parse(text); } catch (e) { data = null; }
+          if (!data || !data.ok) {
+            console.error('school-culture submit: server reported failure', data && data.error);
+            alert('Your score is shown on screen, but it could not be saved. Please tell Luke.\n成績無法登錄，請告知承辦人。');
+          }
+        })
+        .catch(function () {
+          alert('Your score is shown on screen, but it could not be saved. Please tell Luke.\n成績無法登錄，請告知承辦人。');
+        });
     }
   });
 
