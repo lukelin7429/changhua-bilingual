@@ -68,6 +68,12 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--jobs", type=int, default=8,
                     help="parallel uploads (each is a separate wrangler call)")
+    ap.add_argument("--only", metavar="PHRASE,…",
+                    help="re-upload just these clips — the phrases themselves "
+                         "(--only 朝會,不客氣) or their hashes. Implies --force: "
+                         "a corrected clip keeps its old name, so the wrong "
+                         "version is already live under it and the usual "
+                         "'already there, skip it' check would leave it.")
     args = ap.parse_args()
 
     src = pathlib.Path(args.dir)
@@ -82,6 +88,21 @@ def main():
     if missing:
         sys.exit(f"{len(missing)} clips in the manifest have no file "
                  f"(e.g. {sorted(missing)[:3]}). Run tools/gen_audio.py first.")
+
+    if args.only:
+        picked, unknown = set(), []
+        for token in (t.strip() for t in args.only.split(",") if t.strip()):
+            h = manifest.get(token, token)
+            if h in wanted:
+                picked.add(h)
+            else:
+                unknown.append(token)
+        if unknown:
+            sys.exit(f"Not in the manifest: {unknown}")
+        files = [f for f in files if f.stem in picked]
+        args.force = True
+        print(f"--only: {len(files)} clip(s) — " +
+              ", ".join(f"{zh} ({h})" for zh, h in manifest.items() if h in picked))
 
     w = wrangler_cmd()
     if args.force:

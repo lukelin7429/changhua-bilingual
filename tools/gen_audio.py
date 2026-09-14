@@ -67,9 +67,46 @@ def load_phrases(data_dir: pathlib.Path):
     return [seen[h] for h in order]
 
 
+# The voice gets a few phrases wrong and edge-tts gives us no way to mark up
+# pronunciation — it escapes the text, so SSML <phoneme> is not an option. Two
+# ways round it, both keyed on the phrase:
+#
+#   say_as  hand the engine a homophone that lands on the right sound
+#   voice   synthesise this one phrase somewhere else — "mac:<name>" uses a
+#           macOS system voice (`say -v ?` lists them; several are zh_TW)
+#
+# The mp3 is still named for the REAL phrase either way, so nothing downstream
+# changes: the page shows 不客氣 and plays the file hashed from 不客氣. Mixing
+# engines costs us a different speaker on those few clips, which is a better
+# trade than teaching the wrong tone.
+#
+# Only add an entry after listening to the result — a wrong "fix" here is
+# harder to spot than the error it replaces.
+FIXES = {
+    # 破音字: 朝 is zhāo here (morning assembly), not cháo. 招 is a plain zhāo.
+    "朝會": {"say_as": "招會"},
+    # 不 takes the rising tone before a falling one (bú kèqi). The edge voices
+    # do not apply that sandhi at all — every 不 + 4th-tone word comes out bù.
+    # Meijia gets it right.
+    "不客氣": {"voice": "mac:Meijia"},
+}
+
+
 async def synth(zh: str, dest: pathlib.Path, voice: str):
+    fix = FIXES.get(zh, {})
+    text = fix.get("say_as", zh)
+    use = fix.get("voice", voice)
+
+    if use.startswith("mac:"):
+        # `say` picks its container from the extension and has no mp3 writer,
+        # so it gets a real .aiff path; post() converts it like any other clip.
+        aiff = dest.with_suffix(".aiff")
+        subprocess.run(["say", "-v", use[4:], "-o", str(aiff), text], check=True)
+        aiff.replace(dest)
+        return
+
     import edge_tts
-    await edge_tts.Communicate(zh, voice, rate=RATE).save(str(dest))
+    await edge_tts.Communicate(text, use, rate=RATE).save(str(dest))
 
 
 def post(raw: pathlib.Path, out: pathlib.Path):
