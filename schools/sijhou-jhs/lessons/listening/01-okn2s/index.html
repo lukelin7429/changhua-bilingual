@@ -321,23 +321,50 @@
 
   var sent = document.getElementById("sent"), retry = document.getElementById("retry");
   function setSent(text, cls){ sent.textContent = text; sent.className = "lq-sent" + (cls ? " " + cls : ""); }
+  var OK_TEXT = "✓ 成績已送出 Your score has been recorded.";
+  var FAIL_TEXT = "✗ 成績還沒送出，請確認網路後按「重新送出」。Not sent yet — check the Wi-Fi and tap Send again.";
+  function markSent(){ setSent(OK_TEXT, "ok"); if (record) { record.sent = true; save(record); } }
+  function markFailed(){ setSent(FAIL_TEXT, "fail"); retry.classList.add("show"); }
+
+  /* Main path: a normal POST whose reply we can read, so the student sees a real confirmation.
+     Some phone browsers block that cross-site reply, so two blind fallbacks follow. */
   function send(attempt){
     retry.classList.remove("show");
     if (!ENDPOINT) { setSent("（測試模式：成績尚未連接 Google Sheet）"); return; }
     setSent("Sending… 成績送出中…");
     var body = JSON.stringify(payload);
-    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 8000) : null;
+    var opts = { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body };
+    if (ctrl) opts.signal = ctrl.signal;
+    fetch(ENDPOINT, opts)
       .then(function(r){ return r.json(); })
       .then(function(j){
+        if (timer) clearTimeout(timer);
         if (!(j && j.ok)) throw new Error((j && j.error) || "not ok");
-        setSent("✓ 成績已送出 Your score has been recorded.", "ok");
-        if (record) { record.sent = true; save(record); }
+        markSent();
       })
       .catch(function(){
+        if (timer) clearTimeout(timer);
         if (attempt < 2) { setTimeout(function(){ send(attempt + 1); }, 1500 * (attempt + 1)); return; }
-        setSent("✗ 成績還沒送出，請確認網路後按「重新送出」。Not sent yet — check the Wi-Fi and tap Send again.", "fail");
-        retry.classList.add("show");
+        sendBlind();
       });
+  }
+
+  /* Fallbacks for browsers that refuse to read the cross-site reply: sendBeacon first,
+     then a no-cors POST. Neither can be confirmed, so success is assumed once queued. */
+  function sendBlind(){
+    setSent("Sending… 成績送出中…");
+    var body = JSON.stringify(payload);
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body], { type: "text/plain;charset=utf-8" }))) {
+        markSent();
+        return;
+      }
+    } catch (err) {}
+    fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+      .then(markSent)
+      .catch(markFailed);
   }
   retry.addEventListener("click", function(){ if (payload) send(0); });
 
