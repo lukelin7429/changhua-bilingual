@@ -225,6 +225,10 @@
     .mc-zh__hanzi { font-family:var(--hub-zh-font); font-size:22px; font-weight:600; color:var(--hub-ink); }
     .mc-zh__py { font-size:19px; color:var(--hub-ink-faint); font-style:italic; }
     .mc-zh.is-veiled { visibility:hidden; height:0; margin:0 0 4px; overflow:hidden; }
+    /* Where the options are the Chinese phrases, playing the phrase would read
+       the answer out loud, so the button waits until the answer is shown. */
+    .speak.is-held { visibility:hidden; pointer-events:none; }
+    body.mc-show-all .speak.is-held { visibility:visible; pointer-events:auto; }
 
     .mc-opts { display:grid; gap:10px; }
     .opt {
@@ -554,6 +558,6 @@ window.__MC_CONFIG__ = {
 <!-- ?v= is a cache buster: assets are served with max-age=14400, so without a
      changed URL a returning visitor keeps the old engine for up to 4 hours.
      Bump this whenever fet-bank-quiz.js changes. -->
-<script src="/assets/js/fet-bank-quiz.js?v=a3376039"></script>
+<script src="/assets/js/fet-bank-quiz.js?v=c6902870"></script>
 </body>
 </html>

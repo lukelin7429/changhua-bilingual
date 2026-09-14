@@ -218,17 +218,32 @@
 
   // ---------------------------------------------------------------- study view
 
+  // Some items ask which Chinese phrase fits, so the options ARE the phrases.
+  // Printing q.zh above them hands over the answer before a single option is
+  // read. Detect that and keep the phrase — and its audio — hidden until the
+  // answer is shown, exactly as listening items already do.
+  function phraseGivesAnswer(q) {
+    if (!q.zh || !q.opts) return false;
+    var correct = q.opts[q.ok] || '';
+    if (correct.indexOf(q.zh) === -1) return false;
+    return !q.opts.some(function (o, i) {
+      return i !== q.ok && o.indexOf(q.zh) !== -1;
+    });
+  }
+
   function studyItemHtml(q) {
     var opts = q.opts.map(function (o, i) {
       return '<li class="st__opt' + (i === q.ok ? ' is-ok' : '') + '">' +
         '<span class="k">' + String.fromCharCode(65 + i) + '</span><span>' + esc(o) + '</span></li>';
     }).join('');
-    return '<div class="st' + (q.type === 'listen' ? ' st--listen' : '') + '" ' +
+    var hide = q.type === 'listen' || phraseGivesAnswer(q);
+    return '<div class="st' + (hide ? ' st--listen' : '') + '" ' +
         'data-type="' + esc(q.type) + '" data-hay="' + esc(searchHaystack(q)) + '">' +
       '<div class="st__head">' +
         '<span class="st__id">' + esc(q.id) + '</span>' +
         '<span class="st__tag">' + esc(typeLabel(q.type)) + '</span>' +
-        '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
+        '<button type="button" class="speak' + (phraseGivesAnswer(q) ? ' is-held" data-hold="1' : '') +
+          '" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
       '</div>' +
       '<div class="st__zh"><span class="st__hanzi">' + esc(q.zh) + '</span>' +
         '<span class="st__py">' + esc(q.py) + '</span></div>' +
@@ -303,6 +318,8 @@
         var card = btn.closest('.st');
         var open = card.classList.toggle('is-revealed');
         btn.textContent = open ? 'Hide answer · 收起答案' : 'Show answer · 看答案';
+        var held = card.querySelector('.speak');
+        if (held) held.classList.toggle('is-held', !open && held.dataset.hold === '1');
       });
     });
     renderTypeChips();
@@ -454,6 +471,11 @@
 
     $('mcQuizList').innerHTML = state.items.map(function (q, i) {
       var isListen = q.type === 'listen';
+      // Listening items hide the characters but still play the audio — that is
+      // the exercise. Phrase-choice items must hide both, or the 🔊 button
+      // reads the answer aloud.
+      var holdAudio = phraseGivesAnswer(q);
+      var veil = isListen || holdAudio;
       var optHtml = state.optOrder[i].map(function (origIdx, slot) {
         return '<button type="button" class="opt" data-i="' + i + '" data-o="' + origIdx + '">' +
           '<span class="key">' + String.fromCharCode(65 + slot) + '</span><span>' + esc(q.opts[origIdx]) + '</span></button>';
@@ -462,12 +484,11 @@
         '<div class="mc-q__head">' +
           '<span class="mc-q__num">Q' + (i + 1) + '</span>' +
           '<span class="mc-q__tag">' + esc(typeLabel(q.type)) + '</span>' +
-          '<button type="button" class="speak" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
+          '<button type="button" class="speak' + (holdAudio ? ' is-held' : '') +
+            '" data-speak="' + esc(q.zh) + '" aria-label="Listen · 播放發音">🔊</button>' +
         '</div>' +
         '<p class="mc-q__text">' + esc(q.q) + '</p>' +
-        // Listening items hide the characters until the question is graded —
-        // that is the whole point of the type.
-        '<div class="mc-zh' + (isListen ? ' is-veiled' : '') + '">' +
+        '<div class="mc-zh' + (veil ? ' is-veiled' : '') + '">' +
           '<span class="mc-zh__hanzi">' + esc(q.zh) + '</span>' +
           '<span class="mc-zh__py">' + esc(q.py) + '</span>' +
         '</div>' +
@@ -510,6 +531,8 @@
       card.classList.add('graded');
       card.classList.toggle('was-wrong', !isCorrect);
       card.querySelector('.mc-zh').classList.remove('is-veiled');
+      var held = card.querySelector('.speak.is-held');
+      if (held) held.classList.remove('is-held');
       card.querySelectorAll('.opt').forEach(function (btn) {
         var o = Number(btn.dataset.o);
         btn.disabled = true;
