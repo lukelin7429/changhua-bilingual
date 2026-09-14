@@ -51,10 +51,10 @@
   // (June). Each module holds a shared core plus five questions for each track,
   // so a teacher sees the core plus only their own track's questions.
   //
-  // The shared core is capped so every round is the same length. Most modules
-  // hold exactly the cap, so it only bites on M8, which carries extra practice
+  // 15 shared + 5 track = 20, matching the Mandarin Challenge. Most modules
+  // hold exactly 15, so the cap only bites on M8, which carries extra practice
   // questions; taking them in file order keeps the paper identical for everyone.
-  var SHARED_PER_ROUND = cfg.sharedPerRound || 14;
+  var SHARED_PER_ROUND = cfg.sharedPerRound || 15;
 
   function questionsForRound(roundCode, track) {
     var m = Number(String(roundCode).replace(/^M/, ''));
