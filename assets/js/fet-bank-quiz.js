@@ -222,13 +222,33 @@
   // Printing q.zh above them hands over the answer before a single option is
   // read. Detect that and keep the phrase — and its audio — hidden until the
   // answer is shown, exactly as listening items already do.
+  function hanzi(s) {
+    return (String(s == null ? '' : s).match(/[一-鿿]+/g) || []).join('');
+  }
+
   function phraseGivesAnswer(q) {
     if (!q.zh || !q.opts) return false;
     var correct = q.opts[q.ok] || '';
-    if (correct.indexOf(q.zh) === -1) return false;
-    return !q.opts.some(function (o, i) {
-      return i !== q.ok && o.indexOf(q.zh) !== -1;
-    });
+
+    // The phrase we print IS the right option — 請問 above options A-D, one of
+    // which is 請問.
+    if (correct.indexOf(q.zh) !== -1) {
+      return !q.opts.some(function (o, i) {
+        return i !== q.ok && o.indexOf(q.zh) !== -1;
+      });
+    }
+
+    // The right option sits INSIDE the phrase we print — options are 請假 /
+    // 下班 / 開會 / 上課 and the phrase above them reads 我禮拜五要請假.
+    var ck = hanzi(correct);
+    if (ck.length >= 2 && q.zh.indexOf(ck) !== -1) {
+      return !q.opts.some(function (o, i) {
+        var c = hanzi(o);
+        return i !== q.ok && c.length >= 2 && q.zh.indexOf(c) !== -1;
+      });
+    }
+
+    return false;
   }
 
   function studyItemHtml(q) {
