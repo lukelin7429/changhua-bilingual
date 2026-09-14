@@ -398,9 +398,12 @@
         '</option>'
       );
     }
+    // Changing level re-renders this panel, so keep whatever round was already
+    // picked rather than making the teacher choose it again.
+    var prev = $('mcRoundSelect').value;
     $('mcRoundSelect').innerHTML = opts.join('');
-    $('mcRoundSelect').value = '';
-    $('mcStartMeeting').disabled = true;
+    $('mcRoundSelect').value = (prev && Number(prev) <= avail) ? prev : '';
+    $('mcStartMeeting').disabled = !$('mcRoundSelect').value;
   }
 
   function startPractice(count) {
@@ -623,9 +626,19 @@
 
   // ---------------------------------------------------------------- wiring
 
+  // The level tabs and the submission form's level menu are two ways of saying
+  // the same thing, so each keeps the other honest.
   document.querySelectorAll('.mc-lvtab').forEach(function (tab) {
-    tab.addEventListener('click', function () { setLevel(tab.dataset.level); });
+    tab.addEventListener('click', function () {
+      setLevel(tab.dataset.level);
+      if ($('mcLevelSelect')) $('mcLevelSelect').value = tab.dataset.level;
+    });
   });
+  if ($('mcLevelSelect')) {
+    $('mcLevelSelect').addEventListener('change', function () {
+      if (this.value) setLevel(this.value);
+    });
+  }
   document.querySelectorAll('.mc-view').forEach(function (b) {
     b.addEventListener('click', function () { setView(b.dataset.view); });
   });
@@ -650,9 +663,20 @@
   $('mcStartMeeting').addEventListener('click', function () {
     var n = Number($('mcRoundSelect').value);
     if (!n) return;
+    var lvlSel = $('mcLevelSelect');
+    if (lvlSel && !lvlSel.value) {
+      $('mcGateError').textContent = 'Please choose your level. 請選擇級別。';
+      $('mcGateError').classList.remove('hidden');
+      return;
+    }
     var id = $('mcTeacherId').value.trim();
     var name = $('mcTeacherName').value.trim();
-    if (!id || !name) { $('mcGateError').classList.remove('hidden'); return; }
+    if (!id || !name) {
+      $('mcGateError').textContent =
+        'Please fill in both your teacher ID and your name. 請填寫編號與姓名。';
+      $('mcGateError').classList.remove('hidden');
+      return;
+    }
     $('mcGateError').classList.add('hidden');
     state.teacherId = id;
     state.teacherName = name;
