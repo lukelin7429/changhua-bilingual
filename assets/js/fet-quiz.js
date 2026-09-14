@@ -24,8 +24,40 @@
   var round = '';
   var level = '';
 
+  // The questions for THIS round, chosen once the teacher picks a round and a
+  // track. cfg.questions is the older fixed-list form, still supported.
+  var questions = cfg.questions || [];
+  var bank = null;
+
   var roundSelect = document.getElementById('qzRoundSelect');
   var levelSelect = document.getElementById('qzLevelSelect');
+
+  if (cfg.bankUrl) {
+    startBtn.disabled = true;
+    fetch(cfg.bankUrl)
+      .then(function (r) { return r.json(); })
+      .then(function (data) { bank = data; startBtn.disabled = false; })
+      .catch(function () {
+        startBtn.disabled = false;
+        alert('The question bank could not be loaded. Please refresh the page.\n題庫載入失敗，請重新整理頁面。');
+      });
+  }
+
+  // A round maps 1:1 onto a module: M1 = module 1 (September) … M9 = module 9
+  // (June). Each module holds a shared core plus five questions for each track,
+  // so a teacher sees the core plus only their own track's questions.
+  function levelName() {
+    return (cfg.levelNames && cfg.levelNames[level]) || level;
+  }
+
+  function questionsForRound(roundCode, track) {
+    var m = Number(String(roundCode).replace(/^M/, ''));
+    return bank
+      .filter(function (q) { return q.m === m && (q.track === 'shared' || q.track === track); })
+      .map(function (q) {
+        return { q: q.stem, opts: q.options, correct: q.answer, explain: q.why, zh: q.zh || '' };
+      });
+  }
 
   if (roundSelect && cfg.meetings) {
     roundSelect.innerHTML = ['<option value="">— choose a round · 選擇場次 —</option>']
@@ -63,7 +95,7 @@
   }
 
   function renderQuestions() {
-    list.innerHTML = cfg.questions.map(function (item, i) {
+    list.innerHTML = questions.map(function (item, i) {
       var speakBtn = (cfg.hasSpeech && item.speak)
         ? '<button type="button" class="speak" data-speak="' + item.speak.replace(/"/g, '&quot;') + '" aria-label="Listen to the phrase">🔊</button>'
         : '';
@@ -74,7 +106,7 @@
       return (
         '<div class="qz" data-index="' + i + '" data-correct="' + item.correct + '">' +
           '<div class="qz__q"><span class="num">Q' + (i + 1) + '.</span><span>' + item.q + '</span>' + speakBtn + '</div>' +
-          '<div class="qz__zh">' + item.zh + '</div>' +
+          (item.zh ? '<div class="qz__zh">' + item.zh + '</div>' : '') +
           '<div class="qz__opts">' + opts + '</div>' +
           '<div class="qz__fb">' + item.explain + '</div>' +
         '</div>'
@@ -99,7 +131,7 @@
   }
 
   function updateProgress() {
-    var total = cfg.questions.length;
+    var total = questions.length;
     var answeredCount = Object.keys(answers).length;
     progressFill.style.width = (answeredCount / total * 100) + '%';
     answeredHint.textContent = answeredCount + ' / ' + total + ' answered';
@@ -122,6 +154,17 @@
     if (!teacherId || !teacherName) {
       alert('Please enter both your teacher ID and name · 請填寫編號與姓名');
       return;
+    }
+    if (cfg.bankUrl) {
+      if (!bank) {
+        alert('The question bank is still loading. Please try again in a moment.\n題庫還在載入，請稍候再試。');
+        return;
+      }
+      questions = questionsForRound(round, level);
+      if (!questions.length) {
+        alert('No questions found for that round. Please tell Luke.\n找不到這個場次的題目，請告知承辦人。');
+        return;
+      }
     }
     gate.classList.add('hidden');
     body.classList.remove('hidden');
@@ -149,7 +192,7 @@
       });
     });
 
-    var total = cfg.questions.length;
+    var total = questions.length;
     var pct = Math.round((score / total) * 100);
     document.getElementById('qzScoreRing').style.setProperty('--pct', pct);
     document.getElementById('qzScoreNum').textContent = score + '/' + total;
@@ -165,11 +208,13 @@
       fetch(cfg.webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        // The selector's value is the track code the bank uses ('a'/'b'); the
+        // Sheet gets the readable name instead, since 'a' means nothing there.
         body: JSON.stringify({
-          quiz: cfg.quizIdPrefix ? cfg.quizIdPrefix + level : cfg.quizId,
+          quiz: cfg.quizIdPrefix ? cfg.quizIdPrefix + levelName() : cfg.quizId,
           teacher_id: teacherId,
           teacher_name: teacherName,
-          level: level,
+          level: levelName(),
           round: round,
           score: score,
           total: total,

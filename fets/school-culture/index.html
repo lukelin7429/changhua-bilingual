@@ -312,7 +312,7 @@
     <span class="go">Start practicing →</span>
   </a>
 
-  <span class="qz-round" id="qzRoundBadge">20 questions · 20 題</span>
+  <span class="qz-round" id="qzRoundBadge">19 questions per round · 每場次 19 題</span>
 
   <div class="qz-gate" id="qzGate">
     <div class="qz-field">
@@ -320,13 +320,13 @@
       <select id="qzRoundSelect"></select>
     </div>
     <div class="qz-field">
-      <label for="qzLevelSelect">Which describes you? · 你是哪一種</label>
+      <label for="qzLevelSelect">Your track · 你的軌道</label>
       <select id="qzLevelSelect">
         <option value="">— choose one · 請選擇 —</option>
-        <option value="first-year">First year in a Taiwanese school · 第一年</option>
-        <option value="experienced">I have taught here before · 比較資深</option>
+        <option value="a">Year 1 · 新手軌（第一年在台灣校園）</option>
+        <option value="b">Returning · 續任軌（不是第一年）</option>
       </select>
-      <span class="hint">只是讓我們知道你在台灣校園的年資，不影響成績。</span>
+      <span class="hint">兩軌共用大部分題目，只有五題是該軌專屬。跟練習頁的分軌一樣。</span>
     </div>
     <div class="qz-field">
       <label for="qzTeacherId">Teacher ID · 教師編號</label>
@@ -398,100 +398,18 @@
     'January 2027', 'March 2027', 'April 2027', 'May 2027', 'June 2027'
   ];
 
-  var QUESTIONS = [
-    { q: 'Entering the teachers’ office each morning, it’s polite to:',
-      zh: '每天早上進辦公室時的禮貌習慣。',
-      opts: ['Walk past silently', 'Greet colleagues with a nod or a quick “早安/早”', 'Wait to be greeted first', 'Knock loudly before entering'], correct: 1,
-      explain: '進辦公室時點頭或說聲「早安」是常見的基本禮貌，同事間會這樣互相打招呼。' },
-    { q: 'If a senior teacher or the principal offers you food at a school event, it’s best to:',
-      zh: '資深老師或校長在活動中請你吃東西時。',
-      opts: ['Firmly refuse every time', 'Ask for a different dish', 'Take the largest portion', 'Accept graciously, even just a small amount'], correct: 3,
-      explain: '直接拒絕可能顯得不給面子，即使不餓，禮貌性地接受一點會更得體。' },
-    { q: 'Regarding indoor shoes on many Taiwanese school campuses, foreign teachers should:',
-      zh: '關於校園室內鞋規定。',
-      opts: ['Change into slippers wherever the school requires it', 'Always keep outdoor shoes on everywhere', 'Go barefoot indoors', 'Ignore posted signage about shoes'], correct: 0,
-      explain: '許多校舍入口有換室內拖鞋的規定，看到鞋櫃或標示就要換鞋。' },
-    { q: 'When receiving a gift or a business card from a colleague, it’s respectful to:',
-      zh: '從同事手中接過名片或禮物時。',
-      opts: ['Accept with one hand while looking away', 'Put it straight in your pocket', 'Accept with both hands', 'Politely decline it'], correct: 2,
-      explain: '雙手接遞物品是台灣（及許多亞洲文化）表達尊重的常見方式。' },
-    { q: 'You disagree with a decision made by school administration. The culturally appropriate first step is:',
-      zh: '對學校行政決定有不同意見時。',
-      opts: ['Announce your disagreement in the staff group chat', 'Raise it privately and respectfully with your contact teacher', 'Ignore the policy going forward', 'Post about it on social media'], correct: 1,
-      explain: '私下、尊重地先跟窗口老師反映，是比較合適且能保留雙方顏面的做法。' },
-    { q: 'During a flag-raising ceremony (升旗), foreign teachers are generally expected to:',
-      zh: '升旗典禮時，外師通常被期待。',
-      opts: ['Stay inside the office', 'Continue teaching class as usual', 'Leave campus', 'Stand respectfully with staff and students'], correct: 3,
-      explain: '升旗是全校共同參與的儀式，教師通常會與班級一起站著參加。' },
-    { q: 'When addressing your homeroom partner teacher in front of students, it’s best to use:',
-      zh: '在學生面前稱呼你的班級導師時。',
-      opts: ['Their title, e.g. “Teacher Chen” (老師)', 'Their first name only', 'A nickname you created', '“Hey you”'], correct: 0,
-      explain: '在學生面前使用「老師」加姓氏，示範了學生本身對老師應有的稱呼方式。' },
-    { q: 'A parent sends a red envelope (紅包) or an expensive gift after a holiday. The safest response is:',
-      zh: '節日後收到家長送的紅包或貴重禮物時。',
-      opts: ['Accept and say nothing to the school', 'Ask for more next time', 'Politely decline and check your school’s gift policy', 'Return it by mail with no note'], correct: 2,
-      explain: '許多學校對收受家長禮物有規範，不確定時最好婉拒並告知窗口老師。' },
-    { q: 'You’re walking down a hallway and pass the principal or a senior teacher. The polite habit is to:',
-      zh: '在走廊遇到校長或資深老師時。',
-      opts: ['Avoid eye contact and keep walking', 'Wait for them to speak first, always', 'Only greet them if you know them well', 'Give a small nod or brief greeting as you pass'], correct: 3,
-      explain: '經過時點頭或簡短問候，是同事間表達基本尊重的習慣動作。' },
-    { q: 'For a class or duty that starts at a set time, the expected norm is to arrive:',
-      zh: '對於有固定開始時間的課程或值勤。',
-      opts: ['Right on the minute it starts', 'A few minutes early', 'A few minutes late is fine', 'Whenever convenient'], correct: 1,
-      explain: '提早幾分鐘到場被視為基本的準時與尊重，而不是壓線抵達。' },
-    { q: 'At a school event, staff are asked to gather for a big group photo. The expected norm is to:',
-      zh: '學校活動要求全體教職員合照時。',
-      opts: ['Stay at your desk and skip it', 'Join only if photographed for something specific', 'Join in — group photos are a normal part of school culture', 'Ask to be edited out afterward'], correct: 2,
-      explain: '團體合照是台灣校園活動很常見的一環，教職員通常都會一起入鏡。' },
-    { q: 'You’re invited to a staff dinner (聚餐) after a busy semester. It’s considered polite to:',
-      zh: '學期結束後受邀參加同事聚餐時。',
-      opts: ['Attend, even just for part of it, if you reasonably can', 'Decline all staff social invitations', 'Only attend if food is free', 'Bring your own separate meal'], correct: 0,
-      explain: '即使只能待一部分時間，盡量出席聚餐有助於融入同事間的情誼。' },
-    { q: 'At a staff dinner, you notice colleagues topping up each other’s drinks. The custom being followed is:',
-      zh: '聚餐時發現同事會互相幫忙倒飲料。',
-      opts: ['Pouring only for yourself', 'Waiting for the host to pour every glass', 'Refusing to let anyone pour for you', 'Filling others’ cups before your own as a small gesture of care'], correct: 3,
-      explain: '先幫別人倒滿再倒自己的，是聚餐場合中常見的體貼小舉動。' },
-    { q: 'A student is having a serious personal or family problem. The appropriate step is to:',
-      zh: '學生有嚴重的個人或家庭問題時。',
-      opts: ['Discuss it openly in front of the class', 'Quietly refer it to the homeroom teacher or counselor', 'Post about it in the staff group chat', 'Handle discipline yourself without involving anyone else'], correct: 1,
-      explain: '涉及學生隱私與家庭狀況的議題，應私下轉知導師或輔導老師處理。' },
-    { q: 'You have feedback about how the school is run. The most effective and respectful channel is to:',
-      zh: '對學校運作有建議或想法時。',
-      opts: ['Post it publicly online first', 'Bring it up loudly in a full staff meeting', 'Share it privately through your contact teacher or supervisor', 'Wait until your contract ends to mention it'], correct: 2,
-      explain: '透過窗口老師或主管私下反映，通常比公開場合更有效也更受尊重。' },
-    { q: 'During the national anthem or a formal school ceremony, foreign teachers are expected to:',
-      zh: '國歌演奏或正式典禮進行時。',
-      opts: ['Stand quietly and respectfully like other staff', 'Continue any side conversations', 'Use the time to check their phone', 'Step outside until it’s over'], correct: 0,
-      explain: '和其他教職員一樣安靜肅立，是參加正式典禮時應有的態度。' },
-    { q: 'For a formal school event (e.g. opening ceremony, official visit), appropriate attire is:',
-      zh: '參加開學典禮或官方參訪等正式場合時的服裝。',
-      opts: ['Whatever is most comfortable', 'Beachwear if the weather is hot', 'Costume or novelty clothing', 'Conservative, professional dress similar to other staff'], correct: 3,
-      explain: '正式場合建議穿著與其他教職員相近的端莊服裝，展現對場合的重視。' },
-    { q: 'When speaking with a student’s parent for the first time, it’s respectful to address them as:',
-      zh: '第一次與學生家長交談時的稱呼方式。',
-      opts: ['By their first name only', 'With an appropriate title (e.g. Mr./Mrs., or 家長) rather than their first name', '“Hey”', 'Their child’s nickname for them'], correct: 1,
-      explain: '使用適當的稱謂而非直呼名字，是對家長表達禮貌與尊重的方式。' },
-    { q: 'A colleague makes a small mistake in front of others. The culturally sensitive approach is to:',
-      zh: '同事在他人面前犯了小錯時。',
-      opts: ['Address it privately and gently rather than correcting them publicly', 'Point it out immediately in front of the group', 'Post about it afterward to other coworkers', 'Bring it up loudly to make sure everyone learns from it'], correct: 0,
-      explain: '私下溫和地提醒能顧全對方的面子，公開糾正容易造成尷尬或不快。' },
-    { q: 'Overall, when you’re unsure whether something is culturally appropriate at your school, the best move is to:',
-      zh: '不確定某件事在學校是否合乎文化習慣時。',
-      opts: ['Guess and hope for the best', 'Assume it’s the same as back home', 'Ask your contact teacher or a trusted colleague', 'Avoid the situation entirely going forward'], correct: 2,
-      explain: '直接詢問窗口老師或信任的同事，永遠比自己猜測更保險。' }
-  ];
-
   window.__QZ_CONFIG__ = {
     webhookUrl: CONFIG.WEBHOOK_URL,
     meetings: MEETINGS,
-    // The teacher picks first-year / experienced; that choice becomes both the
-    // quiz key and the level column in the Google Sheet.
+    // Round M1-M9 maps onto module 1-9; the teacher's track picks which five
+    // track-specific questions join the module's shared core.
+    bankUrl: '/fets/school-culture/data/practice-bank.json',
     quizIdPrefix: 'fet-culture-',
-    questions: QUESTIONS,
+    levelNames: { a: 'year-1', b: 'returning' },
     hasSpeech: false
   };
 })();
 </script>
-<script src="/assets/js/fet-quiz.js?v=cc93781f"></script>
+<script src="/assets/js/fet-quiz.js?v=09a2298f"></script>
 </body>
 </html>

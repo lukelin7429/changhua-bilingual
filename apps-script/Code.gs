@@ -49,7 +49,7 @@ const FET_HEADERS = [
   'teacher_id',     // 教師編號 F01–F74
   'teacher_name',   // 姓名
   'level',          // 中文：beginner / intermediate / advanced
-                    // 文化：first-year / experienced
+                    // 文化：year-1 / returning
   'round',          // M1–M9（對應九次外師會議）
   'score',          // 得分
   'total',          // 總題數
@@ -68,8 +68,8 @@ const FET_QUIZZES = {
   'fet-mandarin-challenge':    { sheetName: 'mandarin', level: '' },  // 2026-07 以前的舊版單一題組
 
   // 校園文化
-  'fet-culture-first-year':    { sheetName: 'culture',  level: 'first-year' },
-  'fet-culture-experienced':   { sheetName: 'culture',  level: 'experienced' },
+  'fet-culture-year-1':        { sheetName: 'culture',  level: 'year-1' },
+  'fet-culture-returning':     { sheetName: 'culture',  level: 'returning' },
   'fet-school-culture':        { sheetName: 'culture',  level: '' },  // 舊版，沒有分級
 };
 
@@ -165,7 +165,7 @@ function _smokeTest() {
 /**
  * FET 兩個分頁的手動驗證 —— 在編輯器選這個函式按「執行」，跑完後應該看到：
  *   mandarin 分頁：三筆 FET-000（beginner / intermediate / advanced）
- *   culture  分頁：兩筆 FET-000（first-year / experienced）
+ *   culture  分頁：兩筆 FET-000（year-1 / returning）
  * 確認完把這五列刪掉即可。
  */
 function _smokeTestFetSheets() {
@@ -173,8 +173,8 @@ function _smokeTestFetSheets() {
     { quiz: 'fet-mandarin-beginner',     level: 'beginner' },
     { quiz: 'fet-mandarin-intermediate', level: 'intermediate' },
     { quiz: 'fet-mandarin-advanced',     level: 'advanced' },
-    { quiz: 'fet-culture-first-year',    level: 'first-year' },
-    { quiz: 'fet-culture-experienced',   level: 'experienced' },
+    { quiz: 'fet-culture-year-1',       level: 'year-1' },
+    { quiz: 'fet-culture-returning',    level: 'returning' },
   ];
   cases.forEach(function (c) {
     doPost({
