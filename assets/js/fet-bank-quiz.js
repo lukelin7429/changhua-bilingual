@@ -600,12 +600,25 @@
         answers: detail,
         user_agent: navigator.userAgent
       })
-    }).then(function () {
-      note.textContent = 'Result recorded. 成績已登錄。';
-    }).catch(function () {
-      // The score is already on screen either way — never block on the sheet.
-      note.textContent = 'Your score is shown above, but it could not be saved. Please tell Luke. 成績無法登錄，請告知承辦人。';
-    });
+    }).then(function (res) { return res.text(); })
+      .then(function (text) {
+        // Apps Script always answers HTTP 200, even when it caught an error
+        // server-side (e.g. writing to the wrong/missing spreadsheet) — a
+        // resolved fetch is not proof the row was written, only that Google
+        // received the request. Parse the body and check {ok:true} for real.
+        var data;
+        try { data = JSON.parse(text); } catch (e) { data = null; }
+        if (data && data.ok) {
+          note.textContent = 'Result recorded. 成績已登錄。';
+        } else {
+          console.error('submitToSheet: server reported failure', data && data.error);
+          note.textContent = 'Your score is shown above, but it could not be saved. Please tell Luke. 成績無法登錄，請告知承辦人。';
+        }
+      })
+      .catch(function () {
+        // The score is already on screen either way — never block on the sheet.
+        note.textContent = 'Your score is shown above, but it could not be saved. Please tell Luke. 成績無法登錄，請告知承辦人。';
+      });
   }
 
   // ---------------------------------------------------------------- wiring
