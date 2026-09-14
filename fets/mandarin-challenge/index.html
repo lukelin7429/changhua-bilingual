@@ -45,6 +45,17 @@
     .mc-app__qr small { font-size:13px; font-family:var(--hub-en-font); }
     @media (max-width:520px) { .mc-app__qr { display:none; } }
 
+    /* monthly-submission shortcut — same shape as the app call-out, teal not
+       orange, so the two "go do a thing" boxes read as visually distinct. */
+    .mc-submit-cta {
+      margin:26px 0 4px; padding:22px 24px; border:1px solid var(--hub-line);
+      border-left:6px solid var(--hub-primary); border-radius:16px; background:var(--hub-line-soft);
+    }
+    .mc-submit-cta__eyebrow { font-size:14px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--hub-primary); margin:0 0 6px; }
+    .mc-submit-cta__h { font-family:var(--hub-serif); font-size:26px; margin:0 0 10px; color:var(--hub-ink); }
+    .mc-submit-cta__p { font-size:18px; line-height:1.6; color:var(--hub-ink-soft); margin:0 0 10px; max-width:56ch; }
+    .mc-submit-cta__p--zh { font-family:var(--hub-zh-font); font-size:18px; color:var(--hub-ink-faint); line-height:1.85; margin:0 0 14px; }
+
     .mc-lede { color:var(--hub-ink-soft); max-width:64ch; font-size:20px; line-height:1.65; }
     .mc-lede-zh { color:var(--hub-ink-faint); max-width:64ch; font-size:19px; line-height:1.9; font-family:var(--hub-zh-font); }
 
@@ -313,6 +324,18 @@
   <p class="mc-lede">Every question for all nine FET meetings, in one place. Work through the bank at your own pace — try each item first, then tap <strong>Show answer</strong> for the correct option and an explanation. Answers stay hidden until you ask for them.</p>
   <p class="mc-lede-zh">九次外師會議會用到的題目，全部列在這裡。照自己的步調一題一題想，想完再按<strong>「看答案」</strong>顯示正解與說明——<strong>答案預設是蓋起來的</strong>，你不按就不會看到。</p>
 
+  <!-- The thing most people arrive on this page to actually do: fill in ID +
+       name and take this month's meeting round. Placed above the (optional,
+       ungraded) Daily Practice app call-out so it's the first thing anyone
+       scrolling past the hero text sees, not the third. -->
+  <div class="mc-submit-cta">
+    <p class="mc-submit-cta__eyebrow">This Month's Assignment · 本月作業</p>
+    <h2 class="mc-submit-cta__h">Submit your meeting round here</h2>
+    <p class="mc-submit-cta__p">Fill in your teacher ID and name, then take the fixed 20-question round for this month's meeting. This is the one that gets recorded.</p>
+    <p class="mc-submit-cta__p--zh">在這裡填寫教師編號與姓名，作答本次會議固定的 20 題——這是會被登錄成績的那一組。</p>
+    <a class="mc-app__btn" href="#mcMeetingPanel" id="mcJumpMonthly">Go to this month's assignment · 前往本月作業 ↓</a>
+  </div>
+
   <!-- Companion app. Kept here as well as on /fets/ so a teacher who loses the
        link can always find it again from the page they already know. -->
   <aside class="mc-app">
@@ -387,17 +410,9 @@
 
 <!-- ============ VIEW 2 · quiz ============ -->
 <section class="hub-section hidden" id="mcQuizModeScreen" style="padding-top:12px">
-  <div class="mc-panel">
-    <h2>Practice quiz · 自學測驗</h2>
-    <p>Questions are drawn at random from the whole level and the options are shuffled, so no two runs are the same. Nothing is recorded — repeat it as often as you like.</p>
-    <p class="zh">從整級題庫隨機抽題、選項也會打散，每次都不一樣。<strong>不會登錄成績</strong>，可以放心一直重來。</p>
-    <div class="mc-actions">
-      <button type="button" class="mc-btn" data-practice="10">Quick 10 · 快速 10 題</button>
-      <button type="button" class="mc-btn-ghost" data-practice="20">Full 20 · 完整 20 題</button>
-    </div>
-  </div>
-
-  <div class="mc-panel">
+  <!-- Monthly meeting round comes first: it's the one everyone here needs to
+       find, so it should not sit below the (optional) practice quiz. -->
+  <div class="mc-panel" id="mcMeetingPanel">
     <h2>Monthly meeting round · 外師會議場次</h2>
     <p>The fixed 20 questions for that month's meeting — the same paper for everyone. Your score is recorded to the Google Sheet for this level.</p>
     <p class="zh">該場會議的固定 20 題，所有外師題目相同，成績會登錄到這一級對應的 Google Sheet 分頁。</p>
@@ -416,6 +431,16 @@
     </div>
     <p class="mc-notice is-error hidden" id="mcGateError">Please fill in both your teacher ID and your name. 請填寫編號與姓名。</p>
     <button type="button" class="mc-btn" id="mcStartMeeting" disabled>Start this round · 開始作答</button>
+  </div>
+
+  <div class="mc-panel">
+    <h2>Practice quiz · 自學測驗</h2>
+    <p>Questions are drawn at random from the whole level and the options are shuffled, so no two runs are the same. Nothing is recorded — repeat it as often as you like.</p>
+    <p class="zh">從整級題庫隨機抽題、選項也會打散，每次都不一樣。<strong>不會登錄成績</strong>，可以放心一直重來。</p>
+    <div class="mc-actions">
+      <button type="button" class="mc-btn" data-practice="10">Quick 10 · 快速 10 題</button>
+      <button type="button" class="mc-btn-ghost" data-practice="20">Full 20 · 完整 20 題</button>
+    </div>
   </div>
 </section>
 
@@ -506,6 +531,6 @@ window.__MC_CONFIG__ = {
 <!-- ?v= is a cache buster: assets are served with max-age=14400, so without a
      changed URL a returning visitor keeps the old engine for up to 4 hours.
      Bump this whenever fet-bank-quiz.js changes. -->
-<script src="/assets/js/fet-bank-quiz.js?v=1ddbbf94"></script>
+<script src="/assets/js/fet-bank-quiz.js?v=d72831d7"></script>
 </body>
 </html>

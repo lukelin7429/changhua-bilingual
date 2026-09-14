@@ -664,8 +664,23 @@
   });
   $('mcBackToStudy').addEventListener('click', function () { setView('study'); });
 
+  // Jump straight to the monthly submission fields — this is what most
+  // teachers actually came here to find, buried two panels down otherwise.
+  var jumpBtn = $('mcJumpMonthly');
+  if (jumpBtn) {
+    jumpBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      setView('quiz');
+      scrollToTop('mcMeetingPanel');
+    });
+  }
+
   // ---------------------------------------------------------------- boot
 
   preloadAll();
   setLevel('beginner');
+  if (location.hash === '#mcMeetingPanel') {
+    setView('quiz');
+    setTimeout(function () { scrollToTop('mcMeetingPanel'); }, 60);
+  }
 })();
