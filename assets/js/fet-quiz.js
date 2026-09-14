@@ -59,6 +59,19 @@
       });
   }
 
+  // Jump from the top-of-page call-out straight to the submission block,
+  // offset for the sticky site header.
+  var jumpBtn = document.getElementById('scJumpMonthly');
+  if (jumpBtn) {
+    jumpBtn.addEventListener('click', function (e) {
+      var target = document.getElementById('qzSubmitSection');
+      if (!target) return;
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 76;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    });
+  }
+
   if (roundSelect && cfg.meetings) {
     roundSelect.innerHTML = ['<option value="">— choose a round · 選擇場次 —</option>']
       .concat(cfg.meetings.map(function (label, i) {
