@@ -83,8 +83,13 @@ def load_phrases(data_dir: pathlib.Path):
 # Only add an entry after listening to the result — a wrong "fix" here is
 # harder to spot than the error it replaces.
 FIXES = {
-    # 破音字: 朝 is zhāo here (morning assembly), not cháo. 招 is a plain zhāo.
-    "朝會": {"say_as": "招會"},
+    # 破音字 — the voice picks the wrong reading; the homophone forces the right
+    # one. The character at fault is marked in each note.
+    "朝會":           {"say_as": "招會"},        # 朝 zhāo (morning), not cháo
+    "教務處":         {"say_as": "教務觸"},      # 處 chù (office), not chǔ
+    "家長會":         {"say_as": "家掌會"},      # 長 zhǎng (elder), not cháng
+    "我們調課好嗎？": {"say_as": "我們掉課好嗎？"},  # 調 diào (move), not tiáo
+
     # 不 takes the rising tone before a falling one (bú kèqi). The edge voices
     # do not apply that sandhi at all — every 不 + 4th-tone word comes out bù.
     # Meijia gets it right.
