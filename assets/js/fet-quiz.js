@@ -43,20 +43,29 @@
       });
   }
 
-  // A round maps 1:1 onto a module: M1 = module 1 (September) … M9 = module 9
-  // (June). Each module holds a shared core plus five questions for each track,
-  // so a teacher sees the core plus only their own track's questions.
   function levelName() {
     return (cfg.levelNames && cfg.levelNames[level]) || level;
   }
 
+  // A round maps 1:1 onto a module: M1 = module 1 (September) … M9 = module 9
+  // (June). Each module holds a shared core plus five questions for each track,
+  // so a teacher sees the core plus only their own track's questions.
+  //
+  // The shared core is capped so every round is the same length. Most modules
+  // hold exactly the cap, so it only bites on M8, which carries extra practice
+  // questions; taking them in file order keeps the paper identical for everyone.
+  var SHARED_PER_ROUND = cfg.sharedPerRound || 14;
+
   function questionsForRound(roundCode, track) {
     var m = Number(String(roundCode).replace(/^M/, ''));
-    return bank
-      .filter(function (q) { return q.m === m && (q.track === 'shared' || q.track === track); })
-      .map(function (q) {
-        return { q: q.stem, opts: q.options, correct: q.answer, explain: q.why, zh: q.zh || '' };
-      });
+    var inModule = bank.filter(function (q) { return q.m === m; });
+    var shared = inModule
+      .filter(function (q) { return q.track === 'shared'; })
+      .slice(0, SHARED_PER_ROUND);
+    var mine = inModule.filter(function (q) { return q.track === track; });
+    return shared.concat(mine).map(function (q) {
+      return { q: q.stem, opts: q.options, correct: q.answer, explain: q.why, zh: q.zh || '' };
+    });
   }
 
   // Jump from the top-of-page call-out straight to the submission block,
