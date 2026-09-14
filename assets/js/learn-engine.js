@@ -298,6 +298,7 @@
     run.pos++;
     if (run.pos >= run.queue.length) return finish();
     render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function finish() {
