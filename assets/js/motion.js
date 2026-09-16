@@ -9,7 +9,7 @@
 
    Designed to drop onto ANY bespoke Hub page (festivals, disaster-english,
    1-on-1 topics, soccer program, partner pages, quizzes …) without
-   touching its typography, colours or layout. Pages that already run
+   touching its typography, colors or layout. Pages that already run
    hub.js get their reveal from there and should NOT load this too.
    ===================================================================== */
 (function(){

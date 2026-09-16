@@ -622,7 +622,7 @@
     }
 
     $('mcRetryWrongBtn').classList.toggle('hidden', !wrongIds.length);
-    $('mcRetryWrongBtn').textContent = 'Practise these ' + wrongIds.length + ' again · 重練錯題';
+    $('mcRetryWrongBtn').textContent = 'Practice these ' + wrongIds.length + ' again · 重練錯題';
     showSection('mcResultScreen');
     scrollToTop('mcResultScreen');
   }

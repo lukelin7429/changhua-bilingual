@@ -112,7 +112,7 @@
       container.parentElement.style.position = 'relative';
       container.parentElement.appendChild(tip);
 
-      // colour the map by geographic region of Changhua (4 hues)
+      // color the map by geographic region of Changhua (4 hues)
       var REGION = {
         'xianxi':'coast','shenkang':'coast','lukang':'coast','fuxing':'coast',
         'fangyuan':'coast','dacheng':'coast','erlin':'coast','puyan':'coast',
