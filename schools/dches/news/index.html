@@ -38,6 +38,22 @@
 .nc__foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;}
 .nc__date{font-family:'Playfair Display',serif;color:var(--red-deep);font-size:14px;font-weight:700;letter-spacing:1px;}
 .nc__org{font-size:12.5px;color:var(--ink-soft);font-weight:600;}
+.stories{display:grid;grid-template-columns:1fr;gap:22px;}
+@media (min-width:760px){ .stories{ grid-template-columns:1fr 1fr; } }
+.story{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .2s, box-shadow .2s;}
+.story:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.story__img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+.story__in{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;border-top:6px solid var(--red-deep);}
+.story:nth-child(2) .story__in{border-top-color:var(--blue-deep);}
+.story__date{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:1px;color:var(--red-deep);}
+.story:nth-child(2) .story__date{color:var(--blue-deep);}
+.story__title{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:7px;}
+@media (min-width:720px){ .story__title{ font-size:26px; } }
+.story__zh{font-size:16px;color:var(--ink);font-weight:600;margin-top:8px;line-height:1.45;}
+.story__desc{font-size:16.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
+.story__cta{margin-top:18px;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--red-deep);display:inline-flex;align-items:center;gap:8px;}
+.story__cta .arrow{transition:transform .2s;}
+.story:hover .story__cta .arrow{transform:translateX(4px);}
 </style>
   <link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
 </head>
@@ -75,7 +91,39 @@
 
 <section>
   <div class="wrap">
-    <div class="sec__no">N.</div>
+    <div class="sec__no">I.</div>
+    <h2 class="sec__title">Featured Stories</h2>
+    <div class="sec__title-zh">專題報導 · 點進去可以聽單字、玩配對遊戲</div>
+    <div class="sec__rule"></div>
+
+    <div class="stories">
+      <a class="story rvl" href="/schools/dches/news/football-national-finals/">
+        <img class="story__img" src="/schools/dches/news-img/football-team.jpg" alt="The Dacheng football squad lined up on the pitch" loading="lazy">
+        <div class="story__in">
+          <div class="story__date">2026 · 07 · 05</div>
+          <div class="story__title">Eighth in Taiwan, and the Shirt Passed On</div>
+          <div class="story__zh">114 學年度小學生足球賽全國賽 · 榮耀落幕，夢想啟航</div>
+          <div class="story__desc">Dacheng carried Changhua County into the national finals in Taichung and came home eighth in Taiwan — then the sixth-graders handed the shirt on.<br>大成足球隊代表彰化縣征戰全國賽，榮獲全國第八名，六年級把球衣交棒給學弟妹。</div>
+          <div class="story__cta">Read the story <span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="story rvl" href="/schools/dches/news/track-and-field-season/">
+        <img class="story__img" src="/schools/dches/news-img/track-start.jpg" alt="Sprinters leaving the starting blocks at the county athletics meet" loading="lazy">
+        <div class="story__in">
+          <div class="story__date">2026 · 05 · 31</div>
+          <div class="story__title">A Season on the Track</div>
+          <div class="story__zh">大成田徑隊的這一年 · 從縣聯運到全國賽</div>
+          <div class="story__desc">Three meets between January and the end of May — a county championship, the national championships, and the city games. They placed in all three.<br>一月縣聯運、五月全國賽、五月底市民運動大會，三場都有收穫。</div>
+          <div class="story__cta">Read the story <span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">School Announcements</h2>
     <div class="sec__title-zh">校園公告 · 114 學年度</div>
     <div class="sec__rule"></div>
