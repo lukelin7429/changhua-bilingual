@@ -26,7 +26,80 @@
 .unit__thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .unit__play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(0,0,0,.52);color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;padding-left:4px;border:3px solid rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .3s, background .2s;z-index:2;}
 .unit:hover .unit__play{transform:translate(-50%,-50%) scale(1.12);background:var(--red-deep);}
-.hero{--banner-img:url("/schools/dches/photos/banner-home.jpg?v=2");--banner-pos:center 48%;}
+.hero{--banner-img:url("/schools/dches/photos/banner-home.jpg?v=3");--banner-pos:center 52%;}
+
+/* ===== Vision · 學校願景 ===== */
+.vision{display:grid;grid-template-columns:1fr;gap:30px;align-items:start;}
+@media (min-width:880px){ .vision{ grid-template-columns:1.3fr .7fr;gap:44px; } }
+.vlist{display:flex;flex-direction:column;gap:14px;}
+.vrow{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow-sm);}
+.vrow__no{flex:0 0 auto;font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--gold);line-height:1;width:38px;}
+.vrow__en{font-size:18px;color:var(--ink);font-weight:600;line-height:1.5;}
+@media (min-width:720px){ .vrow__en{ font-size:20px; } }
+.vrow__zh{font-size:16px;color:var(--ink-soft);margin-top:7px;line-height:1.6;}
+@media (min-width:720px){ .vrow__zh{ font-size:17.5px; } }
+.vfig{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:var(--shadow);}
+.vfig img{width:100%;height:auto;display:block;border-radius:10px;}
+.vfig figcaption{margin-top:12px;font-size:15px;color:var(--ink-soft);line-height:1.6;padding:0 6px 4px;}
+.vfig figcaption b{color:var(--red-deep);}
+.vfig figcaption .en{display:block;font-style:italic;color:var(--ink);margin-bottom:8px;}
+
+/* ===== Student portrait · 學生圖像 ===== */
+.portrait{display:grid;grid-template-columns:1fr;gap:18px;}
+@media (min-width:720px){ .portrait{ grid-template-columns:1fr 1fr;gap:22px; } }
+.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px;box-shadow:var(--shadow-sm);border-left:8px solid var(--blue-deep);transition:transform .2s, box-shadow .2s;}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.pcard:nth-child(2){border-left-color:var(--gold);}
+.pcard:nth-child(3){border-left-color:var(--red-deep);}
+.pcard:nth-child(4){border-left-color:var(--blue);}
+.pcard__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;color:var(--ink-soft);text-transform:uppercase;}
+.pcard__title{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:7px;}
+.pcard__title-zh{font-size:19px;color:var(--ink);font-weight:700;margin-top:7px;letter-spacing:2px;}
+.pcard__body{font-size:17px;color:var(--ink-soft);margin-top:13px;line-height:1.65;}
+.pcard__body .zh{display:block;margin-top:7px;line-height:1.6;}
+
+/* ===== Campus gallery · 校園巡禮 ===== */
+.gal{display:grid;grid-template-columns:1fr;gap:18px;}
+@media (min-width:620px){ .gal{ grid-template-columns:1fr 1fr; } }
+@media (min-width:940px){ .gal{ grid-template-columns:repeat(3,1fr); } }
+.gal figure{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s, box-shadow .2s;}
+.gal figure:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.gal figcaption{padding:14px 16px 17px;}
+.gal figcaption .en{display:block;font-size:16px;color:var(--ink);font-weight:600;line-height:1.45;}
+.gal figcaption .zh{display:block;font-size:14.5px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+
+/* ===== School calendar · 行事曆 ===== */
+.cal-key{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+.cal-key span{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 15px;}
+.cal-key i{width:11px;height:11px;border-radius:50%;display:block;font-style:normal;}
+.k-eng{background:var(--gold);}
+.k-hol{background:var(--red);}
+.k-exam{background:var(--blue);}
+.k-evt{background:#c3ccd6;}
+.cal{display:grid;grid-template-columns:1fr;gap:22px;}
+@media (min-width:860px){ .cal{ grid-template-columns:1fr 1fr;gap:26px; } }
+.cmonth{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden;align-self:start;}
+.cmonth__head{background:var(--blue-deep);color:#fff;padding:15px 22px;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.cmonth__en{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;letter-spacing:.5px;}
+.cmonth__zh{font-size:14.5px;color:rgba(255,255,255,.82);font-weight:500;letter-spacing:1px;}
+.crow{display:flex;gap:16px;padding:14px 22px;border-top:1px solid var(--line);}
+.crow:first-of-type{border-top:none;}
+.cdate{flex:0 0 78px;font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;color:var(--red-deep);letter-spacing:.5px;padding-top:2px;}
+.cbody .en{font-size:16.5px;color:var(--ink);font-weight:600;line-height:1.45;}
+.cbody .zh{display:block;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+.crow--eng{background:var(--gold-soft);}
+.crow--eng .cdate{color:var(--gold-deep);}
+.crow--eng .en::before{content:"★ ";color:var(--gold-deep);}
+.crow--hol .cdate{color:var(--red);}
+.crow--hol .en{color:var(--red-deep);}
+.crow--exam{background:var(--blue-soft);}
+.crow--exam .cdate{color:var(--blue-deep);}
+.cal-note{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+.cal-note p{font-size:15px;color:var(--ink-soft);line-height:1.6;max-width:640px;}
+.cal-dl{display:inline-flex;align-items:center;gap:10px;background:var(--blue-deep);color:#fff;padding:14px 24px;border-radius:12px;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px -12px rgba(19,113,92,.7);transition:transform .15s, background .15s;}
+.cal-dl:hover{background:var(--blue);transform:translateY(-2px);}
+.cal-dl small{display:block;font-family:'PingFang TC',sans-serif;font-size:12.5px;font-weight:500;opacity:.85;margin-top:2px;letter-spacing:.5px;}
 </style>
   <link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
 </head>
@@ -58,12 +131,6 @@
         Two children, one heart — and a whole world to learn in English.
         <span class="tagline-zh">校徽上兩個孩子捧著一顆心——在大成，世界用英語走進教室</span>
       </p>
-      <div class="hero__pills">
-        <span class="pill">🌐 Dacheng Bilingual Network</span>
-        <span class="pill">💻 A Tablet for Every Student</span>
-        <span class="pill">🤖 AI &amp; Digital Learning</span>
-        <span class="pill">🌱 Farm-to-Table Class</span>
-      </div>
     </div>
   </div>
 </header>
@@ -80,10 +147,10 @@
 
     <div class="about__body">
       <p class="rvl">
-        Welcome to <strong>Dacheng Elementary School</strong>. As a school, we are young — we opened our doors in <strong>2004</strong> and are now in our <strong>22nd year</strong>. But our roots reach far deeper: our <em>affiliated kindergarten</em> traces its history all the way back to <strong>1917</strong>, and celebrated its <strong>100th anniversary</strong> in 2017. New school, old heart.
+        Welcome to <strong>Dacheng Elementary School</strong>. As a school, we are young — we opened our doors in <strong>2004</strong> and are now in our <strong>23rd school year</strong>. But our roots reach far deeper: our <em>affiliated kindergarten</em> traces its history all the way back to <strong>1917</strong>, and celebrated its <strong>100th anniversary</strong> in 2017. New school, old heart.
       </p>
       <p class="zh rvl">
-        歡迎來到<strong>大成國小</strong>。論校齡，我們很年輕——2004 年（民國 93 年）創校，如今邁入第 22 個年頭；但若論根，我們其實很深：附設幼兒園的歷史可一路追溯到 1917 年，並在 2017 年舉辦了創園百年慶。新學校，老靈魂。
+        歡迎來到<strong>大成國小</strong>。論校齡，我們很年輕——2004 年（民國 93 年）創校，如今邁入第 23 個學年；但若論根，我們其實很深：附設幼兒園的歷史可一路追溯到 1917 年，並在 2017 年舉辦了創園百年慶。新學校，老靈魂。
       </p>
       <p class="rvl">
         Today Dacheng is one of Changhua City's larger elementary schools, on Ziqiang Road, with specialist rooms for science, computing, art, baking and sensory learning. Our crest says it best: two children holding up a single heart — <em>education as one life moving another</em>.
@@ -91,7 +158,25 @@
       <p class="zh rvl">
         如今的大成，是彰化市規模較大的國小之一，坐落自強路上，設有自然、電腦、美勞、烘焙與感覺統合等專科教室。我們的校徽說得最好：兩個孩子，一起捧起一顆心——<em>教育，是一個生命感動另一個生命</em>。
       </p>
+
+      <p class="rvl">
+        Dacheng was built for a new century, and set out to be several things at once: a happy and safe hall of learning; a stronghold of education that passes on what lasts; a green, living environment the neighborhood is proud of; and a cultural landmark handed down through generations.
+      </p>
+      <p class="zh rvl">
+        大成國小設校後於 93 學年度開始招生，是一所邁向新世紀優質的好學校：是快樂安全的學校殿堂；是永續傳承的教育堡壘；是社區引以為傲的有機環境；是世代相傳的文化標誌。
+      </p>
+      <p class="rvl">
+        We hold to <em>breakthrough and invention</em> — so that children wear bright smiles as they learn, teachers shine with wisdom as they teach, parents look on with boundless hope, and the children of Dacheng see their dreams come true.
+      </p>
+      <p class="zh rvl">
+        大成國小秉持<em>突破與創新</em>，讓孩子在學習中洋溢著璀璨的笑容，讓師長在教學中綻放出智慧的光芒，讓家長在眼神中展現出無限的希望，讓大成國小的孩子們美夢成真。
+      </p>
     </div>
+
+    <figure class="banner-figure rvl">
+      <img src="/schools/dches/photos/feature-calligraphy-wall.jpg" alt="A corridor wall of calligraphy beside the school's wooden crest board" loading="lazy">
+      <figcaption>A corridor wall of calligraphy, <b>禮讚大成</b>, copies the passage in which Mencius praises Confucius as the one who <i>gathered the great whole</i> — the same two characters that live in this school's name.<br>走廊上的「禮讚大成」書法牆，錄的是《孟子》讚孔子「集大成」的一段——正是校名裡的那兩個字。</figcaption>
+    </figure>
 
     <div class="quote rvl">
       <div class="quote__text">"Education is a calling in which one life moves another."</div>
@@ -100,9 +185,111 @@
   </div>
 </section>
 
-<section style="background:var(--cream-warm);">
+<section style="background:var(--cream);">
   <div class="wrap">
     <div class="sec__no">II.</div>
+    <h2 class="sec__title">Our Vision</h2>
+    <div class="sec__title-zh">學校願景 · 大成要把孩子帶到哪裡</div>
+    <div class="sec__rule"></div>
+
+    <div class="vision">
+      <div class="vlist">
+        <div class="vrow rvl">
+          <div class="vrow__no">1</div>
+          <div>
+            <div class="vrow__en">Strengthen character education, and awaken every kind of intelligence.</div>
+            <div class="vrow__zh">強化品德教育、啟發多元智慧。</div>
+          </div>
+        </div>
+        <div class="vrow rvl">
+          <div class="vrow__no">2</div>
+          <div>
+            <div class="vrow__en">Respect many cultures, and shape a campus where everyone is treated kindly.</div>
+            <div class="vrow__zh">尊重多元文化、型塑友善校園。</div>
+          </div>
+        </div>
+        <div class="vrow rvl">
+          <div class="vrow__no">3</div>
+          <div>
+            <div class="vrow__en">Build digital know-how, and widen the view all the way out to the world.</div>
+            <div class="vrow__zh">建構數位資訊、拓展全球視野。</div>
+          </div>
+        </div>
+        <div class="vrow rvl">
+          <div class="vrow__no">4</div>
+          <div>
+            <div class="vrow__en">Raise healthy, lively, inventive and excellent children for the 21st century.</div>
+            <div class="vrow__zh">培養健康、活潑、創新、卓越的二十一世紀未來兒童。</div>
+          </div>
+        </div>
+        <div class="vrow rvl">
+          <div class="vrow__no">5</div>
+          <div>
+            <div class="vrow__en">Grow a school that is varied, finely made and forward-looking — modern and technological, rooted in its own place, and humane.</div>
+            <div class="vrow__zh">營造多元、精緻、前瞻、現代的科技化本土化人文學校。</div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="vfig rvl">
+        <img src="/schools/dches/photos/feature-vision-couplet.jpg" alt="Two red banners on the teaching block, each opening with one character of the school's name" loading="lazy">
+        <figcaption>
+          <span class="en">Two red banners on the teaching block open with the school's own name — <b>大</b> and <b>成</b>: <i>open a wide horizon, unfold the whole person</i>; <i>achieve many kinds of intelligence, raise broadly learned talent</i>.</span>
+          教學樓前兩幅紅布條，以校名藏頭：「<b>大</b>啟宏觀視野，展全人素養」「<b>成</b>就多元智慧，育博學英才」。
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec__no">III.</div>
+    <h2 class="sec__title">The Dacheng Learner</h2>
+    <div class="sec__title-zh">課程地圖與學生圖像 · 我們希望孩子長成的樣子</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:820px;">
+      <p class="rvl">Every subject at Dacheng is mapped back to four pictures of the child we hope to send on to junior high — four words that tell teachers what a lesson is really for.</p>
+      <p class="zh rvl">大成的課程地圖，最後都回到四幅「學生圖像」——四個詞，說明一堂課究竟是為了什麼。</p>
+    </div>
+
+    <div class="portrait">
+      <article class="pcard rvl">
+        <div class="pcard__no">Portrait 01</div>
+        <div class="pcard__title">Innovation &amp; Technology</div>
+        <div class="pcard__title-zh">創新科技</div>
+        <div class="pcard__body">Learn under your own steam, put technology to work, and be the kind of person who can solve a problem.
+          <span class="zh">自主學習、運用科技、具備解決問題的能力。</span></div>
+      </article>
+      <article class="pcard rvl">
+        <div class="pcard__no">Portrait 02</div>
+        <div class="pcard__title">Health &amp; Self-Reliance</div>
+        <div class="pcard__title-zh">健康自主</div>
+        <div class="pcard__body">Eat well, move often, and grow up confident and happy.
+          <span class="zh">均衡飲食、規律運動、自信快樂。</span></div>
+      </article>
+      <article class="pcard rvl">
+        <div class="pcard__no">Portrait 03</div>
+        <div class="pcard__title">Wisdom &amp; Humanities</div>
+        <div class="pcard__title-zh">智慧人文</div>
+        <div class="pcard__body">Care about the place you come from, know your own culture — and from there, grow the respect for other cultures that international understanding asks for.
+          <span class="zh">在地關懷、文化認同，並涵養尊重多元文化、國際理解的素養。</span></div>
+      </article>
+      <article class="pcard rvl">
+        <div class="pcard__no">Portrait 04</div>
+        <div class="pcard__title">Character &amp; Kindness</div>
+        <div class="pcard__title-zh">品德友善</div>
+        <div class="pcard__body">Be thankful, put yourself in others' shoes, make room for difference, and share what you have.
+          <span class="zh">感恩惜福、關懷同理、尊重包容、互助分享。</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-warm);">
+  <div class="wrap">
+    <div class="sec__no">IV.</div>
     <h2 class="sec__title">Bilingual &amp; Beyond</h2>
     <div class="sec__title-zh">雙語與更多 · 大成的學習風景</div>
     <div class="sec__rule"></div>
@@ -111,6 +298,11 @@
       <p class="rvl">Dacheng runs its own <strong>Dacheng Bilingual Network</strong> for English learning, alongside a tablet for every student, AI and digital literacy, a farm-to-table agriculture class, and a school-wide reading culture. Four corners of a Dacheng day:</p>
       <p class="zh rvl">大成自建「<strong>大成雙語網</strong>」推動英語學習，再加上生生用平板、AI 與數位素養、食農教育，以及全校閱讀風氣。以下是大成日常的四個角落：</p>
     </div>
+
+    <figure class="banner-figure rvl" style="margin-top:0;margin-bottom:34px;">
+      <img src="/schools/dches/photos/feature-bilingual-camp.jpg" alt="Students holding up character cards under a pink trumpet tree in bloom" loading="lazy">
+      <figcaption>Under the pink trumpet tree in full bloom, students of the <b>bilingual reading camp</b> spell out the school's name and what they came for: 國際教育 · 雙語閱讀營.<br>盛開的風鈴木下，雙語閱讀營的孩子舉牌拼出「大成國小 · 國際教育 · 雙語閱讀營」。</figcaption>
+    </figure>
 
     <div class="pillars">
       <article class="pillar rvl">
@@ -145,9 +337,50 @@
   </div>
 </section>
 
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec__no">V.</div>
+    <h2 class="sec__title">Around Campus</h2>
+    <div class="sec__title-zh">校園巡禮 · 大成的一草一木</div>
+    <div class="sec__rule"></div>
+
+    <div class="about__body" style="margin-top:0;margin-bottom:30px;max-width:820px;">
+      <p class="rvl">A city school with room to breathe: a full running track, an old banyan, mosaic art on the lamp posts and even on the washbasins — and a sky-bridge that says our name in English.</p>
+      <p class="zh rvl">市區裡難得寬敞的校園：一圈完整的跑道、一棵老榕樹、燈柱和洗手台都是馬賽克藝術——還有一座用英文寫著校名的空橋。</p>
+    </div>
+
+    <div class="gal">
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-skybridge.jpg" alt="A green sky-bridge painted with the words Da Cheng Elementary School" loading="lazy">
+        <figcaption><span class="en">Our name in English, up on the sky-bridge</span><span class="zh">空橋上的英文校名，孩子每天走過</span></figcaption>
+      </figure>
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-track.jpg" alt="The running track and field seen from above" loading="lazy">
+        <figcaption><span class="en">The track and field, seen from above</span><span class="zh">從高處看操場與跑道</span></figcaption>
+      </figure>
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-mosaic-lamps.jpg" alt="Mosaic-tiled lamp posts beside the colored running lanes" loading="lazy">
+        <figcaption><span class="en">Mosaic lamp posts by the colored lanes</span><span class="zh">馬賽克燈柱與彩色跑道</span></figcaption>
+      </figure>
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-banyan.jpg" alt="A large banyan tree in a corner of the campus" loading="lazy">
+        <figcaption><span class="en">The old banyan, shade for a whole class</span><span class="zh">校園角落的老榕樹，一整班都遮得下</span></figcaption>
+      </figure>
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-corridor.jpg" alt="A classroom corridor with display cases of student work" loading="lazy">
+        <figcaption><span class="en">Corridors that double as a gallery</span><span class="zh">走廊就是展場，貼滿孩子的作品</span></figcaption>
+      </figure>
+      <figure class="rvl">
+        <img src="/schools/dches/photos/campus-mosaic-basins.jpg" alt="Mosaic-tiled washbasins topped with carved wooden figures" loading="lazy">
+        <figcaption><span class="en">Even the washbasins are artwork</span><span class="zh">連洗手台都是藝術品，上頭站著木頭小人</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="sec__no">III.</div>
+    <div class="sec__no">VI.</div>
     <h2 class="sec__title">Lessons</h2>
     <div class="sec__title-zh">課程 · Word of the Day 六大主題</div>
     <div class="sec__rule"></div>
@@ -224,68 +457,102 @@
   </div>
 </section>
 
-<section style="background:var(--cream);">
+<section style="background:var(--cream-warm);">
   <div class="wrap">
-    <div class="sec__no">IV.</div>
-    <h2 class="sec__title">Latest News</h2>
-    <div class="sec__title-zh">最新訊息 · 來自大成的公告</div>
+    <div class="sec__no">VII.</div>
+    <h2 class="sec__title">School Calendar</h2>
+    <div class="sec__title-zh">115 學年度行事曆 · 上學期</div>
     <div class="sec__rule"></div>
 
-    <div class="news-grid">
-      <article class="nc rvl">
-        <div class="nc__date">2026 · 06 · 11</div>
-        <div class="nc__title">Changhua County school calendar for 2026–27 released</div>
-        <div class="nc__zh">轉知 · 彰化縣 115 學年度縣屬學校行事曆</div>
-        <div class="nc__org">教務主任 · Academic Affairs</div>
-      </article>
-      <article class="nc rvl">
-        <div class="nc__date">2026 · 06 · 10</div>
-        <div class="nc__title">National guidelines on AI use &amp; learning for schools</div>
-        <div class="nc__zh">高級中等以下學校人工智慧使用和學習指引</div>
-        <div class="nc__org">資訊組長 · Information Section</div>
-      </article>
-      <article class="nc rvl">
-        <div class="nc__date">2026 · 06 · 09</div>
-        <div class="nc__title">2026 Changhua Environmental Knowledge Contest</div>
-        <div class="nc__zh">115 年彰化縣環境知識競賽</div>
-        <div class="nc__org">衛生組長 · Health &amp; Hygiene</div>
-      </article>
-      <article class="nc rvl">
-        <div class="nc__date">2026 · 06 · 12</div>
-        <div class="nc__title">National Student Art Competition 2026–27 guidelines</div>
-        <div class="nc__zh">轉知 · 115 學年度全國學生美術比賽實施要點</div>
-        <div class="nc__org">訓育組長 · Activities Section</div>
-      </article>
+    <div class="about__body" style="margin-top:0;margin-bottom:26px;max-width:860px;">
+      <p class="rvl">The first semester of school year 115 (2026–27), month by month, in English and Chinese. <strong>English Week</strong> lands five times between September and January — marked in gold below.</p>
+      <p class="zh rvl">115 學年度上學期行事曆，逐月中英對照。其中<strong>英語週</strong>從九月到一月共安排五場，以金色標示。</p>
     </div>
 
-    <a class="sec__cta" href="/schools/dches/news/">All school news · 全部訊息 →</a>
-  </div>
-</section>
+    <div class="cal-key rvl">
+      <span><i class="k-eng"></i>English Week · 英語週</span>
+      <span><i class="k-hol"></i>Holiday · 放假</span>
+      <span><i class="k-exam"></i>Assessment · 評量</span>
+      <span><i class="k-evt"></i>Event · 活動</span>
+    </div>
 
-<section>
-  <div class="wrap">
-    <div class="contact rvl">
-      <h2 class="contact__title">Visit · Contact</h2>
-      <div class="contact__zh">來找我們 · 聯絡資訊</div>
-      <div class="contact__rule"></div>
-      <div class="contact__grid">
-        <div class="contact__row"><div class="contact__icon">📍</div><div>
-          <div class="contact__label">Address · 地址</div>
-          <div class="contact__value">No. 303, Ziqiang Rd.<br>Changhua City, Changhua County 500<br><span style="font-size:.8em;opacity:.85;">500 彰化市自強路 303 號</span></div>
-        </div></div>
-        <div class="contact__row"><div class="contact__icon">📞</div><div>
-          <div class="contact__label">Phone · 電話</div>
-          <div class="contact__value"><a href="tel:+886-4-7353457">+886 4 7353 457</a></div>
-        </div></div>
-        <div class="contact__row"><div class="contact__icon">🌐</div><div>
-          <div class="contact__label">Official Site · 官網</div>
-          <div class="contact__value"><a href="https://dches.chc.edu.tw/" target="_blank" rel="noopener">dches.chc.edu.tw</a></div>
-        </div></div>
-        <div class="contact__row"><div class="contact__icon">📘</div><div>
-          <div class="contact__label">Facebook · 臉書粉絲專頁</div>
-          <div class="contact__value"><a href="https://www.facebook.com/dches303/" target="_blank" rel="noopener">彰化大成國小 · Follow us</a></div>
-        </div></div>
+    <div class="cal">
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">August</span><span class="cmonth__zh">八月 · 2026</span></div>
+        <div class="crow"><div class="cdate">8 / 28</div><div class="cbody"><span class="en">Back-to-school day — dismissal at 12:00</span><span class="zh">全校返校日，12:00 放學</span></div></div>
+        <div class="crow"><div class="cdate">8 / 31</div><div class="cbody"><span class="en">First day of classes · Welcome events for Grade 1</span><span class="zh">開學並正式上課、小一迎新活動</span></div></div>
       </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">September</span><span class="cmonth__zh">九月 · 2026</span></div>
+        <div class="crow"><div class="cdate">9 / 1</div><div class="cbody"><span class="en">Angel Volunteer Service Team opens (through Oct 2)</span><span class="zh">愛心天使服務隊（10/2 止）</span></div></div>
+        <div class="crow"><div class="cdate">9 / 2</div><div class="cbody"><span class="en">After-school care classes begin</span><span class="zh">課後照顧班開始</span></div></div>
+        <div class="crow"><div class="cdate">9 / 7–11</div><div class="cbody"><span class="en">Awareness week: balanced meals, calcium, and wasting no food</span><span class="zh">均衡高鈣惜食教育宣導週</span></div></div>
+        <div class="crow"><div class="cdate">9 / 14</div><div class="cbody"><span class="en">After-school clubs begin</span><span class="zh">社團活動開始</span></div></div>
+        <div class="crow"><div class="cdate">9 / 15</div><div class="cbody"><span class="en">Family education talk (Grade 3)</span><span class="zh">家庭教育宣導（三年級）</span></div></div>
+        <div class="crow"><div class="cdate">9 / 18</div><div class="cbody"><span class="en">Emotions and relationships education (Grade 6)</span><span class="zh">情緒／情感教育（六年級）</span></div></div>
+        <div class="crow"><div class="cdate">9 / 19</div><div class="cbody"><span class="en">Parents' evening and parenting talk</span><span class="zh">班親會與親職講座</span></div></div>
+        <div class="crow"><div class="cdate">9 / 22</div><div class="cbody"><span class="en">Meet the staff · Teachers' Day appreciation</span><span class="zh">認識師長暨敬師活動</span></div></div>
+        <div class="crow crow--eng"><div class="cdate">9 / 23</div><div class="cbody"><span class="en">English Week — ICRT &amp; the SDGs, Theme 1</span><span class="zh">英語週：ICRT-SDGs 主題一</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">9 / 25</div><div class="cbody"><span class="en">Mid-Autumn Festival — one day off</span><span class="zh">中秋節放假一日</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">9 / 28</div><div class="cbody"><span class="en">Teachers' Day — one day off</span><span class="zh">教師節放假一日</span></div></div>
+      </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">October</span><span class="cmonth__zh">十月 · 2026</span></div>
+        <div class="crow"><div class="cdate">10 / 2</div><div class="cbody"><span class="en">"Life fighters" inspirational talk (Grade 5)</span><span class="zh">生命鬥士宣導（五年級）</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">10 / 9</div><div class="cbody"><span class="en">Substitute holiday</span><span class="zh">補假一日</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">10 / 10</div><div class="cbody"><span class="en">National Day — one day off</span><span class="zh">國慶日放假一日</span></div></div>
+        <div class="crow"><div class="cdate">10 / 12</div><div class="cbody"><span class="en">Anti-drug theater program (Grade 4)</span><span class="zh">反毒劇場（四年級）</span></div></div>
+        <div class="crow"><div class="cdate">10 / 13</div><div class="cbody"><span class="en">Outdoor learning trip, special-education classes</span><span class="zh">特教班戶外教育活動</span></div></div>
+        <div class="crow"><div class="cdate">10 / 23</div><div class="cbody"><span class="en">Family education and healthy-living talk (Grade 5)</span><span class="zh">家庭教育暨健康生活宣導（五年級）</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">10 / 25</div><div class="cbody"><span class="en">Taiwan Retrocession &amp; Guningtou Victory Memorial Day — one day off</span><span class="zh">臺灣光復暨金門古寧頭大捷紀念日放假一日</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">10 / 26</div><div class="cbody"><span class="en">Substitute holiday</span><span class="zh">補假一日</span></div></div>
+        <div class="crow crow--eng"><div class="cdate">10 / 28</div><div class="cbody"><span class="en">English Week — read-aloud contest</span><span class="zh">英語週：英語朗讀比賽</span></div></div>
+      </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">November</span><span class="cmonth__zh">十一月 · 2026</span></div>
+        <div class="crow crow--exam"><div class="cdate">11 / 5–6</div><div class="cbody"><span class="en">Midterm assessments</span><span class="zh">期中評量</span></div></div>
+        <div class="crow"><div class="cdate">11 / 7–8</div><div class="cbody"><span class="en">7th Taiwan Science Festival</span><span class="zh">第七屆臺灣科學節</span></div></div>
+        <div class="crow"><div class="cdate">11 / 9–13</div><div class="cbody"><span class="en">School language arts contest — written</span><span class="zh">校內語文競賽（手寫）</span></div></div>
+        <div class="crow"><div class="cdate">11 / 11</div><div class="cbody"><span class="en">Prevention of domestic violence and sexual assault (Grades 2 &amp; 4)</span><span class="zh">家暴與性侵害防治宣導（二、四年級）</span></div></div>
+        <div class="crow"><div class="cdate">11 / 14–15</div><div class="cbody"><span class="en">7th Taiwan Science Festival</span><span class="zh">第七屆臺灣科學節</span></div></div>
+        <div class="crow"><div class="cdate">11 / 17–18</div><div class="cbody"><span class="en">Home–school notebook check</span><span class="zh">聯絡簿抽查</span></div></div>
+        <div class="crow"><div class="cdate">11 / 19</div><div class="cbody"><span class="en">Road-safety talk (Grade 3)</span><span class="zh">三年級交通安全宣導</span></div></div>
+        <div class="crow crow--eng"><div class="cdate">11 / 25</div><div class="cbody"><span class="en">English Week — Cool English Quest, beginner level</span><span class="zh">英語週：Cool English Quest 酷英探險家—基礎</span></div></div>
+      </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">December</span><span class="cmonth__zh">十二月 · 2026</span></div>
+        <div class="crow"><div class="cdate">12 / 5</div><div class="cbody"><span class="en">School anniversary celebration (tentative)</span><span class="zh">校慶（暫定）</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">12 / 7</div><div class="cbody"><span class="en">Anniversary substitute holiday (tentative)</span><span class="zh">校慶補假一日（暫定）</span></div></div>
+        <div class="crow"><div class="cdate">12 / 7–11</div><div class="cbody"><span class="en">Special-education awareness week</span><span class="zh">特教宣導週－特教宣導活動</span></div></div>
+        <div class="crow"><div class="cdate">12 / 8–11</div><div class="cbody"><span class="en">School language arts contest — speaking</span><span class="zh">校內語文競賽（口說）</span></div></div>
+        <div class="crow"><div class="cdate">12 / 17</div><div class="cbody"><span class="en">Road-safety talk (Grade 5)</span><span class="zh">五年級交通安全宣導</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">12 / 25</div><div class="cbody"><span class="en">Constitution Day — one day off</span><span class="zh">行憲紀念日放假一日</span></div></div>
+        <div class="crow crow--eng"><div class="cdate">12 / 30</div><div class="cbody"><span class="en">English Week — Fun with Books, reading in English</span><span class="zh">英語週：Fun with Books 英語閱讀教學</span></div></div>
+      </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">January</span><span class="cmonth__zh">一月 · 2027</span></div>
+        <div class="crow crow--hol"><div class="cdate">1 / 1</div><div class="cbody"><span class="en">Founding Day of the Republic of China — one day off</span><span class="zh">中華民國開國紀念日放假一日</span></div></div>
+        <div class="crow"><div class="cdate">1 / 6</div><div class="cbody"><span class="en">Composition notebook check</span><span class="zh">作文簿抽查</span></div></div>
+        <div class="crow crow--exam"><div class="cdate">1 / 13–14</div><div class="cbody"><span class="en">Final assessments</span><span class="zh">期末評量</span></div></div>
+        <div class="crow"><div class="cdate">1 / 15</div><div class="cbody"><span class="en">Workbook check</span><span class="zh">習作抽查</span></div></div>
+        <div class="crow crow--eng"><div class="cdate">1 / 15</div><div class="cbody"><span class="en">English Week — Cool English picture books, Listen &amp; Read</span><span class="zh">英語週：酷英繪本 Listen &amp; Read</span></div></div>
+        <div class="crow"><div class="cdate">1 / 20</div><div class="cbody"><span class="en">Closing ceremony</span><span class="zh">休業式</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">1 / 21</div><div class="cbody"><span class="en">Winter vacation begins</span><span class="zh">寒假開始</span></div></div>
+      </div>
+      <div class="cmonth rvl">
+        <div class="cmonth__head"><span class="cmonth__en">February</span><span class="cmonth__zh">二月 · 2027 · 下學期</span></div>
+        <div class="crow"><div class="cdate">2 / 11</div><div class="cbody"><span class="en">Spring semester begins · after-school care resumes</span><span class="zh">開學正式上課、課後照顧班開始</span></div></div>
+        <div class="crow"><div class="cdate">2 / 21</div><div class="cbody"><span class="en">International Mother Language Day</span><span class="zh">世界母語日</span></div></div>
+        <div class="crow crow--hol"><div class="cdate">2 / 28</div><div class="cbody"><span class="en">Peace Memorial Day falls on a Sunday — substitute holiday on March 1</span><span class="zh">和平紀念日適逢星期日，於 3/1 補假一日</span></div></div>
+      </div>
+    </div>
+
+    <div class="cal-note rvl">
+      <p>Dates marked <em>tentative</em> may still change. For the official file and any later updates, please check the school's own website. 標示「暫定」的日期可能異動，最新版本請以學校官網公告為準。</p>
+      <a class="cal-dl" href="/schools/dches/files/dacheng-115-1-school-calendar.pdf" target="_blank" rel="noopener">
+        <span>Download the PDF<small>下載行事曆 PDF</small></span>
+        <span style="font-size:22px;">↓</span>
+      </a>
     </div>
   </div>
 </section>
