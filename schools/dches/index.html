@@ -47,11 +47,13 @@
 /* ===== Student portrait · 學生圖像 ===== */
 .portrait{display:grid;grid-template-columns:1fr;gap:18px;}
 @media (min-width:720px){ .portrait{ grid-template-columns:1fr 1fr;gap:22px; } }
-.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px;box-shadow:var(--shadow-sm);border-left:8px solid var(--blue-deep);transition:transform .2s, box-shadow .2s;}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s, box-shadow .2s;display:flex;flex-direction:column;}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.pcard:nth-child(2){border-left-color:var(--gold);}
-.pcard:nth-child(3){border-left-color:var(--red-deep);}
-.pcard:nth-child(4){border-left-color:var(--blue);}
+.pcard__img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+.pcard__in{flex:1;padding:26px 26px 30px;border-top:6px solid var(--blue-deep);}
+.pcard:nth-child(2) .pcard__in{border-top-color:var(--gold);}
+.pcard:nth-child(3) .pcard__in{border-top-color:var(--red-deep);}
+.pcard:nth-child(4) .pcard__in{border-top-color:var(--blue);}
 .pcard__no{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2.5px;color:var(--ink-soft);text-transform:uppercase;}
 .pcard__title{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:var(--blue-deep);line-height:1.2;margin-top:7px;}
 .pcard__title-zh{font-size:19px;color:var(--ink);font-weight:700;margin-top:7px;letter-spacing:2px;}
@@ -256,32 +258,44 @@
 
     <div class="portrait">
       <article class="pcard rvl">
-        <div class="pcard__no">Portrait 01</div>
-        <div class="pcard__title">Innovation &amp; Technology</div>
-        <div class="pcard__title-zh">創新科技</div>
-        <div class="pcard__body">Learn under your own steam, put technology to work, and be the kind of person who can solve a problem.
-          <span class="zh">自主學習、運用科技、具備解決問題的能力。</span></div>
+        <img class="pcard__img" src="/schools/dches/photos/pcard-innovation.jpg" alt="A student soldering a small circuit board in a maker classroom" loading="lazy">
+        <div class="pcard__in">
+          <div class="pcard__no">Portrait 01</div>
+          <div class="pcard__title">Innovation &amp; Technology</div>
+          <div class="pcard__title-zh">創新科技</div>
+          <div class="pcard__body">Learn under your own steam, put technology to work, and be the kind of person who can solve a problem.
+            <span class="zh">自主學習、運用科技、具備解決問題的能力。</span></div>
+        </div>
       </article>
       <article class="pcard rvl">
-        <div class="pcard__no">Portrait 02</div>
-        <div class="pcard__title">Health &amp; Self-Reliance</div>
-        <div class="pcard__title-zh">健康自主</div>
-        <div class="pcard__body">Eat well, move often, and grow up confident and happy.
-          <span class="zh">均衡飲食、規律運動、自信快樂。</span></div>
+        <img class="pcard__img" src="/schools/dches/photos/pcard-health.jpg" alt="A Dacheng footballer striking the ball on the school pitch" loading="lazy">
+        <div class="pcard__in">
+          <div class="pcard__no">Portrait 02</div>
+          <div class="pcard__title">Health &amp; Self-Reliance</div>
+          <div class="pcard__title-zh">健康自主</div>
+          <div class="pcard__body">Eat well, move often, and grow up confident and happy.
+            <span class="zh">均衡飲食、規律運動、自信快樂。</span></div>
+        </div>
       </article>
       <article class="pcard rvl">
-        <div class="pcard__no">Portrait 03</div>
-        <div class="pcard__title">Wisdom &amp; Humanities</div>
-        <div class="pcard__title-zh">智慧人文</div>
-        <div class="pcard__body">Care about the place you come from, know your own culture — and from there, grow the respect for other cultures that international understanding asks for.
-          <span class="zh">在地關懷、文化認同，並涵養尊重多元文化、國際理解的素養。</span></div>
+        <img class="pcard__img" src="/schools/dches/photos/pcard-wisdom.jpg" alt="A student writing characters with brush and ink at a calligraphy contest" loading="lazy">
+        <div class="pcard__in">
+          <div class="pcard__no">Portrait 03</div>
+          <div class="pcard__title">Wisdom &amp; Humanities</div>
+          <div class="pcard__title-zh">智慧人文</div>
+          <div class="pcard__body">Care about the place you come from, know your own culture — and from there, grow the respect for other cultures that international understanding asks for.
+            <span class="zh">在地關懷、文化認同，並涵養尊重多元文化、國際理解的素養。</span></div>
+        </div>
       </article>
       <article class="pcard rvl">
-        <div class="pcard__no">Portrait 04</div>
-        <div class="pcard__title">Character &amp; Kindness</div>
-        <div class="pcard__title-zh">品德友善</div>
-        <div class="pcard__body">Be thankful, put yourself in others' shoes, make room for difference, and share what you have.
-          <span class="zh">感恩惜福、關懷同理、尊重包容、互助分享。</span></div>
+        <img class="pcard__img" src="/schools/dches/photos/pcard-character.jpg" alt="A class reaching their hands into a circle together, seen from above" loading="lazy">
+        <div class="pcard__in">
+          <div class="pcard__no">Portrait 04</div>
+          <div class="pcard__title">Character &amp; Kindness</div>
+          <div class="pcard__title-zh">品德友善</div>
+          <div class="pcard__body">Be thankful, put yourself in others' shoes, make room for difference, and share what you have.
+            <span class="zh">感恩惜福、關懷同理、尊重包容、互助分享。</span></div>
+        </div>
       </article>
     </div>
   </div>
