@@ -96,6 +96,9 @@ section:last-of-type{border-bottom:none;}
 .hero--wave::after{height:64px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='w' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23c43a52'/%3E%3Cstop offset='.32' stop-color='%23e05c73'/%3E%3Cstop offset='.62' stop-color='%23f0b22e'/%3E%3Cstop offset='1' stop-color='%231d9678'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='%23ffffff' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52 L1440,90 L0,90 Z'/%3E%3Cpath fill='none' stroke='url(%23w)' stroke-width='7' d='M0,58 C220,92 470,18 720,40 C970,62 1230,96 1440,52'/%3E%3C/svg%3E") bottom/100% 100% no-repeat;z-index:1;}
 .hero--wave{padding-bottom:96px;}
 @media (min-width:720px){ .hero--wave::after{ height:92px; } .hero--wave{ padding-bottom:104px; } }
+.hero--page.hero--wave::after{height:46px;}
+.hero--page.hero--wave{padding-bottom:62px;}
+@media (min-width:720px){ .hero--page.hero--wave::after{ height:64px; } .hero--page.hero--wave{ padding-bottom:80px; } }
 .hero__inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;position:relative;z-index:2;}
 /* hero content rises in on load (banner pages) */
 @keyframes heroRise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
@@ -112,6 +115,12 @@ section:last-of-type{border-bottom:none;}
 .hero .h1-zh{font-size:clamp(17px,2.1vw,22px);font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-top:8px;font-family:'PingFang TC',sans-serif;}
 .hero--page h1{font-size:clamp(28px,4.4vw,44px);}
 .hero--page .h1-zh{font-size:clamp(15px,1.8vw,19px);}
+/* 內頁橫幅照片多為白色建築＋強光，加重字影撐可讀性（不加遮罩，見淑媛規則） */
+.hero--page[data-banner] h1,
+.hero--page[data-banner] .h1-zh,
+.hero--page[data-banner] .hero__tagline,
+.hero--page[data-banner] .hero__tagline .tagline-zh,
+.hero--page[data-banner] .hero__eyebrow{text-shadow:0 1px 3px rgba(0,0,0,.95), 0 2px 10px rgba(0,0,0,.88), 0 6px 34px rgba(0,0,0,.70);}
 .hero__tagline{margin-top:18px;font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#fff;line-height:1.55;max-width:620px;opacity:.96;}
 .hero__tagline .tagline-zh{display:block;font-style:normal;font-family:'PingFang TC',sans-serif;font-size:15px;margin-top:6px;color:rgba(255,255,255,.78);letter-spacing:.08em;}
 .hero__pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
