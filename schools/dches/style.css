@@ -103,6 +103,11 @@ section:last-of-type{border-bottom:none;}
 /* hero content rises in on load (banner pages) */
 @keyframes heroRise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
 .hero--photo .hero__logo{animation:heroRise .85s cubic-bezier(.2,.7,.2,1) both;}
+/* 站台共用 motion.css 的 .mo-hero > * 會加 filter:blur(6px)，而 heroRise 的
+   keyframes 不碰 filter，模糊會永遠解不開（只有開啟「減少動態」的裝置看不到
+   這個 bug）。這裡明確把 filter 鎖成 none。 */
+.hero--photo .hero__logo,
+.hero--photo .hero__inner > div{filter:none;}
 .hero--photo .hero__inner > div{animation:heroRise .95s .12s cubic-bezier(.2,.7,.2,1) both;}
 @media (prefers-reduced-motion:reduce){ .hero__bg{animation:none;} .hero--photo .hero__logo,.hero--photo .hero__inner>div{animation:none;} }
 @media (max-width:680px){ .hero__inner{ grid-template-columns:1fr;gap:18px; } }
