@@ -24,12 +24,12 @@
   if (!cfg) return;
 
   var ROUND_SIZE = 20;
-  var LEVELS = ['beginner', 'intermediate', 'advanced'];
+  var LEVELS = ['survival', 'beginner', 'intermediate', 'advanced'];
   var $ = function (id) { return document.getElementById(id); };
 
   var state = {
     view: 'study',
-    level: 'beginner',
+    level: 'survival',
     bank: null,
     filterType: 'all',
     query: '',

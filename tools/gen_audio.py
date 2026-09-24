@@ -33,7 +33,7 @@ def phrase_hash(zh: str) -> str:
 
 TERMS = pathlib.Path("culture/data/terms.json")        # School Culture vocabulary
 EXPLORE = pathlib.Path("explore/data/phrases.json")    # Explore travel phrases
-SURVIVAL = pathlib.Path("survival/data/survival.json") # Survival Mandarin
+SURVIVAL = pathlib.Path("fets/mandarin-challenge/data/survival.json")
 
 
 def load_phrases(data_dir: pathlib.Path):

@@ -6,7 +6,7 @@
  * changed phrase gets a new name and the old file simply falls out of use.
  * The 536 clips are deliberately NOT precached; they arrive as they are played.
  */
-var VERSION = 'v1';
+var VERSION = 'v2';
 var PREFIX = 'survival-shell-';
 var SHELL = 'survival-shell-' + VERSION;
 var AUDIO = 'mandarin-audio';           // unversioned: content-hashed filenames
@@ -17,7 +17,7 @@ var PRECACHE = [
   '/learn/audio-manifest.json',
   '/assets/css/learn.css',
   '/assets/js/learn-engine.js',
-  '/survival/data/survival.json',
+  '/fets/mandarin-challenge/data/survival.json',
   '/assets/logo/icon-192.png',
   '/assets/logo/icon-512.png',
 ];

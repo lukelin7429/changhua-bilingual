@@ -13,7 +13,7 @@ Only the <script id="data"> block is rewritten; the page itself is hand-edited.
 """
 import json, pathlib, re, sys
 
-BANKS = ("beginner", "intermediate", "advanced")
+BANKS = ("survival", "beginner", "intermediate", "advanced")
 DATA = pathlib.Path("fets/mandarin-challenge/data")
 PAGE = pathlib.Path("fets/mandarin-challenge/audio-check/index.html")
 MANIFEST = pathlib.Path("learn/audio-manifest.json")

@@ -87,10 +87,12 @@
     .mc-lvtab__name { display:block; font-family:var(--hub-serif); font-size:23px; color:var(--hub-ink); }
     .mc-lvtab__zh { display:block; font-size:18px; color:var(--hub-ink-soft); font-family:var(--hub-zh-font); margin-top:2px; }
     .mc-lvtab__n { display:block; font-size:16px; color:var(--hub-ink-faint); margin-top:4px; font-variant-numeric:tabular-nums; }
+    .mc-lvtab--s { border-left-color:#9aa8b5; }
     .mc-lvtab--b { border-left-color:#7cc4a1; }
     .mc-lvtab--i { border-left-color:#5fb3c4; }
     .mc-lvtab--a { border-left-color:#e89a3c; }
     .mc-lvtab.is-on { background:var(--hub-line-soft); border-color:var(--hub-primary); }
+    .mc-lvtab--s.is-on { border-left-color:#4a5a6a; }
     .mc-lvtab--b.is-on { border-left-color:#2f7d5c; }
     .mc-lvtab--i.is-on { border-left-color:#1f6e6e; }
     .mc-lvtab--a.is-on { border-left-color:#8a4b2a; }
@@ -291,7 +293,7 @@
     .mc-result-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:26px 0 6px; }
 
     @media (min-width:720px) {
-      .mc-levelbar { grid-template-columns:repeat(3,1fr); }
+      .mc-levelbar { grid-template-columns:repeat(2,1fr); }
       .mc-lede { font-size:23px; }
       .mc-lede-zh { font-size:20px; }
       .st__q, .mc-q__text { font-size:23px; }
@@ -390,7 +392,12 @@
 
   <!-- level tabs -->
   <div class="mc-levelbar" role="tablist" aria-label="Level">
-    <button type="button" class="mc-lvtab mc-lvtab--b is-on" data-level="beginner" role="tab" aria-selected="true">
+    <button type="button" class="mc-lvtab mc-lvtab--s is-on" data-level="survival" role="tab" aria-selected="true">
+      <span class="mc-lvtab__name">🧭 Survival</span>
+      <span class="mc-lvtab__zh">生存中文</span>
+      <span class="mc-lvtab__n" data-count="survival">…</span>
+    </button>
+    <button type="button" class="mc-lvtab mc-lvtab--b" data-level="beginner" role="tab" aria-selected="false">
       <span class="mc-lvtab__name">🌱 Beginner</span>
       <span class="mc-lvtab__zh">入門</span>
       <span class="mc-lvtab__n" data-count="beginner">…</span>
@@ -458,6 +465,7 @@
       <label for="mcLevelSelect">Your level · 你的級別</label>
       <select id="mcLevelSelect">
         <option value="">— choose one · 請選擇 —</option>
+        <option value="survival">🧭 Survival · 生存中文</option>
         <option value="beginner">🌱 Beginner · 入門</option>
         <option value="intermediate">🏫 Intermediate · 進階</option>
         <option value="advanced">📜 Advanced · 高階</option>
@@ -573,6 +581,6 @@ window.__MC_CONFIG__ = {
 <!-- ?v= is a cache buster: assets are served with max-age=14400, so without a
      changed URL a returning visitor keeps the old engine for up to 4 hours.
      Bump this whenever fet-bank-quiz.js changes. -->
-<script src="/assets/js/fet-bank-quiz.js?v=50bb5ec4"></script>
+<script src="/assets/js/fet-bank-quiz.js?v=cf281027"></script>
 </body>
 </html>
