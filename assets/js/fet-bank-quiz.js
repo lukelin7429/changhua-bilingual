@@ -125,6 +125,25 @@
     });
   }
 
+  // Teachers asked to be able to slow the longer sentences down. The clips are
+  // already voiced at -10%, so this is on top of that; the browser keeps the
+  // pitch, so a slowed clip still sounds like speech rather than a drawl.
+  var RATES = [0.6, 0.8, 1];
+  var rate = 1;
+  try {
+    var savedRate = parseFloat(localStorage.getItem('chb-audio-rate'));
+    if (RATES.indexOf(savedRate) !== -1) rate = savedRate;
+  } catch (e) { /* private mode — just use normal speed */ }
+
+  function setRate(r) {
+    rate = r;
+    try { localStorage.setItem('chb-audio-rate', String(r)); } catch (e) {}
+    if (current) current.playbackRate = r;
+    document.querySelectorAll('[data-rate]').forEach(function (b) {
+      b.classList.toggle('is-on', parseFloat(b.dataset.rate) === r);
+    });
+  }
+
   function speak(text, btn) {
     if (!text) return;
     stopAll();
@@ -132,6 +151,8 @@
     if (!hash || !cfg.audioBase) { speakFallback(text, btn); return; }
 
     var a = new Audio(cfg.audioBase + hash + '.mp3');
+    a.playbackRate = rate;
+    if ('preservesPitch' in a) a.preservesPitch = true;
     current = a;
     if (btn) btn.classList.add('is-speaking');
     var failed = false;
@@ -743,6 +764,11 @@
     scrollToTop('mcQuizModeScreen');
   });
   $('mcBackToStudy').addEventListener('click', function () { setView('study'); });
+
+  document.querySelectorAll('[data-rate]').forEach(function (b) {
+    b.addEventListener('click', function () { setRate(parseFloat(b.dataset.rate)); });
+  });
+  setRate(rate);   // reflect the remembered choice in the buttons
 
   // Jump straight to the monthly submission fields — this is what most
   // teachers actually came here to find, buried two panels down otherwise.

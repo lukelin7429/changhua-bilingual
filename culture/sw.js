@@ -7,7 +7,7 @@
  * Audio is shared with the Mandarin app (same clips, same cache), so it is
  * fetched on play rather than precached.
  */
-var VERSION = 'v2';
+var VERSION = 'v3';
 var PREFIX = 'culture-shell-';
 var SHELL = 'culture-shell-' + VERSION;
 var AUDIO = 'mandarin-audio';           // unversioned: content-hashed filenames

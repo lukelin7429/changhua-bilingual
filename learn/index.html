@@ -25,6 +25,18 @@
        Installed to a home screen it is an app, where a website menu and footer
        would only be in the way — so they are dropped in standalone mode and the
        app's own bar takes over the sticky slot. */
+    .lx-speed {
+      display: flex; align-items: center; gap: 6px; justify-content: flex-end;
+      margin: 0 0 10px;
+    }
+    .lx-speed__label { font-size: 13px; color: #6b7874; margin-right: 2px; }
+    .lx-speed button {
+      appearance: none; cursor: pointer; font: inherit; font-size: 13px;
+      padding: 5px 10px; border-radius: 999px; border: 1px solid #dfe4e1;
+      background: #fff; color: #4a5854; font-variant-numeric: tabular-nums;
+    }
+    .lx-speed button.on { background: #1f6e6e; border-color: #1f6e6e; color: #fff; }
+    .lx-speed button:focus-visible { outline: 2px solid #1f6e6e; outline-offset: 2px; }
     .lx-top { position: static; }
     @media (display-mode: standalone) {
       .hub-nav, .hub-footer { display: none !important; }
@@ -140,6 +152,12 @@
     <span class="lx-num" id="lxCount">1 / 12</span>
   </div>
   <p class="lx-roundtitle" id="lxRoundTitle"></p>
+  <div class="lx-speed" role="group" aria-label="Playback speed 播放速度">
+    <span class="lx-speed__label">🔊 Speed</span>
+    <button type="button" data-rate="0.6">0.6×</button>
+    <button type="button" data-rate="0.8">0.8×</button>
+    <button type="button" data-rate="1" class="on">1×</button>
+  </div>
   <div class="lx-card" id="lxCard"></div>
   <button type="button" class="lx-next hidden" id="lxNext">Continue · 繼續</button>
 </section>
@@ -202,7 +220,7 @@ window.__LEARN_CONFIG__ = {
   ]
 };
 </script>
-<script src="/assets/js/learn-engine.js?v=1ff135c1"></script>
+<script src="/assets/js/learn-engine.js?v=6983ab47"></script>
 <script>
 // Install hint: Android gets a real button, iOS gets instructions (Safari has
 // no beforeinstallprompt).

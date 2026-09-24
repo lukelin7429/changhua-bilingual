@@ -6,7 +6,7 @@
  * changed phrase gets a new name and the old file simply falls out of use.
  * The 536 clips are deliberately NOT precached; they arrive as they are played.
  */
-var VERSION = 'v2';
+var VERSION = 'v3';
 var PREFIX = 'mandarin-shell-';
 var SHELL = 'mandarin-shell-' + VERSION;
 var AUDIO = 'mandarin-audio';           // unversioned: content-hashed filenames

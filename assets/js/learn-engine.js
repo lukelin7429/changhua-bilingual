@@ -82,6 +82,25 @@
     speechSynthesis.speak(u);
   }
 
+  // Teachers asked to be able to slow the longer sentences down. The clips are
+  // already voiced at -10%, so this is on top of that; the browser keeps the
+  // pitch, so a slowed clip still sounds like speech rather than a drawl.
+  var RATES = [0.6, 0.8, 1];
+  var rate = 1;
+  try {
+    var saved = parseFloat(localStorage.getItem('chb-audio-rate'));
+    if (RATES.indexOf(saved) !== -1) rate = saved;
+  } catch (e) { /* private mode — just use normal speed */ }
+
+  function setRate(r) {
+    rate = r;
+    try { localStorage.setItem('chb-audio-rate', String(r)); } catch (e) {}
+    if (current) current.playbackRate = r;
+    document.querySelectorAll('[data-rate]').forEach(function (b) {
+      b.classList.toggle('on', parseFloat(b.dataset.rate) === r);
+    });
+  }
+
   function play(zh, btn) {
     if (!manifest) return;
     var h = manifest[zh];
@@ -89,6 +108,8 @@
     if (current) { current.pause(); current = null; }
     document.querySelectorAll('.lx-say.on').forEach(function (b) { b.classList.remove('on'); });
     var a = new Audio(cfg.audioBase + h + '.mp3');
+    a.playbackRate = rate;
+    if ('preservesPitch' in a) a.preservesPitch = true;
     current = a;
     if (btn) btn.classList.add('on');
     a.onended = function () { if (btn) btn.classList.remove('on'); };
@@ -150,6 +171,33 @@
    * work as stem-based or listening items. Short vocabulary items support the
    * character-recognition drills, which is what the bank could not test before.
    */
+  // Some items ask which Chinese phrase fits, so the options ARE the phrases.
+  // The 'stem' exercise prints q.zh above them, which hands over the answer —
+  // either because the phrase is the right option outright, or because the
+  // right option sits inside a longer phrase. Same rule as the Mandarin
+  // Challenge page; keep the two in step if either changes.
+  function hanzi(s) {
+    return (String(s == null ? '' : s).match(/[一-鿿]+/g) || []).join('');
+  }
+
+  function phraseGivesAnswer(q) {
+    if (!q.zh || !q.opts) return false;
+    var correct = q.opts[q.ok] || '';
+    if (correct.indexOf(q.zh) !== -1) {
+      return !q.opts.some(function (o, i) {
+        return i !== q.ok && o.indexOf(q.zh) !== -1;
+      });
+    }
+    var ck = hanzi(correct);
+    if (ck.length >= 2 && q.zh.indexOf(ck) !== -1) {
+      return !q.opts.some(function (o, i) {
+        var c = hanzi(o);
+        return i !== q.ok && c.length >= 2 && q.zh.indexOf(c) !== -1;
+      });
+    }
+    return false;
+  }
+
   function chooseExercise(q) {
     // Situational-judgment questions carry no single phrase to hear or read —
     // there is nothing to drill but the question itself.
@@ -190,7 +238,7 @@
     var head, opts, correctIdx;
 
     if (kind === 'stem') {
-      head = (q.zh
+      head = (q.zh && !phraseGivesAnswer(q)
         ? '<div class="lx-zh">' + esc(q.zh) + ' ' + sayBtn(q.zh) +
           '<span class="lx-py">' + esc(q.py) + '</span></div>'
         : '') +
@@ -450,6 +498,11 @@
   });
 
   $('lxNext').addEventListener('click', next);
+
+  document.querySelectorAll('[data-rate]').forEach(function (b) {
+    b.addEventListener('click', function () { setRate(parseFloat(b.dataset.rate)); });
+  });
+  setRate(rate);   // reflect the remembered choice in the buttons
   $('lxQuit').addEventListener('click', function () { paintHome(); show('lxHome'); });
   $('lxAgain').addEventListener('click', function () { start(run.level); });
   $('lxHomeBtn').addEventListener('click', function () { paintHome(); show('lxHome'); });
