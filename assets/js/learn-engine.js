@@ -209,6 +209,13 @@
     // the stem ("Listen. What is being said?") gives the answer away next to
     // the very characters it is asking about.
     if (q.type === 'listen') kinds = ['listen', 'audio2zh'];
+    // audio2zh / meaning2zh / pinyin2zh are all answered with bare characters,
+    // so an app for teachers who cannot read yet names the kinds it can use and
+    // the rest drop out. Applied last, after the per-type rules above.
+    if (cfg.exerciseKinds) {
+      var ok = kinds.filter(function (k) { return cfg.exerciseKinds.indexOf(k) !== -1; });
+      kinds = ok.length ? ok : ['stem'];
+    }
     // Otherwise the first encounter is the plain stem question, so the learner
     // meets the phrase with its meaning before being drilled on the characters.
     if (!s.n) return kinds[0];

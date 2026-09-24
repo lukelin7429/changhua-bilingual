@@ -33,6 +33,7 @@ def phrase_hash(zh: str) -> str:
 
 TERMS = pathlib.Path("culture/data/terms.json")        # School Culture vocabulary
 EXPLORE = pathlib.Path("explore/data/phrases.json")    # Explore travel phrases
+SURVIVAL = pathlib.Path("survival/data/survival.json") # Survival Mandarin
 
 
 def load_phrases(data_dir: pathlib.Path):
@@ -63,6 +64,10 @@ def load_phrases(data_dir: pathlib.Path):
     if EXPLORE.exists():
         for p in json.loads(EXPLORE.read_text(encoding="utf-8"))["phrases"]:
             add(p["zh"], p["py"], "explore:" + p["chapter"])
+
+    if SURVIVAL.exists():
+        for q in json.loads(SURVIVAL.read_text(encoding="utf-8"))["questions"]:
+            add(q["zh"], q["py"], q["id"])
 
     return [seen[h] for h in order]
 

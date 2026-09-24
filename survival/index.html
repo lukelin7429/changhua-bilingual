@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="canonical" href="https://changhua-bilingual.org/survival/">
+  <title>Survival Mandarin · Changhua Bilingual Hub</title>
+  <meta name="description" content="A short daily Mandarin practice app for foreign English teachers in Changhua — campus vocabulary, listening and character recognition, with real audio.">
+  <link rel="manifest" href="/survival/manifest.json">
+  <meta name="theme-color" content="#1f6e6e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mandarin">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/icon-180.png">
+  <meta property="og:title" content="Survival Mandarin · Changhua Bilingual Hub">
+  <meta property="og:image" content="/assets/logo/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/hub.css?v=050bbde4">
+  <link rel="stylesheet" href="/assets/css/learn.css?v=6805b57e">
+  <style>
+    /* In a browser tab this is a page on the Hub and carries the site nav.
+       Installed to a home screen it is an app, where a website menu and footer
+       would only be in the way — so they are dropped in standalone mode and the
+       app's own bar takes over the sticky slot. */
+    .lx-speed {
+      display: flex; align-items: center; gap: 6px; justify-content: flex-end;
+      margin: 0 0 10px;
+    }
+    .lx-speed__label { font-size: 13px; color: #6b7874; margin-right: 2px; }
+    .lx-speed button {
+      appearance: none; cursor: pointer; font: inherit; font-size: 13px;
+      padding: 5px 10px; border-radius: 999px; border: 1px solid #dfe4e1;
+      background: #fff; color: #4a5854; font-variant-numeric: tabular-nums;
+    }
+    .lx-speed button.on { background: #1f6e6e; border-color: #1f6e6e; color: #fff; }
+    .lx-speed button:focus-visible { outline: 2px solid #1f6e6e; outline-offset: 2px; }
+    .lx-top { position: static; }
+    @media (display-mode: standalone) {
+      .hub-nav, .hub-footer { display: none !important; }
+      .lx-top { position: sticky; top: 0; }
+    }
+  </style>
+</head>
+<body>
+<header class="hub-nav" role="banner">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/">
+      <img class="hub-brand-icon" src="/assets/logo/icon-180.png" alt="" width="40" height="40">
+      <span class="hub-brand-wordmark">
+        Changhua Bilingual Hub
+        <small>彰化雙語資源網</small>
+      </span>
+    </a>
+    <button class="hub-nav-toggle" id="hubNavToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="Primary">
+      <ul class="hub-nav-list"><li><a class="hub-nav-link" href="/">Home</a></li><li><a class="hub-nav-link" href="/schools/">Schools</a></li><li><a class="hub-nav-link" href="/fets/" aria-current="page">FETs</a></li><li><a class="hub-nav-link" href="/word-of-the-day/">Word of the Day</a></li><li><a class="hub-nav-link" href="/resources/">Resources</a></li><li><a class="hub-nav-link" href="/partners/">Partners</a></li></ul>
+    </nav>
+  </div>
+</header>
+<div class="hub-mob-drawer" id="hubMobDrawer" aria-hidden="true">
+  <nav><a href="/">Home</a><a href="/schools/">Schools</a><a href="/fets/" class="active">FETs</a><a href="/word-of-the-day/">Word of the Day</a><a href="/resources/">Resources</a><a href="/partners/">Partners</a></nav>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('hubNavToggle');
+  var dr=document.getElementById('hubMobDrawer');
+  if(!btn||!dr)return;
+  function open(){dr.classList.add('is-open');dr.setAttribute('aria-hidden','false');btn.classList.add('is-open');btn.setAttribute('aria-expanded','true');document.body.classList.add('mob-nav-open');}
+  function close(){dr.classList.remove('is-open');dr.setAttribute('aria-hidden','true');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('mob-nav-open');}
+  btn.addEventListener('click',function(e){e.stopPropagation();dr.classList.contains('is-open')?close():open();});
+  document.addEventListener('click',function(e){if(dr.classList.contains('is-open')&&!dr.contains(e.target)&&!btn.contains(e.target))close();});
+})();
+</script>
+
+<header class="lx-top">
+  <a class="lx-brand" href="/fets/">
+    <img src="/assets/logo/icon-180.png" alt="" width="34" height="34">
+    <span>Survival<small>生存中文</small></span>
+  </a>
+  <div class="lx-meters">
+    <span class="lx-meter" title="Day streak 連續天數">🔥 <b id="lxStreak">0</b></span>
+    <span class="lx-meter" title="XP">⭐ <b id="lxXp">0</b></span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="lxHome">
+  <p class="lx-eyebrow">Foreign English Teachers</p>
+  <h1>Before you can read a word.</h1>
+  <p class="lx-lede">The phrases that get you through your first weeks — ordering food, finding the toilet, saying you did not catch that. You listen and you choose what it means. You are never asked to read a character.</p>
+  <p class="lx-lede-zh">剛到台灣前幾週最需要的那些話——點餐、問廁所、說「我沒聽懂」。只靠聽和意思作答，<b>完全不需要認字</b>。每回合 8 題，答錯的明天再出現。</p>
+
+  <p class="lx-loading" id="lxLoading">Loading the banks… 題庫載入中…</p>
+
+  <div class="lx-levels">
+    <button type="button" class="lx-lv lx-lv--b" id="lxCard-survival">
+      <span class="lx-lv-emoji">🧭</span>
+      <span class="lx-lv-body">
+        <span class="lx-lv-name">Survival <b>生存中文</b></span>
+        <span class="lx-lv-desc">Hello, thank you, how much, no chili, say that again — by ear.</span>
+        <span class="lx-bar"><i></i></span>
+        <span class="lx-lvstat">loading…</span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- ============ ROUND ============ -->
+<section id="lxRound" class="hidden">
+  <div class="lx-roundbar">
+    <button type="button" id="lxQuit" aria-label="Leave this round 離開">✕</button>
+    <span class="lx-track"><i id="lxProgress"></i></span>
+    <span class="lx-num" id="lxCount">1 / 12</span>
+  </div>
+  <p class="lx-roundtitle" id="lxRoundTitle"></p>
+  <div class="lx-speed" role="group" aria-label="Playback speed 播放速度">
+    <span class="lx-speed__label">🔊 Speed</span>
+    <button type="button" data-rate="0.6">0.6×</button>
+    <button type="button" data-rate="0.8">0.8×</button>
+    <button type="button" data-rate="1" class="on">1×</button>
+  </div>
+  <div class="lx-card" id="lxCard"></div>
+  <button type="button" class="lx-next hidden" id="lxNext">Continue · 繼續</button>
+</section>
+
+<!-- ============ DONE ============ -->
+<section id="lxDone" class="hidden">
+  <h2 id="lxDoneHead"></h2>
+  <div class="lx-tally">
+    <span><b id="lxDoneScore">0 / 12</b>correct 答對</span>
+    <span><b id="lxDoneStreak">0</b>day streak 連續</span>
+    <span><b id="lxDoneXp">0</b>XP</span>
+  </div>
+  <div id="lxDoneWrong"></div>
+  <div class="lx-done-actions">
+    <button type="button" class="lx-btn" id="lxAgain">Another round · 再一回合</button>
+    <button type="button" class="lx-btn lx-btn--ghost" id="lxHomeBtn">Done for now · 先到這裡</button>
+  </div>
+</section>
+
+</main>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div>
+      <h4>About</h4>
+      <p>A directory of bilingual school sites, foreign-teacher profiles, and classroom resources across Changhua County.</p>
+      <p class="hub-zh">由人師教育協會（My Culture Connect）與彰化縣國際教育暨英語教育資源中心共同維護。</p>
+    </div>
+    <div>
+      <h4>Producing Units</h4>
+      <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC<br>英語教育資源中心</a>
+      <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect<br>人師教育協會</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a>
+    </div>
+    <div>
+      <h4>Our Sites</h4>
+      <a class="hub-footer-card" href="https://taiwan-bilingual.org/" target="_blank" rel="noopener">
+        <span class="hub-footer-card__ico">🌏</span>
+        <span class="hub-footer-card__tx">
+          <span class="hub-footer-card__t">Taiwan Bilingual Hub</span>
+          <span class="hub-footer-card__zh">臺灣雙語資源網</span>
+        </span>
+        <span class="hub-footer-card__arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.__LEARN_CONFIG__ = {
+  storeKey: 'chb-survival-v1',
+  sessionSize: 8,
+  audioBase: '/learn/audio/',
+  manifestUrl: '/learn/audio-manifest.json',
+  // Everything else answers with bare characters. This app is for teachers who
+  // cannot read yet, so it uses only the two kinds that never ask them to.
+  exerciseKinds: ['stem', 'listen'],
+  banks: [
+    { key: 'survival', url: '/survival/data/survival.json' }
+  ]
+};
+</script>
+<script src="/assets/js/learn-engine.js?v=6983ab47"></script>
+<script>
+// Install hint: Android gets a real button, iOS gets instructions (Safari has
+// no beforeinstallprompt).
+(function () {
+  var box = document.getElementById('lxInstall');
+  var how = document.getElementById('lxInstallHow');
+  var btn = document.getElementById('lxInstallBtn');
+  var standalone = window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone;
+  if (standalone) return;
+
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    how.textContent = 'One tap and it lives on your home screen, offline. 一鍵加到主畫面，離線可用。';
+    btn.classList.remove('hidden');
+    box.classList.remove('hidden');
+  });
+  btn.addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred = null;
+    box.classList.add('hidden');
+  });
+
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    how.innerHTML = 'Tap the Share button <b>⎋</b> below, then <b>Add to Home Screen</b>.'
+      + '<span class="zh">按下方的分享鍵，選「加入主畫面」，就能離線使用。</span>';
+    box.classList.remove('hidden');
+  }
+})();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/survival/sw.js').catch(function () {});
+  });
+}
+</script>
+<script src="/assets/js/hub.js?v=ce2e63dc"></script>
+</body>
+</html>
