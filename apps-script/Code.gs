@@ -50,6 +50,7 @@ const FET_HEADERS = [
   'teacher_name',   // 姓名
   'level',          // 中文：beginner / intermediate / advanced
                     // 文化：year-1 / returning
+                    // 中文最低階：survival
   'round',          // M1–M9（對應九次外師會議）
   'score',          // 得分
   'total',          // 總題數
@@ -61,11 +62,17 @@ const FET_HEADERS = [
 // key = 網頁送來的 data.quiz。level 是這個 key 的預設級別，
 // 網頁若另外送 data.level 就以網頁送的為準。
 const FET_QUIZZES = {
-  // 中文挑戰
+  // 中文挑戰。網頁一律送 'fet-mandarin-challenge'，級別放在 data.level ——
+  // 分頁由「哪一份作業」決定，級別由 level 欄位記錄，所以新增級別不必動這裡、
+  // 也不必重新部署。每個級別各有一個 key 的舊做法，讓每新增一級就有一個月的
+  // 成績掉進不存在的試算表，直到有人想起要重新部署為止。
+  'fet-mandarin-challenge':    { sheetName: 'mandarin', level: '' },
+
+  // 舊的 key 保留，讓任何還在送它們的地方仍然寫得進正確分頁
+  'fet-mandarin-survival':     { sheetName: 'mandarin', level: 'survival' },
   'fet-mandarin-beginner':     { sheetName: 'mandarin', level: 'beginner' },
   'fet-mandarin-intermediate': { sheetName: 'mandarin', level: 'intermediate' },
   'fet-mandarin-advanced':     { sheetName: 'mandarin', level: 'advanced' },
-  'fet-mandarin-challenge':    { sheetName: 'mandarin', level: '' },  // 2026-07 以前的舊版單一題組
 
   // 校園文化
   'fet-culture-year-1':        { sheetName: 'culture',  level: 'year-1' },
@@ -164,12 +171,13 @@ function _smokeTest() {
 
 /**
  * FET 兩個分頁的手動驗證 —— 在編輯器選這個函式按「執行」，跑完後應該看到：
- *   mandarin 分頁：三筆 FET-000（beginner / intermediate / advanced）
+ *   mandarin 分頁：四筆 FET-000（survival / beginner / intermediate / advanced）
  *   culture  分頁：兩筆 FET-000（year-1 / returning）
  * 確認完把這五列刪掉即可。
  */
 function _smokeTestFetSheets() {
   const cases = [
+    { quiz: 'fet-mandarin-survival',     level: 'survival' },
     { quiz: 'fet-mandarin-beginner',     level: 'beginner' },
     { quiz: 'fet-mandarin-intermediate', level: 'intermediate' },
     { quiz: 'fet-mandarin-advanced',     level: 'advanced' },

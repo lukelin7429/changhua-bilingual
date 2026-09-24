@@ -656,8 +656,14 @@
     fetch(cfg.webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      // One routing key for all four levels, with the level in its own field.
+      // The sheet is chosen by the assignment, not by the level — that is what
+      // the level COLUMN is for — so adding a level needs no Apps Script change
+      // and no redeploy. Sending fet-mandarin-<level> instead made every new
+      // level fall through to a missing spreadsheet until someone redeployed,
+      // which is how both the per-level and the culture keys broke.
       body: JSON.stringify({
-        quiz: 'fet-mandarin-' + state.level,
+        quiz: 'fet-mandarin-challenge',
         level: state.level,
         teacher_id: state.teacherId,
         teacher_name: state.teacherName,
