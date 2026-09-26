@@ -91,6 +91,37 @@
   .lnav a.center{background:var(--brick-deep);color:#fff;border-color:var(--brick-deep);}
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}.rvl.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rvl{opacity:1!important;transform:none!important;}}
+/* ── FOOTER — three columns + Connect buttons (Dacheng template, Lushang palette) ── */
+.site-footer{background:#3a1008;color:#fff;padding:54px 0 34px;margin:0;border:0;text-align:left;font-size:16px;line-height:1.6;}
+.site-footer__inner{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:34px;}
+@media (min-width:760px){ .site-footer__inner{grid-template-columns:1.4fr 1fr 1fr;gap:40px;} }
+.site-footer__brand{display:flex;align-items:flex-start;gap:16px;}
+.site-footer__brand img{width:68px;height:68px;flex-shrink:0;border-radius:50%;background:#fff;object-fit:contain;padding:5px;box-shadow:0 6px 16px -4px rgba(0,0,0,.35);}
+.site-footer__brand h4{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.12;margin:0;}
+.site-footer__brand .name-zh{font-family:'PingFang TC','Microsoft JhengHei',sans-serif;font-size:16px;color:rgba(255,255,255,.82);font-weight:500;margin-top:5px;}
+.site-footer__addr{margin-top:12px;font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.76);line-height:1.7;}
+.site-footer__col h5{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C8963A;margin:0 0 16px;}
+.site-footer__col ul{list-style:none;padding:0;margin:0;}
+.site-footer__col li{margin-bottom:10px;font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.88);}
+.site-footer__col a{color:rgba(255,255,255,.88);text-decoration:none;border-bottom:1px dashed rgba(200,150,58,.6);transition:color .2s;}
+.site-footer__col a:hover{color:#F5EDD4;}
+.ft-ctas{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
+.ft-ctas .cta-btn{background:#F5EDD4;color:#8E1A12;border:0;border-bottom:none;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;text-decoration:none;box-shadow:0 6px 16px -8px rgba(0,0,0,.45);transition:transform .18s,background .18s,color .18s,box-shadow .18s;}
+.ft-ctas .cta-btn:hover{background:#fff;color:#8E1A12;transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(0,0,0,.55);}
+.ft-ctas .cta-btn__ico{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#fff;color:#C0281C;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;transition:background .18s;}
+.ft-ctas .cta-btn:hover .cta-btn__ico{background:#F5EDD4;}
+.ft-ctas .cta-btn__tx{flex:1;min-width:0;}
+.ft-ctas .cta-btn__t{display:block;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;line-height:1.15;}
+.ft-ctas .cta-btn__zh{display:block;font-family:'PingFang TC','Microsoft JhengHei',sans-serif;font-size:14.5px;margin-top:3px;font-weight:500;opacity:.94;}
+.ft-ctas .cta-btn__arrow{font-size:20px;font-weight:700;flex-shrink:0;transition:transform .18s;}
+.ft-ctas .cta-btn:hover .cta-btn__arrow{transform:translate(3px,-3px);}
+.ft-ctas .cta-btn--archive{background:rgba(255,255,255,.07);border:1.5px dashed rgba(255,255,255,.38);color:#fff;box-shadow:none;}
+.ft-ctas .cta-btn--archive .cta-btn__ico{background:rgba(255,255,255,.14);color:#fff;}
+.ft-ctas .cta-btn--archive .cta-btn__zh{color:rgba(255,255,255,.75);opacity:1;}
+.ft-ctas .cta-btn--archive .cta-btn__arrow{color:rgba(255,255,255,.85);}
+.ft-ctas .cta-btn--archive:hover{background:rgba(255,255,255,.16);color:#fff;transform:translateY(-4px);box-shadow:none;}
+.ft-ctas .cta-btn--archive:hover .cta-btn__ico{background:rgba(255,255,255,.24);}
+.site-footer__bottom{max-width:1140px;margin:36px auto 0;padding:18px 24px 0;border-top:1px solid rgba(255,255,255,.16);font-size:15px;color:rgba(255,255,255,.62);text-align:center;line-height:1.7;}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
@@ -246,9 +277,31 @@
   if(enCol&&zhCol){var selEn=null,matched=0;function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}function fx(el,cls){el.classList.add(cls);setTimeout(function(){el.classList.remove(cls);},520);}function tile(w,zh){var b=document.createElement('button');b.type='button';b.className='gtile'+(zh?' zh':'');b.textContent=zh?w.zh:w.en;b.dataset.k=w.en;if(!zh)b.dataset.say=w.en;return b;}function build(){enCol.innerHTML='';zhCol.innerHTML='';selEn=null;matched=0;sc.textContent='0';done.classList.remove('show');shuffle(WORDS).forEach(function(w){var b=tile(w,false);b.addEventListener('click',function(){pickEn(b);});enCol.appendChild(b);});shuffle(WORDS).forEach(function(w){var b=tile(w,true);b.addEventListener('click',function(){pickZh(b);});zhCol.appendChild(b);});}function pickEn(b){if(b.classList.contains('done'))return;if(selEn)selEn.classList.remove('sel');selEn=b;b.classList.add('sel');say(b.dataset.say);}function pickZh(b){if(b.classList.contains('done')||!selEn)return;if(b.dataset.k===selEn.dataset.k){var e=selEn;e.classList.remove('sel');e.classList.add('done');b.classList.add('done');fx(e,'pop');fx(b,'pop');confetti(false);selEn=null;matched++;sc.textContent=matched;if(matched===WORDS.length){done.classList.add('show');confetti(true);}}else{fx(b,'shake');fx(selEn,'shake');}}if(reset)reset.addEventListener('click',build);build();}})();
 </script>
 
-<footer style="background:var(--brick-deep);color:rgba(255,255,255,.78);text-align:center;padding:40px 0 34px;font-size:18px;margin-top:56px;">
-  <div class="wrap"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:8px;">Lushang Elementary · 彰化縣芳苑鄉路上國民小學</div>
-  <p>528 彰化縣芳苑鄉路上村新上路 12 號 · Tel (04) 898-2014</p></div>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="/schools/lushang/logo.png" alt="Lushang Elementary School crest">
+      <div>
+        <h4>Lushang Elementary School</h4>
+        <div class="name-zh">彰化縣芳苑鄉路上國民小學</div>
+        <div class="site-footer__addr">No. 12, Xinshang Rd., Lushang Vil.<br>Fangyuan Twp., Changhua 528 · Taiwan<br>Tel · +886 4 898 2014</div>
+      </div>
+    </div>
+    <div class="site-footer__col"><h5>This Site</h5><ul>
+      <li><a href="/schools/lushang/">Home</a></li>
+      <li><a href="/schools/lushang/principal/">Principal</a></li>
+      <li><a href="/schools/lushang/lessons/">Lessons</a></li>
+      <li><a href="/schools/lushang/news/">News</a></li>
+    </ul></div>
+    <div class="site-footer__col"><h5>Connect</h5>
+      <div class="ft-ctas">
+        <a class="cta-btn" href="https://lses.chc.edu.tw/" target="_blank" rel="noopener"><span class="cta-btn__ico">&#127760;</span><span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">路上國小中文官網</span></span><span class="cta-btn__arrow">&#8599;</span></a>
+        <a class="cta-btn" href="https://www.facebook.com/profile.php?id=100057069595613" target="_blank" rel="noopener"><span class="cta-btn__ico">f</span><span class="cta-btn__tx"><span class="cta-btn__t">Facebook</span><span class="cta-btn__zh">路上國小粉絲專頁</span></span><span class="cta-btn__arrow">&#8599;</span></a>
+        <a class="cta-btn cta-btn--archive" href="https://lushang.mycultureconnect.org/home" target="_blank" rel="noopener"><span class="cta-btn__ico">&#128451;&#65039;</span><span class="cta-btn__tx"><span class="cta-btn__t">Previous Website</span><span class="cta-btn__zh">舊版雙語網站</span></span><span class="cta-btn__arrow">&#8599;</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__bottom">© 2026 彰化縣芳苑鄉路上國民小學 · Lushang Elementary School</div>
 </footer>
 <div class="cb-credit" style="background:#241208;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#e6c179;text-decoration:none;border-bottom:1px dashed rgba(230,193,121,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
 <script defer src="/assets/js/motion.js?v=b0540bb5"></script>
