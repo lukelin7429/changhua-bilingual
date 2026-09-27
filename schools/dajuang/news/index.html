@@ -48,16 +48,24 @@
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
   @media (max-width:600px){ .subnav__sep{display:none;} }
 
-  /* === Source banner === */
-  .source-banner{
-    background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;
-    padding:18px 22px;display:flex;gap:14px;align-items:center;
-    font-size:17px;color:var(--ink-soft);
-  }
-  @media (min-width:720px){ .source-banner{ font-size:19px; } }
-  .source-banner b{color:var(--blue-deep);}
-  .source-banner .icon{font-size:24px;flex-shrink:0;}
-
+  /* === Featured (latest story) === */
+  .feat{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin:0 0 40px;color:inherit;text-decoration:none;transition:transform .22s,box-shadow .22s;}
+  @media (min-width:900px){ .feat{ grid-template-columns:1.15fr 1fr; } }
+  .feat:hover{transform:translateY(-3px);box-shadow:0 26px 50px -18px rgba(28,77,126,.36);}
+  .feat.cat--disaster{border-left-color:var(--green);}
+  .feat__img{aspect-ratio:4/3;overflow:hidden;background:var(--blue-soft);}
+  @media (min-width:900px){ .feat__img{ aspect-ratio:auto;min-height:100%; } }
+  .feat__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .feat__b{padding:28px 26px 32px;display:flex;flex-direction:column;justify-content:center;}
+  @media (min-width:720px){ .feat__b{ padding:34px 36px 38px; } }
+  .feat.cat--disaster .nc__cat{color:var(--green-deep);}
+  .feat__date{font-size:16px;color:var(--orange-deep);font-weight:700;margin-top:4px;letter-spacing:.04em;}
+  .feat__t{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,40px);font-weight:700;color:var(--blue-deep);line-height:1.15;margin-top:10px;}
+  .feat__t-zh{font-size:20px;color:var(--ink);font-weight:600;margin-top:8px;line-height:1.45;}
+  .feat__p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .feat__p{ font-size:19px; } }
+  .feat__p strong{color:var(--blue-deep);}
+  .feat__cta{margin-top:18px;font-weight:700;color:var(--orange-deep);font-size:18px;}
   /* === News grid === */
   .news-grid{display:grid;grid-template-columns:1fr;gap:24px;}
   @media (min-width:760px){ .news-grid{ grid-template-columns:repeat(2,1fr);gap:28px; } }
@@ -79,11 +87,8 @@
   .nc.cat--music{border-left-color:var(--blue);}
   .nc.cat--field{border-left-color:var(--orange);}
 
-  .nc__hero{
-    height:100px;display:flex;align-items:center;justify-content:center;
-    font-size:56px;background:var(--blue-soft);
-  }
-  @media (min-width:720px){ .nc__hero{ height:120px;font-size:68px; } }
+  .nc__hero{aspect-ratio:16/10;overflow:hidden;background:var(--blue-soft);}
+  .nc__hero img{width:100%;height:100%;object-fit:cover;display:block;}
   .nc.cat--disaster .nc__hero{background:var(--green-soft);}
   .nc.cat--bilingual .nc__hero{background:var(--orange-soft);}
   .nc.cat--festival .nc__hero{background:var(--pink-soft);}
@@ -169,15 +174,21 @@
     <div class="sec__title-zh">校園新聞 · 一年裡的大事與日常</div>
     <div class="sec__rule"></div>
 
-    <div class="source-banner">
-      <div class="icon">📰</div>
-      <div>
-        Stories below are summarized from <b>Dajuang Elementary's bilingual community page</b>. Read the full bilingual versions on the school's own community site: <a href="https://changhua-bilingual.org/schools/dajuang/" target="_blank" rel="noopener" style="color:var(--blue-deep);">changhua-bilingual.org/schools/dajuang/</a> ↗<br>
-        <span style="font-size:.92em;">以下新聞節選自大莊國小社區頁，完整英中對照原文請點上方連結。</span>
-      </div>
-    </div>
 
-    <div class="cat-key" style="margin-top:32px;">
+    <!-- Featured: latest story -->
+    <a class="feat cat--disaster" href="little-disaster-scouts/">
+      <div class="feat__img"><img src="little-disaster-scouts/photo.jpg" alt="Students from Dingfan and Dajuang Elementary in a big group photo at Dajuang's school gate."></div>
+      <div class="feat__b">
+        <div class="nc__cat">🛡️ DISASTER · 防災 · LATEST</div>
+        <div class="feat__date">September 24, 2026 · 115/9/24</div>
+        <h3 class="feat__t">Little Disaster Scouts Come to Dajuang</h3>
+        <div class="feat__t-zh">首場「小小校園防災士」遊學體驗</div>
+        <p class="feat__p">Nearly 140 sixth graders from <strong>Dingfan Elementary</strong> joined Dajuang students for ten challenge stations, black-rice pizza, and earthquake science, learning how to <strong>help, rely on, and protect themselves</strong>.</p>
+        <div class="feat__cta">Read the full story →</div>
+      </div>
+    </a>
+
+    <div class="cat-key">
       <span class="k1">🛡️ Disaster · 防災</span>
       <span class="k2">🌐 English Life · 校園英語</span>
       <span class="k3">🎉 Festival · 節慶</span>
@@ -189,7 +200,7 @@
 
       <!-- Marathon Carnival Press Conference -->
       <a class="nc cat--music" href="marathon-press-conference/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🥁</div>
+        <div class="nc__hero"><img src="marathon-press-conference/photo.jpg" alt="Purple Whirlwind: Eco-Drumming Band Opens the Marathon Carnival" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🥁 MUSIC · 音樂</div>
           <div class="nc__date">June 1, 2026 · 115/6/1</div>
@@ -201,7 +212,7 @@
 
       <!-- Graduation Triathlon: Road Run -->
       <a class="nc cat--field" href="graduation-triathlon-running/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🏃</div>
+        <div class="nc__hero"><img src="graduation-triathlon-running/photo.jpg" alt="Dajuang's Here · Youth on the Run" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🏃 GRADUATION TRIATHLON · 畢業三鐵</div>
           <div class="nc__date">May 20, 2026 · 115/5/20</div>
@@ -213,7 +224,7 @@
 
       <!-- 1 EduSports -->
       <a class="nc cat--bilingual" href="edusports-smart-alliance/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">📡</div>
+        <div class="nc__hero"><img src="edusports-smart-alliance/photo.jpg" alt="Jump to the Future: Joining EduSports Smart Alliance" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🌐 BILINGUAL · 國際接軌</div>
           <div class="nc__date">March 27, 2026 · 115/3/27</div>
@@ -225,7 +236,7 @@
 
       <!-- 2 Disaster Camp -->
       <a class="nc cat--disaster" href="dayeh-disaster-camp/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🌪️</div>
+        <div class="nc__hero"><img src="dayeh-disaster-camp/photo.jpg" alt="Fun with Science: Disaster Prevention Camp" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🛡️ DISASTER · 防災</div>
           <div class="nc__date">March 16, 2026 · 115/3/16</div>
@@ -237,7 +248,7 @@
 
       <!-- 3 Winter Camp -->
       <a class="nc cat--bilingual" href="ching-cheng-bilingual-camp/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🧪</div>
+        <div class="nc__hero"><img src="ching-cheng-bilingual-camp/photo.jpg" alt="Sparks of Science: Bilingual Winter Camp with Ching Cheng High" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🌐 BILINGUAL · 雙語</div>
           <div class="nc__date">February 2–4, 2026 · 115/2/2–4</div>
@@ -249,7 +260,7 @@
 
       <!-- 4 Singing Contest -->
       <a class="nc cat--festival" href="first-singing-contest/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🎤</div>
+        <div class="nc__hero"><img src="first-singing-contest/photo.jpg" alt="Sing with Courage: Our First Singing Contest" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
           <div class="nc__date">January 19, 2026 · 115/1/19</div>
@@ -261,7 +272,7 @@
 
       <!-- 5 Earth Oven Day -->
       <a class="nc cat--festival" href="earth-oven-day/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🔥</div>
+        <div class="nc__hero"><img src="earth-oven-day/photo.jpg" alt="Fun Earth Oven Day: &quot;Others take tests, we roast chickens!&quot;" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
           <div class="nc__date">January 12, 2026 · 115/1/12</div>
@@ -273,7 +284,7 @@
 
       <!-- 6 Teacher Taylor -->
       <a class="nc cat--bilingual" href="teacher-taylor-visit/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🌍</div>
+        <div class="nc__hero"><img src="teacher-taylor-visit/photo.jpg" alt="Teacher Taylor Visits: A &quot;Disaster Prevention Professional&quot; for a Day" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🌐 BILINGUAL · 雙語</div>
           <div class="nc__date">January 12, 2026 · 115/1/12</div>
@@ -285,7 +296,7 @@
 
       <!-- 7 Graduation Trip -->
       <a class="nc cat--field" href="graduation-trip-taipei/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🚄</div>
+        <div class="nc__hero"><img src="graduation-trip-taipei/photo.jpg" alt="Graduation Trip to Taipei" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">✈️ FIELD TRIP · 戶外</div>
           <div class="nc__date">2025 · 六甲畢業旅行</div>
@@ -297,7 +308,7 @@
 
       <!-- 8 Future Jobs -->
       <a class="nc cat--field" href="future-jobs-datong/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🎯</div>
+        <div class="nc__hero"><img src="future-jobs-datong/photo.jpg" alt="Fun with Future Jobs at Datong Junior High" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">✈️ FIELD TRIP · 職涯</div>
           <div class="nc__date">April 8, 2025 · 114/4/8</div>
@@ -309,19 +320,19 @@
 
       <!-- 9 3Q Superstars -->
       <a class="nc cat--character" href="children-day-3q/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">⭐</div>
+        <div class="nc__hero"><img src="children-day-3q/photo.jpg" alt="Celebrating Our 3Q Superstars" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">💛 CHARACTER · 品格</div>
           <div class="nc__date">April 2, 2025 · 114/4/2</div>
           <h3 class="nc__title">Celebrating Our 3Q Superstars</h3>
           <div class="nc__title-zh">兒童節 · 3Q 小超人表揚</div>
-          <p class="nc__excerpt">Children's Day with a twist — Dajuang celebrates <strong>AQ (Adversity), EQ (Emotional), and MQ (Moral)</strong>. Recognising kids who bounce back, manage feelings, and treat others with kindness.</p>
+          <p class="nc__excerpt">Children's Day with a twist — Dajuang celebrates <strong>AQ (Adversity), EQ (Emotional), and MQ (Moral)</strong>. Recognizing kids who bounce back, manage feelings, and treat others with kindness.</p>
         </div>
       </a>
 
       <!-- 10 Online Safety -->
       <a class="nc cat--disaster" href="online-safety-class/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🛡️</div>
+        <div class="nc__hero"><img src="online-safety-class/photo.jpg" alt="Helping Kids Stay Safe — Online and In Life" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🛡️ SAFETY · 安全</div>
           <div class="nc__date">February 19, 2025 · 114/2/19</div>
@@ -333,7 +344,7 @@
 
       <!-- 11 Eco-Drumming Band -->
       <a class="nc cat--music" href="eco-drumming-band/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🥁</div>
+        <div class="nc__hero"><img src="eco-drumming-band/photo.jpg" alt="The Eco-Drumming Band Rocks!" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🥁 MUSIC · 環保打擊樂團</div>
           <div class="nc__date">2024 · 自 2003 至今</div>
@@ -345,7 +356,7 @@
 
       <!-- 12 Five-Element Tangyuan -->
       <a class="nc cat--festival" href="five-element-tangyuan/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🍡</div>
+        <div class="nc__hero"><img src="five-element-tangyuan/photo.jpg" alt="Five-Element Tangyuan for Safety" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
           <div class="nc__date">December 2024 · 113/12 冬至</div>
@@ -357,7 +368,7 @@
 
       <!-- 13 Kiln Baking -->
       <a class="nc cat--festival" href="kiln-baking-january/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🍠</div>
+        <div class="nc__hero"><img src="kiln-baking-january/photo.jpg" alt="A Fun Kiln Baking Day" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
           <div class="nc__date">January 2024 · 113/1</div>
@@ -369,7 +380,7 @@
 
       <!-- 14 Cai-Jie Dad -->
       <a class="nc cat--character" href="cai-jie-dad-talk/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">🎤</div>
+        <div class="nc__hero"><img src="cai-jie-dad-talk/photo.jpg" alt="&quot;Dad Cai-Jie&quot; Parent Talk" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">💛 PARENT ED · 親職教育</div>
           <div class="nc__date">November 2023 · 112/11</div>
@@ -381,7 +392,7 @@
 
       <!-- 15 Respect Elders -->
       <a class="nc cat--character" href="respect-for-elders/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">👵</div>
+        <div class="nc__hero"><img src="respect-for-elders/photo.jpg" alt="Showing Love to Our Elders" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">💛 LIFE ED · 生命教育</div>
           <div class="nc__date">December 2023 · 112/12</div>
@@ -393,7 +404,7 @@
 
       <!-- 16 Teachers' Day -->
       <a class="nc cat--festival" href="teachers-day-thanks/" style="text-decoration:none;color:inherit;">
-        <div class="nc__hero">💐</div>
+        <div class="nc__hero"><img src="teachers-day-thanks/photo.jpg" alt="Happy Teachers' Day at Dajuang" loading="lazy"></div>
         <div class="nc__body">
           <div class="nc__cat">🎉 FESTIVAL · 節慶</div>
           <div class="nc__date">September 2023 · 112/9</div>
