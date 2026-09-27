@@ -172,27 +172,10 @@
   @media (max-width:880px){.gal-grid{grid-template-columns:repeat(2,1fr);gap:16px;}}
   @media (max-width:480px){.gal-grid{gap:12px;}.gal-fig figcaption{padding:10px 12px 12px;}.gal-fig .en{font-size:19px;}.gal-fig .zh{font-size:15px;}}
 
-  /* ── VISIT ── */
-  .visit{background:var(--brick-deep);color:#fff;padding:80px 0;}
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
-  .visit h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;line-height:1.15;margin-bottom:6px;}
-  .visit h2 small{display:block;font-family:'PingFang TC',sans-serif;font-size:22px;font-weight:500;color:rgba(255,255,255,.75);margin-top:8px;}
-  .visit p{font-size:19.8px;color:rgba(255,255,255,.85);margin-top:20px;line-height:1.75;}
-  .visit p.zh{font-family:'PingFang TC',sans-serif;margin-top:14px;font-size:18.7px;}
-  .contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:28px 30px;backdrop-filter:blur(8px);}
-  .contact dl{display:grid;gap:18px;}
-  .contact dt{font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:4px;}
-  .contact dd{font-size:20.4px;color:#fff;font-family:'PingFang TC',sans-serif;line-height:1.55;}
-  .contact dd a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;}
-  .contact dd a:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
-
-  /* ── FOOTER ── */
-
   /* ── MOBILE ── */
   @media (max-width:880px){
     section{padding:64px 0;}
     .about-grid{grid-template-columns:1fr;gap:36px;}
-    .visit-grid{grid-template-columns:1fr;gap:30px;}
   }
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
@@ -245,6 +228,13 @@
 .site-footer__brand h4{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.12;margin:0;}
 .site-footer__brand .name-zh{font-family:'PingFang TC','Microsoft JhengHei',sans-serif;font-size:16px;color:rgba(255,255,255,.82);font-weight:500;margin-top:5px;}
 .site-footer__addr{margin-top:12px;font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.76);line-height:1.7;}
+.site-footer__addr .zh{display:block;font-family:'PingFang TC','Microsoft JhengHei',sans-serif;color:rgba(255,255,255,.86);margin-bottom:2px;}
+.site-footer__tel{display:block;margin-top:8px;color:rgba(255,255,255,.86);}
+.site-footer__tel i{font-style:normal;margin:0 8px;color:rgba(255,255,255,.45);}
+.site-footer__tel{white-space:nowrap;}
+@media (max-width:520px){ .site-footer__brand{flex-direction:column;gap:14px;} }
+.site-footer__addr a{color:#F5EDD4;text-decoration:none;border-bottom:1px dashed rgba(200,150,58,.6);}
+.site-footer__col li .zh{font-family:'PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;color:rgba(255,255,255,.6);margin-left:10px;}
 .site-footer__col h5{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C8963A;margin:0 0 16px;}
 .site-footer__col ul{list-style:none;padding:0;margin:0;}
 .site-footer__col li{margin-bottom:10px;font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.88);}
@@ -482,41 +472,6 @@
 </section>
 
 
-<!-- ── VISIT ── -->
-<section class="visit" id="visit">
-  <div class="wrap">
-    <div class="visit-grid">
-      <div>
-        <h2>Come Visit
-          <small>歡迎蒞臨路上</small>
-        </h2>
-        <p>We welcome educators, parents, and friends to visit our village school at the southern tip of Fangyuan Township — where children learn to explore, make, read, and live smart, in two languages.</p>
-        <p class="zh">歡迎來到芳苑鄉最南端的路上國小，這裡是孩子用雙語學習探索、手作、閱讀與智慧生活的地方。無論您是教育工作者、家長，或路過的朋友，路上的門永遠為您開著。</p>
-      </div>
-
-      <div class="contact">
-        <dl>
-          <div>
-            <dt>Address · 地址</dt>
-            <dd>528 彰化縣芳苑鄉路上村新上路 12 號<br>
-            No. 12, Xinshang Rd., Lushang Vil., Fangyuan Twp., Changhua County 528, Taiwan</dd>
-          </div>
-          <div>
-            <dt>Phone · 電話</dt>
-            <dd><a href="tel:+88648982014">(04) 898-2014</a></dd>
-          </div>
-          <div>
-            <dt>Fax · 傳真</dt>
-            <dd>(04) 898-1101</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ── FOOTER ── -->
 <script>
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -541,14 +496,14 @@
       <div>
         <h4>Lushang Elementary School</h4>
         <div class="name-zh">彰化縣芳苑鄉路上國民小學</div>
-        <div class="site-footer__addr">No. 12, Xinshang Rd., Lushang Vil.<br>Fangyuan Twp., Changhua 528 · Taiwan<br>Tel · +886 4 898 2014</div>
+        <div class="site-footer__addr"><span class="zh">528 彰化縣芳苑鄉路上村新上路 12 號</span>No. 12, Xinshang Rd., Lushang Vil.,<br>Fangyuan Twp., Changhua 528, Taiwan<span class="site-footer__tel">Tel <a href="tel:+88648982014">(04) 898-2014</a><i aria-hidden="true">·</i>Fax (04) 898-1101</span></div>
       </div>
     </div>
     <div class="site-footer__col"><h5>This Site</h5><ul>
-      <li><a href="/schools/lushang/">Home</a></li>
-      <li><a href="/schools/lushang/principal/">Principal</a></li>
-      <li><a href="/schools/lushang/lessons/">Lessons</a></li>
-      <li><a href="/schools/lushang/news/">News</a></li>
+      <li><a href="/schools/lushang/">Home</a><span class="zh">首頁</span></li>
+      <li><a href="/schools/lushang/principal/">Principal</a><span class="zh">校長室</span></li>
+      <li><a href="/schools/lushang/lessons/">Lessons</a><span class="zh">雙語課程</span></li>
+      <li><a href="/schools/lushang/news/">News</a><span class="zh">校園消息</span></li>
     </ul></div>
     <div class="site-footer__col"><h5>Connect</h5>
       <div class="ft-ctas">
