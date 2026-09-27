@@ -259,14 +259,35 @@
   .closing .sec__title{color:#fff;}
   .closing .lead{color:#e9efe6;margin:0 auto;}
   .closing .sec__rule{margin-left:auto;margin-right:auto;}
-  .vote-note{display:inline-block;margin-top:28px;background:#fff;color:var(--banyan-deep);font-weight:800;font-size:21px;padding:14px 28px;border-radius:99px;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);}
-  @media (min-width:720px){ .vote-note{ font-size:24px; } }
   .sources{margin-top:36px;text-align:left;background:rgba(255,255,255,.08);border-radius:16px;padding:20px 22px;font-size:17px;line-height:1.7;color:#dfe8dc;}
   @media (min-width:720px){ .sources{ font-size:18px; } }
   .sources b{color:#f4e3c4;}
 
   footer{text-align:center;padding:36px 24px;font-size:17px;color:var(--ink-soft);}
   footer a{color:var(--banyan-deep);}
+
+  /* ===== Survey CTAs ===== */
+  .banner__cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:18px;font-weight:700;color:#fff;text-decoration:none;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.85);background:rgba(20,50,38,.35);text-shadow:none;transition:background .2s,color .2s,transform .2s;}
+  .banner__cta:hover{background:#fff;color:var(--banyan-deep);transform:translateY(-2px);}
+  @media (min-width:720px){ .banner__cta{ font-size:20px; } }
+  .jump a.jump__form{background:var(--pu);color:#fff;}
+  .jump a.jump__form:hover{background:var(--pu-deep);}
+  .fab{position:fixed;left:16px;right:84px;bottom:16px;z-index:60;display:flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--pu);color:#fff;text-decoration:none;font-size:19px;font-weight:800;padding:14px 20px;border-radius:99px;
+    box-shadow:0 14px 34px -10px rgba(132,58,38,.65);transform:translateY(140%);opacity:0;transition:transform .45s cubic-bezier(.3,1.3,.5,1),opacity .3s,background .2s;}
+  .fab.show{transform:none;opacity:1;}
+  .fab:hover{background:var(--pu-deep);}
+  .fab .arr{transition:transform .2s;}
+  .fab:hover .arr{transform:translateX(4px);}
+  @media (min-width:720px){ .fab{ left:auto;right:96px;bottom:24px;font-size:20px;padding:15px 28px; } }
+  .survey-btn{display:inline-flex;align-items:center;gap:12px;margin-top:28px;background:#fff;color:var(--pu-deep);font-weight:800;font-size:23px;
+    padding:18px 36px;border-radius:99px;text-decoration:none;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);transition:transform .2s,box-shadow .2s;animation:nudge 2.6s ease-in-out infinite;}
+  .survey-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 40px -12px rgba(0,0,0,.55);animation:none;}
+  @media (min-width:720px){ .survey-btn{ font-size:26px; } }
+  @keyframes nudge{0%,100%{transform:none;}50%{transform:translateY(-4px);}}
+  .survey-hint{margin-top:14px;font-size:17px;color:#dfe8dc;}
+  @media (min-width:720px){ .survey-hint{ font-size:19px; } }
+  @media (prefers-reduced-motion:reduce){ .survey-btn{animation:none;} .fab{transition:opacity .2s;} }
 
   /* ===== Lightbox ===== */
   .lb{position:fixed;inset:0;z-index:100;background:rgba(12,18,14,.92);display:none;align-items:center;justify-content:center;padding:20px;flex-direction:column;gap:14px;}
@@ -291,6 +312,7 @@
     <div class="banner__brand">南州國小 · 校內意見徵詢</div>
     <h1><span class="nw">操場跑道：</span><br><span class="nw">改建 PU</span><span class="vs">or</span><span class="nw">維持草地？</span></h1>
     <p class="banner__sub">教育部補助 606 萬元已核定。填寫意見調查之前，請先花十分鐘看完這一頁——照片、數字、兩個選項的得與失，都在這裡。</p>
+    <a class="banner__cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfyCRv9z7Ks38h4bJI5WrhvcUS4XI5IWiF7QwJsV5xWOjztSw/viewform" target="_blank" rel="noopener">已經看過了？直接填寫意見調查 ↗</a>
   </div>
 </header>
 
@@ -305,6 +327,7 @@
     <a href="#options">兩案比較</a>
     <a href="#cost">成本</a>
     <a href="#faq">常見疑問</a>
+    <a class="jump__form" href="https://docs.google.com/forms/d/e/1FAIpQLSfyCRv9z7Ks38h4bJI5WrhvcUS4XI5IWiF7QwJsV5xWOjztSw/viewform" target="_blank" rel="noopener">✍ 填寫問卷</a>
   </div>
 </nav>
 
@@ -643,7 +666,7 @@
       <details class="rvl"><summary>多找人來維護草地，不就好了？</summary><div class="ans">草地要長好，需要固定澆水、割草、補植、修機具。這些工作要避開上課時間，只能在早上 7 點前或下午 4 點後進行，正是教職員上下班的時段；縣府目前也沒有補助學校環境維護的人力與預算。學校已經植草、多次建置灑水設備，113 年也建置了自動澆灌系統，但割草、補植與機具維修仍然需要人手，草地在旱季依舊枯黃。</div></details>
       <details class="rvl"><summary>PU 跑道常見嗎？</summary><div class="ans">常見。依體育署資料，全台約有 1,500 多所學校使用 PU 跑道，是四種常見材質中最普遍的一種。</div></details>
       <details class="rvl"><summary>夏天 PU 跑道會不會很燙？</summary><div class="ans">烈日直射時，PU 表面溫度確實比草地高，也可能有橡膠氣味，這是 PU 常被提出的缺點。南州跑道沿線有不少老樹遮蔭，實際情形可以參考附近學校的 PU 跑道。</div></details>
-      <details class="rvl"><summary>意見調查怎麼進行？什麼時候截止？</summary><div class="ans">調查方式與時間，<strong>由學校另行通知</strong>。因為 10 月 12 日設計監造就要上網，調查會在這之前完成。</div></details>
+      <details class="rvl"><summary>意見調查怎麼填？什麼時候截止？</summary><div class="ans">請點<a href="https://docs.google.com/forms/d/e/1FAIpQLSfyCRv9z7Ks38h4bJI5WrhvcUS4XI5IWiF7QwJsV5xWOjztSw/viewform" target="_blank" rel="noopener" style="color:var(--pu-deep);font-weight:700">這裡填寫學校的意見調查</a>（需以 Google 帳號登入）。截止時間請留意學校通知；因為 10 月 12 日設計監造就要上網，調查會在這之前完成。</div></details>
     </div>
   </div>
 </section>
@@ -654,7 +677,8 @@
     <h2 class="sec__title">謝謝您看到最後</h2>
     <div class="sec__rule"></div>
     <p class="lead">不論您支持哪一個選項，都是出於對南州、對孩子的在乎。請帶著這些資訊，填寫學校的意見調查。</p>
-    <div class="vote-note">🗳 意見調查的方式與時間，請留意學校通知</div>
+    <a class="survey-btn" id="surveyMain" href="https://docs.google.com/forms/d/e/1FAIpQLSfyCRv9z7Ks38h4bJI5WrhvcUS4XI5IWiF7QwJsV5xWOjztSw/viewform" target="_blank" rel="noopener">🗳 填寫意見調查 <span aria-hidden="true">→</span></a>
+    <p class="survey-hint">問卷由學校製作，需以 Google 帳號登入後填寫；截止時間請留意學校通知。</p>
     <div class="sources">
       <b>資料來源</b><br>
       ・教育部 115 年 9 月 18 日臺教授國部字第1156602279G號：115 年度南州國小修(整)建與新建運動場地及購置體育器材設備，核定經費 6,060,000 元<br>
@@ -666,6 +690,8 @@
 </section>
 
 <footer>© 彰化縣溪州鄉南州國民小學 · 本頁為校內意見徵詢之臨時說明頁 · <a href="../">回南州首頁</a></footer>
+
+<a class="fab" id="fab" href="https://docs.google.com/forms/d/e/1FAIpQLSfyCRv9z7Ks38h4bJI5WrhvcUS4XI5IWiF7QwJsV5xWOjztSw/viewform" target="_blank" rel="noopener" aria-label="填寫意見調查（另開新視窗）">🗳 填寫意見調查 <span class="arr" aria-hidden="true">→</span></a>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="放大照片"><button type="button" aria-label="關閉">×</button><img alt=""><p></p></div>
 
@@ -738,6 +764,12 @@
     if(e.target===lb||e.target.closest('.lb button'))close();
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+
+  /* floating survey button: show after the key facts, hide when the closing CTA is on screen */
+  var fab=document.getElementById('fab'),facts=document.getElementById('facts'),mainCta=document.getElementById('surveyMain'),endVis=false;
+  function fabUpdate(){var past=facts.getBoundingClientRect().bottom<0;fab.classList.toggle('show',past&&!endVis);}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en){endVis=en[0].isIntersecting;fabUpdate();},{threshold:.1}).observe(mainCta);}
+  window.addEventListener('scroll',fabUpdate,{passive:true});fabUpdate();
 
   /* jump-nav highlight */
   var links=[].slice.call(document.querySelectorAll('.jump a')),map={};
