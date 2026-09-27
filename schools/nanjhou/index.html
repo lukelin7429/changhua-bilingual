@@ -13,9 +13,9 @@
 <meta property="og:description" content="A 70-year sugar-heritage school under a 100-year banyan · 七十年糖廠血統，一棵百年寬榕守望">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://changhua-bilingual.org/schools/nanjhou/photos/kuanrong-hero.jpg">
-<link rel="icon" type="image/png" sizes="32x32" href="photos/crest-32.jpg">
-<link rel="icon" type="image/png" sizes="192x192" href="photos/crest-192.jpg">
-<link rel="apple-touch-icon" sizes="180x180" href="photos/crest-180.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/nanjhou/photos/nanjhou-logo-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/nanjhou/photos/nanjhou-logo-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/nanjhou/photos/nanjhou-logo-180.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,6 +102,14 @@
   }
   @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
   @media (min-width:720px){ .banner__inner{ padding:56px 36px 48px; } }
+  .banner__id{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:14px;}
+  @media (min-width:720px){ .banner__id{ flex-direction:row;align-items:center;gap:18px; } }
+  .banner__logo{width:76px;height:76px;border-radius:50%;background:#fff;padding:3px;flex:0 0 auto;
+    box-shadow:0 6px 22px rgba(0,0,0,.35);animation:logoIn .9s cubic-bezier(.3,1.4,.5,1) both;}
+  @media (min-width:720px){ .banner__logo{ width:104px;height:104px; } }
+  @keyframes logoIn{from{opacity:0;transform:scale(.6) rotate(-20deg);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .banner__logo{animation:none;} }
+  .banner__id .banner__brand{margin-bottom:0;}
   .banner__brand{
     font-family:'Playfair Display',serif;
     font-size:13px;letter-spacing:4.5px;text-transform:uppercase;
@@ -403,7 +411,7 @@
 <!-- ===== Hero Banner ===== -->
 <header class="banner">
   <div class="banner__inner">
-    <div class="banner__brand">A Sugar-Era Rural Campus · Established 1955</div>
+    <div class="banner__id"><img class="banner__logo" src="photos/nanjhou-logo-160.png" alt="南州國小校徽 Nanjhou Elementary School crest" width="104" height="104"><div class="banner__brand">A Sugar-Era Rural Campus · Established 1955</div></div>
     <h1>Nanjhou Elementary</h1>
     <div class="banner__zh">彰化縣溪州鄉南州國民小學</div>
     <p class="banner__tagline">A plain-forest school of 100+ trees — where a hundred-year banyan still watches over a hundred-year story.</p>
