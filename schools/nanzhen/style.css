@@ -503,5 +503,10 @@ a.nstory .nstory__more{margin-top:auto;padding-top:16px;font-family:'Playfair Di
 .player__cap{font-size:17px;line-height:1.6;}
 @media(min-width:720px){.player__cap{font-size:19px;}}
 .player__cap b{color:var(--green-deep);font-weight:700;}
-/* portrait-photo course card: taller image on phones so the badge sits below the subject */
-@media(max-width:719px){.course__art--tall{min-height:280px;}}
+/* two-photo course card (Teacher Kamo): side by side on phones, stacked in the image column on wider screens */
+.course__art--duo{padding:0;display:grid;align-items:stretch;justify-content:stretch;grid-template-columns:1fr 1fr;grid-template-rows:240px;gap:3px;background:#fff;position:relative;}
+@media(min-width:720px){.course__art--duo{grid-template-columns:1fr;grid-template-rows:1fr 1fr;}}
+.course__art--duo .duo__img{background-size:cover;background-repeat:no-repeat;background-color:#e8e2d8;min-height:0;}
+.course__art--duo .course__badge{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);max-width:calc(100% - 28px);text-align:center;background:rgba(0,0,0,.58);}
+@media(max-width:719px){.course__art--duo .course__badge{font-size:12px;letter-spacing:1px;padding:5px 12px;white-space:nowrap;bottom:10px;}}
+@media(min-width:720px){.course__art--duo .course__badge{top:50%;bottom:auto;transform:translate(-50%,-50%);}}
