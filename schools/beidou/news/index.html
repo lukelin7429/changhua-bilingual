@@ -71,6 +71,10 @@
   .carousel{position:relative;width:100%;background:var(--cream);overflow:hidden;aspect-ratio:16/10;}
   .carousel__track{display:flex;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);}
   .carousel__track img{min-width:100%;width:100%;height:100%;object-fit:cover;display:block;}
+  /* 直式照片在 16:10 的窗裡會被裁掉約一半高度，置中裁切正好切掉人頭。
+     把裁切窗上移到 35%（實測 21 張直式都合適），橫式維持置中不動。
+     is-tall 由下方輪播 JS 依實際尺寸自動加上，新增照片不必手動標記。 */
+  .carousel__track img.is-tall{object-position:center 35%;}
   .carousel__nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(20,15,10,.36);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;transition:opacity .2s,background .15s;}
   .carousel:hover .carousel__nav{opacity:1;}
   .carousel__nav:hover{background:rgba(20,15,10,.6);}
@@ -597,6 +601,11 @@
 <script>
 (function(){
   var INTERVAL=4500;
+  // 直式照片自動標記（lazy 圖要等 load 才有 naturalWidth）
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel__track img'),function(im){
+    var tag=function(){ if(im.naturalHeight>im.naturalWidth) im.classList.add('is-tall'); };
+    if(im.complete&&im.naturalWidth) tag(); else im.addEventListener('load',tag);
+  });
   Array.prototype.forEach.call(document.querySelectorAll('.carousel'),function(c){
     var track=c.querySelector('.carousel__track');
     var n=track.children.length; if(n<2) return;
