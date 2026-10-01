@@ -1,0 +1,102 @@
+/* ===== Wanlai Video Lessons — 影片課程共用樣式（hub＋各課）=====
+   搭配 style.css（字型、色票）與 chrome.css（topbar／波浪 banner／頁尾）。
+   各課主色由頁面 :root 的 --vl-accent／--vl-deep／--vl-soft 決定。 */
+/* style.css（大新母版）有同名的新聞頁 class（.vmain .vcard .vsay .learn .vgame .lnav …），這裡先把會打架的屬性歸零 */
+.vmain{display:block;gap:0;padding:40px 0 80px;}
+.vmain section{padding:0;border-bottom:none;}
+.article{max-width:820px;margin:0 auto;}
+.back{display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;padding:10px 18px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--vl-deep);font-size:17px;font-weight:700;text-decoration:none;transition:border-color .15s,transform .15s;}
+.back:hover{border-color:var(--vl-accent);transform:translateX(-3px);color:var(--vl-deep);}
+.back span{font-family:'PingFang TC',sans-serif;font-weight:500;color:var(--ink-soft);font-size:15.5px;}
+
+/* video */
+.vl-video{background:#000;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;}
+.vl-video iframe{width:100%;height:100%;border:0;display:block;}
+.vl-soon{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;height:100%;color:#fff;font-size:19px;font-weight:600;text-align:center;padding:20px;
+  background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.35)),var(--cover) center/cover;}
+.vl-soon .zh{display:block;margin-top:4px;font-family:'PingFang TC',sans-serif;font-weight:500;font-size:17px;}
+.vl-cap{margin-top:20px;font-size:19px;line-height:1.7;color:var(--ink);}
+@media(min-width:720px){.vl-cap{font-size:21px;}}
+.vl-cap .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;}
+
+/* section heads */
+.learn,.vgame{max-width:none;margin:58px 0 0;padding-top:46px !important;border-top:1px solid var(--line);}
+.learn-head{text-align:center;margin-bottom:30px;}
+.learn-head .eyebrow{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vl-accent);margin-bottom:8px;}
+.learn-head h2{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(30px,4.4vw,42px);font-weight:700;color:var(--vl-deep);line-height:1.2;}
+.learn-head h2 .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:20px;font-weight:500;color:var(--ink-soft);margin-top:6px;}
+
+/* word cards */
+.wgrid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:640px){.wgrid{grid-template-columns:1fr 1fr;}}
+.wcard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.wcard__pic{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--vl-soft);}
+.wcard__body{padding:18px 22px 22px;border-top:4px solid var(--vl-accent);}
+.wcard__top{display:flex;align-items:flex-start;gap:12px;}
+.wcard__w{flex:1;min-width:0;}
+.wcard__en{display:block;font-family:'Playfair Display',serif;font-size:clamp(32px,5.4vw,40px);font-weight:700;color:var(--vl-deep);line-height:1.05;word-break:break-word;}
+.wcard__ipa{display:block;font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
+.wcard__zh{display:block;font-family:'PingFang TC',sans-serif;font-size:22px;font-weight:600;color:var(--ink);margin-top:4px;}
+.wsay{position:static;flex-shrink:0;width:50px;height:50px;border-radius:50%;border:0;background:var(--vl-accent);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 12px -4px rgba(0,0,0,.35);transition:transform .15s,box-shadow .2s;}
+.wsay:hover{transform:scale(1.08);}
+.wsay:active{transform:scale(.92);}
+.wsay.ring{box-shadow:0 0 0 7px var(--vl-soft);}
+.wcard__sent{margin-top:14px;background:var(--vl-soft);border-radius:12px;padding:13px 16px;font-size:18.5px;line-height:1.6;color:var(--ink);}
+.wcard__sent b{color:var(--vl-deep);}
+.wcard__sent .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink-soft);margin-top:5px;}
+
+/* sentences */
+.slist{display:flex;flex-direction:column;gap:14px;}
+.sline{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-left:7px solid var(--vl-accent);border-radius:0 16px 16px 0;padding:18px 22px;box-shadow:var(--shadow-sm);}
+.sline__no{flex-shrink:0;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--vl-accent);line-height:1;width:26px;}
+.sline__tx{flex:1;min-width:0;}
+.sline__en{font-size:clamp(20px,3.2vw,24px);font-weight:600;color:var(--ink);line-height:1.45;}
+.sline__zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:5px;}
+
+/* matching game */
+.game-score{text-align:center;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-bottom:18px;}
+.game-score b{color:var(--vl-accent);font-size:23px;}
+.gpraise{min-height:36px;text-align:center;margin:-6px 0 14px;font-family:'Playfair Display','PingFang TC',serif;font-size:24px;font-weight:700;color:var(--vl-deep);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;}
+.game-board{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.gcol{display:flex;flex-direction:column;gap:10px;}
+.gtile{font-family:inherit;font-size:19px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:15px 10px;cursor:pointer;transition:transform .12s,background .15s,border-color .15s,color .15s;text-align:center;}
+.gtile.zh{font-family:'PingFang TC',sans-serif;font-weight:600;}
+.gtile:hover{border-color:var(--vl-accent);}
+.gtile.sel{border-color:var(--vl-accent);background:var(--vl-soft);color:var(--vl-deep);}
+.gtile.done{background:#e9f7ec;border-color:#5cb274;color:#2f8049;cursor:default;}
+.gtile.pop{animation:gpop .5s;}
+@keyframes gpop{0%{transform:scale(1)}40%{transform:scale(1.13)}100%{transform:scale(1)}}
+.gtile.shake{animation:gshake .36s;background:#fdecec;border-color:#e29a9a;}
+@keyframes gshake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.game-reset{display:block;margin:22px auto 0;font-family:inherit;font-size:18px;font-weight:700;color:var(--vl-deep);background:#fff;border:2px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer;}
+.game-reset:hover{background:var(--vl-soft);border-color:var(--vl-accent);}
+.game-done{display:none;text-align:center;margin-top:22px;font-family:'PingFang TC',sans-serif;font-size:24px;font-weight:600;color:var(--vl-deep);}
+.game-done.show{display:block;animation:gpop .55s;}
+.confetti{position:fixed;top:-16px;width:11px;height:15px;border-radius:2px;z-index:9999;pointer-events:none;animation:cfall linear forwards;}
+@keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1;}100%{transform:translateY(112vh) rotate(560deg);opacity:.85;}}
+
+/* prev / next */
+.lnav{max-width:none;padding-bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:56px;padding-top:30px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.lnav a{padding:10px 18px;border-radius:10px;border:2px solid var(--line);font-weight:700;font-size:17px;color:var(--vl-deep);background:#fff;text-decoration:none;}
+.lnav a:hover{border-color:var(--vl-accent);background:var(--vl-soft);color:var(--vl-deep);}
+.lnav a.center{background:var(--vl-deep);color:#fff;border-color:var(--vl-deep);}
+
+/* hub */
+.hub-lead{max-width:780px;margin:0 auto 34px;text-align:center;font-size:20px;line-height:1.7;color:var(--ink);}
+@media(min-width:720px){.hub-lead{font-size:22px;}}
+.hub-lead .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-top:8px;}
+.vcards{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:640px){.vcards{grid-template-columns:1fr 1fr;}}
+@media(min-width:980px){.vcards{grid-template-columns:repeat(3,1fr);}}
+.vcard{padding:0;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+.vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);color:inherit;}
+.vcard__pic{position:relative;aspect-ratio:16/9;background:var(--c) center/cover no-repeat;}
+.vcard__play{position:absolute;right:14px;bottom:12px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--c);display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 6px 14px -4px rgba(0,0,0,.4);}
+.vcard__emoji{position:absolute;left:14px;top:12px;font-size:30px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));}
+.vcard__body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1;}
+.vcard__no{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--c);}
+.vcard__t{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--ink);line-height:1.15;margin-top:3px;}
+.vcard__zh{font-family:'PingFang TC',sans-serif;font-size:18px;font-weight:600;color:var(--ink);margin-top:3px;}
+.vcard__desc{font-size:16.5px;color:var(--ink-soft);line-height:1.55;margin-top:10px;flex:1;}
+.vcard__desc .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:15.5px;margin-top:4px;}
+.vcard__cta{margin-top:14px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--c);}
