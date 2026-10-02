@@ -50,6 +50,7 @@
 .lq-player__note{font-family:'PingFang TC',sans-serif;font-size:16px;color:#ffe3a3;margin-top:14px;line-height:1.6;}
 /* class + name */
 .lq-meta{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
+.lq-meta[hidden],.lq-result__who[hidden]{display:none!important;}
 @media(min-width:600px){.lq-meta{grid-template-columns:1fr 1.4fr;}}
 .lq-field label{display:block;font-weight:700;font-size:18px;color:var(--azure-deep);}
 .lq-field label span{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-weight:600;margin-left:6px;}
@@ -109,6 +110,12 @@
 .lq-result__who{font-family:'PingFang TC',sans-serif;font-size:19px;font-weight:600;color:var(--ink);margin-top:8px;}
 .lq-result__msg{font-size:22px;font-weight:700;color:var(--azure-deep);margin-top:14px;line-height:1.4;}
 .lq-result__msg span{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);margin-top:4px;}
+.lq-closed{display:none;margin-bottom:24px;background:var(--azure-soft);border:2px solid var(--azure-deep);border-radius:16px;padding:18px 22px;}
+.lq-closed.show{display:block;}
+.lq-closed b{font-family:'Playfair Display','PingFang TC',serif;font-size:22px;color:var(--azure-deep);display:block;}
+.lq-closed span{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);display:block;margin-top:6px;line-height:1.6;}
+.lq-redo{display:none;margin:14px auto 0;font:700 18px/1 'Inter','PingFang TC',sans-serif;color:#fff;background:var(--azure-deep);border:0;border-radius:12px;padding:13px 22px;cursor:pointer;}
+.lq-redo.show{display:inline-block;}
 .lq-again{display:none;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:700;color:var(--crimson-deep);background:var(--crimson-soft);border-radius:12px;padding:10px 14px;margin:14px auto 0;max-width:560px;line-height:1.5;}
 .lq-again.show{display:block;}
 .lq-again small{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
@@ -160,13 +167,14 @@
   <div class="lq-player__t">Teacher Morgan Gets a Scooter License</div>
   <div class="lq-player__zh">約 1 分 30 秒 · 開頭有一小段前奏音樂</div>
   <audio controls preload="metadata" src="/learn/audio/606b8a48cff2.mp3">Your browser does not support audio playback. 你的瀏覽器無法播放音檔。</audio>
-  <p class="lq-player__note">同學請不用按播放，專心聽老師播放的錄音，聽完再作答。<br>Students: no need to press play — listen to your teacher's recording, then answer.</p>
+  <p class="lq-player__note" id="playerNote">同學請不用按播放，專心聽老師播放的錄音，聽完再作答。<br>Students: no need to press play — listen to your teacher's recording, then answer.</p>
 </div>
 </div></section>
 
 <section class="sec-tint-a"><div class="wrap">
-<div class="sec__no">II.</div><h2 class="sec__title">Answer</h2><div class="sec__title-zh">作答 · 填好班級姓名，答完 5 題再送出</div><div class="sec__rule"></div>
+<div class="sec__no">II.</div><h2 class="sec__title">Answer</h2><div class="sec__title-zh" id="answerZh">作答 · 填好班級姓名，答完 5 題再送出</div><div class="sec__rule"></div>
 
+<div class="lq-closed" id="closedNote"><b>This challenge is over — practice mode</b><span>本期測驗已結束，現在是複習模式。你可以重做一次看看，答完馬上有答案和解析，但這次的成績<strong>不會送出</strong>，正式成績以 10 月 2 日當天為準。</span></div>
 <div class="lq-result" id="result" aria-live="polite">
   <div class="lq-result__label">Your Score · 你的成績</div>
   <div class="lq-result__score"><span id="scoreNum">0</span><small> / 100</small></div>
@@ -176,6 +184,7 @@
   <div class="lq-chips" id="chips"></div>
   <p class="lq-sent" id="sent"></p>
   <button type="button" class="lq-retry" id="retry">Send again · 重新送出</button>
+  <button type="button" class="lq-redo" id="redo">Try again · 再做一次</button>
 </div>
 
 <form id="quiz" novalidate>
@@ -297,6 +306,10 @@
   /* Apps Script Web App URL — paste after deploying apps-script.gs (../apps-script.gs). */
   var ENDPOINT = "https://script.google.com/macros/s/AKfycbzKxqZqy5UMV2JaaLZ3mM_IykgBlJoRqrK-KBpcdKDvvkpkNvcfFwORJfrCIPBW87GPVA/exec";
   var ISSUE = "01";
+  /* The test has been held: the page is now review material. In closed mode nothing
+     is sent to the Sheet, no earlier answer is restored (school tablets are shared),
+     and the class/name fields are not needed. */
+  var CLOSED = true;
   var LETTERS = ["A","B","C","D"];
   var QUESTIONS = [
     { q: "What can Teacher Morgan drive?", o: ["Car","Truck","Scooter","Plane"], a: 2,
@@ -347,29 +360,44 @@
   var STORE = "sijhou-listening-" + ISSUE;
   function load(){ try { return JSON.parse(localStorage.getItem(STORE) || "null"); } catch (err) { return null; } }
   function save(o){ try { localStorage.setItem(STORE, JSON.stringify(o)); } catch (err) {} }
-  if (/[?&]reset=1(&|$)/.test(location.search)) { try { localStorage.removeItem(STORE); } catch (err) {} }
+  if (CLOSED || /[?&]reset=1(&|$)/.test(location.search)) { try { localStorage.removeItem(STORE); } catch (err) {} }
+  if (CLOSED) {
+    document.getElementById("closedNote").classList.add("show");
+    document.getElementById("answerZh").textContent = "複習 · 重做一次，馬上看到答案與解析";
+    document.getElementById("playerNote").innerHTML =
+      "複習時可以自己按播放，想重聽幾次都可以。<br>Review time: press play yourself and listen as many times as you like.";
+    document.querySelector(".lq-meta").hidden = true;
+    document.getElementById("resultWho").hidden = true;
+  }
 
   var payload = null, done = false, record = null;
   form.addEventListener("submit", function(e){
     e.preventDefault();
     if (done) return;
-    var cls = document.getElementById("cls").value.trim();
-    var nm = document.getElementById("nm").value.trim();
+    var cls = CLOSED ? "" : document.getElementById("cls").value.trim();
+    var nm = CLOSED ? "" : document.getElementById("nm").value.trim();
     var picks = QUESTIONS.map(function(_, qi){
       var c = form.querySelector('input[name="q'+qi+'"]:checked');
       return c ? parseInt(c.value, 10) : -1;
     });
-    document.getElementById("fCls").classList.toggle("err", !cls);
-    document.getElementById("fName").classList.toggle("err", !nm);
+    document.getElementById("fCls").classList.toggle("err", !CLOSED && !cls);
+    document.getElementById("fName").classList.toggle("err", !CLOSED && !nm);
     picks.forEach(function(p, qi){ qs.children[qi].classList.toggle("missing", p < 0); });
-    if (!cls || !nm || picks.indexOf(-1) >= 0) {
+    if ((!CLOSED && (!cls || !nm)) || picks.indexOf(-1) >= 0) {
       document.getElementById("warn").classList.add("show");
-      var first = !cls ? document.getElementById("cls") : !nm ? document.getElementById("nm") : qs.children[picks.indexOf(-1)];
+      var first = (!CLOSED && !cls) ? document.getElementById("cls")
+                : (!CLOSED && !nm) ? document.getElementById("nm")
+                : qs.children[picks.indexOf(-1)];
       first.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     document.getElementById("warn").classList.remove("show");
     grade(cls, nm, picks, true);
+    if (CLOSED) {
+      setSent("（複習模式：這次練習不會送出成績）");
+      document.getElementById("redo").classList.add("show");
+      return;
+    }
     record = { cls: cls, nm: nm, picks: picks, sent: false };
     save(record);
     send(0);
@@ -464,7 +492,9 @@
   }
   retry.addEventListener("click", function(){ if (payload) send(0); });
 
-  var prev = load();
+  document.getElementById("redo").addEventListener("click", function(){ location.reload(); });
+
+  var prev = CLOSED ? null : load();
   var validPrev = prev && prev.cls && prev.nm && Array.isArray(prev.picks) && prev.picks.length === QUESTIONS.length &&
     prev.picks.every(function(p, qi){ return p >= 0 && p < QUESTIONS[qi].o.length; });
   if (validPrev) {
