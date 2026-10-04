@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://changhua-bilingual.org/schools/xishi/lessons/pictures/">
+<title>Look &amp; Describe · 看圖描述學英文 · Xishi Elementary 西勢國小</title>
+<meta name="description" content="Look &amp; Describe at Xishi Elementary — 15 picture cards from real Xishi school life. Answer Who? Where? What? in simple English, tap to listen, then play the Which Picture? game. 西勢國小看圖描述學英文：15 張真實校園圖卡，用「有誰、在哪裡、在做什麼」三步驟說英文，點喇叭聽發音，最後玩看句子選圖片遊戲。">
+<link rel="icon" type="image/png" sizes="32x32" href="/schools/xishi/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/schools/xishi/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/schools/xishi/favicon-180.png">
+<link rel="shortcut icon" href="/schools/xishi/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/schools/xishi/style.css">
+<link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
+<style>
+/* ===== Look & Describe 看圖描述學英文 (page-only styles) ===== */
+.ld-float{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.ld-float span{position:absolute;bottom:-60px;opacity:.55;animation:ldRise linear infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));}
+@keyframes ldRise{0%{transform:translateY(0) rotate(-8deg);opacity:0;}12%{opacity:.6;}85%{opacity:.6;}100%{transform:translateY(-520px) rotate(10deg);opacity:0;}}
+@media(prefers-reduced-motion:reduce){.ld-float{display:none;}}
+
+.ld-steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;}
+@media(min-width:760px){.ld-steps{grid-template-columns:repeat(3,1fr);}}
+.ld-step{position:relative;border-radius:20px;padding:22px 22px 20px;background:var(--st-soft);border:2px solid var(--st);overflow:hidden;}
+.ld-step::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:var(--st);opacity:.12;}
+.ld-step__no{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--st);color:#fff;font-weight:800;font-size:18px;}
+.ld-step__ico{font-size:40px;line-height:1;margin:12px 0 6px;display:block;}
+@media(prefers-reduced-motion:no-preference){.ld-step__ico{animation:ldBob 2.6s ease-in-out infinite;}.ld-step:nth-child(2) .ld-step__ico{animation-delay:.4s}.ld-step:nth-child(3) .ld-step__ico{animation-delay:.8s}}
+@keyframes ldBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ld-step__q{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--st-deep);line-height:1.1;}
+.ld-step__qzh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);margin-top:4px;}
+.ld-step__frame{margin-top:14px;background:#fff;border-radius:12px;padding:12px 14px;font-size:21px;font-weight:700;color:var(--ink);line-height:1.45;}
+.ld-step__frame i{font-style:normal;color:var(--st-deep);border-bottom:3px dotted var(--st);padding:0 2px;}
+.ld-step__eg{margin-top:10px;font-size:18px;color:var(--ink-soft);line-height:1.5;}
+.ld-step__eg b{color:var(--ink);font-weight:700;}
+
+.ld-tip{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;background:var(--cream);border:1px dashed #b9d9de;border-radius:16px;padding:18px 20px;}
+.ld-tip p{flex:1 1 320px;font-size:19px;line-height:1.6;color:var(--ink);}
+.ld-tip p .zh{display:block;color:var(--ink-soft);font-size:17px;margin-top:2px;}
+.ld-practice-btn{font-family:inherit;font-size:18px;font-weight:700;border-radius:99px;padding:11px 20px;cursor:pointer;border:2px solid var(--brick);background:#fff;color:var(--brick-deep);transition:background .15s,color .15s;}
+.ld-practice-btn:hover{background:var(--brick-soft);}
+.ld-practice-btn[aria-pressed="true"]{background:var(--brick);color:#fff;}
+
+.ld-jump{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+@media(min-width:720px){.ld-jump{grid-template-columns:repeat(3,1fr);}}
+.ld-jump a{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:14px;background:var(--ac-soft);border:2px solid transparent;color:var(--ink);font-weight:700;font-size:18px;line-height:1.3;transition:transform .15s,border-color .15s;}
+.ld-jump a small{font-family:'PingFang TC',sans-serif;font-weight:500;font-size:16px;color:var(--ink-soft);}
+.ld-jump a:hover{transform:translateY(-3px);border-color:var(--ac);color:var(--ink);}
+
+.ld-sec:nth-of-type(odd){background:linear-gradient(180deg,var(--ac-soft) 0,#fff 420px);}
+.ld-sec .sec__rule{background:var(--ac);}
+.ld-sec .sec__no{color:var(--ac);}
+.ld-sec__ico{display:inline-block;}
+@media(prefers-reduced-motion:no-preference){.ld-sec__ico{animation:ldBob 2.8s ease-in-out infinite;}}
+.ld-list{display:grid;grid-template-columns:1fr;gap:28px;}
+@media(min-width:860px){.ld-list{grid-template-columns:1fr 1fr;}}
+.ld-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:6px solid var(--ac);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.ld-photo{position:relative;margin:0;background:#eef3f4;}
+.ld-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;}
+.ld-num{position:absolute;left:14px;top:14px;background:var(--ac);color:#fff;font-family:'Playfair Display',serif;font-weight:800;font-size:22px;line-height:1;padding:9px 13px;border-radius:12px;box-shadow:0 6px 14px -6px rgba(0,0,0,.45);}
+.ld-body{padding:22px 22px 24px;flex:1;}
+@media(min-width:720px){.ld-body{padding:24px 26px 28px;}}
+.ld-t{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--ink);line-height:1.15;}
+.ld-t-zh{font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink-soft);margin-top:4px;}
+.ld-qa{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+.ld-q{border-radius:14px;padding:10px 14px 12px;background:var(--q-soft);border-left:5px solid var(--q);}
+.ld-q--who{--q:#E23A38;--q-soft:#FDF1F0;--q-deep:#B22B27;}
+.ld-q--where{--q:#2E97A6;--q-soft:#EEF8F9;--q-deep:#1C6C78;}
+.ld-q--what{--q:#C8963A;--q-soft:#FBF4E6;--q-deep:#8A6420;}
+.ld-tag{display:inline-block;font-size:15px;font-weight:800;letter-spacing:.04em;color:var(--q-deep);text-transform:uppercase;}
+.ld-tag small{font-family:'PingFang TC',sans-serif;font-size:15px;font-weight:600;text-transform:none;letter-spacing:0;margin-left:2px;}
+.ld-a{margin-top:4px;transition:filter .25s,opacity .25s;}
+.ld-en{font-size:21px;font-weight:600;color:var(--ink);line-height:1.5;}
+@media(min-width:720px){.ld-en{font-size:22px;}}
+.ld-zh{font-family:'PingFang TC',sans-serif;font-size:18px;color:#45464e;line-height:1.55;margin-top:2px;}
+.ld-say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:0;background:var(--brick);color:#fff;font-size:16px;cursor:pointer;vertical-align:middle;margin-left:4px;transition:transform .15s,box-shadow .2s;box-shadow:0 3px 8px -3px rgba(18,59,82,.5);}
+.ld-say:hover{transform:scale(1.1);}
+.ld-say:active{transform:scale(.92);}
+.ld-say.ring{box-shadow:0 0 0 6px var(--brick-soft);}
+.ld-words{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px;}
+.ld-words__h{width:100%;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);}
+.ld-w{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--ac-soft);border-radius:99px;padding:5px 14px 5px 6px;font-size:20px;}
+.ld-w .ld-say{margin:0;width:30px;height:30px;font-size:14px;background:var(--ac);}
+.ld-w b{font-weight:700;color:var(--ink);}
+.ld-w span{font-family:'PingFang TC',sans-serif;font-size:17px;color:#45464e;}
+.ld-about{margin-top:18px;border-radius:14px;background:var(--cream);border:1px solid var(--line);}
+.ld-about summary{list-style:none;cursor:pointer;padding:11px 16px;font-size:17px;font-weight:800;color:var(--green-deep);display:flex;align-items:center;gap:6px;}
+.ld-about summary::-webkit-details-marker{display:none;}
+.ld-about summary small{font-family:'PingFang TC',sans-serif;font-size:16px;font-weight:600;}
+.ld-about summary::after{content:"▾";margin-left:auto;font-size:18px;transition:transform .2s;}
+.ld-about[open] summary::after{transform:rotate(180deg);}
+.ld-about p{font-size:18px;line-height:1.6;color:var(--ink);padding:0 16px;}
+.ld-about p.zh{padding-bottom:14px;}
+.ld-about p.zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:#45464e;margin-top:6px;}
+
+/* Practice mode: hide the answers, tap to peek */
+body.ld-practice .ld-a{filter:blur(8px);opacity:.75;cursor:pointer;user-select:none;}
+body.ld-practice .ld-a.peek{filter:none;opacity:1;cursor:auto;user-select:auto;}
+body.ld-practice .ld-q::after{content:"👆 Tap to check 點一下看答案";display:block;font-size:14px;font-weight:700;color:var(--q-deep);margin-top:2px;}
+body.ld-practice .ld-q.peeked::after{display:none;}
+
+/* Which Picture? game */
+.ld-game{max-width:820px;margin:0 auto;}
+.ld-g-top{display:flex;justify-content:space-between;align-items:center;font-family:'PingFang TC',sans-serif;font-size:18px;color:var(--ink-soft);margin-bottom:12px;}
+.ld-g-top b{color:var(--brick);font-size:22px;}
+.ld-g-sent{background:var(--brick-soft);border:2px solid var(--brick);border-radius:18px;padding:18px 20px;text-align:center;}
+.ld-g-en{font-size:24px;font-weight:700;color:var(--ink);line-height:1.45;}
+@media(min-width:720px){.ld-g-en{font-size:27px;}}
+.ld-g-zh{display:none;font-family:'PingFang TC',sans-serif;font-size:19px;color:#45464e;margin-top:6px;}
+.ld-g-sent.hint .ld-g-zh{display:block;}
+.ld-g-hint{margin-top:10px;font-family:inherit;font-size:15px;font-weight:700;color:var(--brick-deep);background:#fff;border:1px solid var(--brick);border-radius:99px;padding:5px 14px;cursor:pointer;}
+.ld-g-praise{min-height:36px;text-align:center;margin:12px 0 6px;font-family:'Playfair Display','PingFang TC',serif;font-size:22px;font-weight:700;color:var(--green-deep);}
+.ld-g-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(min-width:720px){.ld-g-opts{gap:16px;}}
+.ld-opt{position:relative;padding:0;border:4px solid #fff;border-radius:16px;overflow:hidden;cursor:pointer;background:#eef3f4;box-shadow:0 6px 16px -8px rgba(18,59,82,.45);transition:transform .15s,border-color .15s;}
+.ld-opt img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.ld-opt:hover{transform:translateY(-3px);border-color:var(--green);}
+.ld-opt.right{border-color:#3fa45f;animation:gpop .5s;}
+.ld-opt.right::after{content:"✔";position:absolute;right:10px;top:8px;width:42px;height:42px;border-radius:50%;background:#3fa45f;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;}
+.ld-opt.wrong{border-color:#e29a9a;opacity:.55;animation:gshake .36s;cursor:default;}
+.ld-opt:disabled{cursor:default;}
+.ld-game .game-done{font-size:24px;}
+</style>
+</head>
+<body>
+<div class="tb"><div class="tb__inner"><a class="tb__brand" href="/schools/xishi/"><img class="tb__logo" src="/schools/xishi/logo.png" alt="西勢國小校徽 Xishi Elementary crest"><div class="tb__name">Xishi Elementary<small>西勢國民小學</small></div></a><nav class="tb__nav"><a href="/schools/xishi/">Home</a><a href="/schools/xishi/principal/">Principal</a><a href="/schools/xishi/lessons/" class="is-active">Lessons</a><a href="/schools/xishi/news/">News</a></nav></div></div>
+<header class="chero" style="--b1:#E23A38;--b2:#2E97A6;--b3:#123d45;">
+<div class="chero__fx"></div>
+<div class="ld-float" aria-hidden="true"><span style="left:6%;font-size:30px;animation-duration:11s;animation-delay:0s">👀</span><span style="left:19%;font-size:24px;animation-duration:9s;animation-delay:3s">📍</span><span style="left:33%;font-size:34px;animation-duration:13s;animation-delay:1.5s">🖼️</span><span style="left:52%;font-size:26px;animation-duration:10s;animation-delay:5s">💬</span><span style="left:68%;font-size:30px;animation-duration:12s;animation-delay:2s">🎬</span><span style="left:83%;font-size:24px;animation-duration:9.5s;animation-delay:6s">✏️</span><span style="left:93%;font-size:28px;animation-duration:12.5s;animation-delay:4s">⭐</span></div>
+<div class="chero__inner">
+<span class="eyebrow">Lessons · Look &amp; Describe</span>
+<h1>Look &amp; Describe</h1>
+<div class="h1-zh">看圖描述學英文 · 15 張西勢校園圖卡</div>
+</div>
+<div class="scrollcue" aria-hidden="true">⌄</div>
+</header>
+
+<section>
+<div class="wrap">
+<div class="sec__no">I.</div>
+<h2 class="sec__title">How to Describe a Picture</h2>
+<div class="sec__title-zh">看圖描述三步驟：有誰？在哪裡？在做什麼？</div>
+<div class="sec__rule"></div>
+<p class="lead">Look closely. Then say three sentences.</p>
+<p class="lead-zh">每一張圖卡都是西勢真實的校園生活。先仔細看，再用三個問題，說出三句英文！</p>
+<a class="player-link" style="margin-top:24px" href="/schools/xishi/lessons/">
+<span class="player-link__icon">←</span>
+<span class="player-link__text"><strong>Back to Lessons</strong><span>回到課程總覽</span></span>
+</a>
+
+<div class="ld-steps">
+<div class="ld-step" style="--st:#E23A38;--st-soft:#FDF1F0;--st-deep:#B22B27">
+<span class="ld-step__no">1</span><span class="ld-step__ico" aria-hidden="true">👀</span>
+<div class="ld-step__q">Who?</div><div class="ld-step__qzh">圖片裡有誰？</div>
+<div class="ld-step__frame">I can see <i>&nbsp;___&nbsp;</i>.</div>
+<p class="ld-step__eg"><b>I can see Teacher Taylor.</b> <button class="ld-say" type="button" data-say="I can see Teacher Taylor." aria-label="Listen 朗讀：I can see Teacher Taylor.">🔊</button><br>我看到 Taylor 老師。</p>
+</div>
+<div class="ld-step" style="--st:#2E97A6;--st-soft:#EEF8F9;--st-deep:#1C6C78">
+<span class="ld-step__no">2</span><span class="ld-step__ico" aria-hidden="true">📍</span>
+<div class="ld-step__q">Where?</div><div class="ld-step__qzh">他們在哪裡？</div>
+<div class="ld-step__frame">They are <i>in / at / on</i> ___.</div>
+<p class="ld-step__eg"><b>They are in the library.</b> <button class="ld-say" type="button" data-say="They are in the library." aria-label="Listen 朗讀：They are in the library.">🔊</button><br>他們在圖書館裡。</p>
+</div>
+<div class="ld-step" style="--st:#C8963A;--st-soft:#FBF4E6;--st-deep:#8A6420">
+<span class="ld-step__no">3</span><span class="ld-step__ico" aria-hidden="true">🎬</span>
+<div class="ld-step__q">What?</div><div class="ld-step__qzh">他們在做什麼？</div>
+<div class="ld-step__frame">They are <i>___ing</i>.</div>
+<p class="ld-step__eg"><b>They are reading a story.</b> <button class="ld-say" type="button" data-say="They are reading a story." aria-label="Listen 朗讀：They are reading a story.">🔊</button><br>他們正在讀故事。</p>
+</div>
+</div>
+
+<div class="ld-tip">
+<p>🙈 Want a challenge? Turn on <b>Practice Mode</b> to hide the answers. Say your own sentences first, then tap to check!<span class="zh">想挑戰看看嗎？打開「練習模式」會先遮住答案，自己說說看，再點一下對答案！</span></p>
+<button class="ld-practice-btn" id="ldPractice" type="button" aria-pressed="false">🙈 Practice Mode 練習模式</button>
+</div>
+
+<div class="ld-jump"><a href="#storytime" style="--ac:#E23A38;--ac-soft:#FCE7E6"><span aria-hidden="true">📖</span> Storytime with Teacher Taylor<small>外師 Taylor 說故事</small></a><a href="#in-class" style="--ac:#2E97A6;--ac-soft:#E2F2F4"><span aria-hidden="true">✏️</span> English in Class<small>英語課堂</small></a><a href="#tea-time" style="--ac:#C8963A;--ac-soft:#F8EEDC"><span aria-hidden="true">🍵</span> Tea Time<small>下午茶時間</small></a><a href="#special-days" style="--ac:#7048e8;--ac-soft:#EEE9FD"><span aria-hidden="true">🎉</span> Special Days<small>特別的日子</small></a><a href="#out-and-about" style="--ac:#2E7D46;--ac-soft:#E3F2E7"><span aria-hidden="true">🚌</span> Out and About<small>走出校園</small></a><a href="#game" style="--ac:#B22B27;--ac-soft:#FCE7E6"><span aria-hidden="true">🎯</span> Which Picture?<small>看句子選圖片</small></a></div>
+</div>
+</section>
+
+<section class="ld-sec" id="storytime" style="--ac:#E23A38;--ac-soft:#FCE7E6">
+<div class="wrap">
+<div class="sec__no">II.</div>
+<h2 class="sec__title"><span class="ld-sec__ico" aria-hidden="true">📖</span> Storytime with Teacher Taylor</h2>
+<div class="sec__title-zh">外師 Taylor 說故事 · 2 張圖卡</div>
+<div class="sec__rule"></div>
+<div class="ld-list">
+<article class="ld-card" id="card-01">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/01-giraffe-problems.jpg" alt="外師 Taylor 在圖書館為低年級孩子講繪本 Giraffe Problems" loading="lazy" width="1200" height="900"><span class="ld-num">01</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Giraffe Problems</h3>
+<div class="ld-t-zh">長頸鹿的煩惱</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see Teacher Taylor and many young students. <button class="ld-say" type="button" data-say="I can see Teacher Taylor and many young students." aria-label="Listen 朗讀：I can see Teacher Taylor and many young students.">🔊</button></p><p class="ld-zh">我看到 Taylor 老師和許多低年級的小朋友。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in the school library. <button class="ld-say" type="button" data-say="They are in the school library." aria-label="Listen 朗讀：They are in the school library.">🔊</button></p><p class="ld-zh">他們在學校的圖書館裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">Taylor is reading a story about a giraffe. <button class="ld-say" type="button" data-say="Taylor is reading a story about a giraffe." aria-label="Listen 朗讀：Taylor is reading a story about a giraffe.">🔊</button></p><p class="ld-zh">Taylor 老師正在讀一個關於長頸鹿的故事。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="giraffe" aria-label="Listen 朗讀：giraffe">🔊</button><b>giraffe</b><span>長頸鹿</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="neck" aria-label="Listen 朗讀：neck">🔊</button><b>neck</b><span>脖子</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="library" aria-label="Listen 朗讀：library">🔊</button><b>library</b><span>圖書館</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>Taylor read the picture book <i>Giraffe Problems</i> to the younger children. The giraffe's problem is his super-duper-long neck! Then a turtle comes along and helps him see that a long neck is very useful after all.</p><p class="zh">Taylor 為低年級孩子講述繪本《Giraffe Problems》。長頸鹿的煩惱，就是那超～級～無～敵～長的脖子！而一隻烏龜闖入，幫助長頸鹿了解——原來他的長脖子可是很管用呢！</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-02">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/02-animal-sounds.jpg" alt="學生站在螢幕前模仿小雞，螢幕上寫著 Chicken" loading="lazy" width="1200" height="900"><span class="ld-num">02</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Animal Sounds</h3>
+<div class="ld-t-zh">學動物叫聲</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see five students and Teacher Taylor. <button class="ld-say" type="button" data-say="I can see five students and Teacher Taylor." aria-label="Listen 朗讀：I can see five students and Teacher Taylor.">🔊</button></p><p class="ld-zh">我看到五個學生和 Taylor 老師。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in the library, too. <button class="ld-say" type="button" data-say="They are in the library, too." aria-label="Listen 朗讀：They are in the library, too.">🔊</button></p><p class="ld-zh">他們也在圖書館裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">The children are acting like chickens. Cluck, cluck! <button class="ld-say" type="button" data-say="The children are acting like chickens. Cluck, cluck!" aria-label="Listen 朗讀：The children are acting like chickens. Cluck, cluck!">🔊</button></p><p class="ld-zh">孩子們正在模仿小雞：咕咕咕！</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="chicken" aria-label="Listen 朗讀：chicken">🔊</button><b>chicken</b><span>雞</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="sound" aria-label="Listen 朗讀：sound">🔊</button><b>sound</b><span>聲音</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="act" aria-label="Listen 朗讀：act">🔊</button><b>act</b><span>模仿、表演</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>This time, Taylor read <i>The Fabulous Friend Machine</i>. Whenever Taylor read the name of an animal, the children had to make that animal's sound!</p><p class="zh">這一次說的故事是《The Fabulous Friend Machine》。當 Taylor 念故事念到動物的名稱時，小朋友要發出該動物的聲音喔！</p></details>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="ld-sec" id="in-class" style="--ac:#2E97A6;--ac-soft:#E2F2F4">
+<div class="wrap">
+<div class="sec__no">III.</div>
+<h2 class="sec__title"><span class="ld-sec__ico" aria-hidden="true">✏️</span> English in Class</h2>
+<div class="sec__title-zh">英語課堂 · 4 張圖卡</div>
+<div class="sec__rule"></div>
+<div class="ld-list">
+<article class="ld-card" id="card-03">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/03-co-teaching.jpg" alt="英語老師與外師 Taylor 在教室協同教學，螢幕上是 Exit Ticket" loading="lazy" width="1200" height="900"><span class="ld-num">03</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Two Teachers, One Class</h3>
+<div class="ld-t-zh">協同教學公開課</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see two teachers and a class of students. <button class="ld-say" type="button" data-say="I can see two teachers and a class of students." aria-label="Listen 朗讀：I can see two teachers and a class of students.">🔊</button></p><p class="ld-zh">我看到兩位老師和一班學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in the classroom. <button class="ld-say" type="button" data-say="They are in the classroom." aria-label="Listen 朗讀：They are in the classroom.">🔊</button></p><p class="ld-zh">他們在教室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">The two teachers are teaching the class together. <button class="ld-say" type="button" data-say="The two teachers are teaching the class together." aria-label="Listen 朗讀：The two teachers are teaching the class together.">🔊</button></p><p class="ld-zh">兩位老師正在一起教這個班級。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="teacher" aria-label="Listen 朗讀：teacher">🔊</button><b>teacher</b><span>老師</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="screen" aria-label="Listen 朗讀：screen">🔊</button><b>screen</b><span>螢幕</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="together" aria-label="Listen 朗讀：together">🔊</button><b>together</b><span>一起</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>A professor from the English Department of National Changhua University of Education came to Xishi to guide the English teacher and Teacher Taylor as they taught this lesson together.</p><p class="zh">學術交流基金會指導顧問、彰師大英語系張善貿教授蒞校，指導英語教師與外師 Taylor 協同教學授課。</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-04">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/04-group-work.jpg" alt="外師 Taylor 彎腰協助一組學生進行課堂活動" loading="lazy" width="1200" height="900"><span class="ld-num">04</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Working in Groups</h3>
+<div class="ld-t-zh">分組活動</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see Teacher Taylor and a group of students. <button class="ld-say" type="button" data-say="I can see Teacher Taylor and a group of students." aria-label="Listen 朗讀：I can see Teacher Taylor and a group of students.">🔊</button></p><p class="ld-zh">我看到 Taylor 老師和一組學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">The students are at their desks. <button class="ld-say" type="button" data-say="The students are at their desks." aria-label="Listen 朗讀：The students are at their desks.">🔊</button></p><p class="ld-zh">學生們在自己的座位上。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">Taylor is helping the group with an activity. <button class="ld-say" type="button" data-say="Taylor is helping the group with an activity." aria-label="Listen 朗讀：Taylor is helping the group with an activity.">🔊</button></p><p class="ld-zh">Taylor 老師正在幫這一組進行活動。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="help" aria-label="Listen 朗讀：help">🔊</button><b>help</b><span>幫忙</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="group" aria-label="Listen 朗讀：group">🔊</button><b>group</b><span>小組</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="desk" aria-label="Listen 朗讀：desk">🔊</button><b>desk</b><span>書桌</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>In the same lesson, the students worked in small groups, and Taylor walked around the room to help each group.</p><p class="zh">同一堂公開課裡，學生分組進行活動，Taylor 老師在教室裡走動，協助每一組同學。</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-05">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/05-strawberry.jpg" alt="外師 Taylor 在螢幕前教 Strawberry 這個單字" loading="lazy" width="1200" height="900"><span class="ld-num">05</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Fruit Words</h3>
+<div class="ld-t-zh">認識水果單字</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see Teacher Taylor and the sixth graders. <button class="ld-say" type="button" data-say="I can see Teacher Taylor and the sixth graders." aria-label="Listen 朗讀：I can see Teacher Taylor and the sixth graders.">🔊</button></p><p class="ld-zh">我看到 Taylor 老師和六年級的學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in the classroom. <button class="ld-say" type="button" data-say="They are in the classroom." aria-label="Listen 朗讀：They are in the classroom.">🔊</button></p><p class="ld-zh">他們在教室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are learning the word “strawberry.” <button class="ld-say" type="button" data-say="They are learning the word “strawberry.”" aria-label="Listen 朗讀：They are learning the word “strawberry.”">🔊</button></p><p class="ld-zh">他們正在學 strawberry（草莓）這個單字。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="strawberry" aria-label="Listen 朗讀：strawberry">🔊</button><b>strawberry</b><span>草莓</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="watermelon" aria-label="Listen 朗讀：watermelon">🔊</button><b>watermelon</b><span>西瓜</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="fruit" aria-label="Listen 朗讀：fruit">🔊</button><b>fruit</b><span>水果</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>The class learned theme words for fruit and food. A word can change at the end, too: one strawberry, two strawberries!</p><p class="zh">認識主題單字——水果和食物。單字的尾巴也會變喔：一個 strawberry，兩個就變成 strawberries！</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-06">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/06-food-game.jpg" alt="一位男生在教室大螢幕上玩 Food Vocab 配對遊戲" loading="lazy" width="1200" height="900"><span class="ld-num">06</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">The Food Word Game</h3>
+<div class="ld-t-zh">食物單字配對遊戲</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a boy, Teacher Taylor, and the class. <button class="ld-say" type="button" data-say="I can see a boy, Teacher Taylor, and the class." aria-label="Listen 朗讀：I can see a boy, Teacher Taylor, and the class.">🔊</button></p><p class="ld-zh">我看到一個男生、Taylor 老師和全班同學。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">The boy is at the front of the classroom. <button class="ld-say" type="button" data-say="The boy is at the front of the classroom." aria-label="Listen 朗讀：The boy is at the front of the classroom.">🔊</button></p><p class="ld-zh">這個男生站在教室的前面。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">The boy is playing a matching game on the big screen. <button class="ld-say" type="button" data-say="The boy is playing a matching game on the big screen." aria-label="Listen 朗讀：The boy is playing a matching game on the big screen.">🔊</button></p><p class="ld-zh">這個男生正在大螢幕上玩配對遊戲。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="game" aria-label="Listen 朗讀：game">🔊</button><b>game</b><span>遊戲</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="match" aria-label="Listen 朗讀：match">🔊</button><b>match</b><span>配對</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="touch" aria-label="Listen 朗讀：touch">🔊</button><b>touch</b><span>觸碰</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>To score in the matching game, each player had to say the English word for the picture they picked!</p><p class="zh">最後要能說出所選圖片的英文，配對遊戲才能得分！</p></details>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="ld-sec" id="tea-time" style="--ac:#C8963A;--ac-soft:#F8EEDC">
+<div class="wrap">
+<div class="sec__no">IV.</div>
+<h2 class="sec__title"><span class="ld-sec__ico" aria-hidden="true">🍵</span> Tea Time</h2>
+<div class="sec__title-zh">下午茶時間 · 2 張圖卡</div>
+<div class="sec__rule"></div>
+<div class="ld-list">
+<article class="ld-card" id="card-07">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/07-tea-time.jpg" alt="學生和外師 Taylor 圍坐長桌舉杯喝茶" loading="lazy" width="1200" height="900"><span class="ld-num">07</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Tea with Taylor</h3>
+<div class="ld-t-zh">和外師喝下午茶</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see Teacher Taylor and some students. <button class="ld-say" type="button" data-say="I can see Teacher Taylor and some students." aria-label="Listen 朗讀：I can see Teacher Taylor and some students.">🔊</button></p><p class="ld-zh">我看到 Taylor 老師和一些學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are sitting at a long table. <button class="ld-say" type="button" data-say="They are sitting at a long table." aria-label="Listen 朗讀：They are sitting at a long table.">🔊</button></p><p class="ld-zh">他們坐在一張長桌旁。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are drinking tea together. Cheers! <button class="ld-say" type="button" data-say="They are drinking tea together. Cheers!" aria-label="Listen 朗讀：They are drinking tea together. Cheers!">🔊</button></p><p class="ld-zh">他們正在一起喝茶。乾杯！</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="tea" aria-label="Listen 朗讀：tea">🔊</button><b>tea</b><span>茶</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="cup" aria-label="Listen 朗讀：cup">🔊</button><b>cup</b><span>杯子</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="cheers" aria-label="Listen 朗讀：cheers">🔊</button><b>cheers</b><span>乾杯</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>From Tuesday to Friday, every class listens to <i>ICRT News Lunch Box</i> at lunchtime. Write the answers to Friday's three questions on a raffle ticket and drop it in the office box — you may win tea time and games with Taylor the next Tuesday!</p><p class="zh">每週二到週五班級用餐時間收聽 ICRT News Lunch Box，如果將星期五當天三道題目的答案寫在摸彩卷上，投入辦公室摸彩箱，就有機會於週二中午和外師 Taylor 一起享用下午茶及玩益智遊戲哦！</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-08">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/08-board-game.jpg" alt="學生們圍著桌子玩桌遊，把動物放上船" loading="lazy" width="1200" height="900"><span class="ld-num">08</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Board Game Fun</h3>
+<div class="ld-t-zh">桌遊時間</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a group of students. <button class="ld-say" type="button" data-say="I can see a group of students." aria-label="Listen 朗讀：I can see a group of students.">🔊</button></p><p class="ld-zh">我看到一群學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are around a big table. <button class="ld-say" type="button" data-say="They are around a big table." aria-label="Listen 朗讀：They are around a big table.">🔊</button></p><p class="ld-zh">他們圍在一張大桌子旁。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">The children are playing a board game. <button class="ld-say" type="button" data-say="The children are playing a board game." aria-label="Listen 朗讀：The children are playing a board game.">🔊</button></p><p class="ld-zh">孩子們正在玩桌遊。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="board game" aria-label="Listen 朗讀：board game">🔊</button><b>board game</b><span>桌遊</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="boat" aria-label="Listen 朗讀：boat">🔊</button><b>boat</b><span>船</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="animal" aria-label="Listen 朗讀：animal">🔊</button><b>animal</b><span>動物</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>The lucky winners played a board game with Taylor. In this game, players are mouse captains who must fit all the animals onto the boat without wasting any space — a real test of spatial sense!</p><p class="zh">外師 Taylor 和收聽 ICRT News Lunch Box 後答題正確、又幸運被抽中的孩子一起玩桌遊。《動物泛舟》這個遊戲是玩家扮演老鼠船長，努力用最不浪費空間的方式讓動物們全數上船，考驗的是孩子的空間感！</p></details>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="ld-sec" id="special-days" style="--ac:#7048e8;--ac-soft:#EEE9FD">
+<div class="wrap">
+<div class="sec__no">V.</div>
+<h2 class="sec__title"><span class="ld-sec__ico" aria-hidden="true">🎉</span> Special Days</h2>
+<div class="sec__title-zh">特別的日子 · 5 張圖卡</div>
+<div class="sec__rule"></div>
+<div class="ld-list">
+<article class="ld-card" id="card-09">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/09-jump-rope.jpg" alt="國民體育日外師 Taylor 和學生在操場一起跳大繩" loading="lazy" width="1200" height="900"><span class="ld-num">09</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Jump Rope Day</h3>
+<div class="ld-t-zh">國民體育日跳繩</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see Teacher Taylor and some students. <button class="ld-say" type="button" data-say="I can see Teacher Taylor and some students." aria-label="Listen 朗讀：I can see Teacher Taylor and some students.">🔊</button></p><p class="ld-zh">我看到 Taylor 老師和一些學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are on the playground. <button class="ld-say" type="button" data-say="They are on the playground." aria-label="Listen 朗讀：They are on the playground.">🔊</button></p><p class="ld-zh">他們在操場上。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are jumping rope together. <button class="ld-say" type="button" data-say="They are jumping rope together." aria-label="Listen 朗讀：They are jumping rope together.">🔊</button></p><p class="ld-zh">他們正在一起跳繩。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="jump rope" aria-label="Listen 朗讀：jump rope">🔊</button><b>jump rope</b><span>跳繩</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="playground" aria-label="Listen 朗讀：playground">🔊</button><b>playground</b><span>操場</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="sunny" aria-label="Listen 朗讀：sunny">🔊</button><b>sunny</b><span>晴朗的</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>September 9 is National Sports Day in Taiwan. Taylor jumped rope with the students and felt the energy of Xishi kids!</p><p class="zh">9 月 9 日國民體育日，Taylor 和同學一起跳繩，感受西勢孩子的熱情活力！</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-10">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/10-spring-couplets.jpg" alt="雙語樂學班學生拿著自己寫的紅色春聯" loading="lazy" width="1200" height="900"><span class="ld-num">10</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Happy Lunar New Year</h3>
+<div class="ld-t-zh">寫春聯迎新年</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see many students. <button class="ld-say" type="button" data-say="I can see many students." aria-label="Listen 朗讀：I can see many students.">🔊</button></p><p class="ld-zh">我看到很多學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in the classroom. <button class="ld-say" type="button" data-say="They are in the classroom." aria-label="Listen 朗讀：They are in the classroom.">🔊</button></p><p class="ld-zh">他們在教室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are holding red spring couplets. <button class="ld-say" type="button" data-say="They are holding red spring couplets." aria-label="Listen 朗讀：They are holding red spring couplets.">🔊</button></p><p class="ld-zh">他們正拿著紅色的春聯。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="spring couplet" aria-label="Listen 朗讀：spring couplet">🔊</button><b>spring couplet</b><span>春聯</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="red" aria-label="Listen 朗讀：red">🔊</button><b>red</b><span>紅色</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="wish" aria-label="Listen 朗讀：wish">🔊</button><b>wish</b><span>祝福、願望</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>To welcome Lunar New Year, students in the bilingual class wrote their biggest wishes on red spring couplets during winter break — and they wish everyone a Happy New Year!</p><p class="zh">迎接農曆新年的到來，雙語樂學班的學生在寒假期間，在紅色春聯上寫下他們最想要的祝福，並祝大家新年快樂！</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-11">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/11-read-aloud-practice.jpg" alt="學生們拿著講稿練習英文朗讀" loading="lazy" width="1200" height="900"><span class="ld-num">11</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Practice Makes Perfect</h3>
+<div class="ld-t-zh">朗讀比賽練習</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a big group of students. <button class="ld-say" type="button" data-say="I can see a big group of students." aria-label="Listen 朗讀：I can see a big group of students.">🔊</button></p><p class="ld-zh">我看到一大群學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in a big room with wooden walls. <button class="ld-say" type="button" data-say="They are in a big room with wooden walls." aria-label="Listen 朗讀：They are in a big room with wooden walls.">🔊</button></p><p class="ld-zh">他們在一間有木頭牆面的大教室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are reading aloud from sheets of paper. <button class="ld-say" type="button" data-say="They are reading aloud from sheets of paper." aria-label="Listen 朗讀：They are reading aloud from sheets of paper.">🔊</button></p><p class="ld-zh">他們正拿著紙張大聲朗讀。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="read aloud" aria-label="Listen 朗讀：read aloud">🔊</button><b>read aloud</b><span>朗讀</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="paper" aria-label="Listen 朗讀：paper">🔊</button><b>paper</b><span>紙</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="practice" aria-label="Listen 朗讀：practice">🔊</button><b>practice</b><span>練習</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>Practice makes perfect! The students practiced together for the English read-aloud contest.</p><p class="zh">熟能生巧！同學們一起為英語朗讀比賽做練習。</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-12">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/12-read-aloud-contest.jpg" alt="四年忠班在英語繪本朗讀比賽中朗讀 From Head To Toe" loading="lazy" width="1200" height="900"><span class="ld-num">12</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">The Read-Aloud Contest</h3>
+<div class="ld-t-zh">英語繪本朗讀比賽</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a class of fourth graders. <button class="ld-say" type="button" data-say="I can see a class of fourth graders." aria-label="Listen 朗讀：I can see a class of fourth graders.">🔊</button></p><p class="ld-zh">我看到一班四年級的學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in front of a big screen. <button class="ld-say" type="button" data-say="They are in front of a big screen." aria-label="Listen 朗讀：They are in front of a big screen.">🔊</button></p><p class="ld-zh">他們站在大螢幕前面。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">Everyone is reading a picture book. <button class="ld-say" type="button" data-say="Everyone is reading a picture book." aria-label="Listen 朗讀：Everyone is reading a picture book.">🔊</button></p><p class="ld-zh">每個人都在讀一本繪本。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="picture book" aria-label="Listen 朗讀：picture book">🔊</button><b>picture book</b><span>繪本</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="contest" aria-label="Listen 朗讀：contest">🔊</button><b>contest</b><span>比賽</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="uniform" aria-label="Listen 朗讀：uniform">🔊</button><b>uniform</b><span>制服</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>Class 4-Zhong read <i>From Head to Toe</i> together at Xishi's English picture-book read-aloud contest.</p><p class="zh">四年忠班在西勢國小英語繪本朗讀比賽中，一起朗讀《From Head to Toe》。</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-13">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/13-mochi.jpg" alt="三年級學生拿著自己做的麻糬開心合照" loading="lazy" width="1200" height="900"><span class="ld-num">13</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Making Mochi</h3>
+<div class="ld-t-zh">搗麻糬</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a class of happy students. <button class="ld-say" type="button" data-say="I can see a class of happy students." aria-label="Listen 朗讀：I can see a class of happy students.">🔊</button></p><p class="ld-zh">我看到一班開心的學生。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in their classroom. <button class="ld-say" type="button" data-say="They are in their classroom." aria-label="Listen 朗讀：They are in their classroom.">🔊</button></p><p class="ld-zh">他們在自己的教室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are eating the mochi they made. <button class="ld-say" type="button" data-say="They are eating the mochi they made." aria-label="Listen 朗讀：They are eating the mochi they made.">🔊</button></p><p class="ld-zh">他們正在吃自己做的麻糬。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="mochi" aria-label="Listen 朗讀：mochi">🔊</button><b>mochi</b><span>麻糬</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="plate" aria-label="Listen 朗讀：plate">🔊</button><b>plate</b><span>盤子</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="sticky rice" aria-label="Listen 朗讀：sticky rice">🔊</button><b>sticky rice</b><span>糯米</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>Class 3-Ren tried making mochi. They learned about different kinds of sticky rice, chose long-grain sticky rice, and pounded it by hand to make their very own treat!</p><p class="zh">三仁搗麻糬活動體驗：分辨糯米的種類，使用適合的長糯米，利用手搗的速度，製作出獨一無二的 DIY 美食！</p></details>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="ld-sec" id="out-and-about" style="--ac:#2E7D46;--ac-soft:#E3F2E7">
+<div class="wrap">
+<div class="sec__no">VI.</div>
+<h2 class="sec__title"><span class="ld-sec__ico" aria-hidden="true">🚌</span> Out and About</h2>
+<div class="sec__title-zh">走出校園 · 2 張圖卡</div>
+<div class="sec__rule"></div>
+<div class="ld-list">
+<article class="ld-card" id="card-14">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/14-cam-toys.jpg" alt="學生在福興國中工藝教室舉起自己做的凸輪玩具" loading="lazy" width="1200" height="900"><span class="ld-num">14</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">Cam Toys</h3>
+<div class="ld-t-zh">凸輪結構職業體驗</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see many students and their teachers. <button class="ld-say" type="button" data-say="I can see many students and their teachers." aria-label="Listen 朗讀：I can see many students and their teachers.">🔊</button></p><p class="ld-zh">我看到很多學生和他們的老師。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are in a workshop with a purple wall. <button class="ld-say" type="button" data-say="They are in a workshop with a purple wall." aria-label="Listen 朗讀：They are in a workshop with a purple wall.">🔊</button></p><p class="ld-zh">他們在一間有紫色牆壁的工作室裡。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are holding up the cam toys they made. <button class="ld-say" type="button" data-say="They are holding up the cam toys they made." aria-label="Listen 朗讀：They are holding up the cam toys they made.">🔊</button></p><p class="ld-zh">他們正舉起自己做的凸輪玩具。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="cam" aria-label="Listen 朗讀：cam">🔊</button><b>cam</b><span>凸輪</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="toy" aria-label="Listen 朗讀：toy">🔊</button><b>toy</b><span>玩具</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="workshop" aria-label="Listen 朗讀：workshop">🔊</button><b>workshop</b><span>工作室</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>The students visited Fuxing Junior High School for a career-exploration day. They learned how a cam works and used the idea to make their own moving toys.</p><p class="zh">到福興國中進行職業體驗，了解凸輪結構原理，並根據此原理製作了作品。</p></details>
+</div>
+</article>
+<article class="ld-card" id="card-15">
+<figure class="ld-photo"><img src="/schools/xishi/lessons/pictures/img/15-museum.jpg" alt="五年級學生戴著耳機在國立臺灣歷史博物館「聽見」展前合照" loading="lazy" width="1200" height="900"><span class="ld-num">15</span></figure>
+<div class="ld-body">
+<h3 class="ld-t">A Museum Trip</h3>
+<div class="ld-t-zh">臺南校外教學</div>
+<ol class="ld-qa"><li class="ld-q ld-q--who"><span class="ld-tag">👀 Who? <small>有誰？</small></span><div class="ld-a"><p class="ld-en">I can see a class of fifth graders and their teacher. <button class="ld-say" type="button" data-say="I can see a class of fifth graders and their teacher." aria-label="Listen 朗讀：I can see a class of fifth graders and their teacher.">🔊</button></p><p class="ld-zh">我看到一班五年級的學生和他們的老師。</p></div></li><li class="ld-q ld-q--where"><span class="ld-tag">📍 Where? <small>在哪裡？</small></span><div class="ld-a"><p class="ld-en">They are at the National Museum of Taiwan History. <button class="ld-say" type="button" data-say="They are at the National Museum of Taiwan History." aria-label="Listen 朗讀：They are at the National Museum of Taiwan History.">🔊</button></p><p class="ld-zh">他們在國立臺灣歷史博物館。</p></div></li><li class="ld-q ld-q--what"><span class="ld-tag">🎬 What? <small>在做什麼？</small></span><div class="ld-a"><p class="ld-en">They are wearing headphones at a museum. <button class="ld-say" type="button" data-say="They are wearing headphones at a museum." aria-label="Listen 朗讀：They are wearing headphones at a museum.">🔊</button></p><p class="ld-zh">他們在博物館裡戴著耳機。</p></div></li></ol>
+<div class="ld-words"><span class="ld-words__h">Key Words 關鍵字</span><span class="ld-w"><button class="ld-say" type="button" data-say="museum" aria-label="Listen 朗讀：museum">🔊</button><b>museum</b><span>博物館</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="headphones" aria-label="Listen 朗讀：headphones">🔊</button><b>headphones</b><span>耳機</span></span><span class="ld-w"><button class="ld-say" type="button" data-say="field trip" aria-label="Listen 朗讀：field trip">🔊</button><b>field trip</b><span>校外教學</span></span></div>
+<details class="ld-about"><summary>💡 About this picture <small>關於這張照片</small></summary><p>On a field trip to Tainan, linked to their social studies class, the students visited the National Museum of Taiwan History. A special exhibition on sound let them hear voices and sounds from different times and places.</p><p class="zh">學生到臺南校外教學，結合社會課程，參觀國立臺灣歷史博物館。當時博物館正進行「聽見」聲音展覽，可以聽見不同年代、不同地點的聲音表現。</p></details>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="game">
+<div class="wrap">
+<div class="sec__no">VII.</div>
+<h2 class="sec__title">🎯 Which Picture?</h2>
+<div class="sec__title-zh">哪一張圖？讀句子（或點 🔊 聽句子），選出正確的圖片</div>
+<div class="sec__rule"></div>
+<div class="ld-game">
+<div class="ld-g-top"><span>Question 第 <b id="gQ">1</b> / <span id="gN">8</span> 題</span><span>⭐ Stars 星星：<b id="gStar">0</b></span></div>
+<div class="ld-g-sent" id="gSent">
+<div class="ld-g-en"><span id="gEn"></span> <button class="ld-say" type="button" id="gSay" aria-label="Listen 朗讀">🔊</button></div>
+<div class="ld-g-zh" id="gZh"></div>
+<button class="ld-g-hint" type="button" id="gHint">💡 中文提示</button>
+</div>
+<div class="ld-g-praise" id="gPraise" aria-live="polite"></div>
+<div class="ld-g-opts" id="gOpts"></div>
+<div class="game-done" id="gDone"></div>
+<button class="game-reset" id="gReset" type="button">↻ Play again · 再玩一次</button>
+</div>
+<div class="lnav">
+<a href="/schools/xishi/lessons/">← All Lessons</a>
+<a class="center" href="#">↑ Back to top · 回到頂端</a>
+<a href="/schools/xishi/lessons/word/">Word of the Day →</a>
+</div>
+</div>
+</section>
+
+<script>
+(function(){
+  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var practice=false;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('.ld-a');
+    if(practice&&a&&!a.classList.contains('peek')){e.preventDefault();a.classList.add('peek');a.parentNode.classList.add('peeked');return;}
+    var b=e.target.closest('.ld-say');if(!b||b.id==='gSay')return;
+    say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);
+  });
+  var pb=document.getElementById('ldPractice');
+  if(pb)pb.addEventListener('click',function(){
+    practice=!practice;document.body.classList.toggle('ld-practice',practice);pb.setAttribute('aria-pressed',practice?'true':'false');
+    pb.textContent=practice?'👀 Show Answers 顯示答案':'🙈 Practice Mode 練習模式';
+    [].forEach.call(document.querySelectorAll('.ld-a.peek'),function(x){x.classList.remove('peek');});
+    [].forEach.call(document.querySelectorAll('.ld-q.peeked'),function(x){x.classList.remove('peeked');});
+  });
+
+  function confetti(big){var n=big?90:18,colors=['#E23A38','#2E97A6','#C8963A','#7048e8','#2E7D46','#FCE7E6'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},2900);})(d);}}
+  var CARDS=[{"n": 1, "img": "/schools/xishi/lessons/pictures/img/01-giraffe-problems.jpg", "en": "Taylor is reading a story about a giraffe.", "zh": "Taylor 老師正在讀一個關於長頸鹿的故事。"}, {"n": 2, "img": "/schools/xishi/lessons/pictures/img/02-animal-sounds.jpg", "en": "The children are acting like chickens. Cluck, cluck!", "zh": "孩子們正在模仿小雞：咕咕咕！"}, {"n": 3, "img": "/schools/xishi/lessons/pictures/img/03-co-teaching.jpg", "en": "The two teachers are teaching the class together.", "zh": "兩位老師正在一起教這個班級。"}, {"n": 4, "img": "/schools/xishi/lessons/pictures/img/04-group-work.jpg", "en": "Taylor is helping the group with an activity.", "zh": "Taylor 老師正在幫這一組進行活動。"}, {"n": 5, "img": "/schools/xishi/lessons/pictures/img/05-strawberry.jpg", "en": "They are learning the word “strawberry.”", "zh": "他們正在學 strawberry（草莓）這個單字。"}, {"n": 6, "img": "/schools/xishi/lessons/pictures/img/06-food-game.jpg", "en": "The boy is playing a matching game on the big screen.", "zh": "這個男生正在大螢幕上玩配對遊戲。"}, {"n": 7, "img": "/schools/xishi/lessons/pictures/img/07-tea-time.jpg", "en": "They are drinking tea together. Cheers!", "zh": "他們正在一起喝茶。乾杯！"}, {"n": 8, "img": "/schools/xishi/lessons/pictures/img/08-board-game.jpg", "en": "The children are playing a board game.", "zh": "孩子們正在玩桌遊。"}, {"n": 9, "img": "/schools/xishi/lessons/pictures/img/09-jump-rope.jpg", "en": "They are jumping rope together.", "zh": "他們正在一起跳繩。"}, {"n": 10, "img": "/schools/xishi/lessons/pictures/img/10-spring-couplets.jpg", "en": "They are holding red spring couplets.", "zh": "他們正拿著紅色的春聯。"}, {"n": 11, "img": "/schools/xishi/lessons/pictures/img/11-read-aloud-practice.jpg", "en": "They are reading aloud from sheets of paper.", "zh": "他們正拿著紙張大聲朗讀。"}, {"n": 12, "img": "/schools/xishi/lessons/pictures/img/12-read-aloud-contest.jpg", "en": "Everyone is reading a picture book.", "zh": "每個人都在讀一本繪本。"}, {"n": 13, "img": "/schools/xishi/lessons/pictures/img/13-mochi.jpg", "en": "They are eating the mochi they made.", "zh": "他們正在吃自己做的麻糬。"}, {"n": 14, "img": "/schools/xishi/lessons/pictures/img/14-cam-toys.jpg", "en": "They are holding up the cam toys they made.", "zh": "他們正舉起自己做的凸輪玩具。"}, {"n": 15, "img": "/schools/xishi/lessons/pictures/img/15-museum.jpg", "en": "They are wearing headphones at a museum.", "zh": "他們在博物館裡戴著耳機。"}];
+  var ROUNDS=8;
+  var PRAISE=['🌟 Great! 答對了！','👏 Nice work! 很棒！','🎉 Excellent! 太厲害了！','✨ Perfect! 完全正確！','👍 Well done! 做得好！','🚀 Awesome! 好厲害！','🌈 You got it! 就是這張！'];
+  var TRY=['🤔 Try again! 再試一次！','👀 Look again! 再看仔細一點！','💪 Almost! 差一點，再試試！'];
+  var qEl=document.getElementById('gQ'),nEl=document.getElementById('gN'),starEl=document.getElementById('gStar'),enEl=document.getElementById('gEn'),zhEl=document.getElementById('gZh'),sent=document.getElementById('gSent'),opts=document.getElementById('gOpts'),praise=document.getElementById('gPraise'),done=document.getElementById('gDone'),reset=document.getElementById('gReset'),hint=document.getElementById('gHint'),gsay=document.getElementById('gSay');
+  if(!opts)return;
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  var pools={};
+  function pick(a){var k=a[0];if(!pools[k]||!pools[k].length)pools[k]=shuffle(a);return pools[k].pop();}
+  var order=[],idx=0,stars=0,missed=false,locked=false,touched=false;
+  nEl.textContent=ROUNDS;
+  function start(){order=shuffle(CARDS).slice(0,ROUNDS);idx=0;stars=0;starEl.textContent='0';done.classList.remove('show');done.textContent='';opts.style.display='';sent.style.display='';show();}
+  function show(){
+    var c=order[idx];missed=false;locked=false;
+    qEl.textContent=idx+1;enEl.textContent=c.en;zhEl.textContent=c.zh;sent.classList.remove('hint');praise.textContent='';
+    var others=shuffle(CARDS.filter(function(x){return x.n!==c.n;})).slice(0,3);
+    opts.innerHTML='';
+    shuffle(others.concat([c])).forEach(function(o){
+      var b=document.createElement('button');b.type='button';b.className='ld-opt';b.dataset.n=o.n;
+      var im=document.createElement('img');im.src=o.img;im.alt='Picture '+o.n;b.appendChild(im);
+      b.addEventListener('click',function(){choose(b,o.n===c.n);});
+      opts.appendChild(b);
+    });
+    if(touched)say(c.en);
+  }
+  function choose(b,ok){
+    if(locked||b.classList.contains('wrong'))return;touched=true;
+    if(ok){
+      locked=true;b.classList.add('right');if(!missed){stars++;starEl.textContent=stars;}
+      praise.textContent=pick(PRAISE);confetti(false);
+      [].forEach.call(opts.children,function(x){if(x!==b)x.disabled=true;});
+      setTimeout(function(){idx++;if(idx<order.length)show();else finish();},1300);
+    }else{missed=true;b.classList.add('wrong');b.disabled=true;praise.textContent=pick(TRY);}
+  }
+  function finish(){
+    opts.innerHTML='';opts.style.display='none';sent.style.display='none';praise.textContent='';
+    done.textContent='🎉 Great job! 你完成了！ ⭐ '+stars+' / '+ROUNDS+(stars===ROUNDS?' — 全部一次答對，太厲害了！':' — 再玩一次，挑戰全部一次答對！');
+    done.classList.add('show');confetti(true);
+  }
+  gsay.addEventListener('click',function(){touched=true;say(enEl.textContent);gsay.classList.add('ring');setTimeout(function(){gsay.classList.remove('ring');},650);});
+  hint.addEventListener('click',function(){sent.classList.toggle('hint');});
+  reset.addEventListener('click',start);
+  start();
+})();
+(function(){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){[].forEach.call(document.querySelectorAll('.rvl'),function(el){el.classList.add('in');});return;}var els=[].slice.call(document.querySelectorAll('.ld-card,.ld-step'));els.forEach(function(el){el.classList.add('rvl');});if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{threshold:0.06,rootMargin:'0px 0px -5% 0px'});els.forEach(function(el){io.observe(el);});})();
+</script>
+<footer class="ft"><div class="ft__inner"><div class="ft__brand"><img class="ft__logo" src="/schools/xishi/logo.png" alt="西勢國小校徽"><div><h4>Xishi Elementary School</h4><div class="zh">彰化縣福興鄉西勢國民小學</div><div class="ft__addr">506 彰化縣福興鄉西勢村員鹿路二段 412 號<br>No. 412, Sec. 2, Yuan-Lu Rd., Xishi Vil., Fuxing Township, Changhua County 506, Taiwan (R.O.C.)<br>Tel · 電話：(04) 777-2317 ・ Fax · 傳真：(04) 778-6287</div></div></div><div class="ft__col"><h5>This Site</h5><ul><li><a href="/schools/xishi/principal/">Principal · 校長室</a></li><li><a href="/schools/xishi/lessons/">Lessons · 課程</a></li><li><a href="/schools/xishi/news/">News · 新聞</a></li></ul></div><div class="ft__col"><h5>Connect</h5><div class="ft-ctas"><a class="cta-btn" href="https://ssses.chc.edu.tw/" target="_blank" rel="noopener"><span class="cta-btn__ico">🌐</span><span class="cta-btn__tx"><span class="cta-btn__t">Official Website</span><span class="cta-btn__zh">西勢國小官網</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--fb" href="https://www.facebook.com/ssses.chc.edu.tw/?locale=zh_TW" target="_blank" rel="noopener"><span class="cta-btn__ico">f</span><span class="cta-btn__tx"><span class="cta-btn__t">Facebook</span><span class="cta-btn__zh">西勢國小臉書專頁</span></span><span class="cta-btn__arrow">↗</span></a><a class="cta-btn cta-btn--archive" href="https://xishi.mycultureconnect.org/" target="_blank" rel="noopener"><span class="cta-btn__ico">🗂️</span><span class="cta-btn__tx"><span class="cta-btn__t">Previous Website</span><span class="cta-btn__zh">舊版雙語網站</span></span><span class="cta-btn__arrow">↗</span></a></div></div></div><div class="ft__bottom">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a> <a href="https://www.twrses.org/" target="_blank" rel="noopener">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener">Changhua Bilingual Hub 彰化雙語資源網</a></div></footer>
+<script defer src="/assets/js/motion.js?v=b0540bb5"></script>
+</body>
+</html>
