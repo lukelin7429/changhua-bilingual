@@ -22,35 +22,30 @@
     .mtg-crumbs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; font-size: .9rem; color: var(--hub-ink-faint); }
     .mtg-crumbs a { color: var(--hub-primary); text-decoration: none; }
     .mtg-crumbs a:hover { text-decoration: underline; }
-    .mtg-topics { display:block; margin:26px 0 30px; padding:24px 26px; border:1px solid var(--hub-line);
-    border-left:6px solid var(--hub-accent); border-radius:16px; background:var(--hub-line-soft);
-    text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
-  .mtg-topics:hover { transform:translateY(-3px); box-shadow:var(--hub-shadow-hover); text-decoration:none; }
-  .mtg-topics__eb { display:block; font-size:14px; letter-spacing:.11em; text-transform:uppercase;
-    font-weight:700; color:var(--hub-accent); margin-bottom:8px; }
-  .mtg-topics__h { display:block; font-family:var(--hub-serif); font-size:27px; color:var(--hub-ink); margin-bottom:10px; }
-  .mtg-topics__p { display:block; font-size:18px; line-height:1.6; color:var(--hub-ink-soft); max-width:62ch; margin-bottom:8px; }
-  .mtg-topics__zh { display:block; font-family:var(--hub-zh-font); font-size:18px; line-height:1.85;
-    color:var(--hub-ink-faint); max-width:62ch; margin-bottom:14px; }
-  .mtg-topics__go { display:block; font-size:18px; font-weight:700; color:var(--hub-primary); }
-  .mtg-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 24px; margin-top: 28px; }
+    .mtg-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 28px; }
     .mtg-tile {
-      display:block; text-decoration:none; color:inherit;
+      display:flex; flex-direction:row; text-decoration:none; color:inherit;
       border:1px solid var(--hub-line); border-radius: var(--hub-radius); overflow:hidden; background:#fff;
       box-shadow: 0 4px 14px -8px rgba(0,0,0,.12); transition: transform .16s, box-shadow .16s;
     }
     .mtg-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 34px -14px rgba(0,0,0,.24); text-decoration:none; }
-    .mtg-tile-img { aspect-ratio: 16/9; overflow:hidden; background:#11201f; }
-    .mtg-tile-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s; }
+    .mtg-tile-img { flex: 0 0 36%; position:relative; overflow:hidden; background:#11201f; }
+    .mtg-tile-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s; }
     .mtg-tile:hover .mtg-tile-img img { transform: scale(1.05); }
-    .mtg-tile-body { padding: 20px 22px 24px; }
+    .mtg-tile-img--icon { display:flex; align-items:center; justify-content:center; font-size:56px; background:linear-gradient(135deg,#fbf3eb 0%,#f3e2cb 100%); }
+    .mtg-tile-body { flex:1 1 auto; display:flex; flex-direction:column; padding: 18px 20px 14px; min-width:0; }
     .mtg-tile-date { font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--hub-accent); font-weight:700; }
-    .mtg-tile-title { font-family: var(--hub-serif); font-size:1.3rem; margin:6px 0 2px; color:var(--hub-ink); }
+    .mtg-tile-title { font-family: var(--hub-serif); font-size:1.3rem; line-height:1.25; margin:6px 0 2px; color:var(--hub-ink); }
     .mtg-tile-title-zh { font-family: var(--hub-zh-font); font-size:.98rem; font-weight:500; color:var(--hub-ink-soft); margin:0 0 8px; }
-    .mtg-tile-desc { margin:0; color:var(--hub-ink-soft); font-size:.97rem; line-height:1.55; }
+    .mtg-tile-desc { margin:0; color:var(--hub-ink-soft); font-size:.9rem; line-height:1.5; }
     .mtg-tile-desc .zh { display:block; margin-top:5px; font-family: var(--hub-zh-font); color:var(--hub-ink-faint); font-size:.95em; line-height:1.7; }
-    .mtg-tile-more { margin-top:14px; font-weight:600; color:var(--hub-primary); font-size:.92rem; }
+    .mtg-tile-more { margin:auto 0 0; padding-top:10px; font-weight:600; color:var(--hub-primary); font-size:.92rem; }
     .mtg-tile-more::after { content:" →"; }
+    @media (max-width: 900px) { .mtg-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) {
+      .mtg-tile { flex-direction:column; }
+      .mtg-tile-img { flex:none; aspect-ratio:16/9; min-height:0; }
+    }
   </style>
 </head>
 <body>
@@ -97,15 +92,28 @@
   <p style="color:var(--hub-ink-soft);max-width:62ch;font-size:1.08rem;line-height:1.6">Discussion highlights and photos from our foreign English teachers' monthly meetings — practical classroom ideas shared by teachers, for teachers.</p>
   <p class="hub-zh" style="color:var(--hub-ink-faint);max-width:62ch;line-height:1.85">每月外師會議的討論重點與活動相片。點選任一場會議查看當次各組分享的教學重點。</p>
 
-  <a class="mtg-topics" href="/fets/meetings/discussions/">
-    <span class="mtg-topics__eb">Discussion Topics · 討論提綱　115 學年度</span>
-    <span class="mtg-topics__h">100 things worth arguing about</span>
-    <span class="mtg-topics__p">Prompts for the discussion hour — classroom management, activities, games, work ethic, relationships and co-teaching. Pick whatever your group actually wants to talk about; nothing is assigned to a particular month.</span>
-    <span class="mtg-topics__zh">會議討論時段用的 100 道提綱：課堂管理、活動設計、遊戲設計、工作倫理、人際關係與協同教學。各組自由挑選，沒有指定哪個月談哪一塊。</span>
-    <span class="mtg-topics__go">Browse the topics · 瀏覽提綱 →</span>
-  </a>
-
   <div class="mtg-grid">
+    <a class="mtg-tile" href="/fets/meetings/discussions/">
+      <div class="mtg-tile-img mtg-tile-img--icon" aria-hidden="true">💬</div>
+      <div class="mtg-tile-body">
+        <span class="mtg-tile-date">Discussion Topics · 討論提綱</span>
+        <h2 class="mtg-tile-title">100 things worth arguing about</h2>
+        <p class="mtg-tile-title-zh">100 道值得討論的題目</p>
+        <p class="mtg-tile-desc">100 prompts on classroom management, activities, games, work ethic and co-teaching. Pick whatever your group wants to talk about.<span class="zh">100 道討論提綱，各組自由挑選。</span></p>
+        <p class="mtg-tile-more">Browse the topics · 瀏覽提綱</p>
+      </div>
+    </a>
+
+    <a class="mtg-tile" href="/fets/meetings/2026-09-17/">
+      <div class="mtg-tile-img"><img src="/fets/meetings/2026-09-17/photos/p01.jpg" alt="September 17, 2026 FET meeting" loading="lazy"></div>
+      <div class="mtg-tile-body">
+        <span class="mtg-tile-date">September 17, 2026 · 2026年9月17日</span>
+        <h2 class="mtg-tile-title">FET Monthly Meeting</h2>
+        <p class="mtg-tile-title-zh">外師月會</p>
+        <p class="mtg-tile-desc">Eight groups shared festival lessons, board games, game design, outdoor English, storytelling and teacher well-being.<span class="zh">八個小組分享節慶課程、桌遊、遊戲設計、戶外英語、繪本與教師身心健康。</span></p>
+        <p class="mtg-tile-more">View highlights · 查看重點</p>
+      </div>
+    </a>
     <a class="mtg-tile" href="/fets/meetings/2026-06-17/">
       <div class="mtg-tile-img"><img src="/fets/meetings/2026-06-17/photos/p01.jpg" alt="June 17, 2026 FET meeting" loading="lazy"></div>
       <div class="mtg-tile-body">

@@ -87,7 +87,30 @@
     }
 
     /* ---------- Group summary ---------- */
-    .group-list { display:grid; gap: 22px; }
+    .group-list { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+    @media (max-width: 900px) { .group-list { grid-template-columns: 1fr; } }
+    .group-sum { margin: 2px 0 10px; font-size: .94rem; line-height: 1.55; color: var(--hub-ink-soft); }
+    .group-sum .zh { display:block; margin-top: 4px; font-family: var(--hub-zh-font); font-size: .95em; line-height: 1.7; color: var(--hub-ink-faint); }
+    .group-more > .group-sub { margin: 10px 0 0; }
+    .group-card { padding: 20px 24px 16px; }
+    .group-title { font-size: 1.18rem; }
+    .group-more > summary {
+      cursor: pointer; list-style: none; font-weight: 700; font-size: .92rem; color: var(--hub-primary);
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 0;
+    }
+    .group-more > summary::-webkit-details-marker { display: none; }
+    .group-more > summary::before { content: "▸"; display: inline-block; transition: transform .2s; }
+    .group-more[open] > summary::before { transform: rotate(90deg); }
+    .group-more > summary:focus-visible { outline: 2px solid var(--hub-primary); outline-offset: 3px; border-radius: 4px; }
+    .group-more > ul { margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--hub-line); }
+    .group-more li { font-size: .95rem; margin-bottom: 11px; }
+    .group-tools { margin: 0 0 18px; }
+    .group-expand {
+      font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer;
+      background: #fff; color: var(--hub-primary); border: 1px solid var(--hub-line);
+      border-radius: 999px; padding: 8px 18px;
+    }
+    .group-expand:hover { background: var(--hub-line-soft); }
     .group-card {
       background:#fff; border:1px solid var(--hub-line); border-left: 5px solid var(--gc, var(--hub-primary));
       border-radius: var(--hub-radius); padding: 26px 28px;
@@ -215,6 +238,7 @@
   <p style="color:var(--hub-ink-soft);max-width:60ch;margin:8px 0 4px">What each group shared, in their own words — practical ideas you can adapt for your own classroom.</p>
   <p style="font-family:var(--hub-zh-font);color:var(--hub-ink-faint);max-width:60ch;margin:0 0 32px;line-height:1.8">各小組的第一手分享——你可以直接運用於自己課堂的實用點子。</p>
 
+  <p class="group-tools"><button type="button" class="group-expand" id="expandAll">Expand all · 全部展開</button></p>
   <div class="group-list">
 
     <article class="group-card" style="--gc:var(--c-orange)">
@@ -223,6 +247,9 @@
         <h3 class="group-title">Bringing World Cultures &amp; Festivals into the Classroom</h3>
         <p class="group-title-zh">將世界文化與節慶帶入課堂</p>
       </div>
+      <p class="group-sum">Weaving cultural traditions into camps and English Club — a piñata game and guacamole making that connect Mexican, Filipino, and Latin American culture.<span class="zh">把文化傳統融入營隊與英語社團——皮納塔遊戲與製作酪梨醬，連結墨西哥、菲律賓與拉丁美洲文化。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">For summer / winter camps and English Club classes<br><span class="zh">適用於寒暑假營隊與英語社團課程</span></p>
       <ul>
         <li>Explored how to weave cultural traditions and festivals into lessons for summer and winter camps and English Club classes.<span class="zh">探討如何將文化傳統與節慶融入寒暑假營隊及英語社團課程。</span></li>
@@ -230,6 +257,7 @@
         <li><strong>Teacher Amelia W.</strong> walked through the process of making <em>guacamole</em>, a traditional dish from Mexico and Central and South America.<span class="zh">Amelia W. 老師示範了製作「酪梨醬（guacamole）」的過程——這是源自墨西哥及中南美洲的傳統料理。</span></li>
         <li>Both activities promote global partnership and cross-cultural understanding in the classroom.<span class="zh">兩項活動都能在課堂中促進全球夥伴關係與跨文化理解。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-blue)">
@@ -238,6 +266,9 @@
         <h3 class="group-title">Designing Summer &amp; Winter Camps + SUNO AI</h3>
         <p class="group-title-zh">設計寒暑假營隊 + SUNO AI</p>
       </div>
+      <p class="group-sum">Camps built on the UN Sustainable Development Goals and planned backward from a final product, plus SUNO AI for song-based learning.<span class="zh">以聯合國永續發展目標設計營隊、從最終成果倒推規劃，並用 SUNO AI 進行歌曲式學習。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Nanxing Elementary School · "Sharing is Caring"<br><span class="zh">南興國小 ·「分享即關懷」</span></p>
       <ul>
         <li>Built camps around the UN Sustainable Development Goals: a <strong>Winter Camp on "Life Below Water" (SDG 14)</strong> and a <strong>Summer Camp on "Life on Land" (SDG 15)</strong>.<span class="zh">以聯合國永續發展目標（SDGs）為主軸設計營隊：冬令營主題為「水下生命」（SDG 14），夏令營主題為「陸地生命」（SDG 15）。</span></li>
@@ -246,6 +277,7 @@
         <li>Every session threads five pillars: <strong>Vocabulary → Sentence Patterns → Science Connection → Creative Activity → Presentation Practice.</strong><span class="zh">每堂課都貫穿五大支柱：<strong>單字 → 句型 → 科學連結 → 創意活動 → 上台發表練習。</strong></span></li>
         <li>Introduced <strong>SUNO AI</strong> (text-to-music) to boost vocabulary retention, model natural pronunciation and intonation, and lower students' anxiety through stress-free, song-based learning.<span class="zh">介紹 <strong>SUNO AI</strong>（文字轉音樂）來提升單字記憶、示範自然的發音與語調，並透過無壓力的歌曲式學習降低學生焦慮。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-green)">
@@ -254,6 +286,9 @@
         <h3 class="group-title">Hosting Classroom Games with GitHub &amp; Gemini</h3>
         <p class="group-title-zh">用 GitHub 與 Gemini 製作課堂遊戲</p>
       </div>
+      <p class="group-sum">Browser-based HTML games made with Google Gemini and shared through GitHub — ready-to-play resources for the English Corner.<span class="zh">用 Google Gemini 製作、透過 GitHub 分享的瀏覽器遊戲——英語角可直接使用的資源。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Ready-to-play games for the English Corner<br><span class="zh">可直接遊玩的英語角遊戲</span></p>
       <ul>
         <li>Used <strong>Google Gemini</strong> to generate single-file, browser-based HTML games — no installation needed, and easy to host and share on GitHub.<span class="zh">運用 <strong>Google Gemini</strong> 生成單一檔案、瀏覽器即可執行的 HTML 遊戲——免安裝，並可輕鬆部署與分享於 GitHub。</span></li>
@@ -262,6 +297,7 @@
         <li>Focused on showing the finished, playable product so colleagues can reuse and adapt resources rather than start from scratch.<span class="zh">著重展示完成、可直接遊玩的成品，讓同仁能重複利用與改編，而非從零開始。</span></li>
         <li>Positioned GitHub + Gemini games as a practical, low-barrier resource for English Corner enrichment.<span class="zh">將 GitHub + Gemini 遊戲定位為充實英語角、實用且低門檻的資源。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-purple)">
@@ -270,6 +306,9 @@
         <h3 class="group-title">A Practical Workshop: Making Games with Gemini</h3>
         <p class="group-title-zh">實作工作坊：用 Gemini 製作遊戲</p>
       </div>
+      <p class="group-sum">A hands-on workshop: write prompts instead of code to have Gemini build an HTML game, then save it as a file and play.<span class="zh">實作工作坊：用提示詞取代寫程式，讓 Gemini 生成 HTML 遊戲，存成檔案即可遊玩。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Write prompts instead of code<br><span class="zh">用提示詞取代寫程式</span></p>
       <ul>
         <li>A hands-on walkthrough teaching educators to create HTML games with Gemini instead of coding manually.<span class="zh">手把手帶領教師用 Gemini 製作 HTML 遊戲，無需手動寫程式。</span></li>
@@ -277,6 +316,7 @@
         <li>Prompt-writing tips: be clear and direct, keep instructions simple, and request big buttons, bright colors, clear text, sound effects, a scoring system, and full-screen display.<span class="zh">提示詞撰寫技巧：清楚直接、指令簡單，並要求大按鈕、明亮色彩、清晰文字、音效、計分系統與全螢幕顯示。</span></li>
         <li>Always ask Gemini to put everything in one HTML file, tell it to fix any errors, and keep refining until the game matches your vision.<span class="zh">記得要求 Gemini 把所有內容放進單一 HTML 檔、請它修正錯誤，並持續優化直到遊戲符合你的構想。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--hub-primary)">
@@ -285,6 +325,9 @@
         <h3 class="group-title">Classroom Challenges &amp; Effective Interventions</h3>
         <p class="group-title-zh">課堂挑戰與有效因應策略</p>
       </div>
+      <p class="group-sum">Four real classroom problems — tablet distraction, rushed pacing, limited co-teacher time, and teasing — with practical responses.<span class="zh">四個真實課堂問題——平板分心、節奏過快、協同教師時間有限與嘲笑同學——與實用對策。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Real problems, practical responses<br><span class="zh">真實問題，實用對策</span></p>
       <ul>
         <li><strong>Tablet distraction</strong> (1:1 device setup): temporarily collect a misused iPad, return it to the charging cart until needed, and reinforce responsible-use expectations and consequences.<span class="zh"><strong>平板分心</strong>（一人一機環境）：暫時收回被誤用的 iPad，放回充電車待需要時再發，並重申負責任使用的規範與後果。</span></li>
@@ -292,6 +335,7 @@
         <li><strong>Limited co-teacher coordination</strong> (FET left only a few minutes due to poor time management): discuss scheduling and pacing with co-teachers, and raise it with administrators if it continues.<span class="zh"><strong>協同教師配合有限</strong>（因時間管理不佳，外師僅剩幾分鐘授課）：與協同教師討論排程與步調，若持續發生則向行政人員反映。</span></li>
         <li><strong>Teasing during group work</strong> when a student can't answer: set clear expectations for respectful teamwork, emphasize collaboration and mutual support, and involve the homeroom teacher for added behavioral support.<span class="zh"><strong>分組時的嘲笑</strong>（當學生答不出來）：明確建立尊重與團隊合作的規範，強調協作與互助，並請導師協助處理行為問題。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-orange)">
@@ -300,6 +344,9 @@
         <h3 class="group-title">Building Global Connections: ESL Through Sister-School Partnerships</h3>
         <p class="group-title-zh">建立全球連結：透過姊妹校夥伴關係推動英語學習</p>
       </div>
+      <p class="group-sum">ESL through sister-school partnerships: video exchanges, an "English Day," and cross-school activities between Taiwan and the Philippines.<span class="zh">透過姊妹校夥伴關係學英語：影片交換、「英語日」，以及台灣與菲律賓之間的跨校活動。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Theories · suggested activities · school events<br><span class="zh">理論 · 建議活動 · 學校活動</span></p>
       <ul>
         <li>Framed sister-school partnerships to give learners confidence and a real audience for their English.<span class="zh">以姊妹校夥伴關係為架構，給予學生自信，並為他們的英語提供真實的觀眾。</span></li>
@@ -308,6 +355,7 @@
         <li>Compared signature events — Taiwan's <strong>Sports Day</strong> (relays, tug-of-war, novelty games, parent and teacher participation) and the Philippines' <strong>Foundation Day &amp; Intramurals</strong> (cultural shows, sports fests, parades).<span class="zh">比較兩地的代表性活動——台灣的<strong>運動會</strong>（接力、拔河、趣味競賽，家長與老師共同參與）與菲律賓的<strong>校慶日與校內運動會（Foundation Day &amp; Intramurals）</strong>（文化表演、運動賽事、遊行）。</span></li>
         <li>Suggested cross-school activities: virtual vocabulary lessons, a mock sports day, cultural-share sessions, live watch parties, and cultural-exchange blogs via Google Classroom.<span class="zh">建議的跨校活動：線上單字課、模擬運動會、文化分享會、線上同步觀看派對，以及透過 Google Classroom 經營文化交流部落格。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-blue)">
@@ -316,12 +364,16 @@
         <h3 class="group-title">English Club: Movie Watching &amp; Voice Dubbing</h3>
         <p class="group-title-zh">英語社團：看電影與配音</p>
       </div>
+      <p class="group-sum">An English Club activity: watch a movie scene, answer a worksheet, read the script aloud, then dub your own voices.<span class="zh">英語社團活動：看電影片段、完成學習單、朗讀劇本，再替角色配音。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Building speaking confidence through movies<br><span class="zh">透過電影建立口說自信</span></p>
       <ul>
         <li>An English Club activity that builds speaking and listening through movies and voice acting.<span class="zh">一項透過電影與配音培養口說與聽力的英語社團活動。</span></li>
         <li>Steps: watch an engaging English movie or scene → answer comprehension questions on a worksheet → read the script aloud together → record (dub) their own voices over the characters.<span class="zh">步驟：觀看一部精彩的英語電影或片段 → 在學習單上回答理解問題 → 一起朗讀劇本 → 為角色錄製（配上）自己的聲音。</span></li>
         <li>Goals: check understanding and new vocabulary, practice clear pronunciation, pacing, and intonation, and build speaking confidence and fluency in a fun, low-pressure way.<span class="zh">目標：檢視理解與新單字、練習清晰的發音、節奏與語調，並以有趣、低壓力的方式建立口說自信與流暢度。</span></li>
       </ul>
+      </details>
     </article>
 
     <article class="group-card" style="--gc:var(--c-green)">
@@ -330,6 +382,9 @@
         <h3 class="group-title">Storytelling Frameworks &amp; a Teacher-Led Digital Library</h3>
         <p class="group-title-zh">說故事框架與教師共建的數位圖書館</p>
       </div>
+      <p class="group-sum">Multi-sensory storybook teaching — wordless picture books and concept-integrated stories — and a proposed shared Digital Library of teacher-uploaded books.<span class="zh">多感官繪本教學——無字繪本與概念整合式故事——並提議建立教師共建的數位圖書館。</span></p>
+      <details class="group-more">
+      <summary>Read the full summary · 閱讀完整重點</summary>
       <p class="group-sub">Multi-sensory reading beyond rote<br><span class="zh">超越死記的多感官閱讀</span></p>
       <ul>
         <li>Explored multi-sensory storybook teaching that goes beyond rote reading to build conceptual mastery.<span class="zh">探討多感官繪本教學，超越死記式閱讀，建立概念性的理解。</span></li>
@@ -337,6 +392,7 @@
         <li><strong>Concept-integrated storytelling:</strong> teach background knowledge first (e.g., habitats, animal adaptations), then apply it to understand and discuss the story (sample units on forests, grasslands, deserts, farms, oceans, and "what if animals wore clothes").<span class="zh"><strong>概念整合式說故事：</strong>先教背景知識（例如棲地、動物的適應方式），再運用這些知識理解與討論故事（示範單元包括森林、草原、沙漠、農場、海洋，以及「假如動物會穿衣服」）。</span></li>
         <li>Proposed a district-wide, open-access cloud <strong>Digital Library</strong>: foreign teachers scan, categorize, and upload useful storybooks and lesson guides to share resources with one another.<span class="zh">提議建立全縣共享、開放取用的雲端<strong>數位圖書館</strong>：外師掃描、分類並上傳實用的繪本與教案，彼此分享資源。</span></li>
       </ul>
+      </details>
     </article>
 
   </div>
@@ -442,6 +498,19 @@
   } else {
     cards.forEach(function(c){ c.classList.add('is-in'); });
   }
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('expandAll');
+  if(!btn) return;
+  var all = document.querySelectorAll('.group-more');
+  var open = false;
+  btn.addEventListener('click', function(){
+    open = !open;
+    all.forEach(function(d){ d.open = open; });
+    btn.textContent = open ? 'Collapse all · 全部收合' : 'Expand all · 全部展開';
+  });
 })();
 </script>
 </body>
