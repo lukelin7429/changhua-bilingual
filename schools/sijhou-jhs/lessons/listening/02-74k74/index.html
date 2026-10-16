@@ -116,9 +116,6 @@
 .lq-closed span{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);display:block;margin-top:6px;line-height:1.6;}
 .lq-redo{display:none;margin:14px auto 0;font:700 18px/1 'Inter','PingFang TC',sans-serif;color:#fff;background:var(--azure-deep);border:0;border-radius:12px;padding:13px 22px;cursor:pointer;}
 .lq-redo.show{display:inline-block;}
-.lq-again{display:none;font-family:'PingFang TC',sans-serif;font-size:17px;font-weight:700;color:var(--crimson-deep);background:var(--crimson-soft);border-radius:12px;padding:10px 14px;margin:14px auto 0;max-width:560px;line-height:1.5;}
-.lq-again.show{display:block;}
-.lq-again small{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
 .lq-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px;}
 .lq-chip{font:700 16px/1 'Inter',sans-serif;padding:8px 12px;border-radius:99px;}
 .lq-chip.ok{background:#e6f6ea;color:#237a36;}
@@ -179,7 +176,6 @@
   <div class="lq-result__label">Your Score · 你的成績</div>
   <div class="lq-result__score"><span id="scoreNum">0</span><small> / 100</small></div>
   <div class="lq-result__who" id="resultWho"></div>
-  <p class="lq-again" id="again">這台平板已經交過這一期了，成績以第一次為準。<br><small>This tablet has already submitted this challenge — only the first try counts.</small></p>
   <div class="lq-result__msg" id="resultMsg"></div>
   <div class="lq-chips" id="chips"></div>
   <p class="lq-sent" id="sent"></p>
@@ -268,12 +264,10 @@
     document.getElementById(id).addEventListener("input", function(){ this.parentNode.classList.remove("err"); });
   });
 
-  /* One submission per tablet: the result is remembered, so reloading shows the first result
-     instead of a fresh form. Teachers can clear it for testing with ?reset=1 */
-  var STORE = "sijhou-listening-" + ISSUE;
-  function load(){ try { return JSON.parse(localStorage.getItem(STORE) || "null"); } catch (err) { return null; } }
-  function save(o){ try { localStorage.setItem(STORE, JSON.stringify(o)); } catch (err) {} }
-  if (CLOSED || /[?&]reset=1(&|$)/.test(location.search)) { try { localStorage.removeItem(STORE); } catch (err) {} }
+  /* No per-device lock. Tablets get swapped around when one breaks, so a second
+     student on the same tablet must be able to answer. Repeats cost nothing:
+     the raffle list counts only each student's first submission of an issue. */
+  try { localStorage.removeItem("sijhou-listening-" + ISSUE); } catch (err) {}
   if (CLOSED) {
     document.getElementById("closedNote").classList.add("show");
     document.getElementById("answerZh").textContent = "複習 · 重做一次，馬上看到答案與解析";
@@ -283,7 +277,7 @@
     document.getElementById("resultWho").hidden = true;
   }
 
-  var payload = null, done = false, record = null;
+  var payload = null, done = false;
   form.addEventListener("submit", function(e){
     e.preventDefault();
     if (done) return;
@@ -311,8 +305,6 @@
       document.getElementById("redo").classList.add("show");
       return;
     }
-    record = { cls: cls, nm: nm, picks: picks, sent: false };
-    save(record);
     send(0);
   });
 
@@ -360,7 +352,7 @@
   function setSent(text, cls){ sent.textContent = text; sent.className = "lq-sent" + (cls ? " " + cls : ""); }
   var OK_TEXT = "✓ 成績已送出 Your score has been recorded.";
   var FAIL_TEXT = "✗ 成績還沒送出，請確認網路後按「重新送出」。Not sent yet — check the Wi-Fi and tap Send again.";
-  function markSent(){ setSent(OK_TEXT, "ok"); if (record) { record.sent = true; save(record); } }
+  function markSent(){ setSent(OK_TEXT, "ok"); }
   function markFailed(){ setSent(FAIL_TEXT, "fail"); retry.classList.add("show"); }
 
   /* Main path: a normal POST whose reply we can read, so the student sees a real confirmation.
@@ -407,23 +399,6 @@
 
   document.getElementById("redo").addEventListener("click", function(){ location.reload(); });
 
-  var prev = CLOSED ? null : load();
-  var validPrev = prev && prev.cls && prev.nm && Array.isArray(prev.picks) && prev.picks.length === QUESTIONS.length &&
-    prev.picks.every(function(p, qi){ return p >= 0 && p < QUESTIONS[qi].o.length; });
-  if (validPrev) {
-    record = prev;
-    document.getElementById("cls").value = prev.cls;
-    document.getElementById("nm").value = prev.nm;
-    prev.picks.forEach(function(p, qi){
-      var input = form.querySelector('input[name="q'+qi+'"][value="'+p+'"]');
-      input.checked = true;
-      input.closest(".lq-opt").classList.add("sel");
-    });
-    grade(prev.cls, prev.nm, prev.picks, false);
-    document.getElementById("again").classList.add("show");
-    if (prev.sent) setSent("✓ 成績已送出 Your score has been recorded.", "ok");
-    else send(0);
-  }
 })();
 </script>
 <script>
