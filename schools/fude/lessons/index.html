@@ -85,6 +85,12 @@ section:last-of-type{border-bottom:none;}
 }
 .course-grid{display:grid;grid-template-columns:1fr;gap:30px;}
 @media(min-width:860px){.course-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:860px){
+  .course--wide{grid-column:1/-1;grid-template-columns:1.25fr 1fr;}
+  .course--wide .course__art{aspect-ratio:auto;min-height:100%;}
+  .course--wide .course__art img{object-position:10% 50%;}
+  .course--wide .course__body{justify-content:center;}
+}
 .course:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
 .course__art{position:relative;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--brick) 0%,var(--brick-deep) 100%);}
 .course__art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
@@ -307,6 +313,23 @@ footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft
             <span class="zh">從播種到餐桌——黃豆、蔬菜，還有校園裡的自然教室。</span>
           </p>
           <div class="course__cta">Visit the Garden <span class="arrow">→</span></div>
+        </div>
+      </a>
+
+      <a class="course course--wide rvl" href="topics/vr/">
+        <div class="course__art">
+          <img src="cover-vr.jpg" alt="福德學生戴上 VR 頭盔體驗虛擬實境" loading="lazy">
+          <div class="course__badge">New · 360° VR</div>
+        </div>
+        <div class="course__body">
+          <div class="course__no">Course 05</div>
+          <div class="course__title">VR Zone</div>
+          <div class="course__title-zh">VR 專區</div>
+          <p class="course__desc">
+            Watch our VR class, then tour Fude, Wufu Temple, the Fude Shrine and a national museum — all in 360°.
+            <span class="zh">先看福德 VR 體驗影片，再用 360° 環景走進福德校園、五福宮、福德祠和科博館。</span>
+          </p>
+          <div class="course__cta">Enter VR Zone <span class="arrow">→</span></div>
         </div>
       </a>
 

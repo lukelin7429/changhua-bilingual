@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://fude.mycultureconnect.org/lessons/topics/vr/">
+<title>VR Zone · VR 專區 · Fude Elementary School</title>
+<meta name="description" content="Fude Elementary's VR Zone — watch students explore with VR headsets, then tour Fude, Wufu Temple, the Fude Shrine and the National Museum of Natural Science in 360°. 彰化縣永靖鄉福德國小 VR 專區：VR 體驗影片與 360° 環景導覽。">
+<meta property="og:title" content="VR Zone · VR 專區 · Fude Elementary">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://changhua-bilingual.org/schools/fude/lessons/topics/vr/vr-banner.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32.png">
+<link rel="apple-touch-icon" href="../../../favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brick:#B5261A;--brick-deep:#821A10;--brick-soft:#F9E8E6;
+  --azure:#1565A8;--azure-deep:#0A3C66;--azure-soft:#DBE8F4;
+  --gold:#C8963A;--gold-deep:#7A5A17;--gold-soft:#F5EDD4;
+  --green:#4E9A4A;--green-deep:#2C6B2A;--green-soft:#E2F0DD;
+  --ink:#1b2430;--ink-soft:#566374;--line:#e3d8d2;--bg-soft:#faf5f2;
+  --shadow:0 14px 38px -16px rgba(130,26,16,.28);
+  --shadow-sm:0 6px 16px -6px rgba(130,26,16,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  background:#fff;color:var(--ink);
+  font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;
+  font-size:22px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+@media(min-width:720px){body{font-size:25.3px;}}
+img{max-width:100%;display:block;}
+button{font:inherit;color:inherit;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+section{padding:60px 0;border-bottom:1px solid var(--line);}
+@media(min-width:720px){section{padding:88px 0;}}
+section:last-of-type{border-bottom:none;}
+
+/* topbar — same as the rest of the Fude site */
+.topbar{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);padding:12px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topbar-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
+.topbar-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover;background:#e8c97a;}
+.topbar-name{font-family:'Cormorant Garamond','PingFang TC',serif;font-size:18.7px;font-weight:700;color:var(--brick-deep);line-height:1.15;}
+.topbar-name small{display:block;font-family:'PingFang TC','Inter',sans-serif;font-size:16px;font-weight:500;color:var(--ink-soft);margin-top:1px;letter-spacing:.03em;}
+.topbar-nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
+.topbar-nav a{font-size:18.2px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:8px;transition:all .15s;}
+.topbar-nav a:hover,.topbar-nav a.is-active{color:var(--brick-deep);background:var(--brick-soft);}
+@media(max-width:680px){
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;}
+  .topbar-nav{gap:1px;}
+  .topbar-nav a{font-size:16.5px;padding:8px 10px;}
+}
+
+/* hero — 360° school-gate panorama, bottom scrim only, slow pan like a VR look-around */
+.vr-hero{
+  position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;
+  background:
+    linear-gradient(180deg,transparent 0%,transparent 40%,rgba(10,20,42,.62) 100%),
+    url('vr-banner.jpg') 48% 40% / cover no-repeat;
+  padding:0 0 52px;border-bottom:5px solid var(--gold);
+  animation:vrPan 26s ease-in-out infinite alternate;
+}
+@media(min-width:720px){.vr-hero{min-height:640px;padding-bottom:72px;}}
+@keyframes vrPan{
+  from{background-position:0 0,40% 40%;}
+  to{background-position:0 0,58% 40%;}
+}
+.vr-hero__badge{
+  position:absolute;top:24px;right:24px;width:92px;height:92px;border-radius:50%;
+  background:rgba(255,255,255,.92);color:var(--azure-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:800;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+.vr-hero__badge::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px dashed rgba(255,255,255,.85);animation:spin 14s linear infinite;}
+@media(min-width:720px){.vr-hero__badge{top:36px;right:40px;width:112px;height:112px;font-size:36px;}}
+@keyframes spin{to{transform:rotate(360deg);}}
+.vr-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:17.6px;font-weight:600;color:#fff;text-decoration:none;margin-bottom:16px;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.vr-hero__back:hover{text-decoration:underline;}
+.vr-hero__eyebrow{font-size:16px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff;margin-bottom:10px;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.vr-hero h1{font-family:'Cormorant Garamond',serif;font-size:66px;font-weight:800;line-height:1.02;text-shadow:0 2px 18px rgba(0,0,0,.55);}
+@media(min-width:720px){.vr-hero h1{font-size:104px;}}
+.vr-hero__zh{font-family:'PingFang TC',sans-serif;font-size:26.4px;font-weight:600;margin-top:10px;letter-spacing:.08em;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+@media(min-width:720px){.vr-hero__zh{font-size:33px;}}
+.nowrap{white-space:nowrap;}
+.vr-hero__sub{font-size:20.9px;margin-top:16px;line-height:1.6;max-width:720px;text-shadow:0 1px 10px rgba(0,0,0,.55);}
+@media(min-width:720px){.vr-hero__sub{font-size:24.2px;}}
+.vr-hero__sub .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18.7px;margin-top:6px;color:rgba(255,255,255,.92);}
+@media(min-width:720px){.vr-hero__sub .zh{font-size:20.9px;}}
+
+/* section heads — same scale as the Lessons page */
+.sec__label{font-size:16px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;}
+.sec__title{font-family:'Cormorant Garamond',serif;font-size:41.8px;font-weight:700;color:var(--brick-deep);line-height:1.15;}
+@media(min-width:720px){.sec__title{font-size:57.2px;}}
+.sec__title-zh{font-size:20.9px;color:var(--ink-soft);margin-top:8px;font-weight:500;letter-spacing:.06em;}
+@media(min-width:720px){.sec__title-zh{font-size:24.2px;}}
+.sec__rule{width:88px;height:6px;background:var(--brick);border-radius:3px;margin:20px 0 36px;}
+.sec__lede{font-size:22px;color:var(--ink-soft);line-height:1.7;max-width:860px;}
+@media(min-width:720px){.sec__lede{font-size:24.2px;}}
+.sec__lede .zh{display:block;font-size:18.7px;margin-top:8px;font-family:'PingFang TC',sans-serif;}
+@media(min-width:720px){.sec__lede .zh{font-size:20.9px;}}
+
+/* video */
+.player{margin-top:32px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+.player__ratio{position:relative;width:100%;aspect-ratio:16/9;}
+.player__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+/* 360° stage */
+.stage{margin-top:34px;border-radius:22px;overflow:hidden;background:#0d1622;box-shadow:var(--shadow);border:1px solid #1d2a3a;}
+.stage__bar{display:flex;align-items:center;gap:12px;padding:14px 20px;color:#fff;background:linear-gradient(90deg,var(--azure-deep),#13233a);}
+.stage__dot{width:12px;height:12px;border-radius:50%;background:#4be08a;flex-shrink:0;box-shadow:0 0 0 0 rgba(75,224,138,.6);animation:ping 1.8s infinite;}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(75,224,138,.6);}80%,100%{box-shadow:0 0 0 12px rgba(75,224,138,0);}}
+.stage__title{font-size:18.7px;font-weight:700;line-height:1.35;}
+@media(min-width:720px){.stage__title{font-size:20.9px;}}
+.stage__tag{margin-left:auto;flex-shrink:0;font-size:13px;font-weight:700;letter-spacing:2px;color:#9fd0ff;border:1px solid rgba(159,208,255,.5);padding:4px 10px;border-radius:99px;}
+.stage__ratio{position:relative;width:100%;aspect-ratio:4/3;}
+@media(min-width:720px){.stage__ratio{aspect-ratio:16/9;}}
+.stage__ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.stage-open{display:flex;align-items:center;gap:16px;margin-top:16px;padding:18px 22px;border-radius:16px;background:var(--azure-soft);text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s;}
+.stage-open:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+.stage-open__icon{font-size:22px;color:#fff;background:var(--azure);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.stage-open__text strong{display:block;font-size:19.8px;font-weight:700;color:var(--azure-deep);line-height:1.35;}
+@media(min-width:720px){.stage-open__text strong{font-size:22px;}}
+.stage-open__text span{display:block;font-size:17.6px;color:var(--ink-soft);font-family:'PingFang TC',sans-serif;margin-top:2px;}
+@media(min-width:720px){.stage-open__text span{font-size:19.8px;}}
+
+/* tour cards */
+.tours{display:grid;grid-template-columns:1fr;gap:26px;margin-top:40px;}
+@media(min-width:760px){.tours{grid-template-columns:1fr 1fr;}}
+.tour{
+  --accent:var(--brick);--accent-deep:var(--brick-deep);--accent-soft:var(--brick-soft);
+  display:flex;flex-direction:column;text-align:left;cursor:pointer;
+  background:#fff;border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:24px;
+  overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;
+  transition:transform .2s,box-shadow .2s,outline-color .2s;outline:4px solid transparent;outline-offset:3px;
+}
+.tour:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.tour:focus-visible{outline-color:var(--accent);}
+.tour.is-active{outline-color:var(--accent);}
+.tour--gold{--accent:var(--gold);--accent-deep:var(--gold-deep);--accent-soft:var(--gold-soft);}
+.tour--green{--accent:var(--green);--accent-deep:var(--green-deep);--accent-soft:var(--green-soft);}
+.tour--azure{--accent:var(--azure);--accent-deep:var(--azure-deep);--accent-soft:var(--azure-soft);}
+.tour__art{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--accent-soft);}
+.tour__art img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.tour:hover .tour__art img{transform:scale(1.06);}
+.tour__art--emoji{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1f6fb8 0%,var(--azure-deep) 100%);}
+.tour__emoji{font-size:140px;line-height:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35));transition:transform .4s;}
+.tour:hover .tour__emoji{transform:scale(1.08) rotate(-4deg);}
+.tour__badge{position:absolute;left:16px;top:16px;font-size:15px;font-weight:700;letter-spacing:1.5px;color:#fff;background:rgba(10,20,42,.62);backdrop-filter:blur(4px);padding:6px 14px;border-radius:99px;}
+.tour__now{position:absolute;right:16px;bottom:16px;display:none;align-items:center;gap:8px;font-size:15px;font-weight:700;color:#fff;background:var(--accent);padding:6px 14px;border-radius:99px;box-shadow:0 4px 12px rgba(0,0,0,.25);}
+.tour__now::before{content:"";width:9px;height:9px;border-radius:50%;background:#fff;animation:blink 1.2s infinite;}
+@keyframes blink{50%{opacity:.25;}}
+.tour.is-active .tour__now{display:inline-flex;}
+.tour__body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1;}
+@media(min-width:720px){.tour__body{padding:28px 30px 32px;}}
+.tour__no{font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-deep);}
+.tour__title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:800;color:var(--ink);line-height:1.12;margin-top:6px;}
+@media(min-width:720px){.tour__title{font-size:39.6px;}}
+.tour__zh{font-family:'PingFang TC',sans-serif;font-size:20.9px;font-weight:600;color:var(--accent-deep);margin-top:6px;letter-spacing:.04em;}
+@media(min-width:720px){.tour__zh{font-size:23.1px;}}
+.tour__desc{font-size:20.9px;color:var(--ink-soft);line-height:1.65;margin-top:14px;}
+@media(min-width:720px){.tour__desc{font-size:23.1px;}}
+.tour__desc .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18.7px;margin-top:6px;}
+@media(min-width:720px){.tour__desc .zh{font-size:20.4px;}}
+.tour__cta{margin-top:auto;padding-top:22px;}
+.tour__cta span{display:inline-flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:23.1px;font-weight:700;color:#fff;background:var(--accent);padding:12px 26px;border-radius:14px;transition:background .15s;}
+@media(min-width:720px){.tour__cta span{font-size:25.3px;}}
+.tour:hover .tour__cta span{background:var(--accent-deep);}
+
+/* how-to tips */
+.tips{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px;}
+@media(min-width:720px){.tips{grid-template-columns:1fr 1fr;gap:22px;}}
+.tip{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-left:6px solid var(--azure);border-radius:18px;padding:22px 24px;box-shadow:var(--shadow-sm);}
+.tip:nth-child(2){border-left-color:var(--brick);}
+.tip:nth-child(3){border-left-color:var(--gold);}
+.tip:nth-child(4){border-left-color:var(--green);}
+.tip__icon{font-size:44px;line-height:1;flex-shrink:0;}
+.tip__title{font-size:23.1px;font-weight:700;color:var(--ink);line-height:1.3;}
+@media(min-width:720px){.tip__title{font-size:25.3px;}}
+.tip__title .zh{font-family:'PingFang TC',sans-serif;color:var(--ink-soft);font-weight:600;margin-left:6px;}
+.tip__text{font-size:19.8px;color:var(--ink-soft);line-height:1.6;margin-top:6px;}
+@media(min-width:720px){.tip__text{font-size:22px;}}
+.tip__text .zh{display:block;font-family:'PingFang TC',sans-serif;font-size:18.7px;margin-top:4px;}
+@media(min-width:720px){.tip__text .zh{font-size:20.4px;}}
+
+/* VR words — vocab cards, after the Dajuang .vc pattern */
+.vcs{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:720px){.vcs{grid-template-columns:1fr 1fr;}}
+.vc{background:#fff;border:1px solid var(--line);border-top:6px solid var(--brick);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.vc:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.vc:nth-child(4n+2){border-top-color:var(--azure);}
+.vc:nth-child(4n+3){border-top-color:var(--gold);}
+.vc:nth-child(4n){border-top-color:var(--green);}
+.vc__head{padding:22px 24px 14px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between;}
+.vc__num{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:var(--gold-deep);text-transform:uppercase;}
+.vc__term{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:800;color:var(--ink);line-height:1.1;margin-top:4px;}
+@media(min-width:720px){.vc__term{font-size:40px;}}
+.vc__pos{font-size:.55em;color:var(--gold-deep);font-style:italic;font-weight:600;margin-left:4px;}
+.vc__zh{font-family:'PingFang TC',sans-serif;font-size:24.2px;font-weight:600;color:var(--brick-deep);margin-top:4px;}
+@media(min-width:720px){.vc__zh{font-size:26.4px;}}
+.vc__ex{margin:0 24px 24px;padding:14px 16px;background:var(--bg-soft);border-left:4px solid var(--gold);border-radius:10px;}
+.vc__ex .en{font-size:19.8px;font-weight:600;color:var(--ink);line-height:1.5;}
+@media(min-width:720px){.vc__ex .en{font-size:21px;}}
+.vc__ex .zh{font-family:'PingFang TC',sans-serif;font-size:17.6px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+@media(min-width:720px){.vc__ex .zh{font-size:19.2px;}}
+.say{flex-shrink:0;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:var(--azure-soft);font-size:24px;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s;}
+.say:hover{background:var(--azure);transform:scale(1.08);}
+.say.is-speaking{background:var(--azure);animation:pulse .8s infinite alternate;}
+@keyframes pulse{to{transform:scale(1.12);}}
+.say--sm{width:40px;height:40px;font-size:18px;float:right;margin:0 0 4px 10px;}
+
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:24.2px;font-weight:700;color:#fff;background:var(--brick);padding:14px 30px;border-radius:14px;text-decoration:none;box-shadow:0 8px 22px -8px rgba(130,26,16,.55);transition:background .15s,transform .15s;}
+.back-btn:hover{background:var(--brick-deep);transform:translateY(-2px);}
+
+footer{text-align:center;padding:40px 24px;font-size:16.5px;color:var(--ink-soft);line-height:1.65;}
+.rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+.rvl.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  .rvl{opacity:1!important;transform:none!important;}
+  .vr-hero,.vr-hero__badge::after,.stage__dot,.tour__now::before{animation:none!important;}
+}
+</style>
+<script defer src="/analytics.js"></script>
+  <link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar" role="navigation">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="../../../">
+      <img class="topbar-logo" src="../../../logo.png" alt="福德國小校徽">
+      <div class="topbar-name">Fude Elementary<small>彰化縣永靖鄉福德國民小學</small></div>
+    </a>
+    <div class="topbar-nav">
+      <a href="../../../">Home</a>
+      <a href="../../../principal/">Principal</a>
+      <a href="../../" class="is-active">Lessons</a>
+      <a href="../../../news/">News</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="vr-hero">
+  <div class="vr-hero__badge" aria-hidden="true">360°</div>
+  <div class="wrap">
+    <a class="vr-hero__back" href="../../">← Lessons · 回課程總覽</a>
+    <div class="vr-hero__eyebrow">Course 05 · 第五單元</div>
+    <h1>VR Zone</h1>
+    <div class="vr-hero__zh">VR 專區 · <span class="nowrap">360° 環景導覽</span></div>
+    <p class="vr-hero__sub">
+      Step inside Fude, the temple where our school began, and a national museum — all in 360°.
+      <span class="zh">走進福德校園、學校起家的廟宇，還有國家級博物館——全部 360° 環景。</span>
+    </p>
+  </div>
+</header>
+
+<!-- VIDEO -->
+<section>
+  <div class="wrap">
+    <div class="sec__label rvl">Start Here · 先看影片</div>
+    <h2 class="sec__title rvl">Fude VR Experience</h2>
+    <div class="sec__title-zh rvl">福德國小 VR 體驗</div>
+    <div class="sec__rule rvl"></div>
+    <p class="sec__lede rvl">
+      Watch Fude students put on VR headsets and step into new worlds — right in their own classroom.
+      <span class="zh">看福德的孩子戴上 VR 頭盔，在自己的教室裡走進全新的世界。</span>
+    </p>
+    <div class="player rvl">
+      <div class="player__ratio">
+        <iframe src="https://www.youtube-nocookie.com/embed/ifzIjB8aeIo?rel=0" title="福德國小VR體驗 · Fude VR Experience" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 360° TOURS -->
+<section id="tours" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec__label rvl">Take a Tour · 環景導覽</div>
+    <h2 class="sec__title rvl">Four Places in 360°</h2>
+    <div class="sec__title-zh rvl">四個地方，360° 走一圈</div>
+    <div class="sec__rule rvl"></div>
+    <p class="sec__lede rvl">
+      Pick a place below, then drag the picture to look all around. Tap the arrows and dots to move and read the guide.
+      <span class="zh">點選下面的地點，再拖曳畫面看四周；點箭頭和圓點就能移動、看導覽解說。</span>
+    </p>
+
+    <div class="stage rvl" id="stage">
+      <div class="stage__bar">
+        <span class="stage__dot"></span>
+        <span class="stage__title" id="stageTitle">Fude Elementary · 福德國小導覽解說版</span>
+        <span class="stage__tag">360°</span>
+      </div>
+      <div class="stage__ratio">
+        <iframe id="stageFrame" src="https://kuula.co/share/collection/7Tys0?logo=0&amp;info=1&amp;fs=1&amp;vr=1&amp;sd=1&amp;thumbs=1" title="Fude Elementary 360° tour · 福德國小環景導覽" loading="lazy" allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen" allowfullscreen scrolling="no"></iframe>
+      </div>
+    </div>
+    <a class="stage-open rvl" id="stageOpen" href="https://kuula.co/share/collection/7Tys0?logo=0&amp;info=1&amp;fs=1&amp;vr=1&amp;sd=1&amp;thumbs=1" target="_blank" rel="noopener">
+      <span class="stage-open__icon">🥽</span>
+      <span class="stage-open__text"><strong>Using VR goggles? Open this tour full-page ↗</strong><span>要戴 VR 眼鏡？用這個在新分頁開啟整頁導覽</span></span>
+    </a>
+
+    <div class="tours">
+
+      <button type="button" class="tour is-active rvl" aria-pressed="true"
+        data-src="https://kuula.co/share/collection/7Tys0?logo=0&amp;info=1&amp;fs=1&amp;vr=1&amp;sd=1&amp;thumbs=1"
+        data-title="Fude Elementary · 福德國小導覽解說版">
+        <span class="tour__art">
+          <img src="vr-fude.jpg" alt="福德國小校門口 360° 環景" loading="lazy">
+          <span class="tour__badge">360° · Guided</span>
+          <span class="tour__now">Now Showing · 播放中</span>
+        </span>
+        <span class="tour__body">
+          <span class="tour__no">Tour 01</span>
+          <span class="tour__title">Fude Elementary</span>
+          <span class="tour__zh">福德國小 · 導覽解說版</span>
+          <span class="tour__desc">Start at our front gate and walk through the campus, with guide notes along the way.
+            <span class="zh">從校門口出發，走遍福德校園，沿途都有導覽解說。</span></span>
+          <span class="tour__cta"><span>View in 360° →</span></span>
+        </span>
+      </button>
+
+      <button type="button" class="tour tour--gold rvl" aria-pressed="false"
+        data-src="https://kl55244.viewin360.co/share/collection/7Tys4?logo=0&amp;info=1&amp;fs=1&amp;vr=1&amp;sd=1&amp;thumbs=1"
+        data-title="Yongjing Wufu Temple · 永靖五福宮導覽解說版">
+        <span class="tour__art">
+          <img src="vr-wufu.jpg" alt="永靖五福宮廟前 360° 環景" loading="lazy">
+          <span class="tour__badge">360° · Guided</span>
+          <span class="tour__now">Now Showing · 播放中</span>
+        </span>
+        <span class="tour__body">
+          <span class="tour__no">Tour 02</span>
+          <span class="tour__title">Yongjing Wufu Temple</span>
+          <span class="tour__zh">永靖五福宮 · 導覽解說版</span>
+          <span class="tour__desc">Fude got its name from the Land God of this temple — and in 1965, our very first classrooms were in its side rooms.
+            <span class="zh">福德的校名來自五福宮供奉的福德正神；1965 年，學校的第一間教室就借用這裡的廟宇廂房。</span></span>
+          <span class="tour__cta"><span>View in 360° →</span></span>
+        </span>
+      </button>
+
+      <button type="button" class="tour tour--green rvl" aria-pressed="false"
+        data-src="https://kl55244.viewin360.co/share/collection/7TTQq?logo=0&amp;info=1&amp;fs=1&amp;vr=1&amp;sd=1&amp;thumbs=1"
+        data-title="Fude Shrine · 湳港西五福宮福德祠">
+        <span class="tour__art">
+          <img src="vr-fudeci.jpg" alt="港西村福德祠 360° 環景" loading="lazy">
+          <span class="tour__badge">360°</span>
+          <span class="tour__now">Now Showing · 播放中</span>
+        </span>
+        <span class="tour__body">
+          <span class="tour__no">Tour 03</span>
+          <span class="tour__title">Fude Shrine</span>
+          <span class="tour__zh">湳港西五福宮福德祠</span>
+          <span class="tour__desc">A small shrine for the Land God in Gangxi Village. Its name shares two characters with our school — can you find 福德?
+            <span class="zh">港西村福德祠，奉祀福德正神。它跟我們學校一樣有「福德」兩個字，找找看在哪裡！</span></span>
+          <span class="tour__cta"><span>View in 360° →</span></span>
+        </span>
+      </button>
+
+      <a class="tour tour--azure rvl" href="https://pano.nmns.edu.tw/staticweb/ONM20/" target="_blank" rel="noopener">
+        <span class="tour__art tour__art--emoji">
+          <span class="tour__emoji" aria-hidden="true">🦕</span>
+          <span class="tour__badge">3D · New Tab ↗</span>
+        </span>
+        <span class="tour__body">
+          <span class="tour__no">Tour 04</span>
+          <span class="tour__title">National Museum of Natural Science</span>
+          <span class="tour__zh">國立自然科學博物館 · <span class="nowrap">環景線上博物館</span></span>
+          <span class="tour__desc">Walk through the science museum in Taichung from your seat. It opens in a new tab and may take a moment to load.
+            <span class="zh">坐在位子上就能逛臺中科博館。科博館網站不開放嵌入，所以會開新分頁，載入需要一點時間。</span></span>
+          <span class="tour__cta"><span>Open Museum ↗</span></span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section>
+  <div class="wrap">
+    <div class="sec__label rvl">How to Explore · 怎麼玩</div>
+    <h2 class="sec__title rvl">Look, Tap, Explore</h2>
+    <div class="sec__title-zh rvl">四個小技巧，玩轉 360°</div>
+    <div class="sec__rule rvl"></div>
+    <div class="tips">
+      <div class="tip rvl">
+        <div class="tip__icon">👆</div>
+        <div>
+          <div class="tip__title">Drag to look <span class="zh">拖曳看四周</span></div>
+          <p class="tip__text">On a computer, click and drag. On a phone, swipe — or just turn your phone around.<span class="zh">電腦用滑鼠拖曳；手機用手指滑，或直接轉動手機。</span></p>
+        </div>
+      </div>
+      <div class="tip rvl">
+        <div class="tip__icon">📍</div>
+        <div>
+          <div class="tip__title">Tap to move <span class="zh">點一下移動</span></div>
+          <p class="tip__text">Tap the arrows and dots to walk to the next spot and read the guide.<span class="zh">點箭頭或圓點，走到下一站、看導覽說明。</span></p>
+        </div>
+      </div>
+      <div class="tip rvl">
+        <div class="tip__icon">🖥️</div>
+        <div>
+          <div class="tip__title">Go fullscreen <span class="zh">全螢幕</span></div>
+          <p class="tip__text">Press the fullscreen button in the tour for the biggest, clearest view.<span class="zh">按導覽裡的全螢幕按鈕，畫面最大最清楚。</span></p>
+        </div>
+      </div>
+      <div class="tip rvl">
+        <div class="tip__icon">🥽</div>
+        <div>
+          <div class="tip__title">VR goggles <span class="zh">VR 眼鏡模式</span></div>
+          <p class="tip__text">Open the tour full-page, tap the goggles icon, then put your phone in a VR viewer.<span class="zh">用新分頁開啟導覽，點眼鏡圖示，再把手機放進 VR 眼鏡。</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VR WORDS -->
+<section style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec__label rvl">VR Words · VR 單字</div>
+    <h2 class="sec__title rvl">Words for the Tour</h2>
+    <div class="sec__title-zh rvl">導覽時會用到的九個英文字</div>
+    <div class="sec__rule rvl"></div>
+    <div class="vcs">
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 01</div><div class="vc__term">virtual reality <span class="vc__pos">(n)</span></div><div class="vc__zh">虛擬實境</div></div>
+          <button type="button" class="say" data-say="virtual reality" aria-label="Play virtual reality">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Virtual reality lets us visit new places without leaving class." aria-label="Play sentence">🔊</button><div class="en">Virtual reality lets us visit new places without leaving class.</div><div class="zh">虛擬實境讓我們不用離開教室，就能去新的地方。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 02</div><div class="vc__term">headset <span class="vc__pos">(n)</span></div><div class="vc__zh">頭戴式裝置<span class="nowrap">（VR 頭盔）</span></div></div>
+          <button type="button" class="say" data-say="headset" aria-label="Play headset">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Put on the headset and look around." aria-label="Play sentence">🔊</button><div class="en">Put on the headset and look around.</div><div class="zh">戴上 VR 頭盔，看看四周。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 03</div><div class="vc__term">explore <span class="vc__pos">(v)</span></div><div class="vc__zh">探索</div></div>
+          <button type="button" class="say" data-say="explore" aria-label="Play explore">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Let's explore our school in three hundred sixty degrees!" aria-label="Play sentence">🔊</button><div class="en">Let's explore our school in 360 degrees!</div><div class="zh">一起用 360 度探索我們的學校！</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 04</div><div class="vc__term">school gate <span class="vc__pos">(n)</span></div><div class="vc__zh">校門</div></div>
+          <button type="button" class="say" data-say="school gate" aria-label="Play school gate">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Our tour starts at the school gate." aria-label="Play sentence">🔊</button><div class="en">Our tour starts at the school gate.</div><div class="zh">我們的導覽從校門口開始。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 05</div><div class="vc__term">temple <span class="vc__pos">(n)</span></div><div class="vc__zh">廟宇</div></div>
+          <button type="button" class="say" data-say="temple" aria-label="Play temple">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Wufu Temple has a bright red roof." aria-label="Play sentence">🔊</button><div class="en">Wufu Temple has a bright red roof.</div><div class="zh">五福宮有鮮紅色的屋頂。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 06</div><div class="vc__term">shrine <span class="vc__pos">(n)</span></div><div class="vc__zh">祠、小廟</div></div>
+          <button type="button" class="say" data-say="shrine" aria-label="Play shrine">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="The Fude Shrine is small, but it is special." aria-label="Play sentence">🔊</button><div class="en">The Fude Shrine is small, but it is special.</div><div class="zh">福德祠雖然小，但很特別。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 07</div><div class="vc__term">Land God <span class="vc__pos">(n)</span></div><div class="vc__zh">土地公<span class="nowrap">（福德正神）</span></div></div>
+          <button type="button" class="say" data-say="Land God" aria-label="Play Land God">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="Our school is named after the Land God." aria-label="Play sentence">🔊</button><div class="en">Our school is named after the Land God.</div><div class="zh">我們的校名來自土地公（福德正神）。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 08</div><div class="vc__term">incense burner <span class="vc__pos">(n)</span></div><div class="vc__zh">香爐</div></div>
+          <button type="button" class="say" data-say="incense burner" aria-label="Play incense burner">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="There is a big incense burner in front of the temple." aria-label="Play sentence">🔊</button><div class="en">There is a big incense burner in front of the temple.</div><div class="zh">廟的前面有一個大香爐。</div></div>
+      </article>
+
+      <article class="vc rvl">
+        <div class="vc__head">
+          <div><div class="vc__num">Word 09</div><div class="vc__term">museum <span class="vc__pos">(n)</span></div><div class="vc__zh">博物館</div></div>
+          <button type="button" class="say" data-say="museum" aria-label="Play museum">🔊</button>
+        </div>
+        <div class="vc__ex"><button type="button" class="say say--sm" data-say="We can visit a museum online." aria-label="Play sentence">🔊</button><div class="en">We can visit a museum online.</div><div class="zh">我們可以在網路上參觀博物館。</div></div>
+      </article>
+
+    </div>
+    <div style="margin-top:44px;" class="rvl"><a class="back-btn" href="../../">← Back to Lessons · 回課程總覽</a></div>
+  </div>
+</section>
+
+<footer>© 2025 彰化縣永靖鄉福德國民小學 · Fude Elementary School</footer>
+<div class="cb-credit" style="background:#3a1008;color:rgba(255,255,255,.62);text-align:center;padding:20px 22px 22px;font-family:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;letter-spacing:.02em;">Site by <a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener" style="color:#ffc9bb;text-decoration:none;border-bottom:1px dashed rgba(255,201,187,.45);">My Culture Connect</a> &amp; <a href="https://www.twrses.org/" target="_blank" rel="noopener" style="color:#ffc9bb;text-decoration:none;border-bottom:1px dashed rgba(255,201,187,.45);">人師教育協會</a><br>Guided by <a href="https://www.cieetrc.chc.edu.tw/" target="_blank" rel="noopener" style="color:#ffc9bb;text-decoration:none;border-bottom:1px dashed rgba(255,201,187,.45);">CIEETRC 彰化縣國際教育暨英語教育資源中心</a><br><a href="https://changhua-bilingual.org/" target="_blank" rel="noopener" style="color:#ffc9bb;text-decoration:none;border-bottom:1px dashed rgba(255,201,187,.45);">Changhua Bilingual Hub 彰化雙語資源網</a></div>
+
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=[].slice.call(document.querySelectorAll('.rvl'));
+  if(!els.length)return;
+  if(!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var sibs=[].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rvl');});
+    e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*90)+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);
+  });},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+
+/* 360° stage — tour cards swap the inline viewer instead of leaving the page */
+(function(){
+  var frame=document.getElementById('stageFrame'),
+      title=document.getElementById('stageTitle'),
+      open=document.getElementById('stageOpen'),
+      stage=document.getElementById('stage'),
+      cards=[].slice.call(document.querySelectorAll('button.tour'));
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      if(!card.classList.contains('is-active')){
+        frame.src=card.dataset.src;
+        frame.title=card.dataset.title+' 360°';
+        title.textContent=card.dataset.title;
+        open.href=card.dataset.src;
+        cards.forEach(function(c){
+          var on=c===card;
+          c.classList.toggle('is-active',on);
+          c.setAttribute('aria-pressed',on?'true':'false');
+        });
+      }
+      var top=stage.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+    });
+  });
+})();
+
+/* 🔊 Web Speech */
+(function(){
+  var synth=window.speechSynthesis;
+  [].slice.call(document.querySelectorAll('.say')).forEach(function(btn){
+    if(!synth){btn.style.display='none';return;}
+    btn.addEventListener('click',function(){
+      synth.cancel();
+      var u=new SpeechSynthesisUtterance(btn.dataset.say);
+      u.lang='en-US';u.rate=.88;
+      btn.classList.add('is-speaking');
+      u.onend=u.onerror=function(){btn.classList.remove('is-speaking');};
+      synth.speak(u);
+    });
+  });
+})();
+</script>
+<script defer src="/assets/js/motion.js?v=b0540bb5"></script>
+</body>
+</html>
