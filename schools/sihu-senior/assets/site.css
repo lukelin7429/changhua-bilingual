@@ -202,6 +202,8 @@
   .ncard__pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .ncard__pic.poster{background:linear-gradient(135deg,#e7f0ff,#f4eaff);}
   .ncard__pic.poster img{object-fit:contain;}
+  /* 同一則相簿裡個別近正方形的照片：只這一張完整顯示不裁切 */
+  .pcar img.fit{object-fit:contain;background:linear-gradient(135deg,#e7f0ff,#f4eaff);}
   .ncard__body{padding:20px 22px 26px;}
   .ncard__meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
   .ncard__date{font-size:19px;font-weight:700;color:var(--accent);letter-spacing:.5px;}
@@ -213,6 +215,8 @@
   .ncard__title .nz{display:block;font-family:'Inter','PingFang TC',sans-serif;font-size:18px;font-weight:600;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
   @media (min-width:720px){ .ncard__title .nz{ font-size:20px; } }
   @media (min-width:1000px){ .news .feature{ grid-column:1/-1; } .news .feature .ncard__pic{ aspect-ratio:21/9; } }
+  /* feature 卡是 21:9 超寬窗，多數人像照在上半部：裁切窗偏上，保住頭頂與背景看板 */
+  .news .feature .ncard__pic img{object-position:50% 25%;}
   .ncard:nth-child(2) .ncard__tag,.ncard:nth-child(8) .ncard__tag{background:var(--gold-soft);color:var(--gold-deep);}
   .ncard:nth-child(3) .ncard__tag,.ncard:nth-child(9) .ncard__tag{background:var(--accent-soft);color:var(--accent-deep);}
   .ncard:nth-child(5) .ncard__tag,.ncard:nth-child(11) .ncard__tag{background:#d6f7f1;color:#046a5c;}
@@ -246,7 +250,7 @@
   }
 
   /* ===== 相片牆 ===== */
-  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;grid-auto-flow:dense;}
   @media (min-width:1000px){ .gal{ grid-template-columns:repeat(4,1fr);gap:16px; } }
   .gal figure{margin:0;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--brand-deep);box-shadow:var(--shadow-sm);}
   .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s;}
