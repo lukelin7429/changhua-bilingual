@@ -65,6 +65,11 @@ Guided by  <CIEETRC 彰化縣國際教育暨英語教育資源中心→www.cieet
 - 卡片左上角不放單一中文字徽章；只列校長不列主任
 - 不建議 Google Forms（嵌站測驗自製 HTML + Apps Script pipeline）
 - 🔴 **小考正解要平均分散在 A/B/C/D**，嚴禁老是 A/B（Luke 實測糾正）。四個選項都要用到，交付前用 grep 驗 `data-ok` 落點。學習區四段標準＝關鍵字＋例句＋對話(▶整段播放)＋五題小考，全部加 🔊（Web Speech）；選項純英文，中文只在 zh 提示與答後解析。範本＝schools/hsinmin/news/shadow-puppet/。
+- 🔴 **🔊 一律配真人品質語音（2026-10-30 起，只做新頁，舊頁不回溯）**。頁面照舊寫 Web Speech（`data-speak`/`data-say` + `speechSynthesis.speak`），做完三步：
+  1. `python3 tools/gen_en_audio.py <新頁路徑>`：用 edge-tts（Ava、語速 −8%）生成 mp3，更新 `audio/manifest/<校>.json`，並自動在頁面加上 `voice.js` 標籤。
+  2. `./tools/upload_en_audio.sh`：上傳到 R2（`audio/en/` 已 gitignore，mp3 不進 git）。
+  3. commit 頁面＋manifest。
+  沒上傳就推，按鈕會先 404 再退回機器聲。查不到的句子由 `assets/js/voice.js` 自動退回機器聲，不會啞掉。
 - 每校客製，不複用模板
 - 🔴 **每頁都要有動感**（Luke 明確要求）。Hub 頁面分兩套動效引擎，新頁務必其一：
   - 套 hub chrome 的頁（首頁、`resources/*`）已吃 `assets/js/hub.js`（reveal selector 在 `initReveal()`，新類名要加進去）。

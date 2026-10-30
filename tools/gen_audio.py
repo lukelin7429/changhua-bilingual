@@ -200,4 +200,5 @@ async def main():
         sys.exit(1)
 
 
-asyncio.run(main())
+if __name__ == "__main__":      # gen_en_audio.py imports post() / phrase_hash()
+    asyncio.run(main())
