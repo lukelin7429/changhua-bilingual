@@ -81,11 +81,24 @@
   .banner__strip{display:block;width:100%;height:auto;max-width:1040px;margin:30px auto 0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));animation:float 7s ease-in-out infinite;}
   @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
+  /* Day switcher (same block on Day 2) */
+  .daybar{background:var(--space);padding:14px 0;border-top:1px solid rgba(255,255,255,.08);}
+  .daybar__inner{display:flex;gap:12px;justify-content:center;}
+  .daybar a{flex:1;max-width:360px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:10px 12px;border-radius:16px;border:1.5px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-weight:800;font-size:20px;line-height:1.3;transition:background .2s,transform .2s,border-color .2s;}
+  @media(min-width:720px){.daybar a{font-size:23px;padding:12px 18px;}}
+  .daybar a small{font-size:17px;font-weight:500;color:#c9cff5;}
+  @media(min-width:720px){.daybar a small{font-size:19px;}}
+  .daybar a:hover{border-color:var(--star);transform:translateY(-2px);}
+  .daybar a.is-on{background:var(--star);border-color:var(--star);color:var(--space);}
+  .daybar a.is-on small{color:var(--space);}
+
   /* === Quick jump chips === */
   .jump{background:var(--cream-warm);border-bottom:1px solid var(--line);padding:16px 0;}
   .jump__inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
   .jump a{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:9px 18px;text-decoration:none;color:var(--blue-deep);font-weight:700;font-size:17px;transition:all .15s;}
   @media(min-width:720px){.jump a{font-size:19px;}}
+  .jump a i{font-style:normal;}
+  @media(max-width:719px){.jump__inner{display:grid;grid-template-columns:1fr 1fr;gap:8px;}.jump a{flex-direction:column;gap:0;justify-content:center;text-align:center;padding:8px 10px;border-radius:14px;line-height:1.3;}.jump a i{display:none;}.jump a span{font-weight:600;}.jump a:last-child:nth-child(odd){grid-column:1/-1;}}
   .jump a:hover{border-color:var(--sun);background:var(--sun-soft);color:var(--sun-deep);transform:translateY(-2px);}
 
   /* === Sections === */
@@ -348,6 +361,9 @@
   .lab3d__how b{color:var(--star);}
   .lab3d__how .zh{display:block;margin-top:8px;font-size:17px;color:#c9cff5;}
   @media(min-width:720px){.lab3d__how .zh{font-size:19px;}}
+  .back__row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+  .back a.alt{background:#fff;color:var(--blue-deep);border:2px solid var(--blue-deep);}
+  .back a.alt:hover{background:var(--star-soft);}
   .back{text-align:center;padding:10px 0 60px;}
   .back a{display:inline-block;background:var(--blue-deep);color:#fff;text-decoration:none;font-weight:700;font-size:19px;padding:14px 28px;border-radius:99px;transition:transform .15s,background .15s;}
   .back a:hover{background:var(--blue);transform:translateY(-2px);}
@@ -603,16 +619,23 @@
   </div>
 </header>
 
+<nav class="daybar" aria-label="Space Scouts lessons · 太空小尖兵課程">
+  <div class="wrap daybar__inner">
+    <a href="./" class="is-on" aria-current="page">Day 1<small>Oct 22 · Introducing Yourself</small></a>
+    <a href="day-2/">Day 2<small>Oct 29 · Planets, Moons &amp; More</small></a>
+  </div>
+</nav>
+
 <div class="jump">
   <div class="wrap">
     <div class="jump__inner">
-      <a href="#report">🎬 Report · 報導</a>
-      <a href="#introduce">👋 Introduce · 自我介紹</a>
-      <a href="#words">🪐 12 Words · 單字</a>
-      <a href="#solar">☀️ Solar System · 太陽系</a>
-      <a href="#solar3d">🌌 3D Model · 3D 太陽系</a>
-      <a href="#say">🗣 Say It · 說說看</a>
-      <a href="#practice">💬 Dialogue &amp; Quiz · 對話小考</a>
+      <a href="#report">🎬 Report<i> · </i><span>報導</span></a>
+      <a href="#introduce">👋 Introduce<i> · </i><span>自我介紹</span></a>
+      <a href="#words">🪐 12 Words<i> · </i><span>單字</span></a>
+      <a href="#solar">☀️ Solar System<i> · </i><span>太陽系</span></a>
+      <a href="#solar3d">🌌 3D Model<i> · </i><span>3D 太陽系</span></a>
+      <a href="#say">🗣 Say It<i> · </i><span>說說看</span></a>
+      <a href="#practice">💬 Dialogue &amp; Quiz<i> · </i><span>對話小考</span></a>
     </div>
   </div>
 </div>
@@ -650,7 +673,7 @@
 <!-- ===== Video reports ===== -->
 <section id="report" class="sec--soft">
   <div class="wrap">
-    <div class="sec__eyebrow">Class Report · Week 1</div>
+    <div class="sec__eyebrow">Class Report · Day 1</div>
     <h2 class="sec__title">Our First Space Class</h2>
     <div class="sec__title-zh">課程報導 · 第一堂外師線上課</div>
     <div class="sec__rule"></div>
@@ -669,7 +692,7 @@
         <div class="vid-card__cap">
           <span class="vid-card__tag">中文版</span>
           <div class="vid-card__t">太空小尖兵 · 課程報導</div>
-          <div class="vid-card__d">第一堂課，學員與美國外師 Shannon 老師線上連線，從自我介紹一路聊到太陽系。<br>Chinese version of the Week 1 class report.</div>
+          <div class="vid-card__d">第一堂課，學員與美國外師 Shannon 老師線上連線，從自我介紹一路聊到太陽系。<br>Chinese version of the Day 1 class report.</div>
         </div>
       </div>
     </div>
@@ -679,7 +702,7 @@
 <!-- ===== Introduce yourself ===== -->
 <section id="introduce">
   <div class="wrap">
-    <div class="sec__eyebrow">Week 1 · Part 1</div>
+    <div class="sec__eyebrow">Day 1 · Part 1</div>
     <h2 class="sec__title">Introducing Yourself</h2>
     <div class="sec__title-zh">用英文自我介紹 · 第一堂課的開場</div>
     <div class="sec__rule"></div>
@@ -718,7 +741,7 @@
 <!-- ===== Word bank ===== -->
 <section id="words" class="sec--soft">
   <div class="wrap">
-    <div class="sec__eyebrow">Week 1 · Part 2 · Word Bank</div>
+    <div class="sec__eyebrow">Day 1 · Part 2 · Word Bank</div>
     <h2 class="sec__title">All About Space</h2>
     <div class="sec__title-zh">12 個太空單字 · 發音、例句、太空小知識</div>
     <div class="sec__rule"></div>
@@ -1057,7 +1080,7 @@
 <!-- ===== Solar system ===== -->
 <section id="solar" class="solar">
   <div class="wrap">
-    <div class="sec__eyebrow">Week 1 · Part 3</div>
+    <div class="sec__eyebrow">Day 1 · Part 3</div>
     <h2 class="sec__title">Our Solar System</h2>
     <div class="sec__title-zh">我們的太陽系 · 從太陽出發</div>
     <div class="sec__rule"></div>
@@ -1143,7 +1166,7 @@
 <!-- ===== Say it ===== -->
 <section id="say">
   <div class="wrap">
-    <div class="sec__eyebrow">Week 1 · Part 4</div>
+    <div class="sec__eyebrow">Day 1 · Part 4</div>
     <h2 class="sec__title">Say It!</h2>
     <div class="sec__title-zh">說說看 · 我想認識……</div>
     <div class="sec__rule"></div>
@@ -1294,7 +1317,7 @@
   </div>
 </section>
 
-<div class="back"><a href="/schools/beidou-jhs/lessons/">← All Lessons · 回課程列表</a></div>
+<div class="back"><div class="back__row"><a href="day-2/">Day 2 · 第 2 堂 →</a><a class="alt" href="/schools/beidou-jhs/lessons/">All Lessons · 回課程列表</a></div></div>
 
 <script>
 /* ===== Text-to-speech (🔊), builders, solar chips, quiz ===== */
