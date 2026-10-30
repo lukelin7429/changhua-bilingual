@@ -172,6 +172,44 @@
   .program__honor{margin-top:12px;display:inline-block;background:var(--gold-soft);color:var(--gold-deep);font-size:16px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px;}
   @media (min-width:720px){ .program__honor{ font-size:18px; } }
 
+  /* === 360° Campus Tour card === */
+  .tour-card{margin-top:44px;}
+  @media (min-width:720px){ .tour-card{ margin-top:56px; } }
+  .tour-card__link{display:block;background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;text-decoration:none;color:inherit;transition:transform .22s, box-shadow .22s;}
+  .tour-card__link:hover{transform:translateY(-5px);box-shadow:0 24px 50px -18px rgba(26,58,92,.40);}
+  .tour-card__media{position:relative;overflow:hidden;background:#f4efe7;}
+  .tour-card__img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+  @media (min-width:720px){ .tour-card__img{ aspect-ratio:2/1;object-position:50% 30%; } }
+  .tour-card__link:hover .tour-card__img{transform:scale(1.035);}
+  .tour-card__badge{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:8px;background:var(--navy-deep);color:var(--gold-soft);font-size:14px;font-weight:700;letter-spacing:1.5px;padding:7px 14px 7px 11px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.25);}
+  @media (min-width:720px){ .tour-card__badge{ top:20px;right:20px;font-size:16px;padding:9px 18px 9px 14px; } }
+  .tour-card__spin{display:inline-block;font-size:18px;line-height:1;color:var(--gold);animation:tourSpin 5s linear infinite;}
+  @media (min-width:720px){ .tour-card__spin{ font-size:21px; } }
+  .tour-card__badge-word{display:none;}
+  @media (min-width:720px){ .tour-card__badge-word{ display:inline; } }
+  @keyframes tourSpin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion:reduce){ .tour-card__spin{animation:none;} .tour-card__link:hover .tour-card__img{transform:none;} }
+  .tour-card__body{padding:28px 26px 30px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;border-top:6px solid var(--gold);}
+  @media (min-width:720px){ .tour-card__body{ padding:36px 40px 40px;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end; } }
+  .tour-card__eyebrow{font-size:16px;font-weight:700;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;}
+  .tour-card__title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy-deep);line-height:1.15;margin-top:8px;text-wrap:balance;}
+  @media (min-width:720px){ .tour-card__title{ font-size:42px; } }
+  .tour-card__title-zh{font-size:21px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .tour-card__title-zh{ font-size:23px; } }
+  .tour-card__desc{font-size:21px;color:var(--ink);margin-top:14px;line-height:1.65;}
+  @media (min-width:720px){ .tour-card__desc{ font-size:22px; } }
+  .tour-card__zh{font-size:19px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (min-width:720px){ .tour-card__zh{ font-size:20px; } }
+  .tour-card__go{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
+  @media (min-width:720px){ .tour-card__go{ align-items:flex-end;text-align:right; } }
+  .tour-card__btn{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;background:var(--navy-deep);color:#fff;font-weight:700;font-size:19px;padding:15px 26px;border-radius:14px;letter-spacing:.5px;transition:background .15s;}
+  @media (min-width:720px){ .tour-card__btn{ display:inline-flex;width:auto;font-size:20px;white-space:nowrap; } }
+  .tour-card__btn .nw{white-space:nowrap;}
+  .tour-card__link:hover .tour-card__btn{background:var(--gold);}
+  .tour-card__btn .arrow{font-size:22px;}
+  .tour-card__note{font-size:17px;color:var(--ink-soft);}
+  @media (min-width:720px){ .tour-card__note{ font-size:18px; } }
+
   /* === FET (Foreign English Teacher) === */
   .fet-card{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1fr;}
   @media (min-width:720px){ .fet-card{ grid-template-columns:340px 1fr;align-items:stretch; } }
@@ -475,6 +513,28 @@
     <div class="quote quote--teal">
       <div class="quote__text">"Real places. Real vocabulary. Real confidence."</div>
       <div class="quote__zh">「用真實的場景，學真實的英語，建立真正的自信。」<br>—— 北斗國中雙語教育的核心理念</div>
+    </div>
+
+    <div class="tour-card">
+      <a class="tour-card__link" href="https://sdgs-journey.com/Beidou/about" target="_blank" rel="noopener">
+        <div class="tour-card__media">
+          <img class="tour-card__img" src="photos/campus/tour-map.jpg" width="1600" height="900" alt="Watercolor aerial map of Beidou Junior High — the start screen of the 360° campus tour" loading="lazy">
+          <span class="tour-card__badge"><span class="tour-card__spin">↻</span>360°<span class="tour-card__badge-word">&nbsp;TOUR</span></span>
+        </div>
+        <div class="tour-card__body">
+          <div>
+            <div class="tour-card__eyebrow">Virtual Campus Tour</div>
+            <div class="tour-card__title">Explore Beidou in 360°</div>
+            <div class="tour-card__title-zh">360° 環景走讀北斗國中</div>
+            <p class="tour-card__desc">Tap a pin on the aerial map and look around in every direction — from the school gate and Chunfeng Avenue up to the rooftop observatory, where you can open the telescope.</p>
+            <p class="tour-card__zh">點一下空拍地圖上的圖釘，就能 360° 環顧校園——從校門口、春風大道，一路走上頂樓天文台、打開望遠鏡看星雲。</p>
+          </div>
+          <div class="tour-card__go">
+            <span class="tour-card__btn"><span>Start the tour · <span class="nw">開始導覽</span></span><span class="arrow">↗</span></span>
+            <span class="tour-card__note">Opens in a new tab · 中文介面</span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
