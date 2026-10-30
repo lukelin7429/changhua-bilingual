@@ -25,10 +25,13 @@ SENTENCE_RATE = "-5%"
 OUT_DIR = pathlib.Path("learn/audio")
 MAP_FILE = pathlib.Path("tools/data/sijhou-listening-audio.json")
 
+# One entry per issue. Eight words chosen to cover all five questions; the first
+# example of each is the line from the recording, the second is campus life at
+# Sijhou. Run with --issue 02 to record only that issue's words.
+ISSUES = {}
+
 # Issue 01 — "Teacher Morgan Gets a Scooter License" (test taken 2026-10-02).
-# Eight words chosen to cover all five questions; the first example of each is
-# the line from the recording, the second is campus life at Sijhou.
-WORDS = [
+ISSUES["01"] = [
     {"w": "license", "zh": "駕照", "pos": "n.", "ipa": "[ˈlaɪsəns]", "q": "Q1 · Q3",
      "ex": [("I have spent most of my time studying for the scooter license test.",
              "我大部分的時間都在準備機車駕照考試。"),
@@ -70,6 +73,51 @@ WORDS = [
             ("In summer, many students travel with their families.",
              "暑假時，很多學生和家人一起去旅行。")]},
 ]
+
+# Issue 02 — "A Trip to Kaohsiung" (test taken 2026-10-30).
+ISSUES["02"] = [
+    {"w": "roommate", "zh": "室友", "pos": "n.", "ipa": "[ˈrumˌmet]", "q": "Q1",
+     "ex": [("Last weekend, my roommates and I went to Kaohsiung.",
+             "上週末，我和室友們去了高雄。"),
+            ("Our teachers from America share an apartment, so they are roommates.",
+             "來自美國的老師們住同一間公寓，所以他們是室友。")]},
+    {"w": "MRT", "zh": "捷運", "pos": "n.", "ipa": "[ˌɛm ɑr ˈti]", "q": "Q2",
+     "ex": [("We took the HSR to Zuoying, then rode the MRT to our hotel.",
+             "我們搭高鐵到左營，再搭捷運到飯店。"),
+            ("Changhua has no MRT yet, so we take the train or a bus.",
+             "彰化還沒有捷運，所以我們搭火車或公車。")]},
+    {"w": "ferry", "zh": "渡輪", "pos": "n.", "ipa": "[ˈfɛri]", "q": "Q3",
+     "ex": [("To get to the beach, we took a ferry.",
+             "要到海灘，我們搭了渡輪。"),
+            ("A ferry carries people across the water to Cijin Island.",
+             "渡輪載著人們渡海到旗津。")]},
+    {"w": "beach", "zh": "海灘", "pos": "n.", "ipa": "[bitʃ]", "q": "Q3",
+     "ex": [("After lunch, we went to the beach and swam in the ocean.",
+             "午餐後，我們去海灘，還在海裡游泳。"),
+            ("Sijhou has no beach, but the Zhuoshui River is close by.",
+             "溪州沒有海灘，但濁水溪就在附近。")]},
+    {"w": "sunny", "zh": "晴朗的", "pos": "adj.", "ipa": "[ˈsʌni]", "q": "Q4",
+     "ex": [("It was very hot and sunny at the beach.",
+             "海灘上非常熱，陽光很強。"),
+            ("On a sunny morning, we have the flag ceremony outside.",
+             "天氣晴朗的早上，我們在戶外舉行升旗典禮。")]},
+    {"w": "relaxing", "zh": "令人放鬆的", "pos": "adj.", "ipa": "[rɪˈlæksɪŋ]", "q": "—",
+     "ex": [("We laid on the sand and listened to music. It was very relaxing!",
+             "我們躺在沙灘上聽音樂，非常放鬆！"),
+            ("Reading in the school library is relaxing.",
+             "在學校圖書館看書很放鬆。")]},
+    {"w": "night market", "zh": "夜市", "pos": "n.", "ipa": "[naɪt ˈmɑrkɪt]", "q": "Q5",
+     "ex": [("Later, we went to the night market to get dinner.",
+             "後來我們去夜市吃晚餐。"),
+            ("My classmates and I eat fried chicken at the night market.",
+             "我和同學們在夜市吃炸雞。")]},
+    {"w": "dessert", "zh": "甜點", "pos": "n.", "ipa": "[dɪˈzɝt]", "q": "Q5",
+     "ex": [("I had fried chicken for dinner, then ice cream for dessert.",
+             "我晚餐吃炸雞，甜點吃冰淇淋。"),
+            ("Pineapple cake is a popular Taiwanese dessert.",
+             "鳳梨酥是很受歡迎的台灣甜點。")]},
+]
+
 
 
 def text_hash(text: str) -> str:
@@ -115,6 +163,9 @@ def post(raw: pathlib.Path, out: pathlib.Path) -> None:
 
 
 def main() -> None:
+    issue = sys.argv[sys.argv.index("--issue") + 1] if "--issue" in sys.argv else "01"
+    words = ISSUES[issue]
+    print(f"issue {issue}: {len(words)} words")
     if not shutil.which("ffmpeg"):
         sys.exit("ffmpeg not found")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -123,11 +174,12 @@ def main() -> None:
     raw_dir.mkdir(exist_ok=True)
 
     jobs = []                                   # (text, rate)
-    for item in WORDS:
+    for item in words:
         jobs.append((item["w"], WORD_RATE))
         jobs += [(en, SENTENCE_RATE) for en, _zh in item["ex"]]
 
-    mapping, made = {}, 0
+    mapping = json.loads(MAP_FILE.read_text(encoding="utf-8")) if MAP_FILE.exists() else {}
+    made = 0
     for i, (text, rate) in enumerate(jobs, 1):
         h = text_hash(text)
         mapping[text] = h
