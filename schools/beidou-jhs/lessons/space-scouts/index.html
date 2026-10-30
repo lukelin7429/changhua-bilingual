@@ -333,6 +333,21 @@
   .qz__retry{display:none;margin:12px auto 0;}
   .qz__retry.show{display:block;}
 
+
+  /* === 3D solar-system lab (from twrses.org, see solar/solar-lab.js) === */
+  .lab3d{margin-top:56px;scroll-margin-top:80px;}
+  @media(min-width:720px){.lab3d{margin-top:72px;}}
+  .lab3d__eyebrow{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--star);text-align:center;}
+  @media(min-width:720px){.lab3d__eyebrow{font-size:16px;}}
+  .lab3d__title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#fff;line-height:1.2;text-align:center;margin-top:8px;}
+  @media(min-width:720px){.lab3d__title{font-size:44px;}}
+  .lab3d__zh{font-size:20px;color:#c9cff5;text-align:center;margin-top:8px;}
+  @media(min-width:720px){.lab3d__zh{font-size:24px;}}
+  .lab3d__how{max-width:900px;margin:20px auto 26px;font-size:19px;line-height:1.65;color:#eef1ff;}
+  @media(min-width:720px){.lab3d__how{font-size:21px;}}
+  .lab3d__how b{color:var(--star);}
+  .lab3d__how .zh{display:block;margin-top:8px;font-size:17px;color:#c9cff5;}
+  @media(min-width:720px){.lab3d__how .zh{font-size:19px;}}
   .back{text-align:center;padding:10px 0 60px;}
   .back a{display:inline-block;background:var(--blue-deep);color:#fff;text-decoration:none;font-weight:700;font-size:19px;padding:14px 28px;border-radius:99px;transition:transform .15s,background .15s;}
   .back a:hover{background:var(--blue);transform:translateY(-2px);}
@@ -344,6 +359,218 @@
     .banner::before,.banner::after,.banner__orbit,.banner__strip{animation:none;}
     .vc,.vid-card,.orb,.chip,.opt{transition:none;}
   }
+</style>
+<style>
+/* 3D solar-system lab styles — from twrses.org astro.css (rem→px), then Beidou overrides */
+.astro-lab{--al-bg: #060a16; --al-panel: #0c1428; --al-line: rgba(160,180,230,.16); --al-text: #e8edf7; --al-mute: #9fb0cf; --al-teal: #4fd1c5; --al-sun: #ffd36e; margin-top: 25.5px; background: radial-gradient(120% 90% at 20% 0%, #13224a 0%, var(--al-bg) 55%); color: var(--al-text); border-radius: 24px; box-shadow: 0 30px 70px -30px rgba(6,12,30,.75), 0 0 0 1px rgba(255,255,255,.04) inset; overflow: hidden;}
+.al-stage{display: grid; grid-template-columns: minmax(0, 1fr) 330px;}
+.al-space{position: relative; min-height: 560px; border-right: 1px solid var(--al-line);}
+.al-space-cv{position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; outline: none;}
+.al-space-cv:active{cursor: grabbing;}
+.al-labels{position: absolute; inset: 0; pointer-events: none; overflow: hidden;}
+.al-lab{position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; padding: 2px 9px; border-radius: 999px; background: rgba(6,10,22,.62); color: #dfe7f7; border: 1px solid rgba(255,255,255,.14); transition: opacity .2s; font-family: var(--sans);}
+.al-lab.sun{color: #ffe3a3; border-color: rgba(255,211,110,.4);}
+.al-lab.sun b{display: none; font-weight: 800; margin-left: 5.5px; transform: rotate(var(--ang, 0rad));}
+.al-hint{position: absolute; left: 16px; bottom: 11px; margin: 0; font-size: 12px; color: var(--al-mute); pointer-events: none;}
+.al-home{position: absolute; right: 13px; top: 13px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--al-line); background: rgba(12,20,40,.75); color: var(--al-text); font-size: 20px; line-height: 1; cursor: pointer; transition: background .2s, transform .3s;}
+.al-home:hover{background: #1a2a52; transform: rotate(-60deg);}
+.al-nogl-msg{display: none; position: absolute; inset: 0; margin: 0; padding: 32px; place-content: center; text-align: center; color: var(--al-mute); font-size: 16px;}
+.al-nogl .al-nogl-msg{display: grid;}
+.al-nogl .al-space-cv,.al-nogl .al-hint,.al-nogl .al-home,.al-nogl .al-sky,.al-nogl .al-controls{display: none;}
+.al-nogl .al-stage{grid-template-columns: 1fr;}
+.al-sky{padding: 17.5px 17.5px 19px; background: linear-gradient(180deg, rgba(12,20,40,.9), rgba(6,10,22,.95)); display: flex; flex-direction: column;}
+.al-sky-k{margin: 0 0 9.5px; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--al-sun);}
+.al-controls{padding: 16px 19px 17.5px; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.9);}
+.al-row{display: flex; flex-wrap: wrap; align-items: center; gap: 9.5px;}
+.al-play,.al-speed button{font-family: var(--sans); font-weight: 800; cursor: pointer; border-radius: 999px; transition: background .2s, color .2s, transform .2s, box-shadow .2s;}
+.al-play{display: inline-flex; align-items: center; gap: 9px; padding: 10px 21px 10px 16px; border: 0; background: var(--al-sun); color: #1b1405; font-size: 15px; box-shadow: 0 10px 26px -12px rgba(255,211,110,.9);}
+.al-play:hover{transform: translateY(-2px);}
+.al-play-i{width: 0; height: 0; border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent;}
+.is-playing .al-play-i{width: 11px; height: 13px; border: 0; background: linear-gradient(90deg, currentColor 0 35%, transparent 35% 65%, currentColor 65%);}
+.al-fresh .al-play{animation: alPulse 1.8s ease-in-out infinite;}
+.al-speed{display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid var(--al-line);}
+.al-speed button{border: 0; background: transparent; color: var(--al-mute); font-size: 13px; padding: 6px 13px;}
+.al-speed button[aria-pressed="true"]{background: #22345f; color: #fff;}
+.al-chips{display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6.5px; margin: 8px 0 14.5px;}
+.al-chip{display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 3px 7px; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); cursor: pointer; font-family: var(--sans); transition: background .2s, border-color .2s, transform .2s;}
+.al-chip:hover{background: rgba(255,255,255,.07); transform: translateY(-2px);}
+.al-chip.on{border-color: var(--al-sun); background: rgba(255,211,110,.1); box-shadow: 0 0 0 1px var(--al-sun) inset;}
+.al-chip-en{font-size: 10.5px; font-weight: 700; line-height: 1.15; text-align: center;}
+.al-chip-zh{font-family: var(--zh); font-size: 12.5px; color: var(--al-sun);}
+.al-toggles{gap: 8px 17.5px;}
+.al-tg{display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13.5px; font-weight: 700; user-select: none;}
+.al-tg small{display: block; font-family: var(--zh); font-size: 12px; font-weight: 500; color: var(--al-mute);}
+.al-tg span:last-child{line-height: 1.2;}
+.al-tg input{position: absolute; opacity: 0; width: 1px; height: 1px;}
+.al-sw{position: relative; flex: none; width: 36px; height: 20px; border-radius: 999px; background: rgba(255,255,255,.14); transition: background .2s;}
+.al-sw::after{content: ""; position: absolute; left: 3px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: #cfd8ea; transition: transform .2s, background .2s;}
+.al-tg input:checked + .al-sw{background: var(--al-teal);}
+.al-tg input:checked + .al-sw::after{transform: translateX(16px); background: #fff;}
+.al-tg input:focus-visible + .al-sw{outline: 2px solid var(--al-sun); outline-offset: 3px;}
+.al-foot{display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 19px 32px; padding: 16px 21px 21px; border-top: 1px solid var(--al-line); font-size: 13px; line-height: 1.6; color: var(--al-mute);}
+.al-legend{list-style: none; margin: 0; padding: 0; display: grid; gap: 8px;}
+.al-legend li{display: flex; gap: 11px; align-items: flex-start;}
+.al-legend i{flex: none; width: 18px; height: 18px; margin-top: 2.5px; border-radius: 50%; border: 3px solid;}
+.al-legend .zh,.al-scale .zh{color: #7f90b0;}
+.al-scale{margin: 0;}
+@media (max-width: 1020px){
+.al-stage{grid-template-columns: 1fr;}
+.al-space{border-right: 0; border-bottom: 1px solid var(--al-line); aspect-ratio: 4 / 3; min-height: 320px;}
+.al-sky{display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 17.5px;}
+.al-sky-k{grid-column: 1 / -1;}
+.al-foot{grid-template-columns: 1fr;}
+}
+@media (max-width: 640px){
+.astro-lab{border-radius: 18px; margin-inline: -2vw;}
+.al-space{aspect-ratio: 1 / 1; min-height: 0;}
+.al-sky{grid-template-columns: minmax(0, 150px) minmax(0, 1fr); padding: 14.5px;}
+.al-chips{grid-template-columns: repeat(4, minmax(0, 1fr));}
+.al-hint{display: none;}
+.al-controls{padding: 14.5px 13.5px 16px;}
+.al-toggles{gap: 9.5px 14.5px;}
+}
+@media (prefers-reduced-motion: reduce){
+.al-fresh .al-play{animation: none;}
+.al-home:hover,.al-chip:hover{transform: none;}
+}
+.ec-view{position: absolute; left: 13px; top: 13px; display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(12,20,40,.8); border: 1px solid var(--al-line); z-index: 2;}
+.ec-view button,.ec-jump button{font-family: var(--sans); font-weight: 800; font-size: 12.5px; border: 0; background: transparent; color: var(--al-mute); padding: 6px 13px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s;}
+.ec-view button[aria-pressed="true"]{background: #22345f; color: #fff;}
+.ec-view button:hover,.ec-jump button:hover{color: #fff;}
+.ec-jump{display: inline-flex; flex-wrap: wrap; gap: 5px; margin-left: auto;}
+.ec-jump button{border: 1px solid rgba(255,211,110,.45); color: var(--al-sun); font-size: 13px;}
+.ec-jump .ec-now{border-color: var(--al-line); color: var(--al-text);}
+.ec-jump button:hover{background: rgba(255,211,110,.12);}
+.ec-slider{display: block; margin: 14.5px 0 8px;}
+.ec-slider-k{display: flex; flex-wrap: wrap; gap: 3px 14.5px; align-items: baseline; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--al-mute); margin-bottom: 3px;}
+.ec-slider-k em{font-style: normal; letter-spacing: .02em; text-transform: none; font-weight: 600; font-family: var(--zh);}
+.ec-time{-webkit-appearance: none; appearance: none; width: 100%; height: 26px; background: transparent; cursor: pointer; display: block;}
+.ec-time::-webkit-slider-runnable-track{height: 6px; border-radius: 999px; background: linear-gradient(90deg, rgba(255,255,255,.28) 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%));}
+.ec-time::-moz-range-track{height: 6px; border-radius: 999px; background: rgba(255,255,255,.12);}
+.ec-time::-webkit-slider-thumb{-webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 50%; background: #fff; border: 3px solid var(--al-teal);}
+.ec-time::-moz-range-thumb{width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid var(--al-teal);}
+.ec-time:focus-visible{outline: 2px solid var(--al-sun); outline-offset: 4px; border-radius: 6px;}
+@media (max-width: 640px){
+.ec-view{left: 8px; top: 8px;}
+.ec-view button{font-size: 11px; padding: 5px 9.5px;}
+.ec-jump{margin-left: 0; width: 100%;}
+.ec-jump button{flex: 1; font-size: 11.5px; padding: 6.5px 6.5px;}
+}
+.se-chips{grid-template-columns: repeat(4, minmax(0, 1fr));}
+@media (max-width: 640px){
+.se-chips{grid-template-columns: repeat(4, minmax(0, 1fr));}
+}
+.cn-credit{margin: 0; padding: 13px 21px 17.5px; font-size: 11.5px; line-height: 1.55; color: var(--al-mute); border-top: 1px solid var(--al-line);}
+.cn-credit a{color: var(--al-text); text-decoration: underline; text-underline-offset: 2px;}
+.cn-credit .zh{color: #7f90b0;}
+.al-lg-ecl i{border: 2px dashed var(--al-sun);}
+@media (max-width: 640px){
+.cn-credit{padding: 13px 13.5px 16px;}
+}
+.sd-diff{margin: 0 0 5px; font-family: var(--serif); font-size: 17.5px; color: #fff; line-height: 1.25;}
+.sd-diff span,.sd-why span{display: block; font-family: var(--zh); font-size: 12.5px; color: var(--al-mute);}
+.sd-why{margin: 0 0 11px; font-size: 12px; line-height: 1.5; color: var(--al-text);}
+.ss-lab .al-stage{grid-template-columns: minmax(0, 1fr) 380px;}
+.ss-aside .al-sky-k.ss-k2{margin-top: 14.5px; padding-top: 11px; border-top: 1px solid var(--al-line);}
+.ss-log{list-style: none; margin: 0; padding: 0; display: grid; gap: 4px;}
+.ss-log li{font-size: 12.5px; color: var(--al-text); font-variant-numeric: tabular-nums;}
+.ss-log li b{color: var(--al-sun); margin-right: 6.5px;}
+.ss-today-wrap{overflow-x: auto;}
+.ss-today{width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums;}
+.ss-today th{text-align: left; font-size: 9.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--al-mute); padding: 3px 5px; border-bottom: 1px solid var(--al-line);}
+.ss-today td{padding: 5px 5px; border-bottom: 1px solid rgba(160,180,230,.08); color: var(--al-text); vertical-align: top;}
+.ss-today td span{display: block; font-family: var(--zh); font-size: 10.5px; color: var(--al-mute);}
+.ss-today td i{display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5.5px; vertical-align: 1px;}
+.ss-lab .se-chips{grid-template-columns: repeat(4, minmax(0, 1fr));}
+.ss-lab .se-chips .solar-svg{width: 26px; height: 26px;}
+.ss-preset.on{border-color: var(--al-sun); background: rgba(255,211,110,.1);}
+.al-lab.ss-pl{font-size: 10px; padding: 1px 7px;}
+.al-lab.ss-light{color: #1b1405; background: var(--al-sun); border-color: transparent; font-weight: 800;}
+.al-lg-dots i{border: 0; width: 18px; height: 6px; margin-top: 7px; background: radial-gradient(circle, #ff7a4a 0 2.5px, transparent 3px) 0 0/6px 6px repeat-x;}
+.al-lg-orbits i{border: 2px solid #e8c9a0;}
+.al-lg-ring i{border: 3px solid #fff1b0; box-shadow: 0 0 6px rgba(255,211,110,.8);}
+@media (max-width: 1020px){
+.ss-lab .al-stage{grid-template-columns: 1fr;}
+.ss-aside{display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 19px; align-items: start;}
+.ss-aside > *{grid-column: 1;}
+.ss-aside .ss-k2:last-of-type,.ss-aside .ss-today-wrap{grid-column: 2;}
+.ss-aside .ss-k2:last-of-type{grid-row: 1; margin-top: 0; padding-top: 0; border-top: 0;}
+.ss-aside .ss-today-wrap{grid-row: 2 / 8;}
+}
+@media (max-width: 640px){
+.ss-aside{display: block;}
+.ss-aside .ss-k2:last-of-type{margin-top: 14.5px; padding-top: 11px; border-top: 1px solid var(--al-line);}
+.ss-lab .al-lab.ss-pl:not(.ss-earth):not(.ss-jupiter):not(.ss-saturn):not(.ss-neptune){display: none;}
+.ss-lab .ec-view button{font-size: 10px; padding: 4.5px 8px;}
+}
+.al-lab small{font-weight: 600; font-size: 9.5px; color: #9fb0cf;}
+@keyframes alPulse{0%,100% { box-shadow: 0 0 0 0 rgba(255,211,110,.55); } 50% { box-shadow: 0 0 0 12px rgba(255,211,110,0); }}
+/* --- Beidou overrides: our fonts, px only, CLAUDE.md minimum sizes (readable ≥17 / ≥19 at 720px) --- */
+.astro-lab{--sans:'Inter','PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;--serif:'Playfair Display','PingFang TC',serif;--zh:'PingFang TC','Apple LiGothic Medium','Microsoft JhengHei',sans-serif;font-family:var(--sans);text-align:left;line-height:1.55;margin-top:0;text-shadow:none;}
+.astro-lab .zh{font-family:var(--zh);}
+.al-lab,.al-lab.ss-pl{font-size:16px;padding:2px 9px;}
+.al-lab small{font-size:14px;}
+.al-hint{font-size:17px;}
+.al-nogl-msg{font-size:19px;}
+.al-sky-k{font-size:15px;}
+.sd-diff{font-size:26px;}
+.sd-diff span,.sd-why span{font-size:17px;}
+.sd-why{font-size:18px;}
+.ss-log li{font-size:17px;}
+.ss-today{font-size:17px;}
+.ss-today th{font-size:16px;}
+.ss-today td span{font-size:17px;}
+.al-play{font-size:18px;}
+.al-speed button,.ec-jump button{font-size:17px;}
+.ec-view button{font-size:16px;}
+.ec-view button b{font-weight:800;}
+.ec-view button span{font-family:var(--zh);font-weight:600;margin-left:6px;}
+.ec-slider-k{font-size:17px;letter-spacing:.04em;text-transform:none;}
+.al-chip-en,.al-chip-zh{font-size:17px;}
+.al-tg,.al-tg small{font-size:17px;}
+.al-foot{font-size:17px;}
+.cn-credit{font-size:16px;}
+.cn-credit .origin{display:block;margin-top:8px;color:var(--al-text);}
+@media (max-width:640px){
+  .ec-view{left:8px;right:58px;top:8px;display:flex;}
+  .ss-lab .ec-view button,.ec-view button{flex:1;font-size:15px;padding:5px 4px;line-height:1.2;display:flex;flex-direction:column;align-items:center;}
+  .ec-view button span{margin-left:0;font-size:15px;}
+  .ec-jump button{font-size:17px;}
+}
+@media (min-width:720px){
+  .al-lab,.al-lab.ss-pl{font-size:17px;}
+  .al-sky-k{font-size:16px;}
+  .sd-diff{font-size:28px;}
+  .sd-diff span,.sd-why span{font-size:19px;}
+  .sd-why{font-size:20px;}
+  .ss-log li{font-size:19px;}
+  .ss-today{font-size:18px;}
+  .ss-today th{font-size:17px;}
+  .ss-today td span{font-size:18px;}
+  .al-play{font-size:19px;}
+  .al-speed button,.ec-jump button,.ec-view button{font-size:17px;}
+  .ec-slider-k{font-size:19px;}
+  .al-chip-en,.al-chip-zh{font-size:17px;}
+  .al-tg,.al-tg small{font-size:19px;}
+  .al-foot{font-size:19px;}
+  .cn-credit{font-size:17px;}
+}
+/* With our bigger type the 380px side panel grows taller than the model, so the
+   panel always sits under the 3D view (their tablet layout), two columns wide. */
+.ss-lab .al-stage{grid-template-columns:1fr;}
+.al-space{border-right:0;border-bottom:1px solid var(--al-line);aspect-ratio:16 / 10;min-height:360px;}
+@media (min-width:641px){
+  .ss-aside{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);column-gap:32px;align-items:start;padding:22px 24px 24px;}
+  .ss-aside > *{grid-column:1;}
+  .ss-aside .ss-k2:last-of-type,.ss-aside .ss-today-wrap{grid-column:2;}
+  .ss-aside .ss-k2:last-of-type{grid-row:1;margin-top:0;padding-top:0;border-top:0;}
+  .ss-aside .ss-today-wrap{grid-row:2 / 8;}
+}
+@media (max-width:640px){
+  .al-space{aspect-ratio:1 / 1;min-height:0;}
+  .ss-aside{display:block;}
+  .ss-lab .se-chips{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/schools/beidou-jhs/motion.css">
@@ -383,6 +610,7 @@
       <a href="#introduce">👋 Introduce · 自我介紹</a>
       <a href="#words">🪐 12 Words · 單字</a>
       <a href="#solar">☀️ Solar System · 太陽系</a>
+      <a href="#solar3d">🌌 3D Model · 3D 太陽系</a>
       <a href="#say">🗣 Say It · 說說看</a>
       <a href="#practice">💬 Dialogue &amp; Quiz · 對話小考</a>
     </div>
@@ -859,6 +1087,56 @@
       </div>
       <button class="speak" type="button" data-speak="My Very Educated Mother Just Served Us Nachos. Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune." aria-label="Listen to the memory trick">🔊</button>
     </div>
+
+    <div class="lab3d" id="solar3d">
+      <div class="lab3d__eyebrow">3D Model · 3D 模型</div>
+      <h3 class="lab3d__title">Explore the Solar System in 3D</h3>
+      <div class="lab3d__zh">3D 太陽系<br>真實的距離，可以調的大小</div>
+      <p class="lab3d__how">Drag to turn the model, and pinch or scroll to zoom. Tap <b>Inner</b>, <b>To Jupiter</b> and <b>All</b> to fly out to Neptune. Slide the planet size down to <b>True size</b> — even Jupiter disappears! Then press <b>Play</b> to send a flash of light from the Sun.<span class="zh">拖曳旋轉，雙指或滾輪縮放；依序點「內行星 → 到木星 → 到海王星」一路飛出去。把行星大小滑到「真實大小」，連木星都看不見了！再按「播放」，看太陽發出的光要多久才到每一顆行星。</span></p>
+    <div class="astro-lab ss-lab" data-solar-lab>
+      <div class="al-stage">
+        <div class="al-space">
+          <canvas class="al-space-cv" aria-label="3D model of the solar system with true distances · 真實距離的太陽系 3D 模型"></canvas>
+          <div class="al-labels" aria-hidden="true"></div>
+          <div class="ec-view" role="group" aria-label="Zoom · 範圍">
+            <button type="button" data-view="inner" aria-pressed="true"><b>Inner</b><span>內行星</span></button>
+            <button type="button" data-view="jupiter" aria-pressed="false"><b>To Jupiter</b><span>到木星</span></button>
+            <button type="button" data-view="all" aria-pressed="false"><b>All</b><span>到海王星</span></button>
+          </div>
+          <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+          <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+          <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. Please try Chrome, Edge or Safari.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型，請改用 Chrome、Edge 或 Safari。</span></p>
+        </div>
+        <aside class="al-sky ss-aside">
+          <p class="al-sky-k">Size and light · 大小與光</p>
+          <p class="sd-diff ss-factor"></p>
+          <p class="sd-why ss-size-note"></p>
+          <p class="al-sky-k ss-k2">A flash of light from the Sun · 太陽發出的一道光</p>
+          <p class="sd-why ss-timer"></p>
+          <ol class="ss-log"></ol>
+          <p class="al-sky-k ss-k2">Today's distances · 今天的距離</p>
+          <div class="ss-today-wrap"><table class="ss-today"><thead><tr><th>Planet · 行星</th><th>From Sun (AU) · 離太陽</th><th>From Earth (million km) · 離地球（百萬公里）</th><th>Light from there · 光要走多久</th></tr></thead><tbody></tbody></table></div>
+        </aside>
+      </div>
+      <div class="al-controls">
+        <div class="al-row al-row-main">
+          <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+          <div class="al-speed" role="group" aria-label="Light speed · 光速">
+            <button type="button" data-speed="60" aria-pressed="true">Light ×60 · 光速 60 倍</button>
+            <button type="button" data-speed="600" aria-pressed="false">×600</button>
+            <button type="button" data-speed="6000" aria-pressed="false">×6,000</button>
+          </div>
+          <div class="ec-jump"><button type="button" class="ec-now ss-reset">Clear the light · 清除光環</button></div>
+        </div>
+        <label class="ec-slider"><span class="ec-slider-k">Planet size · 行星大小 <em>true size 真實大小 ← → ×1,000</em></span>
+          <input type="range" class="ec-time ss-size" min="0" max="3" step="0.01" value="3"></label>
+        <div class="al-chips se-chips"><button type="button" class="al-chip ss-preset" data-log="0"><svg class="solar-svg" viewBox="0 0 60 60" width="26" height="26" aria-hidden="true"><ellipse cx="30" cy="30" rx="11" ry="4.6" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="17" ry="7.1" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="23" ry="9.7" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="28" ry="11.8" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><circle cx="30" cy="30" r="5" fill="#ffd36e"/><circle cx="41" cy="30" r="1.6" fill="#4f9cff"/><circle cx="14" cy="35" r="1.4" fill="#ff7a4a"/><circle cx="49" cy="37" r="2.6" fill="#e8c9a0"/><circle cx="5" cy="27" r="2" fill="#9fe3ea"/></svg><span class="al-chip-en">True size</span><span class="al-chip-zh">真實大小</span></button><button type="button" class="al-chip ss-preset" data-log="1"><svg class="solar-svg" viewBox="0 0 60 60" width="26" height="26" aria-hidden="true"><ellipse cx="30" cy="30" rx="11" ry="4.6" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="17" ry="7.1" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="23" ry="9.7" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="28" ry="11.8" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><circle cx="30" cy="30" r="5" fill="#ffd36e"/><circle cx="41" cy="30" r="1.6" fill="#4f9cff"/><circle cx="14" cy="35" r="1.4" fill="#ff7a4a"/><circle cx="49" cy="37" r="2.6" fill="#e8c9a0"/><circle cx="5" cy="27" r="2" fill="#9fe3ea"/></svg><span class="al-chip-en">× 10</span><span class="al-chip-zh">放大 10 倍</span></button><button type="button" class="al-chip ss-preset" data-log="2"><svg class="solar-svg" viewBox="0 0 60 60" width="26" height="26" aria-hidden="true"><ellipse cx="30" cy="30" rx="11" ry="4.6" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="17" ry="7.1" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="23" ry="9.7" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="28" ry="11.8" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><circle cx="30" cy="30" r="5" fill="#ffd36e"/><circle cx="41" cy="30" r="1.6" fill="#4f9cff"/><circle cx="14" cy="35" r="1.4" fill="#ff7a4a"/><circle cx="49" cy="37" r="2.6" fill="#e8c9a0"/><circle cx="5" cy="27" r="2" fill="#9fe3ea"/></svg><span class="al-chip-en">× 100</span><span class="al-chip-zh">放大 100 倍</span></button><button type="button" class="al-chip ss-preset" data-log="3"><svg class="solar-svg" viewBox="0 0 60 60" width="26" height="26" aria-hidden="true"><ellipse cx="30" cy="30" rx="11" ry="4.6" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="17" ry="7.1" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="23" ry="9.7" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><ellipse cx="30" cy="30" rx="28" ry="11.8" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/><circle cx="30" cy="30" r="5" fill="#ffd36e"/><circle cx="41" cy="30" r="1.6" fill="#4f9cff"/><circle cx="14" cy="35" r="1.4" fill="#ff7a4a"/><circle cx="49" cy="37" r="2.6" fill="#e8c9a0"/><circle cx="5" cy="27" r="2" fill="#9fe3ea"/></svg><span class="al-chip-en">× 1,000</span><span class="al-chip-zh">放大 1000 倍</span></button></div>
+        <div class="al-row al-toggles"><label class="al-tg"><input type="checkbox" data-t="dots" checked><span class="al-sw" aria-hidden="true"></span><span>Position dots<small>位置圓點</small></span></label><label class="al-tg"><input type="checkbox" data-t="orbits" checked><span class="al-sw" aria-hidden="true"></span><span>Orbits<small>軌道</small></span></label></div>
+      </div>
+      <div class="al-foot"><ul class="al-legend"><li class="al-lg-dots"><i></i><span>Colored dots: where each planet is today, drawn the same size at any zoom<br><span class="zh">彩色圓點：每顆行星今天的位置，不論遠近都畫一樣大</span></span></li><li class="al-lg-orbits"><i></i><span>Colored loops: the real orbits, to scale (1 AU = 10 units)<br><span class="zh">彩色圈：真實比例的軌道（1 天文單位＝10 單位）</span></span></li><li class="al-lg-ring"><i></i><span>Gold ring: a flash of light leaving the Sun, sped up 60 to 6,000 times<br><span class="zh">金色光環：從太陽出發的一道光，加速 60 到 6,000 倍</span></span></li><li class="al-lg-ecl"><i></i><span>One AU, the average Earth–Sun distance, is about 150 million kilometers<br><span class="zh">1 天文單位（AU）＝地球到太陽的平均距離，約 1.5 億公里</span></span></li></ul><p class="al-scale">Distances are always to scale. Sizes are true at the left end of the slider and enlarged up to 1,000 times at the right end; the Sun is never enlarged more than 20 times, or it would swallow Mercury&#x27;s orbit. Positions are today&#x27;s, from real orbital elements.<br><span class="zh">距離永遠照比例。滑桿最左邊是真實大小，最右邊放大到 1000 倍；太陽最多只放大 20 倍，否則會吞掉水星的軌道。行星位置是今天的真實位置，由軌道根數算出。</span></p></div>
+      <p class="cn-credit">Planet positions: approximate orbital elements from <a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener">NASA/JPL Solar System Dynamics</a> (E. M. Standish). Sizes: NASA planetary fact sheets. Voyager 1 milestone: NASA/JPL (one light-day from Earth on November 18, 2026). Stars: <a href="https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50" target="_blank" rel="noopener">Yale Bright Star Catalogue, 5th ed.</a> (public domain).<br><span class="zh">行星位置：NASA／JPL 太陽系動力學組的近似軌道根數（Standish）。行星大小：NASA 行星資料表。航海家一號：NASA／JPL（2026 年 11 月 18 日距離地球一光日）。星表：耶魯亮星星表第五版（公有領域）。</span><span class="origin">3D model by 彰化縣人師教育協會 · <a href="https://twrses.org/resources/classes/astronomy/solar-system/" target="_blank" rel="noopener">See the full lesson · 看完整課程</a></span></p>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -1157,6 +1435,17 @@
       q.querySelectorAll('.opt').forEach(function(x){ x.disabled=false; x.classList.remove('is-correct','is-wrong'); }); });
     qzs[0].scrollIntoView({behavior:'smooth',block:'center'});
   });
+})();
+</script>
+<script>
+/* Load the 3D solar-system lab (~630 KB, three.js) only when its section comes near. */
+(function(){
+  var lab=document.querySelector('[data-solar-lab]'); if(!lab) return;
+  var done=false;
+  function load(){ if(done) return; done=true; var s=document.createElement('script'); s.src='solar/solar-lab.js?v=25456c29'; s.async=true; document.body.appendChild(s); }
+  if(!('IntersectionObserver' in window)){ load(); return; }
+  var io=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting;})){ io.disconnect(); load(); } },{rootMargin:'900px 0px'});
+  io.observe(lab);
 })();
 </script>
 <footer>
