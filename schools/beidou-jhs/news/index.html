@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="canonical" href="https://changhua-bilingual.org/schools/beidou-jhs/news/">
 <title>News · 最新消息 · Beidou Junior High</title>
-<meta name="description" content="Latest news and events from Beidou Junior High School — food-agriculture, bilingual education, astronomy, and more. 北斗國中最新消息：食農教育、雙語活動、天文科普、各項獎項。">
+<meta name="description" content="Latest news and events from Beidou Junior High School — the new-campus groundbreaking, the Space Scouts bilingual astronomy program, food-agriculture, and more. 北斗國中最新消息：校舍重建動土典禮、太空小尖兵雙語天文課、食農教育、各項獎項。">
 <link rel="icon" type="image/x-icon" href="/schools/beidou-jhs/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/schools/beidou-jhs/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/beidou-jhs/favicon-192.png">
@@ -74,12 +74,46 @@
   .news-card__title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--navy-deep);line-height:1.25;margin-top:8px;}
   @media (min-width:720px){ .news-card__title{ font-size:28px; } }
   .news-card__title-zh{font-size:17px;color:var(--ink);font-weight:600;margin-top:4px;}
+  @media (min-width:720px){ .news-card__title-zh{ font-size:19px; } }
   .news-card__body{font-size:17px;color:var(--ink-soft);margin-top:12px;line-height:1.6;flex:1;}
-  @media (min-width:720px){ .news-card__body{ font-size:18px; } }
+  @media (min-width:720px){ .news-card__body{ font-size:19px; } }
   .news-card__tag{margin-top:16px;display:inline-block;background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:13px;color:var(--ink-soft);font-weight:600;}
   .news-card--video{grid-column:1/-1;}
   .news-card__video{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000;margin-bottom:14px;}
   .news-card__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  /* === Video stories: full bilingual article under the video === */
+  .cat--campus{background:var(--gold-soft);color:var(--gold-deep);}
+  .news-story{padding:26px 18px 30px;}
+  @media (min-width:720px){ .news-story{ padding:40px 44px 44px; } }
+  .story__meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:16px;}
+  .story__meta .news-card__cat{margin-bottom:0;}
+  .story__vidnote{display:flex;flex-wrap:wrap;gap:0 14px;font-size:17px;color:var(--ink-soft);font-weight:500;margin:-2px 0 18px;}
+  .nw{display:inline-block;}
+  @media (min-width:720px){ .story__vidnote{ font-size:19px; } }
+  .news-story .news-card__title{font-size:32px;line-height:1.15;}
+  @media (min-width:720px){ .news-story .news-card__title{ font-size:44px; } }
+  .news-story .news-card__title-zh{font-size:20px;margin-top:8px;}
+  @media (min-width:720px){ .news-story .news-card__title-zh{ font-size:24px; } }
+  .story{margin-top:10px;}
+  .story p{margin-top:18px;}
+  .story .en{font-size:20px;line-height:1.7;color:var(--ink);}
+  @media (min-width:720px){ .story .en{ font-size:23px; } }
+  .story .zh{font-size:19px;line-height:1.85;color:#3b4252;margin-top:8px;padding-left:16px;border-left:4px solid var(--gold-soft);}
+  @media (min-width:720px){ .story .zh{ font-size:21px; } }
+  .story strong{color:var(--navy-deep);}
+  .story__quote{margin:26px 0 10px;padding:22px 24px;background:var(--bg-soft);border-left:6px solid var(--gold);border-radius:0 16px 16px 0;}
+  .story__quote .q-en{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;color:var(--navy-deep);line-height:1.3;}
+  @media (min-width:720px){ .story__quote .q-en{ font-size:34px; } }
+  .story__quote .q-zh{font-size:19px;color:var(--ink);font-weight:500;margin-top:8px;}
+  @media (min-width:720px){ .story__quote .q-zh{ font-size:21px; } }
+  .story__quote cite{display:block;font-style:normal;font-size:17px;color:var(--gold-deep);font-weight:700;margin-top:12px;}
+  @media (min-width:720px){ .story__quote cite{ font-size:19px; } }
+  .story__cta{display:inline-flex;flex-direction:column;gap:2px;margin-top:26px;background:var(--navy-deep);color:#fff;text-decoration:none;font-weight:700;font-size:20px;padding:14px 24px;border-radius:14px;transition:background .15s,transform .15s;}
+  .story__cta span{font-size:17px;font-weight:500;color:#f5d99a;}
+  @media (min-width:720px){ .story__cta{ font-size:21px; } .story__cta span{ font-size:19px; } }
+  .story__cta:hover{background:var(--gold);transform:translateY(-2px);}
+  .story__cta:hover span{color:#fff;}
 
   /* === Featured news === */
   .news-featured{background:linear-gradient(135deg,var(--navy-soft) 0%,var(--gold-soft) 100%);border-radius:24px;padding:36px 28px;border:2px solid var(--navy);box-shadow:var(--shadow);margin-bottom:36px;}
@@ -89,6 +123,7 @@
   .news-featured__title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy-deep);line-height:1.2;margin-top:8px;}
   @media (min-width:720px){ .news-featured__title{ font-size:42px; } }
   .news-featured__title-zh{font-size:18px;color:var(--ink);font-weight:600;margin-top:6px;}
+  @media (min-width:720px){ .news-featured__title-zh{ font-size:20px; } }
   .news-featured__body{font-size:19px;color:var(--ink);margin-top:16px;line-height:1.7;max-width:760px;}
   @media (min-width:720px){ .news-featured__body{ font-size:20px; } }
 
@@ -157,6 +192,88 @@
     <div class="sec__rule"></div>
 
     <div class="news-grid">
+
+      <article class="news-card news-card--video news-story" id="groundbreaking-2026">
+        <div class="story__meta"><span class="news-card__cat cat--campus">🏗️ Campus · 校園建設</span><span class="news-card__date">2026.11.03</span></div>
+        <div class="news-card__video"><iframe src="https://www.youtube-nocookie.com/embed/5upD_siqmC8?rel=0" title="北斗國中校舍重建動土典禮 (11/03/2026)" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="story__vidnote"><span>🎬 English report · EN/中文 subtitles</span><span>英語報導・中英字幕</span></div>
+        <h3 class="news-card__title">Breaking Ground on a Safer, More Modern Campus</h3>
+        <div class="news-card__title-zh"><span class="nw">老舊校舍拆除重建工程</span> · <span class="nw">動土典禮</span></div>
+        <div class="story">
+          <p class="en">On the morning of November 3, 2026, Beidou Junior High held the groundbreaking ceremony for the <strong>demolition and reconstruction of its aging school buildings</strong>. Founded in 1946, the school is saying goodbye to classrooms that have served generations of Beidou students — Hongdao Hall among them — to make way for a safer, more modern campus. County Magistrate Wang Hui-mei attended and spoke, joined by local representatives, principals past and present, and friends of the school from across the community.</p>
+          <p class="zh">北斗國中於 2026 年 11 月 3 日上午舉行「<strong>老舊校舍拆除重建工程</strong>」動土典禮。創校於 1946 年的北斗國中，即將告別陪伴一代代北中學子的老舊校舍（弘道樓即是其中之一），迎接更安全、更現代的新校園。縣長王惠美親臨致詞，地方民意代表、友校校長、歷任校長與地方各界來賓齊聚一堂，共襄盛舉。</p>
+          <p class="en">The morning opened with a performance by the honor guard of nearby Beidou Vocational High School. Drums and a lion dance followed, bringing wishes for good luck, while Beidou JHS student hosts lined the path to welcome the guests.</p>
+          <p class="zh">典禮由鄰近的北斗家商儀隊揭開序幕，鼓陣與舞獅接續登場，帶來滿滿的好兆頭；北斗國中的禮賓生則在校園中夾道歡迎來賓。</p>
+          <p class="en">In her speech, Magistrate Wang said the new buildings are designed for the way students learn today. She also noted other county support for the school, including waterproofing the activity center roof, building an AI future classroom, and improving classroom lighting.</p>
+          <p class="zh">王縣長致詞表示，新校舍是為現代的學習方式而設計。她也提到縣府對北斗國中的其他補助，包括活動中心屋頂鐵皮整修防水、AI 未來教室建置，以及教室照明改善。</p>
+          <blockquote class="story__quote">
+            <div class="q-en">“We have to balance structural safety, digital learning, and the needs of diverse teaching.”</div>
+            <div class="q-zh">「我們要兼顧結構安全、數位學習，以及多元教學的需求。」</div>
+            <cite>— County Magistrate Wang Hui-mei · 縣長 王惠美</cite>
+          </blockquote>
+          <p class="en">Principal Wu Bing-lien thanked the Magistrate and every guest for coming, and made a promise about the work ahead.</p>
+          <p class="zh">吳炳連校長感謝縣長與各界來賓蒞臨，並對接下來的工程許下承諾。</p>
+          <blockquote class="story__quote">
+            <div class="q-en">“We'll work with the Public Works Department and the builders to set clear safety rules — and build it well.”</div>
+            <div class="q-zh">「我們會和工務處、廠商一起做好安全規範，把工程建好。」</div>
+            <cite>— Principal Wu Bing-lien · 校長 吳炳連</cite>
+          </blockquote>
+          <p class="en">Then came the traditional rites. Guests offered incense and bowed three times — for a smooth build, for safe construction, and for good fortune in all things. Wearing hard hats and gloves, the Magistrate, the Principal and the guests took up golden shovels for three ceremonial scoops: the first for a smooth start and peace for all, the second for a safe groundbreaking and glory to Beidou, and the third for good fortune and a smooth build to the end.</p>
+          <p class="zh">隨後依循傳統，來賓持香祭拜：一拜工程順利、再拜興建平安、三拜萬事吉祥。接著戴上工程帽與手套，縣長、校長與來賓手持金鏟完成三鏟動土——第一鏟開工順利、國泰民安，第二鏟動土平安、榮耀北斗，第三鏟圓滿吉祥、工程順利。</p>
+          <p class="en">The ceremony closed with group photos and a rousing cheer: <em>“Beidou Junior High, thumbs up! Changhua County, thumbs up, up, up!”</em> A safer, more modern campus is on its way for the next generation of Beidou students.</p>
+          <p class="zh">典禮最後在大合照與「北斗國中讚！彰化縣讚讚讚！」的歡呼聲中圓滿落幕。更安全、更現代的新校園即將到來，迎接下一代的北斗學子。</p>
+        </div>
+      </article>
+
+      <article class="news-card news-card--video news-story" id="space-scouts-day-2">
+        <div class="story__meta"><span class="news-card__cat cat--science">🔭 Space Scouts · 太空小尖兵</span><span class="news-card__date">2026.10.29</span></div>
+        <div class="news-card__video"><iframe src="https://www.youtube-nocookie.com/embed/4OqYHGR_31o?rel=0" title="北斗國中太空小尖兵課程 Day 2 報導 (10/29/2026) 英文版" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="story__vidnote"><span>🎬 English report · EN/中文 subtitles</span><span>英語報導・中英字幕</span></div>
+        <h3 class="news-card__title">Space Scouts, Day 2: Planets, Moons &amp; Space Objects</h3>
+        <div class="news-card__title-zh"><span class="nw">太空小尖兵第二堂</span> · <span class="nw">行星、衛星與其他天體</span></div>
+        <div class="story">
+          <p class="en">It was lunchtime in Beidou and already nighttime in Los Angeles when the Space Scouts met Teacher Shannon Braden online for their second lesson on Thursday, October 29. Shannon began by showing just how well she knows her class: she still remembered the space topic every scout had chosen the week before.</p>
+          <p class="zh">10 月 29 日（四）午休時間，太空小尖兵與 Shannon Braden 老師線上連線，上第二堂課——北斗正值中午，洛杉磯已是夜晚。Shannon 老師一開場就展現她對學員的用心：每位小尖兵上週選了哪個天體，她都還記得。</p>
+          <blockquote class="story__quote">
+            <div class="q-en">“And I even remember that Emma wants to learn about Saturn…”</div>
+            <div class="q-zh">「我還記得，Emma 想了解土星……」</div>
+            <cite>— Teacher Shannon Braden · Shannon 老師</cite>
+          </blockquote>
+          <p class="en">Today's mission: <strong>sort the sky into three kinds of space objects</strong>. Planets go around the Sun; moons go around a planet; and everything else — the Sun, dwarf planets, comets and asteroids — counts as a space object. With three simple sentences, <em>“This is… It's a… It is…”</em>, the scouts introduced one object after another.</p>
+          <p class="zh">今天的任務，是<strong>把天體分成三類</strong>：繞著太陽轉的「行星」、繞著行星轉的「衛星」，以及太陽、矮行星、彗星、小行星等「其他天體」。學員用「This is… It's a… It is…」三個句型，一個接一個介紹天體。</p>
+          <p class="en">The lesson was full of surprises. How many moons does Jupiter have? <em>“One hundred fifteen!”</em> the scouts called out, reading the number from the class slides. They learned that Jupiter's moon Io has hundreds of volcanoes, and that many parts of the world call the Moon “Luna” — which made Shannon smile at one of her students: <em>“Just like you, Luna. You have the perfect space name.”</em> And when she asked what else is interesting about Pluto, the answer came straight back: <em>“It has a heart!”</em></p>
+          <p class="zh">課堂上驚喜不斷。木星有幾顆衛星？學員看著投影片大聲回答：「115 顆！」大家也認識了木星的衛星埃歐（Io），上面有數百座火山；世界上很多地方把月亮叫做「Luna」——Shannon 老師笑著對學員 Luna 說：「就跟妳一樣，Luna，妳有一個完美的太空名字。」問到冥王星還有什麼有趣的地方，學員立刻回答：「它有一顆愛心！」</p>
+          <p class="en">To finish, the scouts played a quick game — planet, moon, or space object? — and read together as a class: <em>“Mars is a planet!”</em> When Shannon asked, “Are we going to do this again next week?”, the answer was a loud <em>“Yes!”</em> and thumbs up all round.</p>
+          <p class="zh">最後的小遊戲考考大家：這是行星、衛星，還是其他天體？全班一起大聲念出「Mars is a planet!（火星是行星！）」。Shannon 老師問：「下週還要再來嗎？」學員齊聲回答「要！」，還比了滿滿的讚。</p>
+          <a class="story__cta" href="../lessons/space-scouts/day-2/">🪐 Learn with the Scouts · Day 2 lesson<span>跟著小尖兵學：<span class="nw">第 2 堂課程頁 →</span></span></a>
+        </div>
+      </article>
+
+      <article class="news-card news-card--video news-story" id="space-scouts-day-1">
+        <div class="story__meta"><span class="news-card__cat cat--science">🔭 Space Scouts · 太空小尖兵</span><span class="news-card__date">2026.10.22</span></div>
+        <div class="news-card__video"><iframe src="https://www.youtube-nocookie.com/embed/dNXaA9gWEM8?rel=0" title="北斗國中太空小尖兵課程報導 (10/22/2026) 英文版" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="story__vidnote"><span>🎬 English report · EN/中文 subtitles</span><span>英語報導・中英字幕</span></div>
+        <h3 class="news-card__title">Space Scouts Launch with a Live Class from Los Angeles</h3>
+        <div class="news-card__title-zh"><span class="nw">太空小尖兵開課</span> · <span class="nw">美國外師線上第一堂課</span></div>
+        <div class="story">
+          <p class="en"><strong>Space Scouts</strong>, Beidou Junior High's new bilingual astronomy program, held its very first lesson on Thursday, October 22, 2026. In the school's computer lab, the scouts — chosen through interviews at the start of the semester — connected live with Teacher Shannon Braden in Los Angeles, USA, who uses space to get students speaking English.</p>
+          <p class="zh">北斗國中新開辦的雙語天文課程「<strong>天文與太空雙語科普小尖兵培訓計畫</strong>」，於 2026 年 10 月 22 日（四）在電腦教室舉行第一堂課。經過學期初面試選出的小尖兵們，與來自美國洛杉磯的 Shannon Braden 老師線上即時連線——Shannon 老師用太空主題，讓孩子們開口說英文。</p>
+          <p class="en">Shannon set the tone from the very first minute:</p>
+          <p class="zh">Shannon 老師一開場就為這堂課定下基調：</p>
+          <blockquote class="story__quote">
+            <div class="q-en">“We like to relax, and we like to make mistakes, okay? It's okay. That's what we like to do.”</div>
+            <div class="q-zh">「我們喜歡放輕鬆，也喜歡犯錯，好嗎？沒關係，這就是我們喜歡做的事。」</div>
+            <cite>— Teacher Shannon Braden · Shannon 老師</cite>
+          </blockquote>
+          <p class="en">Then everyone introduced themselves in English — name, favorite color, favorite food. Shannon's favorite color is blue and her favorite food is pizza; one scout's answer stole the show: <em>“My favorite color is black, because I think that is… astronomy's color.”</em></p>
+          <p class="zh">接著大家輪流用英文自我介紹：名字、最喜歡的顏色、最喜歡的食物。Shannon 老師最喜歡藍色和披薩；而一位學員的回答最令人印象深刻：「我最喜歡的顏色是黑色，因為我覺得，那是天文的顏色。」</p>
+          <p class="en">Next came the word bank. From Mercury to the Moon and the stars, the scouts said every space word out loud. Then each scout chose a target to explore with one sentence — <em>“I want to learn about…”</em> Jupiter, Mars, Saturn, Uranus, the Sun, the Moon and the stars all made the list.</p>
+          <p class="zh">接下來是太空單字時間：從水星一路到月亮和星星，學員把每個單字都大聲說出來。最後，每位小尖兵用一句「I want to learn about…（我想了解……）」選出自己想探索的目標——木星、火星、土星、天王星、太陽、月亮和星星，全都榜上有名。</p>
+          <p class="en">After their training, the Space Scouts will become young science guides, sharing what they have learned about space with elementary school students — in both English and Chinese.</p>
+          <p class="zh">完成培訓後，小尖兵們將化身小小科普解說員，用中英雙語把太空知識分享給國小的學弟妹。</p>
+          <a class="story__cta" href="../lessons/space-scouts/">🚀 Learn with the Scouts · Day 1 lesson<span>跟著小尖兵學：<span class="nw">第 1 堂課程頁 →</span></span></a>
+        </div>
+      </article>
 
       <div class="news-card news-card--video">
         <div class="news-card__cat cat--bilingual">🎥 Campus Visit · 校園來訪</div>
