@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="canonical" href="https://changhua-bilingual.org/schools/jianxin/news/">
 <title>News &amp; Highlights · 校園新聞 · Jianxin Elementary · 彰化縣芳苑鄉建新國民小學</title>
-<meta name="description" content="Recent news and student honors from Jianxin Elementary School — National Science Fair bronze in chemistry, gold &amp; silver in Tai Chi, Sea Ox Festival entries, and community events. 建新國小近期新聞與榮譽榜——全國科展化學科第三名、教育盃太極拳金銀牌、海牛文化節參賽、社區活動。">
+<meta name="description" content="Recent news and student honors from Jianxin Elementary School — Grade A rating for the Educational Priority Area Program, a Halloween challenge day, National Science Fair bronze in chemistry, gold &amp; silver in Tai Chi, and community events. 建新國小近期新聞與榮譽榜——教育優先區計畫榮獲甲等、西洋鬼仔節闖關活動、全國科展化學科第三名、教育盃太極拳金銀牌、社區活動。">
 <meta property="og:title" content="News &amp; Highlights · Jianxin Elementary">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -170,6 +170,43 @@
   @media (min-width:720px){ footer{ font-size:19px; } }
   footer .org{font-weight:600;color:var(--carrot-deep);}
   footer a{color:var(--carrot-deep);}
+
+  /* Latest stories */
+  .stories{display:grid;grid-template-columns:1fr;gap:36px;}
+  @media (min-width:720px){ .stories{ gap:52px; } }
+  .story{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);border-top:8px solid var(--ocean);transition:transform .2s,box-shadow .2s;}
+  .story:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .story--honor{border-top-color:var(--gold);}
+  .story__media{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--sand);}
+  .story__media img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in;}
+  .story__media img.lead{grid-column:1/-1;aspect-ratio:16/9;object-position:50% 35%;}
+  .story__media--single{display:flex;justify-content:center;background:linear-gradient(135deg,var(--gold-soft) 0%,var(--sand) 100%);}
+  .story__media--single img{max-width:820px;aspect-ratio:3/2;}
+  .story__body{padding:26px 24px 32px;}
+  @media (min-width:720px){ .story__body{ padding:38px 42px 44px; } }
+  .story__meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .story__date{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--carrot-deep);letter-spacing:1px;}
+  @media (min-width:720px){ .story__date{ font-size:19px; } }
+  .story__pill{display:inline-block;background:var(--ocean-soft);color:var(--ocean-deep);font-size:14px;font-weight:700;padding:4px 12px;border-radius:99px;letter-spacing:.5px;}
+  .story--honor .story__pill{background:var(--gold-soft);color:var(--gold-deep);}
+  .story__title{font-family:'Playfair Display','PingFang TC',serif;font-size:29px;font-weight:700;color:var(--carrot-deep);line-height:1.2;margin-top:14px;}
+  @media (min-width:720px){ .story__title{ font-size:38px; } }
+  .story__title-zh{font-size:21px;color:var(--ink);font-weight:700;margin-top:10px;line-height:1.5;}
+  @media (min-width:720px){ .story__title-zh{ font-size:25px; } }
+  .story__text{display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px;}
+  @media (min-width:900px){ .story__text--cols{ grid-template-columns:1fr 1fr;gap:40px; } }
+  .story__lang{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ocean);margin-bottom:6px;}
+  .story__text p{font-size:20px;line-height:1.7;color:var(--ink);}
+  @media (min-width:720px){ .story__text p{ font-size:23px; } }
+  .story__text p + p{margin-top:14px;}
+  .story__text .zh p{color:var(--ink-soft);}
+  .story__text strong{color:var(--carrot-deep);font-weight:700;}
+
+  /* Lightbox */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(20,14,10,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;}
+  .lb.open{display:flex;}
+  .lb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lb__x{position:absolute;top:14px;right:18px;color:#fff;font-size:40px;line-height:1;background:none;border:0;cursor:pointer;}
   /* reveal-fx */
   .rvl{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
   .rvl.in{opacity:1;transform:none;}
@@ -210,10 +247,81 @@
   </div>
 </header>
 
-<!-- ===== I. Honor Wall ===== -->
-<section id="honors">
+<!-- ===== I. Latest News ===== -->
+<section id="latest">
   <div class="wrap">
     <div class="sec__no">I.</div>
+    <h2 class="sec__title">Latest News</h2>
+    <div class="sec__title-zh">最新消息 · 校園報導</div>
+    <div class="sec__rule"></div>
+
+    <div class="stories">
+
+      <article class="story story--honor" id="edu-priority-area-grade-a">
+        <div class="story__media story__media--single">
+          <img src="photos/edu-priority-area-grade-a.jpg" alt="Celebration poster: Jianxin Elementary's 114 school year Educational Priority Area Program rated Grade A" loading="lazy" data-zoom>
+        </div>
+        <div class="story__body">
+          <div class="story__meta">
+            <span class="story__date">2026-11-02</span>
+            <span class="story__pill">🏅 榮譽 · Honor</span>
+          </div>
+          <h3 class="story__title">Educational Priority Area Program Rated “Grade A”</h3>
+          <div class="story__title-zh">賀！本校「114 學年度教育優先區計畫」榮獲甲等！</div>
+          <div class="story__text story__text--cols">
+            <div class="en">
+              <div class="story__lang">English</div>
+              <p>The <strong>Educational Priority Area Program</strong>, run by the Ministry of Education’s K-12 Education Administration, works to narrow the education gap between cities and the countryside and to make schooling fairer for every child. It funds parent education, the development of each school’s own signature programs, and upgrades to basic teaching equipment.</p>
+              <p>Thanks to the combined efforts of school teams, teachers and parents, a number of schools earned a <strong>Grade A</strong> rating in the review of their 114 school year (2025–26) results — and Jianxin is proud to be one of them.</p>
+            </div>
+            <div class="zh">
+              <div class="story__lang">中文</div>
+              <p>教育部國民及學前教育署推動的「教育優先區計畫」，旨在平衡城鄉教育差距、落實社會正義。補助項目包含推展親職教育、發展學校教育特色、充實基本教學設備等。</p>
+              <p>在各校團隊、教師與家長的共同努力下，許多學校在 114 學年度的執行成果考評中獲得了甲等的高度肯定。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" id="halloween-2026">
+        <div class="story__media">
+          <img class="lead" src="photos/halloween-2026-01.jpg" alt="Jianxin students in Halloween costumes — witches, a princess and Sun Wukong — in front of a Happy Halloween board" loading="lazy" data-zoom>
+          <img src="photos/halloween-2026-02.jpg" alt="Students dressed as ghosts with jack-o'-lantern bags, posing with their teacher" loading="lazy" data-zoom>
+          <img src="photos/halloween-2026-03.jpg" alt="An English teacher in a black-winged costume running a challenge station on the campus walkway" loading="lazy" data-zoom>
+          <img src="photos/halloween-2026-04.jpg" alt="Two students in costume holding up the treats they won" loading="lazy" data-zoom>
+        </div>
+        <div class="story__body">
+          <div class="story__meta">
+            <span class="story__date">2026-10-30</span>
+            <span class="story__pill">🎃 活動 · Event</span>
+          </div>
+          <h3 class="story__title">Halloween, Ready, Go! Costumes and Challenge Stations</h3>
+          <div class="story__title-zh">西洋鬼仔節活動 Ready Go 🥳</div>
+          <div class="story__text story__text--cols">
+            <div class="en">
+              <div class="story__lang">English</div>
+              <p>From early morning, Jianxin’s campus was full of laughter and surprises! Students came to school in costumes they had put real creativity into — from adorable little witches and a dashing Sun Wukong to all kinds of playful little monsters — and the whole campus came alive.</p>
+              <p>A special thank-you goes to our <strong>English teachers</strong>, who designed <strong>three genuinely tough challenge stations</strong> for the day. None of them was easy, but the children didn’t back down. With plenty of fun, smarts and a never-give-up spirit, they used quick thinking and teamwork to clear every one.</p>
+              <p>Seeing the confident, shining smiles on the children’s faces as they cleared each challenge was truly moving. Thank you to the Jianxin teaching team for all their hard work — and a big thumbs-up to every brave child who took on the challenges today!</p>
+            </div>
+            <div class="zh">
+              <div class="story__lang">中文</div>
+              <p>一早建新校園裡就充滿了歡笑與驚喜！學生們個個發揮創意、精心打扮到校，從超萌小魔女、帥氣孫悟空到各種搞怪小鬼怪，讓整個校園頓時熱鬧非凡。</p>
+              <p>特別感謝英文老師們的用心規劃，這次特地設計了三個超具挑戰性的闖關關卡。雖然關卡關關不容易，但孩子們絲毫不怯場，展現了滿滿的童趣、智慧與不服輸的精神，靠著臨場反應與團隊合作一一順利破關！</p>
+              <p>看著孩子們破關時閃閃發光的自信笑容，真的讓人無比感動。感謝建新教學團隊的辛苦付出，也給今天每一位勇敢闖關、表現優異的孩子們一個大大的讚！</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== II. Honor Wall ===== -->
+<section id="honors">
+  <div class="wrap">
+    <div class="sec__no">II.</div>
     <h2 class="sec__title">Honor Wall</h2>
     <div class="sec__title-zh">榮譽榜 · 最近的全國與縣級殊榮</div>
     <div class="sec__rule"></div>
@@ -231,7 +339,7 @@
         <div class="feat__body">
           <div class="feat__title">66th National Science Fair — Chemistry, 3rd Place</div>
           <div class="feat__title-zh">科展榮獲國小組化學科第三名</div>
-          <p class="feat__excerpt">Jianxin's student team placed <strong>third in chemistry</strong> at the 66th National Elementary Science Fair — back-to-back national-level recognition after the 64th-edition biology honor. A six-class coastal school on the national podium.</p>
+          <p class="feat__excerpt">Jianxin's student team placed <strong>third in chemistry</strong> at the 66th National Elementary Science Fair — back-to-back national-level recognition after the 64th-edition biology honor. A small coastal school on the national podium.</p>
         </div>
       </article>
 
@@ -307,10 +415,10 @@
   </div>
 </section>
 
-<!-- ===== II. Recent Announcements ===== -->
+<!-- ===== III. Recent Announcements ===== -->
 <section id="announcements">
   <div class="wrap">
-    <div class="sec__no">II.</div>
+    <div class="sec__no">III.</div>
     <h2 class="sec__title">Recent Announcements</h2>
     <div class="sec__title-zh">近期公告 · 活動、研習、家長講座</div>
     <div class="sec__rule"></div>
@@ -426,7 +534,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img,.story';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
@@ -438,6 +546,19 @@
     e.target.classList.add('in');io.unobserve(e.target);
   });},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+/* photo lightbox */
+(function(){
+  var lb=document.createElement('div');lb.className='lb';
+  lb.innerHTML='<button class="lb__x" aria-label="Close">×</button><img alt="">';
+  document.body.appendChild(lb);
+  var big=lb.querySelector('img');
+  function close(){lb.classList.remove('open');big.removeAttribute('src');}
+  document.querySelectorAll('img[data-zoom]').forEach(function(im){
+    im.addEventListener('click',function(){big.src=im.src;big.alt=im.alt;lb.classList.add('open');});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 <footer>
