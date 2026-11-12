@@ -33,17 +33,18 @@
   .nw{display:inline-block;}
 
   /* sub navigation (same as other Beidou pages, but not sticky here so it never covers the model) */
-  .subnav{background:var(--navy-soft);padding:14px 0;border-bottom:1px solid var(--line);}
-  .subnav__inner{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-family:var(--f-serif);font-size:19px;}
+  .subnav{background:var(--navy-soft);padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .subnav__inner{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;font-family:'Cormorant Garamond','PingFang TC',serif;font-size:19px;}
   @media (min-width:720px){ .subnav__inner{ font-size:21px; } }
   .subnav a{color:var(--navy-deep);text-decoration:none;font-weight:600;padding:6px 12px;border-radius:20px;transition:all .15s;white-space:nowrap;}
   .subnav a:hover{background:#fff;color:var(--gold-deep);}
   .subnav a.is-active{background:var(--gold);color:#fff;}
   .subnav__sep{color:var(--ink-soft);opacity:.4;}
+  @media (max-width:600px){ .subnav__sep{display:none;} }
 
   /* ---------- 3D viewer ---------- */
-  #viewer{position:relative;height:calc(100svh - 64px);min-height:560px;overflow:hidden;background:var(--ground);isolation:isolate;}
-  @media (max-width:720px){ #viewer{height:calc(100svh - 96px);min-height:600px;} }
+  #viewer{position:relative;height:calc(100svh - var(--nav-h,77px));min-height:560px;overflow:hidden;background:var(--ground);isolation:isolate;}
+  @media (max-width:720px){ #viewer{min-height:600px;} }
   #stage{position:absolute;inset:0}
   #stage canvas{display:block;touch-action:none}
   #labels{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
@@ -134,10 +135,6 @@
     #railcap{display:none}
     #langBtn{order:-3} #sideToggle{order:-2} #tools .sep:first-of-type{order:-1}
     .gcredit .long{display:none}
-    .subnav{padding:8px 0}
-    .subnav__inner{gap:2px 4px;font-size:18px}
-    .subnav a{padding:4px 9px}
-    .subnav__sep{display:none}
     #swipeHint{display:inline}
     #viewer .era{min-width:76px}
     #notice{bottom:auto;top:110px;font-size:15px}
@@ -208,6 +205,7 @@
     </div>
   </div>
 </nav>
+<script>(function(){var n=document.querySelector('.subnav');function f(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px')}f();if(window.ResizeObserver)new ResizeObserver(f).observe(n);})();</script>
 
 <section id="viewer" aria-label="3D model of Beidou Junior High School">
   <div id="stage"></div>
