@@ -119,6 +119,50 @@ ISSUES["02"] = [
 ]
 
 
+# Issue 03 — "All About Thanksgiving" (test taken 2026-11-13).
+ISSUES["03"] = [
+    {"w": "Thanksgiving", "zh": "感恩節", "pos": "n.", "ipa": "[ˈθæŋksˌɡɪvɪŋ]", "q": "Q1",
+     "ex": [("In America, Thanksgiving is a very popular holiday.",
+             "在美國，感恩節是個非常受歡迎的節日。"),
+            ("Our American teachers tell us about Thanksgiving every November.",
+             "每年十一月，美國老師都會跟我們介紹感恩節。")]},
+    {"w": "November", "zh": "十一月", "pos": "n.", "ipa": "[noˈvɛmbɚ]", "q": "Q2",
+     "ex": [("We celebrate Thanksgiving every last week of November.",
+             "我們每年都在十一月的最後一週慶祝感恩節。"),
+            ("Our school sports day is in November.",
+             "我們學校的運動會在十一月。")]},
+    {"w": "celebrate", "zh": "慶祝", "pos": "v.", "ipa": "[ˈsɛləˌbret]", "q": "—",
+     "ex": [("This year, I will celebrate Thanksgiving in Taiwan with all my new friends.",
+             "今年我要在台灣，和我所有的新朋友一起過感恩節。"),
+            ("At Sijhou Junior High, we celebrate the Moon Festival with mooncakes.",
+             "在溪州國中，我們吃月餅慶祝中秋節。")]},
+    {"w": "thankful", "zh": "感謝的、感恩的", "pos": "adj.", "ipa": "[ˈθæŋkfəl]", "q": "—",
+     "ex": [("Thanksgiving is a time for the whole family to say what they are thankful for.",
+             "感恩節是全家人說出自己感謝什麼的時候。"),
+            ("I am thankful for my teachers and my classmates.",
+             "我很感謝我的老師和同學。")]},
+    {"w": "pumpkin pie", "zh": "南瓜派", "pos": "n.", "ipa": "[ˈpʌmpkɪn paɪ]", "q": "Q3",
+     "ex": [("My favorite food to eat during Thanksgiving is pumpkin pie.",
+             "我感恩節最喜歡吃的食物是南瓜派。"),
+            ("Pumpkin pie is sweet, so many students like it.",
+             "南瓜派很甜，所以很多學生都喜歡。")]},
+    {"w": "football", "zh": "（美式）足球", "pos": "n.", "ipa": "[ˈfʊtˌbɔl]", "q": "Q4",
+     "ex": [("After dinner, my family and I usually watch football on the TV.",
+             "晚餐之後，我和家人通常會看電視上的美式足球。"),
+            ("American football is not the same sport as soccer.",
+             "美式足球和足球不是同一種運動。")]},
+    {"w": "tradition", "zh": "傳統", "pos": "n.", "ipa": "[trəˈdɪʃən]", "q": "—",
+     "ex": [("It is a tradition in America to watch football during Thanksgiving.",
+             "感恩節看美式足球是美國的傳統。"),
+            ("Eating zongzi at Dragon Boat Festival is a Taiwanese tradition.",
+             "端午節吃粽子是台灣的傳統。")]},
+    {"w": "windy", "zh": "風大的", "pos": "adj.", "ipa": "[ˈwɪndi]", "q": "Q5",
+     "ex": [("The weather is usually pretty windy and cold in November.",
+             "十一月的天氣通常又風大又冷。"),
+            ("On windy mornings, we have the flag ceremony inside.",
+             "風大的早上，我們在室內舉行升旗典禮。")]},
+]
+
 
 def text_hash(text: str) -> str:
     return hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
