@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/schools/sijhou/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/schools/sijhou/favicon-180.png">
 <link rel="shortcut icon" href="/schools/sijhou/favicon.ico">
-<meta name="description" content="Recent news and featured stories from Sijhou Elementary School — the Teacher-Student Tree, the Trinidad Union sister-school program, the AI×Bilingual Drama Camp, and school announcements. 溪州國小近期公告、雙語故事、師生樹報導。">
+<meta name="description" content="Recent news and featured stories from Sijhou Elementary School — ETA national-park English lessons, an online exchange with Seoul, Stars of Character, the Teacher-Student Tree, the Trinidad Union sister-school program, the AI×Bilingual Drama Camp, and school announcements. 溪州國小近期公告、雙語故事、師生樹報導。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -236,7 +236,7 @@
   @media (min-width:720px){.page-banner{min-height:360px;}}
   .page-banner::before{
     content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 0%,transparent 30%,rgba(15,40,28,.88) 100%);
+    background:linear-gradient(180deg,transparent 0%,transparent 40%,rgba(10,20,42,.62) 100%);
     pointer-events:none;
   }
   .page-banner__inner{
@@ -246,8 +246,9 @@
   @media (min-width:720px){.page-banner__inner{padding:80px 36px 60px;}}
   .page-banner__eyebrow{
     font-size:13px;letter-spacing:4px;text-transform:uppercase;
-    color:#f4e9c8;font-weight:600;margin-bottom:10px;
+    color:#fff;font-weight:700;margin-bottom:10px;
     font-family:'Playfair Display',serif;
+    text-shadow:0 1px 2px rgba(0,0,0,.85),0 0 12px rgba(0,0,0,.6);
   }
   .page-banner h1{
     font-family:'Playfair Display',serif;
@@ -260,6 +261,54 @@
     text-shadow:0 2px 10px rgba(0,0,0,.4);letter-spacing:1px;
   }
   @media (min-width:720px){.page-banner__zh{font-size:26px;}}
+
+  /* === Featured Stories (full-version articles) — same layout as Fusing JHS === */
+  .feat-intro{font-size:18px;color:var(--ink-soft);line-height:1.65;margin-bottom:26px;}
+  @media (min-width:720px){ .feat-intro{ font-size:20px; } }
+  .cards{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media (min-width:680px){ .cards{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:980px){ .cards.three{ grid-template-columns:repeat(3,1fr); } }
+  .feat{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);margin-bottom:28px;color:inherit;text-decoration:none;
+    transition:transform .22s, box-shadow .22s;
+  }
+  .feat:hover{transform:translateY(-4px);box-shadow:0 26px 50px -18px rgba(31,74,58,.34);}
+  @media (min-width:820px){ .feat{ grid-template-columns:1.05fr 1fr; } }
+  .feat__img{aspect-ratio:16/11;background:var(--forest-soft);overflow:hidden;}
+  .feat__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .feat__b{padding:30px 28px 34px;display:flex;flex-direction:column;justify-content:center;}
+  @media (min-width:720px){ .feat__b{ padding:36px 38px 40px; } }
+  .feat__badge{
+    align-self:flex-start;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--honey-deep);
+    border-radius:99px;padding:5px 14px;margin-bottom:14px;
+  }
+  .feat__t{font-family:'Playfair Display','PingFang TC',serif;font-size:clamp(26px,3.2vw,34px);font-weight:800;color:var(--forest);line-height:1.2;}
+  .feat__t small{display:block;font-family:'PingFang TC',sans-serif;font-size:19px;color:var(--ink);font-weight:600;margin-top:8px;line-height:1.4;}
+  @media (min-width:720px){ .feat__t small{ font-size:21px; } }
+  .feat__date{font-size:17px;font-weight:700;letter-spacing:.06em;color:var(--honey-deep);margin-top:12px;}
+  .feat__p{font-size:18px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  @media (min-width:720px){ .feat__p{ font-size:20px; } }
+  .feat__cta{margin-top:18px;font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);font-size:20px;}
+  .lcard{
+    display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+    border-top:8px solid var(--forest-mid);border-radius:20px;overflow:hidden;
+    box-shadow:var(--shadow-sm);color:inherit;text-decoration:none;
+    transition:transform .22s, box-shadow .22s;
+  }
+  .lcard:nth-child(3n+2){border-top-color:var(--honey);}
+  .lcard:nth-child(3n){border-top-color:var(--forest-light);}
+  .lcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .lcard .cover{aspect-ratio:16/10;overflow:hidden;}
+  .lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+  .lcard:hover .cover img{transform:scale(1.06);}
+  .lcard .body{padding:20px 22px 24px;}
+  .lcard h3{font-family:'Playfair Display',serif;font-size:23px;color:var(--forest);font-weight:700;line-height:1.22;}
+  .lcard .zh{font-family:'PingFang TC',sans-serif;font-size:17px;color:var(--ink);font-weight:600;margin-top:6px;line-height:1.45;}
+  @media (min-width:720px){ .lcard .zh{ font-size:19px; } }
+  .lcard .meta{margin-top:10px;font-size:17px;font-weight:700;color:var(--honey-deep);letter-spacing:.04em;}
 </style>
 <script defer src="/analytics.js"></script>
   <link rel="stylesheet" href="/assets/css/motion.css?v=6b07c240">
@@ -303,26 +352,40 @@
 
 <div class="news-empty" id="newsEmpty">沒有符合「<span id="newsEmptyTerm"></span>」的新聞，請試試其他關鍵字。<br>No news matched that keyword — try another term.</div>
 
-<!-- ===== I. Lede ===== -->
+<!-- ===== Featured Stories (full-version articles) — Fusing JHS layout ===== -->
 <section>
   <div class="wrap">
-    <div class="lede-box">
-      <h2>What's happening at Sijhou this season</h2>
-      <div class="zh">溪州國小近期動態 · 公告 / 焦點故事 / 媒體報導</div>
-      <p>
-        This page collects what's recent at Sijhou — the schoolyard stories that the local newspapers picked up, the international partnerships that shape our year, and the everyday announcements that arrive every week from the school office.
-        <span class="zh-inline">本頁彙整溪州近期的校園故事——曾被地方媒體寫過的、改變我們學年的國際夥伴關係，以及每週從學校行政處發出的日常公告。</span>
-      </p>
+    <div class="sec__no">★</div>
+    <h2 class="sec__title">Featured Stories</h2>
+    <div class="sec__title-zh">精選報導</div>
+    <div class="sec__rule"></div>
+    <p class="feat-intro">Full stories, with English and Chinese versions side by side. 完整版報導，英中對照。</p>
+
+    <a class="feat" href="eta-national-parks/">
+      <div class="feat__img"><img src="eta-national-parks/photo_01.jpg" alt="Steven and Grace, the two ETA teachers, introduce themselves in front of the classroom screen" loading="lazy"></div>
+      <div class="feat__b">
+        <span class="feat__badge">Featured · 精選</span>
+        <div class="feat__t">A National Park Adventure in English Class<small>跟著外師遊美國 · 英語課堂變身國家公園探險之旅</small></div>
+        <div class="feat__date">Autumn 2026 · 115 學年度上學期</div>
+        <p class="feat__p">Two ETA teachers, Steven from California and Grace from Boston, took Sijhou students on an English-language tour of Denali, the Grand Canyon and Redwood National Park — then filled the room with laughter in a game of "Inside, Outside."</p>
+        <div class="feat__cta">Read the full story &rarr;</div>
+      </div>
+    </a>
+
+    <div class="cards three">
+      <a class="lcard" href="police-station-visit/"><div class="cover"><img src="police-station-visit/photo_01.jpg" alt="Kindergarten and Sunshine Class children pose with police officers on the steps of the police station" loading="lazy"></div><div class="body"><h3>Little Visitors at the Police Station</h3><div class="zh">幼兒園與陽光班參觀溪州警察分隊</div><div class="meta">2026.11.11</div></div></a>
+      <a class="lcard" href="korea-online-exchange/"><div class="cover"><img src="korea-online-exchange/photo_01.jpg" alt="A Sijhou student dances toward the screen showing the Korean class" loading="lazy"></div><div class="body"><h3>Friendship Across Borders: Sijhou Meets Seoul</h3><div class="zh">跨越國界的友誼 · 與韓國首爾教育大學附屬小學線上交流</div><div class="meta">2026.11.10</div></div></a>
+      <a class="lcard" href="character-stars-sep-oct/"><div class="cover"><img src="character-stars-sep-oct/photo_01.jpg" alt="Sijhou students hold up the Stars of Character sign outside the school library" loading="lazy"></div><div class="body"><h3>Stars of Character: Courage and Teamwork</h3><div class="zh">九月、十月品德之星 · 積極勇敢 × 團結合作</div><div class="meta">2026.09–10</div></div></a>
     </div>
   </div>
 </section>
 
-<!-- ===== Top Featured — Dom Jones campus visit ===== -->
+<!-- ===== Dom Jones campus visit ===== -->
 <section style="background:var(--bg-soft);">
   <div class="wrap">
     <div class="sec__no">★</div>
-    <h2 class="sec__title">Latest · Dom Jones Visits Sijhou</h2>
-    <div class="sec__title-zh">最新校園新聞 · Dom Jones 老師訪問溪州（2026-05-05）</div>
+    <h2 class="sec__title">Dom Jones Visits Sijhou</h2>
+    <div class="sec__title-zh">校園新聞影片 · Dom Jones 老師訪問溪州（2026-05-05）</div>
     <div class="sec__rule"></div>
 
     <div class="feature">
@@ -594,7 +657,7 @@
 /* reveal-fx */
 (function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
+  var sel='.course,.unit,.pillar,.card,.vc,.sw,.lcard,.feat,.lesson,.sem__label,.gate-figure,.quote,.playlist-block,.news-grid>a,.gallery img';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length)return;
   els.forEach(function(el){el.classList.add('rvl');});
@@ -621,10 +684,10 @@
   if (!input) return;
 
   // Articles to filter: featured stories, story-notebook cards, honor-roll items
-  var articles = Array.prototype.slice.call(document.querySelectorAll('.feature, .story, .item'));
+  var articles = Array.prototype.slice.call(document.querySelectorAll('.feat, .lcard, .feature, .story, .item'));
   // Sections that contain articles (so we can hide an entire section when empty)
   var sections = Array.prototype.slice.call(document.querySelectorAll('section')).filter(function(s){
-    return s.querySelector('.feature, .story, .item');
+    return s.querySelector('.feat, .lcard, .feature, .story, .item');
   });
 
   // Pre-compute lowercase text for each article (faster than re-reading on every keystroke)
@@ -662,7 +725,7 @@
     });
     // Hide sections that have zero visible articles
     sections.forEach(function(s){
-      var visible = s.querySelectorAll('.feature:not(.is-hidden-by-search), .story:not(.is-hidden-by-search), .item:not(.is-hidden-by-search)');
+      var visible = s.querySelectorAll('.feat:not(.is-hidden-by-search), .lcard:not(.is-hidden-by-search), .feature:not(.is-hidden-by-search), .story:not(.is-hidden-by-search), .item:not(.is-hidden-by-search)');
       if (visible.length === 0) s.classList.add('is-empty-by-search');
       else s.classList.remove('is-empty-by-search');
     });
