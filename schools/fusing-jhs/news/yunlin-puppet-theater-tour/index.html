@@ -241,43 +241,43 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="puppetry" aria-label="Listen to puppetry">🔊</button>
+      <button class="vsay" data-say="puppetry" data-audio="audio/puppetry.mp3" aria-label="Listen to puppetry">🔊</button>
       <div class="vmain"><span class="vword">puppetry</span><span class="vipa">/ˈpʌpətri/</span><span class="vzh">木偶戲</span></div>
       <p class="vsent">Budaixi is a traditional form of <b>puppetry</b>.<span class="vsent-zh">布袋戲是一種傳統的木偶戲。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="heritage" aria-label="Listen to heritage">🔊</button>
+      <button class="vsay" data-say="heritage" data-audio="audio/heritage.mp3" aria-label="Listen to heritage">🔊</button>
       <div class="vmain"><span class="vword">heritage</span><span class="vipa">/ˈherɪtɪdʒ/</span><span class="vzh">文化資產</span></div>
       <p class="vsent">The museum protects Taiwan's puppet <b>heritage</b>.<span class="vsent-zh">這座博物館守護著台灣的布袋戲文化資產。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="immersion" aria-label="Listen to immersion">🔊</button>
+      <button class="vsay" data-say="immersion" data-audio="audio/immersion.mp3" aria-label="Listen to immersion">🔊</button>
       <div class="vmain"><span class="vword">immersion</span><span class="vipa">/ɪˈmɜːrʒən/</span><span class="vzh">沉浸式</span></div>
       <p class="vsent">This trip is part of an <b>immersion</b> program.<span class="vsent-zh">這趟旅行是沉浸式課程的一部分。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="folktale" aria-label="Listen to folktale">🔊</button>
+      <button class="vsay" data-say="folktale" data-audio="audio/folktale.mp3" aria-label="Listen to folktale">🔊</button>
       <div class="vmain"><span class="vword">folktale</span><span class="vipa">/ˈfoʊkteɪl/</span><span class="vzh">民間故事</span></div>
       <p class="vsent">Students listened to local <b>folktales</b>.<span class="vsent-zh">學生聆聽了在地的民間故事。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="exhibit" aria-label="Listen to exhibit">🔊</button>
+      <button class="vsay" data-say="exhibit" data-audio="audio/exhibit.mp3" aria-label="Listen to exhibit">🔊</button>
       <div class="vmain"><span class="vword">exhibit</span><span class="vipa">/ɪɡˈzɪbɪt/</span><span class="vzh">展示品</span></div>
       <p class="vsent">Each <b>exhibit</b> told a piece of local history.<span class="vsent-zh">每一件展示品都訴說著一段在地歷史。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="sportsmanship" aria-label="Listen to sportsmanship">🔊</button>
+      <button class="vsay" data-say="sportsmanship" data-audio="audio/sportsmanship.mp3" aria-label="Listen to sportsmanship">🔊</button>
       <div class="vmain"><span class="vword">sportsmanship</span><span class="vipa">/ˈspɔːrtsmənʃɪp/</span><span class="vzh">運動家精神</span></div>
       <p class="vsent">The quiz showed the students' <b>sportsmanship</b>.<span class="vsent-zh">這場搶答展現了學生的運動家精神。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="district" aria-label="Listen to district">🔊</button>
+      <button class="vsay" data-say="district" data-audio="audio/district.mp3" aria-label="Listen to district">🔊</button>
       <div class="vmain"><span class="vword">district</span><span class="vipa">/ˈdɪstrɪkt/</span><span class="vzh">地區；郡</span></div>
       <p class="vsent">The building once served as a <b>district</b> office.<span class="vsent-zh">這棟建築曾經是郡役所。</span></p>
     </div>
@@ -311,7 +311,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

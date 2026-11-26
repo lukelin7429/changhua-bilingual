@@ -240,49 +240,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="community" aria-label="Listen to community">🔊</button>
+      <button class="vsay" data-say="community" data-audio="audio/community.mp3" aria-label="Listen to community">🔊</button>
       <div class="vmain"><span class="vword">community</span><span class="vipa">/kəˈmjuːnəti/</span><span class="vzh">社區</span></div>
       <p class="vsent">Our school works with the <b>community</b> around it.<span class="vsent-zh">我們學校和周邊社區一起合作。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="expo" aria-label="Listen to expo">🔊</button>
+      <button class="vsay" data-say="expo" data-audio="audio/expo.mp3" aria-label="Listen to expo">🔊</button>
       <div class="vmain"><span class="vword">expo</span><span class="vipa">/ˈekspoʊ/</span><span class="vzh">博覽會</span></div>
       <p class="vsent">Many towns set up booths at the <b>expo</b>.<span class="vsent-zh">許多鄉鎮在博覽會設攤。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="booth" aria-label="Listen to booth">🔊</button>
+      <button class="vsay" data-say="booth" data-audio="audio/booth.mp3" aria-label="Listen to booth">🔊</button>
       <div class="vmain"><span class="vword">booth</span><span class="vipa">/buːθ/</span><span class="vzh">攤位</span></div>
       <p class="vsent">Visitors stopped by our <b>booth</b> to hear our stories.<span class="vsent-zh">訪客到我們的攤位聽故事。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="hometown" aria-label="Listen to hometown">🔊</button>
+      <button class="vsay" data-say="hometown" data-audio="audio/hometown.mp3" aria-label="Listen to hometown">🔊</button>
       <div class="vmain"><span class="vword">hometown</span><span class="vipa">/ˈhoʊmtaʊn/</span><span class="vzh">家鄉</span></div>
       <p class="vsent">We are proud to share our <b>hometown</b>.<span class="vsent-zh">我們很驕傲能分享自己的家鄉。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="dairy" aria-label="Listen to dairy">🔊</button>
+      <button class="vsay" data-say="dairy" data-audio="audio/dairy.mp3" aria-label="Listen to dairy">🔊</button>
       <div class="vmain"><span class="vword">dairy</span><span class="vipa">/ˈderi/</span><span class="vzh">乳製品的、酪農的</span></div>
       <p class="vsent">Fushing is famous for its <b>dairy</b> farms.<span class="vsent-zh">福興以酪農場聞名。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="sustainable" aria-label="Listen to sustainable">🔊</button>
+      <button class="vsay" data-say="sustainable" data-audio="audio/sustainable.mp3" aria-label="Listen to sustainable">🔊</button>
       <div class="vmain"><span class="vword">sustainable</span><span class="vipa">/səˈsteɪnəbəl/</span><span class="vzh">永續的</span></div>
       <p class="vsent">We want a <b>sustainable</b> future for our town.<span class="vsent-zh">我們希望家鄉有永續的未來。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="storyteller" aria-label="Listen to storyteller">🔊</button>
+      <button class="vsay" data-say="storyteller" data-audio="audio/storyteller.mp3" aria-label="Listen to storyteller">🔊</button>
       <div class="vmain"><span class="vword">storyteller</span><span class="vipa">/ˈstɔːriˌtelər/</span><span class="vzh">說故事的人</span></div>
       <p class="vsent">Every student became a <b>storyteller</b> that day.<span class="vsent-zh">那天每位學生都成了說故事的人。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="partner" aria-label="Listen to partner">🔊</button>
+      <button class="vsay" data-say="partner" data-audio="audio/partner.mp3" aria-label="Listen to partner">🔊</button>
       <div class="vmain"><span class="vword">partner</span><span class="vipa">/ˈpɑːrtnər/</span><span class="vzh">夥伴</span></div>
       <p class="vsent">Our community <b>partners</b> helped run the booth.<span class="vsent-zh">社區夥伴協助我們經營攤位。</span></p>
     </div>
@@ -316,7 +316,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

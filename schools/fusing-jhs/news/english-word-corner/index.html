@@ -256,49 +256,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="vocabulary" aria-label="Listen to vocabulary">🔊</button>
+      <button class="vsay" data-say="vocabulary" data-audio="audio/vocabulary.mp3" aria-label="Listen to vocabulary">🔊</button>
       <div class="vmain"><span class="vword">vocabulary</span><span class="vipa">/voʊˈkæbjəleri/</span><span class="vzh">單字、字彙</span></div>
       <p class="vsent">Students brought their <b>vocabulary</b> booklets to the Word Corner.<span class="vsent-zh">學生們帶著單字學習本來到單字角。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="courage" aria-label="Listen to courage">🔊</button>
+      <button class="vsay" data-say="courage" data-audio="audio/courage.mp3" aria-label="Listen to courage">🔊</button>
       <div class="vmain"><span class="vword">courage</span><span class="vipa">/ˈkɝːɪdʒ/</span><span class="vzh">勇氣</span></div>
       <p class="vsent">It takes <b>courage</b> to speak English with a new teacher.<span class="vsent-zh">和新老師說英語需要勇氣。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="confidence" aria-label="Listen to confidence">🔊</button>
+      <button class="vsay" data-say="confidence" data-audio="audio/confidence.mp3" aria-label="Listen to confidence">🔊</button>
       <div class="vmain"><span class="vword">confidence</span><span class="vipa">/ˈkɑːnfɪdəns/</span><span class="vzh">自信</span></div>
       <p class="vsent">Every short talk gave the students more <b>confidence</b>.<span class="vsent-zh">每一次簡短的對話都讓學生更有自信。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="mistake" aria-label="Listen to mistake">🔊</button>
+      <button class="vsay" data-say="mistake" data-audio="audio/mistake.mp3" aria-label="Listen to mistake">🔊</button>
       <div class="vmain"><span class="vword">mistake</span><span class="vipa">/mɪˈsteɪk/</span><span class="vzh">錯誤</span></div>
       <p class="vsent">Don't be afraid of making a <b>mistake</b>.<span class="vsent-zh">不要害怕說錯。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="respect" aria-label="Listen to respect">🔊</button>
+      <button class="vsay" data-say="respect" data-audio="audio/respect.mp3" aria-label="Listen to respect">🔊</button>
       <div class="vmain"><span class="vword">respect</span><span class="vipa">/rɪˈspekt/</span><span class="vzh">尊重</span></div>
       <p class="vsent">We learn to <b>respect</b> different cultures.<span class="vsent-zh">我們學習尊重不同的文化。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="teamwork" aria-label="Listen to teamwork">🔊</button>
+      <button class="vsay" data-say="teamwork" data-audio="audio/teamwork.mp3" aria-label="Listen to teamwork">🔊</button>
       <div class="vmain"><span class="vword">teamwork</span><span class="vipa">/ˈtiːmwɝːk/</span><span class="vzh">合作</span></div>
       <p class="vsent">Classmates cheered each other on — that's <b>teamwork</b>!<span class="vsent-zh">同學們互相加油，這就是合作！</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="bridge" aria-label="Listen to bridge">🔊</button>
+      <button class="vsay" data-say="bridge" data-audio="audio/bridge.mp3" aria-label="Listen to bridge">🔊</button>
       <div class="vmain"><span class="vword">bridge</span><span class="vipa">/brɪdʒ/</span><span class="vzh">橋梁</span></div>
       <p class="vsent">Language is a <b>bridge</b> to the world.<span class="vsent-zh">語言是通往世界的橋梁。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="comfort zone" aria-label="Listen to comfort zone">🔊</button>
+      <button class="vsay" data-say="comfort zone" data-audio="audio/comfort-zone.mp3" aria-label="Listen to comfort zone">🔊</button>
       <div class="vmain"><span class="vword">comfort zone</span><span class="vipa">/ˈkʌmfərt zoʊn/</span><span class="vzh">舒適圈</span></div>
       <p class="vsent">Talking with a foreign teacher took them out of their <b>comfort zone</b>.<span class="vsent-zh">和外師對話讓他們走出了舒適圈。</span></p>
     </div>
@@ -332,7 +332,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

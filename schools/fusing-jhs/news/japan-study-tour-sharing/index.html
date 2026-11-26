@@ -255,49 +255,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="exchange" aria-label="Listen to exchange">🔊</button>
+      <button class="vsay" data-say="exchange" data-audio="audio/exchange.mp3" aria-label="Listen to exchange">🔊</button>
       <div class="vmain"><span class="vword">exchange</span><span class="vipa">/ɪksˈtʃeɪndʒ/</span><span class="vzh">交流</span></div>
       <p class="vsent">Our students joined a school <b>exchange</b> in Japan.<span class="vsent-zh">我們的學生參加了日本的學校交流。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="culture" aria-label="Listen to culture">🔊</button>
+      <button class="vsay" data-say="culture" data-audio="audio/culture.mp3" aria-label="Listen to culture">🔊</button>
       <div class="vmain"><span class="vword">culture</span><span class="vipa">/ˈkʌltʃər/</span><span class="vzh">文化</span></div>
       <p class="vsent">They explored Japanese <b>culture</b> on the streets and in schools.<span class="vsent-zh">他們在街道和校園裡探索日本文化。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="diversity" aria-label="Listen to diversity">🔊</button>
+      <button class="vsay" data-say="diversity" data-audio="audio/diversity.mp3" aria-label="Listen to diversity">🔊</button>
       <div class="vmain"><span class="vword">diversity</span><span class="vipa">/dəˈvɜːrsəti/</span><span class="vzh">多元、多樣性</span></div>
       <p class="vsent">The trip helped them see the <b>diversity</b> of the world.<span class="vsent-zh">這趟旅程讓他們看見世界的多元。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="respect" aria-label="Listen to respect">🔊</button>
+      <button class="vsay" data-say="respect" data-audio="audio/respect.mp3" aria-label="Listen to respect">🔊</button>
       <div class="vmain"><span class="vword">respect</span><span class="vipa">/rɪˈspekt/</span><span class="vzh">尊重</span></div>
       <p class="vsent">They learned to look at differences with <b>respect</b>.<span class="vsent-zh">他們學會用尊重的態度看待差異。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="bridge" aria-label="Listen to bridge">🔊</button>
+      <button class="vsay" data-say="bridge" data-audio="audio/bridge.mp3" aria-label="Listen to bridge">🔊</button>
       <div class="vmain"><span class="vword">bridge</span><span class="vipa">/brɪdʒ/</span><span class="vzh">橋梁</span></div>
       <p class="vsent">Language is a <b>bridge</b> that connects us to the world.<span class="vsent-zh">語言是連結我們與世界的橋梁。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="citizen" aria-label="Listen to citizen">🔊</button>
+      <button class="vsay" data-say="citizen" data-audio="audio/citizen.mp3" aria-label="Listen to citizen">🔊</button>
       <div class="vmain"><span class="vword">citizen</span><span class="vipa">/ˈsɪtɪzən/</span><span class="vzh">公民</span></div>
       <p class="vsent">The program helps students become world <b>citizens</b>.<span class="vsent-zh">這個計畫幫助學生成為世界公民。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="express" aria-label="Listen to express">🔊</button>
+      <button class="vsay" data-say="express" data-audio="audio/express.mp3" aria-label="Listen to express">🔊</button>
       <div class="vmain"><span class="vword">express</span><span class="vipa">/ɪkˈspres/</span><span class="vzh">表達</span></div>
       <p class="vsent">Be brave and <b>express</b> your own ideas.<span class="vsent-zh">勇敢一點，表達自己的想法。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="horizon" aria-label="Listen to horizon">🔊</button>
+      <button class="vsay" data-say="horizon" data-audio="audio/horizon.mp3" aria-label="Listen to horizon">🔊</button>
       <div class="vmain"><span class="vword">horizon</span><span class="vipa">/həˈraɪzən/</span><span class="vzh">視野</span></div>
       <p class="vsent">Traveling abroad broadened their <b>horizons</b>.<span class="vsent-zh">出國讓他們開闊了視野。</span></p>
     </div>
@@ -331,7 +331,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

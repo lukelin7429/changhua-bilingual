@@ -227,49 +227,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="soybean" aria-label="Listen to soybean">🔊</button>
+      <button class="vsay" data-say="soybean" data-audio="audio/soybean.mp3" aria-label="Listen to soybean">🔊</button>
       <div class="vmain"><span class="vword">soybean</span><span class="vipa">/ˈsɔɪbiːn/</span><span class="vzh">大豆；黃豆</span></div>
       <p class="vsent">Tofu and soy milk are made from <b>soybeans</b>.<span class="vsent-zh">豆腐和豆漿都是用大豆做的。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="agriculture" aria-label="Listen to agriculture">🔊</button>
+      <button class="vsay" data-say="agriculture" data-audio="audio/agriculture.mp3" aria-label="Listen to agriculture">🔊</button>
       <div class="vmain"><span class="vword">agriculture</span><span class="vipa">/ˈæɡrɪkʌltʃɚ/</span><span class="vzh">農業</span></div>
       <p class="vsent">We took an <b>agriculture</b> course at Datong.<span class="vsent-zh">我們在大同國中上了農業課程。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="career" aria-label="Listen to career">🔊</button>
+      <button class="vsay" data-say="career" data-audio="audio/career.mp3" aria-label="Listen to career">🔊</button>
       <div class="vmain"><span class="vword">career</span><span class="vipa">/kəˈrɪr/</span><span class="vzh">職業；生涯</span></div>
       <p class="vsent">The center helps students explore a future <b>career</b>.<span class="vsent-zh">這個中心幫助學生探索未來職業。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="instructor" aria-label="Listen to instructor">🔊</button>
+      <button class="vsay" data-say="instructor" data-audio="audio/instructor.mp3" aria-label="Listen to instructor">🔊</button>
       <div class="vmain"><span class="vword">instructor</span><span class="vipa">/ɪnˈstrʌktɚ/</span><span class="vzh">講師</span></div>
       <p class="vsent">The <b>instructor</b> showed us how soybeans grow.<span class="vsent-zh">講師示範大豆如何生長。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="product" aria-label="Listen to product">🔊</button>
+      <button class="vsay" data-say="product" data-audio="audio/product.mp3" aria-label="Listen to product">🔊</button>
       <div class="vmain"><span class="vword">product</span><span class="vipa">/ˈprɑːdʌkt/</span><span class="vzh">產品</span></div>
       <p class="vsent">Soy milk is a popular soybean <b>product</b>.<span class="vsent-zh">豆漿是很受歡迎的大豆產品。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="hands-on" aria-label="Listen to hands-on">🔊</button>
+      <button class="vsay" data-say="hands-on" data-audio="audio/hands-on.mp3" aria-label="Listen to hands-on">🔊</button>
       <div class="vmain"><span class="vword">hands-on</span><span class="vipa">/ˌhændzˈɑːn/</span><span class="vzh">動手做的</span></div>
       <p class="vsent">Making douhua was a <b>hands-on</b> activity.<span class="vsent-zh">做豆花是動手做的活動。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="taste" aria-label="Listen to taste">🔊</button>
+      <button class="vsay" data-say="taste" data-audio="audio/taste.mp3" aria-label="Listen to taste">🔊</button>
       <div class="vmain"><span class="vword">taste</span><span class="vipa">/teɪst/</span><span class="vzh">品嘗</span></div>
       <p class="vsent">We <b>tasted</b> the douhua we made.<span class="vsent-zh">我們品嘗了自己做的豆花。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="smooth" aria-label="Listen to smooth">🔊</button>
+      <button class="vsay" data-say="smooth" data-audio="audio/smooth.mp3" aria-label="Listen to smooth">🔊</button>
       <div class="vmain"><span class="vword">smooth</span><span class="vipa">/smuːð/</span><span class="vzh">滑順的</span></div>
       <p class="vsent">Our douhua was soft and <b>smooth</b>.<span class="vsent-zh">我們的豆花又軟又滑嫩。</span></p>
     </div>
@@ -303,7 +303,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

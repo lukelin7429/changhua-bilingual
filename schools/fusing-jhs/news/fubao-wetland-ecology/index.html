@@ -242,49 +242,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="wetland" aria-label="Listen to wetland">🔊</button>
+      <button class="vsay" data-say="wetland" data-audio="audio/wetland.mp3" aria-label="Listen to wetland">🔊</button>
       <div class="vmain"><span class="vword">wetland</span><span class="vipa">/ˈwetlænd/</span><span class="vzh">濕地</span></div>
       <p class="vsent">Fubao <b>Wetland</b> is home to many small creatures.<span class="vsent-zh">福寶濕地是許多小生物的家。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="mudflat" aria-label="Listen to mudflat">🔊</button>
+      <button class="vsay" data-say="mudflat" data-audio="audio/mudflat.mp3" aria-label="Listen to mudflat">🔊</button>
       <div class="vmain"><span class="vword">mudflat</span><span class="vipa">/ˈmʌdflæt/</span><span class="vzh">泥灘</span></div>
       <p class="vsent">We walked on the soft <b>mudflat</b> at low tide.<span class="vsent-zh">退潮時我們走在柔軟的泥灘上。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="oyster" aria-label="Listen to oyster">🔊</button>
+      <button class="vsay" data-say="oyster" data-audio="audio/oyster.mp3" aria-label="Listen to oyster">🔊</button>
       <div class="vmain"><span class="vword">oyster</span><span class="vipa">/ˈɔɪstər/</span><span class="vzh">蚵、牡蠣</span></div>
       <p class="vsent">Farmers grow <b>oysters</b> along this coast.<span class="vsent-zh">這片海岸有人養蚵。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="tide" aria-label="Listen to tide">🔊</button>
+      <button class="vsay" data-say="tide" data-audio="audio/tide.mp3" aria-label="Listen to tide">🔊</button>
       <div class="vmain"><span class="vword">tide</span><span class="vipa">/taɪd/</span><span class="vzh">潮汐</span></div>
       <p class="vsent">When the <b>tide</b> goes out, the mudflat appears.<span class="vsent-zh">潮水退去，泥灘就出現了。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="ecology" aria-label="Listen to ecology">🔊</button>
+      <button class="vsay" data-say="ecology" data-audio="audio/ecology.mp3" aria-label="Listen to ecology">🔊</button>
       <div class="vmain"><span class="vword">ecology</span><span class="vipa">/iˈkɑːlədʒi/</span><span class="vzh">生態</span></div>
       <p class="vsent">The guide taught us about the wetland's <b>ecology</b>.<span class="vsent-zh">導覽員教我們認識濕地生態。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="creature" aria-label="Listen to creature">🔊</button>
+      <button class="vsay" data-say="creature" data-audio="audio/creature.mp3" aria-label="Listen to creature">🔊</button>
       <div class="vmain"><span class="vword">creature</span><span class="vipa">/ˈkriːtʃər/</span><span class="vzh">生物</span></div>
       <p class="vsent">We found tiny <b>creatures</b> in the mud.<span class="vsent-zh">我們在泥巴裡發現小生物。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="explore" aria-label="Listen to explore">🔊</button>
+      <button class="vsay" data-say="explore" data-audio="audio/explore.mp3" aria-label="Listen to explore">🔊</button>
       <div class="vmain"><span class="vword">explore</span><span class="vipa">/ɪkˈsplɔːr/</span><span class="vzh">探索</span></div>
       <p class="vsent">It was fun to <b>explore</b> the wetland together.<span class="vsent-zh">一起探索濕地很好玩。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="protect" aria-label="Listen to protect">🔊</button>
+      <button class="vsay" data-say="protect" data-audio="audio/protect.mp3" aria-label="Listen to protect">🔊</button>
       <div class="vmain"><span class="vword">protect</span><span class="vipa">/prəˈtekt/</span><span class="vzh">保護</span></div>
       <p class="vsent">We should <b>protect</b> the wetland and its animals.<span class="vsent-zh">我們應該保護濕地和裡面的動物。</span></p>
     </div>
@@ -318,7 +318,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

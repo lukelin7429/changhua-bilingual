@@ -237,49 +237,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="practice" aria-label="Listen to practice">🔊</button>
+      <button class="vsay" data-say="practice" data-audio="audio/practice.mp3" aria-label="Listen to practice">🔊</button>
       <div class="vmain"><span class="vword">practice</span><span class="vipa">/ˈpræktɪs/</span><span class="vzh">練習</span></div>
       <p class="vsent">The team has volleyball <b>practice</b> on weekends.<span class="vsent-zh">排球隊在週末練習。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="graduate" aria-label="Listen to graduate">🔊</button>
+      <button class="vsay" data-say="graduate" data-audio="audio/graduate.mp3" aria-label="Listen to graduate">🔊</button>
       <div class="vmain"><span class="vword">graduate</span><span class="vipa">/ˈɡrædʒuət/</span><span class="vzh">畢業生</span></div>
       <p class="vsent">Many <b>graduates</b> came back to play with Teacher Z.<span class="vsent-zh">許多畢業的學長姐回來和 Teacher Z 一起打球。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="spike" aria-label="Listen to spike">🔊</button>
+      <button class="vsay" data-say="spike" data-audio="audio/spike.mp3" aria-label="Listen to spike">🔊</button>
       <div class="vmain"><span class="vword">spike</span><span class="vipa">/spaɪk/</span><span class="vzh">扣球</span></div>
       <p class="vsent">She jumped high and <b>spiked</b> the ball.<span class="vsent-zh">她高高跳起，把球扣下去。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="serve" aria-label="Listen to serve">🔊</button>
+      <button class="vsay" data-say="serve" data-audio="audio/serve.mp3" aria-label="Listen to serve">🔊</button>
       <div class="vmain"><span class="vword">serve</span><span class="vipa">/sɝːv/</span><span class="vzh">發球</span></div>
       <p class="vsent">Each point starts with a <b>serve</b>.<span class="vsent-zh">每一分都從發球開始。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="set" aria-label="Listen to set">🔊</button>
+      <button class="vsay" data-say="set" data-audio="audio/set.mp3" aria-label="Listen to set">🔊</button>
       <div class="vmain"><span class="vword">set</span><span class="vipa">/set/</span><span class="vzh">（比賽的）一局</span></div>
       <p class="vsent">They played a few <b>sets</b> together.<span class="vsent-zh">他們一起打了幾局。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="net" aria-label="Listen to net">🔊</button>
+      <button class="vsay" data-say="net" data-audio="audio/net.mp3" aria-label="Listen to net">🔊</button>
       <div class="vmain"><span class="vword">net</span><span class="vipa">/net/</span><span class="vzh">球網</span></div>
       <p class="vsent">The ball must go over the <b>net</b>.<span class="vsent-zh">球必須越過球網。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="skilled" aria-label="Listen to skilled">🔊</button>
+      <button class="vsay" data-say="skilled" data-audio="audio/skilled.mp3" aria-label="Listen to skilled">🔊</button>
       <div class="vmain"><span class="vword">skilled</span><span class="vipa">/skɪld/</span><span class="vzh">技術好的</span></div>
       <p class="vsent">Teacher Z is a <b>skilled</b> volleyball player.<span class="vsent-zh">Teacher Z 是排球高手。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="wonderful" aria-label="Listen to wonderful">🔊</button>
+      <button class="vsay" data-say="wonderful" data-audio="audio/wonderful.mp3" aria-label="Listen to wonderful">🔊</button>
       <div class="vmain"><span class="vword">wonderful</span><span class="vipa">/ˈwʌndərfəl/</span><span class="vzh">美好的</span></div>
       <p class="vsent">"Today was a <b>wonderful</b> experience," she said.<span class="vsent-zh">她說：「今天是很美好的經驗。」</span></p>
     </div>
@@ -313,7 +313,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}

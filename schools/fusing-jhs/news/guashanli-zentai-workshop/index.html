@@ -246,49 +246,49 @@
   <div class="vlist">
 
     <div class="vcard">
-      <button class="vsay" data-say="performance art" aria-label="Listen to performance art">🔊</button>
+      <button class="vsay" data-say="performance art" data-audio="audio/performance-art.mp3" aria-label="Listen to performance art">🔊</button>
       <div class="vmain"><span class="vword">performance art</span><span class="vipa">/pərˈfɔːrməns ɑːrt/</span><span class="vzh">行為藝術</span></div>
       <p class="vsent">In <b>performance art</b>, the artist's body becomes the artwork.<span class="vsent-zh">在行為藝術裡，藝術家的身體就是作品。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="artist" aria-label="Listen to artist">🔊</button>
+      <button class="vsay" data-say="artist" data-audio="audio/artist.mp3" aria-label="Listen to artist">🔊</button>
       <div class="vmain"><span class="vword">artist</span><span class="vipa">/ˈɑːrtɪst/</span><span class="vzh">藝術家</span></div>
       <p class="vsent">Two <b>artists</b> came to our school to lead the workshop.<span class="vsent-zh">兩位藝術家來到學校帶領這場工作坊。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="bodysuit" aria-label="Listen to bodysuit">🔊</button>
+      <button class="vsay" data-say="bodysuit" data-audio="audio/bodysuit.mp3" aria-label="Listen to bodysuit">🔊</button>
       <div class="vmain"><span class="vword">bodysuit</span><span class="vipa">/ˈbɑːdisuːt/</span><span class="vzh">緊身衣</span></div>
       <p class="vsent">Each student wore a colorful <b>bodysuit</b> from head to toe.<span class="vsent-zh">每位學生都從頭到腳穿上彩色緊身衣。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="rhythm" aria-label="Listen to rhythm">🔊</button>
+      <button class="vsay" data-say="rhythm" data-audio="audio/rhythm.mp3" aria-label="Listen to rhythm">🔊</button>
       <div class="vmain"><span class="vword">rhythm</span><span class="vipa">/ˈrɪðəm/</span><span class="vzh">節奏</span></div>
       <p class="vsent">They moved to the <b>rhythm</b> of the music.<span class="vsent-zh">他們跟著音樂的節奏律動。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="freely" aria-label="Listen to freely">🔊</button>
+      <button class="vsay" data-say="freely" data-audio="audio/freely.mp3" aria-label="Listen to freely">🔊</button>
       <div class="vmain"><span class="vword">freely</span><span class="vipa">/ˈfriːli/</span><span class="vzh">自由地</span></div>
       <p class="vsent">Once they relaxed, everyone danced <b>freely</b>.<span class="vsent-zh">放鬆之後，大家都自由地舞動。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="brave" aria-label="Listen to brave">🔊</button>
+      <button class="vsay" data-say="brave" data-audio="audio/brave.mp3" aria-label="Listen to brave">🔊</button>
       <div class="vmain"><span class="vword">brave</span><span class="vipa">/breɪv/</span><span class="vzh">勇敢的</span></div>
       <p class="vsent">Trying something new takes a <b>brave</b> heart.<span class="vsent-zh">嘗試新事物需要一顆勇敢的心。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="instruction" aria-label="Listen to instruction">🔊</button>
+      <button class="vsay" data-say="instruction" data-audio="audio/instruction.mp3" aria-label="Listen to instruction">🔊</button>
       <div class="vmain"><span class="vword">instruction</span><span class="vipa">/ɪnˈstrʌkʃən/</span><span class="vzh">指令</span></div>
       <p class="vsent">The students listened carefully to each <b>instruction</b>.<span class="vsent-zh">學生們仔細聆聽每一個指令。</span></p>
     </div>
 
     <div class="vcard">
-      <button class="vsay" data-say="festival" aria-label="Listen to festival">🔊</button>
+      <button class="vsay" data-say="festival" data-audio="audio/festival.mp3" aria-label="Listen to festival">🔊</button>
       <div class="vmain"><span class="vword">festival</span><span class="vipa">/ˈfestɪvəl/</span><span class="vzh">藝術祭、節慶</span></div>
       <p class="vsent">The art <b>festival</b> brought artists from Taiwan and Japan to our school.<span class="vsent-zh">藝術祭把台灣和日本的藝術家帶到我們學校。</span></p>
     </div>
@@ -322,7 +322,7 @@
   els.forEach(function(el){io.observe(el);});
 })();
 (function(){
-  function say(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+  var cur=null,cache={};function tts(w){if(!('speechSynthesis'in window)||!w)return;try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}function say(w){if(!w)return;if(cur){cur.pause();cur.currentTime=0;}var b=document.querySelector('.vsay[data-say="'+w+'"]');var src=b&&b.getAttribute('data-audio');if(!src){tts(w);return;}var a=cache[src]||(cache[src]=new Audio(src));cur=a;a.onerror=function(){tts(w);};var p=a.play();if(p&&p.catch)p.catch(function(){tts(w);});}
   var vlist=document.querySelector('.vlist');
   if(vlist){vlist.addEventListener('click',function(e){var b=e.target.closest('.vsay');if(!b)return;say(b.getAttribute('data-say'));b.classList.add('ring');setTimeout(function(){b.classList.remove('ring');},650);});}
   function confetti(big){var n=big?90:18,colors=['#1a4791','#f0a722','#3461a8','#fce8c4','#e63d2e','#c9c920'];for(var i=0;i<n;i++){var d=document.createElement('div');d.className='confetti';d.style.left=(Math.random()*100)+'vw';d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.animationDuration=(1.1+Math.random()*1.3)+'s';d.style.animationDelay=(Math.random()*(big?.5:.15))+'s';d.style.width=(7+Math.random()*7)+'px';d.style.height=(10+Math.random()*8)+'px';document.body.appendChild(d);(function(el){setTimeout(function(){el.remove();},big?3400:2700);})(d);}}
